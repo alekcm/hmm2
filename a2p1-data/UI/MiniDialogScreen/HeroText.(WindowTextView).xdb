@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowTextView>
+	<ClassTypeID>285694860</ClassTypeID>
+	<Shared href="/UI/DialogueScreen/HeroText.(WindowTextViewShared).xdb#xpointer(/WindowTextViewShared)"/>
+	<Name>HeroText</Name>
+	<TooltipFileRef href=""/>
+	<Visible>true</Visible>
+	<Priority>10</Priority>
+	<GameMessageReactions/>
+	<Placement>
+		<Position>
+			<First>
+				<x>-79</x>
+				<y>-17</y>
+			</First>
+			<Second>true</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_HIGH_END</First>
+			<Second>true</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_MARGIN</First>
+			<Second>true</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>51</x>
+				<y>667</y>
+			</First>
+			<Second>true</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>209</x>
+				<y>17</y>
+			</First>
+			<Second>true</Second>
+		</UpperMargin>
+	</Placement>
+	<Enabled>true</Enabled>
+	<TextString href="/UI/DialogueScreen/HeroText.(ForegroundTextString).xdb#xpointer(/ForegroundTextString)"/>
+	<relatedTexts/>
+	<relatedTextures/>
+	<Flags>
+		<SuperActive>false</SuperActive>
+	</Flags>
+	<TextFileRef href=""/>
+	<ResizeOnTextSet>false</ResizeOnTextSet>
+	<ResizeWidthOnTextSet>false</ResizeWidthOnTextSet>
+	<TextFormat/>
+</WindowTextView>

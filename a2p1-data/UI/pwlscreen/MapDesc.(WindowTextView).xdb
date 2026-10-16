@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowTextView ObjectRecordID="1000447">
+	<ClassTypeID>285694860</ClassTypeID>
+	<Shared href="/UI/Common/EmptyTextShared.(WindowTextViewShared).xdb#xpointer(/WindowTextViewShared)"/>
+	<Name>MapDesc</Name>
+	<TooltipFileRef href=""/>
+	<Visible>true</Visible>
+	<Priority>0</Priority>
+	<GameMessageReactions/>
+	<Placement>
+		<Position>
+			<First>
+				<x>0</x>
+				<y>-95</y>
+			</First>
+			<Second>true</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_HIGH_END</First>
+			<Second>true</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>ERA_CENTER</First>
+			<Second>true</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>970</x>
+				<y>60</y>
+			</First>
+			<Second>true</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>true</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>true</Second>
+		</UpperMargin>
+	</Placement>
+	<Enabled>true</Enabled>
+	<TextString/>
+	<relatedTexts/>
+	<relatedTextures/>
+	<Flags>
+		<SuperActive>false</SuperActive>
+	</Flags>
+	<TextFileRef href="MapDesc.txt"/>
+	<ResizeOnTextSet>true</ResizeOnTextSet>
+	<ResizeWidthOnTextSet>false</ResizeWidthOnTextSet>
+	<TextFormat/>
+</WindowTextView>
