@@ -22,14 +22,31 @@ tools/homm5_import/
 
 ## Running it
 
-From the repository root, with the game data already unpacked into `data/` and
-`texts/` (as it is in this repository):
+From the **repository root**, one command — no install step, no directory to be
+in, works on any platform:
 
 ```bash
-cd tools/homm5_import
-python3 -m homm5import.cli info                     # what the data root holds
-python3 -m homm5import.cli all -o ../../UnityProject/Assets/StreamingAssets/HoMM5
+python import_to_unity.py          # everything
+python import_to_unity.py gamedata # one stage
+python import_to_unity.py --help
 ```
+
+On Windows use `py -3 import_to_unity.py`, or just double-click
+`import_to_unity.bat`.
+
+The script puts the package on `sys.path` and resolves `data/`, `texts/` and the
+output folder relative to itself, so the working directory does not matter.
+Calling the package directly also works, from inside `tools/homm5_import`:
+
+```bash
+python -m homm5import all
+python -m homm5import.cli info --data <repo>
+```
+
+`--data` accepts either the data folder or the repository folder that contains
+it. (Testing for a `bin` subfolder to tell them apart does not work: the
+repository root has one too, holding the game's own executables. `GameMechanics`
+is the discriminator.)
 
 Or stage by stage, which is what you want the first time, because `textures` is
 the slow one (~15 min in pure Python for all 9258 files):

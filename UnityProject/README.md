@@ -6,14 +6,21 @@ render pipeline, so the project opens without any URP asset to reconstruct.
 ## Opening it
 
 1. Open this folder in Unity Hub with 6000.6.6f1 installed.
-2. Run the importer once — the project ships without generated assets:
+2. Run the importer once — the project ships without generated assets (~1.3 GB,
+   gitignored, reproducible from the game data):
 
    ```bash
-   cd ../tools/homm5_import
-   python3 -m homm5import.cli all -o ../../UnityProject/Assets/StreamingAssets/HoMM5
+   python import_to_unity.py        # from the repository root
    ```
 
-   Or from inside the editor: **Tools ▸ HoMM5 ▸ Run Importer (all)**.
+   On Windows: `py -3 import_to_unity.py`, or double-click `import_to_unity.bat`.
+
+   Or from inside the editor: **Tools ▸ HoMM5 ▸ Run Importer (all)** — it looks
+   for `py`, `python3` then `python`, since `python3` does not exist on Windows.
+
+   Until this has run, Play mode logs "No import found" together with the exact
+   command for your machine. The scene itself is fine: it is one GameObject with
+   `H5Bootstrap`, which builds the camera, lights and HUD on Start.
 3. Open `Assets/Scenes/AdventureMap.unity` and press Play.
 
 If Unity refuses the scene file, **Tools ▸ HoMM5 ▸ Create Bootstrap Scene**

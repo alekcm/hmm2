@@ -127,52 +127,83 @@ namespace HoMM5.EditorTools
             var projectRoot = Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
             var repoRoot = Path.GetFullPath(Path.Combine(projectRoot, ".."));
             var importerDir = Path.Combine(repoRoot, "tools", "homm5_import");
+            var runner = Path.Combine(repoRoot, "import_to_unity.py");
 
             if (!Directory.Exists(importerDir))
             {
                 EditorUtility.DisplayDialog("HoMM5",
-                    "Importer not found at:\n" + importerDir + "\n\nRun it by hand:\n  python -m homm5import.cli " + subcommand,
+                    "Importer not found at:\n" + importerDir + "\n\nIs the Unity project still inside the repository?",
                     "OK");
                 return;
             }
 
-            var psi = new ProcessStartInfo
+            // "python3" does not exist on Windows -- it is "python" or the "py"
+            // launcher.  Try each in turn rather than assuming a platform.
+            var output = Path.Combine(Application.streamingAssetsPath, "HoMM5");
+            var candidates = new (string file, string[] prefix)[]
             {
-                FileName = "python3",
-                WorkingDirectory = importerDir,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                UseShellExecute = false,
+                ("py", new[] { "-3" }),
+                ("python3", new string[0]),
+                ("python", new string[0]),
             };
-            psi.ArgumentList.Add("-m");
-            psi.ArgumentList.Add("homm5import.cli");
-            psi.ArgumentList.Add(subcommand);
-            psi.ArgumentList.Add("-o");
-            psi.ArgumentList.Add(Path.Combine(Application.streamingAssetsPath, "HoMM5"));
 
-            Debug.Log("[HoMM5] running: " + psi.FileName + " " + string.Join(" ", psi.ArgumentList));
-            try
+            System.Exception lastError = null;
+            foreach (var (file, prefix) in candidates)
             {
-                using var proc = Process.Start(psi);
-                if (proc == null)
+                var psi = new ProcessStartInfo
                 {
-                    Debug.LogError("[HoMM5] failed to start python3");
-                    return;
+                    FileName = file,
+                    WorkingDirectory = importerDir,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                };
+                foreach (var p in prefix) psi.ArgumentList.Add(p);
+                // The runner resolves its own paths, but pass them explicitly so
+                // the output lands in this project regardless of cwd.
+                psi.ArgumentList.Add(runner);
+                psi.ArgumentList.Add(subcommand);
+                psi.ArgumentList.Add("--data");
+                psi.ArgumentList.Add(Path.Combine(repoRoot, "data"));
+                psi.ArgumentList.Add("-o");
+                psi.ArgumentList.Add(output);
+
+                Process proc;
+                try
+                {
+                    proc = Process.Start(psi);
                 }
+                catch (System.Exception e)
+                {
+                    lastError = e;      // not installed under this name; try the next
+                    continue;
+                }
+                if (proc == null) continue;
+
                 var stdout = proc.StandardOutput.ReadToEnd();
                 var stderr = proc.StandardError.ReadToEnd();
                 proc.WaitForExit();
-                Debug.Log("[HoMM5] importer exit " + proc.ExitCode + "\n" + stdout +
-                          (string.IsNullOrEmpty(stderr) ? "" : "\nstderr:\n" + stderr));
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError("[HoMM5] importer failed: " + e.Message);
-            }
-            finally
-            {
+
+                if (proc.ExitCode == 0)
+                {
+                    Debug.Log("[HoMM5] importer (" + file + ") finished.\n" + stdout);
+                }
+                else
+                {
+                    Debug.LogError("[HoMM5] importer (" + file + ") exit " + proc.ExitCode +
+                                   "\n" + stdout + "\nstderr:\n" + stderr);
+                }
                 AssetDatabase.Refresh();
+                return;
             }
+
+            EditorUtility.DisplayDialog("HoMM5",
+                "Could not start Python (tried: py, python3, python).\n\n" +
+                (lastError != null ? lastError.Message + "\n\n" : "") +
+                "Install Python 3 and re-run, or run the importer by hand:\n\n" +
+                "  python \"" + runner + "\" " + subcommand,
+                "OK");
         }
     }
 

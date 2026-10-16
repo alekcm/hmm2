@@ -33,14 +33,57 @@ from .terrain import decode_file as decode_terrain
 from .xdb import XDB
 
 
-def _find_root(explicit: Optional[str], names: List[str]) -> Optional[str]:
-    if explicit:
-        return os.path.abspath(explicit)
-    here = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-    for cand in [here, os.getcwd(), os.path.dirname(here)]:
-        if all(os.path.isdir(os.path.join(cand, n)) for n in names):
-            return cand
-    return None
+def _looks_like_data_root(path: str) -> bool:
+    """Identify the unpacked ``data`` folder.
+
+    ``GameMechanics`` is the discriminator.  The repository root also has a
+    ``bin`` (the game's own executables), so testing for ``bin`` alone mistakes
+    the repo root for the data root and every later stage finds nothing.
+    """
+    if not os.path.isdir(path):
+        return False
+    if os.path.isdir(os.path.join(path, "GameMechanics")):
+        return True
+    return (os.path.isdir(os.path.join(path, "Maps"))
+            and os.path.isdir(os.path.join(path, "Textures")))
+
+
+def _resolve_roots(explicit_data, explicit_texts):
+    """Work out where the game data and texts live.
+
+    ``--data`` may point either at the data root itself or at the repository
+    folder that contains it.  Guessing wrong appends a second ``data`` and the
+    run dies claiming there is no data at all, so both readings are tried
+    explicitly instead.
+    """
+    data = os.path.abspath(explicit_data) if explicit_data else None
+
+    if data:
+        if _looks_like_data_root(data):
+            pass                                   # points at the data root
+        elif _looks_like_data_root(os.path.join(data, "data")):
+            data = os.path.join(data, "data")      # points at the repo root
+    else:
+        here = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+        for cand in (here, os.getcwd(), os.path.dirname(os.getcwd())):
+            if _looks_like_data_root(os.path.join(cand, "data")):
+                data = os.path.join(cand, "data")
+                break
+            if _looks_like_data_root(cand):
+                data = cand
+                break
+
+    texts = os.path.abspath(explicit_texts) if explicit_texts else None
+    if texts:
+        if not os.path.isdir(texts) and os.path.isdir(os.path.join(texts, "texts")):
+            texts = os.path.join(texts, "texts")
+    elif data:
+        guess = os.path.join(os.path.dirname(data), "texts")
+        texts = guess if os.path.isdir(guess) else None
+
+    if texts and not os.path.isdir(texts):
+        texts = None
+    return data, texts
 
 
 def _out(out_dir: str, *parts: str) -> str:
@@ -254,15 +297,11 @@ def _all(args) -> int:
 
 def main(argv: Optional[List[str]] = None) -> int:
     args = build_parser().parse_args(argv)
-    root = _find_root(getattr(args, "data", None), ["data", "texts"])
-    if root:
-        args.data = os.path.join(root, "data")
-        args.texts = os.path.join(root, "texts")
-    if not getattr(args, "data", None) or not os.path.isdir(args.data):
-        print("error: no game data root found; pass --data <path to unpacked data.pak>", file=sys.stderr)
+    data, texts = _resolve_roots(getattr(args, "data", None), getattr(args, "texts", None))
+    args.data, args.texts = data, texts
+    if not data:
+        print("error: no game data found. Pass --data <path to the unpacked data folder>", file=sys.stderr)
         return 2
-    if not getattr(args, "texts", None) or not os.path.isdir(args.texts):
-        args.texts = None
     return args.func(args)
 
 

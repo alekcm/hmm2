@@ -30,8 +30,7 @@ namespace HoMM5.Data
         {
             if (!H5Paths.HasImport)
             {
-                Debug.LogError("[HoMM5] No import found at " + H5Paths.Root +
-                               ". Run: python -m homm5import.cli all  (see tools/homm5_import/README.md)");
+                Debug.LogError(MissingImportMessage());
                 return;
             }
 
@@ -109,6 +108,58 @@ namespace HoMM5.Data
         }
 
         // -- io ------------------------------------------------------------
+
+        /// <summary>
+        /// What to run when the import is missing.
+        ///
+        /// The generated assets are not in version control (~1.3 GB, and every
+        /// byte of it is reproducible from the game data that is), so a fresh
+        /// clone opens with nothing to load.  The message resolves the actual
+        /// paths on this machine rather than quoting a command that has to be
+        /// run from one particular directory.
+        /// </summary>
+        static string MissingImportMessage()
+        {
+            // Application.dataPath is <repo>/UnityProject/Assets.
+            var projectRoot = System.IO.Path.GetFullPath(
+                System.IO.Path.Combine(Application.dataPath, ".."));
+            var repoRoot = System.IO.Path.GetFullPath(
+                System.IO.Path.Combine(projectRoot, ".."));
+            var runner = System.IO.Path.Combine(repoRoot, "import_to_unity.py");
+            var data = System.IO.Path.Combine(repoRoot, "data");
+
+            var sb = new System.Text.StringBuilder();
+            sb.AppendLine("[HoMM5] No import found. The generated assets are gitignored; build them once.");
+            sb.AppendLine("  expected: " + H5Paths.Root);
+
+            if (!System.IO.Directory.Exists(data))
+            {
+                sb.AppendLine();
+                sb.AppendLine("  The game data is missing too: " + data);
+                sb.AppendLine("  Unpack the game's data.pak into that 'data' folder first.");
+                return sb.ToString();
+            }
+
+            sb.AppendLine();
+            if (System.IO.File.Exists(runner))
+            {
+                sb.AppendLine("  Run this from any folder:");
+                sb.AppendLine("    python \"" + runner + "\"");
+                sb.AppendLine("  (on Windows try:  py -3 \"" + runner + "\")");
+            }
+            else
+            {
+                sb.AppendLine("  import_to_unity.py was not found at the repository root:");
+                sb.AppendLine("    " + runner);
+                sb.AppendLine("  Run the pipeline directly instead:");
+                sb.AppendLine("    cd \"" + System.IO.Path.Combine(repoRoot, "tools", "homm5_import") + "\"");
+                sb.AppendLine("    python -m homm5import.cli all -o \"" + H5Paths.Root + "\"");
+            }
+            sb.AppendLine();
+            sb.AppendLine("  Or from the editor: Tools > HoMM5 > Run Importer (all).");
+            sb.AppendLine("  See tools/homm5_import/README.md.");
+            return sb.ToString();
+        }
 
         static Dictionary<string, T> LoadDict<T>(string path)
         {
