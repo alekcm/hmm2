@@ -118,7 +118,10 @@ namespace HoMM5.Data
         /// paths on this machine rather than quoting a command that has to be
         /// run from one particular directory.
         /// </summary>
-        static string MissingImportMessage()
+        // Public: H5Bootstrap quotes it too, when the texture manifest is what
+        // is missing. C# makes a member private when no modifier is written, so
+        // the bare `static` here was only ever callable from inside this class.
+        public static string MissingImportMessage()
         {
             // Application.dataPath is <repo>/UnityProject/Assets.
             var projectRoot = System.IO.Path.GetFullPath(
