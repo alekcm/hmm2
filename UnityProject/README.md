@@ -92,7 +92,7 @@ models, so `MeshCache` hands out the same `Mesh` to every object and
 ## Input
 
 All device access goes through `Core/H5Input.cs`, which compiles against both
-backends and picks one from `ENABLE_INPUT_SYSTEM`:
+backends and picks one at compile time:
 
 - **Input Manager** (the default) — the project opens and runs as-is.
 - **Input System** — set *Project Settings ▸ Player ▸ Active Input Handling* to
@@ -101,6 +101,23 @@ backends and picks one from `ENABLE_INPUT_SYSTEM`:
 `com.unity.inputsystem` 1.20.0 is in the manifest, the version Unity 6.6 ships.
 Until you flip that setting the Input Manager is still active, so Unity keeps
 logging that it is deprecated — that message is informational, not a fault.
+
+The guards test **two** symbols, because either one alone is wrong:
+
+| symbol | set by | guarantees |
+| --- | --- | --- |
+| `H5_INPUT_SYSTEM` | `versionDefines` in `HoMM5.Runtime.asmdef` | the package is present, so the `Unity.InputSystem` reference resolves and the types compile |
+| `ENABLE_INPUT_SYSTEM` | Unity, from Active Input Handling | devices actually report, so `Keyboard.current` is not null |
+
+Unity sets `ENABLE_INPUT_SYSTEM` project-wide, with no regard for whether a
+given assembly can see the backend. Guarding on it alone produced `CS0234`: the
+branch compiled and every `UnityEngine.InputSystem` type in it failed to
+resolve. The first symbol without the second would compile and then find every
+device null.
+
+The same pair picks the EventSystem's input module. `StandaloneInputModule`
+reads the old manager; under the Input System it logs an error and swallows
+every click, so the map list would render and never respond.
 
 ## What this is
 
