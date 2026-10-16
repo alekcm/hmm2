@@ -260,9 +260,35 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
             if stacks:
                 obj.extra["additionalStacks"] = stacks
         elif inner.tag == "AdvMapTown":
-            obj.extra["townType"] = xdb.text(inner.find("TownType")) or xdb.text(inner.find("Type"))
-            obj.extra["owner"] = xdb.text(inner.find("Owner"))
-            obj.extra["name"] = xdb.text(inner.find("TownName")) or obj.name
+            # There is no TownType/Owner/TownName on an AdvMapTown. The owner is
+            # PlayerID, the name is plain Name, and the faction is NOT in the map
+            # at all: a town's shared definition is RandomTown, whose model is a
+            # flat 18x18 marker under _(Model)/TESTS/. The game picks the race at
+            # load time, constrained by BannedRaces. So the castle cannot be
+            # rendered from the map alone -- what the map does carry is who owns
+            # it, what is built and what garrisons it.
+            obj.extra["owner"] = xdb.text(inner.find("PlayerID"))
+            obj.extra["buildings"] = [
+                {"type": xdb.text(b.find("Type")),
+                 "upgrade": int(xdb.number(b.find("InitialUpgrade")))
+                 if xdb.text(b.find("InitialUpgrade")).isdigit()
+                 else xdb.text(b.find("InitialUpgrade"))}
+                for b in xdb.items(inner.find("buildings"))
+            ]
+            obj.extra["garrison"] = [
+                {"creature": xdb.text(a.find("Creature")),
+                 "amount": int(xdb.number(a.find("Amount")))}
+                for a in xdb.items(inner.find("armySlots"))
+                if xdb.text(a.find("Creature"))
+            ]
+            garrison_hero = xdb.text(inner.find("GarrisonHero"))
+            if garrison_hero:
+                obj.extra["garrisonHero"] = garrison_hero
+            banned = [xdb.text(r) for r in xdb.items(inner.find("BannedRaces"))]
+            if banned:
+                obj.extra["bannedRaces"] = banned
+            if xdb.text(inner.find("Name")):
+                obj.extra["name"] = xdb.text(inner.find("Name"))
         elif inner.tag == "AdvMapHero":
             obj.extra["hero"] = xdb.text(inner.find("Hero")) or xdb.text(inner.find("Type"))
             obj.extra["owner"] = xdb.text(inner.find("Owner"))
@@ -276,7 +302,13 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
         elif inner.tag == "AdvMapArtifact":
             obj.extra["artifact"] = xdb.text(inner.find("Artifact")) or xdb.text(inner.find("Type"))
         elif inner.tag == "AdvMapTreasure":
-            obj.extra["guardType"] = xdb.text(inner.find("GuardType"))
+            # A chest. What is inside comes from the shared definition; the
+            # instance carries how much and whether the author overrode it.
+            obj.extra["isCustom"] = xdb.boolean(inner.find("IsCustom"))
+            obj.extra["amount"] = int(xdb.number(inner.find("Amount")))
+            msg = xdb.text(inner.find("MessageFileRef"))
+            if msg:
+                obj.extra["message"] = msg
         md.objects.append(obj)
     return md
 

@@ -1130,5 +1130,50 @@ class WorldScaleTest(unittest.TestCase):
         self.assertGreater(worst, 20.0)
 
 
+class TownPayloadTest(unittest.TestCase):
+    """An AdvMapTown carries no TownType/Owner/TownName -- those names were read
+    for a long time and produced an empty payload for every town on every map."""
+
+    @classmethod
+    def setUpClass(cls):
+        from homm5import.xdb import XDB
+        cls.xdb = XDB(DATA)
+        cls.towns = []
+        cls.chests = []
+        for f in sorted(iter_map_files(cls.xdb, only_map_descs=True))[::11]:
+            md = load_map(cls.xdb, f, resolve_models=True)
+            for o in md.objects:
+                if o.kind == "AdvMapTown":
+                    cls.towns.append(o)
+                elif o.kind == "AdvMapTreasure" and len(cls.chests) < 30:
+                    cls.chests.append(o)
+
+    def test_owner_is_read(self):
+        self.assertGreater(len(self.towns), 5)
+        owners = {t.extra.get("owner") for t in self.towns}
+        self.assertTrue(any(str(o).startswith("PLAYER_") for o in owners),
+                        f"no owner resolved from PlayerID: {owners}")
+
+    def test_buildings_are_read(self):
+        """A starting town has a hall, a fort and a marketplace at least."""
+        withb = [t for t in self.towns if t.extra.get("buildings")]
+        self.assertGreater(len(withb), len(self.towns) // 2)
+        types = {b["type"] for t in withb for b in t.extra["buildings"]}
+        for expected in ("TB_TOWN_HALL", "TB_FORT"):
+            self.assertIn(expected, types)
+
+    def test_no_faction_is_invented(self):
+        """The map does not name a race -- RandomTown is resolved at load time.
+        Claiming one here would be a guess dressed as data."""
+        for t in self.towns:
+            self.assertNotIn("townType", t.extra)
+
+    def test_chest_payload(self):
+        self.assertGreater(len(self.chests), 0)
+        for c in self.chests:
+            self.assertIn("isCustom", c.extra)
+            self.assertIsInstance(c.extra["amount"], int)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
