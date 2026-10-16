@@ -90,16 +90,19 @@ namespace HoMM5.Map
                 var normals = ReadVec3(accessors, bufferViews, bin, attrs["NORMAL"]);
                 var uvs = ReadVec2(accessors, bufferViews, bin, attrs["TEXCOORD_0"]);
                 var indices = ReadIndices(accessors, bufferViews, bin, p["indices"]);
+                var joints = ReadJoints(accessors, bufferViews, bin, attrs["JOINTS_0"]);
+                var weights = ReadWeights(accessors, bufferViews, bin, attrs["WEIGHTS_0"]);
 
                 var name = meshes[mi]["name"] != null ? meshes[mi]["name"].ToString() : namePrefix + "_" + mi;
-                var mesh = BuildMesh(name, positions, normals, uvs, indices);
+                var mesh = BuildMesh(name, positions, normals, uvs, indices, joints, weights);
                 if (mesh != null) result.Add(mesh);
             }
             return result;
         }
 
         static Mesh BuildMesh(string name, List<Vector3> positions, List<Vector3> normals,
-                              List<Vector2> uvs, List<int> indices)
+                              List<Vector2> uvs, List<int> indices,
+                              List<Vector4> joints, List<Vector4> weights)
         {
             // Flip winding: the y/z swap above reverses orientation.
             for (var i = 0; i + 2 < indices.Count; i += 3)
@@ -115,6 +118,28 @@ namespace HoMM5.Map
             if (normals != null && normals.Count == positions.Count) mesh.SetNormals(normals);
             if (uvs != null && uvs.Count == positions.Count) mesh.SetUVs(0, uvs);
             mesh.SetTriangles(indices, 0);
+
+            // Skinning, when the importer found any. Indices address the
+            // skeleton's bone list, which comes from the animation file, so the
+            // bone TRANSFORMS are wired up by whoever builds the rig.
+            if (joints != null && weights != null
+                && joints.Count == positions.Count && weights.Count == positions.Count)
+            {
+                var bw = new BoneWeight[positions.Count];
+                for (var i = 0; i < positions.Count; i++)
+                {
+                    var j = joints[i];
+                    var w = weights[i];
+                    bw[i] = new BoneWeight
+                    {
+                        boneIndex0 = (int)j.x, boneIndex1 = (int)j.y,
+                        boneIndex2 = (int)j.z, boneIndex3 = (int)j.w,
+                        weight0 = w.x, weight1 = w.y, weight2 = w.z, weight3 = w.w,
+                    };
+                }
+                mesh.boneWeights = bw;
+            }
+
             if (normals == null || normals.Count != positions.Count) mesh.RecalculateNormals();
             mesh.RecalculateBounds();
             mesh.RecalculateTangents();
@@ -173,6 +198,41 @@ namespace HoMM5.Map
         /// <summary>
         /// Read a vec3 accessor and convert Z-up to Y-up: <c>(x, y, z) -> (x, z, y)</c>.
         /// </summary>
+        /// <summary>JOINTS_0: VEC4 of unsigned bytes, four bone indices per vertex,
+        /// addressing the skeleton's bone list.</summary>
+        static List<Vector4> ReadJoints(JArray accessors, JArray bufferViews, byte[] bin, JToken token)
+        {
+            var (off, len) = Resolve(accessors, bufferViews, bin, token);
+            if (off < 0) return null;
+            var count = len / 4;
+            var list = new List<Vector4>(count);
+            for (var i = 0; i < count; i++)
+            {
+                var o = off + i * 4;
+                list.Add(new Vector4(bin[o], bin[o + 1], bin[o + 2], bin[o + 3]));
+            }
+            return list;
+        }
+
+        /// <summary>WEIGHTS_0: VEC4 of floats. A bound vertex's four weights sum
+        /// to 1; an all-zero record is a position no bone claims.</summary>
+        static List<Vector4> ReadWeights(JArray accessors, JArray bufferViews, byte[] bin, JToken token)
+        {
+            var (off, len) = Resolve(accessors, bufferViews, bin, token);
+            if (off < 0) return null;
+            var count = len / 16;
+            var list = new List<Vector4>(count);
+            for (var i = 0; i < count; i++)
+            {
+                var o = off + i * 16;
+                list.Add(new Vector4(System.BitConverter.ToSingle(bin, o),
+                                     System.BitConverter.ToSingle(bin, o + 4),
+                                     System.BitConverter.ToSingle(bin, o + 8),
+                                     System.BitConverter.ToSingle(bin, o + 12)));
+            }
+            return list;
+        }
+
         static List<Vector3> ReadVec3(JArray accessors, JArray bufferViews, byte[] bin, JToken token)
         {
             var (off, len) = Resolve(accessors, bufferViews, bin, token);

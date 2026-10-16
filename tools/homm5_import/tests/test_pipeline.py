@@ -925,5 +925,70 @@ class SkinBindingTest(unittest.TestCase):
         self.assertGreater(blended, 0)
 
 
+class GlbSkinExportTest(unittest.TestCase):
+    """A skinned mesh must carry JOINTS_0/WEIGHTS_0 or the rig has nothing to bind."""
+
+    def _skinned_geometry(self):
+        import glob
+        from homm5import.geometry import decode_file
+        for path in sorted(glob.glob(os.path.join(DATA, "bin", "Geometries", "*"))):
+            try:
+                geo = decode_file(path)
+            except Exception:
+                continue
+            if any(gr.bone_indices for m in geo.meshes for gr in m.groups):
+                return geo
+        self.fail("no skinned geometry in the data")
+
+    def _doc(self, blob):
+        import struct
+        self.assertEqual(struct.unpack_from("<I", blob, 0)[0], 0x46546C67)
+        jlen = struct.unpack_from("<I", blob, 12)[0]
+        return json.loads(blob[20:20 + jlen].decode("utf8"))
+
+    def test_skinned_mesh_carries_joint_and_weight_attributes(self):
+        from homm5import.gltf import geometry_to_glb
+        doc = self._doc(geometry_to_glb(self._skinned_geometry()))
+        with_skin = 0
+        for mesh in doc["meshes"]:
+            attrs = mesh["primitives"][0]["attributes"]
+            if "JOINTS_0" not in attrs:
+                continue
+            with_skin += 1
+            self.assertIn("WEIGHTS_0", attrs)
+            j = doc["accessors"][attrs["JOINTS_0"]]
+            w = doc["accessors"][attrs["WEIGHTS_0"]]
+            self.assertEqual(j["type"], "VEC4")
+            self.assertEqual(j["componentType"], 5121)   # UNSIGNED_BYTE
+            self.assertEqual(w["type"], "VEC4")
+            self.assertEqual(w["componentType"], 5126)   # FLOAT
+            pos = doc["accessors"][attrs["POSITION"]]
+            self.assertEqual(j["count"], pos["count"])
+            self.assertEqual(w["count"], pos["count"])
+        self.assertGreater(with_skin, 0)
+
+    def test_an_unskinned_mesh_carries_neither(self):
+        """Static props have an unused tag-4 array; writing empty skin attributes
+        for them would make Unity expect a rig that does not exist."""
+        import glob
+        from homm5import.geometry import decode_file
+        from homm5import.gltf import geometry_to_glb
+        for path in sorted(glob.glob(os.path.join(DATA, "bin", "Geometries", "*"))):
+            try:
+                geo = decode_file(path)
+            except Exception:
+                continue
+            groups = [gr for m in geo.meshes for gr in m.groups]
+            if not groups or any(gr.bone_indices for gr in groups):
+                continue
+            doc = self._doc(geometry_to_glb(geo))
+            for mesh in doc["meshes"]:
+                attrs = mesh["primitives"][0]["attributes"]
+                self.assertNotIn("JOINTS_0", attrs)
+                self.assertNotIn("WEIGHTS_0", attrs)
+            return
+        self.skipTest("no unskinned geometry found")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -18,6 +18,7 @@ GLB_MAGIC = 0x46546C67
 GLB_VERSION = 2
 COMPONENT_FLOAT = 5126
 COMPONENT_USHORT = 5123
+COMPONENT_UBYTE = 5121
 
 
 def _pack_array(fmt: str, values: Sequence) -> bytes:
@@ -126,9 +127,25 @@ def geometry_to_glb(geom: Geometry, name: Optional[str] = None) -> bytes:
                                    *[i for t in group.triangles for i in t])
             idx = accessor(idx_blob, COMPONENT_USHORT, len(group.triangles) * 3,
                            "SCALAR", target=34963)
+
+            attrs = {"POSITION": pos, "NORMAL": nor, "TEXCOORD_0": uv}
+            # Skinning, when this mesh has any. The indices address the skeleton's
+            # bone list, which the runtime gets from the animation file, so no
+            # glTF skin or joint node hierarchy is invented here -- the reader on
+            # the other side is ours.
+            if group.bone_indices and group.bone_weights:
+                if (len(group.bone_indices) == len(group.positions)
+                        and len(group.bone_weights) == len(group.positions)):
+                    attrs["JOINTS_0"] = accessor(
+                        _pack_array("B", group.bone_indices), COMPONENT_UBYTE,
+                        len(group.bone_indices), "VEC4", target=34962)
+                    attrs["WEIGHTS_0"] = accessor(
+                        _pack_array("f", group.bone_weights), COMPONENT_FLOAT,
+                        len(group.bone_weights), "VEC4", target=34962)
+
             mname = f"{name or geom.uid}_{mi}_{gi}"
             meshes.append({"name": mname, "primitives": [{
-                "attributes": {"POSITION": pos, "NORMAL": nor, "TEXCOORD_0": uv},
+                "attributes": attrs,
                 "indices": idx, "mode": 4}]})
             nodes.append({"mesh": len(meshes) - 1, "name": mname})
 
