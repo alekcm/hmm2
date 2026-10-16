@@ -31,6 +31,18 @@ namespace HoMM5.Map
         public byte[] Flags { get; private set; }
         public byte[] Passability { get; private set; }
 
+        /// <summary>Painted ground textures, in paint order. May be empty.</summary>
+        public System.Collections.Generic.List<TerrainLayerInfo> Layers
+        {
+            get; private set;
+        }
+
+        // Coverage planes, one byte per vertex per layer, concatenated.
+        byte[] _layerWeights;
+        int _layerStride;
+
+        public int LayerCount => Layers != null ? Layers.Count : 0;
+
         public int VertexCount => Info != null ? Info.vertexCount : 0;
         public int Tiles => Info != null ? Info.tileX : 0;
 
@@ -65,7 +77,68 @@ namespace HoMM5.Map
                 System.Buffer.BlockCopy(pass, 0, t.Passability, 0, n);
             }
 
+            LoadLayers(t, mapId, plane);
             return t;
+        }
+
+        /// <summary>
+        /// Read the painted-texture layers. Optional: an import from before they
+        /// were decoded simply has none, and the terrain falls back to one
+        /// material as it did before.
+        /// </summary>
+        static void LoadLayers(H5Terrain t, string mapId, string plane)
+        {
+            var json = H5Paths.ReadAllText(H5Paths.Terrain(mapId, plane + ".layers.json"));
+            if (json == null) return;
+
+            TerrainLayersFile file;
+            try { file = JsonConvert.DeserializeObject<TerrainLayersFile>(json); }
+            catch (System.Exception e)
+            {
+                Debug.LogWarning($"[HoMM5] bad terrain layers for {mapId}/{plane}: {e.Message}");
+                return;
+            }
+            if (file == null || file.layers == null || file.layers.Count == 0) return;
+
+            var perPlane = file.vertexStride * file.vertexStride;
+            var raw = H5Paths.ReadAllBytes(H5Paths.Terrain(mapId, plane + ".layers"));
+            if (raw == null || raw.Length < perPlane * file.layers.Count)
+            {
+                Debug.LogWarning($"[HoMM5] terrain layer weights missing or short for " +
+                                 $"{mapId}/{plane}");
+                return;
+            }
+            t.Layers = file.layers;
+            t._layerStride = file.vertexStride;
+            t._layerWeights = raw;
+        }
+
+        /// <summary>
+        /// Which painted layer shows at a tile: the highest-priority one that is
+        /// more than half opaque there, else the base layer.
+        ///
+        /// The game blends these smoothly; picking one per tile is the cheap
+        /// approximation that still reads correctly from above.
+        /// </summary>
+        public int DominantLayerAt(int x, int y)
+        {
+            if (LayerCount == 0) return 0;
+            if (x < 0 || y < 0 || x >= _layerStride || y >= _layerStride) return 0;
+
+            var at = y * _layerStride + x;
+            var best = 0;
+            var bestPriority = int.MinValue;
+            for (var i = 0; i < LayerCount; i++)
+            {
+                if (_layerWeights[i * _layerStride * _layerStride + at] <= 127) continue;
+                var pri = Layers[i] != null ? Layers[i].priority : 0;
+                if (pri > bestPriority)
+                {
+                    bestPriority = pri;
+                    best = i;
+                }
+            }
+            return best;
         }
 
         public float HeightAt(int x, int y)

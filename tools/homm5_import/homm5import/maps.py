@@ -26,7 +26,7 @@ OBJECT_TYPES = (
 
 class MapObject:
     __slots__ = ("kind", "pos", "rot", "floor", "name", "shared_href",
-                 "geometry_uid", "textures", "blocked", "extra")
+                 "geometry_uid", "textures", "materials", "blocked", "extra")
 
     def __init__(self, kind: str, pos: Tuple[float, float, float], rot: float,
                  floor: int, name: str):
@@ -38,6 +38,7 @@ class MapObject:
         self.shared_href: Optional[str] = None
         self.geometry_uid: Optional[str] = None
         self.textures: List[str] = []
+        self.materials: List[dict] = []
         self.blocked: List[List[int]] = []
         self.extra: Dict[str, object] = {}
 
@@ -58,6 +59,8 @@ class MapObject:
             d["geometryUid"] = self.geometry_uid
         if self.textures:
             d["textures"] = self.textures
+        if self.materials:
+            d["materials"] = self.materials
         if self.blocked:
             d["blocked"] = self.blocked
         if self.extra:
@@ -151,11 +154,12 @@ def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject, cache: dict) -
         return
     obj.shared_href = href
     if href in cache:
-        obj.geometry_uid, obj.textures, obj.blocked = cache[href]
+        obj.geometry_uid, obj.textures, obj.materials, obj.blocked = cache[href]
         return
 
     geom_uid: Optional[str] = None
     textures: List[str] = []
+    materials: List[dict] = []
     node, shared_href = xdb.resolve(shared)
     if node is not None:
         for tag in ("blockedTiles", "BlockedTiles"):
@@ -184,10 +188,23 @@ def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject, cache: dict) -
                     # called DestName, so every object came out untextured.
                     tex, tex_href = xdb.resolve(mat.find("Texture"), model_href)
                     rel = texture_dds_path(xdb, tex, tex_href)
+                    bump, bump_href = xdb.resolve(mat.find("Bump"), model_href)
+                    materials.append({
+                        "texture": rel,
+                        "bump": texture_dds_path(xdb, bump, bump_href),
+                        # AM_ALPHA_TEST is the common case (5244 of 11638
+                        # materials): foliage, grates and railings that must punch
+                        # holes rather than render as solid quads.
+                        "alphaMode": XDB.text(mat.find("AlphaMode"), "AM_OPAQUE"),
+                        "twoSided": XDB.boolean(mat.find("Is2Sided")),
+                        "selfIllum": XDB.text(mat.find("LightingMode")) == "L_SELFILLUM",
+                        "spec": round(XDB.number(mat.find("SpecFactor")), 4),
+                        "gloss": round(XDB.number(mat.find("Gloss")), 4),
+                    })
                     if rel:
                         textures.append(rel)
-    cache[href] = (geom_uid, textures, obj.blocked)
-    obj.geometry_uid, obj.textures = geom_uid, textures
+    cache[href] = (geom_uid, textures, materials, obj.blocked)
+    obj.geometry_uid, obj.textures, obj.materials = geom_uid, textures, materials
 
 
 def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:

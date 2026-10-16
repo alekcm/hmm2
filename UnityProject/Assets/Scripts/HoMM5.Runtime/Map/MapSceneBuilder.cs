@@ -27,6 +27,7 @@ namespace HoMM5.Map
         public int ObjectsPlaced { get; private set; }
         public int ObjectsMissingMesh { get; private set; }
         public int TexturedObjects { get; private set; }
+        public int TerrainTexturesBound { get; private set; }
         public int TerrainChunks { get; private set; }
 
         public MapSceneBuilder(MeshCache meshes, Material terrainMaterial,
@@ -88,10 +89,34 @@ namespace HoMM5.Map
             var terrainRoot = new GameObject("Terrain");
             terrainRoot.transform.SetParent(Root.transform, false);
             var builder = new TerrainMeshBuilder(Terrain);
-            TerrainChunks = builder.BuildAll(terrainRoot.transform, _terrainMaterial);
+            TerrainChunks = builder.BuildAll(terrainRoot.transform, TerrainMaterials());
 
             if (Terrain.AnyWater && _waterMaterial != null)
                 BuildWaterPlane(terrainRoot.transform);
+        }
+
+        /// <summary>
+        /// One material per painted ground layer, in the order the mesh's
+        /// submeshes use. Falls back to the single tinted material when the
+        /// import carries no layers.
+        /// </summary>
+        Material[] TerrainMaterials()
+        {
+            var n = Terrain.LayerCount;
+            if (n == 0 || _textures == null) return new[] { _terrainMaterial };
+
+            var mats = new Material[n];
+            TerrainTexturesBound = 0;
+            for (var i = 0; i < n; i++)
+            {
+                var src = Terrain.Layers[i] != null ? Terrain.Layers[i].texture : null;
+                mats[i] = !string.IsNullOrEmpty(src)
+                    ? _textures.MaterialFor(src) ?? _terrainMaterial
+                    : _terrainMaterial;
+                if (!string.IsNullOrEmpty(src) && mats[i] != _terrainMaterial)
+                    TerrainTexturesBound++;
+            }
+            return mats;
         }
 
         void BuildWaterPlane(Transform parent)
@@ -177,13 +202,30 @@ namespace HoMM5.Map
         /// </summary>
         Material MaterialForMesh(MapObjectDef def, int m)
         {
-            if (_textures == null || def.textures == null || def.textures.Count == 0) return null;
+            if (_textures == null) return null;
+
+            // Prefer the full material record, which carries the alpha mode; fall
+            // back to the bare texture list for an import made before materials
+            // were exported.
+            if (def.materials != null && def.materials.Count > 0)
+            {
+                var mi = m < def.materials.Count ? m : def.materials.Count - 1;
+                var md = def.materials[mi];
+                if (md != null && !string.IsNullOrEmpty(md.texture))
+                {
+                    var mat = _textures.MaterialFor(md.texture, md);
+                    if (mat != null) TexturedObjects++;
+                    return mat;
+                }
+            }
+
+            if (def.textures == null || def.textures.Count == 0) return null;
             var idx = m < def.textures.Count ? m : def.textures.Count - 1;
             var src = def.textures[idx];
             if (string.IsNullOrEmpty(src)) return null;
-            var mat = _textures.MaterialFor(src);
-            if (mat != null) TexturedObjects++;
-            return mat;
+            var fallback = _textures.MaterialFor(src);
+            if (fallback != null) TexturedObjects++;
+            return fallback;
         }
 
         static string ObjectName(MapObjectDef def, int index)

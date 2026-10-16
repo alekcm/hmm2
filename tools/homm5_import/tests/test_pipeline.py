@@ -670,5 +670,54 @@ class TerrainLayerTest(unittest.TestCase):
                 break
 
 
+class MaterialExportTest(unittest.TestCase):
+    """Model materials must carry the alpha mode, not just a texture path."""
+
+    def setUp(self):
+        from homm5import.xdb import XDB
+        from homm5import.maps import iter_map_files, unique_map_ids, load_map
+        self.xdb = XDB(DATA)
+        self.maps = unique_map_ids(iter_map_files(self.xdb, only_map_descs=True))
+
+    def _materials(self, n=6):
+        out = []
+        for path, _mid in sorted(self.maps.items())[:n]:
+            for o in load_map(self.xdb, path).objects:
+                out.extend(o.materials)
+        return out
+
+    def test_materials_are_exported_alongside_textures(self):
+        mats = self._materials()
+        self.assertGreater(len(mats), 500)
+        for m in mats:
+            self.assertIn("alphaMode", m)
+            self.assertIn("twoSided", m)
+            self.assertIn("texture", m)
+
+    def test_alpha_test_materials_exist(self):
+        """AM_ALPHA_TEST is the common case; if none appear the field is misread."""
+        modes = set(m["alphaMode"] for m in self._materials())
+        self.assertIn("AM_ALPHA_TEST", modes)
+        self.assertIn("AM_OPAQUE", modes)
+
+    def test_alpha_mode_is_never_empty(self):
+        for m in self._materials():
+            self.assertTrue(m["alphaMode"].startswith("AM_"), m["alphaMode"])
+
+    def test_material_texture_matches_the_texture_list(self):
+        """materials[i].texture and textures[i] must agree, or the runtime picks
+        the wrong one depending on which field it reads."""
+        from homm5import.maps import load_map
+        checked = 0
+        for path, _mid in sorted(self.maps.items())[:5]:
+            for o in load_map(self.xdb, path).objects:
+                if not o.materials:
+                    continue
+                from_mats = [m["texture"] for m in o.materials if m["texture"]]
+                self.assertEqual(from_mats, o.textures)
+                checked += 1
+        self.assertGreater(checked, 100)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

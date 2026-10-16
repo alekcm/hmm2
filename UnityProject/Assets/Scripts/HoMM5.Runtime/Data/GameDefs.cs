@@ -150,6 +150,41 @@ namespace HoMM5.Data
 
     // -- maps --------------------------------------------------------------
 
+    /// <summary>
+    /// One material of a model. Mirrors the Material block of a Model XDB.
+    /// AlphaMode is the one that matters visually: AM_ALPHA_TEST is the single
+    /// most common value in the data (5244 of 11638 materials), and without it
+    /// every bush, fence and railing renders as a solid rectangle.
+    /// </summary>
+    public class MaterialDef
+    {
+        public string texture;
+        public string bump;
+        public string alphaMode;
+        public bool twoSided;
+        public bool selfIllum;
+        public float spec;
+        public float gloss;
+    }
+
+    /// <summary>One painted ground texture and how much of the map it covers.</summary>
+    public class TerrainLayerInfo
+    {
+        public string tile;
+        public string texture;
+        public int priority;
+        public string type;
+        public float opaque;
+    }
+
+    public class TerrainLayersFile
+    {
+        public string map;
+        public string plane;
+        public int vertexStride;
+        public List<TerrainLayerInfo> layers;
+    }
+
     public class MapObjectDef
     {
         public string kind;
@@ -162,6 +197,7 @@ namespace HoMM5.Data
         public string shared;
         public string geometryUid;
         public List<string> textures;
+        public List<MaterialDef> materials;
         public List<List<int>> blocked;
 
         // AdvMapMonster

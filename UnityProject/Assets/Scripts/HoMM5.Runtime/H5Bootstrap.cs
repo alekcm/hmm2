@@ -95,7 +95,8 @@ namespace HoMM5
             _hud.SetStats(
                 $"{CurrentMap.Map.id}   {CurrentMap.Map.tileX}x{CurrentMap.Map.tileY}\n" +
                 $"objects placed {CurrentMap.ObjectsPlaced}  (no mesh {CurrentMap.ObjectsMissingMesh})\n" +
-                $"terrain chunks {CurrentMap.TerrainChunks}   meshes cached {Meshes.CachedCount}\n" +
+                $"terrain chunks {CurrentMap.TerrainChunks} (ground textures {CurrentMap.TerrainTexturesBound})\n" +
+                $"meshes cached {Meshes.CachedCount}\n" +
                 string.Join("  ", counts));
         }
 

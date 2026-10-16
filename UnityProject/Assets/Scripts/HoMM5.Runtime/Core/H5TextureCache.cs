@@ -161,17 +161,100 @@ namespace HoMM5.Core
         /// <summary>A shared Standard material textured with the given source .dds.</summary>
         public Material MaterialFor(string sourcePath)
         {
+            return MaterialFor(sourcePath, null);
+        }
+
+        /// <summary>
+        /// A shared material for a source .dds with the model's material settings
+        /// applied. Materials are cached per (texture, alpha mode, two-sided) so
+        /// a map full of identical trees makes one, not a thousand.
+        /// </summary>
+        public Material MaterialFor(string sourcePath, HoMM5.Data.MaterialDef def)
+        {
             var tex = Get(sourcePath);
             if (tex == null) return null;
 
-            var key = sourcePath + "|" + tex.name;
+            var mode = def != null && !string.IsNullOrEmpty(def.alphaMode)
+                ? def.alphaMode : "AM_OPAQUE";
+            var twoSided = def != null && def.twoSided;
+            var key = sourcePath + "|" + mode + "|" + twoSided;
             Material m;
             if (_materials.TryGetValue(key, out m)) return m;
 
             m = new Material(_shader) { name = "H5_" + Path.GetFileNameWithoutExtension(sourcePath) };
             m.mainTexture = tex;
+            ApplyAlphaMode(m, mode);
+            if (def != null && def.selfIllum)
+            {
+                m.EnableKeyword("_EMISSION");
+                m.SetColor("_EmissionColor", Color.white * 0.6f);
+            }
+            if (twoSided) TwoSidedMaterials++;
             _materials[key] = m;
             return m;
+        }
+
+        /// <summary>How many materials asked for back faces. Counted, not applied:
+        /// the Built-in Standard shader has no cull property.</summary>
+        public int TwoSidedMaterials { get; private set; }
+
+        /// <summary>
+        /// Map HoMM5's AlphaMode onto the Standard shader's modes.
+        ///
+        /// AM_ALPHA_TEST is the common case -- 5244 of 11638 materials in the
+        /// data -- and is what stops foliage, fences and railings from rendering
+        /// as solid rectangles. AM_OVERLAY and AM_DECAL are effect passes with no
+        /// Standard equivalent, so they fall back to ordinary transparency.
+        /// </summary>
+        static void ApplyAlphaMode(Material m, string mode)
+        {
+            switch (mode)
+            {
+                case "AM_ALPHA_TEST":
+                    m.SetFloat("_Mode", 1f);
+                    m.SetFloat("_Cutoff", 0.5f);
+                    m.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                    m.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                    m.SetInt("_ZWrite", 1);
+                    m.EnableKeyword("_ALPHATEST_ON");
+                    m.DisableKeyword("_ALPHABLEND_ON");
+                    m.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                    m.renderQueue = (int)UnityEngine.Rendering.RenderQueue.AlphaTest;
+                    break;
+
+                case "AM_TRANSPARENT":
+                case "AM_OVERLAY":
+                case "AM_DECAL":
+                    SetTransparent(m, zWrite: false);
+                    break;
+
+                case "AM_OVERLAY_ZWRITE":
+                    SetTransparent(m, zWrite: true);
+                    break;
+
+                default:   // AM_OPAQUE and anything unrecognised
+                    m.SetFloat("_Mode", 0f);
+                    m.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                    m.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                    m.SetInt("_ZWrite", 1);
+                    m.DisableKeyword("_ALPHATEST_ON");
+                    m.DisableKeyword("_ALPHABLEND_ON");
+                    m.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                    m.renderQueue = -1;
+                    break;
+            }
+        }
+
+        static void SetTransparent(Material m, bool zWrite)
+        {
+            m.SetFloat("_Mode", 3f);
+            m.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            m.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            m.SetInt("_ZWrite", zWrite ? 1 : 0);
+            m.DisableKeyword("_ALPHATEST_ON");
+            m.EnableKeyword("_ALPHABLEND_ON");
+            m.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+            m.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
         }
 
         Texture2D Load(string sourcePath)

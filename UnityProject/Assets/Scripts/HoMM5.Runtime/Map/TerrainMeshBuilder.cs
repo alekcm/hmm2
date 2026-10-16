@@ -26,10 +26,18 @@ namespace HoMM5.Map
         readonly List<Color32> _col = new List<Color32>();
         readonly List<int> _tri = new List<int>();
 
+        // Triangles bucketed by painted-texture layer, so one chunk can carry
+        // several ground textures as submeshes. Slot i always means layer i of
+        // the terrain, so every chunk shares one material array.
+        readonly List<List<int>> _slots = new List<List<int>>();
+        readonly int _slotCount;
+
         public TerrainMeshBuilder(H5Terrain terrain, int chunkSize = DefaultChunkSize)
         {
             _t = terrain;
             _chunkSize = Mathf.Max(1, chunkSize);
+            _slotCount = Mathf.Max(1, terrain != null ? terrain.LayerCount : 1);
+            for (var i = 0; i < _slotCount; i++) _slots.Add(new List<int>());
         }
 
         /// <summary>HoMM5 is Z-up; Unity is Y-up.  Swap the two axes.</summary>
@@ -47,6 +55,7 @@ namespace HoMM5.Map
             if (x1 <= x0 || y1 <= y0) return null;
 
             _pos.Clear(); _uv.Clear(); _nor.Clear(); _col.Clear(); _tri.Clear();
+            for (var i = 0; i < _slotCount; i++) _slots[i].Clear();
 
             for (var y = y0; y < y1; y++)
                 for (var x = x0; x < x1; x++)
@@ -63,14 +72,15 @@ namespace HoMM5.Map
             mesh.SetUVs(0, _uv);
             mesh.SetNormals(_nor);
             mesh.SetColors(_col);
-            mesh.SetTriangles(_tri, 0);
+            mesh.subMeshCount = _slotCount;
+            for (var i = 0; i < _slotCount; i++) mesh.SetTriangles(_slots[i], i);
             mesh.RecalculateBounds();
             mesh.RecalculateTangents();
             return mesh;
         }
 
         /// <summary>Build every chunk of the plane under <paramref name="parent"/>.</summary>
-        public int BuildAll(Transform parent, Material material)
+        public int BuildAll(Transform parent, Material[] materials)
         {
             var built = 0;
             var n = ChunksPerSide;
@@ -85,7 +95,7 @@ namespace HoMM5.Map
                     go.transform.SetParent(parent, false);
                     go.AddComponent<MeshFilter>().sharedMesh = mesh;
                     var mr = go.AddComponent<MeshRenderer>();
-                    mr.sharedMaterial = material;
+                    mr.sharedMaterials = materials;
                     mr.receiveShadows = true;
                     go.AddComponent<MeshCollider>().sharedMesh = mesh;
                     built++;
@@ -108,7 +118,7 @@ namespace HoMM5.Map
             Add(cx + 1, cy, h10, null);
             Add(cx + 1, cy + 1, h11, null);
             Add(cx, cy + 1, h01, null);
-            AddQuad(i);
+            AddQuad(i, _t.DominantLayerAt(cx, cy));
         }
 
         void EmitCutCell(int cx, int cy)
@@ -140,7 +150,7 @@ namespace HoMM5.Map
             Add(cx + 1, cy, h, n);
             Add(cx + 1, cy + 1, h, n);
             Add(cx, cy + 1, h, n);
-            AddQuad(i);
+            AddQuad(i, _t.DominantLayerAt(cx, cy));
         }
 
         void EmitWall(int ax, int ay, int bx, int by, float hi, float lo)
@@ -155,16 +165,19 @@ namespace HoMM5.Map
             Add(bx, by, hi, normal);
             Add(bx, by, lo, normal);
             Add(ax, ay, lo, normal);
-            AddQuad(i);
+            AddQuad(i, _t.DominantLayerAt(ax, ay));
         }
 
-        void AddQuad(int i)
+        void AddQuad(int i, int slot)
         {
             // Wound so the face is front-facing after the Z-up to Y-up swap:
             // the swap reverses orientation, which turns the source's
             // counter-clockwise winding into Unity's clockwise front face.
-            _tri.Add(i); _tri.Add(i + 2); _tri.Add(i + 1);
-            _tri.Add(i); _tri.Add(i + 3); _tri.Add(i + 2);
+            if (slot < 0 || slot >= _slotCount) slot = 0;
+            var tri = _slots[slot];
+            tri.Add(i); tri.Add(i + 2); tri.Add(i + 1);
+            tri.Add(i); tri.Add(i + 3); tri.Add(i + 2);
+            _tri.Add(i);   // kept only as a "did anything get built" counter
         }
 
         void Add(int vx, int vy, float h, Vector3? normal)
