@@ -16,6 +16,10 @@ namespace HoMM5.Map
 
         readonly MeshCache _meshes;
         readonly HoMM5.Core.H5TextureCache _textures;
+        readonly HoMM5.Data.GameDatabase _db;
+        // Many objects share one model, so a clip is loaded once per uid.
+        readonly Dictionary<string, HoMM5.Anim.H5Clip> _clips
+            = new Dictionary<string, HoMM5.Anim.H5Clip>();
         readonly Material _terrainMaterial;
         readonly Material _objectMaterial;
         readonly Material _waterMaterial;
@@ -28,14 +32,17 @@ namespace HoMM5.Map
         public int ObjectsMissingMesh { get; private set; }
         public int TexturedObjects { get; private set; }
         public int TerrainTexturesBound { get; private set; }
+        public int AnimatedObjects { get; private set; }
         public int TerrainChunks { get; private set; }
 
         public MapSceneBuilder(MeshCache meshes, Material terrainMaterial,
                                Material objectMaterial, Material waterMaterial,
-                               HoMM5.Core.H5TextureCache textures = null)
+                               HoMM5.Core.H5TextureCache textures = null,
+                               HoMM5.Data.GameDatabase db = null)
         {
             _meshes = meshes;
             _textures = textures;
+            _db = db;
             _terrainMaterial = terrainMaterial;
             _objectMaterial = objectMaterial;
             _waterMaterial = waterMaterial;
@@ -180,13 +187,27 @@ namespace HoMM5.Map
             go.transform.localRotation = Quaternion.Euler(0f, def.rot, 0f);
             go.transform.localScale = Vector3.one * ObjectScale;
 
+            var mats = new List<Material>(meshes.Length);
+            for (var m = 0; m < meshes.Length; m++)
+                mats.Add(MaterialForMesh(def, m) ?? _objectMaterial);
+
+            // An object whose model names an adventure-map clip is rigged and
+            // animated; anything else stays a static mesh.
+            var clip = ClipFor(def);
+            if (clip != null && HoMM5.Anim.H5Rig.Build(go, new List<Mesh>(meshes), mats, clip) != null)
+            {
+                AnimatedObjects++;
+                go.AddComponent<H5MapObject>().Attach(def, this);
+                return true;
+            }
+
             for (var m = 0; m < meshes.Length; m++)
             {
                 var child = new GameObject(meshes[m].name);
                 child.transform.SetParent(go.transform, false);
                 child.AddComponent<MeshFilter>().sharedMesh = meshes[m];
                 var mr = child.AddComponent<MeshRenderer>();
-                mr.sharedMaterial = MaterialForMesh(def, m) ?? _objectMaterial;
+                mr.sharedMaterial = mats[m];
                 mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
             }
 
@@ -226,6 +247,32 @@ namespace HoMM5.Map
             var fallback = _textures.MaterialFor(src);
             if (fallback != null) TexturedObjects++;
             return fallback;
+        }
+
+        /// <summary>
+        /// The adventure-map idle for an object's model, or null when the model
+        /// is not animated. Cached per geometry uid: a map holds hundreds of
+        /// objects sharing a handful of models.
+        /// </summary>
+        HoMM5.Anim.H5Clip ClipFor(MapObjectDef def)
+        {
+            if (_db == null || string.IsNullOrEmpty(def.geometryUid)) return null;
+            if (!_db.ModelAnimations.TryGetValue(def.geometryUid, out var ma)) return null;
+            if (ma == null || ma.advmap == null || ma.advmap.Count == 0) return null;
+
+            string uid;
+            if (!ma.advmap.TryGetValue("idle00", out uid))
+            {
+                // Not every set names idle00; take whatever it has.
+                foreach (var kv in ma.advmap) { uid = kv.Value; break; }
+            }
+            if (string.IsNullOrEmpty(uid)) return null;
+
+            HoMM5.Anim.H5Clip clip;
+            if (_clips.TryGetValue(uid, out clip)) return clip;
+            clip = HoMM5.Anim.H5Anim.Load(uid);
+            _clips[uid] = clip;   // cached even when null, so a miss is looked up once
+            return clip;
         }
 
         static string ObjectName(MapObjectDef def, int index)

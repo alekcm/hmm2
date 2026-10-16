@@ -71,7 +71,7 @@ namespace HoMM5
             if (Textures != null) Textures.Dispose();
 
             var builder = new MapSceneBuilder(Meshes, MakeTerrainMaterial(), MakeObjectMaterial(),
-                                              MakeWaterMaterial(), Textures);
+                                              MakeWaterMaterial(), Textures, Database);
             var root = builder.Build(mapId, floor);
             if (root == null)
             {
@@ -96,7 +96,7 @@ namespace HoMM5
                 $"{CurrentMap.Map.id}   {CurrentMap.Map.tileX}x{CurrentMap.Map.tileY}\n" +
                 $"objects placed {CurrentMap.ObjectsPlaced}  (no mesh {CurrentMap.ObjectsMissingMesh})\n" +
                 $"terrain chunks {CurrentMap.TerrainChunks} (ground textures {CurrentMap.TerrainTexturesBound})\n" +
-                $"meshes cached {Meshes.CachedCount}\n" +
+                $"meshes cached {Meshes.CachedCount}  animated {CurrentMap.AnimatedObjects}\n" +
                 string.Join("  ", counts));
         }
 

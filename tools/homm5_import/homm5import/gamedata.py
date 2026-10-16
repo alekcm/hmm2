@@ -13,7 +13,7 @@ from typing import Dict, List, Optional
 from xml.etree import ElementTree as ET
 
 from .localization import Localization
-from .xdb import XDB
+from .xdb import XDB, texture_dds_path
 
 RESOURCE_FIELDS = ("Wood", "Ore", "Mercury", "Crystal", "Sulfur", "Gem", "Gold")
 
@@ -149,11 +149,8 @@ def model_geometry(xdb: XDB, model: Optional[ET.Element],
             if mat is None:
                 continue
             tex, tex_href = xdb.resolve(mat.find("Texture"), model_href)
-            if tex is None:
-                continue
-            name = xdb.text(tex.find("FileName"))
-            if not name:
-                name = (tex_href or xdb.href_of(mat.find("Texture")) or "").split("#")[0]
+            # A Texture record names its file as <DestName>, not <FileName>.
+            name = texture_dds_path(xdb, tex, tex_href)
             if name:
                 textures.append(name)
     return geom_uid, textures
@@ -216,10 +213,70 @@ def load_town_buildings(xdb: XDB, loc: Optional[Localization] = None) -> List[di
     return out
 
 
+def _anim_set(xdb: XDB, elem: Optional[ET.Element],
+              base_href: Optional[str]) -> Dict[str, str]:
+    """One AnimSet as ``{kind: clip uid}``.
+
+    ``<Item><Kind>idle00</Kind><Anim href="...(BasicSkelAnim).xdb"/></Item>`` --
+    the BasicSkelAnim record carries the uid that names the file under
+    ``bin/animations/``.
+    """
+    out: Dict[str, str] = {}
+    aset, href = xdb.resolve(elem, base_href)
+    if aset is None:
+        return out
+    items = aset.find("animations")
+    if items is None:
+        return out
+    for item in xdb.items(items):
+        kind = xdb.text(item.find("Kind"))
+        anim, anim_href = xdb.resolve(item.find("Anim"), href)
+        if not kind or anim is None:
+            continue
+        uid = xdb.text(anim.find("uid"))
+        if uid:
+            out[kind] = uid
+    return out
+
+
+def load_model_animations(xdb: XDB) -> Dict[str, dict]:
+    """``geometryUid -> {skeleton, arena, advmap}``, the clips a model can play.
+
+    Keyed by geometry uid because that is what a map object already carries, so
+    the runtime can go from an object on the map to a clip in one lookup.
+    """
+    out: Dict[str, dict] = {}
+    for path in xdb.iter_files("Characters"):
+        root = xdb.load(xdb.href_from_path(path))
+        if root is None or root.tag != "Character":
+            continue
+        base = xdb.href_from_path(path)
+        model, model_href = xdb.resolve(root.find("Model"), base)
+        if model is None:
+            continue
+        geom_uid, _textures = model_geometry(xdb, model, model_href)
+        if not geom_uid:
+            continue
+
+        skel, skel_href = xdb.resolve(model.find("Skeleton"), model_href)
+        skel_uid = xdb.text(skel.find("uid")) if skel is not None else ""
+
+        entry = {
+            "skeleton": skel_uid,
+            "model": model_href or "",
+            "arena": _anim_set(xdb, root.find("ArenaAnimSet"), base),
+            "advmap": _anim_set(xdb, root.find("AdvMapAnimSet"), base),
+        }
+        if entry["skeleton"] or entry["arena"] or entry["advmap"]:
+            out[geom_uid] = entry
+    return out
+
+
 def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object]:
     return {
         "creatures": load_creatures(xdb, loc),
         "spells": load_spells(xdb, loc),
         "artifacts": load_artifacts(xdb, loc),
         "townBuildings": load_town_buildings(xdb, loc),
+        "modelAnimations": load_model_animations(xdb),
     }

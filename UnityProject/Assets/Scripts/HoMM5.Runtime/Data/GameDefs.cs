@@ -167,6 +167,20 @@ namespace HoMM5.Data
         public float gloss;
     }
 
+    /// <summary>
+    /// The clips a model can play, keyed by kind ("idle00", "move", "attack00").
+    /// Produced from Character -&gt; AnimSet -&gt; BasicSkelAnim, and keyed by the
+    /// geometry uid a map object already carries, so an object on the map reaches
+    /// a clip in one lookup.
+    /// </summary>
+    public class ModelAnimDef
+    {
+        public string skeleton;
+        public string model;
+        public Dictionary<string, string> arena;
+        public Dictionary<string, string> advmap;
+    }
+
     /// <summary>One painted ground texture and how much of the map it covers.</summary>
     public class TerrainLayerInfo
     {

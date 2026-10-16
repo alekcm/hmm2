@@ -990,5 +990,61 @@ class GlbSkinExportTest(unittest.TestCase):
         self.skipTest("no unskinned geometry found")
 
 
+class ModelAnimationTest(unittest.TestCase):
+    """Character -> Model/AnimSet -> BasicSkelAnim uid -> bin/animations/<uid>."""
+
+    @classmethod
+    def setUpClass(cls):
+        from homm5import.xdb import XDB
+        from homm5import.gamedata import load_model_animations
+        cls.map = load_model_animations(XDB(DATA))
+
+    def test_models_carry_a_skeleton_uid(self):
+        self.assertGreater(len(self.map), 300)
+        for uid, entry in self.map.items():
+            self.assertTrue(entry["skeleton"], uid)
+
+    def test_clip_kinds_are_the_ones_the_game_uses(self):
+        kinds = set()
+        for entry in self.map.values():
+            kinds.update(entry["arena"])
+            kinds.update(entry["advmap"])
+        for expected in ("idle00", "move", "death", "attack00", "hit"):
+            self.assertIn(expected, kinds)
+
+    def test_clip_uids_resolve_to_real_files(self):
+        """Allowing a small tail: a couple of AnimSets name clips the shipped
+        data does not carry, and dropping the whole entry over them would lose
+        the 98% that do resolve."""
+        present = missing = 0
+        for entry in self.map.values():
+            for group in ("arena", "advmap"):
+                for clip in entry[group].values():
+                    if os.path.isfile(os.path.join(DATA, "bin", "animations", clip)):
+                        present += 1
+                    else:
+                        missing += 1
+        self.assertGreater(present, 1000)
+        self.assertLess(missing, present / 20)
+
+    def test_keyed_by_geometry_uid(self):
+        """The runtime looks an object up by the geometry uid it already has, so
+        a key that is anything else is a dead lookup."""
+        from homm5import.xdb import XDB
+        xdb = XDB(DATA)
+        checked = 0
+        for uid in list(self.map)[:40]:
+            self.assertTrue(
+                os.path.isfile(os.path.join(DATA, "bin", "Geometries", uid)),
+                "not a geometry uid: " + uid)
+            checked += 1
+        self.assertEqual(checked, min(40, len(self.map)))
+
+    def test_adventure_idles_dominate(self):
+        """An adventure-map model usually holds exactly one animation, idle00."""
+        with_idle = sum(1 for e in self.map.values() if "idle00" in e["advmap"])
+        self.assertGreater(with_idle, 100)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
