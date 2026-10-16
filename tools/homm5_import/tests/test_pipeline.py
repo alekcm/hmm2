@@ -22,7 +22,9 @@ import unittest
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 
+from homm5import import terrain  # noqa: E402
 from homm5import.container import END_MARKER, parse_records  # noqa: E402
+from homm5import.maps import iter_map_files, load_map  # noqa: E402
 from homm5import.dds import DDSError, decode_dds, write_png  # noqa: E402
 from homm5import.gamedata import load_artifacts, load_creatures, load_spells  # noqa: E402
 from homm5import.geometry import decode_file as decode_geometry  # noqa: E402
@@ -1044,6 +1046,88 @@ class ModelAnimationTest(unittest.TestCase):
         """An adventure-map model usually holds exactly one animation, idle00."""
         with_idle = sum(1 for e in self.map.values() if "idle00" in e["advmap"])
         self.assertGreater(with_idle, 100)
+
+
+class WorldScaleTest(unittest.TestCase):
+    """Pins the world-units-per-tile that TerrainMeshBuilder.TileSize must match.
+
+    The Unity side cannot be executed here, so the fact it rests on is pinned
+    instead: a tile is NOT one world unit. Two independent readings say two.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        from homm5import.xdb import XDB
+        from homm5import.maps import iter_map_files, load_map
+        cls.xdb = XDB(DATA)
+        cls.files = sorted(iter_map_files(cls.xdb, only_map_descs=True))
+
+    def test_object_positions_are_in_tiles_not_world_units(self):
+        """Object Pos spans 0..tile_x, so it is a tile index. If it were world
+        units it would span twice that, and sampling the height field with it
+        would read the wrong cell."""
+        import os
+        checked = 0
+        for f in self.files[::17]:
+            tp = os.path.join(os.path.dirname(f), "GroundTerrain.bin")
+            if not os.path.isfile(tp):
+                continue
+            t = terrain.decode_file(tp)
+            md = load_map(self.xdb, f, resolve_models=False)
+            xs = [o.pos[0] for o in md.objects]
+            if not xs or t.height is None:
+                continue
+            self.assertLessEqual(max(xs), t.tile_x + 1)
+            checked += 1
+            if checked >= 5:
+                break
+        self.assertGreater(checked, 0)
+
+    def test_a_two_tile_footprint_is_about_four_units_wide(self):
+        """The engine halves an object's world point to get its tile. Objects
+        blocked over exactly two tiles measure a median four units across, which
+        is the same two-to-one from the model side."""
+        import os, statistics
+        from homm5import import geometry as G
+        pairs = []
+        cache = {}
+        for f in self.files[::11]:
+            md = load_map(self.xdb, f, resolve_models=True)
+            for o in md.objects:
+                if not o.blocked or not o.geometry_uid:
+                    continue
+                foot = max(len(o.blocked), max((len(r) for r in o.blocked), default=0))
+                if foot != 2:
+                    continue
+                u = o.geometry_uid
+                if u not in cache:
+                    path = os.path.join(DATA, "bin", "Geometries", u)
+                    cache[u] = G.decode_file(path).bounds() if os.path.isfile(path) else None
+                b = cache[u]
+                if not b:
+                    continue
+                (x0, y0, z0), (x1, y1, z1) = b
+                pairs.append(max(x1 - x0, y1 - y0))
+            if len(pairs) > 40:
+                break
+        self.assertGreater(len(pairs), 5)
+        med = statistics.median(pairs)
+        self.assertGreater(med, 3.0, "tile would be one world unit or less")
+        self.assertLess(med, 5.5, "tile would be more than two world units")
+
+    def test_heights_reach_tens_of_units(self):
+        """Why the horizontal scale matters: whole maps sit far above the 2.0
+        default ground, so relief is measured in tens of world units."""
+        import struct
+        worst = 0.0
+        for p in sorted(glob.glob(os.path.join(DATA, "Maps", "**", "GroundTerrain.bin"),
+                                  recursive=True))[::47]:
+            t = terrain.decode_file(p)
+            if t.height is None:
+                continue
+            _lo, hi, _mean = t.height_stats()
+            worst = max(worst, hi)
+        self.assertGreater(worst, 20.0)
 
 
 if __name__ == "__main__":

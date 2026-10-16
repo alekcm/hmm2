@@ -40,8 +40,28 @@ namespace HoMM5.Map
             for (var i = 0; i < _slotCount; i++) _slots.Add(new List<int>());
         }
 
+        /// <summary>
+        /// World units per map tile. Two, from two independent readings of the
+        /// shipped data: the engine halves an object's world point to get its
+        /// tile, and objects whose blocked footprint is 2 tiles measure a median
+        /// 4.00 units across.
+        ///
+        /// Heights are deliberately NOT scaled by this. They are already in world
+        /// units -- ground 2.0, shore ring 1.6, water 1.5, one level a step of
+        /// 2.0 -- so multiplying them too would leave the relief exactly as steep
+        /// as it was and the whole change would do nothing.
+        ///
+        /// Getting this wrong is what turned gentle ramps into mountains: whole
+        /// maps sit at heights of tens of units (Orcish_Medium3 has 9399 of its
+        /// 9409 vertices above 10, peaking at 58.9), so relief of ~48 units
+        /// across 96 tiles reads as a 26 degree average gradient at one unit a
+        /// tile and a 14 degree one at two.
+        /// </summary>
+        public const float TileSize = 2f;
+
         /// <summary>HoMM5 is Z-up; Unity is Y-up.  Swap the two axes.</summary>
-        public static Vector3 ToUnity(float x, float y, float z) => new Vector3(x, z, y);
+        public static Vector3 ToUnity(float x, float y, float z)
+            => new Vector3(x * TileSize, z, y * TileSize);
 
         public int ChunksPerSide => Mathf.CeilToInt(_t.Tiles / (float)_chunkSize);
 

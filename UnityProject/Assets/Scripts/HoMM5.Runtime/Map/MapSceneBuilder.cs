@@ -132,10 +132,11 @@ namespace HoMM5.Map
             var mesh = new Mesh { name = "water" };
             var v = new[]
             {
+                // The plane spans the same world extent as the terrain mesh.
                 new Vector3(0f, 0f, 0f),
-                new Vector3(tiles, 0f, 0f),
-                new Vector3(tiles, 0f, tiles),
-                new Vector3(0f, 0f, tiles),
+                new Vector3(tiles * TerrainMeshBuilder.TileSize, 0f, 0f),
+                new Vector3(tiles * TerrainMeshBuilder.TileSize, 0f, tiles * TerrainMeshBuilder.TileSize),
+                new Vector3(0f, 0f, tiles * TerrainMeshBuilder.TileSize),
             };
             mesh.vertices = v;
             mesh.uv = new[] { new Vector2(0, 0), new Vector2(1, 0), new Vector2(1, 1), new Vector2(0, 1) };
