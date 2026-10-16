@@ -1,0 +1,19 @@
+# Python (the importer under tools/homm5_import is standard-library only, but
+# it still leaves bytecode behind)
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Unity generated folders, in case the project is ever opened from the repo root
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# OS
+.DS_Store
+Thumbs.db

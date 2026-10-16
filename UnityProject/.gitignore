@@ -1,0 +1,47 @@
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Never ignore asset meta files
+!/[Ll]ibrary/**/*.meta
+
+# Importer output -- regenerable from the game data in this repository:
+#   python -m homm5import.cli all -o UnityProject/Assets/StreamingAssets/HoMM5
+# (see tools/homm5_import/README.md).  Kept out of git on purpose: the full set
+# is ~1.5 GB of meshes and textures.
+/Assets/StreamingAssets/HoMM5/Meshes/
+/Assets/StreamingAssets/HoMM5/Textures/
+/Assets/StreamingAssets/HoMM5/Terrain/
+/Assets/StreamingAssets/HoMM5/Maps/
+/Assets/StreamingAssets/HoMM5/Game/
+
+# IDE
+.idea/
+.vs/
+.vscode/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python importer
+__pycache__/
+*.pyc

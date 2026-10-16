@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "homm5-import"
+version = "0.1.0"
+description = "HoMM5 Tribes of the East 3.1 data -> Unity asset pipeline"
+readme = "README.md"
+requires-python = ">=3.8"
+# Deliberately empty: the importer is standard library only, so it runs on a
+# bare Python with no install step.
+dependencies = []
+
+[project.scripts]
+homm5-import = "homm5import.cli:main"
+
+[tool.setuptools]
+packages = ["homm5import"]

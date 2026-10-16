@@ -1,0 +1,151 @@
+using System;
+using System.Collections.Generic;
+using HoMM5.Core;
+using Newtonsoft.Json;
+using UnityEngine;
+
+namespace HoMM5.Data
+{
+    /// <summary>
+    /// The game's data tables, loaded from the importer's JSON output.
+    ///
+    /// These are the shipped numbers -- a creature's attack, an artifact's price,
+    /// a spell's level all come straight from <c>data/GameMechanics</c>, so the
+    /// runtime reasons about the same values the original engine does.
+    /// </summary>
+    public class GameDatabase
+    {
+        public Dictionary<string, CreatureDef> Creatures { get; private set; } = new Dictionary<string, CreatureDef>();
+        public Dictionary<string, SpellDef> Spells { get; private set; } = new Dictionary<string, SpellDef>();
+        public Dictionary<string, ArtifactDef> Artifacts { get; private set; } = new Dictionary<string, ArtifactDef>();
+        public List<TownBuildingDef> TownBuildings { get; private set; } = new List<TownBuildingDef>();
+        public Dictionary<string, string> Localization { get; private set; } = new Dictionary<string, string>();
+        public List<MapIndexEntry> MapIndex { get; private set; } = new List<MapIndexEntry>();
+
+        public bool IsLoaded { get; private set; }
+
+        public event Action Loaded;
+
+        public void Load()
+        {
+            if (!H5Paths.HasImport)
+            {
+                Debug.LogError("[HoMM5] No import found at " + H5Paths.Root +
+                               ". Run: python -m homm5import.cli all  (see tools/homm5_import/README.md)");
+                return;
+            }
+
+            Creatures = LoadDict<CreatureDef>(H5Paths.Game("creatures.json")) ?? Creatures;
+            Spells = LoadDict<SpellDef>(H5Paths.Game("spells.json")) ?? Spells;
+            Artifacts = LoadDict<ArtifactDef>(H5Paths.Game("artifacts.json")) ?? Artifacts;
+            TownBuildings = LoadList<TownBuildingDef>(H5Paths.Game("townBuildings.json")) ?? TownBuildings;
+            Localization = LoadDict<string>(H5Paths.Game("Localization.json")) ?? Localization;
+            MapIndex = LoadList<MapIndexEntry>(H5Paths.Maps("_index.json")) ?? MapIndex;
+
+            IsLoaded = true;
+            Debug.Log($"[HoMM5] loaded {Creatures.Count} creatures, {Spells.Count} spells, " +
+                      $"{Artifacts.Count} artifacts, {TownBuildings.Count} town buildings, " +
+                      $"{Localization.Count} strings, {MapIndex.Count} maps");
+            Loaded?.Invoke();
+        }
+
+        // -- lookups -------------------------------------------------------
+
+        /// <summary>
+        /// Creatures are referenced from maps by their enum name, which is the
+        /// file's base name -- the same key the importer used.
+        /// </summary>
+        public CreatureDef GetCreature(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return null;
+            if (Creatures.TryGetValue(id, out var c)) return c;
+            // Some maps name the upgrade pair rather than the creature itself.
+            foreach (var kv in Creatures)
+            {
+                if (string.Equals(kv.Value.pairCreature, id, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(kv.Value.baseCreature, id, StringComparison.OrdinalIgnoreCase))
+                    return kv.Value;
+            }
+            return null;
+        }
+
+        public SpellDef GetSpell(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return null;
+            return Spells.TryGetValue(id, out var s) ? s : null;
+        }
+
+        public ArtifactDef GetArtifact(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return null;
+            return Artifacts.TryGetValue(id, out var a) ? a : null;
+        }
+
+        public MapIndexEntry GetMapIndexEntry(string id)
+        {
+            foreach (var e in MapIndex)
+                if (string.Equals(e.id, id, StringComparison.OrdinalIgnoreCase)) return e;
+            return null;
+        }
+
+        /// <summary>Look up one localized string by its <c>/Text/...</c> href.</summary>
+        public string Text(string href, string fallback = null)
+        {
+            if (string.IsNullOrEmpty(href)) return fallback;
+            return Localization.TryGetValue(href, out var s) ? s : fallback;
+        }
+
+        /// <summary>Turn a <c>TOWN_ACADEMY</c>-style enum into something readable.</summary>
+        public static string PrettifyEnum(string value)
+        {
+            if (string.IsNullOrEmpty(value)) return "";
+            var parts = value.Split('_');
+            for (var i = 0; i < parts.Length; i++)
+            {
+                if (parts[i].Length == 0) continue;
+                parts[i] = char.ToUpperInvariant(parts[i][0]) + parts[i].Substring(1).ToLowerInvariant();
+            }
+            return string.Join(" ", parts);
+        }
+
+        // -- io ------------------------------------------------------------
+
+        static Dictionary<string, T> LoadDict<T>(string path)
+        {
+            var json = H5Paths.ReadAllText(path);
+            if (json == null)
+            {
+                Debug.LogWarning("[HoMM5] missing " + path);
+                return null;
+            }
+            try
+            {
+                return JsonConvert.DeserializeObject<Dictionary<string, T>>(json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("[HoMM5] failed to parse " + path + ": " + e.Message);
+                return null;
+            }
+        }
+
+        static List<T> LoadList<T>(string path)
+        {
+            var json = H5Paths.ReadAllText(path);
+            if (json == null)
+            {
+                Debug.LogWarning("[HoMM5] missing " + path);
+                return null;
+            }
+            try
+            {
+                return JsonConvert.DeserializeObject<List<T>>(json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("[HoMM5] failed to parse " + path + ": " + e.Message);
+                return null;
+            }
+        }
+    }
+}
