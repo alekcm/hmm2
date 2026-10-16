@@ -43,11 +43,45 @@ class XDB:
     def __init__(self, data_root: str):
         self.data_root = os.path.abspath(data_root)
         self._cache: Dict[str, Optional[ET.Element]] = {}
+        self._dir_cache: Dict[str, dict] = {}
 
     # -- loading -----------------------------------------------------------
     def _path_for(self, href: str) -> str:
         rel = href.lstrip("/").replace("\\", "/")
-        return os.path.join(self.data_root, rel)
+        path = os.path.join(self.data_root, rel)
+        if os.path.exists(path):
+            return path
+        # Some hrefs are lowercased in the data
+        # (/mapobjects/_(advmaptile)/grass/grass.xdb) while the file on disk is
+        # MapObjects/_(AdvMapTile)/Grass/Grass.xdb. Windows folds case so the game
+        # never noticed; on Linux the lookup misses and the layer loses its
+        # texture. Resolve case-insensitively rather than dropping it.
+        resolved = self._resolve_case_insensitive(rel)
+        return resolved if resolved else path
+
+    def _resolve_case_insensitive(self, rel: str) -> Optional[str]:
+        cur = self.data_root
+        for part in rel.split("/"):
+            if not part:
+                continue
+            listing = self._listing(cur)
+            if listing is None:
+                return None
+            match = listing.get(part.lower())
+            if match is None:
+                return None
+            cur = os.path.join(cur, match)
+        return cur if os.path.exists(cur) else None
+
+    def _listing(self, directory: str) -> Optional[dict]:
+        cached = self._dir_cache.get(directory)
+        if cached is None:
+            try:
+                cached = {name.lower(): name for name in os.listdir(directory)}
+            except OSError:
+                cached = {}
+            self._dir_cache[directory] = cached
+        return cached
 
     @staticmethod
     def absolutize(href: str, base_href: Optional[str]) -> str:
@@ -173,3 +207,47 @@ class XDB:
         path, _ = _split_href(href)
         base = os.path.basename(path)
         return re.sub(r"\.(.*)?\.", ".", base).replace(".xdb", "") if ".xdb" in base else base
+
+def texture_dds_path(xdb: "XDB", texture_elem, base_href: Optional[str] = None) -> Optional[str]:
+    """Resolve a ``<Texture>`` element to the .dds the game ships.
+
+    The element names the file as ``<DestName href="Snow.dds"/>``, relative to
+    the Texture XDB's own folder rather than to the data root.  There is no
+    ``<FileName>`` child -- reading one silently yields nothing, which left every
+    map object untextured until it was noticed.
+
+    Returns the path in the form ``Textures/_manifest.json`` keys it.
+    """
+    if texture_elem is None:
+        return None
+    dest = texture_elem.find("DestName")
+    ref = dest.get("href") if dest is not None else None
+    href = xdb.absolutize(ref, base_href) if ref else XDB.text(dest)
+    if not href:
+        href = XDB.text(texture_elem.find("FileName"))
+    return "/" + href.lstrip("/") if href else None
+
+
+def advmap_tile_texture(xdb: "XDB", href: str) -> Optional[str]:
+    """``/MapObjects/_(AdvMapTile)/Snow/Snow.xdb#...`` -> ``/Textures/.../Snow.dds``.
+
+    Terrain texture layers reference AdvMapTile records, which point at a
+    Texture record, which points at the .dds.  Also returns the tile's paint
+    priority through :func:`advmap_tile`.
+    """
+    info = advmap_tile(xdb, href)
+    return info["texture"] if info else None
+
+
+def advmap_tile(xdb: "XDB", href: str) -> Optional[dict]:
+    """Decode one AdvMapTile record: its texture, paint priority, and type."""
+    tile = xdb.load(href)
+    if tile is None or tile.tag != "AdvMapTile":
+        return None
+    tex_elem, tex_href = xdb.resolve(tile.find("Texture"))
+    return {
+        "texture": texture_dds_path(xdb, tex_elem, tex_href),
+        "priority": int(XDB.number(tile.find("Priority"))),
+        "type": XDB.text(tile.find("Type")),
+        "minimap": XDB.vec3(tile.find("MinimapColor")),
+    }

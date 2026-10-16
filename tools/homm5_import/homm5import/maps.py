@@ -14,7 +14,7 @@ import re
 from typing import Dict, List, Optional, Tuple
 from xml.etree import ElementTree as ET
 
-from .xdb import XDB
+from .xdb import XDB, texture_dds_path
 
 OBJECT_TYPES = (
     "AdvMapStatic", "AdvMapTreasure", "AdvMapMonster", "AdvMapBuilding",
@@ -183,16 +183,9 @@ def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject, cache: dict) -
                     # root.  Reading <FileName> here found nothing: the field is
                     # called DestName, so every object came out untextured.
                     tex, tex_href = xdb.resolve(mat.find("Texture"), model_href)
-                    if tex is None:
-                        continue
-                    dest = tex.find("DestName")
-                    ref = dest.get("href") if dest is not None else None
-                    rel = xdb.absolutize(ref, tex_href) if ref else xdb.text(dest)
-                    if not rel:
-                        rel = xdb.text(tex.find("FileName"))
+                    rel = texture_dds_path(xdb, tex, tex_href)
                     if rel:
-                        # Kept exactly as the texture manifest keys it.
-                        textures.append("/" + rel.lstrip("/"))
+                        textures.append(rel)
     cache[href] = (geom_uid, textures, obj.blocked)
     obj.geometry_uid, obj.textures = geom_uid, textures
 

@@ -254,8 +254,40 @@ def cmd_textures(args) -> int:
     return 0
 
 
+def _export_layers(args, terr, map_dir: str, plane: str, tile_db) -> None:
+    """Write the painted ground textures and their per-vertex coverage.
+
+    Two files: a JSON descriptor naming each layer's texture, and the raw V x V
+    coverage planes concatenated, one per layer, in the same order.
+    """
+    from .xdb import advmap_tile
+
+    entries = []
+    blob = bytearray()
+    for layer in terr.layers:
+        info = advmap_tile(tile_db, layer.href) or {}
+        entries.append({
+            "tile": layer.href,
+            "texture": info.get("texture"),
+            "priority": info.get("priority", 0),
+            "type": info.get("type", ""),
+            "opaque": round(sum(1 for b in layer.weights if b > 127) / max(layer.count, 1), 4),
+        })
+        blob += layer.weights[: layer.count]
+    _write_json(_out(args.out, "Terrain", map_dir, plane + ".layers.json"), {
+        "map": map_dir, "plane": plane,
+        "vertexStride": terr.layers[0].width if terr.layers else 0,
+        "layers": entries,
+    })
+    with open(_out(args.out, "Terrain", map_dir, plane + ".layers"), "wb") as fh:
+        fh.write(bytes(blob))
+
+
 def cmd_terrain(args) -> int:
     import glob
+
+    from .xdb import XDB
+    tile_db = XDB(args.data)
 
     files = _limited(sorted(
         glob.glob(os.path.join(args.data, "Maps/**/GroundTerrain.bin"), recursive=True) +
@@ -293,6 +325,11 @@ def cmd_terrain(args) -> int:
         if terr.passability is not None:
             with open(_out(args.out, "Terrain", map_dir, plane + ".passability"), "wb") as fh:
                 fh.write(terr.passability.data[: terr.passability.count])
+        if terr.layers:
+            try:
+                _export_layers(args, terr, map_dir, plane, tile_db)
+            except Exception as exc:
+                print(f"  WARN layers {map_dir}/{plane}: {exc}")
         ok += 1
     print(f"terrain: {ok} written, {bad} failed (of {len(files)})")
     return 0

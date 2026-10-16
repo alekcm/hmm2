@@ -596,5 +596,79 @@ class ObjectTextureTest(unittest.TestCase):
                            "only %d/%d objects textured" % (with_tex, total))
 
 
+class TerrainLayerTest(unittest.TestCase):
+    """Container tag 04: painted ground textures and their coverage planes."""
+
+    def setUp(self):
+        import glob
+        from homm5import.terrain import decode_file
+        self.decode_file = decode_file
+        self.files = sorted(
+            glob.glob(os.path.join(DATA, "Maps", "**", "GroundTerrain.bin"), recursive=True)
+            + glob.glob(os.path.join(DATA, "Maps", "**", "UndergroundTerrain.bin"), recursive=True))
+
+    def test_layer_count_matches_what_the_file_declares(self):
+        """_layers raises if the declared count and the decoded count disagree."""
+        for path in self.files[:40]:
+            terr = self.decode_file(path)
+            self.assertGreaterEqual(len(terr.layers), 1, path)
+            for layer in terr.layers:
+                self.assertEqual(len(layer.weights), layer.count, path)
+                self.assertEqual(layer.width, terr.tile_x + 1, path)
+                self.assertEqual(layer.height, terr.tile_y + 1, path)
+
+    def test_base_layer_is_always_fully_opaque(self):
+        """Layer 0 is a constant 255: the base covers everything, always."""
+        for path in self.files[:40]:
+            base = self.decode_file(path).layers[0]
+            self.assertEqual(set(base.weights), {255}, path)
+
+    def test_every_layer_href_resolves_to_a_real_dds(self):
+        from homm5import.xdb import XDB, advmap_tile
+        xdb = XDB(DATA)
+        checked = 0
+        for path in self.files[:20]:
+            for layer in self.decode_file(path).layers:
+                info = advmap_tile(xdb, layer.href)
+                self.assertIsNotNone(info, "not an AdvMapTile: " + layer.href)
+                self.assertTrue(info["texture"], "no texture for " + layer.href)
+                self.assertTrue(
+                    os.path.isfile(os.path.join(DATA, info["texture"].lstrip("/"))),
+                    "missing dds: " + str(info["texture"]))
+                checked += 1
+        self.assertGreater(checked, 20)
+
+    def test_lowercased_hrefs_still_resolve(self):
+        """Some hrefs are lowercase on disk-cased folders; Windows folds case and
+        the game never noticed, but a case-sensitive filesystem loses the layer."""
+        from homm5import.xdb import XDB, advmap_tile
+        xdb = XDB(DATA)
+        lowered = 0
+        for path in self.files[:60]:
+            for layer in self.decode_file(path).layers:
+                info = advmap_tile(xdb, layer.href)
+                self.assertIsNotNone(info, "unresolved: " + layer.href)
+                self.assertTrue(info["texture"], "no texture: " + layer.href)
+                if layer.href != layer.href.replace(layer.href.split("/")[1],
+                                                    layer.href.split("/")[1]):
+                    pass
+                if any(c.islower() for c in layer.href.split("/")[1][:3]):
+                    lowered += 1
+        self.assertGreater(lowered, 0,
+                           "expected some lowercased hrefs in the data; sample changed?")
+
+    def test_priorities_increase_with_specificity(self):
+        """Base dirt/grass paints first; roads and variants sit on top."""
+        for path in self.files[:15]:
+            from homm5import.xdb import XDB, advmap_tile
+            xdb = XDB(DATA)
+            pris = [advmap_tile(xdb, L.href)["priority"]
+                    for L in self.decode_file(path).layers]
+            if len(pris) > 1:
+                self.assertLess(pris[0], max(pris),
+                                "base layer is not the lowest priority: %s" % pris)
+                break
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

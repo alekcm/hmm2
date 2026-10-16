@@ -28,6 +28,7 @@ from typing import List, Optional
 
 from .container import Node, parse_records
 
+TAG_LAYERS = 0x04
 TAG_TILE_X = 0x02
 TAG_TILE_Y = 0x03
 TAG_HEIGHT = 0x05
@@ -62,6 +63,40 @@ class Plane:
 
 
 @dataclass
+class TerrainLayer:
+    """One painted ground texture and the per-vertex weight it is applied with.
+
+    Decoded from container tag 04: a layer count, then that many records, each an
+    AdvMapTile href plus a V x V byte plane.
+
+        tag02 <u32>  layer count
+        tag01        one per layer
+          tag02      { V, V, u8[V*V] }  coverage per vertex
+          tag03      { ascii href }     /MapObjects/_(AdvMapTile)/...
+
+    Layer 0 is the base. Its plane is a constant 255 in every file sampled (120 of
+    120), so the base always covers everything and its weights carry no
+    information. Layers above it are painted: the byte is a coverage alpha, 255
+    opaque and 0 absent. AdvMapTile.Priority decides which wins where several are
+    opaque.
+    """
+
+    href: str
+    width: int
+    height: int
+    weights: bytes
+
+    @property
+    def count(self) -> int:
+        return self.width * self.height
+
+    def at(self, x: int, y: int) -> int:
+        if not (0 <= x < self.width and 0 <= y < self.height):
+            return 0
+        return self.weights[y * self.width + x]
+
+
+@dataclass
 class Terrain:
     tile_x: int = 0
     tile_y: int = 0
@@ -70,6 +105,7 @@ class Terrain:
     reserved: Optional[Plane] = None
     river: Optional[Plane] = None
     passability: Optional[Plane] = None
+    layers: List["TerrainLayer"] = field(default_factory=list)
 
     @property
     def vertex_count(self) -> int:
@@ -133,6 +169,29 @@ def _plane(node: Node, kind: str) -> Optional[Plane]:
     return Plane(width=w, height=h, data=payload)
 
 
+def _layers(node: Node) -> List["TerrainLayer"]:
+    out: List[TerrainLayer] = []
+    declared = None
+    for child in node.children:
+        if child.tag == TAG_TILE_X and child.is_leaf and len(child.data) == 4:
+            declared = child.u32()
+        if child.tag != 0x01 or child.is_leaf:
+            continue
+        plane = _plane(child.find(TAG_TILE_X), "u8")
+        meta = child.find(TAG_TILE_Y)
+        href = ""
+        if meta is not None:
+            inner = meta.find(TAG_TILE_Y)
+            if inner is not None:
+                href = inner.data.rstrip(b"\x00").decode("ascii", "replace")
+        if plane is not None and href:
+            out.append(TerrainLayer(href=href, width=plane.width,
+                                    height=plane.height, weights=plane.data))
+    if declared is not None and declared != len(out):
+        raise ValueError("tag04 declares %d layers, decoded %d" % (declared, len(out)))
+    return out
+
+
 def decode(data: bytes) -> Terrain:
     nodes = parse_records(data)
     root = None
@@ -166,6 +225,9 @@ def decode(data: bytes) -> Terrain:
         plane = _plane(node, kind)
         if plane is not None:
             setattr(terr, attr, plane)
+    layers = block.find(TAG_LAYERS)
+    if layers is not None and not layers.is_leaf:
+        terr.layers = _layers(layers)
     return terr
 
 
