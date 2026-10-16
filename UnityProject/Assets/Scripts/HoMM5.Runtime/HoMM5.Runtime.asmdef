@@ -2,7 +2,8 @@
     "name": "HoMM5.Runtime",
     "rootNamespace": "HoMM5",
     "references": [
-        "Unity.Nuget.Newtonsoft-Json"
+        "Unity.Nuget.Newtonsoft-Json",
+        "Unity.InputSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -11,6 +12,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "1.0.0",
+            "define": "H5_INPUT_SYSTEM"
+        }
+    ],
     "noEngineReferences": false
 }

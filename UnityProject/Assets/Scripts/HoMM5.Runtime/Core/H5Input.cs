@@ -6,10 +6,20 @@ namespace HoMM5.Core
     /// One place that talks to the input devices.
     ///
     /// Unity 6.6 marks the Input Manager as deprecated, so the code is written
-    /// against both backends and picks one at compile time from
-    /// <c>ENABLE_INPUT_SYSTEM</c>.  Switching is a Project Settings toggle
-    /// (Player ▸ Active Input Handling), not a code change -- and the default,
-    /// Input Manager, keeps working exactly as before.
+    /// against both backends and picks one at compile time.  Both conditions are
+    /// required:
+    ///
+    ///   H5_INPUT_SYSTEM      the package is present, so the asmdef reference to
+    ///                        Unity.InputSystem resolves and the types compile.
+    ///                        Set by versionDefines in HoMM5.Runtime.asmdef.
+    ///   ENABLE_INPUT_SYSTEM  the project's Active Input Handling actually feeds
+    ///                        the Input System, so devices are not null.  Unity
+    ///                        sets this project-wide, regardless of whether this
+    ///                        assembly can see the reference -- guarding on it
+    ///                        alone is what produced CS0234.
+    ///
+    /// Switching backends is a Project Settings toggle, not a code change, and
+    /// the default, Input Manager, keeps working exactly as before.
     ///
     /// Every accessor is null-safe: with the new Input System a device is null
     /// until it reports in, and dereferencing it on the first frame is a crash.
@@ -19,7 +29,7 @@ namespace HoMM5.Core
         /// <summary>WASD plus the arrow keys, as a -1..1 vector.</summary>
         public static Vector2 PanAxis()
         {
-#if ENABLE_INPUT_SYSTEM
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
             var kb = UnityEngine.InputSystem.Keyboard.current;
             if (kb == null) return Vector2.zero;
             var v = Vector2.zero;
@@ -41,7 +51,7 @@ namespace HoMM5.Core
         /// <summary>Mouse wheel, positive away from the user.</summary>
         public static float Scroll()
         {
-#if ENABLE_INPUT_SYSTEM
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
             var m = UnityEngine.InputSystem.Mouse.current;
             if (m == null) return 0f;
             // The Input System reports ~120 units per notch where the Input
@@ -54,7 +64,7 @@ namespace HoMM5.Core
 
         public static bool SelectPressed()
         {
-#if ENABLE_INPUT_SYSTEM
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
             var m = UnityEngine.InputSystem.Mouse.current;
             return m != null && m.leftButton.wasPressedThisFrame;
 #else
@@ -64,7 +74,7 @@ namespace HoMM5.Core
 
         public static bool PanDragStarted()
         {
-#if ENABLE_INPUT_SYSTEM
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
             var m = UnityEngine.InputSystem.Mouse.current;
             return m != null && m.middleButton.wasPressedThisFrame;
 #else
@@ -74,7 +84,7 @@ namespace HoMM5.Core
 
         public static bool PanDragEnded()
         {
-#if ENABLE_INPUT_SYSTEM
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
             var m = UnityEngine.InputSystem.Mouse.current;
             return m != null && m.middleButton.wasReleasedThisFrame;
 #else
@@ -85,7 +95,7 @@ namespace HoMM5.Core
         /// <summary>Pointer position in pixels, screen space, origin bottom-left.</summary>
         public static Vector3 PointerPosition()
         {
-#if ENABLE_INPUT_SYSTEM
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
             var p = UnityEngine.InputSystem.Pointer.current;
             if (p == null) return Vector3.zero;
             return p.position.ReadValue();
@@ -97,7 +107,7 @@ namespace HoMM5.Core
         /// <summary>F1, used to switch between the surface and the underground.</summary>
         public static bool FloorTogglePressed()
         {
-#if ENABLE_INPUT_SYSTEM
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
             var kb = UnityEngine.InputSystem.Keyboard.current;
             return kb != null && kb.f1Key.wasPressedThisFrame;
 #else
@@ -114,14 +124,9 @@ namespace HoMM5.Core
             get
             {
                 var es = UnityEngine.EventSystems.EventSystem.current;
-                if (es == null) return false;
-#if ENABLE_INPUT_SYSTEM
-                // With the Input System UI module the pointer id is not the
-                // mouse's; the parameterless overload resolves the current one.
-                return es.IsPointerOverGameObject();
-#else
-                return es.IsPointerOverGameObject();
-#endif
+                // Same call under both backends: the EventSystem resolves the
+                // current pointer id itself, whichever module drives it.
+                return es != null && es.IsPointerOverGameObject();
             }
         }
     }

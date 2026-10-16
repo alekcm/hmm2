@@ -155,7 +155,14 @@ namespace HoMM5
             {
                 var es = new GameObject("EventSystem");
                 es.AddComponent<UnityEngine.EventSystems.EventSystem>();
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
+                // StandaloneInputModule reads the old Input manager. With the
+                // Input System active it logs an error and swallows every click,
+                // so the map list would render but never respond.
+                es.AddComponent<UnityEngine.InputSystem.UI.InputSystemUIInputModule>();
+#else
                 es.AddComponent<UnityEngine.EventSystems.StandaloneInputModule>();
+#endif
             }
         }
 
