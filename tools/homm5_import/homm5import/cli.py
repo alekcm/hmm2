@@ -283,6 +283,71 @@ def _export_layers(args, terr, map_dir: str, plane: str, tile_db) -> None:
         fh.write(bytes(blob))
 
 
+def _round5(o):
+    """Round floats to 5 dp. Animation data does not need more, and it is the
+    difference between 153 KB and 45 KB a file once gzipped."""
+    if isinstance(o, float):
+        return round(o, 5)
+    if isinstance(o, list):
+        return [_round5(x) for x in o]
+    if isinstance(o, dict):
+        return {k: _round5(v) for k, v in o.items()}
+    return o
+
+
+def cmd_animations(args) -> int:
+    """Export the stored (uncompressed) GR2 animation files.
+
+    An animation file carries its own copy of the skeleton it animates, so this
+    yields bones, rest pose and curves in one pass. The 577 files that pack
+    their sections with Oodle1 are skipped and counted: that codec is not
+    implemented.
+    """
+    import glob
+    import gzip
+
+    from .gr2 import GR2, GR2Error, extract
+
+    files = _limited(sorted(glob.glob(os.path.join(args.data, "bin", "animations", "*"))),
+                     args.limit)
+    ok = packed = bad = 0
+    index = {}
+    for path in files:
+        uid = os.path.basename(path)
+        try:
+            with open(path, "rb") as fh:
+                g = GR2(fh.read())
+            if not g.is_stored():
+                packed += 1
+                continue
+            data = extract(g.root())
+        except (GR2Error, OSError) as exc:
+            bad += 1
+            if args.verbose:
+                print(f"  SKIP {uid}: {exc}")
+            continue
+
+        clip = data["animations"][0] if data["animations"] else {}
+        skel = data["skeletons"][0] if data["skeletons"] else {}
+        index[uid] = {
+            "source": data["source"],
+            "name": (clip.get("name") or "").split("/")[-1],
+            "duration": round(float(clip.get("duration") or 0.0), 5),
+            "timeStep": round(float(clip.get("timeStep") or 0.0), 6),
+            "bones": len(skel.get("bones") or []),
+            "tracks": len(clip.get("tracks") or []),
+        }
+        payload = json.dumps(_round5(data), separators=(",", ":")).encode("utf8")
+        with gzip.open(_out(args.out, "Animations", uid + ".json.gz"), "wb", 6) as fh:
+            fh.write(payload)
+        ok += 1
+
+    _write_json(_out(args.out, "Animations", "_index.json"), index)
+    print(f"animations: {ok} written, {packed} skipped (Oodle1-packed), "
+          f"{bad} failed (of {len(files)})")
+    return 0
+
+
 def cmd_terrain(args) -> int:
     import glob
 
@@ -347,7 +412,8 @@ def build_parser() -> argparse.ArgumentParser:
         sp.add_argument("-v", "--verbose", action="store_true")
 
     for name, fn in (("info", cmd_info), ("gamedata", cmd_gamedata), ("maps", cmd_maps),
-                     ("meshes", cmd_meshes), ("textures", cmd_textures), ("terrain", cmd_terrain)):
+                     ("meshes", cmd_meshes), ("textures", cmd_textures), ("terrain", cmd_terrain),
+                     ("animations", cmd_animations)):
         sp = sub.add_parser(name)
         common(sp)
         sp.set_defaults(func=fn)
@@ -363,7 +429,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def _all(args) -> int:
-    for fn in (cmd_gamedata, cmd_terrain, cmd_maps, cmd_meshes, cmd_textures):
+    for fn in (cmd_gamedata, cmd_terrain, cmd_maps, cmd_meshes, cmd_textures,
+               cmd_animations):
         rc = fn(args)
         if rc:
             return rc

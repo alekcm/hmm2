@@ -719,5 +719,130 @@ class MaterialExportTest(unittest.TestCase):
         self.assertGreater(checked, 100)
 
 
+class Gr2Test(unittest.TestCase):
+    """Granny GR2 reader, checked only against redundancies the data carries."""
+
+    ANIM_DIR = os.path.join(DATA, "bin", "animations")
+
+    def _files(self):
+        import glob
+        return sorted(glob.glob(os.path.join(self.ANIM_DIR, "*")))
+
+    def test_every_header_satisfies_its_own_arithmetic(self):
+        """headerSize == 88 + 44*sectionCount and fileSize == len(data). Both
+        break if sectionArrayOffset is read file-absolute instead of relative to
+        byte 32."""
+        from homm5import.gr2 import GR2, GR2Error
+        files = self._files()
+        self.assertGreater(len(files), 3000)
+        for path in files:
+            g = GR2(open(path, "rb").read())
+            self.assertEqual(g.header_size, 88 + 44 * g.section_count)
+            self.assertEqual(g.file_size, os.path.getsize(path))
+            self.assertEqual(g.version, 6)
+
+    def test_stored_and_packed_census(self):
+        """An animation file either stores everything or packs 7 of 8 sections
+        with Oodle1; there is no third shape."""
+        from homm5import.gr2 import GR2
+        stored = packed = 0
+        for path in self._files():
+            g = GR2(open(path, "rb").read())
+            if g.is_stored():
+                self.assertEqual(g.section_count, 1)
+                stored += 1
+            else:
+                # Eight sections, seven of them packed. Which one is stored
+                # varies by file, so the shape is what is asserted, not indices.
+                self.assertEqual(g.section_count, 8)
+                self.assertEqual(len(g.compressed_sections()), 7)
+                packed += 1
+        self.assertEqual(stored, 2816)
+        self.assertEqual(packed, 577)
+
+    def _extract(self, n=40):
+        from homm5import.gr2 import GR2, extract
+        out = []
+        for path in self._files():
+            g = GR2(open(path, "rb").read())
+            if not g.is_stored():
+                continue
+            out.append(extract(g.root()))
+            if len(out) >= n:
+                break
+        return out
+
+    def test_exactly_one_root_bone(self):
+        for data in self._extract():
+            for sk in data["skeletons"]:
+                roots = [b for b in sk["bones"] if b["parent"] == -1]
+                self.assertEqual(len(roots), 1, sk["name"])
+                for b in sk["bones"]:
+                    self.assertTrue(-1 <= b["parent"] < len(sk["bones"]), b["name"])
+
+    def test_curve_controls_match_knots_times_width(self):
+        """3 per knot for a position, 4 for a quaternion, 9 for scale-shear.
+        Measured over 17366 tracks in the reference library; every curve is one
+        of the three."""
+        checked = 0
+        for data in self._extract():
+            for clip in data["animations"]:
+                for t in clip["tracks"]:
+                    for key, width in (("position", 3), ("orientation", 4),
+                                       ("scaleShear", 9)):
+                        c = t[key]
+                        if not c or not c["knots"]:
+                            continue
+                        self.assertEqual(len(c["controls"]),
+                                         len(c["knots"]) * width,
+                                         "%s %s" % (t["name"], key))
+                        checked += 1
+        self.assertGreater(checked, 500)
+
+    def test_knots_lie_inside_the_clip(self):
+        for data in self._extract():
+            for clip in data["animations"]:
+                dur = clip["duration"]
+                self.assertGreater(dur, 0.0)
+                for t in clip["tracks"]:
+                    for key in ("position", "orientation", "scaleShear"):
+                        c = t[key]
+                        if not c or not c["knots"]:
+                            continue
+                        self.assertGreaterEqual(min(c["knots"]), -1e-4)
+                        self.assertLessEqual(max(c["knots"]), dur + 1e-3,
+                                             "%s %s" % (t["name"], key))
+
+    def test_tracks_address_bones_by_name(self):
+        """A track binds to a bone by name, so a clip must cover the rig it
+        animates. The guard the reference library keeps is coverage: a clip
+        tracking under half the bones is addressing some other scheme."""
+        for data in self._extract(25):
+            sk = data["skeletons"][0]
+            clip = data["animations"][0]
+            names = {b["name"] for b in sk["bones"]}
+            tracked = {t["name"] for t in clip["tracks"]}
+            self.assertGreater(len(tracked & names) / max(len(names), 1), 0.5,
+                               "%s: %d of %d bones" % (clip["name"],
+                                                       len(tracked & names),
+                                                       len(names)))
+
+    def test_the_exporter_identifies_itself(self):
+        """A type-tree reader that had gone wrong would not recover this string."""
+        from homm5import.gr2 import GR2
+        seen = 0
+        for path in self._files():
+            g = GR2(open(path, "rb").read())
+            if not g.is_stored():
+                continue
+            seen += 1
+            r = g.root()
+            self.assertEqual(r["ExporterInfo"]["ExporterName"],
+                             "Granny Standard Exporter, SDK version 2.5.0.5")
+            self.assertEqual(r["ArtToolInfo"]["FromArtToolName"], "Maya")
+            if seen >= 5:
+                break
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
