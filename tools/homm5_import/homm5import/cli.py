@@ -28,7 +28,7 @@ from .gamedata import export_all
 from .geometry import decode_file as decode_geometry
 from .gltf import geometry_to_glb
 from .localization import Localization
-from .maps import iter_map_files, load_map
+from .maps import iter_map_files, load_map, unique_map_ids
 from .terrain import decode_file as decode_terrain
 from .xdb import XDB
 
@@ -77,7 +77,8 @@ def cmd_info(args) -> int:
     print("geometries:", len(glob.glob(os.path.join(args.data, "bin/Geometries/*"))))
     print("skeletons :", len(glob.glob(os.path.join(args.data, "bin/Skeletons/*"))))
     print("animations:", len(glob.glob(os.path.join(args.data, "bin/animations/*"))))
-    print("maps      :", len(iter_map_files(xdb)))
+    print("maps      :", len(iter_map_files(xdb, only_map_descs=True)), "AdvMapDesc")
+    print("  (other .xdb under Maps/ are sounds, statics, textures and tags)")
     if loc:
         print("text files:", sum(1 for _ in loc.iter_files()))
     return 0
@@ -102,7 +103,8 @@ def cmd_gamedata(args) -> int:
 
 def cmd_maps(args) -> int:
     xdb = XDB(args.data)
-    files = _limited(sorted(iter_map_files(xdb)), args.limit)
+    files = _limited(sorted(iter_map_files(xdb, only_map_descs=True)), args.limit)
+    ids = unique_map_ids(files)
     total_objects = 0
     index = []
     for path in files:
@@ -111,7 +113,7 @@ def cmd_maps(args) -> int:
         except Exception as exc:  # a broken map must not stop the batch
             print(f"  SKIP {path}: {exc}")
             continue
-        name = md.map_id
+        name = ids.get(path) or md.map_id
         _write_json(_out(args.out, "Maps", name + ".json"), md.to_json())
         total_objects += len(md.objects)
         index.append({"id": name, "tileX": md.tile_x, "tileY": md.tile_y,

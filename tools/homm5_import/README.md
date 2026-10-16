@@ -37,7 +37,7 @@ the slow one (~15 min in pure Python for all 9258 files):
 ```bash
 python3 -m homm5import.cli gamedata -o <out>   # 1 s   game tables + localization
 python3 -m homm5import.cli terrain  -o <out>   # 14 s  293 terrain planes
-python3 -m homm5import.cli maps     -o <out>   # 17 s  1176 maps, 197903 objects
+python3 -m homm5import.cli maps     -o <out>   # 16 s  142 maps, 197936 objects
 python3 -m homm5import.cli meshes   -o <out>   # 58 s  3561 meshes
 python3 -m homm5import.cli textures -o <out>   # slow  9258 textures
 ```
@@ -85,6 +85,17 @@ which is wrong in one specific and important way: a plane of constant bytes
 parses cleanly as records. An all-water map's height plane is all zeros, so both
 `terrain._plane` and `geometry.decode_group` read the raw payload and validate by
 *length* instead of trusting the heuristic.
+
+### Which files are maps
+
+`data/Maps` holds 1176 `.xdb` files, of which only **142 are `AdvMapDesc` maps**.
+The rest are sounds (466), static object records (243), textures (150),
+`AdvMapDescTag` files (62), heroes, scripts, tents and fog volumes. Treating
+every `.xdb` there as a map produces 1034 zero-tile empty maps -- and worse,
+`Maps/Multiplayer/S1` and `Maps/SingleMissions/S1` both reduce to the id `S1`,
+so one silently overwrites the other on disk. `maps.is_map_desc` filters on the
+root tag and `maps.unique_map_ids` prefixes colliding ids with their parent
+folder.
 
 ### Terrain planes
 
@@ -160,7 +171,7 @@ preserve through a PNG round trip anyway.
 cd tools/homm5_import && python3 -m unittest discover -s tests
 ```
 
-31 tests, ~40 s, all against the real shipped data. They are cross-checks
+34 tests, ~46 s, all against the real shipped data. They are cross-checks
 between independent sources rather than golden files:
 
 - decoded positions fit the bounding box the geometry's own `.xdb` declares
@@ -173,6 +184,8 @@ between independent sources rather than golden files:
 - `BoatArena` is 100% ground flag 0 at height 0.0, as the format notes claim
 - a creature's localized name equals the file its `CreatureVisual` points at
 - a creature's geometry UID names a file that exists in `bin/Geometries`
+- only `AdvMapDesc` roots count as maps (142 of the 1176 `.xdb` under
+  `data/Maps`), and every map gets a distinct id
 
 ## Not imported
 

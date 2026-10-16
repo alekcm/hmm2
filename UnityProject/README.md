@@ -33,7 +33,7 @@ there is nothing to lose.
 | left click | select a map object |
 | F1 | switch surface / underground |
 
-The map list on the right loads any of the 1176 imported maps.
+The map list on the right loads any of the 142 imported maps.
 
 ## Layout
 
@@ -84,7 +84,7 @@ models, so `MeshCache` hands out the same `Mesh` to every object and
 
 ## What this is
 
-A **map viewer over the real game data** — the terrain, the 197903 placed
+A **map viewer over the real game data** — the terrain, the 197936 placed
 objects, the creature and artifact tables, and the Russian localization, all
 rendered from what the shipped engine reads. Selecting a monster shows its
 shipped stats because they are its shipped stats.

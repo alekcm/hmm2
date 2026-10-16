@@ -73,6 +73,48 @@ def map_id(path: str) -> str:
     return base
 
 
+def is_map_desc(path: str) -> bool:
+    """Only ``AdvMapDesc`` files are maps.
+
+    ``data/Maps`` also holds MapScript records, ``map-tag`` files and thumbnail
+    descriptors, which share the folder and would otherwise be imported as
+    zero-sized maps.
+    """
+    try:
+        with open(path, "rb") as fh:
+            head = fh.read(4096)
+    except OSError:
+        return False
+    m = re.search(rb"<(\w+)[\s>]", head.split(b"?>", 1)[-1])
+    return bool(m) and m.group(1) == b"AdvMapDesc"
+
+
+def unique_map_ids(paths) -> Dict[str, str]:
+    """Assign each map a distinct id.
+
+    ``Maps/Multiplayer/S1`` and ``Maps/SingleMissions/S1`` both reduce to ``S1``,
+    so collisions get their parent folder as a prefix.  Without this the second
+    of a pair silently overwrites the first on disk.
+    """
+    from collections import Counter
+
+    base = {p: map_id(p) for p in paths}
+    counts = Counter(base.values())
+    out: Dict[str, str] = {}
+    for p in paths:
+        name = base[p]
+        if counts[name] > 1:
+            parent = os.path.basename(os.path.dirname(p))
+            candidate = f"{parent}_{name}" if parent and parent != name else name
+            # Still ambiguous: fall back to the path, which is unique by construction.
+            if candidate in out.values() and out.get(p) != candidate:
+                rel = os.path.normpath(os.path.dirname(p)).replace(os.sep, "_")
+                candidate = f"{rel}_{name}".lstrip("_")
+            name = candidate
+        out[p] = name
+    return out
+
+
 class MapDesc:
     def __init__(self, source: str, tile_x: int, tile_y: int):
         self.map_id = map_id(source)
@@ -155,9 +197,14 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
     objects_node = root.find("objects")
     if objects_node is None:
         return md
+    base_href = xdb.href_from_path(path)
     for item in xdb.items(objects_node):
-        inner = list(item)[0] if len(item) else item
-        if inner.tag not in OBJECT_TYPES:
+        # Objects are either inline children or external references -- the duel
+        # preset maps use the second form for every object they hold.
+        inner = list(item)[0] if len(item) else None
+        if inner is None:
+            inner = xdb.resolve_field(item, base_href)
+        if inner is None or inner.tag not in OBJECT_TYPES:
             continue
         pos = xdb.vec3(inner.find("Pos"))
         obj = MapObject(
@@ -211,11 +258,13 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
     return md
 
 
-def iter_map_files(xdb: XDB) -> List[str]:
+def iter_map_files(xdb: XDB, only_map_descs: bool = False) -> List[str]:
     """Every ``AdvMapDesc`` file: scenario, multiplayer, single missions, arenas."""
     out = []
     for sub in ("Maps/Scenario", "Maps/Multiplayer", "Maps/SingleMissions",
                 "Maps/CombatArenas", "Maps/DuelMode"):
         for p in xdb.iter_files(sub):
+            if only_map_descs and not is_map_desc(p):
+                continue
             out.append(p)
     return out

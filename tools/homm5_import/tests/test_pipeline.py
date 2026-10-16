@@ -465,6 +465,52 @@ class MapTest(unittest.TestCase):
         from homm5import.maps import map_id
         self.assertEqual(map_id(path), "A2C1M5")
 
+    def test_only_advmapdesc_roots_are_maps(self):
+        """data/Maps holds 1176 .xdb files; only 142 are maps.
+
+        The rest are sounds, static object records, textures, AdvMapDescTag
+        files, heroes, scripts, tents and fog volumes.  Treating every .xdb
+        there as a map yields a thousand zero-tile empty maps.
+        """
+        from homm5import.maps import is_map_desc, iter_map_files
+        xdb = XDB(DATA)
+        everything = iter_map_files(xdb)
+        maps = [p for p in everything if is_map_desc(p)]
+        self.assertGreater(len(everything), 1000)
+        self.assertGreater(len(maps), 100)
+        self.assertLess(len(maps), len(everything) // 4,
+                        "most files under data/Maps are not maps")
+        for path in maps:
+            with open(path, "rb") as fh:
+                head = fh.read(200)
+            self.assertIn(b"<AdvMapDesc", head, path)
+
+    def test_every_map_gets_a_distinct_id(self):
+        """Maps/Multiplayer/S1 and Maps/SingleMissions/S1 both reduce to 'S1'.
+
+        Without disambiguation the second overwrites the first on disk.
+        """
+        from homm5import.maps import is_map_desc, iter_map_files, unique_map_ids
+        xdb = XDB(DATA)
+        maps = [p for p in iter_map_files(xdb, only_map_descs=True)]
+        ids = unique_map_ids(maps)
+        self.assertEqual(len(set(ids.values())), len(maps),
+                         "map ids collide, files would overwrite each other")
+
+    def test_no_imported_map_is_empty(self):
+        """A real map has tiles; a mis-detected one comes out 0x0."""
+        from homm5import.maps import iter_map_files
+        xdb = XDB(DATA)
+        empty = 0
+        checked = 0
+        for path in iter_map_files(xdb, only_map_descs=True):
+            md = load_map(xdb, path, resolve_models=False)
+            checked += 1
+            if md.tile_x == 0 or not md.objects:
+                empty += 1
+        self.assertGreater(checked, 100)
+        self.assertEqual(empty, 0, f"{empty} maps came out empty")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

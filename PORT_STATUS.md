@@ -29,7 +29,7 @@ Standard library only, no dependencies. Reads the shipped formats:
 | `.dds` (9258) | DXT1/3/4/5, BGRA, RGB565 | **decoded, 9258/9258** |
 | `texts/` (15860) | UTF-16 LE localization | **decoded** |
 | `GameMechanics` | creatures, spells, artifacts, buildings | **decoded** |
-| `AdvMapDesc` (1176) | map objects | **decoded, 197903 objects** |
+| `AdvMapDesc` (142) | map objects | **decoded, 197936 objects** |
 | `bin/Skeletons` (2242) | Granny GR2, Oodle-compressed | **not decoded** |
 | `bin/animations` (3393) | Granny GR2, Oodle-compressed | **not decoded** |
 | `bin/effects` (1919) | particle systems | **not decoded** |
@@ -41,13 +41,13 @@ Standard library only, no dependencies. Reads the shipped formats:
 
 `6000.6.6f1`, built-in render pipeline, two assemblies, no dependency on any
 glTF package. Adventure-map viewer: chunked terrain with cliff walls, water,
-197903 placed objects, click-to-select with the shipped stats, a map list for all
-1176 maps, surface/underground switch.
+197936 placed objects, click-to-select with the shipped stats, a map list for all
+142 maps, surface/underground switch.
 
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **31 tests,
-all passing, ~40 s**, every one against the real shipped data. These are
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **34 tests,
+all passing, ~46 s**, every one against the real shipped data. These are
 cross-checks between independent sources, not golden files:
 
 - **Container grammar** — every geometry file ends in the 6-byte marker
@@ -65,6 +65,9 @@ cross-checks between independent sources, not golden files:
   map descriptor's `<TileX>`; height is `V²` f32, river is `(2V−1)²`; the flat
   arena sits at 2.0 (not sea level); `BoatArena` is 100% ground flag 0 at height
   0.0.
+- **Map selection** — only `AdvMapDesc` roots are maps: 142 of the 1176 `.xdb`
+  under `data/Maps`, the rest being sounds (466), statics (243), textures (150)
+  and `AdvMapDescTag` files (62). Every map gets a distinct id.
 - **Data integrity** — a creature's localized name equals the file its
   `CreatureVisual` points at; its geometry UID names a real file in
   `bin/Geometries`; `ANGEL_WINGS` comes out `ARTF_CLASS_RELIC` / `SHOULDERS` /
@@ -77,7 +80,7 @@ Conversion counts actually produced in this repository:
 ```
 gamedata   196 creatures, 321 spells, 97 artifacts, 328 town buildings, 15860 strings
 terrain    293 planes, 0 failed
-maps       1176 maps, 197903 objects
+maps       142 maps, 197936 objects
 meshes     3561 .glb, 6 skipped (empty), 320 MB
 textures   9258 .png, 0 failed
 ```
