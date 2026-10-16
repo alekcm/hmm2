@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001626">
+	<Materials>
+		<Item href="Order_of_paladins_u2r0-Paladins.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Order_of_paladins_u2r0-Paladins.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Order_of_paladins_u2r0-Stable_lambert10.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Order_of_paladins_u2r0-Fortress_Houses.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Order_of_paladins_u2r0-Fortress_Houses.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Order_of_paladins_u2r0-Stable_lambert10.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_718cbed7-bfbc-4b66-8a97-22e6ea2eec64">
+			<Material ObjectRecordID="1004098">
+				<Texture href="/Textures/auto-imported_______320/Town/NewHaven/Stable_u1r0/JoustingRange_Pod.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="Order_of_paladins_u2r0-geom.xdb#xpointer(/Geometry)"/>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

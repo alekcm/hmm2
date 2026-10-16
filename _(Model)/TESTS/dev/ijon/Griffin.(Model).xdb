@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1895">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_fcbaa3dd-5c9c-46b6-92c7-3dd6f5bfc5ab">
+			<Material ObjectRecordID="2702">
+				<Texture href="/Textures/auto-imported_______320/dev/Test/Griffin/Griffon1.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_946c2349-0ca1-404c-a9e0-23b6d52cb0f3">
+		<Skeleton ObjectRecordID="20">
+			<SrcName href="/models/Creatures/Castle/Griffin.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>4B733897-F522-4DCF-B843-D2B6E4DED0A0</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b643690d-bbef-4685-bae4-b216e95b3d7e">
+		<Geometry ObjectRecordID="1349">
+			<SrcName href="/models/Creatures/Castle/Griffin.mb"/>
+			<uid>58105664-8BDB-4E16-AA70-32231BC4890B</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.2042</x>
+				<y>3.29919</y>
+				<z>4.24336</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.287274</y>
+				<z>2.12168</z>
+			</Center>
+			<BestFitPoint>
+				<x>5.30505e-008</x>
+				<y>0.594854</y>
+				<z>4.21627</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_df99f249-a9aa-4a90-8a2a-69d63be2c588">
+				<AIGeometry ObjectRecordID="18">
+					<SrcName href="/models/Creatures/Castle/Griffin.mb"/>
+					<RootMesh>GriffinAI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.204369</y>
+						<z>2.16741</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.801411</x>
+						<y>1.30437</y>
+						<z>2.16741</z>
+					</AABBHalfSize>
+					<uid>AEE44CC7-2D26-453A-A4AE-17CEE61F82C5</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Griffin_meshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

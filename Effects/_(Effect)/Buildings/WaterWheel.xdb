@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="104">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_9bbf6ebc-2925-4f70-abf4-de247551573a">
+			<ParticleInstance ObjectRecordID="119">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_55e240c5-70c6-420f-a42e-55dba9262727">
+					<Particle ObjectRecordID="42">
+						<SrcName href="/Effects/Buildings/WaterWheel.mb"/>
+						<ExportPrefix>WaterWheel</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>6f7a9b40c22a073f9009b9bd261ba740881a1d401c036840f82b3640</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>1088349D-4A6C-476A-B547-060572686376</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>5</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Water/Water00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water01.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

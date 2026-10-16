@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shot>
+	<StartEffect href="/Effects/_(Effect)/Characters/Heroes/Biara/Shot/SuccubusShot_start.xdb#xpointer(/Effect)"/>
+	<RotateStartEffectToTarget>false</RotateStartEffectToTarget>
+	<MissileShot>
+		<Model/>
+		<Effect/>
+		<Speed>0.05</Speed>
+		<Height>0</Height>
+		<ForwardOffset>0</ForwardOffset>
+		<StartZOffset>0</StartZOffset>
+		<RightOffset>0</RightOffset>
+	</MissileShot>
+	<LineShot>
+		<Effects>
+			<Item href="/Effects/_(Effect)/Characters/Heroes/Biara/Shot/SuccubusShot01.xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Characters/Heroes/Biara/Shot/SuccubusShot02.xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Characters/Heroes/Biara/Shot/SuccubusShot03.xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Characters/Heroes/Biara/Shot/SuccubusShot04.xdb#xpointer(/Effect)"/>
+		</Effects>
+		<SkipSegmentsNumber>1</SkipSegmentsNumber>
+		<SegmentLength>2</SegmentLength>
+		<StepDelay>40</StepDelay>
+		<EffectLifeTime>700</EffectLifeTime>
+	</LineShot>
+	<StrikeDelay>0</StrikeDelay>
+	<StrikeEffectID>SPELL_NONE</StrikeEffectID>
+	<DelayBetweenChains>250</DelayBetweenChains>
+	<StrikeVisualEffect/>
+</Shot>

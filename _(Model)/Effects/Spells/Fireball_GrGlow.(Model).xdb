@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5994">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Fireball_GrGlow/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Fireball_GrGlow/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_391736a9-e4af-45ea-9cc6-9759a9e8ff39">
+			<Material ObjectRecordID="9793">
+				<Texture href="/Textures/auto-imported_______320/Effects/Spells/Fireball_GrGlow/FireballGroundGlow.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>10</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_6f61f6c5-c534-42bf-8d70-f2c1a47f3628">
+		<Skeleton ObjectRecordID="649">
+			<SrcName href="/Effects/Spells/FireballExplosion.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>441CA279-5E24-4BBD-B2CB-3DAA17BDCFF4</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_5ada8dfe-a882-4a5c-b07c-735ffb7408da">
+		<Geometry ObjectRecordID="5184">
+			<SrcName href="/Effects/Spells/FireballExplosion.mb"/>
+			<uid>F32151C2-EA21-46E6-9ACC-099C4913BACC</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>12</x>
+				<y>12</y>
+				<z>0.181299</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>4.76837e-007</y>
+				<z>0.216993</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.09163e-008</x>
+				<y>3.2749e-008</y>
+				<z>0.262308</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Wave02Shape</Item>
+				<Item>Wave01Shape</Item>
+				<Item>GlowShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

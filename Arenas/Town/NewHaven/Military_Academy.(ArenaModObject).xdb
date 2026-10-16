@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject ObjectRecordID="1000216">
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>Military_Academy</Name>
+	<DefUpgLevel>1</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Military_Academy_u1r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Archer_Flag01.xdb#xpointer(/Effect)"/>
+							<Locator>MilitaryAcademy_loc01</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Archer_Flag02.xdb#xpointer(/Effect)"/>
+							<Locator>MilitaryAcademy_loc02</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barrack_Flag01.xdb#xpointer(/Effect)"/>
+							<Locator>MilitaryAcademy_loc03</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barrack_Flag02.xdb#xpointer(/Effect)"/>
+							<Locator>MilitaryAcademy_loc04</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag1.xdb#xpointer(/Effect)"/>
+							<Locator>MilitaryAcademy_loc05</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

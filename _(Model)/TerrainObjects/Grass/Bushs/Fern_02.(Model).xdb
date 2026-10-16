@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6686">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_1ca8e979-3ef5-4b76-aa73-8cdb19f7b24e">
+			<Material ObjectRecordID="13720">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Bushs/Fern_02/fern02.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>true</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_3379ba35-828b-4757-b4cf-c6ef87b6bf5b">
+		<Skeleton ObjectRecordID="1035">
+			<SrcName href="/models/TerrainObjects/Grass/Bushs/fern_02.mb"/>
+			<RootJoint>fern_02</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>7DD87A3C-858E-4C15-8031-AB61882FCED6</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_6284b21e-5128-4659-b887-c6fa700c49da">
+		<Geometry ObjectRecordID="5873">
+			<SrcName href="/models/TerrainObjects/Grass/Bushs/fern_02.mb"/>
+			<uid>2626EEF9-46F5-45A7-8332-572B52FFF8AE</uid>
+			<RootMesh>fern_02</RootMesh>
+			<RootJoint>fern_02</RootJoint>
+			<Size>
+				<x>2.79726</x>
+				<y>2.22319</y>
+				<z>1.11975</z>
+			</Size>
+			<Center>
+				<x>-0.0058291</x>
+				<y>0.0302502</y>
+				<z>0.498509</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.130374</x>
+				<y>0.153427</y>
+				<z>0.602546</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>fern_0Shape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>1</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

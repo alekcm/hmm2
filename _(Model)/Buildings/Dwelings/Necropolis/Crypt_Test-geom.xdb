@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="1001805">
+	<SrcName href="/models/Buildings/FPP2/Dwellings/Necropolis/Crypt.mb"/>
+	<uid>1E2B68A1-EA8E-45E3-8E05-81191A0D4A4C</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>3.93585</x>
+		<y>4.18854</y>
+		<z>4.56748</z>
+	</Size>
+	<Center>
+		<x>1</x>
+		<y>1</y>
+		<z>2.28567</z>
+	</Center>
+	<BestFitPoint>
+		<x>0.998598</x>
+		<y>0.999963</y>
+		<z>4.2564</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+		<w>1</w>
+	</Dir>
+	<AIGeometry href="#n:inline(AIGeometry)" id="item_c424d886-32f0-47e9-842d-62f5170879e3">
+		<AIGeometry ObjectRecordID="1000772">
+			<SrcName href="/models/Buildings/FPP2/Dwellings/Necropolis/Crypt.mb"/>
+			<RootMesh>AI</RootMesh>
+			<RootJoint/>
+			<Volume>0</Volume>
+			<SolidPart>0</SolidPart>
+			<AABBCenter>
+				<x>0.992717</x>
+				<y>0.974318</y>
+				<z>2.10919</z>
+			</AABBCenter>
+			<AABBHalfSize>
+				<x>1.78082</x>
+				<y>1.9727</y>
+				<z>2.17813</z>
+			</AABBHalfSize>
+			<uid>67540CC3-3760-403B-AA91-44DC8A825CF1</uid>
+		</AIGeometry>
+	</AIGeometry>
+	<NumMeshes>1</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Crypt_Shape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

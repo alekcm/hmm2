@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="10">
+	<ExpScene href="/location/testlight/testlight.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>178E3ADC-BD03-48DC-B97D-DBA47215D4EF</uid>
+	<objects/>
+	<lights>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>-1.58737</x>
+				<y>10.856</y>
+				<z>-5.63131</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>1</y>
+				<z>1</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>1</Radius>
+		</Item>
+	</lights>
+	<effects/>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</Pos>
+		<Rot>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</Rot>
+		<Rod>40</Rod>
+		<FOV>54</FOV>
+		<ClipDistanceMin>1</ClipDistanceMin>
+		<ClipDistanceMax>100</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound/>
+	<Music/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Day_light_town.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model/>
+		<AnimSet/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras/>
+	<CameraLimits/>
+	<CameraLimitsSet/>
+</ArenaDesc>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapDwellingShared>
+	<Model href="/_(Model)/Buildings/Dwelings/Orcs/OrcsDwelling_03.xdb#xpointer(/Model)"/>
+	<AnimSet/>
+	<blockedTiles>
+		<Item>
+			<x>-1</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</blockedTiles>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>-1</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect href="/Effects/_(Effect)/Buildings/Dwellings/Orcs/T3_Dwelling.(Effect).xdb#xpointer(/Effect)"/>
+	<EffectWhenOwned href="/Effects/_(Effect)/Buildings/Dwellings/Orcs/T3_Dwelling.(Effect).xdb#xpointer(/Effect)"/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Dwellings/StrongholdWarriors/Name.txt"/>
+		<Item href="/Text/Game/Dwellings/StrongholdWarriors/Description.txt"/>
+		<Item href="/Text/Game/Dwellings/StrongholdWarriors/FirstVisit.txt"/>
+		<Item href="/Text/Game/Dwellings/StrongholdWarriors/SecondVisit.txt"/>
+		<Item href="/Text/Game/Dwellings/StrongholdWarriors/FirstVisitNoHire.txt"/>
+		<Item href="/Text/Game/Dwellings/StrongholdWarriors/SecondVisitNoHire.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128 href="/UI/H5A2/Icons/Adv_Buildings/Dwelling_03.(Texture).xdb#xpointer(/Texture)"/>
+	<Type>BUILDING_STRONGHOLD_WARRIORS</Type>
+	<guards/>
+	<creatures>
+		<Item>CREATURE_ORC_WARRIOR</Item>
+	</creatures>
+	<RandomType>DWELLING_TYPE_SPECIFIC</RandomType>
+</AdvMapDwellingShared>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A2/Effects/Spells/Shout_of_Many/Shout_of_Many_Explosion.mb"/>
+	<uid>04DF5317-7911-4830-A0D1-E62AADA7C6A5</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>1e-012</x>
+		<y>1e-012</y>
+		<z>2.22045e-028</z>
+	</Size>
+	<Center>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Explosion-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>1</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>pPlaneShape1</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

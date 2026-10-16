@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="9">
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="/_(BasicSkelAnim)/TESTS______4714/dev/ijon/royal-griffin/idle00.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move</Kind>
+			<Anim href="/_(BasicSkelAnim)/TESTS______4714/dev/ijon/royal-griffin/move.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>attack</Kind>
+			<Anim href="/_(BasicSkelAnim)/TESTS______4714/dev/ijon/royal-griffin/attack.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>hit</Kind>
+			<Anim href="/_(BasicSkelAnim)/TESTS______4714/dev/ijon/royal-griffin/hit.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>death</Kind>
+			<Anim href="/_(BasicSkelAnim)/TESTS______4714/dev/ijon/royal-griffin/death.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>specability1</Kind>
+			<Anim href="/_(BasicSkelAnim)/TESTS______4714/dev/ijon/royal-griffin/specability1.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>specability2</Kind>
+			<Anim href="/_(BasicSkelAnim)/TESTS______4714/dev/ijon/royal-griffin/specability2.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Creatures/Castle/RoyalGriffin.mb"/>
+	<ExpSrcClipFolder href="/Animations/Creatures/RoyalGriffin/Clip/"/>
+	<ExpRootTransform>Griffon2_100_Griffon_Global</ExpRootTransform>
+</AnimSet>

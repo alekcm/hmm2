@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000505">
+	<Materials>
+		<Item href="Giant_LOD-Giant_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c1d4a66c-05c0-4939-8872-da2f1053189e">
+		<Skeleton ObjectRecordID="1000108">
+			<SrcName href="/models/Creatures/Academy/Giant_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>9215C4C4-E2AD-4D1F-A9A3-F64D4CA33F7D</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_f8068ef4-2210-4075-b82a-8e46050f8d26">
+		<Geometry ObjectRecordID="1000297">
+			<SrcName href="/models/Creatures/Academy/Giant_LOD.mb"/>
+			<uid>98DB7555-8B36-4FD6-B23A-3A953B0847A1</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4.72153</x>
+				<y>0.969431</y>
+				<z>4.74488</z>
+			</Size>
+			<Center>
+				<x>-1.19209e-007</x>
+				<y>-0.056809</y>
+				<z>2.37094</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00424139</x>
+				<y>0.0719178</y>
+				<z>4.59581</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_fca3f8f7-597a-410e-b0fc-b6f745da1321">
+				<AIGeometry ObjectRecordID="1000100">
+					<SrcName href="/models/Creatures/Academy/Giant_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.082227</y>
+						<z>2.38937</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.37188</x>
+						<y>0.669147</y>
+						<z>2.41443</z>
+					</AABBHalfSize>
+					<uid>363361EB-9D2D-46CE-A1AD-7ADA6AFB3F90</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

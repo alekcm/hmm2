@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000192">
+	<Instances>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Rampart/TownHall/Big_Rune.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Rampart/TownHall/Leaf01.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Rampart/TownHall/tail_01.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="#n:inline(ParticleInstance)" id="item_b9a95844-fba1-4c4a-af12-9c285e686a74">
+			<ParticleInstance ObjectRecordID="1000217">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_b04cd3a1-2397-4819-9549-788ef07d4d4a">
+					<Particle ObjectRecordID="1000185">
+						<SrcName href="/Effects/Towns/Rampart/TownHall.mb"/>
+						<ExportPrefix>tail_02</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>b3b73ac093359e3fb69c4abf33c9ab40868f953fa194a340bc2c933f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>D8EED78A-FEBC-4795-9F95-143E69269B51</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>8</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="/Effects/_(ModelInstance)/Effects/Towns/Rampart/GreenRing.xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

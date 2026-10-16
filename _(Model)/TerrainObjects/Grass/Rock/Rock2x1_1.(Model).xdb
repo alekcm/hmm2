@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1875">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_bee7fa64-b25a-42ca-b9e1-f47a94c9997c">
+			<Material ObjectRecordID="14879">
+				<Texture href="/Textures/auto-imported_______320/Grass/Rock/Rock1x1_1/Rocks.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_48d6f960-bef7-4893-baa2-34881de0827a">
+		<Skeleton ObjectRecordID="1145">
+			<SrcName href="/models/TerrainObjects/Grass/Rocks/Rock2x1_1.mb"/>
+			<RootJoint>rock2x1_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>F7314DAD-AF80-4884-92E4-C1524F61DBD4</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_bf4b88b9-33d8-4b3b-8ef8-7be1fdbb1a3b">
+		<Geometry ObjectRecordID="1334">
+			<SrcName href="/models/TerrainObjects/Grass/Rocks/Rock2x1_1.mb"/>
+			<uid>3F5534EA-10E7-47AF-8A18-0120C8EF682C</uid>
+			<RootMesh>rock2x1_1</RootMesh>
+			<RootJoint>rock2x1_1</RootJoint>
+			<Size>
+				<x>3.64904</x>
+				<y>1.96336</y>
+				<z>0.956748</z>
+			</Size>
+			<Center>
+				<x>-1.02442</x>
+				<y>-0.00751305</y>
+				<z>0.478374</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.74069</x>
+				<y>0.0398587</y>
+				<z>0.621593</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>rock2x1_1Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

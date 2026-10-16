@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001390">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_aba19ef1-b767-4030-ad14-d6d3c0676e0a">
+			<Material ObjectRecordID="1002627">
+				<Texture href="WaterElemental-WaterElemental_add.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>false</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="WaterElemental_body.xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_56dc05c0-3d2c-43c4-8b6b-3f8d6dc8bdfe">
+			<Material ObjectRecordID="1002629">
+				<Texture href="WaterElemental-WaterElemental_head.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_73bb3b70-8264-41aa-a3dd-418f9f7638f3">
+		<Skeleton ObjectRecordID="1000323">
+			<SrcName href="/models/Creatures/Neutral/WaterElemental.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>6DFDD578-9C5E-4A70-AC02-3BCC69CFEE37</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_5dc01303-0e7d-414d-aa9b-8462876ad7d0">
+		<Geometry ObjectRecordID="1001171">
+			<SrcName href="/models/Creatures/Neutral/WaterElemental.mb"/>
+			<uid>DED67957-F67E-41AE-875F-95CAAC250B3F</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.53775</x>
+				<y>1.99576</y>
+				<z>2.69535</z>
+			</Size>
+			<Center>
+				<x>-0.0115235</x>
+				<y>-0.177699</y>
+				<z>1.34767</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0118949</x>
+				<y>-0.27156</y>
+				<z>2.54705</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_87020392-2a84-4277-a4b6-2e46f6a9fdd9">
+				<AIGeometry ObjectRecordID="1000558">
+					<SrcName href="/models/Creatures/Neutral/WaterElemental.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.109358</y>
+						<z>1.35788</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.5</x>
+						<y>1.05253</y>
+						<z>1.37495</z>
+					</AABBHalfSize>
+					<uid>AB8DA6BD-9FA1-4061-9190-D4D920F03999</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>3</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

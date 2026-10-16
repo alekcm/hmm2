@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Table_BonusTypeDesc_Bonus>
+	<objects>
+		<Item>
+			<ID>E_BONUS_NONE</ID>
+			<obj>
+				<NameFileRef href="Bonus_NoBonus.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>E_BONUS_ARTIFACT</ID>
+			<obj>
+				<NameFileRef href="Bonus_Artifact.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>E_BONUS_CREATURE</ID>
+			<obj>
+				<NameFileRef href="Bonus_Creatures.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>E_BONUS_RESOURCE</ID>
+			<obj>
+				<NameFileRef href="Bonus_Resources.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>E_BONUS_SPELL</ID>
+			<obj>
+				<NameFileRef href="Bonus_Spell.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>E_BONUS_BUILDING</ID>
+			<obj>
+				<NameFileRef href="Bonus_TownBuilding.txt"/>
+			</obj>
+		</Item>
+	</objects>
+</Table_BonusTypeDesc_Bonus>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3760">
+	<Materials>
+		<Item href="Griffin_LOD-Griffin_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_db3e7131-900b-45ab-8407-3af6f1a1b7f1">
+		<Skeleton ObjectRecordID="238">
+			<SrcName href="/models/Creatures/Castle/Griffin_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>55C65E0F-05DA-496C-8B82-E07E3BEAE2BE</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_4c028a6a-c51b-4ecd-b170-a6bd7aa45b8a">
+		<Geometry ObjectRecordID="3203">
+			<SrcName href="/models/Creatures/Castle/Griffin_LOD.mb"/>
+			<uid>4E048C4E-8B17-4A28-87D5-50F659228B5A</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.3477</x>
+				<y>3.33442</y>
+				<z>4.24336</z>
+			</Size>
+			<Center>
+				<x>2.98023e-008</x>
+				<y>0.269658</y>
+				<z>2.12168</z>
+			</Center>
+			<BestFitPoint>
+				<x>-2.62376e-007</x>
+				<y>0.583391</y>
+				<z>4.24277</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_c37c7e2b-461d-4dde-b117-ce5e1e4e522e">
+				<AIGeometry ObjectRecordID="106">
+					<SrcName href="/models/Creatures/Castle/Griffin_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.164359</y>
+						<z>0.900441</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.801411</x>
+						<y>1.26436</y>
+						<z>0.900441</z>
+					</AABBHalfSize>
+					<uid>5503780F-F4AC-499F-9B0B-51236C073EC1</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Griffin_meshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

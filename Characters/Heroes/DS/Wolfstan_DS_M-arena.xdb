@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="Wolfstan_DS_M-arena-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move</Kind>
+			<Anim href="Wolfstan_DS_M-arena-move.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>spneutral</Kind>
+			<Anim href="Wolfstan_DS_M-arena-spneutral.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle_sad</Kind>
+			<Anim href="Wolfstan_DS_M-arena-idle_sad.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>spbellicose</Kind>
+			<Anim href="Wolfstan_DS_M-arena-spbellicose.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>spsad</Kind>
+			<Anim href="Wolfstan_DS_M-arena-spsad.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle01</Kind>
+			<Anim href="Wolfstan_DS_M-arena-idle01.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A1/Models/Heroes/WolfStan/Wolfstan_DS_M.mb"/>
+	<ExpSrcClipFolder href="/H5A1/Animations/Dialogs/Wolfstan/Wolfstan_DS_M/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

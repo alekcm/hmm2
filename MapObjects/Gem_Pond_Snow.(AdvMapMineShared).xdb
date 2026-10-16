@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapMineShared>
+	<Model href="/_(Model)/Buildings/Snowed_Mines/GemPondDune_Snow.(Model).xdb#xpointer(/Model)"/>
+	<AnimSet href="/_(AnimSet)/Mines/Goldmine.(AnimSet).xdb#xpointer(/AnimSet)"/>
+	<blockedTiles>
+		<Item>
+			<x>-1</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>1</y>
+		</Item>
+	</blockedTiles>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>1</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect/>
+	<EffectWhenOwned href="/Effects/_(Effect)/Buildings/Mines/GemPondDune_captured.xdb#xpointer(/Effect)"/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Mines/GemPond/Name.txt"/>
+		<Item href="/Text/Game/Mines/GemPond/Description.txt"/>
+		<Item href="/Text/Game/Mines/GemPond/FLYOFF_Captured.txt"/>
+		<Item href="/Text/Game/Mines/MinesCommon/AlreadyCaptured.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect href="/Sounds/_(Sound)/Interface/Ingame/Interact.xdb#xpointer(/Sound)"/>
+	<flybyMessageFileRef href="/Text/Game/Mines/GemPond/Flyby.txt"/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>BUILDING_GEM_POND</Type>
+</AdvMapMineShared>

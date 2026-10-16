@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6166">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_944fc51f-4c4d-4e3c-adb7-1449d8069f87">
+			<Material ObjectRecordID="10334">
+				<Texture href="/Textures/auto-imported_______320/dev/Grass/Bushs/Bush02/bush02.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>-0.7</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_33800443-6558-498d-b2b4-abc02b6cead1">
+			<Material ObjectRecordID="10335">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Bushs/Bush07/Tree03.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>-0.7</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_23f8cf3f-c267-43b3-b22b-272f2b02a1a2">
+		<Skeleton ObjectRecordID="709">
+			<SrcName href="/models/TerrainObjects/Grass/Bushs/bush07.mb"/>
+			<RootJoint>Bush07</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>2D59EC1A-424F-4E01-BFE8-A02E54BA4F22</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_9a48e5e5-de64-4b55-98c3-07d27248d641">
+		<Geometry ObjectRecordID="5356">
+			<SrcName href="/models/TerrainObjects/Grass/Bushs/bush07.mb"/>
+			<uid>51F38D2E-7727-44B0-BF39-917E1F818639</uid>
+			<RootMesh>Bush07</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2.48733</x>
+				<y>2.0789</y>
+				<z>1.83456</z>
+			</Size>
+			<Center>
+				<x>-0.00157589</x>
+				<y>0.00242388</y>
+				<z>0.885745</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.023276</x>
+				<y>-0.00693389</y>
+				<z>1.68855</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Bush0Shape7</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

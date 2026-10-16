@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TableGhostSkill ObjectRecordID="-1">
+	<objects>
+		<Item>
+			<ID>GHOST_SKILL_DEVOUR</ID>
+			<obj>
+				<Name href="DevourName.txt"/>
+				<Description href="DevourDesc.txt"/>
+				<Texture href="DevourTex.(Texture).xdb#xpointer(/Texture)"/>
+				<Effect href="/Effects/_(Effect)/Modes/Ghost/Guard.(Effect).xdb#xpointer(/Effect)"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_SKILL_HAUNT</ID>
+			<obj>
+				<Name href="HauntName.txt"/>
+				<Description href="HauntDesc.txt"/>
+				<Texture href="HauntTex.(Texture).xdb#xpointer(/Texture)"/>
+				<Effect href="/Effects/_(Effect)/Modes/Ghost/Haunt.(Effect).xdb#xpointer(/Effect)"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_SKILL_POSSESS</ID>
+			<obj>
+				<Name href="PossessName.txt"/>
+				<Description href="PossessDesc.txt"/>
+				<Texture href="PossessTex.(Texture).xdb#xpointer(/Texture)"/>
+				<Effect href="/Effects/_(Effect)/Modes/Ghost/Posses.(Effect).xdb#xpointer(/Effect)"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_SKILL_CURSE</ID>
+			<obj>
+				<Name href="CurseName.txt"/>
+				<Description href="CurseDesc.txt"/>
+				<Texture href="CurseTex.(Texture).xdb#xpointer(/Texture)"/>
+				<Effect href="/Effects/_(Effect)/Modes/Ghost/Curse.(Effect).xdb#xpointer(/Effect)"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_SKILL_REVENGE</ID>
+			<obj>
+				<Name href="RevengeName.txt"/>
+				<Description href="RevengeDesc.txt"/>
+				<Texture href="VisionTex.(Texture).xdb#xpointer(/Texture)"/>
+				<Effect/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_SKILL_SPEED</ID>
+			<obj>
+				<Name href="SpeedName.txt"/>
+				<Description href="SpeedDesc.txt"/>
+				<Texture href="SpeedTex.(Texture).xdb#xpointer(/Texture)"/>
+				<Effect/>
+			</obj>
+		</Item>
+	</objects>
+</TableGhostSkill>

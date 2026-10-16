@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000387">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_a8b902c3-bd26-4a6f-b8ff-28c9bffd5ddb">
+			<ParticleInstance ObjectRecordID="1000604">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_5e10708f-5036-49c3-9fa7-fb0bc1e1595d">
+					<Particle ObjectRecordID="1000509">
+						<SrcName href="/Effects/Characters/WarMachines/Ballista_WildFire/idle00.mb"/>
+						<ExportPrefix>FX</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>009d413bd84896bf7187014088ca494050c1973f014ff13f6ad80e40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>898DF239-470B-409A-BE57-C7440DF11E39</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire10.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_ca988c86-4d96-426d-b632-8b205be9922e">
+			<ParticleInstance ObjectRecordID="1000608">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_978245d7-cb6c-4fd9-a538-207d8d8141ad">
+					<Particle ObjectRecordID="1000513">
+						<SrcName href="/Effects/Characters/WarMachines/Ballista_WildFire/idle00.mb"/>
+						<ExportPrefix>FX_IS</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>60146b3d26bfaabf845edc3f1f7c32403ac29d3f0f89ce3f9eb5f43f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>31F11AF6-6013-4516-808E-96C2817F4F99</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire10.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights>
+		<Item href="/Characters/Creatures/WarMachines/Ballista_wildfire/idle00.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

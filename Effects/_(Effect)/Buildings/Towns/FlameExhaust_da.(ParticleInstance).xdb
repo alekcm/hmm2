@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="440">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_0bc805bc-cac5-4523-a248-22d6da365a11">
+		<Particle ObjectRecordID="198">
+			<SrcName href="/Effects/Buildings/Towns/Inferno.mb"/>
+			<ExportPrefix>SmokeGlow</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>8415863fdc7284bfc14606419f6ff64180cc54417e465341d993c341</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>5615AA55-C9D4-4C96-B8C3-BC22E70199CE</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>1</x>
+		<y>-1</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>0.9</Scale>
+	<Speed>0.3</Speed>
+	<Offset>0</Offset>
+	<EndCycle>4</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item href="/Textures/Effects/_Various/Glow08.xdb#xpointer(/Texture)"/>
+		<Item/>
+		<Item/>
+		<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

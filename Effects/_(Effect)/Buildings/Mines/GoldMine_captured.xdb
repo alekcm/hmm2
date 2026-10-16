@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="55">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_6099fefc-c765-4b48-ba86-af9dee5f99a8">
+			<ParticleInstance ObjectRecordID="54">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_c27f1e8d-97bb-4784-a7cc-5497f3876048">
+					<Particle ObjectRecordID="24">
+						<SrcName href="/Effects/Buildings/GoldMineFPP2.mb"/>
+						<ExportPrefix>Dust</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>80f272bccc4ce8bf9a305b3fc2417840f8690f405417144064520a40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>F41366F2-68FE-4395-9768-D88D9B6B30D2</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.6</Speed>
+				<Offset>0</Offset>
+				<EndCycle>2</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/SparkYellow01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Buildings/Mines/GoldMine_glow.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Buildings/Mines/GoldMine_sparks.xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="/Effects/_(ModelInstance)/Effects/Buildings/MineRays.xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

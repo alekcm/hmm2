@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="427">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_d5a2967e-b7ed-43e6-a43b-c47f50cd9ea9">
+			<ParticleInstance ObjectRecordID="560">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Buildings/Dwellings/Kennels.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0.996</x>
+					<y>0.782</y>
+					<z>-1</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.5</Scale>
+				<Speed>0.3</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow08.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/SparkYellow00.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject ObjectRecordID="1000335">
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>SilverPavilion</Name>
+	<DefUpgLevel>2</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="SilverPavilion_u1r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Academy/SilverPavilion.xdb#xpointer(/Effect)"/>
+							<Locator>SilverPavilion01_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Academy/SilverPavilion01.xdb#xpointer(/Effect)"/>
+							<Locator>SilverPavilion02_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Academy/SilverPavilion.xdb#xpointer(/Effect)"/>
+							<Locator>SilverPavilion05_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Academy/SilverPavilion01.xdb#xpointer(/Effect)"/>
+							<Locator>SilverPavilion06_Locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="SilverPavilion_u2r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Academy/SilverPavilion.xdb#xpointer(/Effect)"/>
+							<Locator>SilverPavilion01_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Academy/SilverPavilion01.xdb#xpointer(/Effect)"/>
+							<Locator>SilverPavilion02_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Academy/SilverPavilion.xdb#xpointer(/Effect)"/>
+							<Locator>SilverPavilion03_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Academy/SilverPavilion01.xdb#xpointer(/Effect)"/>
+							<Locator>SilverPavilion04_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Academy/SilverPavilion.xdb#xpointer(/Effect)"/>
+							<Locator>SilverPavilion05_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Academy/SilverPavilion01.xdb#xpointer(/Effect)"/>
+							<Locator>SilverPavilion06_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Academy/SilverPavilion02.xdb#xpointer(/Effect)"/>
+							<Locator>SilverPavilion_Locator1</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

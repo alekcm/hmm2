@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="326">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_0ad27191-e454-4f8a-ac22-96592d3fdc79">
+		<Particle ObjectRecordID="104">
+			<SrcName href="/Effects/Characters/Angel/Angel_attack.mb"/>
+			<ExportPrefix>SwordGlow1</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>a056573e544f71bff4662b4092f15f404ce4d73ff3d10b4090a70940</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>8D4BBF29-4A37-4459-B84A-AD444A482C78</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>2.5</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

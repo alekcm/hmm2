@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="1003228">
+	<SrcName href="/Effects/Arenas/FinalFight/WallHit.mb"/>
+	<uid>982CABFD-208C-4C1C-8624-DAE25B865A30</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>1.41421</x>
+		<y>2.09698</y>
+		<z>1.41421</z>
+	</Size>
+	<Center>
+		<x>0</x>
+		<y>-0.627783</y>
+		<z>0</z>
+	</Center>
+	<BestFitPoint>
+		<x>-0.00102475</x>
+		<y>-0.239118</y>
+		<z>0.512823</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="WallHit-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>6</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>GlowShape</Item>
+		<Item>MeteorShape</Item>
+		<Item>Wave0Shape1</Item>
+		<Item>Wave0Shape2</Item>
+		<Item>Wave0Shape3</Item>
+		<Item>Wave0Shape4</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

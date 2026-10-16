@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="605">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_6f23321a-0157-48ef-8c36-fac853e047a8">
+		<Particle ObjectRecordID="304">
+			<SrcName href="/Effects/Arenas/Inferno/Tower2_crash.mb"/>
+			<ExportPrefix>Dust</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>624da043105e87436e7168414adec441d0a96341b0fc6841d22a5d41</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>B3D7F5FF-A473-414F-855E-6758F5CEAB4F</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>4</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item href="/Textures/Effects/Arenas/Stone08.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Arenas/Stone06.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Arenas/Stone07.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Arenas/Stone08.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Arenas/SmallStones01.xdb#xpointer(/Texture)"/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

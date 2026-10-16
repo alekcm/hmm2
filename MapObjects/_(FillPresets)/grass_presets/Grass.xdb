@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FillPreset ObjectRecordID="1000002">
+	<NameFileRef href="Grass.txt"/>
+	<NoRandomAngle>false</NoRandomAngle>
+	<layers>
+		<Item>
+			<NoRandomAngle>false</NoRandomAngle>
+			<objects>
+				<Item>
+					<NoRandomAngle>false</NoRandomAngle>
+					<Object href="/MapObjects/_(AdvMapObjectLink)/Objects-Grass/Grass/Grass03.xdb#xpointer(/AdvMapObjectLink)"/>
+					<Size>0.1</Size>
+					<Probability>0.7</Probability>
+				</Item>
+			</objects>
+			<Dispersion>0.8</Dispersion>
+			<Width>0</Width>
+		</Item>
+		<Item>
+			<NoRandomAngle>false</NoRandomAngle>
+			<objects>
+				<Item>
+					<NoRandomAngle>false</NoRandomAngle>
+					<Object href="/MapObjects/_(AdvMapObjectLink)/Objects-Grass/Grass/Grass03.xdb#xpointer(/AdvMapObjectLink)"/>
+					<Size>0.1</Size>
+					<Probability>0.3</Probability>
+				</Item>
+			</objects>
+			<Dispersion>0.6</Dispersion>
+			<Width>0.4</Width>
+		</Item>
+		<Item>
+			<NoRandomAngle>false</NoRandomAngle>
+			<objects>
+				<Item>
+					<NoRandomAngle>false</NoRandomAngle>
+					<Object href="/MapObjects/_(AdvMapObjectLink)/Objects-Grass/Grass/Grass03.xdb#xpointer(/AdvMapObjectLink)"/>
+					<Size>0.1</Size>
+					<Probability>0.3</Probability>
+				</Item>
+			</objects>
+			<Dispersion>1.3</Dispersion>
+			<Width>0</Width>
+		</Item>
+	</layers>
+</FillPreset>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000906">
+	<Materials>
+		<Item href="RakshasaRukh_LOD-Rukh_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_519f16f4-9a44-4190-9da6-13ed79bf0767">
+		<Skeleton ObjectRecordID="1000201">
+			<SrcName href="/models/Creatures/Academy/RakshasaRukh_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>675697E5-B0CD-48E9-8587-7C2E5713E597</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a439c69e-5aa9-40dc-b759-fd7e834e5f10">
+		<Geometry ObjectRecordID="1000694">
+			<SrcName href="/models/Creatures/Academy/RakshasaRukh_LOD.mb"/>
+			<uid>7AEA2BB4-EAA3-4731-AC16-E5E577C2CCD9</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>5.02496</x>
+				<y>3.06746</y>
+				<z>4.36333</z>
+			</Size>
+			<Center>
+				<x>-0.00229895</x>
+				<y>1.08322</y>
+				<z>2.18166</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0298735</x>
+				<y>5.21654e-007</y>
+				<z>4.30557</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_53360ce4-0f72-4c80-af27-ffc8f199b8ac">
+				<AIGeometry ObjectRecordID="1000404">
+					<SrcName href="/models/Creatures/Academy/RakshasaRukh_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>1.50184</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.78277</x>
+						<y>0.78277</y>
+						<z>1.50419</z>
+					</AABBHalfSize>
+					<uid>D6D46CAE-30A0-46DE-AF94-6B5187FDCCFE</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Body_LODShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

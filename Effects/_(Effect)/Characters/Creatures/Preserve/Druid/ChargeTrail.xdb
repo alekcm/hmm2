@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000012">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_0846d5bc-04eb-4503-9b66-8a99af8e98ff">
+			<ParticleInstance ObjectRecordID="966">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_7088e189-a1f2-4b56-b671-fedaa8d21d9f">
+					<Particle ObjectRecordID="528">
+						<SrcName href="/Effects/Characters/PRESERVE/Druid/RangeAttack.mb"/>
+						<ExportPrefix>Charge</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>e021c4bc609ae53e370ab33f3cd6d13f657d113fac57b63f8633143f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>02B72319-A25B-4868-9F58-D1706E6C7E41</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>1.4</z>
+				</Position>
+				<Rotation>
+					<x>1</x>
+					<y>0</y>
+					<z>0</z>
+					<w>0</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/SmokeColored00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/GlowOrange01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/GlowOrange01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/GlowOrange02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

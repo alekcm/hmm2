@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject ObjectRecordID="1000192">
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>s_wall_3</Name>
+	<DefUpgLevel>1</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="wall_3_u1r0.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+				<Item>
+					<Model href="wall_3_u1r1.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+				<Item>
+					<Model href="wall_3_u1r2.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

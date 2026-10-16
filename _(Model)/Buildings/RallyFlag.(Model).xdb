@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6940">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_284df2a2-6165-4eea-ab8a-40a80819eae0">
+			<Material ObjectRecordID="15089">
+				<Texture href="/Textures/auto-imported_______320/Buildings/RallyFlag/Rally_Flag.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_3120ed27-78f1-4ed2-8c76-421f161ee6a1">
+		<Skeleton ObjectRecordID="1161">
+			<SrcName href="/models/Buildings/FPP2/Rally_Flag.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>01E46023-3082-4B83-9C9B-BE065E4A07A2</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_9aec2984-c72d-4114-9939-80ae2d15fd63">
+		<Geometry ObjectRecordID="6141">
+			<SrcName href="/models/Buildings/FPP2/Rally_Flag.mb"/>
+			<uid>2690CFEB-2950-4B00-8A82-3F938B9A061F</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.37081</x>
+				<y>1.74991</y>
+				<z>4.12801</z>
+			</Size>
+			<Center>
+				<x>0.0279779</x>
+				<y>-0.542286</y>
+				<z>1.94694</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00310102</x>
+				<y>0.0186224</y>
+				<z>3.77053</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_ec1a55ee-9485-4f5e-b8f3-77c3a880a9cb">
+				<AIGeometry ObjectRecordID="274">
+					<SrcName href="/models/Buildings/FPP2/Rally_Flag.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>2.07952</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1</x>
+						<y>1</y>
+						<z>2.09011</z>
+					</AABBHalfSize>
+					<uid>556702C8-6101-45AF-810A-1503ED1481EF</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>RallyFlagMeshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

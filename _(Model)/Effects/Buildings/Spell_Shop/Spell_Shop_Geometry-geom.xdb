@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A2/Effects/Buildings/Spell_shop/Spell_shop.mb"/>
+	<uid>E3F81AA4-EE99-4E69-AB5C-F169B12970CB</uid>
+	<RootMesh>FX_Geometry</RootMesh>
+	<RootJoint>FX_Geometry</RootJoint>
+	<Size>
+		<x>1.98614</x>
+		<y>3.94394</y>
+		<z>1.6569</z>
+	</Size>
+	<Center>
+		<x>0.316415</x>
+		<y>0.0344691</y>
+		<z>1.41168</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Spell_Shop_Geometry-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>6</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Window_GlowShape</Item>
+		<Item>Window_luminescence1Shape</Item>
+		<Item>Window_luminescenceShape</Item>
+		<Item>Dor_GlowShape</Item>
+		<Item>Dor1_GlowShape</Item>
+		<Item>Dor_luminescenceShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6846">
+	<Materials>
+		<Item href="Rays_01-ray01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Rays_01-ray03_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Rays_01-ray03_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Rays_01-ray04_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_13744aac-8269-4162-9b60-172bc99251fc">
+		<Skeleton ObjectRecordID="1124">
+			<SrcName href="/models/TerrainObjects/Grass/Rays/Rays_01.mb"/>
+			<RootJoint>Rays_01</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>AD5FC555-FE05-4A77-8E36-F17B30688415</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_903c695f-8909-4ff0-8f0b-dff8f5cf8c1e">
+		<Geometry ObjectRecordID="6042">
+			<SrcName href="/models/TerrainObjects/Grass/Rays/Rays_01.mb"/>
+			<uid>EDA3C419-EC59-4B32-8FBF-1F2D3DEBD6FC</uid>
+			<RootMesh>Rays_01</RootMesh>
+			<RootJoint>Rays_01</RootJoint>
+			<Size>
+				<x>44.8434</x>
+				<y>40.0759</y>
+				<z>57.1813</z>
+			</Size>
+			<Center>
+				<x>-2.77662</x>
+				<y>-0.133368</y>
+				<z>28.8225</z>
+			</Center>
+			<BestFitPoint>
+				<x>-8.42397</x>
+				<y>6.13841</y>
+				<z>57.394</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>ray0Shape1</Item>
+				<Item>ray0Shape2</Item>
+				<Item>ray0Shape3</Item>
+				<Item>ray0Shape4</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

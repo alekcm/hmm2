@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shot>
+	<StartEffect/>
+	<RotateStartEffectToTarget>false</RotateStartEffectToTarget>
+	<MissileShot>
+		<Model/>
+		<Effect/>
+		<Speed>0.02</Speed>
+		<Height>0</Height>
+		<ForwardOffset>1</ForwardOffset>
+		<StartZOffset>1.2</StartZOffset>
+		<RightOffset>-0.209</RightOffset>
+	</MissileShot>
+	<LineShot>
+		<Effects>
+			<Item href="/Effects/_(Effect)/Spells/ChainLightning01.xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Spells/ChainLightning02.xdb#xpointer(/Effect)"/>
+		</Effects>
+		<SkipSegmentsNumber>1</SkipSegmentsNumber>
+		<SegmentLength>2</SegmentLength>
+		<StepDelay>0</StepDelay>
+		<EffectLifeTime>200</EffectLifeTime>
+	</LineShot>
+	<StrikeDelay>0</StrikeDelay>
+	<DelayBetweenChains>200</DelayBetweenChains>
+	<StrikeVisualEffect href="/GameMechanics/Spell/Combat_Spells/DestructiveMagic/ChainLightning.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+</Shot>

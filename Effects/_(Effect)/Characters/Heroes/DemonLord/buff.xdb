@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="451">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_886580ea-460d-42e0-8974-f971e836cdc1">
+			<ParticleInstance ObjectRecordID="595">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_1fd18a59-0e27-44e2-b64f-0a9416dae6de">
+					<Particle ObjectRecordID="294">
+						<SrcName href="/Effects/Characters/DemonLord/Buff.mb"/>
+						<ExportPrefix>Buff</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>5028483ecab42140e0c4c53fcabb29412a5eaf40cfd7f140963ba140</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>8EA0944A-80A2-436A-B507-BAFA0EF5FA3B</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>8</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/FireSequence/Blue/Fire00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Blue/Fire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Blue/Fire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Blue/Fire03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Blue/Fire04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Blue/Fire05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Blue/Fire06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Blue/Fire07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Blue/Fire08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Blue/Fire09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Blue/Fire10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/auto-imported_______320/Effects/Characters/DevilTeleport_crack/DevilTeleportHoleGlow.tga.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlow03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlow06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Dust00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/ElectricDischarge00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/ElectricDischarge01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/ElectricDischarge02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/ElectricDischarge03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Blue/Fire00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Blue/Fire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Blue/Fire04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Blue/Fire06.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

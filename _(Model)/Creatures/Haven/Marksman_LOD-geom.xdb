@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/models/Creatures/Castle/Archer2_LOD.mb"/>
+	<uid>93BEE4D6-D8BD-48F5-A72E-6A421A61CE0B</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>0.952194</x>
+		<y>1.15014</y>
+		<z>1.60238</z>
+	</Size>
+	<Center>
+		<x>-0.108293</x>
+		<y>0.120637</y>
+		<z>0.801192</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Marksman_LOD-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>KnifeShape</Item>
+		<Item>BodyShape</Item>
+		<Item>CrossBowShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

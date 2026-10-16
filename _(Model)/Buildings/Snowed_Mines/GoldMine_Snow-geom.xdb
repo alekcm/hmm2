@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/models/Buildings/FPP2/Gold_Mine.mb"/>
+	<uid>8D81E9F9-7EF7-409F-A209-06C2452115E2</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>6</x>
+		<y>6.18312</y>
+		<z>1.78027</z>
+	</Size>
+	<Center>
+		<x>0</x>
+		<y>-0.0915589</y>
+		<z>0.880081</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>-1.5</y>
+		<z>1.5</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="GoldMine_Snow-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>5</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Gold_Mine3x3_1Shape</Item>
+		<Item>BoxShape</Item>
+		<Item>GoldShape</Item>
+		<Item>HillShape</Item>
+		<Item>CragShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject ObjectRecordID="1000293">
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>Fort</Name>
+	<DefUpgLevel>3</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Fort_u1r0.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Fort_u2r0.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Fort_u3r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/fortfire01.xdb#xpointer(/Effect)"/>
+							<Locator>Fortlocator01</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/FortFire02.xdb#xpointer(/Effect)"/>
+							<Locator>Fortlocator02</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/FortFire03.xdb#xpointer(/Effect)"/>
+							<Locator>Fortlocator03</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/fortfire01.xdb#xpointer(/Effect)"/>
+							<Locator>Fortlocator04</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

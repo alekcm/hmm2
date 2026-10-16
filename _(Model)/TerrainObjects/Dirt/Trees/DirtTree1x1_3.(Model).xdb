@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6961">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_f7f13df8-995a-45dc-b103-614fa67724ea">
+			<Material ObjectRecordID="15187">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Trees/DirtTree1x1_1/DirtTree01_bark03.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_6dfdb1d5-4d0f-453b-ab58-ed817de30bf4">
+		<Skeleton ObjectRecordID="1183">
+			<SrcName href="/models/TerrainObjects/Dirt/Trees/Dirttrees.mb"/>
+			<RootJoint>DirtTree1x1_3</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>BF47778A-32E6-47E6-A710-49AB335E1176</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1da55b22-680e-4ea5-9081-7b92e4093047">
+		<Geometry ObjectRecordID="6165">
+			<SrcName href="/models/TerrainObjects/Dirt/Trees/Dirttrees.mb"/>
+			<uid>3B19F38C-C14D-462A-AB2C-85036F6CEC7E</uid>
+			<RootMesh>DirtTree1x1_3</RootMesh>
+			<RootJoint>DirtTree1x1_3</RootJoint>
+			<Size>
+				<x>2.66305</x>
+				<y>2.1886</y>
+				<z>14.6964</z>
+			</Size>
+			<Center>
+				<x>0.589586</x>
+				<y>-0.801392</y>
+				<z>4.0827</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.432282</x>
+				<y>-1.29236</y>
+				<z>11.2534</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>DirtTree1x1_Shape3</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

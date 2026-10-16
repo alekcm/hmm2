@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6701">
+	<Materials>
+		<Item href="Mercury-Steklo_mat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Mercury-probka_mat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Mercury-sodergimoe_mat.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_2b5df1b5-6d5b-46fc-a33b-fcf2e8bc1932">
+		<Geometry ObjectRecordID="5898">
+			<SrcName href="/models/ResourcesAndChests/mercury.mb"/>
+			<uid>80F7FF15-FD02-43E9-AA72-492263CCBAEA</uid>
+			<RootMesh>Mercury</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>1.49888</x>
+				<y>1.94364</y>
+				<z>1.83261</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>0.928137</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.00902433</x>
+				<y>0.0153632</y>
+				<z>1.8134</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(Model)/TerrainObjects/Resourses/mercury_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>3</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>MercuryShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

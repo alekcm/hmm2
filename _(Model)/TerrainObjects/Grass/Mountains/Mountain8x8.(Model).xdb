@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6576">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_e34dab94-e8e4-4195-b431-56d50e1622e2">
+			<Material ObjectRecordID="14149">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Mounting/Mounting12x12_1/mounting12x12_1.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_344e0635-b344-40e8-b165-0feee5b463df">
+		<Skeleton ObjectRecordID="947">
+			<SrcName href="/models/TerrainObjects/Grass/Mountings/mounting8x8.mb"/>
+			<RootJoint>mountain8x8</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>26FAA335-3473-4C64-8539-61083DE803DA</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_44fdd7ef-74da-49f5-9db8-2bc1fc6dd675">
+		<Geometry ObjectRecordID="5765">
+			<SrcName href="/models/TerrainObjects/Grass/Mountings/mounting8x8.mb"/>
+			<uid>8C7CE6EF-9A94-4E1B-AD67-537C0FF3182F</uid>
+			<RootMesh>mountain8x8</RootMesh>
+			<RootJoint>mountain8x8</RootJoint>
+			<Size>
+				<x>16</x>
+				<y>16</y>
+				<z>5.44612</z>
+			</Size>
+			<Center>
+				<x>-1</x>
+				<y>-1</y>
+				<z>2.72306</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.298992</x>
+				<y>-0.935618</y>
+				<z>5.20654</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>mountainShape</Item>
+				<Item>CragShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

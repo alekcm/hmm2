@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000764">
+	<Materials>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_eb7b7160-47e8-4671-a4d0-3f319bb5f23e">
+		<Skeleton ObjectRecordID="1000134">
+			<SrcName href="/Effects/Characters/Ranger/Path/Light01.mb"/>
+			<RootJoint>Lights</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>387D35C2-479C-4AB4-929E-50EC8F065CA6</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_518b5901-05a9-421f-86d9-781f2750498d">
+		<Geometry ObjectRecordID="1000555">
+			<SrcName href="/Effects/Characters/Ranger/Path/Light01.mb"/>
+			<uid>5BCD4A5F-80C2-4306-A229-3C575FF058CD</uid>
+			<RootMesh>Lights</RootMesh>
+			<RootJoint>Lights</RootJoint>
+			<Size>
+				<x>3.56933</x>
+				<y>4.36812</y>
+				<z>1.6303</z>
+			</Size>
+			<Center>
+				<x>-0.059604</x>
+				<y>-0.261874</y>
+				<z>0.444961</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0380711</x>
+				<y>-0.241786</y>
+				<z>1.26011</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>8</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>group1|Light1|Light1Shape</Item>
+				<Item>group1|Light3|Light3Shape</Item>
+				<Item>group1|Light4|Light4Shape</Item>
+				<Item>group1|Light5|Light5Shape</Item>
+				<Item>TempLight_Lights|Light3|Light3Shape</Item>
+				<Item>TempLight_Lights|Light1|Light1Shape</Item>
+				<Item>TempLight_Lights|Light4|Light4Shape</Item>
+				<Item>TempLight_Lights|Light5|Light5Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

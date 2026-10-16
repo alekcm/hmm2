@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000232">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_ddbe1e8a-728a-4b87-9369-6d43c438aeeb">
+			<ParticleInstance ObjectRecordID="1000277">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_3130a971-d3ef-408b-b68a-a5e506ab7c25">
+					<Particle ObjectRecordID="1000225">
+						<SrcName href="/Effects/Buildings/Monolith_Two_Way_Entrance.mb"/>
+						<ExportPrefix>MonolithEff01</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>65897f3ff609a93e37b70c405b6b7740b7450640dc2de53f405e2d40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>7E1F878C-0CDA-47F4-865F-237433D4022D</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow04.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_1f13946b-f39d-489d-b31a-7da85667af8e">
+			<ModelInstance ObjectRecordID="1000086">
+				<Model href="/_(Model)/Effects/Buildings/Monolith_Two_Way_Entrance01.xdb#xpointer(/Model)"/>
+				<SkelAnim/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_d61bf72a-64bf-4e73-9308-7677058f5e6c">
+			<ModelInstance ObjectRecordID="1000087">
+				<Model href="/_(Model)/Effects/Buildings/Monolith_Two_Way_Entrance02.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Buildings/Monolith_Two_Way_Entrance/TeleportShiny.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_264696ed-bd7a-4c42-adfd-02327b38e832">
+			<ModelInstance ObjectRecordID="1000088">
+				<Model href="/_(Model)/Effects/Buildings/Monolith_Two_Way_Entrance03.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Buildings/Monolith_Two_Way_Entrance03.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowSimpleShared ObjectRecordID="1000562">
+	<Crap>false</Crap>
+	<Children>
+		<Item href="Caption.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="PlayerStatistics.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="OverallStatistics.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Experience.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="AligmentScale.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Evil.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Good.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="AdditionalInfo.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="StatsList.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="HeroExperience.(WindowProgressBar).xdb#xpointer(/WindowProgressBar)"/>
+		<Item href="Avatar.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="AvatarBack.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="AvatarForward.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="AlignmentScale.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="AddInfo.(WindowEditBox).xdb#xpointer(/WindowEditBox)"/>
+		<Item href="PlayerName.(WindowTextView).xdb#xpointer(/WindowTextView)"/>
+		<Item href="Back-scroll.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="OverallStatistics.(WindowScrollableContainer).xdb#xpointer(/WindowScrollableContainer)"/>
+		<Item href="BackScroll.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="Back.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="FavoriteRace.(WindowTextView).xdb#xpointer(/WindowTextView)"/>
+		<Item href="Rank.(WindowTextView).xdb#xpointer(/WindowTextView)"/>
+		<Item href="ExpNextLevel.(WindowTextView).xdb#xpointer(/WindowTextView)"/>
+		<Item href="ExpCurLevel.(WindowTextView).xdb#xpointer(/WindowTextView)"/>
+		<Item href="ExpPrevLevel.(WindowTextView).xdb#xpointer(/WindowTextView)"/>
+		<Item href="ExpValue.(WindowTextView).xdb#xpointer(/WindowTextView)"/>
+	</Children>
+	<Background/>
+	<Foreground/>
+	<Flags>
+		<Transparent>false</Transparent>
+	</Flags>
+	<Placement>
+		<Position>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_LOW_END</First>
+			<Second>false</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_LOW_END</First>
+			<Second>false</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>1024</x>
+				<y>768</y>
+			</First>
+			<Second>true</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</UpperMargin>
+	</Placement>
+	<ActiveArea/>
+	<IgnoreDblClick>false</IgnoreDblClick>
+	<ActiveMask/>
+</WindowSimpleShared>

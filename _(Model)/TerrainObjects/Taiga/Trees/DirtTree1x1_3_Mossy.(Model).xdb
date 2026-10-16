@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6961">
+	<Materials>
+		<Item href="DirtTree1x1_3_Mossy-DirtTree01_bark03_Mtl.(Material).xdb#xpointer(/Material)"/>
+		<Item href="DirtTree1x1_3_Mossy-lambert16.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_1da55b22-680e-4ea5-9081-7b92e4093047">
+		<Geometry ObjectRecordID="6165">
+			<SrcName href="/H5A2/AdventureMap/TerrainObjects/Bushes/Mosstrees.mb"/>
+			<uid>3B19F38C-C14D-462A-AB2C-85036F6CEC7E</uid>
+			<RootMesh>DirtTree1x1_3</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2.66305</x>
+				<y>2.1886</y>
+				<z>14.6964</z>
+			</Size>
+			<Center>
+				<x>0.226769</x>
+				<y>-0.236811</y>
+				<z>4.08269</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.779776</x>
+				<y>-0.722965</y>
+				<z>11.2167</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>DirtTree1x1_Shape3</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

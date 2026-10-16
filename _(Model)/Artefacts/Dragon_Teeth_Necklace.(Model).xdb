@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5702">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_2eb00255-4313-430e-a79d-55e8b81349de">
+			<Material ObjectRecordID="15079">
+				<Texture href="/Textures/auto-imported_______320/Artefacts/Dragon_Teeth_Necklace/Dragon_Teeth_Necklace.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_398fe920-c5f9-4e9f-88db-1486d4e4110b">
+		<Skeleton ObjectRecordID="522">
+			<SrcName href="/models/Artefacts/Dragon_Teeth_Necklace.mb"/>
+			<RootJoint>Artefact</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>785F4DD4-AA4D-4CC0-B5D4-4CC858899D24</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_096cb6f3-265f-4ebb-aba4-069a8fb84787">
+		<Geometry ObjectRecordID="4892">
+			<SrcName href="/models/Artefacts/Dragon_Teeth_Necklace.mb"/>
+			<uid>12CEF302-4655-4DEF-8B60-0583F3773443</uid>
+			<RootMesh>Artefact</RootMesh>
+			<RootJoint>Artefact</RootJoint>
+			<Size>
+				<x>0.790111</x>
+				<y>0.930897</y>
+				<z>0.546045</z>
+			</Size>
+			<Center>
+				<x>2.98023e-008</x>
+				<y>0.000182331</y>
+				<z>1.72871</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00911817</x>
+				<y>-0.032673</y>
+				<z>1.94465</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="Orb_of_Light-geom-AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>ArtefactShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001804">
+	<Materials>
+		<Item href="Anthill1x1_1-Anthills.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_a13b07a0-93c0-4268-a50c-07e610d5b60f">
+		<Skeleton ObjectRecordID="1000405">
+			<SrcName href="/models/TerrainObjects/Grass/Anthills/Anthills.mb"/>
+			<RootJoint>Anthill1x1_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>0CBE237D-D4CE-4362-B43B-0A667FF5CDBD</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_f7af3ce1-c6ba-42bf-b047-48846833a6ca">
+		<Geometry ObjectRecordID="1001584">
+			<SrcName href="/models/TerrainObjects/Grass/Anthills/Anthills.mb"/>
+			<uid>BB1BD92A-48F6-4A3F-B03F-C9DB20604945</uid>
+			<RootMesh>Anthill1x1_1</RootMesh>
+			<RootJoint>Anthill1x1_1</RootJoint>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>0.807912</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>0.403956</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0206201</x>
+				<y>-0.0459615</y>
+				<z>0.583872</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Anthill1x1_1|Anthill|AnthillShape</Item>
+				<Item>Anthill1x1_1|Anthill_lamb|Anthill_lambShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

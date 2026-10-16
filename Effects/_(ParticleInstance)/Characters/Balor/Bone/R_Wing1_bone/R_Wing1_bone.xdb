@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="1000569">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_0c9be0b2-1f26-4eac-b747-f47d1b25fbd4">
+		<Particle ObjectRecordID="1000474">
+			<SrcName href="/Effects/Characters/Balor/New/Bone/R_Wing1_bone.mb"/>
+			<ExportPrefix>R_Wing1_bone</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>00a43dba9e38273fe12e1b3fd91aba3f7dfd223f21fa753f7fde623f</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>F22ABBC3-0DA4-4E2F-A908-401E9715A237</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>0.5</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>2.33333</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone>R_Wing1</GlueToNamedBone>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

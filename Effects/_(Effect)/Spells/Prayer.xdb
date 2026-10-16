@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="289">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_b73c2f3c-e36e-46b0-95bb-8d57e7e6111f">
+			<ParticleInstance ObjectRecordID="339">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_2c865eee-e17e-4fb7-9793-bfd171ac07ac">
+					<Particle ObjectRecordID="117">
+						<SrcName href="/Effects/Spells/Prayer.mb"/>
+						<ExportPrefix>Prayer</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>0074c1bb0024793d06978240c3d10941b2949e409d56a0408e7e9e40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>F5927013-A30A-4892-BED3-CB47B4C451FF</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-3</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>2</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/Artefacts/RaysBlue00.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RaysGold00.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_5a7b5d7b-515f-434d-a724-573355813a89">
+			<ModelInstance ObjectRecordID="17">
+				<Model href="/_(Model)/Effects/Spells/Prayer.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Spells/Prayer.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-3</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

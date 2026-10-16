@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject>
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>Townhall</Name>
+	<DefUpgLevel>4</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="townhall_u1r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Fortrest/Tawnhall/Tawnhall_UP1.(Effect).xdb#xpointer(/Effect)"/>
+							<Locator>TownHall_Locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="townhall_u2r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Fortrest/Tawnhall/Tawnhall_UP2.(Effect).xdb#xpointer(/Effect)"/>
+							<Locator>TownHall_Locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="townhall_u3r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Fortrest/Tawnhall/Tawnhall_UP3.(Effect).xdb#xpointer(/Effect)"/>
+							<Locator>TownHall_Locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="townhall_u4r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Fortrest/Tawnhall/Tawnhall_UP4.(Effect).xdb#xpointer(/Effect)"/>
+							<Locator>TownHall_Locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6167">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_921c473a-d062-4d72-af94-fee21867f7c9">
+			<Material ObjectRecordID="10336">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Bushs/Bush07/Tree03.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_3ec51a5e-df62-46bb-9c0c-ef0389c366a7">
+			<Material ObjectRecordID="10337">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Trees/Autumn_Trees/TreeBig/Bark.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_bb9e29c7-0917-4402-9c37-aee5fda6c983">
+		<Skeleton ObjectRecordID="710">
+			<SrcName href="/models/TerrainObjects/Grass/Trees/LeafTree1_3.mb"/>
+			<RootJoint>Tree1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>CD865621-30B5-4188-BB38-62AC79D284D7</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b96a4e79-d365-4827-a9f9-fda278424693">
+		<Geometry ObjectRecordID="5357">
+			<SrcName href="/models/TerrainObjects/Grass/Trees/LeafTree1_3.mb"/>
+			<uid>A788686F-5BD8-4DD9-8C91-FBD9B3FDEB8E</uid>
+			<RootMesh>Tree1</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>3.51508</x>
+				<y>3.7267</y>
+				<z>7.78</z>
+			</Size>
+			<Center>
+				<x>-0.0233459</x>
+				<y>0.00959015</y>
+				<z>3.89</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.440372</x>
+				<y>0.621378</y>
+				<z>7.69579</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>TreeShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

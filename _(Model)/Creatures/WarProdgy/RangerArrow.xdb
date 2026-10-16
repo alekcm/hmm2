@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001009">
+	<Materials>
+		<Item href="/_(Model)/Effects/Characters/Ranger/special_attack-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Ranger/special_attack-Arrow_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_90d2ab54-1238-4310-91dc-faf812c119b7">
+		<Skeleton ObjectRecordID="1000243">
+			<SrcName href="/models/Creatures/Prodgy/Ranger_arrow.mb"/>
+			<RootJoint>Arrow</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>BA71650C-5742-4CEB-919E-410630EF4446</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1e15a228-e3e3-41b5-963b-61ada4d1720e">
+		<Geometry ObjectRecordID="1000794">
+			<SrcName href="/models/Creatures/Prodgy/Ranger_arrow.mb"/>
+			<uid>27552934-F145-4EB5-9EBE-496A94B2C7AD</uid>
+			<RootMesh>Arrow</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>0.299831</x>
+				<y>1.11631</y>
+				<z>0.299831</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>-0.277544</y>
+				<z>0</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.804891</x>
+				<y>-0.247615</y>
+				<z>0.103631</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>ArrowShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

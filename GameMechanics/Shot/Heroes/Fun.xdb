@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shot>
+	<StartEffect/>
+	<RotateStartEffectToTarget>false</RotateStartEffectToTarget>
+	<MissileShot>
+		<Model/>
+		<Effect/>
+		<Speed>0.05</Speed>
+		<Height>0</Height>
+		<ForwardOffset>5</ForwardOffset>
+		<StartZOffset>1.1</StartZOffset>
+		<RightOffset>0</RightOffset>
+	</MissileShot>
+	<LineShot>
+		<Effects/>
+		<SkipSegmentsNumber>0</SkipSegmentsNumber>
+		<SegmentLength>2</SegmentLength>
+		<StepDelay>0</StepDelay>
+		<EffectLifeTime>1000</EffectLifeTime>
+	</LineShot>
+	<StrikeDelay>0</StrikeDelay>
+	<DelayBetweenChains>0</DelayBetweenChains>
+	<StrikeVisualEffect href="/GameMechanics/SpellVisual/Fun.xdb#xpointer(/SpellVisual)"/>
+</Shot>

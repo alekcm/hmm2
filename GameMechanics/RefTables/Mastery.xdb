@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Table_MasteryDesc_Mastery>
+	<objects>
+		<Item>
+			<ID>MASTERY_NONE</ID>
+			<obj>
+				<NameFileRef href="Mastery/MasteryNone.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>MASTERY_BASIC</ID>
+			<obj>
+				<NameFileRef href="Mastery/MasteryBasic.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>MASTERY_ADVANCED</ID>
+			<obj>
+				<NameFileRef href="Mastery/MasteryAdvanced.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>MASTERY_EXPERT</ID>
+			<obj>
+				<NameFileRef href="Mastery/MasteryExpert.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>MASTERY_EXTRA_EXPERT</ID>
+			<obj>
+				<NameFileRef href="Mastery/MasteryExtraExprert.txt"/>
+			</obj>
+		</Item>
+	</objects>
+</Table_MasteryDesc_Mastery>

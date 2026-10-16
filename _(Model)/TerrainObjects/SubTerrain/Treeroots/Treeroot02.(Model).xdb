@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7901">
+	<Materials>
+		<Item href="Treeroot01-Root_no_alfa_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Treeroot01-lambert1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_a318c17b-aac8-4d53-b9ec-b7f2a79cf76a">
+		<Geometry ObjectRecordID="7060">
+			<SrcName href="/models/TerrainObjects/Subterrain/Treeroots/Treeroots.mb"/>
+			<uid>A69F2345-9CE4-4A25-B208-B1A9BDC0A2F5</uid>
+			<RootMesh>Treeroot02</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>8.10645</x>
+				<y>9.90656</y>
+				<z>18.3574</z>
+			</Size>
+			<Center>
+				<x>0.301081</x>
+				<y>0.998604</y>
+				<z>8.82132</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.28791</x>
+				<y>-0.337676</y>
+				<z>18</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Treeroot0Shape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

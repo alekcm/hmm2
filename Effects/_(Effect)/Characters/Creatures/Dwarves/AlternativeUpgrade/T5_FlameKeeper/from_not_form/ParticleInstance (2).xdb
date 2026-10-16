@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance>
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="/Effects/_(Effect)/Characters/Creatures/Academy/Alternative_Upgrade/T5_FlameKeeper/castFireShot.(Particle).xdb#xpointer(/Particle)"/>
+	<Position>
+		<x>0</x>
+		<y>-1.4</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+		<w>0</w>
+	</Rotation>
+	<Scale>0.55</Scale>
+	<Speed>1.4</Speed>
+	<Offset>0.95</Offset>
+	<EndCycle>0</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire02.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire03.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire04.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire05.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire06.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire07.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire08.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire09.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire10.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/WindowGlow00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/SparksBlue.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Water/Water06ADD.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

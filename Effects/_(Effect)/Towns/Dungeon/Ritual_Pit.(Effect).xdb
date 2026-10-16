@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000482">
+	<Instances>
+		<Item href="Ritual_Pit/Cristal_Glow.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Ritual_Pit/Cristal_Spark.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Ritual_Pit/RedFire.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Ritual_Pit/RedSmoke.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Ritual_Pit/Kotel_Glow_FX.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights>
+		<Item href="/Effects/_(Effect)/Town/Dungeon/Ritual_Pit/PL1.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models>
+		<Item href="Ritual_Pit/Rays.xdb#xpointer(/ModelInstance)"/>
+		<Item href="Ritual_Pit/Red_Ray.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="Ritual_Pit/Rune.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

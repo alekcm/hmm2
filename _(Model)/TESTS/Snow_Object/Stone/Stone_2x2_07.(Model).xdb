@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7888">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/TESTS/Snow_Object/Stone/Stone_2x2_01/lambert6.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_1932a2e7-54a5-46f0-b63d-ac0db7cc8627">
+		<Skeleton ObjectRecordID="1677">
+			<SrcName href="/models/TerrainObjects/Snow_terrain/SnowStone/SnowStone_02.mb"/>
+			<RootJoint>Stone_2x2_07</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>37B41ADB-ECAA-4BEC-9DAA-1ADD4DADE740</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_6168b596-d3d2-4d93-9524-62df164eb350">
+		<Geometry ObjectRecordID="7047">
+			<SrcName href="/models/TerrainObjects/Snow_terrain/SnowStone/SnowStone_02.mb"/>
+			<uid>F2959245-EB5A-4CCA-AF8E-2ABC86BF9334</uid>
+			<RootMesh>Stone_2x2_07</RootMesh>
+			<RootJoint>Stone_2x2_07</RootJoint>
+			<Size>
+				<x>4</x>
+				<y>4</y>
+				<z>3.16623</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>-1</y>
+				<z>1.54999</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.073</x>
+				<y>-0.802927</y>
+				<z>2.98264</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Stone_2x2_07|Stone|StoneShape</Item>
+				<Item>Stone_2x2_07|Stone_Lamb|Stone_LambShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

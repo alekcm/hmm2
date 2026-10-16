@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="458">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_7ae9e1ba-d60e-489c-a255-571195c34414">
+			<ParticleInstance ObjectRecordID="603">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_108f1d7c-30bb-49c3-9ff0-352cb1c77a14">
+					<Particle ObjectRecordID="300">
+						<SrcName href="/Effects/Arenas/Inferno/GateCrash01.mb"/>
+						<ExportPrefix>Dust</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>16759d43fae38d43ca46574155028a4150891d4190b02f41f42e0f41</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>2A209130-3615-4C09-A601-DABE4216EE17</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Arenas/Stone08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Arenas/Stone06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Arenas/Stone07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Arenas/Stone08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Arenas/SmallStones01.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_bb9ca7cc-de69-4053-a8b0-59ef55944876">
+			<ParticleInstance ObjectRecordID="602">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_111ee0d7-9eae-466a-970b-b3dcee1b1724">
+					<Particle ObjectRecordID="299">
+						<SrcName href="/Effects/Arenas/Inferno/GateCrash01.mb"/>
+						<ExportPrefix>Fire</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>dd329c4300b78d43a852734196656041c00fdd4000f9eb40829d1b41</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>6CEEE8FF-E678-4809-A0AC-E72F802E4ADA</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/WindowGlow00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparksRed.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water06ADD.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

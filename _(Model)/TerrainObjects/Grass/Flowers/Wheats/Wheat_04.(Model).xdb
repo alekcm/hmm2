@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6682">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_3d937117-e115-464d-a006-8c801c8ce520">
+			<Material ObjectRecordID="13711">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Flowers/Wheats/Wheat_01/wheat_01.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_b2f747c8-6b39-40be-ad42-223d330f394a">
+		<Skeleton ObjectRecordID="1031">
+			<SrcName href="/models/TerrainObjects/Grass/Flowers/Wheat/wheat_04.mb"/>
+			<RootJoint>wheat_04</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>752A58D0-23D1-4257-AE0E-3ECF60EAE3DA</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_f5d692fb-8cf0-4209-840d-30701d91dd83">
+		<Geometry ObjectRecordID="5869">
+			<SrcName href="/models/TerrainObjects/Grass/Flowers/Wheat/wheat_04.mb"/>
+			<uid>A8C6340D-E824-49A2-B1AE-45C2E9DC12FC</uid>
+			<RootMesh>wheat_04</RootMesh>
+			<RootJoint>wheat_04</RootJoint>
+			<Size>
+				<x>2.96034</x>
+				<y>2.70955</y>
+				<z>1.54393</z>
+			</Size>
+			<Center>
+				<x>-0.0875015</x>
+				<y>0.016093</y>
+				<z>0.778065</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0533328</x>
+				<y>-0.0622488</y>
+				<z>1.42133</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>wheat_0Shape4</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

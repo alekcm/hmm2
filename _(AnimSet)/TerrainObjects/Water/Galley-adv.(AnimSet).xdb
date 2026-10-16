@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="1000247">
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="Galley-adv-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move</Kind>
+			<Anim href="Galley-adv-move.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>specability1</Kind>
+			<Anim href="Galley-adv-specability1.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>specability2</Kind>
+			<Anim href="Galley-adv-specability2.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle01</Kind>
+			<Anim href="Galley-adv-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/TerrainObjects/Water/Boats/Galley.mb"/>
+	<ExpSrcClipFolder href="/Animations/Objects/Galley/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

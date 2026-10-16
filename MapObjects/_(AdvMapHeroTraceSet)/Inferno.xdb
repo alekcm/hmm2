@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapHeroTraceSet ObjectRecordID="1">
+	<traces>
+		<Item href="#n:inline(AdvMapHeroTrace)" id="item_9b55c154-a850-4855-9d93-ddd9c8658195">
+			<AdvMapHeroTrace ObjectRecordID="1">
+				<Decals/>
+				<Objects>
+					<Item>
+						<Model/>
+						<AnimSet/>
+						<Effect href="/Effects/_(Effect)/Characters/Heroes/DemonLord/Path/Level_1a.xdb#xpointer(/Effect)"/>
+						<Frequency>1</Frequency>
+					</Item>
+					<Item>
+						<Model/>
+						<AnimSet/>
+						<Effect href="/Effects/_(Effect)/Characters/Heroes/DemonLord/Path/Level_1b.xdb#xpointer(/Effect)"/>
+						<Frequency>1</Frequency>
+					</Item>
+				</Objects>
+				<ObjectsDensity>1</ObjectsDensity>
+				<DecalsDispersionRadius>0</DecalsDispersionRadius>
+			</AdvMapHeroTrace>
+		</Item>
+		<Item href="/MapObjects/_(AdvMapHeroTrace)/Inferno/3.xdb#xpointer(/AdvMapHeroTrace)"/>
+		<Item href="/MapObjects/_(AdvMapHeroTrace)/Inferno/3.xdb#xpointer(/AdvMapHeroTrace)"/>
+	</traces>
+</AdvMapHeroTraceSet>

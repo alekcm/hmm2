@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7596">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_21082b6e-3b08-4d17-b7fa-7e758fb63eaa">
+			<Material ObjectRecordID="18800">
+				<Texture href="/Textures/auto-imported_______320/Creatures/Academy/StoneGargoyle/StoneGargoyle.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_d8c0104a-dcfc-4181-94bd-8b9ab228f249">
+			<Material ObjectRecordID="18801">
+				<Texture href="/Textures/auto-imported_______320/Creatures/Academy/StoneGargoyle/StoneGargoyle_add.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_afa988e8-3b14-4a9e-a338-d4605632a8fc">
+		<Skeleton ObjectRecordID="1526">
+			<SrcName href="/models/Creatures/Academy/StoneGargoyle.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>4DFF2915-66A2-4E2E-BAB6-E847AEA87EAD</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_c1ecc370-2682-49bd-9062-5b92bb2d9fb1">
+		<Geometry ObjectRecordID="6770">
+			<SrcName href="/models/Creatures/Academy/StoneGargoyle.mb"/>
+			<uid>42F470AA-F7C7-4486-8A90-8F5CD3665236</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.65503</x>
+				<y>1.06315</y>
+				<z>0.973062</z>
+			</Size>
+			<Center>
+				<x>-0.00405061</x>
+				<y>0.0644063</y>
+				<z>0.48285</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0217477</x>
+				<y>0.0239171</y>
+				<z>0.8489</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_1d9d27f2-5f62-441b-9bdc-ab4f4312e3f3">
+				<AIGeometry ObjectRecordID="387">
+					<SrcName href="/models/Creatures/Academy/StoneGargoyle.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.0717425</y>
+						<z>0.491473</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.408771</x>
+						<y>0.541342</y>
+						<z>0.491556</z>
+					</AABBHalfSize>
+					<uid>3A3AFFEE-4958-4403-83D2-1F72AD158A1D</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

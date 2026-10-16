@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject>
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>Special_1</Name>
+	<DefUpgLevel>1</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Special_1_u0r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect/>
+							<Locator/>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Special_1_u1r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Stronghold/Special_1/Special_1_0.(Effect).xdb#xpointer(/Effect)"/>
+							<Locator>Special_1_locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Special_1_u2r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Stronghold/Special_1/Special_1_1.(Effect).xdb#xpointer(/Effect)"/>
+							<Locator>Special_1_locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Special_1_u3r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Stronghold/Special_1/Special_1_1.(Effect).xdb#xpointer(/Effect)"/>
+							<Locator>Special_1_locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="576">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_b4d147fd-03b5-46c0-81c8-d5c0f6fdc270">
+		<Particle ObjectRecordID="278">
+			<SrcName href="/Effects/Characters/DemonLord/Path/Smoke01.mb"/>
+			<ExportPrefix>Smoke</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>400a7c3d8088eebd6542b53f9faff5407cb09640a4489b40eabb6840</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>CA74BC4A-3045-438E-9F05-55D09F75460E</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>0</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

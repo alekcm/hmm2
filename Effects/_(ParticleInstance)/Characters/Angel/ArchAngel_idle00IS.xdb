@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="542">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_19432c6e-d3fd-48f6-9134-78ee5f4fa3fa">
+		<Particle ObjectRecordID="253">
+			<SrcName href="/Effects/Characters/Angel/ArchAngel_idle.mb"/>
+			<ExportPrefix>SwordGlowIS</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>c8f1c5bee3829fbf08d7a13f3a813a40c4f0bf3f97f9b43fe8da0340</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>0853F08D-AF36-4E87-9E17-175CC79EE433</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>3.16666</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire02.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire03.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire04.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire05.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire06.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire07.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire08.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire09.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Blue/Fire10.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Glow04.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Glow04.xdb#xpointer(/Texture)"/>
+		<Item/>
+		<Item/>
+		<Item/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

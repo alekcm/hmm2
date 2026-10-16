@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000055">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_fc7e7bd3-6f46-4f13-8501-63b74d163564">
+			<ParticleInstance ObjectRecordID="1000062">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_2ae111e0-3b61-426b-b08f-5c941e3627c6">
+					<Particle ObjectRecordID="1000068">
+						<SrcName href="/Effects/Environment/TerrainObjects/Subterrain/Cristal_03.mb"/>
+						<ExportPrefix>Cristal03</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>b8ed6b3e2c34903e80a9fd3f19268040e1bcfb3f0a1d164004432540</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>0693DD3B-2189-4CD2-951E-B93CB515A7A8</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.5</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_85c73bfe-1838-4712-aea4-4d5859c89763">
+			<ParticleInstance ObjectRecordID="1000064">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_6e9c04cb-5994-49e7-a2f6-b03293445509">
+					<Particle ObjectRecordID="1000069">
+						<SrcName href="/Effects/Environment/TerrainObjects/Subterrain/Cristal_03.mb"/>
+						<ExportPrefix>IceFire</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>5258a03e3a5a963e19ed4c4065e18240a0efa63ffe00da3f5fde5e40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>128C6F44-D6C1-48D1-82BA-5DFD8F749472</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.4</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/IceFire.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

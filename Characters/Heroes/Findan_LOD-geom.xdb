@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/models/Heroes/Findan/Findan_LOD.mb"/>
+	<uid>95BE8FFC-2972-4F1B-B862-13C2DB2FC863</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>3.07758</x>
+		<y>5.76459</y>
+		<z>5.35524</z>
+	</Size>
+	<Center>
+		<x>0.241619</x>
+		<y>1.0524</y>
+		<z>2.16265</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Findan_LOD-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>4</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Flag_Hero_RampartShape</Item>
+		<Item>BowShape</Item>
+		<Item>Rangers_Horse_NewShape</Item>
+		<Item>Rangers_Body_NewShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

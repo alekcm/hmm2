@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/models/Heroes/Isabel/Isabel_LOD.mb"/>
+	<uid>171B113A-565E-4F6F-AA51-29651EBFFCD3</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>2.65246</x>
+		<y>4.7578</y>
+		<z>4.30783</z>
+	</Size>
+	<Center>
+		<x>-0.720201</x>
+		<y>0.446399</y>
+		<z>2.09325</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Isabel_LOD-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>4</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>2</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Isabel_stuff_lodShape</Item>
+		<Item>Flag_Hero_HavenShape</Item>
+		<Item>Isabel_mesh_lodShape</Item>
+		<Item>temp_Horse_lodShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

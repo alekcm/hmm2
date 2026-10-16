@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5639">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_b018e603-e71f-4b29-a2b2-b08563b7e8d5">
+			<Material ObjectRecordID="8978">
+				<Texture href="/Textures/Creatures/Inferno/Cerberius/Cerberius.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_2c15d9bb-aff6-49de-b8da-d8136b96d4a6">
+		<Skeleton ObjectRecordID="462">
+			<SrcName href="/models/Creatures/Inferno/Cerberius.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>05F439D7-6824-4236-A0D4-E497E3D98B75</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a3c5ad1d-4ff0-427a-93a2-832b4af2d752">
+		<Geometry ObjectRecordID="4830">
+			<SrcName href="/models/Creatures/Inferno/Cerberius.mb"/>
+			<uid>EEF19070-5D3C-42BB-A00D-825B4900966F</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.14451</x>
+				<y>4.22266</y>
+				<z>1.25376</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.870047</y>
+				<z>0.625732</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.00784533</x>
+				<y>-0.838725</y>
+				<z>1.10291</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_3f23ffa3-76f2-42e5-9ea3-fde101e56f56">
+				<AIGeometry ObjectRecordID="184">
+					<SrcName href="/models/Creatures/Inferno/Cerberius.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.00258809</x>
+						<y>-0.145741</y>
+						<z>0.693413</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.894784</x>
+						<y>1.10309</y>
+						<z>0.692197</z>
+					</AABBHalfSize>
+					<uid>CE1A98CD-F71C-47DE-B6E2-76B0F4478FD3</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

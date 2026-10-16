@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6712">
+	<Materials>
+		<Item href="CrystalCavern-GoldMine_.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CrystalCavern-Rails_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CrystalCavern-Crystals_box.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CrystalCavern-Crystals1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CrystalCavern-GoldMineHill_.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_9d4704c3-7724-4b8b-a8c5-0448b2cb733a">
+		<Geometry ObjectRecordID="5909">
+			<SrcName href="/models/Buildings/FPP2/Crystal_cavern.mb"/>
+			<uid>A158077C-0C6D-4CC7-B6D2-4832D9508BFD</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>6</x>
+				<y>6.18312</y>
+				<z>1.77917</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>-0.0915588</y>
+				<z>0.880628</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.00937913</x>
+				<y>-1.47128</y>
+				<z>1.44109</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_de284561-76e1-42e4-bfaa-b347988267f6">
+				<AIGeometry ObjectRecordID="259">
+					<SrcName href="/models/Buildings/FPP2/Crystal_cavern.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.0110447</x>
+						<y>-0.00305998</y>
+						<z>0.860626</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2.32286</x>
+						<y>2.72319</y>
+						<z>0.857222</z>
+					</AABBHalfSize>
+					<uid>418B1FCE-0BCF-4338-8527-B0F7D6CC6434</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>2</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Crystal_Cavern3x3_1Shape</Item>
+				<Item>CrystalsShape</Item>
+				<Item>podShape</Item>
+				<Item>CragShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

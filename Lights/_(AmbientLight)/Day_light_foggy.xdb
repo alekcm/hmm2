@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AmbientLight ObjectRecordID="19">
+	<InternalName/>
+	<Name/>
+	<NameFileRef href=""/>
+	<LightColor>
+		<x>0.27451</x>
+		<y>0.290196</y>
+		<z>0.368627</z>
+	</LightColor>
+	<AmbientColor>
+		<x>0.184314</x>
+		<y>0.196078</y>
+		<z>0.243137</z>
+	</AmbientColor>
+	<ShadeColor>
+		<x>0.184314</x>
+		<y>0.196078</y>
+		<z>0.243137</z>
+	</ShadeColor>
+	<IncidentShadowColor>
+		<x>0.184314</x>
+		<y>0.192157</y>
+		<z>0.243137</z>
+	</IncidentShadowColor>
+	<ParticlesColor>
+		<x>0.25</x>
+		<y>0.25</y>
+		<z>0.25</z>
+	</ParticlesColor>
+	<Whitening>true</Whitening>
+	<Pitch>30</Pitch>
+	<Yaw>340</Yaw>
+	<ShadowPitch>100</ShadowPitch>
+	<ShadowYaw>100</ShadowYaw>
+	<Sky href="/Textures/_(CubeTexture)/Sky.xdb#xpointer(/CubeTexture)"/>
+	<GlossColor>
+		<x>1</x>
+		<y>1</y>
+		<z>1</z>
+	</GlossColor>
+	<FogColor>
+		<x>0.682353</x>
+		<y>0.733333</y>
+		<z>0.815686</z>
+	</FogColor>
+	<FogStartDistance>1</FogStartDistance>
+	<FogDistance>40</FogDistance>
+	<VapourHeight>0</VapourHeight>
+	<VapourDensity>0</VapourDensity>
+	<VapourNoiseParam>0</VapourNoiseParam>
+	<VapourSpeed>0</VapourSpeed>
+	<VapourSwitchTime>0</VapourSwitchTime>
+	<VapourColor>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</VapourColor>
+	<ShadowColor>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</ShadowColor>
+	<InGameUse>true</InGameUse>
+	<BackColor>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BackColor>
+	<GForce2Light/>
+	<VapourStartHeight>0</VapourStartHeight>
+	<BlurStrength>0</BlurStrength>
+	<GroundAmbientColor>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</GroundAmbientColor>
+	<MaxShadowHeight>100</MaxShadowHeight>
+	<SunFlares href="/_(SunFlares)/Test.(SunFlares).xdb#xpointer(/SunFlares)"/>
+	<Haze/>
+	<CloudTex/>
+	<CloudSize>
+		<x>0</x>
+		<y>0</y>
+	</CloudSize>
+	<CloudDir>0</CloudDir>
+	<CloudSpeed>1</CloudSpeed>
+	<Rain href="#n:inline(ParticleInstance)" id="item_b4a95bcc-2b2a-440c-aa02-756e7ac63c88">
+		<ParticleInstance ObjectRecordID="305">
+			<SrcName/>
+			<Light>L_NORMAL</Light>
+			<Particle href="#n:inline(Particle)" id="item_b8f7ade4-666d-47c0-9584-0952bd904ab5">
+				<Particle ObjectRecordID="91">
+					<SrcName href="/Effects/Environment/Rain/RainTest.mb"/>
+					<ExportPrefix/>
+					<WrapSize>
+						<x>30</x>
+						<y>30</y>
+					</WrapSize>
+					<Bound>00099b3c2c667dc0000000bb3f8fbf41d8437d41258a0741f1817d41</Bound>
+					<PerParticleFog>false</PerParticleFog>
+					<uid>E5DB7870-5E93-4F38-8DD5-BD12F93FB5C2</uid>
+				</Particle>
+			</Particle>
+			<Position>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Position>
+			<Rotation>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>1</w>
+			</Rotation>
+			<Scale>1</Scale>
+			<Speed>1</Speed>
+			<Offset>0</Offset>
+			<EndCycle>3</EndCycle>
+			<CycleCount>0</CycleCount>
+			<Pivot>
+				<x>0</x>
+				<y>0</y>
+			</Pivot>
+			<Textures>
+				<Item href="/Textures/Effects/Rain/R01.xdb#xpointer(/Texture)"/>
+				<Item href="/Textures/Effects/Rain/R01.xdb#xpointer(/Texture)"/>
+				<Item href="/Textures/Effects/Rain/R01.xdb#xpointer(/Texture)"/>
+				<Item href="/Textures/Effects/Rain/R01.xdb#xpointer(/Texture)"/>
+				<Item/>
+				<Item/>
+				<Item/>
+				<Item href="/Textures/Effects/Rain/Water7.xdb#xpointer(/Texture)"/>
+				<Item href="/Textures/Effects/Rain/Water8.xdb#xpointer(/Texture)"/>
+			</Textures>
+			<IsCrown>false</IsCrown>
+			<Static>P_STATIC</Static>
+			<DoesCastShadow>false</DoesCastShadow>
+			<GlueToBone>0</GlueToBone>
+			<GlueToNamedBone/>
+			<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+			<Priority>0</Priority>
+		</ParticleInstance>
+	</Rain>
+	<SunFlarePitch>30</SunFlarePitch>
+	<SunFlareYaw>340</SunFlareYaw>
+	<ShadowsMaxDetailLength>10</ShadowsMaxDetailLength>
+	<HeightFog/>
+	<DepthOfField/>
+	<DistanceFog/>
+	<SkyDome/>
+	<DymanicLightsModifications>
+		<x>1</x>
+		<y>1</y>
+		<z>1</z>
+	</DymanicLightsModifications>
+</AmbientLight>

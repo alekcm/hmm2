@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7358">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_f5fd102a-b71f-45fd-b3a6-6d0e64ccd46b">
+			<Material ObjectRecordID="17698">
+				<Texture href="/Textures/Creatures/WarMachines/Ballista/Ballista.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_01a30e32-6c4a-4c66-a10d-806250cbd673">
+			<Material ObjectRecordID="17699">
+				<Texture href="/Textures/Creatures/WarMachines/Ballista/Ballista.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_5e990850-a858-4cc6-987f-8bfafa2cf386">
+		<Skeleton ObjectRecordID="1366">
+			<SrcName href="/models/Arenas/Boatarena/Boatarena.mb"/>
+			<RootJoint>group6</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>F4018DB4-A9B2-4907-A26D-E2BAB3291D66</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_e23832f7-2376-4359-9d34-609ee515d4d6">
+		<Geometry ObjectRecordID="6556">
+			<SrcName href="/models/Arenas/Boatarena/Boatarena.mb"/>
+			<uid>5C7C4CEA-41E2-4DD5-A6DA-35DC7B340823</uid>
+			<RootMesh/>
+			<RootJoint>group6</RootJoint>
+			<Size>
+				<x>2.83856</x>
+				<y>2.07809</y>
+				<z>1.09286</z>
+			</Size>
+			<Center>
+				<x>324.798</x>
+				<y>315.54</y>
+				<z>9.7288</z>
+			</Center>
+			<BestFitPoint>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>group6|Body|BodyShape</Item>
+				<Item>group6|Pike|PikeShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

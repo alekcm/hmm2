@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/Creatures/Dwarves/T3_Dwarf/BearRider.mb"/>
+	<uid>9DEF7A75-4097-457C-8496-D104237B2904</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>2.84475</x>
+		<y>2.86528</y>
+		<z>3.04468</z>
+	</Size>
+	<Center>
+		<x>-0.329864</x>
+		<y>-0.383964</y>
+		<z>1.50107</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Bear_Raider-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>2</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>BearBodyShape</Item>
+		<Item>RiderShape</Item>
+		<Item>HammerShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

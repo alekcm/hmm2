@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3927">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_efb32628-6903-41fa-adcc-f358e6ce3278">
+			<Material ObjectRecordID="5674">
+				<Texture href="/Textures/auto-imported_______320/dev/Grass/Crags/Ramp_p1/Steep_Ramp.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_69ca1c84-d235-4468-9943-cc1edfb00930">
+		<Skeleton ObjectRecordID="266">
+			<SrcName href="/models/TerrainObjects/Grass/Steep/ramp_p2.mb"/>
+			<RootJoint>ramp_p2</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>9B1D6637-7C37-43DD-BCC1-15F74870535D</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_714784bc-5664-43af-a87d-41f72b123418">
+		<Geometry ObjectRecordID="3368">
+			<SrcName href="/models/TerrainObjects/Grass/Steep/ramp_p2.mb"/>
+			<uid>E88D2D08-5973-470D-B26A-65D1594179DC</uid>
+			<RootMesh>ramp_p2</RootMesh>
+			<RootJoint>ramp_p2</RootJoint>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>1.0771</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>1</y>
+				<z>0.538549</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.159288</x>
+				<y>1.24913</y>
+				<z>0.911696</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurfaceShape3</Item>
+				<Item>polySurfaceShape5</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

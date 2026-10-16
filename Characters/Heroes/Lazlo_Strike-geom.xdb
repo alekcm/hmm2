@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/Heroes/Lazlo/Lazlo_Mounted_Game.mb"/>
+	<uid>420EB394-6F3C-42F9-BBAA-FE43B299D9BD</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>2.59144</x>
+		<y>4.13264</y>
+		<z>3.75137</z>
+	</Size>
+	<Center>
+		<x>0.119578</x>
+		<y>0.113558</y>
+		<z>1.87458</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Lazlo_Strike-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>4</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Horse_meshShape</Item>
+		<Item>lazlo_heroShape</Item>
+		<Item>Lazlo_ShieldShape</Item>
+		<Item>Lazlo_swordShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

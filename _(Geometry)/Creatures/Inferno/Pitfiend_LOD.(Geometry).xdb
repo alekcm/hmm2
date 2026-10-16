@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="3405">
+	<SrcName href="/models/Creatures/Inferno/Balor_LOD.mb"/>
+	<uid>C0C090FE-082C-47F7-9ECC-AD1BF54AC844</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>4.65612</x>
+		<y>6.35798</y>
+		<z>4.80776</z>
+	</Size>
+	<Center>
+		<x>-0.402065</x>
+		<y>1.56399</y>
+		<z>2.40604</z>
+	</Center>
+	<BestFitPoint>
+		<x>-6.62301e-007</x>
+		<y>1.83506</y>
+		<z>4.80968</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="#n:inline(AIGeometry)" id="item_9416fb25-3d47-44e2-91ed-6354ced6041e">
+		<AIGeometry ObjectRecordID="120">
+			<SrcName href="/models/Creatures/Inferno/Balor_LOD.mb"/>
+			<RootMesh>AI</RootMesh>
+			<RootJoint/>
+			<Volume>0</Volume>
+			<SolidPart>0</SolidPart>
+			<AABBCenter>
+				<x>0</x>
+				<y>0.00580812</y>
+				<z>1.33483</z>
+			</AABBCenter>
+			<AABBHalfSize>
+				<x>1.05947</x>
+				<y>1.17131</y>
+				<z>1.33559</z>
+			</AABBHalfSize>
+			<uid>CA539D42-5583-4237-91D2-EE9798E40525</uid>
+		</AIGeometry>
+	</AIGeometry>
+	<NumMeshes>2</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>polySurfaceShape1</Item>
+		<Item>polySurfaceShape3</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

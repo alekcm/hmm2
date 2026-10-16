@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CombatCamera ObjectRecordID="1000020">
+	<Event>
+		<AzimuthRange>
+			<Use>false</Use>
+			<Min>0</Min>
+			<Max>0</Max>
+		</AzimuthRange>
+		<ActionType>CAMERA_ACTION_RANGED</ActionType>
+		<Actor>
+			<Type>CAMERA_CHARACTER_SPECIFIC</Type>
+			<Creature href="/GameMechanics/CreatureVisual/Creatures/Academy/Titan.xdb#xpointer(/CreatureVisual)"/>
+			<Creatures>
+				<Item href="/GameMechanics/CreatureVisual/Creatures/Academy/3rd/StormLord.(CreatureVisual).xdb#xpointer(/CreatureVisual)"/>
+			</Creatures>
+			<BuildingType>BUILDING_ANY</BuildingType>
+			<Zone>
+				<Use>false</Use>
+				<Area>
+					<x1>0</x1>
+					<y1>0</y1>
+					<x2>0</x2>
+					<y2>0</y2>
+				</Area>
+			</Zone>
+		</Actor>
+		<Target>
+			<Type>CAMERA_CHARACTER_NO_MATTER</Type>
+			<Creature/>
+			<Creatures/>
+			<BuildingType>BUILDING_ANY</BuildingType>
+			<Zone>
+				<Use>false</Use>
+				<Area>
+					<x1>0</x1>
+					<y1>0</y1>
+					<x2>0</x2>
+					<y2>0</y2>
+				</Area>
+			</Zone>
+		</Target>
+		<SpellID>SPELL_NONE</SpellID>
+	</Event>
+	<AnimatedCameras>
+		<AnimSet href="/Characters/Creatures/Academy/Titan_rangeAttack.xdb#xpointer(/AnimSet)"/>
+		<PosType>CAMERAPOS_ACTOR</PosType>
+		<RotType>CAMERAROT_ACTOR_POINT</RotType>
+	</AnimatedCameras>
+	<Tracks/>
+	<IsForced>false</IsForced>
+</CombatCamera>

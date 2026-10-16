@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2905">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_3474b2c8-0cb7-4a28-bbd1-9154c273ab2d">
+			<Material ObjectRecordID="8812">
+				<Texture href="/Textures/Creatures/WarMachines/Catapult/Catapult.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_3045c116-f5cb-4b86-b3e7-5abd96c6caf1">
+		<Geometry ObjectRecordID="2361">
+			<SrcName href="/models/Creatures/Prodgy/Catapult.mb"/>
+			<uid>CA1D8C37-1E74-441C-8AEF-CD3CC64ED9F0</uid>
+			<RootMesh>CatapultRock</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>0.882722</x>
+				<y>0.881407</y>
+				<z>0.928149</z>
+			</Size>
+			<Center>
+				<x>0.0465957</x>
+				<y>0</y>
+				<z>0</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0604146</x>
+				<y>0.0324177</y>
+				<z>0.387127</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>CatapultRockShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

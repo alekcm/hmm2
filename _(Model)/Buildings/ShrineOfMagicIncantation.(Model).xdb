@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7018">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_ba71e05b-5803-4c07-9b1d-4a72b60f11c1">
+			<Material ObjectRecordID="15299">
+				<Texture href="/Textures/auto-imported_______320/Buildings/Shrine_of_magic_incanation2x2_1/shrine_of_magic_incantation.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_8c936a7a-5c2d-459c-8ec5-e6e03622486c">
+		<Skeleton ObjectRecordID="1238">
+			<SrcName href="/models/Buildings/FPP2/Shrine_of_magic_incanation.mb"/>
+			<RootJoint>ShrineOfMagicIncantation</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>9D1BBE5E-E05A-49DE-AEE8-8174892CF98F</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_186a4ef5-62f5-40d9-91f9-525bc4f2f456">
+		<Geometry ObjectRecordID="6220">
+			<SrcName href="/models/Buildings/FPP2/Shrine_of_magic_incanation.mb"/>
+			<uid>004D8A35-9ACE-4D1F-A657-3543936303C8</uid>
+			<RootMesh>ShrineOfMagicIncantation</RootMesh>
+			<RootJoint>ShrineOfMagicIncantation</RootJoint>
+			<Size>
+				<x>1.33646</x>
+				<y>1.66937</y>
+				<z>1.56978</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>0.780185</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0568162</x>
+				<y>0.353376</y>
+				<z>1.34715</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_67271de7-68e3-4609-9ad8-79bb83d60ff3">
+				<AIGeometry ObjectRecordID="330">
+					<SrcName href="/models/Buildings/FPP2/Shrine_of_magic_incanation.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>0.841621</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1</x>
+						<y>1</y>
+						<z>0.844952</z>
+					</AABBHalfSize>
+					<uid>19201A99-4A09-4630-9B21-C32925E44D1A</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>ShrineOfMagicIncantationShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

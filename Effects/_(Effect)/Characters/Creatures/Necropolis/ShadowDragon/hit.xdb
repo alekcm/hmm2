@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="604">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_e3ab0cd8-fc96-484f-9d82-add9ed6b7547">
+			<ParticleInstance ObjectRecordID="788">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_c45d6a07-1710-485f-a21f-1b293b23d84c">
+					<Particle ObjectRecordID="408">
+						<SrcName href="/Effects/Characters/NECROPOLIS/ShadowDragon/hit.mb"/>
+						<ExportPrefix>hit</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>e02b2cbe2405ca3fc0b5e43fca140841760991404556b140f2ed9240</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>93859DF7-D3AF-45BA-931C-714B965B13D0</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1.5</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkRed01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/WindowGlow00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow08NoADD.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Characters/NECROPOLIS/ShadowDragon/Bone/Head_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/NECROPOLIS/ShadowDragon/idle00IS.xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

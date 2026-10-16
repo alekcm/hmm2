@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5710">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_7433ada5-5a1f-4d51-971c-1fa1e7c752fc">
+			<Material ObjectRecordID="9334">
+				<Texture href="/Textures/auto-imported_______320/Artefacts/Dragon_Eye_Ring/Dragon_Eye_Ring.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c814d2e8-fd1a-4556-8bfa-f106b311b467">
+		<Skeleton ObjectRecordID="530">
+			<SrcName href="/models/Artefacts/Dragon_Eye_Ring.mb"/>
+			<RootJoint>Artefact</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>3C0D5D0D-20D4-437F-9441-74EB5957271B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1bdfb581-755c-4e05-8940-b1cb70b4c9c1">
+		<Geometry ObjectRecordID="4900">
+			<SrcName href="/models/Artefacts/Dragon_Eye_Ring.mb"/>
+			<uid>157DBCEB-F10B-49F2-8F1F-E054105B9C71</uid>
+			<RootMesh>Artefact</RootMesh>
+			<RootJoint>Artefact</RootJoint>
+			<Size>
+				<x>0.458202</x>
+				<y>0.396474</y>
+				<z>0.43595</z>
+			</Size>
+			<Center>
+				<x>-0.00308934</x>
+				<y>0.0104357</y>
+				<z>1.6499</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0154936</x>
+				<y>-0.0467214</y>
+				<z>1.79206</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="Orb_of_Light-geom-AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>ArtefactShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

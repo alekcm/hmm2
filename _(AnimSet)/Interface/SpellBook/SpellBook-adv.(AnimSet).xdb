@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="92">
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="/_(BasicSkelAnim)/Interface/SpellBook/SpellBook/idle00.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>page01</Kind>
+			<Anim href="/_(BasicSkelAnim)/Interface/SpellBook/SpellBook/page01.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>page02</Kind>
+			<Anim href="/_(BasicSkelAnim)/Interface/SpellBook/SpellBook/page02.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Interface/Spellbook/Spellbook2.mb"/>
+	<ExpSrcClipFolder href="/Animations/Interface/Spellbook/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

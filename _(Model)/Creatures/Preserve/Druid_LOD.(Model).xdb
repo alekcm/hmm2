@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6160">
+	<Materials>
+		<Item href="Druid_LOD-Druid_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Druid_LOD-Druid_Add_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Druid_LOD-Druid_Add_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_4cc8a4ae-94ca-4e47-8b70-dac6a887128a">
+		<Skeleton ObjectRecordID="703">
+			<SrcName href="/models/Creatures/Preserve/Druid_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>376FF433-15A1-4120-AB39-22A8DBB57AFD</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_4c1f74a0-9962-4738-9d8a-0c2a83bc1de1">
+		<Geometry ObjectRecordID="5350">
+			<SrcName href="/models/Creatures/Preserve/Druid_LOD.mb"/>
+			<uid>9E3DD414-4739-4A91-A5BE-79E72D4B190E</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.41</x>
+				<y>0.538492</y>
+				<z>2.47445</z>
+			</Size>
+			<Center>
+				<x>-0.237345</x>
+				<y>-0.0285634</y>
+				<z>1.23722</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.08325</x>
+				<y>-0.0097852</y>
+				<z>2.33444</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_344e6a10-dded-42ba-90c7-1bd119363ce6">
+				<AIGeometry ObjectRecordID="243">
+					<SrcName href="/models/Creatures/Preserve/Druid_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.0227989</x>
+						<y>-0.0227989</y>
+						<z>0.995771</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.452425</x>
+						<y>0.452425</y>
+						<z>1.00063</z>
+					</AABBHalfSize>
+					<uid>DA27B827-9A0D-4B23-870D-C7A2432731DF</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Druid_meshShape</Item>
+				<Item>Staff_meshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

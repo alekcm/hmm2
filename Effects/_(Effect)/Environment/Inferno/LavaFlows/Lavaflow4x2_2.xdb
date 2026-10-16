@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="494">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_5e19f31e-1529-4272-83c6-0af03360d009">
+			<ParticleInstance ObjectRecordID="660">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_0c00d2a5-8c36-4438-9ffa-8a82a4b1d77c">
+					<Particle ObjectRecordID="324">
+						<SrcName href="/Effects/Environment/Inferno/LavaFlows.mb"/>
+						<ExportPrefix>Set_4x2_2</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>28cfe73f8ab1a7bf5074c33e24dad640d22bc7401c241840487f543f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>FD210929-141B-4130-AE4B-140CDA7422E5</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6151">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_4f822d8a-c29c-4997-9293-a0c6e03cfee9">
+			<Material ObjectRecordID="10276">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/SubTerrain/Mushrooms/Mushroom1x1_5/mushroom04.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_129e6be8-90d8-4bcb-a0ea-a82faced08d1">
+			<Material ObjectRecordID="10277">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/SubTerrain/Mushrooms/Mushroom1x1_2/mushroom02.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_84a7760e-8d3e-4854-b65e-0002bdd100c0">
+			<Material ObjectRecordID="10278">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/SubTerrain/Mushrooms/Mushroom1x1_4/mushroom03.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_2491746c-e63b-46b9-b7b5-d5322a69da60">
+		<Skeleton ObjectRecordID="694">
+			<SrcName href="/models/TerrainObjects/Subterrain/Mushrooms/Mushroom2x1_3.mb"/>
+			<RootJoint>mushroom2x1_3</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>774BB300-B9E4-4897-8C1E-8A02BE38D5D5</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_d6c76379-8c49-45c4-bf6f-41f356adfaa9">
+		<Geometry ObjectRecordID="5341">
+			<SrcName href="/models/TerrainObjects/Subterrain/Mushrooms/Mushroom2x1_3.mb"/>
+			<uid>DAD2DB47-4D7B-4126-ABDE-4349C3324B73</uid>
+			<RootMesh>mushroom2x1_3</RootMesh>
+			<RootJoint>mushroom2x1_3</RootJoint>
+			<Size>
+				<x>3.76154</x>
+				<y>2.71253</y>
+				<z>1.42747</z>
+			</Size>
+			<Center>
+				<x>1.15043</x>
+				<y>0.230005</y>
+				<z>0.713735</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.16747</x>
+				<y>-0.0411398</y>
+				<z>0.962193</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>3</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>mushroom2x1_Shape3</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

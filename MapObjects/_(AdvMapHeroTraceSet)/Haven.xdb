@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapHeroTraceSet ObjectRecordID="2">
+	<traces>
+		<Item href="#n:inline(AdvMapHeroTrace)" id="item_0f358080-cd34-409a-ae0e-2a1571f876be">
+			<AdvMapHeroTrace ObjectRecordID="4">
+				<Decals/>
+				<Objects>
+					<Item>
+						<Model/>
+						<AnimSet/>
+						<Effect href="/Effects/_(Effect)/Characters/Heroes/Knight/KnightsPath/Level_1.xdb#xpointer(/Effect)"/>
+						<Frequency>1</Frequency>
+					</Item>
+				</Objects>
+				<ObjectsDensity>1</ObjectsDensity>
+				<DecalsDispersionRadius>0</DecalsDispersionRadius>
+			</AdvMapHeroTrace>
+		</Item>
+		<Item href="/MapObjects/_(AdvMapHeroTrace)/Haven/2.xdb#xpointer(/AdvMapHeroTrace)"/>
+		<Item href="/MapObjects/_(AdvMapHeroTrace)/Haven/2.xdb#xpointer(/AdvMapHeroTrace)"/>
+	</traces>
+</AdvMapHeroTraceSet>

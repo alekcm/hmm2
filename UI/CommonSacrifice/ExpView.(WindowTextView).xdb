@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowTextView ObjectRecordID="1000264">
+	<ClassTypeID>285694860</ClassTypeID>
+	<Shared href="ExpView.(WindowTextViewShared).xdb#xpointer(/WindowTextViewShared)"/>
+	<Name>ExpView</Name>
+	<TooltipFileRef href=""/>
+	<Visible>false</Visible>
+	<Priority>100</Priority>
+	<GameMessageReactions/>
+	<Placement>
+		<Position>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>true</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_HIGH_END</First>
+			<Second>true</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_MARGIN</First>
+			<Second>true</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>30</x>
+				<y>15</y>
+			</First>
+			<Second>true</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>5</x>
+				<y>5</y>
+			</First>
+			<Second>true</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>5</x>
+				<y>5</y>
+			</First>
+			<Second>true</Second>
+		</UpperMargin>
+	</Placement>
+	<Enabled>true</Enabled>
+	<TextString/>
+	<relatedTexts/>
+	<relatedTextures/>
+	<Flags>
+		<SuperActive>false</SuperActive>
+	</Flags>
+	<TextFileRef href="HeroExp.txt"/>
+	<ResizeOnTextSet>true</ResizeOnTextSet>
+	<ResizeWidthOnTextSet>false</ResizeWidthOnTextSet>
+	<TextFormat/>
+</WindowTextView>

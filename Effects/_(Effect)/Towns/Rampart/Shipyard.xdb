@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000155">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_5b31c5a8-eff3-469d-87f7-e6130bd9c964">
+			<ParticleInstance ObjectRecordID="1000160">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_2c5ad60e-4836-4921-9576-48e82894ff14">
+					<Particle ObjectRecordID="1000147">
+						<SrcName href="/Effects/Towns/Rampart/Shipyard.mb"/>
+						<ExportPrefix>ShipyardGlow</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>9dc199c0e784ec4033c2b2407bc32b40e455c63fe455c63fe455c63f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>AC63B6D8-46AE-41C5-8452-CC986DB904E2</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_502c0915-6ff2-404f-a08a-469dc0c0ad72">
+			<ParticleInstance ObjectRecordID="1000161">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_a61cf6e3-8c61-4bc3-b8b7-e3360d8e2c66">
+					<Particle ObjectRecordID="1000148">
+						<SrcName href="/Effects/Towns/Rampart/Shipyard.mb"/>
+						<ExportPrefix>RedGlow1</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>8ef2aec000c45d3e84780f40b26716412c774f4039ed08411c8f0940</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>D6A14574-448D-449E-BD03-A0FC94160282</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.25</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_588233ce-74c0-4812-9f0a-50e25f6b1918">
+			<ParticleInstance ObjectRecordID="1000162">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_523aed66-9703-4cec-b289-5bf2c6b1ab78">
+					<Particle ObjectRecordID="1000151">
+						<SrcName href="/Effects/Towns/Rampart/Shipyard.mb"/>
+						<ExportPrefix>GoldGlow1</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>fe629bc020f0ed40e351d040ae56a93f4c1a493f1cb24b3ff004353f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>01DCA404-C2AF-4869-9E87-78ADE0132A88</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_f892009a-e8a1-4899-8e93-92525cf8fe85">
+			<ParticleInstance ObjectRecordID="1000169">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_ad8b6ca9-7d1e-4a1d-bf85-78f02626356d">
+					<Particle ObjectRecordID="1000158">
+						<SrcName href="/Effects/Towns/Rampart/Shipyard.mb"/>
+						<ExportPrefix>Visulki1</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>d4af83c07870b6bf925086409f0c3141421b93400fa11941de434140</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>FADFF967-34D4-46D2-BF2C-130C97FA5EC9</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow04.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_befdecd1-7bec-45eb-a90d-82fb0454955b">
+			<ModelInstance ObjectRecordID="1000048">
+				<Model href="/_(Model)/Effects/Towns/Rampart_Shipyard.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Rampart_Shipyard_Light.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

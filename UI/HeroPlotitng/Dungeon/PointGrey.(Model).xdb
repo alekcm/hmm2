@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2274">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_ce1bf628-1bd8-43e9-b2b5-2ba45704287a">
+			<Material ObjectRecordID="2841">
+				<Texture href="PointGray.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>false</ReceiveShadow>
+				<Priority>161</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_33bf91bf-8c5e-4918-91b9-a6ea8fdeccce">
+		<Geometry ObjectRecordID="1728">
+			<SrcName href="/models/Interface/MapView/Path/path.mb"/>
+			<uid>29E7E4FB-51E1-46F3-AC8C-13DB73964FE9</uid>
+			<RootMesh>cross_grey</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>0</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Center>
+			<BestFitPoint>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>cross_greyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

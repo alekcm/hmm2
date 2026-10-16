@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject ObjectRecordID="1000222">
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>hall_of_inrigue</Name>
+	<DefUpgLevel>1</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="hall_of_inrigue_u0r0.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="hall_of_inrigue_u1r0.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

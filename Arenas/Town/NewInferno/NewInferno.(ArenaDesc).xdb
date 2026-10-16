@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="48">
+	<ExpScene href="/models/Towns/inferno/NewInferno.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>B3D9E02E-CC6F-48C1-9419-9607334545A4</uid>
+	<objects>
+		<Item href="polySurface383.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="polySurface314.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="pCube56.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="cap.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="b1.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="b2.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="b3.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="b4.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="arc.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Bridge15.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Bridge16.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Bridge17.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Bridge18.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="e1.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="pCylinder2.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="orderoffire.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="town.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="shipyard.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="templeofdamned.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="blacksmith.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="forsakenpalace.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="fort.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="demongate.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="hallofsigns.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="hellhole.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="impcrucible.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="kennels.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="magicguild.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="marketplace.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="sacrificialpit.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="infloom.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="tavern.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Grail.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="mg_loc.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="dg_loc.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="maindoor_loc.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="kennels_loc.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="tavern_loc.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="botglow_loc.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc02.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc03.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc04.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc05.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc06.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc07.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc08.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="hellhole_loc01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="hellhole_loc02.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="hellhole_loc03.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="hellhole_loc04.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="hellhole_loc05.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="hellhole_loc06.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="hellhole_loc07.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="blacksmith_loc.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="marketplace_loc.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="tod_loc.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="meteor_loc01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="meteor_loc02.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="meteor_loc03.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="meteor_loc04.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="meteor_loc05.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc09.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc010.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc011.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc012.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc013.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc014.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc015.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc016.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="door_loc017.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Halls_of_Horror.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Brimstone_Clouds.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Grail_loc.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Castle_loc.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+	</objects>
+	<lights>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>303.649</x>
+				<y>271.226</y>
+				<z>115</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.776471</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>110</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>332.558</x>
+				<y>282.937</y>
+				<z>115</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.776471</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>110</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>338.812</x>
+				<y>307.702</y>
+				<z>115</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.776471</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>110</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>326.228</x>
+				<y>331.81</y>
+				<z>115</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.776471</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>110</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>295.475</x>
+				<y>338.156</y>
+				<z>115</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.776471</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>110</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>270.813</x>
+				<y>321.438</y>
+				<z>115</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.776471</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>110</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>273.794</x>
+				<y>287.67</y>
+				<z>115</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.776471</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>110</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>284.597</x>
+				<y>285.62</y>
+				<z>156</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+			</Color>
+			<Intensity>0.6</Intensity>
+			<Radius>120</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>324.996</x>
+				<y>287.721</y>
+				<z>162.197</z>
+			</Position>
+			<Color>
+				<x>0.305882</x>
+				<y>0.517647</y>
+				<z>0.572549</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>305.607</x>
+				<y>283.324</y>
+				<z>167.348</z>
+			</Position>
+			<Color>
+				<x>0.305882</x>
+				<y>0.517647</y>
+				<z>0.572549</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>305.565</x>
+				<y>280.311</y>
+				<z>158</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+			</Color>
+			<Intensity>0.6</Intensity>
+			<Radius>120</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>324.26</x>
+				<y>298.516</y>
+				<z>157</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+			</Color>
+			<Intensity>0.6</Intensity>
+			<Radius>120</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>324.93</x>
+				<y>324.301</y>
+				<z>156</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+			</Color>
+			<Intensity>0.6</Intensity>
+			<Radius>120</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>296.201</x>
+				<y>335.122</y>
+				<z>156</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+			</Color>
+			<Intensity>0.6</Intensity>
+			<Radius>120</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>273.954</x>
+				<y>312.224</y>
+				<z>156</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+			</Color>
+			<Intensity>0.6</Intensity>
+			<Radius>120</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>329.553</x>
+				<y>281.936</y>
+				<z>149.874</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.776471</y>
+				<z>0</z>
+			</Color>
+			<Intensity>0.7</Intensity>
+			<Radius>120</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>314.569</x>
+				<y>329.983</y>
+				<z>162.197</z>
+			</Position>
+			<Color>
+				<x>0.305882</x>
+				<y>0.517647</y>
+				<z>0.572549</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>280.556</x>
+				<y>304.17</y>
+				<z>162.197</z>
+			</Position>
+			<Color>
+				<x>0.305882</x>
+				<y>0.517647</y>
+				<z>0.572549</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>305.646</x>
+				<y>304.484</y>
+				<z>171.24</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+			</Color>
+			<Intensity>0.7</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>313.925</x>
+				<y>290.792</y>
+				<z>146.115</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.776471</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>30</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>318.167</x>
+				<y>276.156</y>
+				<z>145.163</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.776471</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>40</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>181.344</x>
+				<y>219.502</y>
+				<z>1.52588e-005</z>
+			</Position>
+			<Color>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>1</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>6.82813</x>
+				<y>616.24</y>
+				<z>1.52588e-005</z>
+			</Position>
+			<Color>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>1</Radius>
+		</Item>
+	</lights>
+	<effects>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/MainDoorFire.xdb#xpointer(/Effect)"/>
+			<Locator>maindoor_loc</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/BottomGlow.xdb#xpointer(/Effect)"/>
+			<Locator>botglow_loc</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/DoorFire01.xdb#xpointer(/Effect)"/>
+			<Locator>door_loc05</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/DoorFire02.xdb#xpointer(/Effect)"/>
+			<Locator>door_loc06</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/DoorFire01.xdb#xpointer(/Effect)"/>
+			<Locator>door_loc07</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/DoorFire02.xdb#xpointer(/Effect)"/>
+			<Locator>door_loc08</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/BottomGlow.xdb#xpointer(/Effect)"/>
+			<Locator>botglow_loc</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/DoorFire01.xdb#xpointer(/Effect)"/>
+			<Locator>door_loc05</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/DoorFire02.xdb#xpointer(/Effect)"/>
+			<Locator>door_loc06</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/DoorFire01.xdb#xpointer(/Effect)"/>
+			<Locator>door_loc07</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/DoorFire02.xdb#xpointer(/Effect)"/>
+			<Locator>door_loc08</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/MainDoorFire.xdb#xpointer(/Effect)"/>
+			<Locator>maindoor_loc</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/Meteor01.xdb#xpointer(/Effect)"/>
+			<Locator>meteor_loc01</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/Meteor02.xdb#xpointer(/Effect)"/>
+			<Locator>meteor_loc02</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/Meteor03.xdb#xpointer(/Effect)"/>
+			<Locator>meteor_loc03</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/Meteor04.xdb#xpointer(/Effect)"/>
+			<Locator>meteor_loc04</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Inferno/Meteor05.xdb#xpointer(/Effect)"/>
+			<Locator>meteor_loc05</Locator>
+		</Item>
+	</effects>
+	<sounds>
+		<Item>
+			<SoundEffect href="/Sounds/_(Sound)/Town/Inferno/BuildingsMono.xdb#xpointer(/Sound)"/>
+			<Locator>maindoor_loc</Locator>
+		</Item>
+		<Item>
+			<SoundEffect href="/Sounds/_(Sound)/Town/Inferno/BuildingsMono.xdb#xpointer(/Sound)"/>
+			<Locator>mg_loc</Locator>
+		</Item>
+	</sounds>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>326.711</x>
+			<y>261.167</y>
+			<z>154.474</z>
+		</Pos>
+		<Rot>
+			<x>0</x>
+			<y>27.5806</y>
+			<z>0</z>
+		</Rot>
+		<Rod>51.9669</Rod>
+		<FOV>54.4322</FOV>
+		<ClipDistanceMin>0.2</ClipDistanceMin>
+		<ClipDistanceMax>1000</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound href="/Sounds/_(Ambient)/Towns/Inferno.xdb#xpointer(/AmbientSoundSet)"/>
+	<Music href="/Sounds/_(Music)/Towns/Inferno.(Music).xdb#xpointer(/Music)"/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Inferno_light_(Panov).xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model href="/_(Model)/Cutscenes/camera.(Model).xdb#xpointer(/Model)"/>
+		<AnimSet href="/_(AnimSet)/AdventureFlyby/TownFlyups/InfernoFlyups.(AnimSet).xdb#xpointer(/AnimSet)"/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras>
+		<Item href="camera_1.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_4.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_3.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="demongate_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="hellhole_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="hallofsigns_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="sacrificialpit_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="impcrucible_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="kennels_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="shipyard_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="templeofdamned_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="forsakenpalace_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="town_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="fort_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="marketplace_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="tavern_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="blacksmith_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="resourcesilo_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="orderoffire_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="infloom_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_6.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_2.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_5.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="magicguild_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_7.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="magicguild2_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Brimstone_Clouds_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Grail_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Halls_of_Horror_cam.(Camera).xdb#xpointer(/Camera)"/>
+	</staticCameras>
+	<CameraLimits href="#n:inline(CameraLimits)" id="item_f28e6151-78e7-4ffa-bb39-219c75333135">
+		<CameraLimits ObjectRecordID="1000003">
+			<limits>
+				<MinRod>45</MinRod>
+				<MaxRod>55</MaxRod>
+				<MinX>-1e+006</MinX>
+				<MaxX>1e+006</MaxX>
+				<MinY>1e+006</MinY>
+				<MaxY>-1e+006</MaxY>
+				<MinZ>125</MinZ>
+				<MaxZ>165</MaxZ>
+				<MinPitch>-40</MinPitch>
+				<MaxPitch>20</MaxPitch>
+				<MinYaw>0</MinYaw>
+				<MaxYaw>0</MaxYaw>
+				<UsePitchLimits>true</UsePitchLimits>
+				<UseYawLimits>false</UseYawLimits>
+			</limits>
+		</CameraLimits>
+	</CameraLimits>
+	<CameraLimitsSet/>
+</ArenaDesc>

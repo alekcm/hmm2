@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002060">
+	<Materials>
+		<Item href="High Cabins-HighCabins_M.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="High Cabins-Poad_mat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/LeafMat.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_7305c3e5-8970-4751-a692-22e006020188">
+		<Skeleton ObjectRecordID="1000528">
+			<SrcName href="/models/Buildings/FPP2/Dwellings/Rampart/rampart_HighCabins.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>B18CB35F-84A6-4C1E-AD3F-528A5EF11248</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_0c53b2f6-54f8-4314-9dc4-a90ff6dc1643">
+		<Geometry ObjectRecordID="1001832">
+			<SrcName href="/models/Buildings/FPP2/Dwellings/Rampart/rampart_HighCabins.mb"/>
+			<uid>DA1821F5-EF43-4D8A-8847-199240C56D92</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>6</x>
+				<y>6.07131</y>
+				<z>7.26251</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.0347517</y>
+				<z>3.59236</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0743285</x>
+				<y>-1.10071</y>
+				<z>7.19658</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_19cbe922-04bb-4fac-ab1e-2dbd8aa4ea98">
+				<AIGeometry ObjectRecordID="1000806">
+					<SrcName href="/models/Buildings/FPP2/Dwellings/Rampart/rampart_HighCabins.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.131396</x>
+						<y>0.0234751</y>
+						<z>3.37039</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.65741</x>
+						<y>1.77444</y>
+						<z>3.37039</z>
+					</AABBHalfSize>
+					<uid>AF6AD295-824F-459A-92D1-52CE361B51E9</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>18</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Cabin_rootShape</Item>
+				<Item>PodShape</Item>
+				<Item>CragShape</Item>
+				<Item>polySurfaceShape32</Item>
+				<Item>polySurfaceShape33</Item>
+				<Item>polySurfaceShape34</Item>
+				<Item>polySurfaceShape35</Item>
+				<Item>polySurfaceShape36</Item>
+				<Item>polySurfaceShape37</Item>
+				<Item>polySurfaceShape38</Item>
+				<Item>polySurfaceShape39</Item>
+				<Item>polySurfaceShape40</Item>
+				<Item>polySurfaceShape41</Item>
+				<Item>polySurfaceShape42</Item>
+				<Item>polySurfaceShape43</Item>
+				<Item>polySurfaceShape44</Item>
+				<Item>polySurfaceShape45</Item>
+				<Item>polySurfaceShape46</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

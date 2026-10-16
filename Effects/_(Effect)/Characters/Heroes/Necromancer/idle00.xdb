@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="680">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_ab18e3f2-63ad-4f54-b208-f970f4550df9">
+			<ParticleInstance ObjectRecordID="882">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_01f3a515-a4cc-4c4d-a892-7869add60dca">
+					<Particle ObjectRecordID="466">
+						<SrcName href="/Effects/Characters/Necromanser/idle00.mb"/>
+						<ExportPrefix>Cast</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>38c031befc09cebf9b99ff3f00d6213fc87ed33eea97ae3efce6ab3e</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>E12D5365-39C0-49B1-ABBD-D720809AFF2C</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3.16666</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

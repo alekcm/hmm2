@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002102">
+	<Materials>
+		<Item href="Crypt-CryptShinyMat01.3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Crypt-CryptShinyMat01.3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Crypt-Crypt_Windows.2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_f37fc0b8-d78a-4e95-a4f4-05f2f68c348d">
+		<Skeleton ObjectRecordID="1000564">
+			<SrcName href="/Effects/Buildings/FPP2/Crypt.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>11174DA4-BE80-4052-B96C-F6CAC8443C8D</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_9d3bb275-d982-45a3-9474-7dd7b39e7439">
+		<Geometry ObjectRecordID="1001873">
+			<SrcName href="/Effects/Buildings/FPP2/Crypt.mb"/>
+			<uid>8277B4D5-CC24-49EB-AF48-28485F2FEB77</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.88126</x>
+				<y>1.14274</y>
+				<z>2.1976</z>
+			</Size>
+			<Center>
+				<x>-0.612109</x>
+				<y>-0.288557</y>
+				<z>1.78447</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0303028</x>
+				<y>-0.644441</y>
+				<z>2.86975</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>RaysShape</Item>
+				<Item>DoorShape</Item>
+				<Item>WindowShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

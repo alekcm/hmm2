@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="247">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_da6901e9-da72-40c9-b4b1-b334d30991a5">
+			<ParticleInstance ObjectRecordID="287">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_7f449e51-e03c-4ca1-a4bb-000c7b0490d3">
+					<Particle ObjectRecordID="74">
+						<SrcName href="/Effects/Spells/WaspSwarm.mb"/>
+						<ExportPrefix>WaspSwarm</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>1088f2be5e6c514022c258403f9a844190370e41565a4341c596da40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>9CE8A1B2-72E4-4C38-87B4-C9042E6FBA6C</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/Wasp.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/WaspSwarm.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Dust00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

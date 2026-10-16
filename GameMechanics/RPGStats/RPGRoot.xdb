@@ -1,0 +1,1483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RPGRoot>
+	<Effects>
+		<Item>
+			<ID>SHIELD_BASH</ID>
+			<Effect href="/Effects/_(Effect)/Characters/ShieldBash.xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>FIRE_HIT</ID>
+			<Effect href="/Effects/_(Effect)/Characters/hits/fire_hit.xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>COLD_HIT</ID>
+			<Effect href="/Effects/_(Effect)/Characters/hits/cold_hit.xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>GATING_CIRCLE1x1</ID>
+			<Effect href="/Effects/_(Effect)/Characters/Gating_mark_small.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>GATING_CIRCLE2x2</ID>
+			<Effect href="/Effects/_(Effect)/Characters/Gating_mark_big.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>FLAGGED_CHANGEOWNER</ID>
+			<Effect href="/Effects/_(Effect)/Buildings/Capture/Start_dust_S.xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>GHOST_AURA</ID>
+			<Effect href="/Effects/_(Effect)/Modes/Ghost/Aura01.xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>ANGEL_WINGS_IDLE</ID>
+			<Effect href="/Effects/_(Effect)/Characters/AngelWings_hero_idle00.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>ANGEL_WINGS_MOVE</ID>
+			<Effect href="/Effects/_(Effect)/Characters/AngelWings_hero_move.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>TOWN_TRANSFORM</ID>
+			<Effect href="/Effects/_(Effect)/Buildings/Capture/Start_dust_S.xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>ACID_HIT</ID>
+			<Effect href="/Effects/_(Effect)/Characters/hits/poison_hit.xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>LIGHTNING_HIT</ID>
+			<Effect href="/Effects/_(Effect)/Spells/ChainLightningHit.xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>SEARING_AURA_HIT</ID>
+			<Effect href="/Effects/_(Effect)/Characters/hits/fire_hit.xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<ID>ARMY_SELECTION</ID>
+			<Effect href="/Effects/_(Effect)/UI/ArmySelection.xdb#xpointer(/Effect)"/>
+		</Item>
+	</Effects>
+	<SpellVisuals>
+		<Item>
+			<ID>BAD_MORALE</ID>
+			<Visual href="/GameMechanics/Spell/SpellLikeEffects/BadMorale.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+		</Item>
+		<Item>
+			<ID>BAD_LUCK</ID>
+			<Visual href="/GameMechanics/Spell/SpellLikeEffects/BadLuck.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+		</Item>
+		<Item>
+			<ID>GOOD_MORALE</ID>
+			<Visual href="/GameMechanics/Spell/SpellLikeEffects/GoodMorale.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+		</Item>
+		<Item>
+			<ID>GOOD_LUCK</ID>
+			<Visual href="/GameMechanics/Spell/SpellLikeEffects/GoodLuck.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+		</Item>
+		<Item>
+			<ID>CREATURE_SUMMON</ID>
+			<Visual href="/GameMechanics/SpellVisual/CreatureSummon.xdb#xpointer(/SpellVisual)"/>
+		</Item>
+		<Item>
+			<ID>ACADEMY_MINE</ID>
+			<Visual href="/GameMechanics/Spell/Combat_Spells/SummoningMagic/LandMine.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+		</Item>
+		<Item>
+			<ID>ACADEMY_MINE_EXPLOSION</ID>
+			<Visual href="/GameMechanics/Spell/Combat_Spells/SummoningMagic/LandMine_Explosion.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+		</Item>
+		<Item>
+			<ID>FORTRESS_MINE</ID>
+			<Visual href="/GameMechanics/SpellVisual/MoatObjects/FortressMine.xdb#xpointer(/SpellVisual)"/>
+		</Item>
+		<Item>
+			<ID>FORTRESS_MINE_EXPLOSION</ID>
+			<Visual href="/GameMechanics/Spell/Combat_Spells/SummoningMagic/LandMine_Explosion.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+		</Item>
+		<Item>
+			<ID>KNIGHT_MELEE_PLACEHOLDER</ID>
+			<Visual href="/GameMechanics/Spell/Creature_Abilities/War_Machines/CatapultShot.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+		</Item>
+		<Item>
+			<ID>DEMONLORD_MELEE_PLACEHOLDER</ID>
+			<Visual href="/GameMechanics/Spell/Creature_Abilities/War_Machines/CatapultShot.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+		</Item>
+		<Item>
+			<ID>FLAMEWAVE_EFFECT</ID>
+			<Visual href="/GameMechanics/Spell/Creature_Abilities/Dwarf/FlamewaveEffect.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+		</Item>
+	</SpellVisuals>
+	<Shots>
+		<Item>
+			<ID>IMBUED_ARROW</ID>
+			<Shot href="/GameMechanics/Shot/Creatures/Preserve/RangerArrow.xdb#xpointer(/Shot)"/>
+		</Item>
+		<Item>
+			<ID>FIRE_BALLISTA</ID>
+			<Shot href="/GameMechanics/Shot/Creatures/WarMachines/FireBallista.xdb#xpointer(/Shot)"/>
+		</Item>
+		<Item>
+			<ID>CHAIN_LIGHTNING</ID>
+			<Shot href="/GameMechanics/Shot/Spells/ChainLightning.xdb#xpointer(/Shot)"/>
+		</Item>
+		<Item>
+			<ID>UBER_CHAIN_LIGHTNING</ID>
+			<Shot href="/GameMechanics/Shot/Heroes/Biara.xdb#xpointer(/Shot)"/>
+		</Item>
+		<Item>
+			<ID>FIREBALL</ID>
+			<Shot href="/GameMechanics/Shot/Spells/FireBall.xdb#xpointer(/Shot)"/>
+		</Item>
+		<Item>
+			<ID>MAGIC_ARROW</ID>
+			<Shot href="/GameMechanics/Shot/Spells/Magic_Arrow.xdb#xpointer(/Shot)"/>
+		</Item>
+		<Item>
+			<ID>TIMESHIFT</ID>
+			<Shot href="/GameMechanics/Shot/Spells/TimeShift.xdb#xpointer(/Shot)"/>
+		</Item>
+		<Item>
+			<ID>SCATTER_SHOT</ID>
+			<Shot href="/GameMechanics/Shot/Creatures/Haven/Scatter_Shot.xdb#xpointer(/Shot)"/>
+		</Item>
+		<Item>
+			<ID>CHAIN_SHOT</ID>
+			<Shot href="/GameMechanics/Shot/Creatures/Inferno/Succubus_Strike.xdb#xpointer(/Shot)"/>
+		</Item>
+		<Item>
+			<ID>STORMSTRIKE</ID>
+			<Shot href="/GameMechanics/Shot/Creatures/Dwarf/StormStrike.xdb#xpointer(/Shot)"/>
+		</Item>
+		<Item>
+			<ID>RAINBOW_BREATH</ID>
+			<Shot href="/GameMechanics/Shot/Spells/ChainLightning.xdb#xpointer(/Shot)"/>
+		</Item>
+	</Shots>
+	<SharedGroups>
+		<Item>
+			<ID>TOWN_ANY</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Towns/any.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACT_ANY</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Artifacts/Any.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>TREASURE_ANY</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Treasures/Any.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>TREASURE_SCRIPT</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Treasures/Script.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>MONSTER_1</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Monsters/Level_1.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>MONSTER_2</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Monsters/Level_2.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>MONSTER_3</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Monsters/Level_3.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>MONSTER_4</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Monsters/Level_4.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>MONSTER_5</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Monsters/Level_5.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>MONSTER_6</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Monsters/Level_6.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>MONSTER_7</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Monsters/Level_7.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>MONSTER_ANY</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Monsters/Any.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>HEROES_ANY</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Heroes/Any.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>DWELLINGS_ACADEMY</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Dwellings/Academy.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>DWELLINGS_PRESERVE</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Dwellings/Preserve.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>DWELLINGS_INFERNO</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Dwellings/Inferno.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>DWELLINGS_HAVEN</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Dwellings/Haven.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>DWELLINGS_NECROPOLIS</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Dwellings/Necropolis.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>DWELLINGS_DUNGEON</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Dwellings/Dungeon.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>DWELLINGS_FORTRESS</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Dwellings/Fortress.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+		<Item>
+			<ID>DWELLINGS_STRONGHOLD</ID>
+			<Group href="/MapObjects/_(AdvMapSharedGroup)/Dwellings/Stronghold.xdb#xpointer(/AdvMapSharedGroup)"/>
+		</Item>
+	</SharedGroups>
+	<Texts>
+		<Item>
+			<ID>INVALID_CREATURE</ID>
+			<TextFileRef href="/Text/Errors/invalid_creature.txt"/>
+		</Item>
+		<Item>
+			<ID>TT_VISITED</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/visited.txt"/>
+		</Item>
+		<Item>
+			<ID>TT_NOT_VISITED</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/notVisited.txt"/>
+		</Item>
+		<Item>
+			<ID>TT_LEARNED</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/Learned.txt"/>
+		</Item>
+		<Item>
+			<ID>TT_NOT_LEARNED</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/NotLearned.txt"/>
+		</Item>
+		<Item>
+			<ID>TT_ARTIFACT_FOUND</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/ArtifactFound.txt"/>
+		</Item>
+		<Item>
+			<ID>TT_SPELL_LEARNED</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/SpellLearned.txt"/>
+		</Item>
+		<Item>
+			<ID>START_OF_WEEK</ID>
+			<TextFileRef href="/Text/Game/start-of-week.txt"/>
+		</Item>
+		<Item>
+			<ID>NEW_ABILITY</ID>
+			<TextFileRef href="/Text/Game/new-ability.txt"/>
+		</Item>
+		<Item>
+			<ID>NEW_SKILL</ID>
+			<TextFileRef href="/Text/Game/new-skill.txt"/>
+		</Item>
+		<Item>
+			<ID>LOST_ABILITY</ID>
+			<TextFileRef href="/Text/Game/lost-ability.txt"/>
+		</Item>
+		<Item>
+			<ID>LOST_SKILL</ID>
+			<TextFileRef href="/Text/Game/lost-skill.txt"/>
+		</Item>
+		<Item>
+			<ID>RUNE_OBTAINED</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/RuneObtained.txt"/>
+		</Item>
+		<Item>
+			<ID>RUNE_ALREADY</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/RuneAlready.txt"/>
+		</Item>
+		<Item>
+			<ID>RUNE_REQUIRE_HERO_LEVEL</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/RuneHeroLevel.txt"/>
+		</Item>
+		<Item>
+			<ID>RUNE_REQUIRE_SKILL_LEVEL</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/RuneSkillLevel.txt"/>
+		</Item>
+		<Item>
+			<ID>FLYOFF_ALREADY_VISITED</ID>
+			<TextFileRef href="/Text/Game/BuildingsCommon/AlreadyVisited.txt"/>
+		</Item>
+		<Item>
+			<ID>WARCRY_OBTAINED</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/WarCryObtained.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_CANTTAKEARTIFACT</ID>
+			<TextFileRef href="/Text/Game/Artifacts/CantTakeArtifact.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_KEYOBTAINED</ID>
+			<TextFileRef href="/Text/Game/Tents/KeyObtained.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_KEYNOTOBTAINED</ID>
+			<TextFileRef href="/Text/Game/Tents/KeyNotObtained.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_SUMMON_BOAT_FAILED</ID>
+			<TextFileRef href="/Text/Game/Spells/Adventure/Summon_Boat/cant_cast.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_SUMMON_CREATURES_FAILED</ID>
+			<TextFileRef href="/Text/Game/Spells/Adventure/Summon_Creatures/cant_cast.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_JOIN_TO_YOU</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/JoinToYou.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_DO_YOU_WANT_TO_HIRE</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/DoYouWantToHire.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_HIRING</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/Hiring.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_NO_ROOM</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/NoRoomToHire.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_NO_MONEY_TO_HIRE</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/NoMoneyToHire.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_CREATURES_FLEE</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/PursueAndFight.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_CREATURES_JOIN</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/CreaturesJoin.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_CREATURES_JOIN_MONEY</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/CreaturesJoinMoney.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_HAUNT_MINE</ID>
+			<TextFileRef href="/Text/Game/Mines/MinesCommon/HauntedMinesWorks.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_HERO_CANT_TAKE_ARTIFACT</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/CantTakeArtifact.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_HERO_CANT_EXIT_BUILDING</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/CantExitBuilding.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_DO_YOU_WANT_TO_FIGHT_HERO</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/DoYouWantToFightHero.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_DO_YOU_WANT_TO_FIGHT_GUARDS</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/DoYouWantToFightGuards.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_DO_YOU_WANT_TO_FIGHT_MONSTERS</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/DoYouWantToFightMonsters.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_DO_YOU_WANT_TO_ENTER_SANCTUARY</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/DoYouWantToEnterSanctuary.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_DWELLING_TOOLTIP_CREATURES_AVAILABLE</ID>
+			<TextFileRef href="/Text/Game/Dwellings/CreaturesAvailable.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_DWELLING_TOOLTIP_CREATURES_NOT_AVAILABLE</ID>
+			<TextFileRef href="/Text/Game/Dwellings/CreaturesUnavailable.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_NOT_ENOUGH_ENERGY</ID>
+			<TextFileRef href="/Text/Game/GhostMode/NotEnoughEnergy.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_ATTACKED</ID>
+			<TextFileRef href="/Text/Game/GhostMode/Attacked.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_CURSE</ID>
+			<TextFileRef href="/Text/Game/GhostMode/Cursed.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_CANT_CURSE</ID>
+			<TextFileRef href="/Text/Game/GhostMode/CantCurse.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_POSSESS</ID>
+			<TextFileRef href="/Text/Game/GhostMode/Possess.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_CANT_POSSESS</ID>
+			<TextFileRef href="/Text/Game/GhostMode/CantPossess.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_HAUNT</ID>
+			<TextFileRef href="/Text/Game/GhostMode/Haunt.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_CANT_HAUNT</ID>
+			<TextFileRef href="/Text/Game/GhostMode/CantHaunt.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_DISPELED</ID>
+			<TextFileRef href="/Text/Game/GhostMode/Dispeled.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_CANT_DISPEL</ID>
+			<TextFileRef href="/Text/Game/GhostMode/CantDispel.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_GUARDED</ID>
+			<TextFileRef href="/Text/Game/GhostMode/Guarded.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_CANT_GUARD</ID>
+			<TextFileRef href="/Text/Game/GhostMode/CantGuard.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_NEW_GAINED</ID>
+			<TextFileRef href="/Text/Game/GhostMode/NewGhostGained.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_CANT_TAKE_TOO_MANY</ID>
+			<TextFileRef href="/Text/Game/GhostMode/CantTakeTooMany.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_SKILL_DECREASED_FIRST</ID>
+			<TextFileRef href="/UI/GhostCombatResults/DecreasedSkillFirst.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_SKILL_DECREASED_FIRST_ENEMY</ID>
+			<TextFileRef href="/UI/GhostCombatResults/DecreasedSkillFirstEnemy.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_SKILL_DECREASED_NEXT</ID>
+			<TextFileRef href="/UI/GhostCombatResults/DecreasedSkillNext.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_ABANDONED_MINE_DESC_GOLD</ID>
+			<TextFileRef href="/Text/Game/Mines/AbandonedMine/Desc_Gold.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_ABANDONED_MINE_DESC_GEM</ID>
+			<TextFileRef href="/Text/Game/Mines/AbandonedMine/Desc_Gem.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_ABANDONED_MINE_DESC_SULFUR</ID>
+			<TextFileRef href="/Text/Game/Mines/AbandonedMine/Desc_Sulfur.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_ABANDONED_MINE_DESC_CRYSTAL</ID>
+			<TextFileRef href="/Text/Game/Mines/AbandonedMine/Desc_Crystal.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_ABANDONED_MINE_DESC_MERCURY</ID>
+			<TextFileRef href="/Text/Game/Mines/AbandonedMine/Desc_Mercury.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_WHIRLPOOL_UNSAFE_TRAVEL</ID>
+			<TextFileRef href="/Text/Game/Buildings/Whirlpool/FLYOFF_UnsafeTravel.txt"/>
+		</Item>
+		<Item>
+			<ID>ADVENTURE_WHIRLPOOL_SAFE_TRAVEL</ID>
+			<TextFileRef href="/Text/Game/Buildings/Whirlpool/FLYOFF_SafeTravel.txt"/>
+		</Item>
+		<Item>
+			<ID>HERO_GOT_ENEMY_ARTIFACT</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/GotEnemyArtifact.txt"/>
+		</Item>
+		<Item>
+			<ID>HERO_LEVEL_CAP_REACHED</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/LevelCapReached.txt"/>
+		</Item>
+		<Item>
+			<ID>HERO_NO_MOVEPOINTS</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/NoMovePoints.txt"/>
+		</Item>
+		<Item>
+			<ID>GHOST_CANNOT_MOVE_ATTACKING</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/GhostCannotMove.txt"/>
+		</Item>
+		<Item>
+			<ID>HERO_FEATS_CAPTION</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/FeatsCaption.txt"/>
+		</Item>
+		<Item>
+			<ID>HERO_FEATS_RECEIVED</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/FeatsReceived.txt"/>
+		</Item>
+		<Item>
+			<ID>HERO_RECEIVES_SPELL</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/HeroReceivesSpell.txt"/>
+		</Item>
+		<Item>
+			<ID>NOT_ENOUGH_NECRO_ENERGY</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/Dialogs/NotEnoughNecroEnergy.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_BASH_RETALIATE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoBashRetaliate.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_WASP_SWARM_RETALIATE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoWaspSwarmRetaliate.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_SHOOTER_RETALIATE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoShootersRetaliate.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_ENEMY_RETALIATE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoEnemyRetaliate.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_BATTLE_DIVE_RETALIATE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoBattleDiveRetaliate.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_RETALIATE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoRetaliate.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_WILL_RETALIATE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/WillRetaliate.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_BLIND_RETALIATE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoExpertBlindRetaliate.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_HYPNOTIZE_RETALIATE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoHypnotizeRetaliate.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_GATING_RETALIATE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoGatingRetaliate.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_RETALIATE_TO_INVISIBLE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoRetaliateToInvisible.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_RETALIATE_TO_FAST_ATTACKER</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoRetaliateToFastAttacker.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_RETALIATE_COVARDICE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/RetaliateStrings/NoRetaliateCovardice.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_CAST_SPELL</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantCastSpell.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_EARTHQUAKE_NO_WALLS</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/EarthquakeNoSiege.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_TIME_STOP_STAGE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/TimeStopStage.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_ENOUGH_MANA</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/NotEnoughMana.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_CAST_ONLY_FOR_FRIENDLY</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantOnlyForFriendly.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_CAST_ONLY_FOR_HOSTILE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantOnlyForHostile.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_CAST_SPELL_ON_HERO</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantCastSpellOnHero.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_USE_ABILITY_ON_HERO</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantUseAbilityOnHero.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_CAST_SPELL_ON_WAR_MACHINE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantCastSpellOnWarMachine.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_FAT_REMOVE_CURSE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/FATRemoveCurse.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_LAST_AID_ABILITY</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/FATLastAid.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_CAST_SPELL_IMMUNITY</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/SpellImmunity.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_CAST_SPELL_ONLY_LIVE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/SpellForLive.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_CAST_SPELL_ONLY_UNDEAD</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/SpellForUndead.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_CAST_RING_OF_DEATH</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantCastRingOfDeath.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_EARTHQUAKE_DEFENDER</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/EarthquakeDefender.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_TELEPORT_TO_CASTLE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantTeleportToCastle.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_FIND_PLACE_FOR_PHANTOM</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantCreatePhantom.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_PHANTOM_TOP_TIER_CREATURE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantPhantomTopTierCreature.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_PHANTOM_ALREADY_HAS_ONE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantPhantomAlreadyHasOne.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_RESURRECT_ONE_CREATURE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantResurrectOneCreature.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_RESURRECT_NO_HP_LEFT</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantResurrectNoHPLeft.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_APPLY_SCATTER_SHOT_TOSELF</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantApplyScatterShotToSelf.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_CAST_BLOCKED_SPELL</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantCastBlockedSpell.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CANT_APPLY_DIVINE_VENGEANCE_NOT_KILLER</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantCastVengeanceNotKiller.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_RANDOM_CASTER_CURSE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/RandomCasterCastCurse.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_RANDOM_CASTER_BLESS</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/RandomCasterCastBless.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_FAT_RESSURECT_REMOVE_CURSE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/fatresurrect_removecurse.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_FAT_HEAL</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/fatheal.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_ABILITY_ALREADY_USED</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/AbilityAlreadyUsed.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_FAT_HEAL_REMOVE_CURSE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/fatheal_removecurse.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_FAT_HEAL_RESURRECT</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/fatheal_resurrect.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_FAT_HEAL_RESURRECT_REMOVE_CURSE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/fatheal_resurrect_removecurse.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_ALREADY_BONDED</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/CantCastMagicBondAlreadyBonded.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CAST_SPELL</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/CastSpell.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_CAST_SPELL_TARGETED</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/CastSpellTargeted.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_APPLY_ABILITY</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/ApplyAbility.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_APPLY_ABILITY_TARGETED</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/ApplyAbilityTargeted.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_PHYSICAL_DAMAGE_ABILTY</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/ApplyPhysicalDamageAbility.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_FORMAT_RESURRECT</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/Resurrect.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_FORMAT_MANA_GAINED</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/ManaGained.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_DIRECT_DAMAGE_SPELL</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/DirectDamageSpell.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_DIRECT_DAMAGE_ABILITY</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/DirectDamageAbility.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_NORMAL_ATTACK</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/NormalAttack.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_NORMAL_ATTACK_MULTIPLE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/NormalAttackMultiple.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_FORMAT_REPAIR</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/Repair.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_YES</ID>
+			<TextFileRef href="/UI/CombatArena-Heavy/prediction-retaliation-yes.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_NO</ID>
+			<TextFileRef href="/UI/CombatArena-Heavy/prediction-retaliation-no.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_DOT_SPELL</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/DamageOverTimeSpell.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_FORMAT_MANA_GAINED_DAMAGE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/ManaGainedDamage.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_SUMMONBALOR</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/SummonBalor.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_KILLS_SIMPLE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/KillsSimple.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_KILLS_SEPARATED</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/KillsSeparated.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_DAMAGE_SIMPLE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/DamageSimple.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_DAMAGE_SEPARATED</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/DamageSeparated.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_TREANT_UNION</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/TreantUnion.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_FEAR_MY_ROAR</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/FearMyRoar.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_CALL_OF_BLOOD</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Predictions_Formats/CallOfBlood.txt"/>
+		</Item>
+		<Item>
+			<ID>FLYING_SIGN_MISS</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Flying_Signs/Miss.txt"/>
+		</Item>
+		<Item>
+			<ID>FLYING_SIGNS_TAG</ID>
+			<TextFileRef href="/UI/Consts/mlTags/flying_signs.txt"/>
+		</Item>
+		<Item>
+			<ID>FLYING_SIGN_RESIST</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Flying_Signs/SpellResisted.txt"/>
+		</Item>
+		<Item>
+			<ID>FLYING_SIGN_DEADLY_STRIKE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Flying_Signs/DeadlyStrike.txt"/>
+		</Item>
+		<Item>
+			<ID>FLYING_SIGN_UNSUMMON</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Flying_Signs/Unsummon.txt"/>
+		</Item>
+		<Item>
+			<ID>FLYING_SIGN_ELEMENTAL_DAMAGE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/Flying_Signs/ElementalDamage.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_TRY_ON_CLEAR</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/TryOnClear.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_NOT_ENOUGH_MOVEMENT</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/NotEnoughMovement.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_HAS_HOLE</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/HasHole.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_CONGRATULATIONS</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/Congratulations.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_HINT_NORTH</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/Hints/North.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_HINT_SOUTH</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/Hints/South.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_HINT_WEST</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/Hints/West.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_HINT_EAST</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/Hints/East.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_HINT_NORTH_EAST</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/Hints/NorthEast.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_HINT_NORTH_WEST</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/Hints/NorthWest.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_HINT_SOUTH_EAST</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/Hints/SouthEast.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_HINT_SOUTH_WEST</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/Hints/SouthWest.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_NOTHING_HERE</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Comments/Hints/NothingHere.txt"/>
+		</Item>
+		<Item>
+			<ID>GRAAL_NAME</ID>
+			<TextFileRef href="/Text/Game/Artifacts/Graal/Name.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_NO_ENOUGH_MONEY</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/NotEnoughMoney.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_RUNIC_SPELL_ALREADY_USED</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/RunicSpellAlreadyUsed.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_RUNIC_SPELL_ALREADY_USED_THIS_TURN</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/RunicSpellAlreadyUsedThisTurn.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_RUNIC_SPELL_NOTHIG_TO_REVIVE</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/RunicSpellReviveNothing.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_RUNIC_SPELL_CANT_BERSERK</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/RunicSpellCantBerserk.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_RUNIC_SPELL_CANT_DRAGONFORM</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/RunicSpellCantDragonForm.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_RUNIC_CANT_REFRESH</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/RunicCantRefresh.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_EFFECT_RUNIC_ELEMENTAL_IMMUNITY</ID>
+			<TextFileRef href="/Text/Game/CombatStrings/SpellStrings/RunicEffectElementalImmunity.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_EMPTY</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/Empty.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAINTEXT</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/CommonRumour.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_FLOOR_SURFACE</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/ObjectIsOnSurface.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_FLOOR_UNDERGROUND</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/ObjectIsUnderground.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_GROUND_DIRT</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/GroundDirt.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_GROUND_GRASS</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/GroundGrass.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_GROUND_SAND</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/GroundSand.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_GROUND_SNOW</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/GroundSnow.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_GROUND_LAVA</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/GroundLava.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_GROUND_SUBTERRANEAN</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/GroundSubterranean.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_GROUND_TAIGA</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/GroundTaiga.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_GROUND_WASTELAND</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/GroundWasteland.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_GROUND_SMALL_WATER</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/GroundSmallWater.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_OBJECT_GROUND_BIG_WATER</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/GroundBigWater.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_BEST_ARMIES</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerBestArmies.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_BEST_ARMY</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerBestArmy.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_MOST_GOLD</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerMostGold.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_MOST_WOOD</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerMostWood.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_MOST_ORE</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerMostOre.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_MOST_SULFUR</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerMostSulfur.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_MOST_CRYSTAL</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerMostCrystal.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_MOST_GEMS</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerMostGems.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_MOST_MERCURY</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerMostMercury.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_MOST_OBELISKS</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerMostObelisks.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_BEST_CREATURE</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerBestCreature.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_BEST_INCOME</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerBestIncome.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_MOST_MINES</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerMostMines.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_MOST_ARTIFACTS</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerMostArtifacts.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_BEST_HERO</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerBestHero.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_MOST_TOWNS</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerMostTowns.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_BEST_TOWN</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerBestTown.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_LAST_MONSTER</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerLastMonster.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_LAST_ARTIFACT</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerLastArtifact.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_LAST_CAPTURE</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerLastCapture.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_LAST_PURCHASE</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerLastPurchase.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_LAST_BUILD</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerLastBuild.txt"/>
+		</Item>
+		<Item>
+			<ID>RUMOUR_FORMAT_PLAYER_LAST_UPGRADE</ID>
+			<TextFileRef href="/Text/Game/Rumours/Formats/PlayerLastUpgrade.txt"/>
+		</Item>
+		<Item>
+			<ID>OBJ_CAPTURE_ANY_TOWN_IN_WEEK_NAME</ID>
+			<TextFileRef href="/Text/Game/Objectives/Default/CaptureTown-Name.txt"/>
+		</Item>
+		<Item>
+			<ID>OBJ_CAPTURE_ANY_TOWN_IN_WEEK_DESC</ID>
+			<TextFileRef href="/Text/Game/Objectives/Default/CaptureTown-Desc.txt"/>
+		</Item>
+		<Item>
+			<ID>ELEMENT_AIR</ID>
+			<TextFileRef href="/Text/Game/Spells/MagicElements/Air.txt"/>
+		</Item>
+		<Item>
+			<ID>ELEMENT_FIRE</ID>
+			<TextFileRef href="/Text/Game/Spells/MagicElements/Fire.txt"/>
+		</Item>
+		<Item>
+			<ID>ELEMENT_WATER</ID>
+			<TextFileRef href="/Text/Game/Spells/MagicElements/Water.txt"/>
+		</Item>
+		<Item>
+			<ID>ELEMENT_EARTH</ID>
+			<TextFileRef href="/Text/Game/Spells/MagicElements/Earth.txt"/>
+		</Item>
+		<Item>
+			<ID>NEW_OBJECTIVE_TEXT</ID>
+			<TextFileRef href="/Text/Interface/Announcement/NewObjective.(Text).txt"/>
+		</Item>
+		<Item>
+			<ID>NEW_OBJECTIVE_TOOLTIP</ID>
+			<TextFileRef href=""/>
+		</Item>
+		<Item>
+			<ID>OBJECTIVE_COMPLETED_TEXT</ID>
+			<TextFileRef href="/Text/Interface/Announcement/ObjectiveCompleted.(Text).txt"/>
+		</Item>
+		<Item>
+			<ID>OBJECTIVE_COMPLETED_TOOLTIP</ID>
+			<TextFileRef href=""/>
+		</Item>
+		<Item>
+			<ID>OBJECTIVE_FAILED_TEXT</ID>
+			<TextFileRef href="/Text/Interface/Announcement/ObjectiveFailed.(Text).txt"/>
+		</Item>
+		<Item>
+			<ID>OBJECTIVE_FAILED_TOOLTIP</ID>
+			<TextFileRef href=""/>
+		</Item>
+		<Item>
+			<ID>ENEMY_TURN_HERO_LEVELUP_TEXT</ID>
+			<TextFileRef href="/Text/Interface/Announcement/EnemyTurnHeroLevelUp.(Text).txt"/>
+		</Item>
+		<Item>
+			<ID>ENEMY_TURN_HERO_LEVELUP_TOOLTIP</ID>
+			<TextFileRef href=""/>
+		</Item>
+		<Item>
+			<ID>DEFAULT_VICTORY_MESSAGE</ID>
+			<TextFileRef href="/Text/Interface/WinLoose/DefaultVictoryMessage.(Text).txt"/>
+		</Item>
+		<Item>
+			<ID>DEFAULT_DEFEAT_MESSAGE</ID>
+			<TextFileRef href="/Text/Interface/WinLoose/DefaultDefeatMessage.(Text).txt"/>
+		</Item>
+		<Item>
+			<ID>DEFEAT_OTHER_PLAYERS_MESSAGE_TOOLTIP</ID>
+			<TextFileRef href=""/>
+		</Item>
+		<Item>
+			<ID>MONSTERS_ARMY_NAME</ID>
+			<TextFileRef href="/Text/Tooltips/AdventureScreen/Monsters.txt"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACTS_LOOT_NAME</ID>
+			<TextFileRef href="/Text/Tooltips/AdventureScreen/ArtifactsLoot.txt"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACTS_SET_TOOLTIP_HEADER</ID>
+			<TextFileRef href="/Text/Tooltips/ArtifactSets/ArtSetTtHeader.txt"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACTS_SET_TOOLTIP_HEADER_BR</ID>
+			<TextFileRef href="/Text/Tooltips/ArtifactSets/ArtSetTtHeaderBr.txt"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACTS_SET_TOOLTIP_HEADER_COUNTS</ID>
+			<TextFileRef href="/Text/Tooltips/ArtifactSets/ArtSetTtHeaderCounts.txt"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACTS_SET_TOOLTIP_HEADER_COMMENT_HAVE_UNEQUIPPED</ID>
+			<TextFileRef href="/Text/Tooltips/ArtifactSets/ArtSetTtHeaderCommentHaveUnequipped.txt"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACTS_SET_TOOLTIP_ITEM_PRESENT</ID>
+			<TextFileRef href="/Text/Tooltips/ArtifactSets/ArtSetTtItemPresent.txt"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACTS_SET_TOOLTIP_ITEM_ABSENT</ID>
+			<TextFileRef href="/Text/Tooltips/ArtifactSets/ArtSetTtItemAbsent.txt"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACTS_SET_TOOLTIP_ITEM_ERROR</ID>
+			<TextFileRef href="/Text/Tooltips/ArtifactSets/ArtSetTtItemError.txt"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACTS_SET_TOOLTIP_DESC</ID>
+			<TextFileRef href="/Text/Tooltips/ArtifactSets/ArtSetTtDesc.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_AFFECTION_MASTERY</ID>
+			<TextFileRef href="/Text/Game/Spells/SpellBookPredictions/AffectionMastery.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_AFFECTION_SPELLPOWER</ID>
+			<TextFileRef href="/Text/Game/Spells/SpellBookPredictions/AffectionSpellpower.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_AFFECTION_DAMAGE</ID>
+			<TextFileRef href="/Text/Game/Spells/SpellBookPredictions/AffectionDamage.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_AFFECTION_COST</ID>
+			<TextFileRef href="/Text/Game/Spells/SpellBookPredictions/AffectionCost.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_AFFECTION_FORMAT_FIRST</ID>
+			<TextFileRef href="/Text/Game/Spells/SpellBookPredictions/AffectionFirst.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_AFFECTION_FORMAT_NEXT</ID>
+			<TextFileRef href="/Text/Game/Spells/SpellBookPredictions/AffectionNext.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_PREDICTION_SPELL_DURATION</ID>
+			<TextFileRef href="/Text/Game/Spells/SpellBookPredictions/Duration.txt"/>
+		</Item>
+		<Item>
+			<ID>APPLY_HIT_POINTS_EFFECT_FORMAT</ID>
+			<TextFileRef href="/Text/Game/TooltipParts/ApplyHitPointsFormat.txt"/>
+		</Item>
+		<Item>
+			<ID>TOOLTIP_CREATURE_ABILITIES_FORMAT</ID>
+			<TextFileRef href="/Text/Game/Creatures/Creature_abilities/TooltipFormat.txt"/>
+		</Item>
+		<Item>
+			<ID>SKILL_NAME_MISSED</ID>
+			<TextFileRef href=""/>
+		</Item>
+		<Item>
+			<ID>ARTIFACT_NAME_MINOR</ID>
+			<TextFileRef href="/Text/Tooltips/Artifacts/ArtMinorName.txt"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACT_NAME_MAJOR</ID>
+			<TextFileRef href="/Text/Tooltips/Artifacts/ArtMajorName.txt"/>
+		</Item>
+		<Item>
+			<ID>ARTIFACT_NAME_RELIC</ID>
+			<TextFileRef href="/Text/Tooltips/Artifacts/ArtRelicName.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_TURNSPEED_NONE</ID>
+			<TextFileRef href="/Text/Interface/CombatTurnSpeed/Off.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_TURNSPEED_SLOW</ID>
+			<TextFileRef href="/Text/Interface/CombatTurnSpeed/Slow.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_TURNSPEED_NORMAL</ID>
+			<TextFileRef href="/Text/Interface/CombatTurnSpeed/Normal.txt"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_TURNSPEED_FAST</ID>
+			<TextFileRef href="/Text/Interface/CombatTurnSpeed/Fast.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_RECEIVE_RESOURCE</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/ReceiveResource.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_RECEIVE_RESOURCE_TT</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/ReceiveResourceTT.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_RECEIVE_ARTIFACT</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/ReceiveArtifact.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_RECEIVE_ARTIFACT_TT</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/ReceiveArtifactTT.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_RECEIVE_CREATURES</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/ReceiveCreatures.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_RECEIVE_CREATURES_TT</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/ReceiveCreaturesTT.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_RECEIVE_SPELL</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/ReceiveSpell.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_RECEIVE_SPELL_TT</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/ReceiveSpellTT.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_COMBAT_WON</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/CombatWon.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_COMBAT_WON_TT</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/CombatWonTT.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_COMBAT_LOST</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/CombatLost.txt"/>
+		</Item>
+		<Item>
+			<ID>TEAM_COMBAT_LOST_TT</ID>
+			<TextFileRef href="/Text/Game/HeroStrings/TeamMessages/CombatLostTT.txt"/>
+		</Item>
+	</Texts>
+	<Textures>
+		<Item>
+			<ID>ICON_OFFENCE</ID>
+			<Texture href="/Textures/Interface/Icons/Offence.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>ICON_EXP</ID>
+			<Texture href="/Textures/Interface/Icons/Exp.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>ICON_POWER</ID>
+			<Texture href="/Textures/Interface/Icons/Power.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>ICON_KNOWLEDGE</ID>
+			<Texture href="/Textures/Interface/Icons/Knowledge.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>ICON_MANA</ID>
+			<Texture href="/Textures/Interface/Icons/Mana.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>ICON_LUCK</ID>
+			<Texture href="/Textures/Interface/Icons/Luck.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>ICON_MORALE</ID>
+			<Texture href="/Textures/Interface/Icons/Morale.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>ICON_DEFENCE</ID>
+			<Texture href="/Textures/Interface/Icons/Defence.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>ICON_HITPOINTS</ID>
+			<Texture href="/Textures/Interface/Icons/HitPoints.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>ICON_INITIATIVE</ID>
+			<Texture href="/Textures/Interface/Icons/Initiative.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>ICON_SPEED</ID>
+			<Texture href="/Textures/Interface/Icons/Speed.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>TEXTURE_INFO</ID>
+			<Texture href="/UI/MessageBox/Message.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>TEXTURE_WARNING_RED</ID>
+			<Texture href="/UI/MessageBox/WarningRed.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>NEW_OBJECTIVE_ICON</ID>
+			<Texture href="/Textures/Interface/Announcement/Objectives/NewObjective.(Texture).xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>OBJECTIVE_COMPLETED_ICON</ID>
+			<Texture href="/Textures/Interface/Announcement/Objectives/NewObjective.(Texture).xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>OBJECTIVE_FAILED_ICON</ID>
+			<Texture href="/Textures/Interface/Announcement/Objectives/NewObjective.(Texture).xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>ENEMY_TURN_HERO_LEVELUP_ICON</ID>
+			<Texture href="/Textures/Interface/Announcement/EnemyTurnHeroLevelUp.(Texture).xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>DEFEAT_OTHER_PLAYERS_MESSAGE_ICON</ID>
+			<Texture href="/UI/MessageBox/Message.xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>OBJECTIVE_ADVANCE_HERO_ICON</ID>
+			<Texture href="/UI/SeerHut/AdvanceHeroesIcon.(Texture).xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_WON</ID>
+			<Texture href="/Textures/Interface/CombatResults/Main/Icon/Victory.(Texture).xdb#xpointer(/Texture)"/>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOST</ID>
+			<Texture href="/Textures/Interface/CombatResults/Main/Icon/Defeat.(Texture).xdb#xpointer(/Texture)"/>
+		</Item>
+	</Textures>
+	<SkillTexts>
+		<Item>
+			<SkillID>HERO_SKILL_IMBUE_ARROW</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/ImbuedArrow.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_ELEMENTAL_BALANCE</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/ElementalBalance.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_MAGIC_MIRROR</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/MagicMirror.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_LUCKY_SPELLS</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/LuckySpells.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_SHAKE_GROUND</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/ShakeGround.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_EXPLODING_CORPSES</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/ExplodingCorpses.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_CHAOTIC_SPELLS</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/ChaoticSpells.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_LAST_STAND</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/LastStand.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_REMOTE_CONTROL</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/RemoteControl.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_TAP_RUNES</SkillID>
+			<Texts>
+				<Item href="/GameMechanics/RefTables/TAP_RUNES.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_STUNNING_BLOW</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/Abilities/PowerfullBlow.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_CRITICAL_STRIKE</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/AttackCriticalStrike.txt"/>
+				<Item href="/Text/CombatLog/AttackCriticalStrikeFavored.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<SkillID>HERO_SKILL_DEMONIC_RAGE</SkillID>
+			<Texts>
+				<Item href="/Text/CombatLog/BloodRageAbsorbed.txt"/>
+			</Texts>
+		</Item>
+	</SkillTexts>
+	<SpecializationTexts>
+		<Item>
+			<Specialization>HERO_SPEC_SACRED_HAMMER</Specialization>
+			<Texts>
+				<Item href="/Text/CombatLog/SacredHammer.txt"/>
+			</Texts>
+		</Item>
+		<Item>
+			<Specialization>HERO_SPEC_OFFENDER</Specialization>
+			<Texts>
+				<Item href="/Text/CombatLog/Abilities/SpecOffenderStart.txt"/>
+				<Item href="/Text/CombatLog/Abilities/SpecOffenderDamage.txt"/>
+			</Texts>
+		</Item>
+	</SpecializationTexts>
+</RPGRoot>

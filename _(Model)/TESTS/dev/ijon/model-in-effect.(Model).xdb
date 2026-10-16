@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3347">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_0b257ea6-f799-4910-a46d-5b4f54fa8c45">
+			<Material ObjectRecordID="4416">
+				<Texture href="/Textures/auto-imported_______320/TESTS/dev/ijon/model-in-effect/BlessRay.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_17ce4457-4e8b-4e2c-b6a5-a58f7492f91a">
+			<Material ObjectRecordID="4417">
+				<Texture href="/Textures/auto-imported_______320/TESTS/dev/ijon/model-in-effect/BlessRay.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_132adbea-b316-43ba-9db4-a1b074f4abb0">
+		<Skeleton ObjectRecordID="228">
+			<SrcName href="/dev/effect/test.mb"/>
+			<RootJoint>joint1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>4D2FD0F3-376D-43F7-8572-CFB8191CC150</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_4f08f127-f265-4540-989b-96f150296fd9">
+		<Geometry ObjectRecordID="2794">
+			<SrcName href="/dev/effect/test.mb"/>
+			<uid>D53186FF-290F-4114-B064-957CACE633B4</uid>
+			<RootMesh/>
+			<RootJoint>joint1</RootJoint>
+			<Size>
+				<x>3.30704</x>
+				<y>3.98648</y>
+				<z>15.0096</z>
+			</Size>
+			<Center>
+				<x>0.144225</x>
+				<y>0.04662</y>
+				<z>7.5048</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.223794</x>
+				<y>-0.0139083</y>
+				<z>15.0096</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>RaysSmall0Shape1</Item>
+				<Item>RaysSmall0Shape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

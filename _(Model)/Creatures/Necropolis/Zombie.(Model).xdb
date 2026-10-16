@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3941">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_57acf405-1afb-4a62-9fa2-857db29c7c6f">
+			<Material ObjectRecordID="5640">
+				<Texture href="/Textures/Creatures/Necropolis/Zombie/Zombie.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_fe6ee273-82cc-47eb-aee3-e2c35f0cb033">
+		<Skeleton ObjectRecordID="277">
+			<SrcName href="/models/Creatures/Necropolis/Zombie.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>0CFD3962-FB13-43F8-B194-EFA1B53E5004</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ddd195e5-2063-4354-8c88-c4406b090f09">
+		<Geometry ObjectRecordID="3381">
+			<SrcName href="/models/Creatures/Necropolis/Zombie.mb"/>
+			<uid>F8B6E9F5-0045-4930-A6A3-2D32C71366D6</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.44156</x>
+				<y>1.2682</y>
+				<z>1.96521</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>-0.336942</y>
+				<z>0.982605</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0153208</x>
+				<y>-0.0751703</y>
+				<z>1.77553</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(AIGeometry)/Creatures/Necropolis/Zombie.(AIGeometry).xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>MeshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

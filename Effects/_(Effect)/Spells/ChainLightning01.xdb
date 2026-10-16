@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="294">
+	<Instances>
+		<Item href="/Effects/_(ParticleInstance)/Spells/ChainLightning/ChainLightning_Discharge.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Spells/ChainLightning/ChainLightning_Glow.xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_974f4630-0bd2-4f79-a249-5d25c4a2b8b9">
+			<ModelInstance ObjectRecordID="23">
+				<Model href="/_(Model)/Effects/Spells/ChainLightning01.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Spells/ChainLightning.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

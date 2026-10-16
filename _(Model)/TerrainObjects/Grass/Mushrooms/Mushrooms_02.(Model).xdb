@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6839">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_3f862060-f66d-44d4-b14d-6ce964a48ff3">
+			<Material ObjectRecordID="14414">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Mushrooms/Mushrooms_01/mushrooms_01.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_f50f4334-7437-4530-a333-5a5194e36392">
+		<Skeleton ObjectRecordID="1117">
+			<SrcName href="/models/TerrainObjects/Grass/Mushrooms/Mushrooms.mb"/>
+			<RootJoint>Mushrooms_02</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>3CF45973-EF5D-4100-A19B-B737E877FEBF</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ae1287be-c93d-4fd9-b17b-bc93488571a2">
+		<Geometry ObjectRecordID="6035">
+			<SrcName href="/models/TerrainObjects/Grass/Mushrooms/Mushrooms.mb"/>
+			<uid>F76DF335-B3F0-4748-AB63-430D4B27A8A5</uid>
+			<RootMesh>Mushrooms_02</RootMesh>
+			<RootJoint>Mushrooms_02</RootJoint>
+			<Size>
+				<x>1.53801</x>
+				<y>1.32552</y>
+				<z>0.456536</z>
+			</Size>
+			<Center>
+				<x>0.0288821</x>
+				<y>0.0480184</y>
+				<z>0.163042</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0319973</x>
+				<y>-0.00456103</y>
+				<z>0.172332</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Mushrooms_0Shape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002054">
+	<Materials>
+		<Item href="RefugeeCamp-Refugee_Camp_map.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_7607b6b6-0041-4f75-9c5b-87ced2f39ad4">
+		<Skeleton ObjectRecordID="1000522">
+			<SrcName href="/models/Buildings/Refugee_Camp.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>3192DE96-FFCE-4BFE-9C8E-E527C664D32B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_3ba09504-44a0-48d1-8131-953e300bf12e">
+		<Geometry ObjectRecordID="1001826">
+			<SrcName href="/models/Buildings/Refugee_Camp.mb"/>
+			<uid>84238194-BD20-417C-9C85-7E75F82146B8</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4.70448</x>
+				<y>6.45245</y>
+				<z>10.1519</z>
+			</Size>
+			<Center>
+				<x>-1.30108</x>
+				<y>0.37222</y>
+				<z>5.04025</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.71294</x>
+				<y>0.994575</y>
+				<z>9.96844</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_80e1f980-2d8c-4f0e-a761-198ee4b30256">
+				<AIGeometry ObjectRecordID="1000802">
+					<SrcName href="/models/Buildings/Refugee_Camp.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-1.34526</x>
+						<y>0.542706</y>
+						<z>4.06012</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2.3201</x>
+						<y>3.13275</y>
+						<z>4.31308</z>
+					</AABBHalfSize>
+					<uid>3930E4B8-B83E-4DA6-BA6A-6134DBD924E0</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Refugee_CampShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

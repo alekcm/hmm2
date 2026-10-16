@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7627">
+	<Materials>
+		<Item href="DemilLch_LOD-G3_G3_lich1_a.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="DemilLch_LOD-G3_G3_lich1_b.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="DemilLch_LOD-G3_G3_lich1_a.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="DemilLch_LOD-G3_G3_lich1_b.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_f935bb8a-8f7a-4bef-9cd1-8f5e4d6312ec">
+		<Skeleton ObjectRecordID="1547">
+			<SrcName href="/models/Creatures/Necropolis/DemiLich_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>232F42FC-9D25-4A06-9934-C9BF89CF5F15</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_db67e4da-a31f-4989-8c5b-3cdae3cc4a1d">
+		<Geometry ObjectRecordID="6797">
+			<SrcName href="/models/Creatures/Necropolis/DemiLich_LOD.mb"/>
+			<uid>3444BB1A-5D12-4BE6-BCDA-E1E5EF149F6D</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.78449</x>
+				<y>1.77936</y>
+				<z>2.50836</z>
+			</Size>
+			<Center>
+				<x>0.0180603</x>
+				<y>-0.0296053</y>
+				<z>1.19676</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.954218</x>
+				<y>-0.0052679</y>
+				<z>2.31649</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_c83267f8-8804-4355-86eb-4f623d7e1d46">
+				<AIGeometry ObjectRecordID="391">
+					<SrcName href="/models/Creatures/Necropolis/DemiLich_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0697842</y>
+						<z>1.20469</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.03766</x>
+						<y>0.794451</y>
+						<z>1.20284</z>
+					</AABBHalfSize>
+					<uid>95094A33-1F60-41DF-98C6-F52C91837756</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+				<Item>StaffShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

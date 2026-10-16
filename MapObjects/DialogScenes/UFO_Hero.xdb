@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapHeroShared>
+	<Model href="/Characters/Heroes/H5A2/Fun_Objects/ufo.xdb#xpointer(/Model)"/>
+	<AnimSet/>
+	<blockedTiles/>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect href="/Effects/_(Effect)/Characters/Storm_Lord/Storm_Lord_Idle.(Effect).xdb#xpointer(/Effect)"/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href=""/>
+	</messagesFileRef>
+	<WaterBased>true</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Units.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128 href="/Characters/Heroes/H5A2/Fun_Objects/ufo_icon.xdb#xpointer(/Texture)"/>
+	<InternalName>ufo</InternalName>
+	<Class>HERO_CLASS_WARLOCK</Class>
+	<Specialization>HERO_SPEC_MIND_CLEANER</Specialization>
+	<PrimarySkill>
+		<Mastery>MASTERY_EXTRA_EXPERT</Mastery>
+		<SkillID>HERO_SKILL_INVOCATION</SkillID>
+	</PrimarySkill>
+	<SpecializationNameFileRef href="/Text/Game/Heroes/Specializations/Haven/Suzerain/Name.txt"/>
+	<SpecializationDescFileRef href="/Text/Game/Heroes/Specializations/Haven/Suzerain/Description.txt"/>
+	<SpecializationIcon href="/Textures/HeroScreen/Specializations/Dungeon/Seducer.xdb#xpointer(/Texture)"/>
+	<FaceTexture href="/Characters/Heroes/H5A2/Fun_Objects/ufo_icon.xdb#xpointer(/Texture)"/>
+	<FaceTextureSmall href="/Characters/Heroes/H5A2/Fun_Objects/ufo_icon.xdb#xpointer(/Texture)"/>
+	<HeroCharacterArena href="/Characters/Heroes/H5A2/Fun_Objects/UFO.(Character).xdb#xpointer(/Character)"/>
+	<HeroCharacterArenaMelee href="/Characters/Heroes/H5A2/Fun_Objects/UFO.(Character).xdb#xpointer(/Character)"/>
+	<HeroCharacterAdventure href="/Characters/Heroes/H5A2/Fun_Objects/UFO.(Character).xdb#xpointer(/Character)"/>
+	<HeroIndividualCamera/>
+	<CombatVisual href="/GameMechanics/CreatureVisual/Heroes/Knight.xdb#xpointer(/CreatureVisual)"/>
+	<TownType>TOWN_DUNGEON</TownType>
+	<Editable>
+		<NameFileRef href="UFOHeroName.txt"/>
+		<BiographyFileRef href="UFOHeroBio.txt"/>
+		<Offence>15</Offence>
+		<Defence>15</Defence>
+		<Spellpower>15</Spellpower>
+		<Knowledge>20</Knowledge>
+		<skills>
+			<Item>
+				<Mastery>MASTERY_EXPERT</Mastery>
+				<SkillID>HERO_SKILL_WAR_MACHINES</SkillID>
+			</Item>
+		</skills>
+		<perkIDs/>
+		<spellIDs/>
+		<Ballista>false</Ballista>
+		<FirstAidTent>false</FirstAidTent>
+		<AmmoCart>false</AmmoCart>
+		<FavoriteEnemies/>
+		<TalismanLevel>0</TalismanLevel>
+	</Editable>
+	<ArrowButtonState>0</ArrowButtonState>
+	<Decal/>
+	<Selection href="/_(Model)/Heroes/Wizard_Path/Symbol.xdb#xpointer(/Model)"/>
+	<Trace href="/MapObjects/_(AdvMapHeroTraceSet)/Dungeon.xdb#xpointer(/AdvMapHeroTraceSet)"/>
+	<RaceTraitIcon/>
+	<RaceTraitDescFileRef href=""/>
+	<ScenarioHero>true</ScenarioHero>
+	<AdventureMusic/>
+	<HideInEditor>false</HideInEditor>
+	<PresetMinimalAttributes>
+		<Offence>2</Offence>
+		<Defence>2</Defence>
+		<Spellpower>2</Spellpower>
+		<Knowledge>2</Knowledge>
+	</PresetMinimalAttributes>
+</AdvMapHeroShared>

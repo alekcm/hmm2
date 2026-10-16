@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="744">
+	<Instances/>
+	<Lights>
+		<Item href="#n:inline(LightInstance)" id="item_da22c2de-f83b-47fa-8856-6c76c0e702c4">
+			<LightInstance ObjectRecordID="1000055">
+				<Light href="#n:inline(AnimLight)" id="item_d53a77d0-8582-48f9-b52b-52f2db12d211">
+					<AnimLight ObjectRecordID="1000051">
+						<SrcName href="/Effects/Characters/PRESERVE/Druid/RangeAttack.mb"/>
+						<SelectNode>Light01</SelectNode>
+						<uid>72BC1BD5-89E0-4038-83E3-729C6004FC54</uid>
+					</AnimLight>
+				</Light>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-1</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1</EndCycle>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</LightInstance>
+		</Item>
+	</Lights>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_f5dd749a-3730-482e-b565-ebe2179adec6">
+			<ModelInstance ObjectRecordID="215">
+				<Model href="/_(Model)/Effects/Characters/Druid/Shot_Charge.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Characters/Druid/ShotCharge.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-1.4</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2909">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_38e98b1a-9cb7-4291-a229-113305d2df17">
+			<Material ObjectRecordID="14436">
+				<Texture href="/Textures/auto-imported_______320/TESTS/dev/Buildings/barracs/barracs.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_e211cd02-b136-41c6-ae4f-31d96130cb55">
+			<Material ObjectRecordID="14437">
+				<Texture href="/Textures/auto-imported_______320/TESTS/dev/Buildings/barracs/barracs_pod.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_28933185-bb1b-4c4c-9133-14fdf6a8b850">
+		<Skeleton ObjectRecordID="151">
+			<SrcName href="/models/Buildings/barracs.mb"/>
+			<RootJoint>barracs</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>9AB91021-D471-4696-A2A0-992730D92B71</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1ed8260a-ca6d-478a-a456-b39ae4591a3f">
+		<Geometry ObjectRecordID="2365">
+			<SrcName href="/models/Buildings/barracs.mb"/>
+			<uid>F5B6E2C2-CABF-474F-8088-B3A56DE34FE0</uid>
+			<RootMesh>barracs</RootMesh>
+			<RootJoint>barracs</RootJoint>
+			<Size>
+				<x>3.88042</x>
+				<y>3.70839</y>
+				<z>8.42044</z>
+			</Size>
+			<Center>
+				<x>-0.00581467</x>
+				<y>0.00274438</y>
+				<z>4.25103</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0278197</x>
+				<y>0.355505</y>
+				<z>8.43149</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(AIGeometry)/Buildings/Dwellings/Haven/Barracs.(AIGeometry).xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>barracsShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002045">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_1b5a7c98-bb39-4ae9-bac2-3013be9eb6cd">
+			<Material ObjectRecordID="1005736">
+				<Texture href="/Textures/auto-imported_______320/Buildings/Mermaid/mermaid.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ab89a3a5-ec28-492d-9518-537481f71b53">
+		<Skeleton ObjectRecordID="1000513">
+			<SrcName href="/models/Buildings/FPP2/Mermaid.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>B605A08A-46FD-4B90-89DF-4B5717B7EB5E</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_4bf5ed69-79ac-40f3-bb43-5777e73eda97">
+		<Geometry ObjectRecordID="1001817">
+			<SrcName href="/models/Buildings/FPP2/Mermaid.mb"/>
+			<uid>2435CA33-C619-4A04-B4FB-1CFAB1D57E9C</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.25372</x>
+				<y>2.97543</y>
+				<z>3.48673</z>
+			</Size>
+			<Center>
+				<x>-0.270613</x>
+				<y>-0.0232419</y>
+				<z>0.162002</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.362017</x>
+				<y>0.0544849</y>
+				<z>1.80055</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_a336d48a-0974-4a3c-aac7-2fb6d906ad64">
+				<AIGeometry ObjectRecordID="1000795">
+					<SrcName href="/models/Buildings/FPP2/Mermaid.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.145481</x>
+						<y>-0.0956721</y>
+						<z>0.709783</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.32556</x>
+						<y>1.2717</y>
+						<z>1.20978</z>
+					</AABBHalfSize>
+					<uid>419FF448-9D5F-43CA-B564-8C2CA40AF823</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>ModelShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

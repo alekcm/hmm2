@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="Gotay_Unmounted-arena-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move</Kind>
+			<Anim href="Gotay_Unmounted-arena-move.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_bellicose</Kind>
+			<Anim href="Gotay_Unmounted-arena-speech_bellicose.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_neutral</Kind>
+			<Anim href="Gotay_Unmounted-arena-speech_neutral.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A2/Heroes/Gotay/Gotai_UnMounted.mb"/>
+	<ExpSrcClipFolder href="/H5A2/Heroes/Gotay/Animation/Unmounted/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

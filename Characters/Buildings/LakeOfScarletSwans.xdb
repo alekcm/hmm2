@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002066">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_758ea32b-df30-406c-a156-a4ef18edd759">
+			<Material ObjectRecordID="1005876">
+				<Texture href="LakeOfScarletSwans-Scarlett_Swan.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c286567d-fc6d-4921-961a-7e1d7b29986d">
+		<Skeleton ObjectRecordID="1000534">
+			<SrcName href="/models/Buildings/FPP2/Scarlett_Swans.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>37D570BA-3966-40D1-B61A-6CB5BDD3CF70</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_dee8261c-12ed-473c-92eb-04c4927f6984">
+		<Geometry ObjectRecordID="1001838">
+			<SrcName href="/models/Buildings/FPP2/Scarlett_Swans.mb"/>
+			<uid>F1512C80-C3EE-4588-BFF0-37AD02544555</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.01471</x>
+				<y>1.14017</y>
+				<z>1.53775</z>
+			</Size>
+			<Center>
+				<x>-0.0458644</x>
+				<y>1.70979</y>
+				<z>-0.00118852</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.459634</x>
+				<y>1.58699</y>
+				<z>1.28855</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_ae82c217-999a-4a02-85db-4c1d25277dce">
+				<AIGeometry ObjectRecordID="1000812">
+					<SrcName href="/models/Buildings/FPP2/Scarlett_Swans.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>1.35002</x>
+						<y>-0.0131392</y>
+						<z>0.383153</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2</x>
+						<y>2.46427</y>
+						<z>0.378713</z>
+					</AABBHalfSize>
+					<uid>591EA70B-C96E-4423-92E0-C1BD2810BD79</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

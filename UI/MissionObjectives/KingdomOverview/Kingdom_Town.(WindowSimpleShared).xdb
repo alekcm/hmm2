@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowSimpleShared>
+	<Crap>false</Crap>
+	<Children>
+		<Item href="PanelTown/TownName.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="PanelTown/TownFace.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="PanelTown/TownIncome.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="PanelTown/TownBuilding_1.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="PanelTown/TownBuilding_2.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="PanelTown/WeeklyCreatures.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="PanelTown/WeeklyCreatures.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="PanelTown/AvailableCreatures.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="PanelTown/AvailableCreatures.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="PanelTown/TownInfo.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="PanelTown/TownPlan.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="PanelTown/TownSlotGarrison.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="PanelTown/TownSlotVisiting.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+	</Children>
+	<Background href="Kingdom_Town.(BackgroundSimpleTexture).xdb#xpointer(/BackgroundSimpleTexture)"/>
+	<Foreground/>
+	<Flags>
+		<Transparent>false</Transparent>
+	</Flags>
+	<Placement>
+		<Position>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_LOW_END</First>
+			<Second>false</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_LOW_END</First>
+			<Second>false</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>673</x>
+				<y>205</y>
+			</First>
+			<Second>false</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</UpperMargin>
+	</Placement>
+	<ActiveArea/>
+	<IgnoreDblClick>false</IgnoreDblClick>
+	<ActiveMask/>
+</WindowSimpleShared>

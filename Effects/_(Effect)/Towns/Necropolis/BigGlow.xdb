@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000221">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_08d06e3b-d269-468f-a08b-1a61732a17b6">
+			<ParticleInstance ObjectRecordID="1000251">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_a484d1c5-d695-430d-9d72-638f58b7676c">
+					<Particle ObjectRecordID="1000212">
+						<SrcName href="/Effects/Towns/Necropolis/Glow01.mb"/>
+						<ExportPrefix>GlowEffect01</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>00c222bd00ee6bbf0870c13f8503a542649e5e42b84052428c31f641</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>3194E867-17CA-45B1-804C-76192EDBA0A3</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>2</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1.5</Speed>
+				<Offset>0</Offset>
+				<EndCycle>5</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

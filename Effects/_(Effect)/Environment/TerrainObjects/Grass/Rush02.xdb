@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="707">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_52526df4-61e1-461b-a865-01ef408be7bc">
+			<ParticleInstance ObjectRecordID="923">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_a30eb1cd-7c8c-43ed-a26d-d3f6098bd71b">
+					<Particle ObjectRecordID="503">
+						<SrcName href="/Effects/Environment/TerrainObjects/Grass/Rush02.mb"/>
+						<ExportPrefix>Rush</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>2059fbbc80cbd23b00000000741930402c49de3fa44fe93f841f8e3f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>91472E8A-0A8C-41D3-9C58-9C65937F249E</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>-1</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/TerrainObjects/Rush01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/TerrainObjects/Rush02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/TerrainObjects/Rush03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/TerrainObjects/Rush04.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

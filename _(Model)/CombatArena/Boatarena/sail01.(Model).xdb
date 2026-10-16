@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5924">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_927367fe-ca41-4b07-b3ce-ac9d7fe396e8">
+			<Material ObjectRecordID="9670">
+				<Texture href="/Textures/auto-imported_______320/CombatArena/Boatarena/tex_sruff/stuff.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_e61aee7d-53f1-4d93-83dd-a74aab46c95b">
+		<Geometry ObjectRecordID="5113">
+			<SrcName href="/models/Arenas/Boatarena/Boatarena.mb"/>
+			<uid>84B1D021-A77B-490E-99FF-DB7A47DB516D</uid>
+			<RootMesh>sail01</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>8.57471</x>
+				<y>32.7457</y>
+				<z>5.0331</z>
+			</Size>
+			<Center>
+				<x>304.223</x>
+				<y>280.504</y>
+				<z>26.5468</z>
+			</Center>
+			<BestFitPoint>
+				<x>304.248</x>
+				<y>280.495</y>
+				<z>29.0632</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>sail01Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

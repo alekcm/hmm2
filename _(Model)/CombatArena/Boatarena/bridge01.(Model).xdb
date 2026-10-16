@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5912">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_ef7f0584-ceba-40b8-a61a-8b1435e9c576">
+			<Material ObjectRecordID="9684">
+				<Texture href="/Textures/auto-imported_______320/CombatArena/Boatarena/bridge01/footbridge.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_d3f2b5e6-9ed4-43b8-b3b3-0ccdf2e15d25">
+		<Geometry ObjectRecordID="5101">
+			<SrcName href="/models/Arenas/Boatarena/Boatarena.mb"/>
+			<uid>0F06B8FE-777B-4725-8D21-B3F8BB003E35</uid>
+			<RootMesh>bridge01</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>7.60178</x>
+				<y>4.64395</y>
+				<z>0.130095</z>
+			</Size>
+			<Center>
+				<x>312.026</x>
+				<y>287.383</y>
+				<z>9.26838</z>
+			</Center>
+			<BestFitPoint>
+				<x>311.998</x>
+				<y>287.48</y>
+				<z>9.29615</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>bridge0Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject ObjectRecordID="1000303">
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>UneartheGrave</Name>
+	<DefUpgLevel>1</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="UneartheGrave_u1r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/UnearthedGrave01.xdb#xpointer(/Effect)"/>
+							<Locator>UnearthedGraveLocator01</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/UnearthedGrave02.xdb#xpointer(/Effect)"/>
+							<Locator>UnearthedGraveLocator02</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/UnearthedGrave03.xdb#xpointer(/Effect)"/>
+							<Locator>UnearthedGraveLocator03</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/UnearthedGrave01.xdb#xpointer(/Effect)"/>
+							<Locator>UnearthedGraveLocator04</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/UnearthedGrave02.xdb#xpointer(/Effect)"/>
+							<Locator>UnearthedGraveLocator05</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/UnearthedGrave03.xdb#xpointer(/Effect)"/>
+							<Locator>UnearthedGraveLocator06</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/UnearthedGrave01.xdb#xpointer(/Effect)"/>
+							<Locator>UnearthedGraveLocator07</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

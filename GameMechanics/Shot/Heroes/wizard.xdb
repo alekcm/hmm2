@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shot ObjectRecordID="12">
+	<StartEffect/>
+	<RotateStartEffectToTarget>false</RotateStartEffectToTarget>
+	<MissileShot>
+		<Model/>
+		<Effect href="/Effects/_(Effect)/Characters/Heroes/Warlock/RangeAttack_Charge00.(Effect).xdb#xpointer(/Effect)"/>
+		<Speed>0.05</Speed>
+		<Height>0.02</Height>
+		<ForwardOffset>0</ForwardOffset>
+		<StartZOffset>2.5</StartZOffset>
+		<RightOffset>0</RightOffset>
+	</MissileShot>
+	<LineShot>
+		<Effects>
+			<Item href="/Effects/_(Effect)/Characters/Heroes/Warlock/RangeAttack_ChargeTrail.(Effect).xdb#xpointer(/Effect)"/>
+		</Effects>
+		<SkipSegmentsNumber>1</SkipSegmentsNumber>
+		<SegmentLength>2</SegmentLength>
+		<StepDelay>40</StepDelay>
+		<EffectLifeTime>2000</EffectLifeTime>
+	</LineShot>
+	<StrikeDelay>0</StrikeDelay>
+	<StrikeEffectID>SPELL_NONE</StrikeEffectID>
+	<DelayBetweenChains>0</DelayBetweenChains>
+	<StrikeVisualEffect/>
+</Shot>

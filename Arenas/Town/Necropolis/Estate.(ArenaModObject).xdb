@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject ObjectRecordID="1000298">
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>Estate</Name>
+	<DefUpgLevel>2</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Estate_u1r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat00.xdb#xpointer(/Effect)"/>
+							<Locator>Estate_Bat00_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat01.xdb#xpointer(/Effect)"/>
+							<Locator>Estate_Bat02_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat02.xdb#xpointer(/Effect)"/>
+							<Locator>Estate_Bat03_Locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Estate_u2r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/EstateGlow.xdb#xpointer(/Effect)"/>
+							<Locator>EstateLocator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat00.xdb#xpointer(/Effect)"/>
+							<Locator>Estate_Bat00_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat01.xdb#xpointer(/Effect)"/>
+							<Locator>Estate_Bat02_Locator</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat02.xdb#xpointer(/Effect)"/>
+							<Locator>Estate_Bat03_Locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

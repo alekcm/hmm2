@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AmbientLight ObjectRecordID="42">
+	<InternalName/>
+	<Name/>
+	<NameFileRef href=""/>
+	<LightColor>
+		<x>0.309804</x>
+		<y>0.341176</y>
+		<z>0.415686</z>
+	</LightColor>
+	<AmbientColor>
+		<x>0.172549</x>
+		<y>0.180392</y>
+		<z>0.305882</z>
+	</AmbientColor>
+	<ShadeColor>
+		<x>0.101961</x>
+		<y>0.0862745</y>
+		<z>0.278431</z>
+	</ShadeColor>
+	<IncidentShadowColor>
+		<x>0.145098</x>
+		<y>0.180392</y>
+		<z>0.270588</z>
+	</IncidentShadowColor>
+	<ParticlesColor>
+		<x>0.25</x>
+		<y>0.25</y>
+		<z>0.25</z>
+	</ParticlesColor>
+	<Whitening>true</Whitening>
+	<Pitch>35</Pitch>
+	<Yaw>40</Yaw>
+	<ShadowPitch>100</ShadowPitch>
+	<ShadowYaw>100</ShadowYaw>
+	<Sky href="/Textures/_(CubeTexture)/Sky.xdb#xpointer(/CubeTexture)"/>
+	<GlossColor>
+		<x>1</x>
+		<y>1</y>
+		<z>1</z>
+	</GlossColor>
+	<FogColor>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</FogColor>
+	<FogStartDistance>0</FogStartDistance>
+	<FogDistance>2000</FogDistance>
+	<VapourHeight>0</VapourHeight>
+	<VapourDensity>0</VapourDensity>
+	<VapourNoiseParam>0</VapourNoiseParam>
+	<VapourSpeed>0</VapourSpeed>
+	<VapourSwitchTime>0</VapourSwitchTime>
+	<VapourColor>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</VapourColor>
+	<ShadowColor>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</ShadowColor>
+	<InGameUse>true</InGameUse>
+	<BackColor>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BackColor>
+	<GForce2Light/>
+	<VapourStartHeight>0</VapourStartHeight>
+	<BlurStrength>0</BlurStrength>
+	<GroundAmbientColor>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</GroundAmbientColor>
+	<MaxShadowHeight>50</MaxShadowHeight>
+	<SunFlares href="/_(SunFlares)/Test.(SunFlares).xdb#xpointer(/SunFlares)"/>
+	<Haze href="/Textures/Effects/Haze/matte01.xdb#xpointer(/Texture)"/>
+	<CloudTex href="/Textures/Effects/Clouds/CloudTex01.xdb#xpointer(/Texture)"/>
+	<CloudSize>
+		<x>40</x>
+		<y>40</y>
+	</CloudSize>
+	<CloudDir>45</CloudDir>
+	<CloudSpeed>0.05</CloudSpeed>
+	<Rain/>
+	<SunFlarePitch>35</SunFlarePitch>
+	<SunFlareYaw>40</SunFlareYaw>
+	<ShadowsMaxDetailLength>10</ShadowsMaxDetailLength>
+	<HeightFog/>
+	<DepthOfField/>
+	<DistanceFog href="#n:inline(DistanceFog)" id="item_7f9f6ca1-6851-4285-92c7-8d4a23c6d8e2">
+		<DistanceFog ObjectRecordID="2">
+			<Color>
+				<x>0.435294</x>
+				<y>0.505882</y>
+				<z>0.52549</z>
+			</Color>
+			<MinDist>60</MinDist>
+			<MaxDist>150</MaxDist>
+			<MinZDis>-10000</MinZDis>
+			<MaxZDis>-10001</MaxZDis>
+			<ColorTexture/>
+		</DistanceFog>
+	</DistanceFog>
+	<SkyDome href="/_(Model)/SkyDomes/SkyDome_Cut.(Model).xdb#xpointer(/Model)"/>
+	<DymanicLightsModifications>
+		<x>1</x>
+		<y>1</y>
+		<z>1</z>
+	</DymanicLightsModifications>
+</AmbientLight>

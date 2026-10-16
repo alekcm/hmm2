@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject>
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>Dwelling_6</Name>
+	<DefUpgLevel>1</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Dwelling_6_u0r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Stronghold/Dwelling_6/Dwelling_6_0.(Effect).xdb#xpointer(/Effect)"/>
+							<Locator>Dwelling6_0_Locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Dwelling_6_u1r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Stronghold/Dwelling_6/Dwelling_6_2.(Effect).xdb#xpointer(/Effect)"/>
+							<Locator>Dwelling6_1_Locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Dwelling_6_u2r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Stronghold/Dwelling_6/Dwelling_6_1.(Effect).xdb#xpointer(/Effect)"/>
+							<Locator>Dwelling6_1_Locator</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

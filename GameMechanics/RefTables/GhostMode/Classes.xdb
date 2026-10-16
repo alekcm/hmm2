@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TableGhostClass ObjectRecordID="-1">
+	<objects>
+		<Item>
+			<ID>GHOST_CLASS_REVENANT</ID>
+			<obj>
+				<skills>
+					<Item>
+						<Skill>GHOST_SKILL_SPEED</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_DEVOUR</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_HAUNT</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_POSSESS</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_CURSE</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_REVENGE</Skill>
+						<StartLevel>3</StartLevel>
+					</Item>
+				</skills>
+				<Town>TOWN_HEAVEN</Town>
+				<Art>
+					<Face href="ico_Revenant.(Texture).xdb#xpointer(/Texture)"/>
+					<Character href="/Characters/Heroes/Ghost.(Character).xdb#xpointer(/Character)"/>
+					<Selection href="/_(Model)/Heroes/Ghost_Path/Symbol01.xdb#xpointer(/Model)"/>
+					<LargeFace href="face_Revenant.(Texture).xdb#xpointer(/Texture)"/>
+				</Art>
+				<UI>
+					<Name href="RevenantName.txt"/>
+					<Description href=""/>
+				</UI>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_CLASS_SPECTRE</ID>
+			<obj>
+				<skills>
+					<Item>
+						<Skill>GHOST_SKILL_SPEED</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_DEVOUR</Skill>
+						<StartLevel>3</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_HAUNT</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_POSSESS</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_CURSE</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_REVENGE</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+				</skills>
+				<Town>TOWN_NECROMANCY</Town>
+				<Art>
+					<Face href="ico_Spectre.(Texture).xdb#xpointer(/Texture)"/>
+					<Character href="/Characters/Heroes/Ghost.(Character).xdb#xpointer(/Character)"/>
+					<Selection href="/_(Model)/Heroes/Ghost_Path/Symbol02.xdb#xpointer(/Model)"/>
+					<LargeFace href="face_Spectre.(Texture).xdb#xpointer(/Texture)"/>
+				</Art>
+				<UI>
+					<Name href="SpectreName.txt"/>
+					<Description href=""/>
+				</UI>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_CLASS_CHIMERA</ID>
+			<obj>
+				<skills>
+					<Item>
+						<Skill>GHOST_SKILL_SPEED</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_DEVOUR</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_HAUNT</Skill>
+						<StartLevel>3</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_POSSESS</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_CURSE</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_REVENGE</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+				</skills>
+				<Town>TOWN_INFERNO</Town>
+				<Art>
+					<Face href="ico_Chimera.(Texture).xdb#xpointer(/Texture)"/>
+					<Character href="/Characters/Heroes/Ghost.(Character).xdb#xpointer(/Character)"/>
+					<Selection href="/_(Model)/Heroes/Ghost_Path/Symbol03.xdb#xpointer(/Model)"/>
+					<LargeFace href="face_Chimera.(Texture).xdb#xpointer(/Texture)"/>
+				</Art>
+				<UI>
+					<Name href="ChimeraName.txt"/>
+					<Description href=""/>
+				</UI>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_CLASS_PHANTASM</ID>
+			<obj>
+				<skills>
+					<Item>
+						<Skill>GHOST_SKILL_SPEED</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_DEVOUR</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_HAUNT</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_POSSESS</Skill>
+						<StartLevel>3</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_CURSE</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_REVENGE</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+				</skills>
+				<Town>TOWN_ACADEMY</Town>
+				<Art>
+					<Face href="ico_Phantasm.(Texture).xdb#xpointer(/Texture)"/>
+					<Character href="/Characters/Heroes/Ghost.(Character).xdb#xpointer(/Character)"/>
+					<Selection href="/_(Model)/Heroes/Ghost_Path/Symbol04.xdb#xpointer(/Model)"/>
+					<LargeFace href="face_Phantasm.(Texture).xdb#xpointer(/Texture)"/>
+				</Art>
+				<UI>
+					<Name href="PhantasmName.txt"/>
+					<Description href=""/>
+				</UI>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_CLASS_BANSHEE</ID>
+			<obj>
+				<skills>
+					<Item>
+						<Skill>GHOST_SKILL_SPEED</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_DEVOUR</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_HAUNT</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_POSSESS</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_CURSE</Skill>
+						<StartLevel>3</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_REVENGE</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+				</skills>
+				<Town>TOWN_DUNGEON</Town>
+				<Art>
+					<Face href="ico_Banshee.(Texture).xdb#xpointer(/Texture)"/>
+					<Character href="/Characters/Heroes/Ghost.(Character).xdb#xpointer(/Character)"/>
+					<Selection href="/_(Model)/Heroes/Ghost_Path/Symbol05.xdb#xpointer(/Model)"/>
+					<LargeFace href="face_Banshee.(Texture).xdb#xpointer(/Texture)"/>
+				</Art>
+				<UI>
+					<Name href="BansheeName.txt"/>
+					<Description href=""/>
+				</UI>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_CLASS_SHADE</ID>
+			<obj>
+				<skills>
+					<Item>
+						<Skill>GHOST_SKILL_SPEED</Skill>
+						<StartLevel>3</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_DEVOUR</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_HAUNT</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_POSSESS</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_CURSE</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_REVENGE</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+				</skills>
+				<Town>TOWN_PRESERVE</Town>
+				<Art>
+					<Face href="ico_Shade.(Texture).xdb#xpointer(/Texture)"/>
+					<Character href="/Characters/Heroes/Ghost.(Character).xdb#xpointer(/Character)"/>
+					<Selection href="/_(Model)/Heroes/Ghost_Path/Symbol06.xdb#xpointer(/Model)"/>
+					<LargeFace href="face_Shade.(Texture.xdb#xpointer(/Texture)"/>
+				</Art>
+				<UI>
+					<Name href="ShadeName.txt"/>
+					<Description href=""/>
+				</UI>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_CLASS_STONESPIRIT</ID>
+			<obj>
+				<skills>
+					<Item>
+						<Skill>GHOST_SKILL_SPEED</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_DEVOUR</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_HAUNT</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_POSSESS</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_CURSE</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_REVENGE</Skill>
+						<StartLevel>3</StartLevel>
+					</Item>
+				</skills>
+				<Town>TOWN_FORTRESS</Town>
+				<Art>
+					<Face href="ico_StoneSpirit.(Texture).xdb#xpointer(/Texture)"/>
+					<Character href="/Characters/Heroes/Ghost.(Character).xdb#xpointer(/Character)"/>
+					<Selection href="/_(Model)/Heroes/Ghost_Path/Symbol07.xdb#xpointer(/Model)"/>
+					<LargeFace href="face_StoneSpirit.(Texture).xdb#xpointer(/Texture)"/>
+				</Art>
+				<UI>
+					<Name href="StoneSpiritName.txt"/>
+					<Description href=""/>
+				</UI>
+			</obj>
+		</Item>
+		<Item>
+			<ID>GHOST_CLASS_SPOOK</ID>
+			<obj>
+				<skills>
+					<Item>
+						<Skill>GHOST_SKILL_SPEED</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_DEVOUR</Skill>
+						<StartLevel>3</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_HAUNT</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_POSSESS</Skill>
+						<StartLevel>2</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_CURSE</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+					<Item>
+						<Skill>GHOST_SKILL_REVENGE</Skill>
+						<StartLevel>1</StartLevel>
+					</Item>
+				</skills>
+				<Town>TOWN_STRONGHOLD</Town>
+				<Art>
+					<Face href="ico_Spook.(Texture).xdb#xpointer(/Texture)"/>
+					<Character href="/Characters/Heroes/Ghost.(Character).xdb#xpointer(/Character)"/>
+					<Selection href="/_(Model)/Heroes/Ghost_Path/Symbol08.xdb#xpointer(/Model)"/>
+					<LargeFace href="face_Spook.(Texture).xdb#xpointer(/Texture)"/>
+				</Art>
+				<UI>
+					<Name href="SpookName.txt"/>
+					<Description href=""/>
+				</UI>
+			</obj>
+		</Item>
+	</objects>
+</TableGhostClass>

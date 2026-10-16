@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapMineShared ObjectRecordID="16">
+	<Model href="/_(Model)/TerrainObjects/Dirt/Mines/SawMill.(Model).xdb#xpointer(/Model)"/>
+	<AnimSet href="/_(AnimSet)/MapBuildings/SawMill.(AnimSet).xdb#xpointer(/AnimSet)"/>
+	<blockedTiles>
+		<Item>
+			<x>1</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>1</y>
+		</Item>
+	</blockedTiles>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect href="/Effects/_(Effect)/Buildings/Capture/_BuildingFree_M.xdb#xpointer(/Effect)"/>
+	<EffectWhenOwned href="/Effects/_(Effect)/Buildings/SawMill.xdb#xpointer(/Effect)"/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Mines/Sawmill/Name.txt"/>
+		<Item href="/Text/Game/Mines/Sawmill/Description.txt"/>
+		<Item href="/Text/Game/Mines/Sawmill/FLYOFF_Captured.txt"/>
+		<Item href="/Text/Game/Mines/MinesCommon/AlreadyCaptured.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect href="/Sounds/_(Sound)/Interface/Ingame/Interact.xdb#xpointer(/Sound)"/>
+	<flybyMessageFileRef href="/Text/Game/Mines/Sawmill/Flyby.txt"/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>BUILDING_SAWMILL</Type>
+</AdvMapMineShared>

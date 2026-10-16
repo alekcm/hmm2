@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sound>
+	<SrcName>Sounds\Spells\Fire_Wall\Fire_Wall.wav</SrcName>
+	<uid>F15F0FA4-9A78-454D-8673-48225E4C2A5D</uid>
+	<Loop>true</Loop>
+	<Is3D>false</Is3D>
+	<MinDistance>10</MinDistance>
+	<MaxDistance>10000</MaxDistance>
+	<Priority>0</Priority>
+	<EndingSamples>0</EndingSamples>
+	<StartSamples>0</StartSamples>
+	<FrequencyVar>0</FrequencyVar>
+	<VolumeBase>0.2</VolumeBase>
+	<VolumeVar>0</VolumeVar>
+	<FinalSound href="FireWall_end.xdb#xpointer(/Sound)"/>
+</Sound>

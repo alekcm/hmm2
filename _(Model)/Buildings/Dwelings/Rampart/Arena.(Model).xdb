@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002061">
+	<Materials>
+		<Item href="Arena-Arena_roof_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Arena-Roots_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Arena-Bush_mat.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_4727aa02-34bf-4178-a337-b1d25dd00e50">
+		<Skeleton ObjectRecordID="1000529">
+			<SrcName href="/models/Buildings/FPP2/Dwellings/Rampart/Wood_Guard_Quarters.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>97F1795C-FDFA-4B26-9E7F-A2B48845B521</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_f42b3742-5618-43ed-9ce7-05a0404a003f">
+		<Geometry ObjectRecordID="1001833">
+			<SrcName href="/models/Buildings/FPP2/Dwellings/Rampart/Wood_Guard_Quarters.mb"/>
+			<uid>A94D63F0-0AEA-42FB-9746-772CEDF33404</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>5.80756</x>
+				<y>6.39708</y>
+				<z>3.85296</z>
+			</Size>
+			<Center>
+				<x>0.717735</x>
+				<y>1.09193</y>
+				<z>1.80815</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.793047</x>
+				<y>0.130727</y>
+				<z>3.25327</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_18f62d3a-54a4-4342-8d07-502dcc71e0f0">
+				<AIGeometry ObjectRecordID="1000807">
+					<SrcName href="/models/Buildings/FPP2/Dwellings/Rampart/Wood_Guard_Quarters.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.896865</x>
+						<y>1.09062</y>
+						<z>1.44423</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2.50812</x>
+						<y>2.50812</y>
+						<z>1.44423</z>
+					</AABBHalfSize>
+					<uid>C1C4ED03-A268-41BA-805A-8A400915AF77</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Arena_roofShape</Item>
+				<Item>RootsShape</Item>
+				<Item>BushesShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

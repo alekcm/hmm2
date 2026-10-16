@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="551">
+	<Instances>
+		<Item href="/Effects/_(ParticleInstance)/Characters/NECROPOLIS/WalkingDead/Bone/Head_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="#n:inline(ParticleInstance)" id="item_82e7b1b4-af67-4540-ac4b-94f6aacb625b">
+			<ParticleInstance ObjectRecordID="742">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_f8b4dd7d-6a60-4b59-bba8-9874b92dfc44">
+					<Particle ObjectRecordID="388">
+						<SrcName href="/Effects/Characters/NECROPOLIS/WalkingDead/attack00.mb"/>
+						<ExportPrefix>attack00</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>4c3d9ebd108523be3a0acf3fa8b9d63f1dcc493fe8d1a33f47ad3e3f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>37AD05C1-7076-4DE7-A2B0-72BD877592BC</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>2.16666</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Fly.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="/Effects/_(Effect)/Characters/Creatures/Necropolis/Zombie/Attack00.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

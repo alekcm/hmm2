@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000383">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_7560554b-27f4-4ceb-939e-95c44faf58d9">
+			<ParticleInstance ObjectRecordID="1000588">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_9a658331-f402-4588-b991-730f9b2aadcb">
+					<Particle ObjectRecordID="1000493">
+						<SrcName href="/Effects/Characters/DUNGEON/Matron/Cast.mb"/>
+						<ExportPrefix>FX</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>d0244b3e80d955be333fab3fc70e0941c0c19440e7d3a040fec1a440</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>01FD8B32-3610-4496-8DFD-37632318F987</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/FlashGlowMagenta.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/EvilClot05.(Texture).xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow11_Violet.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/SparkBlue00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_665716eb-2685-4486-b4d0-05c1d060e514">
+			<ParticleInstance ObjectRecordID="1000590">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_faa45cf1-a554-4b2c-90da-d0a0e547f668">
+					<Particle ObjectRecordID="1000505">
+						<SrcName href="/Effects/Characters/DUNGEON/Matron/Cast_handGlow.mb"/>
+						<ExportPrefix>FX</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>90c3083e90d93cbe15c5a03f34380641ef5c93403c6b9e40bee49e40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>FD4A1238-911F-41F4-9918-64C659718523</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlowMagenta.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/IceFire.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow11_Violet.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/RaysBlue00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights>
+		<Item href="#n:inline(LightInstance)" id="item_b347321d-47f1-4360-8834-d3cc1f56140a">
+			<LightInstance ObjectRecordID="1000056">
+				<Light href="#n:inline(AnimLight)" id="item_06bf37f7-75c8-44e0-829d-d8d118cd7bb2">
+					<AnimLight ObjectRecordID="1000052">
+						<SrcName href="/Effects/Characters/DUNGEON/Matron/Cast.mb"/>
+						<SelectNode>Light01</SelectNode>
+						<uid>A26442C1-3AD8-4A43-8EB6-9EAA1E102304</uid>
+					</AnimLight>
+				</Light>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</LightInstance>
+		</Item>
+	</Lights>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_993a18cc-54e5-493a-85e4-206ec616807e">
+			<ModelInstance ObjectRecordID="1000153">
+				<Model href="/_(Model)/Effects/Characters/Matron/cast.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Characters/Matron/cast.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

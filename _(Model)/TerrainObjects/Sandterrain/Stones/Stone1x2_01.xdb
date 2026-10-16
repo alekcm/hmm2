@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000780">
+	<Materials>
+		<Item href="Stone3x3_1-lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_53bad51b-7e78-4c74-a7ee-9a95b6c199f7">
+		<Skeleton ObjectRecordID="1000150">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Stones/Sandstones.mb"/>
+			<RootJoint>Stone1x2_01</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>4DB1141B-608D-4D6C-B302-4CD206DF225C</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_357f20a2-8587-49c5-be4a-964c4474beb3">
+		<Geometry ObjectRecordID="1000571">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Stones/Sandstones.mb"/>
+			<uid>4FF1A484-B844-4DA8-984F-10170CD27767</uid>
+			<RootMesh>Stone1x2_01</RootMesh>
+			<RootJoint>Stone1x2_01</RootJoint>
+			<Size>
+				<x>2.00271</x>
+				<y>2.51391</y>
+				<z>2.69423</z>
+			</Size>
+			<Center>
+				<x>0.0159771</x>
+				<y>0.0088281</y>
+				<z>1.34712</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.028103</x>
+				<y>0.402928</y>
+				<z>2.51013</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Stone1x2_0Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5733">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_76319f59-9b63-4c1b-b04e-38bc7df22ee0">
+			<Material ObjectRecordID="9394">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Lava/LavaFlows/LavaFlow1x1_1/lavaflow.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/Lava_aligned.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_8650fd2f-a086-4b8b-99aa-127b3de02071">
+		<Skeleton ObjectRecordID="553">
+			<SrcName href="/models/TerrainObjects/Lava/LavaLakes/LavaLake4x3_1.mb"/>
+			<RootJoint>lavalake4x3_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>D4155F5D-0D43-4E95-AA87-B10AB90E8082</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_55184a5d-e1f0-4b37-a89c-559624e5ba11">
+		<Geometry ObjectRecordID="4923">
+			<SrcName href="/models/TerrainObjects/Lava/LavaLakes/LavaLake4x3_1.mb"/>
+			<uid>6EBC3E61-8A90-4266-AB3F-5E5128BC3D01</uid>
+			<RootMesh>lavalake4x3_1</RootMesh>
+			<RootJoint>lavalake4x3_1</RootJoint>
+			<Size>
+				<x>8</x>
+				<y>6</y>
+				<z>2.39327</z>
+			</Size>
+			<Center>
+				<x>-1</x>
+				<y>-2</y>
+				<z>-0.785307</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.85146</x>
+				<y>-2.17136</y>
+				<z>0.260547</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>pPlaneShape4</Item>
+				<Item>lavaShape</Item>
+				<Item>pPlaneShape5</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

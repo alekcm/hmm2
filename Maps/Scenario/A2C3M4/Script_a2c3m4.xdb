@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Script>
+	<FileName href="script.lua"/>
+	<ScriptText>---------------------------------------------------------
+PlayerHero = &quot;Giar&quot;
+
+print(&quot;Start_A2C3M4_final.................&quot;);
+
+SetObjectiveState(&apos;prim1&apos;,OBJECTIVE_ACTIVE);
+
+--GiveExp( &quot;Gamor&quot;, 30000 ); ---addexp
+--EnableHeroAI(&quot;Isher&quot;, false);
+--EnableHeroAI(&quot;Gamor&quot;, false);
+
+SetRegionBlocked(&quot;test1&quot;, 1, PLAYER_2); 
+
+--------------------------------------/////Main_Hero_Death
+function Main_hero_de()  
+	while 1 do
+		sleep(10);
+		if IsHeroAlive(PlayerHero) == nil then 
+			sleep(3);
+			SetObjectiveState(&quot;prim1&quot;, OBJECTIVE_FAILED);
+			sleep(8);
+			Loose();
+			break;
+		end;
+	end;
+end;
+---------------------------------------/////Episode1
+function Complete_prim1()
+	while 1 do	
+		sleep( 10 );
+		if GetObjectOwner(&quot;mine1&quot;) == PLAYER_1 and GetObjectOwner(&quot;mine2&quot;) == PLAYER_1 and GetObjectOwner(&quot;mine3&quot;) == PLAYER_1 then
+			sleep( 3 );
+			SetObjectiveState(&apos;prim1&apos;,OBJECTIVE_COMPLETED);
+			sleep( 3 );
+			break;
+		end;
+	end;
+end;
+
+
+
+---------------------------------------//////MAIN
+startThread(Main_hero_de);
+startThread(Complete_prim1);</ScriptText>
+</Script>

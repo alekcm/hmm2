@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/models/TerrainObjects/Subterrain/Dungeonwall/WallDown.mb"/>
+	<uid>3BB269AD-ED1C-4E95-8A33-4FC7A0769C8F</uid>
+	<RootMesh>WallCornerDown_01</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>6.00065</x>
+		<y>6</y>
+		<z>18</z>
+	</Size>
+	<Center>
+		<x>-0.000324726</x>
+		<y>-1.19209e-007</y>
+		<z>-9</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="WallCornerDown_01-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>2</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>WallCornerDown_01|Dungeonwalls:Dungeonwall|Dungeonwalls:DungeonwallShape</Item>
+		<Item>WallCornerDown_01|Dungeonwall|DungeonwallShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

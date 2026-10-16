@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5917">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_715ba023-a567-4acb-a753-686b32d7b38f">
+			<Material ObjectRecordID="9667">
+				<Texture href="/Textures/auto-imported_______320/CombatArena/Boatarena/tex_sruff/stuff.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_4ddd25ad-8a93-4831-881d-a0f98e6f5ee6">
+		<Geometry ObjectRecordID="5106">
+			<SrcName href="/models/Arenas/Boatarena/Boatarena.mb"/>
+			<uid>E524DBE4-D7DB-421E-A8D6-5A21B730529B</uid>
+			<RootMesh>mast02</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>1.25742</x>
+				<y>2.02673</y>
+				<z>49.2475</z>
+			</Size>
+			<Center>
+				<x>302.938</x>
+				<y>311.443</y>
+				<z>30.5012</z>
+			</Center>
+			<BestFitPoint>
+				<x>302.927</x>
+				<y>312.272</y>
+				<z>55.125</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>mast0Shape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/Heroes/Tolghar/Tolghar_Game_M.mb"/>
+	<uid>2C70D350-1F96-4C08-9A24-1938421B33D9</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>2.54532</x>
+		<y>4.20455</y>
+		<z>3.79846</z>
+	</Size>
+	<Center>
+		<x>-0.295629</x>
+		<y>-0.532364</y>
+		<z>1.81156</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Tolghar-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>4</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>2</Item>
+		<Item>1</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Hammer_Shape</Item>
+		<Item>MamontShape</Item>
+		<Item>MaskShape</Item>
+		<Item>Tolghar_BodyShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

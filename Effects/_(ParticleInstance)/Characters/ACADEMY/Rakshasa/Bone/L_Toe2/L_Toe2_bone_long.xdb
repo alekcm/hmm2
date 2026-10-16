@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="1000508">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_17b39212-2cf6-4e81-9531-80c1b2ecec99">
+		<Particle ObjectRecordID="1000423">
+			<SrcName href="/Effects/Characters/ACADEMY/Rakshasa/Bone/L_Toe2_bone.mb"/>
+			<ExportPrefix>L_Toe2_bone_long</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>f020143d94e2f1bd00c02238b367ed3f885f873fd01d8c3f0ca8873f</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>3A399648-209D-4F52-8001-F25A5B964733</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>3.333</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>-0.7</y>
+	</Pivot>
+	<Textures>
+		<Item href="/_(Model)/Effects/Characters/RakshasaRukh/RayBlue00.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone>L_Toe2</GlueToNamedBone>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

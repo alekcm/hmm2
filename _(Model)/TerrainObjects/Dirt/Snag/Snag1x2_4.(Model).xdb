@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7346">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_16ddba25-58f8-47a7-9f4e-99c984ae4318">
+			<Material ObjectRecordID="17618">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Snag/DirtSnag2x2_1/DirtSnag01_Bark.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c9c66247-7b30-46e0-9738-5db9b49da102">
+		<Skeleton ObjectRecordID="1358">
+			<SrcName href="/models/TerrainObjects/Dirt/Snags/Dirtsnags.mb"/>
+			<RootJoint>Snag1x2_4</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1475F0FD-866C-48AD-9D00-1EEA9B49E515</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_7552e5c5-8b58-4b7a-ba36-2c418d66b297">
+		<Geometry ObjectRecordID="6544">
+			<SrcName href="/models/TerrainObjects/Dirt/Snags/Dirtsnags.mb"/>
+			<uid>4E22E76E-858B-4509-93FB-4C7735485066</uid>
+			<RootMesh>Snag1x2_4</RootMesh>
+			<RootJoint>Snag1x2_4</RootJoint>
+			<Size>
+				<x>1.64587</x>
+				<y>3.29452</y>
+				<z>0.883191</z>
+			</Size>
+			<Center>
+				<x>0.0771568</x>
+				<y>-1.14102</y>
+				<z>0.345336</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.147716</x>
+				<y>-1.5161</y>
+				<z>0.433162</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Snag1x2_4|Snag|SnagShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

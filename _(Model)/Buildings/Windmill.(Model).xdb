@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7019">
+	<Materials>
+		<Item href="Windmill-winmill.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Windmill-winmill.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_ffc0bef1-2e08-4d70-91f9-bc253151b5c2">
+			<Material ObjectRecordID="1001527">
+				<Texture href="/Textures/auto-imported_______320/Buildings/Windmill/windmill_pod.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>false</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ff01ebd7-e8eb-4c08-b8bd-db9d226294ae">
+		<Skeleton ObjectRecordID="1239">
+			<SrcName href="/models/Buildings/FPP2/windmill.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>D2D90632-87CB-46C7-92A7-4235B8FE4584</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_4dc84efd-5784-4a9b-a5dc-60a7aa834624">
+		<Geometry ObjectRecordID="6221">
+			<SrcName href="/models/Buildings/FPP2/windmill.mb"/>
+			<uid>E673EE34-3505-422E-8386-5ECC8347FF19</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>7.11948</x>
+				<y>5.08753</y>
+				<z>9.47354</z>
+			</Size>
+			<Center>
+				<x>-0.995419</x>
+				<y>0.658642</y>
+				<z>4.73677</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.776313</x>
+				<y>-1.50126</y>
+				<z>9.34959</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_93c8e808-381d-4317-a7ca-319f1b118235">
+				<AIGeometry ObjectRecordID="331">
+					<SrcName href="/models/Buildings/FPP2/windmill.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-1</x>
+						<y>1</y>
+						<z>3.36903</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.53458</x>
+						<y>1.53458</y>
+						<z>3.36815</z>
+					</AABBHalfSize>
+					<uid>45DBC308-0EC2-49D3-84F7-317C861DA789</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>GlobalShape</Item>
+				<Item>propShape</Item>
+				<Item>groundShape</Item>
+				<Item>CragShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

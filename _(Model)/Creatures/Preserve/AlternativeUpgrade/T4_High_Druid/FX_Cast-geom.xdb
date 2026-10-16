@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/Effects/Characters/PRESERVE/Druid/Cast.mb"/>
+	<uid>AF84E23A-8FB5-4DA9-B8D6-25CFEAB6B106</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>0.906011</x>
+		<y>0.707107</y>
+		<z>1.94135</z>
+	</Size>
+	<Center>
+		<x>0.0434888</x>
+		<y>-1.06142</y>
+		<z>0.978071</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="FX_Cast-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>6</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Lightning0Shape2</Item>
+		<Item>Lightning0Shape1</Item>
+		<Item>Wave03Shape</Item>
+		<Item>Wave04Shape</Item>
+		<Item>polySurfaceShape2</Item>
+		<Item>polySurfaceShape3</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

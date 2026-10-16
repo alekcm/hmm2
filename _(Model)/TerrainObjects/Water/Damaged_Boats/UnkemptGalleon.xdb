@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001070">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_f2e36c23-0127-4770-a727-c8242750a6ee">
+			<Material ObjectRecordID="1001901">
+				<Texture href="UnkemptGalleon-galleon.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>true</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_e4ef2476-aaad-45ea-9e69-8f1630f753b6">
+		<Skeleton ObjectRecordID="1000248">
+			<SrcName href="/models/TerrainObjects/Water/Damaged_Boats/Shipsdamages.mb"/>
+			<RootJoint>UnkemptGalleon</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>6BC284C0-E280-4EF3-AC00-416B5EEB5CD8</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_749df7a1-b457-49c5-80bd-123476e93867">
+		<Geometry ObjectRecordID="1000853">
+			<SrcName href="/models/TerrainObjects/Water/Damaged_Boats/Shipsdamages.mb"/>
+			<uid>9628B312-8EBB-46AB-A193-D3139205E772</uid>
+			<RootMesh>UnkemptGalleon</RootMesh>
+			<RootJoint>UnkemptGalleon</RootJoint>
+			<Size>
+				<x>2.69458</x>
+				<y>5.77293</y>
+				<z>4.67671</z>
+			</Size>
+			<Center>
+				<x>0.106563</x>
+				<y>-0.0579028</y>
+				<z>2.01079</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0539282</x>
+				<y>0.547117</y>
+				<z>4.29641</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(Model)/TerrainObjects/Water/WreckedShips_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>UnkemptGalleon|mesh|meshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapBuildingShared ObjectRecordID="55">
+	<Model href="/Characters/Buildings/Mermaid.xdb#xpointer(/Model)"/>
+	<AnimSet href="/Characters/Buildings/Mermaid-adv.xdb#xpointer(/AnimSet)"/>
+	<blockedTiles/>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect href="/Effects/_(Effect)/Buildings/Mermaid.xdb#xpointer(/Effect)"/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Buildings/Mermaids/Name.txt"/>
+		<Item href="/Text/Game/Buildings/Mermaids/Description.txt"/>
+		<Item href="/Text/Game/Buildings/Mermaids/FirstVisit.txt"/>
+		<Item href="/Text/Game/BuildingsCommon/AlreadyVisited.txt"/>
+	</messagesFileRef>
+	<WaterBased>true</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect href="/Sounds/_(Sound)/Interface/Ingame/Interact.xdb#xpointer(/Sound)"/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>BUILDING_MERMAIDS</Type>
+</AdvMapBuildingShared>

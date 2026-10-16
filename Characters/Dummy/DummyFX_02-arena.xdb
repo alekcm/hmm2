@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>death</Kind>
+			<Anim href="DummyFX_02-arena-death.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="DummyFX_02-arena-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>start</Kind>
+			<Anim href="DummyFX_02-arena-start.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A2/Effects/Dummy/FX_Dummy.mb"/>
+	<ExpSrcClipFolder href="/H5A2/Effects/Dummy/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

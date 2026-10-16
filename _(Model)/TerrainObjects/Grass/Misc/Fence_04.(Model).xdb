@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6601">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_36671b5c-c422-4950-a05c-4d6ec5fc30ad">
+			<Material ObjectRecordID="13104">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Misc_____13404/Fence_01/Fence_1.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ce5c420b-d68b-4eb4-b995-2978661dda18">
+		<Skeleton ObjectRecordID="972">
+			<SrcName href="/models/TerrainObjects/Grass/Misc/Fence_04.mb"/>
+			<RootJoint>fence_04</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>075A6DB5-AF5F-48F3-AAC3-87744914A482</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1366af75-a22b-4e7d-884b-3d7a6fcd781f">
+		<Geometry ObjectRecordID="5790">
+			<SrcName href="/models/TerrainObjects/Grass/Misc/Fence_04.mb"/>
+			<uid>7DE56E9D-6324-4AFA-85BD-7D702907D10D</uid>
+			<RootMesh>fence_04</RootMesh>
+			<RootJoint>fence_04</RootJoint>
+			<Size>
+				<x>2.3343</x>
+				<y>0.49864</y>
+				<z>2.65027</z>
+			</Size>
+			<Center>
+				<x>0.985851</x>
+				<y>-0.0730579</y>
+				<z>0.0583673</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.994119</x>
+				<y>-0.131387</y>
+				<z>1.09825</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>fence_0Shape4</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001391">
+	<Materials>
+		<Item href="WaterElemental_LOD-lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="WaterElemental_LOD-lambert4.(Material).xdb#xpointer(/Material)"/>
+		<Item href="WaterElemental_LOD-lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ced02734-3c27-4399-8f2d-767dbdea9ab5">
+		<Skeleton ObjectRecordID="1000324">
+			<SrcName href="/models/Creatures/Neutral/WaterElemental_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>86E48351-AD0D-4C2F-97E6-1AF80FD5D11B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_fae5e5fa-9ded-4b69-970b-9487d0ec667c">
+		<Geometry ObjectRecordID="1001172">
+			<SrcName href="/models/Creatures/Neutral/WaterElemental_LOD.mb"/>
+			<uid>F78A7304-3AFF-4A96-8A1C-97D240C70C90</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.53775</x>
+				<y>1.93365</y>
+				<z>2.69535</z>
+			</Size>
+			<Center>
+				<x>-0.0115232</x>
+				<y>-0.208754</y>
+				<z>1.34767</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00177431</x>
+				<y>-0.319991</y>
+				<z>2.57561</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_7ca4dd77-bfff-4f50-b2d6-28acc2d054fb">
+				<AIGeometry ObjectRecordID="1000559">
+					<SrcName href="/models/Creatures/Neutral/WaterElemental_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>1.27539</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.5</x>
+						<y>0.5</y>
+						<z>1.28742</z>
+					</AABBHalfSize>
+					<uid>37FDA4B9-09DA-46AD-907E-D8660C1A827A</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>3</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

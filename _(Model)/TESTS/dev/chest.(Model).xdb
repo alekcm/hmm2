@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="168">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_d2b5ab50-f7f8-48bb-b504-d768f5f268c0">
+			<Material ObjectRecordID="412">
+				<Texture href="/Textures/auto-imported_______320/dev/chest/Chest128x128.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>666</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_68a4fc2b-1484-4af7-9adb-e43ce488eb7c">
+		<Geometry ObjectRecordID="167">
+			<SrcName href="/models/ResourcesAndChests/Chest01.mb"/>
+			<uid>4E9A1489-3FAB-4CE2-A07C-011B96F9778E</uid>
+			<RootMesh>BoyShape</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2.01123</x>
+				<y>1.15341</y>
+				<z>1.2904</z>
+			</Size>
+			<Center>
+				<x>0.016936</x>
+				<y>-0.096175</y>
+				<z>0.613858</z>
+			</Center>
+			<BestFitPoint>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(Model)/TerrainObjects/Resourses/chest_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames/>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

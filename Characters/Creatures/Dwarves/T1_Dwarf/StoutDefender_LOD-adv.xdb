@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="StoutDefender_LOD-adv-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>death</Kind>
+			<Anim href="StoutDefender_LOD-adv-death.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>hit</Kind>
+			<Anim href="StoutDefender_LOD-adv-hit.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move</Kind>
+			<Anim href="StoutDefender_LOD-adv-move.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A1/Models/Creatures/Dwarves/T1_Dwarf/Stout_Defender_LOD.mb"/>
+	<ExpSrcClipFolder href="/H5A1/Animations/Creatures/Dwarves/T1_Dwarf/StoutDefender/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

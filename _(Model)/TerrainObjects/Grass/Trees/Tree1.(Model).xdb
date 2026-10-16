@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2890">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_1f89465b-64e0-428e-9585-51006759db0f">
+			<Material ObjectRecordID="9192">
+				<Texture href="/Textures/auto-imported_______320/Grass/Trees/Tree_Spurse01.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_57c5a5ab-a7f6-442c-97a5-cf83efa22109">
+		<Geometry ObjectRecordID="2347">
+			<SrcName href="/models/TerrainObjects/Grass/Trees/Tree1.mb"/>
+			<uid>41CCA9BD-FDBC-4D12-9382-C73EF5173BD6</uid>
+			<RootMesh>Spurse</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2.10257</x>
+				<y>2.21077</y>
+				<z>4.5</z>
+			</Size>
+			<Center>
+				<x>0.0954915</x>
+				<y>0</y>
+				<z>0.25</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.000229946</x>
+				<y>0.00182334</y>
+				<z>2.40009</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>SpurseShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>1</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

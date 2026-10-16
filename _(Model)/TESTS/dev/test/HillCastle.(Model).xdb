@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2266">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_4338ff27-17f6-4269-9c25-c51215042850">
+			<Material ObjectRecordID="2811">
+				<Texture href="/Textures/auto-imported_______320/dev/Test/HillCastle/Castle1024x1024.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_cafee37f-16b2-4863-9274-32a130b95049">
+		<Geometry ObjectRecordID="1721">
+			<SrcName href="/TestLocation/HillCastle.mb"/>
+			<uid>0156094A-897E-43D7-A1B1-9EB07F4E9F2F</uid>
+			<RootMesh>HillCastle</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>21</x>
+				<y>21</y>
+				<z>14.4265</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>7.21324</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00389561</x>
+				<y>-0.0807845</y>
+				<z>14.3279</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>HillCastleShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

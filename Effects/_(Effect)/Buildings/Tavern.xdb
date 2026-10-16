@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000334">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_caac7395-575e-4c53-a36f-c488f5038b3e">
+			<ParticleInstance ObjectRecordID="1000465">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_26fafd82-92ba-4c6d-98c3-d9af8508e10b">
+					<Particle ObjectRecordID="1000380">
+						<SrcName href="/Effects/Buildings/FPP2/Tavern.mb"/>
+						<ExportPrefix>TavernEff01</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>d0b014bf808b38bdd4fe16418fcef540581c6d4093009d40025d9340</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>5151231E-D3B4-4F6D-B16C-1BC91C05CD25</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.4</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_435187c8-f366-4c45-874b-bc9bf15fac6f">
+			<ModelInstance ObjectRecordID="1000148">
+				<Model href="/_(Model)/Effects/Buildings/Tavern.xdb#xpointer(/Model)"/>
+				<SkelAnim/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

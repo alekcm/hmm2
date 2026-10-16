@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance>
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="/Effects/_(Particle)/Spells/FireballHit_FireCloud.xdb#xpointer(/Particle)"/>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>0.4</Scale>
+	<Speed>1</Speed>
+	<Offset>-0.3</Offset>
+	<EndCycle>4</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud02.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud03.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud04.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud05.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud06.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud07.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud08.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud09.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud10.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud11.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud12.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud13.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud14.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireCloudSequence/FireCloud15.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>5</Priority>
+</ParticleInstance>

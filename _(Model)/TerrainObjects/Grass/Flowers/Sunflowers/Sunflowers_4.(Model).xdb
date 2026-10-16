@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6655">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_eeb0c5b2-334f-4e50-9bb0-9a4df0e2895d">
+			<Material ObjectRecordID="13516">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Flowers/Sunflowers_1/sunflowers_1.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>true</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_77c536fd-4a05-42ad-adb4-b86474c018f4">
+			<Material ObjectRecordID="13517">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Flowers/Sunflowers_____13592/Sunflowers_2/sunflowers_bad.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>true</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_729b3b25-1ab1-4d42-b8a1-2ac9c5295874">
+		<Skeleton ObjectRecordID="1006">
+			<SrcName href="/models/TerrainObjects/Grass/Flowers/Sunflowers/Sunflowers_4.mb"/>
+			<RootJoint>sunflowers_4</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>CB2DAB82-3C4E-42A4-9A75-5473167232D4</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_6331ebbe-48ee-4626-b750-bc0bc2511319">
+		<Geometry ObjectRecordID="5844">
+			<SrcName href="/models/TerrainObjects/Grass/Flowers/Sunflowers/Sunflowers_4.mb"/>
+			<uid>5E224EB3-60C9-4E8D-8F7B-B22C015E651E</uid>
+			<RootMesh>sunflowers_4</RootMesh>
+			<RootJoint>sunflowers_4</RootJoint>
+			<Size>
+				<x>2.13927</x>
+				<y>1.99255</y>
+				<z>1.65884</z>
+			</Size>
+			<Center>
+				<x>0.053032</x>
+				<y>-0.153572</y>
+				<z>0.764661</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0428961</x>
+				<y>0.0860487</y>
+				<z>1.36143</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>sunflowers_Shape4</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>2</WindPower>
+</Model>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="1000564">
+	<SrcName href="/models/Heroes/Warlock/Warlock.mb"/>
+	<uid>400EA3EB-BBCF-40A5-8751-CBC2156D6644</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>2.05748</x>
+		<y>7.23384</y>
+		<z>5.28153</z>
+	</Size>
+	<Center>
+		<x>-0.152638</x>
+		<y>0.855456</y>
+		<z>2.64082</z>
+	</Center>
+	<BestFitPoint>
+		<x>0.00663224</x>
+		<y>0.174628</y>
+		<z>5.1893</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Warlock-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>4</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Hero_stuffShape</Item>
+		<Item>LizardShape</Item>
+		<Item>Flag_DungeonShape</Item>
+		<Item>HeroShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

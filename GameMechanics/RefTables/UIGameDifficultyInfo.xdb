@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Table_UIGameDifficultyInfo_UIGameDifficulty ObjectRecordID="-1">
+	<objects>
+		<Item>
+			<ID>UI_GAME_DIFFICULTY_EASY</ID>
+			<obj>
+				<NameFileRef href="UIDifficultyInfo/DifficultyEasyName.txt"/>
+				<TooltipFileRef href="UIDifficultyInfo/DifficultyEasyTooltip.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>UI_GAME_DIFFICULTY_NORMAL</ID>
+			<obj>
+				<NameFileRef href="UIDifficultyInfo/DifficultyNormalName.txt"/>
+				<TooltipFileRef href="UIDifficultyInfo/DifficultyNormalTooltip.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>UI_GAME_DIFFICULTY_HARD</ID>
+			<obj>
+				<NameFileRef href="UIDifficultyInfo/DifficultyHardName.txt"/>
+				<TooltipFileRef href="UIDifficultyInfo/DifficultyHardTooltip.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>UI_GAME_DIFFICULTY_HEROIC</ID>
+			<obj>
+				<NameFileRef href="UIDifficultyInfo/DifficultyHeroicName.txt"/>
+				<TooltipFileRef href="UIDifficultyInfo/DifficultyHeroicTooltip.txt"/>
+			</obj>
+		</Item>
+	</objects>
+</Table_UIGameDifficultyInfo_UIGameDifficulty>

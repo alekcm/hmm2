@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="1000015">
+	<ExpScene href="/models/Towns/rampart/rampart.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>2F82DF99-63FA-4A1C-984F-3D0DD987AC63</uid>
+	<objects>
+		<Item href="#n:inline(ArenaEnvObject)" id="item_4dce7687-4840-4314-809a-bb56c29628f8">
+			<ArenaEnvObject ObjectRecordID="1000001">
+				<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+				<Model href="Rocks_O.xdb#xpointer(/Model)"/>
+				<AnimSet/>
+			</ArenaEnvObject>
+		</Item>
+		<Item href="Ground_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="#n:inline(ArenaEnvObject)" id="item_ef9106f6-b6b6-4de8-bde0-d5c1188153a7">
+			<ArenaEnvObject ObjectRecordID="1000003">
+				<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+				<Model href="TreeBack_O.xdb#xpointer(/Model)"/>
+				<AnimSet/>
+			</ArenaEnvObject>
+		</Item>
+		<Item href="CoastLine_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="TreeBase_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Lake_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Floor_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="CoastLineUnder_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="StonesGreatTree_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="GreatTree_M.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Branch_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="TreeTop_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Trees_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="TownHall.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="HighCabins.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="ForestNest.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="RingOfStones.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="UnicornGlade.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="TreantArches.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="WoodGuard.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+	</objects>
+	<lights/>
+	<effects/>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>318.608</x>
+			<y>241.512</y>
+			<z>67.374</z>
+		</Pos>
+		<Rot>
+			<x>-15.4517</x>
+			<y>17.0766</y>
+			<z>6.77848e-006</z>
+		</Rot>
+		<Rod>64.7153</Rod>
+		<FOV>54.4322</FOV>
+		<ClipDistanceMin>1</ClipDistanceMin>
+		<ClipDistanceMax>1000</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound href="/Sounds/_(Ambient)/Towns/Sylvan.xdb#xpointer(/AmbientSoundSet)"/>
+	<Music href="/Sounds/_(Music)/Towns/Sylvan.(Music).xdb#xpointer(/Music)"/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Town/Day_light_Haven01(PanovTest).xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model/>
+		<AnimSet/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras/>
+	<CameraLimits href="CameraLimits.xdb#xpointer(/CameraLimits)"/>
+	<CameraLimitsSet/>
+</ArenaDesc>

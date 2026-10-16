@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="661">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_9df9e974-edc9-40a5-9f75-d770d844699e">
+			<ParticleInstance ObjectRecordID="850">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Arenas/Boat/Surf_main.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-1</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0.7</z>
+					<w>0.7</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.9</Speed>
+				<Offset>1</Offset>
+				<EndCycle>5</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Water/Water00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water05.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_468b875d-04a6-4308-8486-fef6c4f780fa">
+			<ParticleInstance ObjectRecordID="849">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Arenas/Boat/Surf_splash.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-1</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0.7</z>
+					<w>0.7</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.9</Speed>
+				<Offset>1</Offset>
+				<EndCycle>5</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0.75</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Water/Water00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water05.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

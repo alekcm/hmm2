@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7553">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_8ed7e96d-e2b6-40d5-b48b-b5d48f0c721c">
+			<Material ObjectRecordID="18560">
+				<Texture href="/Textures/auto-imported_______320/Creatures/Dungeon/DarkWarrior/DarkWarrior.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_1c453eaa-9155-4b07-9fd1-5d8b0d8ff9c4">
+			<Material ObjectRecordID="18561">
+				<Texture href="/Textures/auto-imported_______320/Creatures/Dungeon/DarkWarrior/DarkWarrior_add.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ef919d47-570a-4bca-89e1-6a19c7116faa">
+		<Skeleton ObjectRecordID="1511">
+			<SrcName href="/models/Creatures/Dungeon/DarkWarrior.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>A0E2381F-1838-4F41-A96B-B3C63FC2176F</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_edb3c0c8-eac1-44bf-a295-5b285af7a880">
+		<Geometry ObjectRecordID="6747">
+			<SrcName href="/models/Creatures/Dungeon/DarkWarrior.mb"/>
+			<uid>0DA4A78A-E6D2-4FC9-AB29-CBFFB9DFDE8C</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.981366</x>
+				<y>1.42843</y>
+				<z>1.41552</z>
+			</Size>
+			<Center>
+				<x>-0.0135481</x>
+				<y>0.117104</y>
+				<z>0.704609</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0413176</x>
+				<y>-0.0350975</y>
+				<z>1.27135</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_5e78bed2-40b2-4f41-bb6a-14981267baa0">
+				<AIGeometry ObjectRecordID="382">
+					<SrcName href="/models/Creatures/Dungeon/DarkWarrior.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.050055</x>
+						<y>0.0754468</y>
+						<z>0.704036</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.21199</x>
+						<y>0.617407</y>
+						<z>0.704036</z>
+					</AABBHalfSize>
+					<uid>F9DD30D4-FA6F-4B91-8492-6615DF0CF2E0</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

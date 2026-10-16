@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2540">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_f60c11a3-1baf-43ec-a363-37d00c05961e">
+			<Material ObjectRecordID="1006526">
+				<Texture href="/Textures/auto-imported_______320/TESTS/Buildings/star_axis/star_axis.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_3b55ef41-5878-4cd2-bac7-b13f8f85464f">
+		<Skeleton ObjectRecordID="1000183">
+			<SrcName href="/models/Buildings/FPP2/StarAxis.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1FAF434D-60AF-473C-9D09-F2AFEC53E88F</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_dda27b8c-1fe3-4018-8a22-9cf5d76a5437">
+		<Geometry ObjectRecordID="1995">
+			<SrcName href="/models/Buildings/FPP2/StarAxis.mb"/>
+			<uid>19CEB2C3-28B4-4D15-BDC5-ABC8B0C2DD23</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>1.94402</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.00291634</y>
+				<z>0.969001</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.000777276</x>
+				<y>-0.0295147</y>
+				<z>1.54248</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_70a56ff7-3e7d-4f0f-89db-692cc5d46ef5">
+				<AIGeometry ObjectRecordID="1000403">
+					<SrcName href="/models/Buildings/FPP2/StarAxis.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>0.992553</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.07413</x>
+						<y>1.07413</y>
+						<z>0.988431</z>
+					</AABBHalfSize>
+					<uid>674FDBF2-A11B-4470-9ED2-349F44959CF4</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>StarAxisShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

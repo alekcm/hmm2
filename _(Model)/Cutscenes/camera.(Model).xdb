@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5655">
+	<Materials>
+		<Item/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_4e582e31-a35c-4757-9b7a-e2dfaf9e150d">
+		<Skeleton ObjectRecordID="478">
+			<SrcName href="/models/Cutscenes/Camera.mb"/>
+			<RootJoint>Camera_Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>2682C5F7-15FA-43CC-A115-F7FB613AD00A</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_c30a71c1-761f-458d-b8dc-1d91f607ded1">
+		<Geometry ObjectRecordID="4847">
+			<SrcName href="/models/Cutscenes/Camera.mb"/>
+			<uid>A193C7A2-0601-4A6D-B7F3-6B0BADF8AF29</uid>
+			<RootMesh>Camera_Global</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>1.41421</x>
+				<y>1.41421</y>
+				<z>1</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Center>
+			<BestFitPoint>
+				<x>4.62572e-018</x>
+				<y>0</y>
+				<z>0.499954</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>cameraShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

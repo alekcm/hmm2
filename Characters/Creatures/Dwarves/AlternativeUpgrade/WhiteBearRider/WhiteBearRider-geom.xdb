@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A2/Creatures/AlternativeUpgrades/Dwarves/T3_WhiteBearRider/T3_Dwarf_Skin.mb"/>
+	<uid>1F037DC4-4048-4ED1-A203-2DE2BA32C5CA</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>2.69867</x>
+		<y>2.88127</y>
+		<z>3.12534</z>
+	</Size>
+	<Center>
+		<x>-0.331354</x>
+		<y>-0.375968</y>
+		<z>1.54671</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="WhiteBearRider-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>2</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Bear_UpShape</Item>
+		<Item>Rider_UpShape</Item>
+		<Item>Dubina_UpShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

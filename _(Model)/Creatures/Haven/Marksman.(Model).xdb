@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3259">
+	<Materials>
+		<Item href="Marksman-marksman_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Marksman-marksman_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Marksman-marksman_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_2a2a5916-785d-48eb-9fd5-0b21692b31a7">
+		<Skeleton ObjectRecordID="211">
+			<SrcName href="/models/Creatures/Castle/Marksman.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>247C5AA7-4A25-4C94-91B0-BA855C49A9DC</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_004e8ac0-bd2c-4d8d-a0e5-9994b39ef12c">
+		<Geometry ObjectRecordID="2707">
+			<SrcName href="/models/Creatures/Castle/Marksman.mb"/>
+			<uid>582FB49E-2DB6-4DDA-971E-AEAB34224C22</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.02057</x>
+				<y>1.09391</y>
+				<z>1.66866</z>
+			</Size>
+			<Center>
+				<x>-0.120737</x>
+				<y>-0.300422</y>
+				<z>0.834328</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.167925</x>
+				<y>-0.087069</y>
+				<z>1.46713</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_eb104318-a9b2-4d5a-b68e-94b5e6d67494">
+				<AIGeometry ObjectRecordID="65">
+					<SrcName href="/models/Creatures/Castle/Marksman.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0614794</y>
+						<z>0.840354</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.43913</x>
+						<y>0.278686</y>
+						<z>0.838412</z>
+					</AABBHalfSize>
+					<uid>808A737F-6B04-4E87-B723-CE2A9B359DF2</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>KnifeShape</Item>
+				<Item>BodyShape</Item>
+				<Item>CrossBowShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

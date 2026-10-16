@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapTreasureShared ObjectRecordID="12">
+	<Model href="/_(Model)/TESTS/Buildings/Campfire.(Model).xdb#xpointer(/Model)"/>
+	<AnimSet/>
+	<blockedTiles/>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect href="/Effects/_(Effect)/Buildings/Campfire.xdb#xpointer(/Effect)"/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Treasures/Campfire/Name.txt"/>
+		<Item href="/Text/Game/Treasures/Campfire/Description.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect href="/Sounds/_(Sound)/Interface/Events/Get_artf_res02.xdb#xpointer(/Sound)"/>
+	<flybyMessageFileRef href="/Text/Game/Treasures/Campfire/Flyby______3166.txt"/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Treasures.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect href="/Sounds/_(Sound)/Buildings/Arena.xdb#xpointer(/Sound)"/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>TREASURE_CAMPFIRE</Type>
+	<MinResource>24</MinResource>
+	<MaxResource>36</MaxResource>
+</AdvMapTreasureShared>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6652">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_46827a54-ee7e-4c9c-b566-4ca805403ad2">
+			<Material ObjectRecordID="13512">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Flowers/Sunflowers_1/sunflowers_1.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>-0.7</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_FORCE_STATIC</DynamicMode>
+				<Is2Sided>true</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_dd94f654-bfbb-42c0-b0bb-bf0066015d4b">
+		<Geometry ObjectRecordID="5841">
+			<SrcName href="/models/TerrainObjects/Grass/Flowers/Sunflowers/Sunflowers_1.mb"/>
+			<uid>18B80EF2-558E-4A6D-A5B5-94B7145D155C</uid>
+			<RootMesh>sunflowers_1</RootMesh>
+			<RootJoint>sunflowers_1</RootJoint>
+			<Size>
+				<x>2.22631</x>
+				<y>1.89483</y>
+				<z>1.59476</z>
+			</Size>
+			<Center>
+				<x>-0.0361343</x>
+				<y>-0.158443</y>
+				<z>0.796703</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.137587</x>
+				<y>-0.0854808</y>
+				<z>1.37158</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>sunflowers_Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>2</WindPower>
+</Model>

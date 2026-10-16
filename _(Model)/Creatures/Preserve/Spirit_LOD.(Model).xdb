@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7722">
+	<Materials>
+		<Item href="Spirit_LOD-spirit_lod6_fix_t1_spirit_a.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spirit_LOD-spirit_lod6_fix_t1_spirit_b.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_670aaf0b-d6f2-434e-bf91-138f209aa3f0">
+		<Skeleton ObjectRecordID="1605">
+			<SrcName href="/models/Creatures/Preserve/Spirit_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>92A702A3-12AD-40CC-A0E3-2B1C2715C500</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a0c07fa1-ec02-4768-9493-4415b46d8c37">
+		<Geometry ObjectRecordID="6886">
+			<SrcName href="/models/Creatures/Preserve/Spirit_LOD.mb"/>
+			<uid>76D322A2-1D07-4F32-98C1-3BD45508AE32</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.43634</x>
+				<y>1.27225</y>
+				<z>1.54535</z>
+			</Size>
+			<Center>
+				<x>8.75294e-005</x>
+				<y>-0.0185484</y>
+				<z>0.769768</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0256828</x>
+				<y>0.019715</y>
+				<z>1.41759</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_55a1d1dd-6e5b-40a6-9dc9-a5578f0f3339">
+				<AIGeometry ObjectRecordID="458">
+					<SrcName href="/models/Creatures/Preserve/Spirit_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.0449348</y>
+						<z>1.02868</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.419939</x>
+						<y>0.318289</y>
+						<z>0.873207</z>
+					</AABBHalfSize>
+					<uid>6DC2E724-94C5-4E3F-A616-816E041F358B</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

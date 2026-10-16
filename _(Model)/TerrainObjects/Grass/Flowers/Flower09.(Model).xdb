@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="4924">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_29217dfc-9096-411d-a63b-d8d77ab2bfe7">
+			<Material ObjectRecordID="7694">
+				<Texture href="/Textures/auto-imported_______320/dev/Grass/Flowers/Flower04/flower04.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_47db8e5e-a7e5-44c0-910a-d6d9e023b35f">
+		<Skeleton ObjectRecordID="409">
+			<SrcName href="/models/TerrainObjects/Grass/Flowers/flower09.mb"/>
+			<RootJoint>flower09</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>C66F1A6E-281D-4B54-A255-5B206E86A6D7</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1c67d1ad-ca57-400b-a836-dfb9a330d7ca">
+		<Geometry ObjectRecordID="4357">
+			<SrcName href="/models/TerrainObjects/Grass/Flowers/flower09.mb"/>
+			<uid>EC40B0CE-2137-4ECB-B528-A0B0259867A8</uid>
+			<RootMesh>flower09</RootMesh>
+			<RootJoint>flower09</RootJoint>
+			<Size>
+				<x>2.53611</x>
+				<y>2.55161</y>
+				<z>0.840232</z>
+			</Size>
+			<Center>
+				<x>0.0033288</x>
+				<y>0.0753966</y>
+				<z>0.420116</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0249647</x>
+				<y>0.0724019</y>
+				<z>0.569864</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>flower0Shape9</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>1</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

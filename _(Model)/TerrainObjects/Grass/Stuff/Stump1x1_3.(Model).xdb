@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1886">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Grass/Stuff/Stump/Stump.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_effc3d41-8f25-46e4-9f4a-209bd6e18002">
+		<Geometry ObjectRecordID="1343">
+			<SrcName href="/models/TerrainObjects/Grass/Stuff/Stump1x1_3.mb"/>
+			<uid>3F4EA2C1-463D-47B3-A4A8-0E2B7E905230</uid>
+			<RootMesh>model</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2.13044</x>
+				<y>2.12024</y>
+				<z>0.740355</z>
+			</Size>
+			<Center>
+				<x>-0.00315988</x>
+				<y>-0.0370528</y>
+				<z>0.370177</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0455938</x>
+				<y>-0.0744573</y>
+				<z>0.535967</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>modelShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

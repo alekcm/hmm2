@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/models/Heroes/Godric/Godric_mounted_Flagless.mb"/>
+	<uid>597A943C-657F-4132-8C15-D3050CF03381</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>2.52378</x>
+		<y>4.00867</y>
+		<z>3.64897</z>
+	</Size>
+	<Center>
+		<x>0.120892</x>
+		<y>0.110152</y>
+		<z>1.82341</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Godric_Flagless-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>4</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>2</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Horse_meshShape</Item>
+		<Item>GodricShape</Item>
+		<Item>Sword_meshShape</Item>
+		<Item>Shield_meshShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

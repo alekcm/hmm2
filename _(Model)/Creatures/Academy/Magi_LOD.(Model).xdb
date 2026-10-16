@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7332">
+	<Materials>
+		<Item href="Magi_LOD-lambert5.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Magi_LOD-lambert4.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_07966aa8-4f2d-4945-8a40-e05e55819056">
+		<Skeleton ObjectRecordID="1344">
+			<SrcName href="/models/Creatures/Academy/Magi_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>EF73A1FE-AD8C-431A-89C8-86A60281FEC8</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_9955c610-cfec-40d4-9ba1-20b3beb9dbca">
+		<Geometry ObjectRecordID="6530">
+			<SrcName href="/models/Creatures/Academy/Magi_LOD.mb"/>
+			<uid>1BA545C7-7F0C-401C-964E-6E98340932D1</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.63664</x>
+				<y>1.68925</y>
+				<z>1.82469</z>
+			</Size>
+			<Center>
+				<x>0.137042</x>
+				<y>0.530485</y>
+				<z>0.912343</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.100837</x>
+				<y>-0.0136245</y>
+				<z>1.60049</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_9791034b-46ff-4a17-a801-7897ed590df6">
+				<AIGeometry ObjectRecordID="368">
+					<SrcName href="/models/Creatures/Academy/Magi_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.127627</y>
+						<z>0.858485</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.405341</x>
+						<y>0.269273</y>
+						<z>0.827318</z>
+					</AABBHalfSize>
+					<uid>C9A96F71-90B7-4D43-B08D-B081FCD6EB43</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

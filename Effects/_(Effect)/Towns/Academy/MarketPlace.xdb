@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000317">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_c848386e-237b-4eaf-9df7-65394df0cd3a">
+			<ParticleInstance ObjectRecordID="1000446">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_82fc3612-199c-49b3-9997-5e05855450f4">
+					<Particle ObjectRecordID="1000361">
+						<SrcName href="/Effects/Towns/Academy/MarketPlace/MarketPlace.mb"/>
+						<ExportPrefix>MarketPlaceEff01</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>1b3cc2c00bbb9940080b014162ce8340ba170e4093610e40da602a40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>608B23B1-0647-4511-94EA-4509FBDCED26</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.7</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/icefirewhite.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

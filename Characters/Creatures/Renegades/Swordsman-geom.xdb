@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/Creatures/Renegates/Swordsman.mb"/>
+	<uid>E5D588F1-4DF9-425B-95A2-63C0D61E04C0</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>1.59384</x>
+		<y>1.24051</y>
+		<z>2.69034</z>
+	</Size>
+	<Center>
+		<x>0.0108612</x>
+		<y>-0.112564</y>
+		<z>1.34365</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Swordsman-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>2</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>WeaponShape</Item>
+		<Item>BodyShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

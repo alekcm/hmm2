@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3255">
+	<Materials>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_41ab09c2-a8b6-44bc-9ceb-ebdda9573c95">
+			<Material ObjectRecordID="4204">
+				<Texture href="/Textures/auto-imported_______320/TESTS/dev/Buildings/black_market/black_market.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_e6f6a5eb-af7e-4515-ab51-6b279cebe05e">
+		<Skeleton ObjectRecordID="148">
+			<SrcName href="/models/Buildings/black_market.mb"/>
+			<RootJoint>black_market</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>C0A26A77-FD32-499D-A65B-E880CF7B4AE4</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_3e0bdbac-ab1e-41b5-94e3-e9c4076c54f0">
+		<Geometry ObjectRecordID="2362">
+			<SrcName href="/models/Buildings/black_market.mb"/>
+			<uid>D5537270-B95D-4A2F-BE7C-0A70722FC0B6</uid>
+			<RootMesh>black_market</RootMesh>
+			<RootJoint>black_market</RootJoint>
+			<Size>
+				<x>8</x>
+				<y>8</y>
+				<z>2.31473</z>
+			</Size>
+			<Center>
+				<x>-1</x>
+				<y>1</y>
+				<z>1.10376</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.930468</x>
+				<y>1.83743</y>
+				<z>2.21842</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>black_marketShape</Item>
+				<Item>PlaneShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

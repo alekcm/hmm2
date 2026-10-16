@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000187">
+	<Instances>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Rampart/UnicornGlade/Grass.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Rampart/UnicornGlade/grass 2.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Rampart/UnicornGlade/BatterflayGlow.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Rampart/UnicornGlade/batterflayglow 03.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="#n:inline(ParticleInstance)" id="item_80f97717-c0c6-4180-9d1d-d8267439b394">
+			<ParticleInstance ObjectRecordID="1000197">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_01e1d322-fa16-42d2-8cd5-b6c2ceec352c">
+					<Particle ObjectRecordID="1000169">
+						<SrcName href="/Effects/Towns/Rampart/UnicornGlade.mb"/>
+						<ExportPrefix>Zgustki</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>558516c134c363413da4724011acdf4022d1944028ea8840372d3f40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>F5A73132-4EB4-48C9-9FB4-E19F289A91C6</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.4</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/IceFireWhite00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_b273b430-18c2-48dd-b5a3-60b8c48a20ed">
+			<ParticleInstance ObjectRecordID="1000198">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_fc4ec52e-935c-4c0f-a58b-80401366fa70">
+					<Particle ObjectRecordID="1000170">
+						<SrcName href="/Effects/Towns/Rampart/UnicornGlade.mb"/>
+						<ExportPrefix>Iskorki2</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>271712c1a79e684108c904407019b14084d28040dcbe69406d40853f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>605A1791-E3E7-4997-864E-036D9A5D916E</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/SparkGreen00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkRed00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkRed01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkYellow00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_55f1e968-5275-4d31-93d2-ce20e76a46db">
+			<ParticleInstance ObjectRecordID="1000199">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_e24fdda2-7ad9-43e5-98e1-117e012d284b">
+					<Particle ObjectRecordID="1000171">
+						<SrcName href="/Effects/Towns/Rampart/UnicornGlade.mb"/>
+						<ExportPrefix>Horn1</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>0a9943bf3821903f8ccf3e41f9df4f3f8c91933ed6b6953e1058333f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>5ECE4481-1EEC-4153-BBA6-CE9F817F84D6</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>3</Speed>
+				<Offset>0</Offset>
+				<EndCycle>14.233</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_2b75873e-4067-4545-bafe-38d6a94de098">
+			<ParticleInstance ObjectRecordID="1000200">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_015cec9a-51e1-4d07-a1bc-a553e8b10d8f">
+					<Particle ObjectRecordID="1000172">
+						<SrcName href="/Effects/Towns/Rampart/UnicornGlade.mb"/>
+						<ExportPrefix>Star1</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>0cee5dbf646f9b3ff75a494173cffa3f30ce903f30ce903f30ce903f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>7C920773-7A0A-4262-913D-BFF8F07813AB</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>3</Speed>
+				<Offset>0</Offset>
+				<EndCycle>14.233</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/glow12.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_b251af4c-cd1b-4466-928e-ca87176c18c1">
+			<ParticleInstance ObjectRecordID="1000201">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_417aa605-1e0a-4c7d-8081-3787dbc2f4f4">
+					<Particle ObjectRecordID="1000173">
+						<SrcName href="/Effects/Towns/Rampart/UnicornGlade.mb"/>
+						<ExportPrefix>Horse_Glow1</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>ea47f0bee8f2463f2a190a41fecf9d40c63c1340a2564a40315a4040</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>40D254A8-5C54-474E-9D59-8586E14C6DDB</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4.233</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="/Effects/_(ModelInstance)/Effects/Towns/Rampart/Rampart_Batterflay01.xdb#xpointer(/ModelInstance)"/>
+		<Item href="/Effects/_(ModelInstance)/Effects/Towns/Rampart/rampart_batterflay03.xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

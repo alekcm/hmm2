@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="1000140">
+	<animations>
+		<Item>
+			<Kind>buff</Kind>
+			<Anim href="NikolayVampire-arena-buff.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>cast</Kind>
+			<Anim href="NikolayVampire-arena-cast.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>happy</Kind>
+			<Anim href="NikolayVampire-arena-happy.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="NikolayVampire-arena-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>defeat</Kind>
+			<Anim href="NikolayVampire-arena-defeat.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>rangeattack</Kind>
+			<Anim href="NikolayVampire-arena-cast.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Heroes/NikolayVampire/NicolayVampire_CS.mb"/>
+	<ExpSrcClipFolder href="/Animations/Heroes/NikolayVampire/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="1000201">
+	<animations>
+		<Item>
+			<Kind>idle01</Kind>
+			<Anim href="GolemForge-idle01.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="GolemForge-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Buildings/FPP2/Dwellings/Academy/GolemForge.mb"/>
+	<ExpSrcClipFolder href="/Animations/Buildings/Dwellings/Academy/GolemForge/Clip_adventure/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

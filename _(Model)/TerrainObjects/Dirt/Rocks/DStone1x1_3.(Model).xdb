@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7406">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_8d9490f7-47bd-4296-a428-611dc9c225df">
+			<Material ObjectRecordID="17885">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Lava/Stones/LavaStone_1/lstone_plane.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>3</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_6fced6ef-be14-424d-999b-69951781aa98">
+			<Material ObjectRecordID="17886">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Rocks/DStone1x1_1/Dirtst.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_66ddffdb-d29b-489b-bcdb-7da0b146e009">
+		<Skeleton ObjectRecordID="1401">
+			<SrcName href="/models/TerrainObjects/Dirt/Rocks/Dirtstones.mb"/>
+			<RootJoint>DStone1x1_3</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>5A51C5EC-7FB8-4007-80E4-4C0A0CCB7BB1</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_111784c7-8c8b-4d3f-b5ed-4eb0e1032cee">
+		<Geometry ObjectRecordID="6604">
+			<SrcName href="/models/TerrainObjects/Dirt/Rocks/Dirtstones.mb"/>
+			<uid>C0B6343E-DE9E-4256-994C-B1114FDE851B</uid>
+			<RootMesh>DStone1x1_3</RootMesh>
+			<RootJoint>DStone1x1_3</RootJoint>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>2.22117</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>1.11058</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0168556</x>
+				<y>0.119288</y>
+				<z>1.95875</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>DStone1x1_3|DStone_plane|DStone_planeShape</Item>
+				<Item>DStone1x1_3|DStone|DStoneShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="292">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_51fef0ee-0a45-4fb4-a8cf-566a7a78006e">
+			<ParticleInstance ObjectRecordID="342">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_35869158-a58b-4778-9b1f-ba63d87eddf6">
+					<Particle ObjectRecordID="120">
+						<SrcName href="/Effects/Spells/LightningBolt.mb"/>
+						<ExportPrefix>Sparks</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>a036b9bd80a097bc9cd76f40b4ceaa4097a53c400f1f40406e3e5240</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>46011BDB-DFF7-421F-83F7-83BE2D59FE3F</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>1</Offset>
+				<EndCycle>1.5</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/SparkBlue00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_d73fb5aa-d5a9-4952-8489-9c98a96e356b">
+			<ParticleInstance ObjectRecordID="838">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_d72b1d9f-c448-4e33-8dff-f6294035b530">
+					<Particle ObjectRecordID="441">
+						<SrcName href="/Effects/Spells/LightningBolt.mb"/>
+						<ExportPrefix>Hit</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>c045003d000408be0032da3e3400494138dcea40e1efe5406976e740</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>2943C014-F463-4565-93E5-A05AA2AE06DD</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0.2</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>1</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/Figure01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Figure02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Figure03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlow06.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/FlashGlow00.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/EnergyRays00.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlow06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights>
+		<Item href="LightningBolt.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_f92eba25-fe73-4e45-af60-e63b2d128680">
+			<ModelInstance ObjectRecordID="187">
+				<Model href="/_(Model)/Effects/Spells/LightningBolt_Lightning01.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Spells/LightningBolt_Lightning01.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>1</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_cd6c0c34-8094-4786-9c46-4c97dac7d94e">
+			<ModelInstance ObjectRecordID="188">
+				<Model href="/_(Model)/Effects/Spells/LightningBolt_Hit.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Spells/LightningBolt_Hit.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>1</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5586">
+	<Materials>
+		<Item href="Devil-t_devil_material.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Devil-devil_material.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Devil-devil_axe_material.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Devil-devil_axe_material.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Devil-AxeGlow_lambert.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_0155edab-28bb-4155-a28c-d64a9b375872">
+		<Skeleton ObjectRecordID="459">
+			<SrcName href="/models/Creatures/Inferno/Devil.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>89A75107-174A-445D-B6AB-71C07648B114</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_3b4f41fa-0ef9-4bd6-8c67-7dae8b3456e7">
+		<Geometry ObjectRecordID="4777">
+			<SrcName href="/models/Creatures/Inferno/Devil.mb"/>
+			<uid>BD3DEEF3-1DD0-4C8A-9EEA-C644AB07E277</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>6.67375</x>
+				<y>3.99213</y>
+				<z>3.74428</z>
+			</Size>
+			<Center>
+				<x>-0.808975</x>
+				<y>0.0280076</y>
+				<z>1.87214</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.121721</x>
+				<y>0.317538</y>
+				<z>3.52229</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_34c6426e-459a-4220-909b-88ca2bcd5127">
+				<AIGeometry ObjectRecordID="146">
+					<SrcName href="/models/Creatures/Inferno/Devil.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>1.62623</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.995871</x>
+						<y>0.995871</y>
+						<z>1.62623</z>
+					</AABBHalfSize>
+					<uid>605C8164-2915-4E08-BC8B-157D8BBA9C98</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>2</Item>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Devil_glowShape</Item>
+				<Item>Devil_meshShape</Item>
+				<Item>Devil_axeShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

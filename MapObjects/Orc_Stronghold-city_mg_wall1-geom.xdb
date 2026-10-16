@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A2/AdventureMap/Stronhold_Town/StronholdTown.mb"/>
+	<uid>7B2C28D5-D179-4F1E-93FA-65B40EF75026</uid>
+	<RootMesh>TownHall CityHall HallOfTrial Fort1 Terrain Wall Buildings_01 Crag Terrain02</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>22</x>
+		<y>22</y>
+		<z>10.7676</z>
+	</Size>
+	<Center>
+		<x>0</x>
+		<y>0</y>
+		<z>5.38378</z>
+	</Center>
+	<BestFitPoint>
+		<x>-0.2</x>
+		<y>2.8</y>
+		<z>12</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Orc_Stronghold-town_AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>9</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Terrain0Shape2</Item>
+		<Item>TownHallShape</Item>
+		<Item>CityHallShape</Item>
+		<Item>HallOfTrialShape</Item>
+		<Item>FortShape1</Item>
+		<Item>TerrainShape</Item>
+		<Item>WallShape</Item>
+		<Item>Buildings_0Shape1</Item>
+		<Item>CragShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

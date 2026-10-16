@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7693">
+	<Materials>
+		<Item href="Stologmite05-mat_alfa_stalaktit.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Stologmite05-mat_no_alfa.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_954b9eda-ac47-4ae0-9718-b6b48b127520">
+		<Geometry ObjectRecordID="6859">
+			<SrcName href="/models/TerrainObjects/Subterrain/Stoloktites/Stoloktites.mb"/>
+			<uid>D0F9C4C7-E1F9-42CD-A58C-7918B65A9C48</uid>
+			<RootMesh>Stologmite05</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>8</x>
+				<y>6.38211</y>
+				<z>18</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>0.191057</y>
+				<z>9</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0156554</x>
+				<y>0.908275</y>
+				<z>18</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_ec870f5d-6c3c-4f7a-ae79-8ca273d6d063">
+				<AIGeometry ObjectRecordID="1000783">
+					<SrcName href="/models/TerrainObjects/Subterrain/Stoloktites/Stoloktites.mb"/>
+					<RootMesh>AI_05</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.583012</x>
+						<y>-0.161525</y>
+						<z>4.90059</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>3.03196</x>
+						<y>2.43323</y>
+						<z>4.94903</z>
+					</AABBHalfSize>
+					<uid>EF5B5FBB-6BC8-4A34-BCCD-A5360CBBE160</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Stologmite05|Stologmite|StologmiteShape</Item>
+				<Item>Stologmite05|Stoloktite|StoloktiteShape</Item>
+				<Item>pod_Stoloktite1Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

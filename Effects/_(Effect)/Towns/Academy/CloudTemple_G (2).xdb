@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000314">
+	<Instances>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Academy/CloudTemple_G/cloud.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="#n:inline(ParticleInstance)" id="item_366f2ffb-0b5c-4892-9877-094d7213bf97">
+			<ParticleInstance ObjectRecordID="1000411">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Towns/Academy/CloudTemple/flow.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.3</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6.5</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Academy/CloudTemple_G/cloudIS.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="#n:inline(ParticleInstance)" id="item_06140787-87bd-4628-a6df-fa5f5dbd6702">
+			<ParticleInstance ObjectRecordID="1000418">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_878ee304-e27d-40a1-b768-392570e23dd2">
+					<Particle ObjectRecordID="1000340">
+						<SrcName href="/Effects/Towns/Academy/CloudTemple_G/CloudTemple_G.mb"/>
+						<ExportPrefix>FX</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>709513be00e6fd3c1a59cd40ed2a5341b8d2eb409d6cc6404d611041</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>63A8C6C8-C43B-4F15-8903-0EC4F4351E90</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4.5</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow04.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/Lightning02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Lightning03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Lightning00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Lightning01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue04.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_ccac16de-4c7e-4fdb-ae85-b00e07037797">
+			<ParticleInstance ObjectRecordID="1000433">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Towns/Academy/CloudTemple/storm.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.3</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Clouds/Cloud01blue.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02blue.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_9ef1a1c9-7c73-4619-9e84-5f78086f86a4">
+			<ParticleInstance ObjectRecordID="1000436">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_6cfb296b-188e-46af-9ac2-73bc670515d5">
+					<Particle ObjectRecordID="1000353">
+						<SrcName href="/Effects/Towns/Academy/CloudTemple_G/CloudTemple_G.mb"/>
+						<ExportPrefix>StormCloudFlash</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>b0649ebe002a9abd8ac98640dbd52841fadcbf4088e8c7407ffec040</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>2C4050BF-538F-4372-86F4-3DC6DD5787E8</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/Lightning02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Lightning03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Lightning00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Lightning01.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_58ffc660-e409-4f4d-ab2f-7b8396cb5c51">
+			<ParticleInstance ObjectRecordID="1000437">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_f954df51-6c75-4574-9748-a2b5594953cb">
+					<Particle ObjectRecordID="1000354">
+						<SrcName href="/Effects/Towns/Academy/CloudTemple_G/CloudTemple_G_Cloud_IS.mb"/>
+						<ExportPrefix>storm</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>e04b013e003d9a3c1c645b405eaf99410ee432419c373441b1312d41</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>C6AD87C9-E10B-4559-9971-44ED6FC6C7F0</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.3</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Clouds/Cloud01blue.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02blue.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_e93d5f6e-e599-4361-9d54-a0b7b4bc840c">
+			<ParticleInstance ObjectRecordID="1000438">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_ba9541ac-4a40-4c08-bea3-3f3047d4ebb6">
+					<Particle ObjectRecordID="1000355">
+						<SrcName href="/Effects/Towns/Academy/CloudTemple_G/CloudTemple_G_Cloud_IS.mb"/>
+						<ExportPrefix>flow</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>4039b2be00a8adbb00388fbf7345f9415485a9415b9caa4151020341</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>13966D0D-0137-4E14-A193-9BE84954F5FC</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.3</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6.5</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_8e7ac80e-fd89-495c-ad07-c597529870b5">
+			<ModelInstance ObjectRecordID="1000112">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/TitanLightning.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy_TitanLightning01.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_5e705cf1-170d-4de9-9f06-106cae6e3624">
+			<ModelInstance ObjectRecordID="1000113">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack01.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack01.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>1</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_6c98b667-241e-4781-9be4-bee5cfb05ff4">
+			<ModelInstance ObjectRecordID="1000115">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LightningMan01.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LightningMan01.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>1</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_0a41b31f-0bc2-47c5-9ca7-141fbf63befd">
+			<ModelInstance ObjectRecordID="1000116">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack02.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack02.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_eb7c47e3-4932-4d40-9f9b-51c5ccb6cf57">
+			<ModelInstance ObjectRecordID="1000117">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack03.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack03.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>2</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_cf71e894-2320-43ca-aa29-fb52d47131f0">
+			<ModelInstance ObjectRecordID="1000118">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack04.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack04.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>3</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_789cc01c-321b-4b18-8591-e54f756a6c05">
+			<ModelInstance ObjectRecordID="1000119">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack05.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack05.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>5</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_aeb73f3d-53ab-485b-ac2a-c5aaaaeaafe1">
+			<ModelInstance ObjectRecordID="1000120">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack06.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack06.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>7</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_bd965882-27c2-4833-9394-e45369be6349">
+			<ModelInstance ObjectRecordID="1000121">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack07.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack07.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>4.65</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_11257c5d-c90c-4d0b-afaf-be5c78d6efa3">
+			<ModelInstance ObjectRecordID="1000122">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack08.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack08.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>9</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_fc577ba7-5ebe-4742-9659-1e123a2f9d52">
+			<ModelInstance ObjectRecordID="1000123">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack09.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LigtningManBack09.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>3</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_37a5b35a-47a4-4f34-9321-fb70c35a5161">
+			<ModelInstance ObjectRecordID="1000124">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/handLightning.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/handLightning.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_8489b007-9060-43b5-aa58-929ef629f1f4">
+			<ModelInstance ObjectRecordID="1000125">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LightningMan02.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LightningMan02.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_1773eaa3-af7f-412c-84f1-dfeae254ac4e">
+			<ModelInstance ObjectRecordID="1000126">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LightningMan03.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LightningMan03.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>2</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_8b2bdee2-e189-44d6-97c7-6fcdfc0f3e1c">
+			<ModelInstance ObjectRecordID="1000127">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LightningMan04.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LightningMan04.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>3</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_f7f31548-5ea1-4413-a683-358d32376d39">
+			<ModelInstance ObjectRecordID="1000128">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LightningMan05.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LightningMan05.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>5</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_fcf8472b-4dc5-4999-ae14-b01c0e9b0a34">
+			<ModelInstance ObjectRecordID="1000129">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LightningMan06.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LightningMan06.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>7</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_664ae35b-4c48-4da1-b067-3dc6962c5528">
+			<ModelInstance ObjectRecordID="1000130">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LightningMan07.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LightningMan07.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>4.65</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_96e7958b-77f0-41f3-8dd4-fd797ac51a21">
+			<ModelInstance ObjectRecordID="1000131">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LightningMan08.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LightningMan08.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>9</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_e583ab51-03c0-4c8e-9387-0cf7c702a706">
+			<ModelInstance ObjectRecordID="1000132">
+				<Model href="/_(Model)/Effects/Towns/Academy/CloudTemple_G/LightningMan09.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Academy/CloudTemple_G/LightningMan09.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>3</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

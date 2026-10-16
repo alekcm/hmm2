@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6972">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_8af77723-0f72-4e4a-9372-1d9aaaec4cdb">
+			<Material ObjectRecordID="15221">
+				<Texture href="/Textures/auto-imported_______320/Effects/Spells/Bloodlust/Bloodlust_drop.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>10</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_76907557-bea1-49e3-b397-b0e42969ef45">
+			<Material ObjectRecordID="15216">
+				<Texture href="/Textures/auto-imported_______320/Effects/Spells/Bloodlust/Bloodlust_puddle.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>10</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Bloodlust/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Bloodlust/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Bloodlust/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Bloodlust/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Bloodlust/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_b52f90fe-c696-43f1-aa53-3c284ef71a6c">
+		<Skeleton ObjectRecordID="1193">
+			<SrcName href="/Effects/Spells/Bloodlust.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>22A6902D-6C49-44F5-A192-5322EE49F8E7</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_5d0e7e3c-6fd9-48e0-91cc-61e455f7bfc6">
+		<Geometry ObjectRecordID="6175">
+			<SrcName href="/Effects/Spells/Bloodlust.mb"/>
+			<uid>6FF89980-27C7-4C00-88CE-11EFCCD8558C</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.5</x>
+				<y>0.5</y>
+				<z>17.7622</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>8.87902</z>
+			</Center>
+			<BestFitPoint>
+				<x>3.29326e-018</x>
+				<y>1.28889e-011</y>
+				<z>17.7601</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>7</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Drop0Shape1</Item>
+				<Item>Global|Puddle|PuddleShape</Item>
+				<Item>Wave01Shape</Item>
+				<Item>Wave02Shape</Item>
+				<Item>Wave03Shape</Item>
+				<Item>Wave04Shape</Item>
+				<Item>Wave05Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

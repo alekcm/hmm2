@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="54">
+	<ExpScene href="/models/Interface/Magic_Guild/magic_guild.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>E1E7A83F-2703-4B1C-97B3-24ABB7264930</uid>
+	<objects>
+		<Item href="#n:inline(ArenaModObject)" id="item_d0c211ca-2649-496a-8d08-975efa30c2d5">
+			<ArenaModObject ObjectRecordID="680">
+				<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+				<Name>mgi</Name>
+				<DefUpgLevel>1</DefUpgLevel>
+				<DefRuinLevel>0</DefRuinLevel>
+				<upgrades>
+					<Item>
+						<ruins>
+							<Item>
+								<Model/>
+								<effects/>
+								<TextDescFileRef href=""/>
+								<AnimSet/>
+							</Item>
+						</ruins>
+					</Item>
+					<Item>
+						<ruins>
+							<Item>
+								<Model href="/_(Model)/Interface/Magic_Guild/mgi_u1r0.(Model).xdb#xpointer(/Model)"/>
+								<effects/>
+								<TextDescFileRef href=""/>
+								<AnimSet/>
+							</Item>
+						</ruins>
+					</Item>
+					<Item>
+						<ruins>
+							<Item>
+								<Model href="/_(Model)/Interface/Magic_Guild/mgi_u2r0.(Model).xdb#xpointer(/Model)"/>
+								<effects/>
+								<TextDescFileRef href=""/>
+								<AnimSet/>
+							</Item>
+						</ruins>
+					</Item>
+					<Item>
+						<ruins>
+							<Item>
+								<Model href="/_(Model)/Interface/Magic_Guild/mgi_u3r0.(Model).xdb#xpointer(/Model)"/>
+								<effects>
+									<Item>
+										<Effect href="/Effects/_(Effect)/Interface/MagicGuild/Medallion.xdb#xpointer(/Effect)"/>
+										<Locator/>
+									</Item>
+								</effects>
+								<TextDescFileRef href=""/>
+								<AnimSet/>
+							</Item>
+						</ruins>
+					</Item>
+					<Item>
+						<ruins>
+							<Item>
+								<Model href="/_(Model)/Interface/Magic_Guild/mgi_u4r0.(Model).xdb#xpointer(/Model)"/>
+								<effects>
+									<Item>
+										<Effect href="/Effects/_(Effect)/Interface/MagicGuild/LetterGlow.xdb#xpointer(/Effect)"/>
+										<Locator/>
+									</Item>
+									<Item>
+										<Effect href="/Effects/_(Effect)/Interface/MagicGuild/Medallion.xdb#xpointer(/Effect)"/>
+										<Locator/>
+									</Item>
+								</effects>
+								<TextDescFileRef href=""/>
+								<AnimSet/>
+							</Item>
+						</ruins>
+					</Item>
+					<Item>
+						<ruins>
+							<Item>
+								<Model href="/_(Model)/Interface/Magic_Guild/mgi_u5r0.(Model).xdb#xpointer(/Model)"/>
+								<effects>
+									<Item>
+										<Effect href="/Effects/_(Effect)/Interface/MagicGuild/Medallion.xdb#xpointer(/Effect)"/>
+										<Locator/>
+									</Item>
+									<Item>
+										<Effect href="/Effects/_(Effect)/Interface/MagicGuild/LetterGlow.xdb#xpointer(/Effect)"/>
+										<Locator/>
+									</Item>
+									<Item>
+										<Effect href="/Effects/_(Effect)/Interface/MagicGuild/Stik.xdb#xpointer(/Effect)"/>
+										<Locator/>
+									</Item>
+								</effects>
+								<TextDescFileRef href=""/>
+								<AnimSet/>
+							</Item>
+						</ruins>
+					</Item>
+				</upgrades>
+			</ArenaModObject>
+		</Item>
+	</objects>
+	<lights>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>309.137</x>
+				<y>303.793</y>
+				<z>12.4795</z>
+			</Position>
+			<Color>
+				<x>0.705882</x>
+				<y>0.588235</y>
+				<z>0.00784314</z>
+			</Color>
+			<Intensity>0.7</Intensity>
+			<Radius>50</Radius>
+		</Item>
+	</lights>
+	<effects>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Interface/MagicGuild/Candle.xdb#xpointer(/Effect)"/>
+			<Locator/>
+		</Item>
+	</effects>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>304.177</x>
+			<y>282.055</y>
+			<z>12.6766</z>
+		</Pos>
+		<Rot>
+			<x>-28.326</x>
+			<y>-19.9254</y>
+			<z>0</z>
+		</Rot>
+		<Rod>19.3178</Rod>
+		<FOV>54.4322</FOV>
+		<ClipDistanceMin>0.2</ClipDistanceMin>
+		<ClipDistanceMax>100</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound/>
+	<Music/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Interface/MG.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model/>
+		<AnimSet/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras/>
+	<CameraLimits/>
+	<CameraLimitsSet/>
+	<WidenPictureIfPossible>false</WidenPictureIfPossible>
+</ArenaDesc>

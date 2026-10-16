@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001728">
+	<Materials>
+		<Item href="Boots_of_Interference-lambert4.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Boots_of_Interference-lambert4.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_18d869b4-15cc-4232-b708-cfc26ac458cd">
+		<Skeleton ObjectRecordID="1000370">
+			<SrcName href="/models/Artefacts/Boots_of_Interference.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>C9C9F2D0-A65E-4065-AFE3-B23B7B9F2F72</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b08b46c4-493d-45b5-bde7-b63197ca4011">
+		<Geometry ObjectRecordID="1001508">
+			<SrcName href="/models/Artefacts/Boots_of_Interference.mb"/>
+			<uid>C600FC97-4D91-4ED9-9166-22983E14B43F</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.80894</x>
+				<y>1.20232</y>
+				<z>1.2095</z>
+			</Size>
+			<Center>
+				<x>0.0640674</x>
+				<y>-0.21463</y>
+				<z>2.22101</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.000754432</x>
+				<y>-0.0757241</y>
+				<z>2.71653</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="Orb_of_Light-geom-AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Boot0Shape1</Item>
+				<Item>Boot0Shape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

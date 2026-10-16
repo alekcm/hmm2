@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc>
+	<ExpScene href="/H5A1/Models/Arenas/DwarwenTownSiege/DwarwenSiege_r0.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>13A65C06-DE58-46E8-B85C-1C406E54D535</uid>
+	<objects>
+		<Item href="s_central_tower.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_gate.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_3.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_4.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="shooter_s2.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s1.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s3.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Sidewall1.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Sidewall2.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+	</objects>
+	<lights/>
+	<effects/>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>292.337</x>
+			<y>283.003</y>
+			<z>18.469</z>
+		</Pos>
+		<Rot>
+			<x>-20.7177</x>
+			<y>-94.8118</y>
+			<z>0</z>
+		</Rot>
+		<Rod>56.784</Rod>
+		<FOV>49.0269</FOV>
+		<ClipDistanceMin>0.2</ClipDistanceMin>
+		<ClipDistanceMax>500</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound/>
+	<Music/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Day_light.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model/>
+		<AnimSet/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras/>
+	<CameraLimits/>
+	<CameraLimitsSet/>
+</ArenaDesc>

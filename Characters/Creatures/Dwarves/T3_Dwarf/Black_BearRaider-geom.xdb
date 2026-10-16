@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/Creatures/Dwarves/T3_Dwarf/Black_BearRaider.mb"/>
+	<uid>4D135E37-4309-424C-8497-0B9106EA79B0</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>1.34556</x>
+		<y>2.91455</y>
+		<z>2.99443</z>
+	</Size>
+	<Center>
+		<x>-0.0015178</x>
+		<y>-0.417926</y>
+		<z>1.46113</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Black_BearRaider-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>2</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Rider_UpgradeShape</Item>
+		<Item>Beare_UpgradeShape</Item>
+		<Item>Hammer_UpgradeShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

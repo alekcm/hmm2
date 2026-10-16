@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2918">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_3d627eef-99f3-42ad-b7fb-ce022a9b5ae7">
+			<Material ObjectRecordID="3703">
+				<Texture href="/Textures/auto-imported_______320/dev/Test/TMPcharacters/AmmoCart/AmmoWagon.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_56040041-9860-47be-b3e2-845db3f225e6">
+		<Skeleton ObjectRecordID="156">
+			<SrcName href="/models/Creatures/WarMachines/AmmoWagon.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>812AF94F-CA0C-4690-874D-BEFF127762DA</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_8cd4bbb8-82e8-4140-8677-12b6d3b1e5d8">
+		<Geometry ObjectRecordID="2370">
+			<SrcName href="/models/Creatures/WarMachines/AmmoWagon.mb"/>
+			<uid>3C5B3BF8-02C6-47C4-A709-A39FD9439E06</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.35836</x>
+				<y>3.19551</y>
+				<z>2.54402</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>-0.454801</y>
+				<z>1.27155</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00657939</x>
+				<y>0.946032</y>
+				<z>2.47959</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_e0ca7c47-a79d-41d2-967e-195d582be18c">
+				<AIGeometry ObjectRecordID="27">
+					<SrcName href="/models/Creatures/WarMachines/AmmoWagon.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.160521</y>
+						<z>1.12965</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.727443</x>
+						<y>0.842534</y>
+						<z>0.848828</z>
+					</AABBHalfSize>
+					<uid>84A98C95-5A0A-4D10-8526-FAF9A051B526</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>WagonShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

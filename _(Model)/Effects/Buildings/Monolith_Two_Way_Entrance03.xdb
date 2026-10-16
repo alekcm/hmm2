@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001463">
+	<Materials>
+		<Item href="Monolith_Two_Way_Entrance03-LightingMat01.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Monolith_Two_Way_Entrance03-LightingMat01.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Monolith_Two_Way_Entrance03-LightingMat01.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Monolith_Two_Way_Entrance03-LightingMat01.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_b3a97fbf-e12d-466c-a8f9-ea5adcd116c5">
+		<Skeleton ObjectRecordID="1000335">
+			<SrcName href="/Effects/Buildings/Monolith_Two_Way_Entrance.mb"/>
+			<RootJoint>Lighting</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>2191E419-9981-4947-892B-3D15A5FD5315</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_92479140-392c-4988-b1c5-d3a8129dca01">
+		<Geometry ObjectRecordID="1001243">
+			<SrcName href="/Effects/Buildings/Monolith_Two_Way_Entrance.mb"/>
+			<uid>76F4D2B7-6078-423A-9414-31A11F3F225E</uid>
+			<RootMesh>Lighting</RootMesh>
+			<RootJoint>Lighting</RootJoint>
+			<Size>
+				<x>2.50154</x>
+				<y>0.0382373</y>
+				<z>4.11144</z>
+			</Size>
+			<Center>
+				<x>0.981846</x>
+				<y>0.863734</y>
+				<z>2.30617</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.57206</x>
+				<y>0.845316</y>
+				<z>4.33705</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>LightingGeom0Shape1</Item>
+				<Item>LightingGeom0Shape2</Item>
+				<Item>LightingGeom0Shape4</Item>
+				<Item>LightingGeom0Shape3</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

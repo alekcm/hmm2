@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000771">
+	<Materials>
+		<Item href="Mountain10x10_1-Sand_mount_s.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_3d87d1ca-6992-470f-a719-b11b4f8cb667">
+		<Skeleton ObjectRecordID="1000141">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Mountains/SandMountains.mb"/>
+			<RootJoint>Mountain10x10_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>3F5C1E76-FA0E-42A5-B3BC-5073E204DD5B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_97768f8f-d144-4e89-af1b-529d32280554">
+		<Geometry ObjectRecordID="1000562">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Mountains/SandMountains.mb"/>
+			<uid>C1F9B5A6-9CFD-4F19-BDEC-39246B88A3E6</uid>
+			<RootMesh>Mountain10x10_1</RootMesh>
+			<RootJoint>Mountain10x10_1</RootJoint>
+			<Size>
+				<x>20</x>
+				<y>18</y>
+				<z>13.4876</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>-2</y>
+				<z>6.7438</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.791097</x>
+				<y>-0.585353</y>
+				<z>13.2792</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Mountain10x10_1|Mountain|MountainShape</Item>
+				<Item>Mountain10x10_1|Mountain_lamb|Mountain_lambShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001878">
+	<Materials>
+		<Item href="/_(Model)/Effects/Towns/Rampart_MysticPound-lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Towns/Rampart_MysticPound-lambert3.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_d72f6cfb-c963-4ac2-94b4-7886bbf0ed0d">
+		<Skeleton ObjectRecordID="1000458">
+			<SrcName href="/Effects/Towns/Academy/Tavern/Taverna_G.mb"/>
+			<RootJoint>Water</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>B837533E-B703-47A0-A1AE-F177667FBA47</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a25ca452-3ff7-4568-97c6-02ea3795f5bb">
+		<Geometry ObjectRecordID="1001656">
+			<SrcName href="/Effects/Towns/Academy/Tavern/Taverna_G.mb"/>
+			<uid>A68F27C9-9F3D-4DD2-94E8-5F804E49F694</uid>
+			<RootMesh>Water</RootMesh>
+			<RootJoint>Water</RootJoint>
+			<Size>
+				<x>1.34104</x>
+				<y>1.34104</y>
+				<z>1.12122</z>
+			</Size>
+			<Center>
+				<x>0.0642196</x>
+				<y>0.0186919</y>
+				<z>-0.442558</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.09874e-006</x>
+				<y>-4.3281e-005</y>
+				<z>0.118035</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Water_02Shape</Item>
+				<Item>Water_01Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

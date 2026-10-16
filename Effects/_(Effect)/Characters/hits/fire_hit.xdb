@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="344">
+	<Instances>
+		<Item href="/Effects/_(ParticleInstance)/Characters/FireHit_hit.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/FireHit_fire.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/Flash.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights>
+		<Item href="/Characters/Hits/FireHit.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FillPreset ObjectRecordID="1000025">
+	<NameFileRef href="grass_trees_oaks.txt"/>
+	<NoRandomAngle>false</NoRandomAngle>
+	<layers>
+		<Item>
+			<NoRandomAngle>false</NoRandomAngle>
+			<objects>
+				<Item>
+					<NoRandomAngle>false</NoRandomAngle>
+					<Object href="/MapObjects/_(AdvMapObjectLink)/Objects-Grass/Trees/Oak/Oak01.xdb#xpointer(/AdvMapObjectLink)"/>
+					<Size>0.4</Size>
+					<Probability>0.8</Probability>
+				</Item>
+				<Item>
+					<NoRandomAngle>false</NoRandomAngle>
+					<Object href="/MapObjects/_(AdvMapObjectLink)/Objects-Grass/Trees/Oak/Oak03.xdb#xpointer(/AdvMapObjectLink)"/>
+					<Size>0.4</Size>
+					<Probability>0.8</Probability>
+				</Item>
+			</objects>
+			<Dispersion>2.8</Dispersion>
+			<Width>0</Width>
+		</Item>
+		<Item>
+			<NoRandomAngle>false</NoRandomAngle>
+			<objects>
+				<Item>
+					<NoRandomAngle>false</NoRandomAngle>
+					<Object href="/MapObjects/_(AdvMapObjectLink)/Objects-Grass/Trees/Oak/Oak02.xdb#xpointer(/AdvMapObjectLink)"/>
+					<Size>0.4</Size>
+					<Probability>0.8</Probability>
+				</Item>
+				<Item>
+					<NoRandomAngle>false</NoRandomAngle>
+					<Object href="/MapObjects/_(AdvMapObjectLink)/Objects-Grass/Trees/Oak/Oak04.xdb#xpointer(/AdvMapObjectLink)"/>
+					<Size>0.4</Size>
+					<Probability>0.8</Probability>
+				</Item>
+			</objects>
+			<Dispersion>1.9</Dispersion>
+			<Width>0.3</Width>
+		</Item>
+	</layers>
+</FillPreset>

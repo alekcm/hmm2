@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CharacterView ObjectRecordID="1000064">
+	<Model href="/Characters/Creatures/Rampart/GreenDragonUpgrade.xdb#xpointer(/Model)"/>
+	<AnimSet href="/Characters/Creatures/Rampart/GreenDragonUpgrade-arena.xdb#xpointer(/AnimSet)"/>
+	<sequence>
+		<Item>
+			<Kind>attack01</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+		<Item>
+			<Kind>attack00</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+	</sequence>
+	<Effect/>
+</CharacterView>

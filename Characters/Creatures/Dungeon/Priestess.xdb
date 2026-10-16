@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000860">
+	<Materials>
+		<Item href="Priestess-t6_priestess_texturing_weld_lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_0c53055a-8e82-41a0-8087-7ff0d7175297">
+			<Material ObjectRecordID="1001313">
+				<Texture href="Priestess-Priestess_add.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="Priestess-t6_priestess_texturing_weld_lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_adfca170-2ac6-499d-a089-86894476d7d3">
+		<Skeleton ObjectRecordID="1000156">
+			<SrcName href="/models/Creatures/Dungeon/Priestess.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1F0C9B65-9E13-40EA-8373-0EC1CE64D85B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ce6b6b40-56a5-4055-a455-4cd042b557e4">
+		<Geometry ObjectRecordID="1000649">
+			<SrcName href="/models/Creatures/Dungeon/Priestess.mb"/>
+			<uid>36518B8F-C2BF-4987-A8E8-80A37A5D67F4</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.60571</x>
+				<y>4.71189</y>
+				<z>2.0585</z>
+			</Size>
+			<Center>
+				<x>5.71609e-005</x>
+				<y>-0.670288</y>
+				<z>1.02925</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.020739</x>
+				<y>0.412164</y>
+				<z>1.84001</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_42855b1a-c4ab-434b-ad15-3d3fc3e2f476">
+				<AIGeometry ObjectRecordID="1000280">
+					<SrcName href="/models/Creatures/Dungeon/Priestess.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>1.02762</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.347022</x>
+						<y>0.347022</y>
+						<z>1.03735</z>
+					</AABBHalfSize>
+					<uid>A59064AB-DAB2-4EEA-8697-07EC5A404A0F</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+				<Item>WhipShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

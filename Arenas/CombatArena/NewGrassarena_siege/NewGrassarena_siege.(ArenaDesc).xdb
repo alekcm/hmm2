@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="51">
+	<ExpScene href="/models/Arenas/Grassarena/NewGrassarena_siege.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>1ADADD88-A0BA-4326-B167-EE3781B79867</uid>
+	<objects>
+		<Item href="s_wall_4.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_3.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_gate.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_bigtower.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="SmokeLoc1.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="SmokeLoc2.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="SmokeLoc3.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="SmokeLoc4.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="FogLoc1.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s1.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s2.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s3.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="s_moat.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="env_wall_01.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="env_wall_02.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+	</objects>
+	<lights/>
+	<effects>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Arenas/HavenSiege/General/Smoke1.xdb#xpointer(/Effect)"/>
+			<Locator>SmokeLoc1</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Arenas/HavenSiege/General/Smoke2.xdb#xpointer(/Effect)"/>
+			<Locator>SmokeLoc2</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Arenas/HavenSiege/General/Smoke3.xdb#xpointer(/Effect)"/>
+			<Locator>SmokeLoc3</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Arenas/HavenSiege/General/Smoke1.xdb#xpointer(/Effect)"/>
+			<Locator>SmokeLoc4</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Arenas/HavenSiege/General/Fog.xdb#xpointer(/Effect)"/>
+			<Locator>FogLoc1</Locator>
+		</Item>
+	</effects>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>314.267</x>
+			<y>284.001</y>
+			<z>28.1811</z>
+		</Pos>
+		<Rot>
+			<x>-21.1927</x>
+			<y>-33.7215</y>
+			<z>0</z>
+		</Rot>
+		<Rod>19.4377</Rod>
+		<FOV>54.4322</FOV>
+		<ClipDistanceMin>0.1</ClipDistanceMin>
+		<ClipDistanceMax>200</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound/>
+	<Music/>
+	<Wind/>
+	<CamerasSet href="/_(CamerasSet)/PA2.xdb#xpointer(/CamerasSet)"/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Day_light.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model/>
+		<AnimSet/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras/>
+	<CameraLimits/>
+	<CameraLimitsSet/>
+</ArenaDesc>

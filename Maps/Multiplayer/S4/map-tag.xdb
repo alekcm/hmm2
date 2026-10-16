@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapDescTag>
+	<AdvMapDesc href="S4.xdb#xpointer(/AdvMapDesc)"/>
+	<NameFileRef href="name.txt"/>
+	<DescriptionFileRef href="description.txt"/>
+	<TileX>96</TileX>
+	<TileY>96</TileY>
+	<MapGoal href="MapGoalText.txt"/>
+	<CustomMapGoal>false</CustomMapGoal>
+	<teams>
+		<Item>1</Item>
+		<Item>1</Item>
+	</teams>
+	<thumbnailImages>
+		<Item href="mS4_pic.xdb#xpointer(/Texture)"/>
+		<Item href="mS4_2_pic.xdb#xpointer(/Texture)"/>
+		<Item href="mS4_3_pic.xdb#xpointer(/Texture)"/>
+		<Item href="mS4_4_pic.xdb#xpointer(/Texture)"/>
+	</thumbnailImages>
+	<HasUnderground>true</HasUnderground>
+	<RandomMap>false</RandomMap>
+	<CustomGameMap>false</CustomGameMap>
+	<Version>3</Version>
+</AdvMapDescTag>

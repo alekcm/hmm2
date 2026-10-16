@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7024">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_3bfd5014-21b2-4acc-bdaa-8131ffd352ad">
+			<Material ObjectRecordID="15316">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Lava/Craters/Crater_12x10/Crater_12x10.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_d4cf8a10-c2c7-46b0-b031-92c015ed34fd">
+		<Skeleton ObjectRecordID="1244">
+			<SrcName href="/models/TerrainObjects/Lava/Craters/Crater_12x10.mb"/>
+			<RootJoint>Bridge_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>626BC172-41F4-4EBF-A1AA-04B7B0BEC61C</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a01701c5-bfef-4214-ae19-00406450c823">
+		<Geometry ObjectRecordID="6226">
+			<SrcName href="/models/TerrainObjects/Lava/Craters/Crater_12x10.mb"/>
+			<uid>DE4B3123-04B2-41A2-B80A-D59E7FE28CB8</uid>
+			<RootMesh>Bridge_1</RootMesh>
+			<RootJoint>Bridge_1</RootJoint>
+			<Size>
+				<x>19.3182</x>
+				<y>2</y>
+				<z>1.60243</z>
+			</Size>
+			<Center>
+				<x>0.655551</x>
+				<y>0</y>
+				<z>-0.473284</z>
+			</Center>
+			<BestFitPoint>
+				<x>2.89543</x>
+				<y>-0.0156159</y>
+				<z>0.141423</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_88427b3e-773f-4137-81ad-02004fb9022b">
+				<AIGeometry ObjectRecordID="332">
+					<SrcName href="/models/TerrainObjects/Lava/Craters/Crater_12x10.mb"/>
+					<RootMesh>bridge_collision</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.655551</x>
+						<y>0</y>
+						<z>-0.473284</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>9.65908</x>
+						<y>1</y>
+						<z>0.801216</z>
+					</AABBHalfSize>
+					<uid>F57467E1-EA62-408B-9E01-8FDEEE0E57BA</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Bridge_1Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

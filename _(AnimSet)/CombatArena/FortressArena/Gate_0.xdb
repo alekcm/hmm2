@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>close</Kind>
+			<Anim href="Gate_0-close.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>open</Kind>
+			<Anim href="Gate_0-open.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A1/Models/Arenas/DwarwenTownSiege/DwarwenSiege_r0.mb"/>
+	<ExpSrcClipFolder href="/H5A1/Animations/Arena/Dwarwen/Clip/Gate0/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

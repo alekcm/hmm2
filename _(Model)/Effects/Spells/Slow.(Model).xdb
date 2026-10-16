@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7317">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_55873f59-2123-43e1-b3b8-f4c93ff5d848">
+			<Material ObjectRecordID="17532">
+				<Texture href="/Textures/auto-imported_______320/Effects/Spells/Slow/Slow_blackthorn.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>20</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_6a2e4e17-d0e8-4686-a6bc-31ca28177c14">
+		<Skeleton ObjectRecordID="1339">
+			<SrcName href="/Effects/Spells/Slow.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>7BDB6359-6566-4CA3-862F-C0615BFF0BD9</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_fca87d71-2d3f-400a-960d-7c69a16f3429">
+		<Geometry ObjectRecordID="6516">
+			<SrcName href="/Effects/Spells/Slow.mb"/>
+			<uid>572FC758-F989-4837-A43C-F72A526652BF</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.653727</x>
+				<y>0.680401</y>
+				<z>12.1744</z>
+			</Size>
+			<Center>
+				<x>0.0362969</x>
+				<y>-0.0431126</y>
+				<z>-6.1128</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.00264738</x>
+				<y>0.00698026</y>
+				<z>-0.098354</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_f23180b3-3690-4080-9d8a-6e7adf6576de">
+				<AIGeometry ObjectRecordID="364">
+					<SrcName href="/Effects/Spells/Slow.mb"/>
+					<RootMesh>0</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBHalfSize>
+					<uid>BD31A9AA-E9EC-4B42-9EA0-F445ADDFF4A1</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BlackthornShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

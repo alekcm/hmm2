@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="677">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_e34824e8-6b66-4cbe-99c8-e9cc158bacd2">
+			<ParticleInstance ObjectRecordID="878">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_684e69b1-6e69-4440-960b-600b8b34b9b9">
+					<Particle ObjectRecordID="461">
+						<SrcName href="/Effects/Characters/Necromanser/buff.mb"/>
+						<ExportPrefix>Smoke</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>d038183e004e903bd61511402d520d41505dac40c067b54077698340</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>DD6C5216-CA9C-40A5-B4E1-39BBFCAA6732</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4.5</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke11.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke12.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke13.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke14.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/SmokeSequence/Smoke15.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_2c93dfd3-9cda-4d4a-a8f7-67bb3306d0e0">
+			<ModelInstance ObjectRecordID="195">
+				<Model href="/_(Model)/Effects/Characters/Necromanser/buff.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Characters/Necromanser/buff.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

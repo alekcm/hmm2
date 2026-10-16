@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/models/Heroes/Godric/Godric_mounted_Flag.mb"/>
+	<uid>8FE50083-D6B0-4FB2-BB7E-69BF58B980F6</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>4.96405</x>
+		<y>4.00867</y>
+		<z>4.90013</z>
+	</Size>
+	<Center>
+		<x>-1.09925</x>
+		<y>0.110152</y>
+		<z>1.19783</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Godric-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>5</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>2</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Horse_meshShape</Item>
+		<Item>GodricShape</Item>
+		<Item>Sword_meshShape</Item>
+		<Item>Shield_meshShape</Item>
+		<Item>Flag_Hero_HavenShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

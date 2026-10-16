@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapStaticShared>
+	<Model href="/_(Model)/Buildings/H5A2/Forpost_LWall.xdb#xpointer(/Model)"/>
+	<AnimSet href="/_(AnimSet)/Buildings/H5A2/Forpost_LWall.(AnimSet).xdb#xpointer(/AnimSet)"/>
+	<blockedTiles>
+		<Item>
+			<x>2</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>3</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>4</x>
+			<y>0</y>
+		</Item>
+	</blockedTiles>
+	<holeTiles/>
+	<activeTiles/>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href=""/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href=""/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128/>
+</AdvMapStaticShared>

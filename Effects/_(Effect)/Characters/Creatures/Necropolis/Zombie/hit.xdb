@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="543">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_97f4d00a-5d4b-4029-89a8-c478143f722a">
+			<ParticleInstance ObjectRecordID="730">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_99d365f9-418a-4cdd-b4e0-03f0920f3393">
+					<Particle ObjectRecordID="380">
+						<SrcName href="/Effects/Characters/NECROPOLIS/Zombie/hit.mb"/>
+						<ExportPrefix>hit</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>802cc73b5cf0ca3df4e3a43f517cd13f4c817d3f84f8803fa283533f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>1E82FE94-4329-4327-B64C-D6339A7CAC09</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>2.5</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Characters/NECROPOLIS/Zombie/idle00IS.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/NECROPOLIS/Zombie/Bone/Head_bone.xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

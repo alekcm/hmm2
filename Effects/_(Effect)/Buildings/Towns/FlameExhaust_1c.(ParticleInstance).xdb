@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="445">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="/Effects/_(Particle)/Buildings/Towns/Inferno/Inferno_FlameExhaust.xdb#xpointer(/Particle)"/>
+	<Position>
+		<x>8.5</x>
+		<y>1</y>
+		<z>1</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+		<w>0</w>
+	</Rotation>
+	<Scale>0.8</Scale>
+	<Speed>0.6</Speed>
+	<Offset>4</Offset>
+	<EndCycle>11</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire02.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire03.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire04.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire05.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire06.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire07.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire08.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire09.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/NoADD/Red/Fire10.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/WindowGlow00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/SparksRed.xdb#xpointer(/Texture)"/>
+		<Item/>
+		<Item href="/Textures/Effects/Water/Water06ADD.xdb#xpointer(/Texture)"/>
+		<Item/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

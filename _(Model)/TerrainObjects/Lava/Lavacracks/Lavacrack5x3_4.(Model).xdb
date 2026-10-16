@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7536">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/TerrainObjects/Lava/Lavacracks/Lavacrack3x2_1/Lavacracks-1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Lava/Craters/Crater_10x10_1/lambert7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_9ef3a6ea-8fea-4b42-ac17-fc61e3fc1a38">
+		<Skeleton ObjectRecordID="1499">
+			<SrcName href="/models/TerrainObjects/Lava/LavaCracks/Lava_Cracks.mb"/>
+			<RootJoint>Lavacrack5x3_4</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>0F1C81AC-4020-4807-85D2-2A857997AE98</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_e1883170-aa1e-4acc-b602-61f3965cfa68">
+		<Geometry ObjectRecordID="6730">
+			<SrcName href="/models/TerrainObjects/Lava/LavaCracks/Lava_Cracks.mb"/>
+			<uid>6B61D06F-AA98-455C-BC68-CED448B01F4E</uid>
+			<RootMesh>Lavacrack5x3_4</RootMesh>
+			<RootJoint>Lavacrack5x3_4</RootJoint>
+			<Size>
+				<x>10</x>
+				<y>6</y>
+				<z>4.71433</z>
+			</Size>
+			<Center>
+				<x>-2.38419e-007</x>
+				<y>0</y>
+				<z>-1.99525</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.701809</x>
+				<y>0.0730753</y>
+				<z>0.267767</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Lavacrack5x3_4|lavacrack|lavacrackShape</Item>
+				<Item>Lavacrack5x3_4|lava|lavaShape</Item>
+				<Item>Lavacrack5x3_4|lavacrack_lamb|lavacrack_lambShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

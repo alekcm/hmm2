@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000302">
+	<Instances>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Academy/CloudTemple_G/cloud.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="#n:inline(ParticleInstance)" id="item_913a6397-4f42-4d54-9553-2624525c3e2b">
+			<ParticleInstance ObjectRecordID="1000439">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_a8cf299d-1f82-4d6a-ba0e-a0be48e8770e">
+					<Particle ObjectRecordID="1000356">
+						<SrcName href="/Effects/Towns/Academy/CloudTemple_G/CloudTemple_G_stage1.mb"/>
+						<ExportPrefix>flow</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>4039b2be00a8adbb00388fbf7345f9415485a9415b9caa4151020341</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>BE7A43D8-47BA-40FA-A318-BFE352055886</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.3</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6.5</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Academy/CloudTemple_G/cloudIS.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="#n:inline(ParticleInstance)" id="item_b589fcd9-feb4-4239-a2c3-3c9569a931db">
+			<ParticleInstance ObjectRecordID="1000440">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Towns/Academy/CloudTemple/storm.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.3</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_97566226-b124-4c2c-97b0-8b8dcf2036b5">
+			<ParticleInstance ObjectRecordID="1000442">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_71f4e5ba-c67d-4686-9157-84f25b304002">
+					<Particle ObjectRecordID="1000358">
+						<SrcName href="/Effects/Towns/Academy/CloudTemple_G/CloudTemple_G_stage1_IS.mb"/>
+						<ExportPrefix>flow</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>4039b2be00a8adbb00388fbf7345f9415485a9415b9caa4151020341</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>66A75E36-5E13-4FCE-B417-3C99CDFB17F5</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.3</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6.5</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_15076e05-0e5a-4e52-b137-dfb58f04de33">
+			<ParticleInstance ObjectRecordID="1000441">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_b82bd2de-7981-4c55-951e-2f9033b89c4e">
+					<Particle ObjectRecordID="1000357">
+						<SrcName href="/Effects/Towns/Academy/CloudTemple_G/CloudTemple_G_stage1_IS.mb"/>
+						<ExportPrefix>storm</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>e04b013e003d9a3c1c645b405eaf99410ee432419c373441b1312d41</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>5EE169B3-88C5-494A-8504-B7191411358D</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.3</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

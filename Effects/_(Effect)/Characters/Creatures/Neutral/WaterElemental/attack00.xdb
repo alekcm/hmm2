@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000338">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_2707d930-9f38-450e-bbe4-464bc00baabe">
+			<ParticleInstance ObjectRecordID="1000469">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_b5f67f99-2e24-4c12-9053-4fde080ff4d6">
+					<Particle ObjectRecordID="1000384">
+						<SrcName href="/Effects/Characters/NEUTRAL/WaterElemental/attack00.mb"/>
+						<ExportPrefix>attack00</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>48bb0dbfb8ed00bf4bd5fc3f4363cf40c1d846408873784088038540</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>FAA5A55A-E2D9-48A6-A4CA-46F4678B9560</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Water/Water00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Water02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

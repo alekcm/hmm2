@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>strike</Kind>
+			<Anim href="Godric_Strike-arena-strike.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Heroes/Godric/Godric_mounted_Flagless.mb"/>
+	<ExpSrcClipFolder href="/Animations/Heroes/Godric/Clip_strike/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

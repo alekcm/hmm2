@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="5537">
+	<SrcName href="/models/Creatures/Preserve/HighDruid.mb"/>
+	<uid>2843737B-186E-4AD3-B7B8-E4C968D6F6C5</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>2.72129</x>
+		<y>0.538492</y>
+		<z>2.68051</z>
+	</Size>
+	<Center>
+		<x>-0.392989</x>
+		<y>-0.0285634</y>
+		<z>1.34026</z>
+	</Center>
+	<BestFitPoint>
+		<x>-0.588929</x>
+		<y>-0.0263704</y>
+		<z>2.58469</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="#n:inline(AIGeometry)" id="item_4aa6c586-f649-45c4-90dd-3dbdbc972fd7">
+		<AIGeometry ObjectRecordID="244">
+			<SrcName href="/models/Creatures/Preserve/HighDruid.mb"/>
+			<RootMesh>AI</RootMesh>
+			<RootJoint/>
+			<Volume>0</Volume>
+			<SolidPart>0</SolidPart>
+			<AABBCenter>
+				<x>-0.0227989</x>
+				<y>-0.0227989</y>
+				<z>0.995771</z>
+			</AABBCenter>
+			<AABBHalfSize>
+				<x>0.452425</x>
+				<y>0.452425</y>
+				<z>1.00063</z>
+			</AABBHalfSize>
+			<uid>8FFE4756-B862-44E6-B4FF-4642D0ACD302</uid>
+		</AIGeometry>
+	</AIGeometry>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>2</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Druid_meshShape</Item>
+		<Item>Staff_meshShape</Item>
+		<Item>ButterFlyesShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

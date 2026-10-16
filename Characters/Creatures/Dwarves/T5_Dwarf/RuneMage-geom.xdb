@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/Creatures/Dwarves/T5_Dwarf/RuneMage.mb"/>
+	<uid>3D200570-0923-4306-A22B-8785EE94E98D</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>2.32662</x>
+		<y>1.89756</y>
+		<z>2.51443</z>
+	</Size>
+	<Center>
+		<x>-0.216429</x>
+		<y>-0.0348477</y>
+		<z>1.25663</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="RuneMage-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>2</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>BodyShape</Item>
+		<Item>StuffShape</Item>
+		<Item>pSphereShape1</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

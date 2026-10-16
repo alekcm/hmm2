@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapMineShared ObjectRecordID="25">
+	<Model href="/_(Model)/TerrainObjects/Lava/Mines/AbandonedMine.(Model).xdb#xpointer(/Model)"/>
+	<AnimSet href="/_(AnimSet)/Mines/AbandonedMine.(AnimSet).xdb#xpointer(/AnimSet)"/>
+	<blockedTiles>
+		<Item>
+			<x>-1</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>1</y>
+		</Item>
+	</blockedTiles>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>-1</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>1</x>
+		<y>-2</y>
+	</PossessionMarkerTile>
+	<Effect href="/Effects/_(Effect)/Buildings/Capture/_BuildingFree_S.xdb#xpointer(/Effect)"/>
+	<EffectWhenOwned/>
+	<messagesFileRef/>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect href="/Sounds/_(Sound)/Interface/Ingame/Interact.xdb#xpointer(/Sound)"/>
+	<flybyMessageFileRef href="/Text/Game/Mines/AbandonedMine/Flyby.txt"/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect href="/Sounds/_(Sound)/Buildings/mines/Abandoned_Mine.xdb#xpointer(/Sound)"/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>BUILDING_ABANDONED_MINE</Type>
+</AdvMapMineShared>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6938">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_c2e8eaaf-bace-4a6d-b15f-e65521df45c6">
+			<Material ObjectRecordID="15035">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Lava/Mountains/Mountains_8x12/Mountains_8x12.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>5</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c4446070-1a58-42a3-b52d-6cf05c4d6419">
+		<Skeleton ObjectRecordID="1157">
+			<SrcName href="/models/TerrainObjects/Lava/Mountains/Mountains_8x12.mb"/>
+			<RootJoint>Mountains_8x12</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>5F451CBE-4935-4840-9387-9059BEC0AF30</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a7362354-ea95-478b-ad32-725fce516823">
+		<Geometry ObjectRecordID="6137">
+			<SrcName href="/models/TerrainObjects/Lava/Mountains/Mountains_8x12.mb"/>
+			<uid>F0A66EE9-9E77-404E-BC68-48CB85C20529</uid>
+			<RootMesh>Mountains_8x12</RootMesh>
+			<RootJoint>Mountains_8x12</RootJoint>
+			<Size>
+				<x>16</x>
+				<y>24.4353</y>
+				<z>10.7449</z>
+			</Size>
+			<Center>
+				<x>-1</x>
+				<y>1.21764</y>
+				<z>5.27209</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.98741</x>
+				<y>7.21497</y>
+				<z>10.4114</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Mountains_lambertShape</Item>
+				<Item>Mountains_lambert_lambertShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2532">
+	<Materials>
+		<Item href="Common_Dwelling_Castle-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Common_Dwelling_Castle-lambert4.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Common_Dwelling_Castle-lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_9ab67fec-31b3-4489-8888-d2fc2822ca7b">
+		<Skeleton ObjectRecordID="445">
+			<SrcName href="/models/Buildings/common_Dwelling_Castle.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>32141A5C-0BD7-4E16-BABF-34A9DEF3DB81</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_60da02a6-1898-4a42-8193-90e793537f95">
+		<Geometry ObjectRecordID="1987">
+			<SrcName href="/models/Buildings/common_Dwelling_Castle.mb"/>
+			<uid>7B225B17-67BC-44DF-A54A-7EE814FF483E</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>8</x>
+				<y>8</y>
+				<z>15.1093</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>1</y>
+				<z>7.51552</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.961713</x>
+				<y>0.998552</y>
+				<z>15.0657</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_fbf7808f-bdc0-4daf-9b0a-b00e4f1f2a2f">
+				<AIGeometry ObjectRecordID="258">
+					<SrcName href="/models/Buildings/common_Dwelling_Castle.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>1</x>
+						<y>1</y>
+						<z>7.44068</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>3.58188</x>
+						<y>3.58188</y>
+						<z>7.50964</z>
+					</AABBHalfSize>
+					<uid>45DA1315-6EC8-4481-B8A7-CC2FCB853FE0</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>CastleShape</Item>
+				<Item>PlaneShape</Item>
+				<Item>CragShape</Item>
+			</MeshNames>
+			<MeshAnimated>
+				<Item>0</Item>
+				<Item>0</Item>
+			</MeshAnimated>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

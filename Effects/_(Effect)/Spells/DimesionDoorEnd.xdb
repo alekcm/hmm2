@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="254">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_8ca98081-e743-45e4-b681-d63db4615c39">
+			<ParticleInstance ObjectRecordID="286">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_4279ac15-85ee-4707-99f3-2740f40bc39a">
+					<Particle ObjectRecordID="72">
+						<SrcName href="/Effects/Spells/DimesionDoorEnd.mb"/>
+						<ExportPrefix>DimesionDoorEnd</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>e84aa63f10d6153f48631a40d25a20425260bc41666dc3412fd0aa41</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>90696361-D235-431B-8A44-E835A2FCF24E</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0.5</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1.5</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/SpiralCW.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue00.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/Flash01.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/ButtonRing.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights>
+		<Item href="DimesionDoorEnd.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

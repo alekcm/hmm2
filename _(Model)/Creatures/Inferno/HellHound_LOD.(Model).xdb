@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5644">
+	<Materials>
+		<Item href="HellHound_LOD-lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_72666fed-4d70-42fd-80c0-5f12271bcaf8">
+		<Skeleton ObjectRecordID="467">
+			<SrcName href="/models/Creatures/Inferno/HellHound_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>964C6C92-3B62-45DC-99BA-0AAE3284D0D9</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_5e7d6cba-a597-4857-8a7f-d88f854de68d">
+		<Geometry ObjectRecordID="4835">
+			<SrcName href="/models/Creatures/Inferno/HellHound_LOD.mb"/>
+			<uid>CA72C9D6-CCFB-47D6-9FC2-679FE9697D89</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.766534</x>
+				<y>3.70177</y>
+				<z>1.49999</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.902632</y>
+				<z>0.749996</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00252806</x>
+				<y>-0.641617</y>
+				<z>1.34356</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_a9eed966-bd6e-4ff1-9c94-3e34a63c1f50">
+				<AIGeometry ObjectRecordID="189">
+					<SrcName href="/models/Creatures/Inferno/HellHound_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-1.49012e-008</x>
+						<y>-0.0484682</y>
+						<z>0.731051</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.416815</x>
+						<y>0.79531</y>
+						<z>0.735624</z>
+					</AABBHalfSize>
+					<uid>43D00ED1-0BFF-47CC-B63F-5F811C4DE071</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>bodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

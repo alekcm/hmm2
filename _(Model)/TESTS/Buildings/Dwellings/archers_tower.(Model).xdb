@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2908">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_9785b513-02b7-470f-84d8-cec3e8f1884a">
+			<Material ObjectRecordID="14434">
+				<Texture href="/Textures/auto-imported_______320/TESTS/dev/Buildings/archers_tower/archers_tower.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_62b13840-52cf-41bf-8e08-dc14f0d7450c">
+			<Material ObjectRecordID="14435">
+				<Texture href="/Textures/auto-imported_______320/TESTS/dev/Buildings/archers_tower/archers_tower_pod.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_e4b13b5f-29f6-40e9-8d79-ade0855c0e19">
+		<Skeleton ObjectRecordID="150">
+			<SrcName href="/models/Buildings/archers_tower.mb"/>
+			<RootJoint>archers_tower</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>8A505150-DE26-43FD-AC85-224ACE37EB4F</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_8cb861b5-f877-4225-b8f7-9f2da6c42c0c">
+		<Geometry ObjectRecordID="2364">
+			<SrcName href="/models/Buildings/archers_tower.mb"/>
+			<uid>0217BE7F-A778-4204-B235-A1095E8EEE78</uid>
+			<RootMesh>archers_tower</RootMesh>
+			<RootJoint>archers_tower</RootJoint>
+			<Size>
+				<x>7.99292</x>
+				<y>7.99292</y>
+				<z>20.4661</z>
+			</Size>
+			<Center>
+				<x>0.996458</x>
+				<y>-0.996458</y>
+				<z>-1.2919</z>
+			</Center>
+			<BestFitPoint>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(AIGeometry)/Buildings/Dwellings/Haven/Archers_tower.(AIGeometry).xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>archers_towerShape</Item>
+				<Item>planeShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

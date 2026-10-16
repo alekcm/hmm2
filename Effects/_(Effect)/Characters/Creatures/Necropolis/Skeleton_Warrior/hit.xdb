@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="531">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_1844e5b8-6154-4210-bf96-46666d8bab0b">
+			<ParticleInstance ObjectRecordID="715">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_b6ed1419-bb2c-4c4f-9f25-13d76d4dc4c6">
+					<Particle ObjectRecordID="366">
+						<SrcName href="/Effects/Characters/NECROPOLIS/Skeleton_Warrior/Hit.mb"/>
+						<ExportPrefix>hit</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>bb2106bec67b8c3e30bda23fd344933f4283d53ebf85603fc4f01d3f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>64D9734C-49EA-482D-97D0-266D80BBA87D</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1.66</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+					<Item/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Characters/NECROPOLIS/Skeleton_Warrior/idle00IS.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/NECROPOLIS/Skeleton_Warrior/Bone/Head/Head_bone.xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5640">
+	<Materials>
+		<Item href="Cerberius_LOD-Cerberius_lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_8408590b-0cee-4188-8bcd-934337c7dc44">
+		<Skeleton ObjectRecordID="463">
+			<SrcName href="/models/Creatures/Inferno/Cerberius_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>3B018F67-A791-4F0C-81A1-ABB1B265FADC</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_d8e717c4-6fc5-46f8-a945-633d16396d14">
+		<Geometry ObjectRecordID="4831">
+			<SrcName href="/models/Creatures/Inferno/Cerberius_LOD.mb"/>
+			<uid>DC3BA721-0127-4442-AD8D-E26E3313FEF4</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.14451</x>
+				<y>4.21718</y>
+				<z>1.25261</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.872785</y>
+				<z>0.626306</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.011811</x>
+				<y>-0.791623</y>
+				<z>1.11567</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_b5768468-6b7a-4bf9-87a4-fadccd82d742">
+				<AIGeometry ObjectRecordID="185">
+					<SrcName href="/models/Creatures/Inferno/Cerberius_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.00258809</x>
+						<y>-0.145741</y>
+						<z>0.693413</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.894784</x>
+						<y>1.10309</y>
+						<z>0.692197</z>
+					</AABBHalfSize>
+					<uid>FE6D628D-B2F5-448A-87CA-F763C8F6B3D7</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

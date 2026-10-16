@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect>
+	<Instances>
+		<Item href="GlowFX.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Idle/BeehiveGlowFX.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Beeline_Cloud_FX.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="BeelineFX.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights>
+		<Item href="Light_Root_FX.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models>
+		<Item href="Light_Root.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="White_Root.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="Beehive_Root.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapBuildingShared>
+	<Model href="/_(Model)/Buildings/School_of_Magic_Snow.xdb#xpointer(/Model)"/>
+	<AnimSet/>
+	<blockedTiles>
+		<Item>
+			<x>-1</x>
+			<y>-3</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>-3</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>-3</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>-2</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>-2</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>-2</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>2</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>2</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>2</x>
+			<y>1</y>
+		</Item>
+	</blockedTiles>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>2</x>
+			<y>-2</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>3</x>
+		<y>-2</y>
+	</PossessionMarkerTile>
+	<Effect/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Buildings/SchoolOfMagic/Name.txt"/>
+		<Item href="/Text/Game/Buildings/SchoolOfMagic/Description.txt"/>
+		<Item href="/Text/Game/Buildings/SchoolOfMagic/Visit.txt"/>
+		<Item href="/Text/Game/Buildings/SchoolOfMagic/Empty.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>BUILDING_SCHOOL_OF_MAGIC</Type>
+</AdvMapBuildingShared>

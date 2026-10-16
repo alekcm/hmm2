@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6565">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_6c1fa2da-684d-4ad4-8c11-0d01e766cdd6">
+			<Material ObjectRecordID="12892">
+				<Texture href="/Textures/Effects/_Various/RayNoADD.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>10</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>2</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_CLOUDS_H5</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ca3586d3-ee7c-45a4-ba0e-fe1e9dbe09e2">
+		<Skeleton ObjectRecordID="936">
+			<SrcName href="/Effects/Characters/SuccubusChainShot01.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>4A42936A-691E-4ECA-BAF0-86848A5BEBB6</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a437ec68-20df-4165-b752-904918c942d0">
+		<Geometry ObjectRecordID="5754">
+			<SrcName href="/Effects/Characters/SuccubusChainShot01.mb"/>
+			<uid>B811DD10-90BE-4B6C-84C1-EC7B6210E96B</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.613817</x>
+				<y>2.28571</y>
+				<z>1.16304</z>
+			</Size>
+			<Center>
+				<x>-0.226909</x>
+				<y>0</y>
+				<z>0.50152</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.43885</x>
+				<y>0.0691942</y>
+				<z>0.995138</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>LightningMainShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

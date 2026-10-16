@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7136">
+	<Materials>
+		<Item href="Vampire_LOD-vampire_lod_lambert4.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Vampire_LOD-vampire_lod_lambert4.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Vampire_LOD-vampire_lod_lambert5.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_22a84e44-1444-4a03-9ed7-69169787835b">
+		<Skeleton ObjectRecordID="1282">
+			<SrcName href="/models/Creatures/Necropolis/Vampire_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>B8112061-10AA-43DE-A679-EDEAEBD36E1D</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ab690975-7625-40f8-9995-876ed2700bae">
+		<Geometry ObjectRecordID="6338">
+			<SrcName href="/models/Creatures/Necropolis/Vampire_LOD.mb"/>
+			<uid>C9AC6254-19AC-48E2-B812-1D040852C6DD</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.51304</x>
+				<y>0.931013</y>
+				<z>2.20156</z>
+			</Size>
+			<Center>
+				<x>2.38419e-007</x>
+				<y>0.204298</y>
+				<z>1.04516</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0446771</x>
+				<y>-0.0425816</y>
+				<z>1.96284</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_98b42590-042e-49c3-a320-c7172c2e4563">
+				<AIGeometry ObjectRecordID="340">
+					<SrcName href="/models/Creatures/Necropolis/Vampire_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0415994</y>
+						<z>1.00474</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.554772</x>
+						<y>0.218742</y>
+						<z>0.998299</z>
+					</AABBHalfSize>
+					<uid>C69779F5-0607-4583-8DB1-8C790C04E86F</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>SwordShape</Item>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

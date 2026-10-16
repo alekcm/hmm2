@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000308">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_f7fbe0ae-235b-4060-af2e-026c8c4df41d">
+			<ParticleInstance ObjectRecordID="1000428">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_a865bd3b-dadb-414e-9af0-3f19373562f4">
+					<Particle ObjectRecordID="1000345">
+						<SrcName href="/Effects/Characters/ACADEMY/ObsidianGargoyle/death.mb"/>
+						<ExportPrefix>death</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>3cfdb43db58fa63e25a3fd3e9e64e63fb6f2743f854b933f4001803f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>14DD21D6-1186-4BFB-8B06-1447B9508D85</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

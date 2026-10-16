@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001803">
+	<Materials>
+		<Item href="Crater4x3_2-Roof_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Crater4x3_2-Shadow_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Crater4x3_2-Pod_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_6664cb32-d1f3-49f7-9519-eb749c94298d">
+		<Skeleton ObjectRecordID="1000404">
+			<SrcName href="/models/TerrainObjects/Subterrain/Duncraters/Duncraters.mb"/>
+			<RootJoint>Crater4x3_2</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>AA6B8268-FC7A-4CC1-87B8-C3E7FA4F22F1</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_7a49310b-5cff-4820-9fc3-6909f215cfab">
+		<Geometry ObjectRecordID="1001583">
+			<SrcName href="/models/TerrainObjects/Subterrain/Duncraters/Duncraters.mb"/>
+			<uid>BBFF1F20-065C-4644-8737-CD34379666FF</uid>
+			<RootMesh>Crater4x3_2</RootMesh>
+			<RootJoint>Crater4x3_2</RootJoint>
+			<Size>
+				<x>8.55752</x>
+				<y>6.53844</y>
+				<z>3.91744</z>
+			</Size>
+			<Center>
+				<x>1.00523</x>
+				<y>-0.0543895</y>
+				<z>-1.95872</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.876216</x>
+				<y>-0.00142657</y>
+				<z>-0.110173</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_68a59999-2700-44b2-9281-dd71de654399">
+				<AIGeometry ObjectRecordID="1000751">
+					<SrcName href="/models/TerrainObjects/Subterrain/Duncraters/Duncraters.mb"/>
+					<RootMesh>Crater4x3_2</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBHalfSize>
+					<uid>C71FCE81-0FB7-4184-8D26-E4A2E624D8F8</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Crater4x3_2|Roof|RoofShape</Item>
+				<Item>Crater4x3_2|Crater_Shadow|Crater_ShadowShape</Item>
+				<Item>Crater4x3_2|Pod|PodShape</Item>
+				<Item>Crater4x3_2|Crag|CragShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

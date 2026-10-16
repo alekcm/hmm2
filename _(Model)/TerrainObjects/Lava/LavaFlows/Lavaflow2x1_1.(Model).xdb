@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6991">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_c30ca941-5b00-4cbd-9897-d158c922a0fc">
+			<Material ObjectRecordID="15238">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Lava/LavaFlows/Lavaflow4x2_1/lavaflows_4x2_1.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_91e50d06-2c0f-4f71-af9d-26c184af99a5">
+		<Skeleton ObjectRecordID="1212">
+			<SrcName href="/models/TerrainObjects/Lava/LavaFlow/Lavaflows.mb"/>
+			<RootJoint>Lavaflow2x1_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>42223CBA-B4F6-4AA8-966F-E34FC189C0CD</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_54351ac2-df9f-42f4-995d-156e9d3f30ff">
+		<Geometry ObjectRecordID="6194">
+			<SrcName href="/models/TerrainObjects/Lava/LavaFlow/Lavaflows.mb"/>
+			<uid>60DC1F23-6331-4E76-AFF0-918485EAB408</uid>
+			<RootMesh>Lavaflow2x1_1</RootMesh>
+			<RootJoint>Lavaflow2x1_1</RootJoint>
+			<Size>
+				<x>4</x>
+				<y>8</y>
+				<z>0.171501</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>-1</y>
+				<z>0.0857503</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.915586</x>
+				<y>-1.04139</y>
+				<z>0.0507394</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Lavaflow2x1_1|lava|lavaShape</Item>
+				<Item>Lavaflow2x1_1|Lava_lamb|Lava_lambShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

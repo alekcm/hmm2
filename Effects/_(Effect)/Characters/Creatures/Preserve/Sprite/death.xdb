@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000028">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_f689741e-f13c-4c74-b1ff-5a54199ad592">
+			<ParticleInstance ObjectRecordID="1000030">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_5f2b2231-4db7-4b22-a907-e21f74e4af2b">
+					<Particle ObjectRecordID="1000041">
+						<SrcName href="/Effects/Characters/PRESERVE/Sprite/Butterflys/death.mb"/>
+						<ExportPrefix>FX</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>b7f8043fd0b8d63ef725b93fe11c3d40ae91d83fc36307406c19973f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>ED3D5699-C90D-4055-AC74-D0DFCCB41209</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>2.7</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/RaysGold01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RaysGold02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shot>
+	<StartEffect/>
+	<RotateStartEffectToTarget>false</RotateStartEffectToTarget>
+	<MissileShot>
+		<Model/>
+		<Effect href="/Effects/_(Effect)/Characters/Creatures/Orcs/T7c_BloodedCyclopes/Goblin_Shot.(Effect).xdb#xpointer(/Effect)"/>
+		<Speed>0.025</Speed>
+		<Height>0.06</Height>
+		<ForwardOffset>3.891</ForwardOffset>
+		<StartZOffset>3.097</StartZOffset>
+		<RightOffset>0.542</RightOffset>
+	</MissileShot>
+	<LineShot>
+		<Effects/>
+		<SkipSegmentsNumber>1</SkipSegmentsNumber>
+		<SegmentLength>2</SegmentLength>
+		<StepDelay>0</StepDelay>
+		<EffectLifeTime>1000</EffectLifeTime>
+	</LineShot>
+	<StrikeDelay>0</StrikeDelay>
+	<DelayBetweenChains>0</DelayBetweenChains>
+	<StrikeVisualEffect href="/GameMechanics/SpellVisual/CyclopShot.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+</Shot>

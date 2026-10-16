@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapTownExterior>
+	<ExpScene href="/H5A2/AdventureMap/Stronhold_Town/StronholdTown.mb"/>
+	<AnimSet/>
+	<upgrades>
+		<Item>
+			<Model href="Orc_Stronghold-town.xdb#xpointer(/Model)"/>
+			<Effect href="/Effects/_(Effect)/TownsGlobalMap/Stronghold/level_1.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<Model href="Orc_Stronghold-town_wall1.xdb#xpointer(/Model)"/>
+			<Effect href="/Effects/_(Effect)/TownsGlobalMap/Stronghold/level_1.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<Model href="Orc_Stronghold-town_wall2.xdb#xpointer(/Model)"/>
+			<Effect href="/Effects/_(Effect)/TownsGlobalMap/Stronghold/level_1.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<Model href="Orc_Stronghold-town_mg.xdb#xpointer(/Model)"/>
+			<Effect href="/Effects/_(Effect)/TownsGlobalMap/Stronghold/level_6.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<Model href="Orc_Stronghold-town_mg_wall1.xdb#xpointer(/Model)"/>
+			<Effect href="/Effects/_(Effect)/TownsGlobalMap/Stronghold/level_4.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<Model href="Orc_Stronghold-town_mg_wall2.xdb#xpointer(/Model)"/>
+			<Effect href="/Effects/_(Effect)/TownsGlobalMap/Stronghold/level_6.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<Model href="Orc_Stronghold-city_mg.xdb#xpointer(/Model)"/>
+			<Effect href="/Effects/_(Effect)/TownsGlobalMap/Stronghold/level_6.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<Model href="Orc_Stronghold-city_mg_wall1.xdb#xpointer(/Model)"/>
+			<Effect href="/Effects/_(Effect)/TownsGlobalMap/Stronghold/level_6.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<Model href="Orc_Stronghold-city_mg_wall2.xdb#xpointer(/Model)"/>
+			<Effect href="/Effects/_(Effect)/TownsGlobalMap/Stronghold/level_6.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+		<Item>
+			<Model href="Orc_Stronghold-capital_mg_wall2.xdb#xpointer(/Model)"/>
+			<Effect href="/Effects/_(Effect)/TownsGlobalMap/Stronghold/level_10.(Effect).xdb#xpointer(/Effect)"/>
+		</Item>
+	</upgrades>
+	<Gates href="Orc_Stronghold_Gate_AI.xdb#xpointer(/AIGeometry)"/>
+</AdvMapTownExterior>

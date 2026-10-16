@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000261">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_b7a724ee-b9df-4aa2-a38a-9700dfda0277">
+			<ParticleInstance ObjectRecordID="1000335">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_83bacd3c-29af-4201-a1bd-7a07e1ded54e">
+					<Particle ObjectRecordID="1000276">
+						<SrcName href="/Effects/Characters/ACADEMY/Titan/death.mb"/>
+						<ExportPrefix>FX</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>38d69fbe1c5a343fea3e16409246b64022e61d4051726640dd386a40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>AD874B99-22FE-43D5-BDAC-B70DB8B72535</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow04.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/Lightning02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Lightning03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Lightning00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Lightning01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue04.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Characters/Titan/idleIS.xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_55e75cd8-ebdd-4269-bef1-7d7c66c271ef">
+			<ModelInstance ObjectRecordID="1000099">
+				<Model href="/_(Model)/Effects/Characters/Titan/idle00.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Characters/Titan/death.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

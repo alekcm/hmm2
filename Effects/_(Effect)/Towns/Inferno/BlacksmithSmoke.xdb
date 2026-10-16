@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="385">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_37c59102-d7cc-42cf-acf2-4102875fa8e2">
+			<ParticleInstance ObjectRecordID="486">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_268280b4-318c-4a8c-9096-b90d7b4a37eb">
+					<Particle ObjectRecordID="220">
+						<SrcName href="/Effects/Towns/Inferno/General.mb"/>
+						<ExportPrefix>Blacksmith</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>500effbd8ea3433fd6832b404a75d14078aa264018915b409bb89d40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>94987AC1-33CA-4FA4-AAC7-6564FF17339F</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.2</Speed>
+				<Offset>0</Offset>
+				<EndCycle>5.8</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

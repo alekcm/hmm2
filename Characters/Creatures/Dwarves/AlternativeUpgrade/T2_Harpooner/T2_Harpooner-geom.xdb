@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A2/Creatures/AlternativeUpgrades/Dwarves/T2_Harpooner/T2_Harpooner.mb"/>
+	<uid>3A15AB33-2DB4-4F3A-A5F3-BC3294CCA681</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>2.00085</x>
+		<y>2.06688</y>
+		<z>2.07264</z>
+	</Size>
+	<Center>
+		<x>0</x>
+		<y>-0.332821</y>
+		<z>1.03813</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="T2_Harpooner-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>2</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>T2_Body_UpShape</Item>
+		<Item>T2_Weapon_UpShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

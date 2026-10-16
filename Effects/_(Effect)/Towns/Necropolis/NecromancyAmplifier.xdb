@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000140">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_bdd67ff9-3b45-4e24-aa2c-74e0ab2a408d">
+			<ParticleInstance ObjectRecordID="1000137">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_a02e5cc0-e67e-44b8-af88-b43e36823b12">
+					<Particle ObjectRecordID="1000116">
+						<SrcName href="/Effects/Towns/Necropolis/NecromancyAmplifier.mb"/>
+						<ExportPrefix>BigGlow</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>086c87bebc4a163f78169b4092866941fa499d40ca989c40c4784d41</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>806DAFEF-60F6-43FD-B7FA-F6689AC0B16A</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.6</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4.16667</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/SparkGreen01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_c55a6499-8677-4ffe-a470-8bdb7702a377">
+			<ParticleInstance ObjectRecordID="1000138">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_5ca75154-5571-49b0-92c7-466a2cd4be6c">
+					<Particle ObjectRecordID="1000117">
+						<SrcName href="/Effects/Towns/Necropolis/NecromancyAmplifier.mb"/>
+						<ExportPrefix>Glow1</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>20e4c2bea831dd3e4460ca406954e4403cae104035841f406c58c940</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>3D2254E1-BDEC-4676-AE50-D2D959BB9FFE</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/IceFire01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_854dfb01-d151-46d5-aa0e-7015fb70c86e">
+			<ParticleInstance ObjectRecordID="1000139">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_c50321c8-4c8e-4cf9-a8fd-c71a0c05a5d7">
+					<Particle ObjectRecordID="1000118">
+						<SrcName href="/Effects/Towns/Necropolis/NecromancyAmplifier.mb"/>
+						<ExportPrefix>Glow2</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>a83ff1be2cd9603f8676e4406914104137981f40b10832407a180341</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>96C49460-2264-411C-B902-CC04A5AF93B7</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>1.2</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/IceFire01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_ef3082c2-d2dd-4b55-8892-4f2a9b2dae7d">
+			<ParticleInstance ObjectRecordID="1000140">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_f5be195b-c1c2-4012-8ec6-2392f5fb93d1">
+					<Particle ObjectRecordID="1000119">
+						<SrcName href="/Effects/Towns/Necropolis/NecromancyAmplifier.mb"/>
+						<ExportPrefix>Glow3</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>b03ff1bd2e0a393f1032be409fb91f41225527407089204050d51441</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>345BF0EF-A957-4CA2-95FF-02C451D57D53</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>2.4</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/IceFire01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_67058559-28e0-4687-812e-78a21b466a1d">
+			<ParticleInstance ObjectRecordID="1000141">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_8506843c-03a1-4d33-80de-0eceeddf4b8d">
+					<Particle ObjectRecordID="1000120">
+						<SrcName href="/Effects/Towns/Necropolis/NecromancyAmplifier.mb"/>
+						<ExportPrefix>Glow4</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>1c0c1ebf863cff3e5741b040bd313b415d313240ee691f4008653141</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>E1B4C585-75FE-4221-A4CC-6C2BDA294541</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>3.6</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/IceFire01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_db37f736-cb33-40f7-9934-3be32db46b93">
+			<ParticleInstance ObjectRecordID="1000142">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_e743105d-9081-4140-81e9-a47deb0b700e">
+					<Particle ObjectRecordID="1000121">
+						<SrcName href="/Effects/Towns/Necropolis/NecromancyAmplifier.mb"/>
+						<ExportPrefix>Glow5</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>8eac01bf24cade3e5c289840a650404156a63940c6a7474001d53341</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>5263A093-2FE7-4DDB-809F-C4487386DF7F</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>4.8</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/IceFire01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

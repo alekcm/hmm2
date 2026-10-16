@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7285">
+	<Materials>
+		<Item href="Hill_fort1-lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_fe06751d-d5f3-4e7e-a86e-31f75c8273fe">
+		<Skeleton ObjectRecordID="1314">
+			<SrcName href="/models/Buildings/HillFort.mb"/>
+			<RootJoint>hill_fort1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>DDAE9479-1782-4197-8141-19A3566F47A4</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_c6786681-11a7-4894-b86a-d19ccc281ddb">
+		<Geometry ObjectRecordID="6484">
+			<SrcName href="/models/Buildings/HillFort.mb"/>
+			<uid>FB600033-4C92-4836-B3E6-87B6FC8BDA09</uid>
+			<RootMesh>hill_fort1</RootMesh>
+			<RootJoint>hill_fort1</RootJoint>
+			<Size>
+				<x>6.10546</x>
+				<y>6.18189</y>
+				<z>9.36709</z>
+			</Size>
+			<Center>
+				<x>-0.00108087</x>
+				<y>-8.01086e-005</y>
+				<z>4.60416</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.424989</x>
+				<y>0.637636</y>
+				<z>9.1654</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="hillfort.(AIGeometry).xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurfaceShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

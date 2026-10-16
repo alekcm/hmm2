@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000128">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_c633739c-55c1-4ab4-acb5-4d20fe64f8ef">
+			<ParticleInstance ObjectRecordID="1000121">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_08a0fcb7-4b70-46cf-85cb-910e843321bf">
+					<Particle ObjectRecordID="1000107">
+						<SrcName href="/Effects/Towns/Necropolis/DragonGraveyard.mb"/>
+						<ExportPrefix>DragonGraveyardGlow</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>803cc83c8089193d0786cd4046a723410001aa4087bda840fd0edf40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>1CC58B00-448F-4A42-A662-01F09F2B313A</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>1</y>
+					<z>-2</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>0.8</Scale>
+				<Speed>0.7</Speed>
+				<Offset>0</Offset>
+				<EndCycle>7</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkYellow00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/ForgeSmoke01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_c32c8a2c-d25d-40c2-ac4d-8276a5de406e">
+			<ParticleInstance ObjectRecordID="1000123">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_565af126-c5ac-4f19-8a36-3e35f0e74f1c">
+					<Particle ObjectRecordID="1000108">
+						<SrcName href="/Effects/Towns/Necropolis/DragonGraveyard.mb"/>
+						<ExportPrefix>DragonGraveyardSmoke</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>4819ad3e906f1abe00298a4133e5a541262fc3401a41b7402ecb9741</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>6DE391CE-54B7-4EDB-B335-8B850076EC3F</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0.5</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.25</Speed>
+				<Offset>0</Offset>
+				<EndCycle>7</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkYellow00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/SmokeADD00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

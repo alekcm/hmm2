@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000085">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_970aad9e-1398-4df8-90ce-d8b747d65b41">
+			<ParticleInstance ObjectRecordID="1000095">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_f04fd4cc-e290-4922-9e99-9e5ddfba85ff">
+					<Particle ObjectRecordID="1000095">
+						<SrcName href="/Effects/Spells/DeflectArrows.mb"/>
+						<ExportPrefix>DeflectArrows</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>8097c7bc90368b3e16e7ec3f47b43c41e611d3406bcce4405e65d540</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>CA58BBE1-BCAC-4145-8EC3-047DE65972A5</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/SparkBlue01.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/FlashGlow06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlow01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/wave07.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights>
+		<Item href="DeflectArrows.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_f54d5151-f8c7-4a19-abe8-4a37367bed20">
+			<ModelInstance ObjectRecordID="1000028">
+				<Model href="/_(Model)/Effects/Spells/DeflectArrows.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Spells/DeflectArrows.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>4</Duration>
+</Effect>

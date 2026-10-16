@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowSimpleShared ObjectRecordID="55">
+	<Crap>false</Crap>
+	<Children>
+		<Item href="HireBalista/Buy.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="HireBalista/Cancel.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="HireBalista/Cost.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="HireBalista/TheText.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="HireBalista/View.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="/UI/BlackSmith/StatsText.(WindowScrollableContainer).xdb#xpointer(/WindowScrollableContainer)"/>
+		<Item href="HireBalista/Title_long.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="HireBalista/Title_long_1.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="HireBalista/Title_long_2.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+	</Children>
+	<Background href="HireBalista.(BackgroundSimpleTexture).xdb#xpointer(/BackgroundSimpleTexture)"/>
+	<Foreground/>
+	<Flags>
+		<Transparent>false</Transparent>
+	</Flags>
+	<Placement>
+		<Position>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_LOW_END</First>
+			<Second>true</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_LOW_END</First>
+			<Second>true</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>512</x>
+				<y>768</y>
+			</First>
+			<Second>true</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</UpperMargin>
+	</Placement>
+	<ActiveArea/>
+	<IgnoreDblClick>false</IgnoreDblClick>
+	<ActiveMask/>
+</WindowSimpleShared>

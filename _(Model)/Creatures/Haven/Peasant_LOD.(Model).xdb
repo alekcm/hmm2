@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3258">
+	<Materials>
+		<Item href="Peasant_LOD-Peasant_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Peasant_LOD-Peasant_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="/_(Skeleton)/Creatures/Haven/Peasant_LOD.(Skeleton).xdb#xpointer(/Skeleton)"/>
+	<Geometry href="#n:inline(Geometry)" id="item_f21f0934-d6d9-4230-aa63-84af211ece16">
+		<Geometry ObjectRecordID="2706">
+			<SrcName href="/models/Creatures/Castle/Peasant_LOD.mb"/>
+			<uid>DAFC5B3D-8E6F-4874-92CE-1DAFC32C543C</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.80653</x>
+				<y>2.09758</y>
+				<z>1.58981</z>
+			</Size>
+			<Center>
+				<x>-0.0201793</x>
+				<y>0.124129</y>
+				<z>0.794907</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.00967251</x>
+				<y>-0.0451598</y>
+				<z>1.4389</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(AIGeometry)/Creatures/Haven/Peasant_LOD.(AIGeometry).xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+				<Item>PitchForkShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

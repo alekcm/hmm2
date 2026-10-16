@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="1000468">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_16fa2b89-00e8-4ff4-911a-7c2cbc5e1c69">
+		<Particle ObjectRecordID="1000383">
+			<SrcName href="/Effects/Characters/NEUTRAL/WaterElemental/IS.mb"/>
+			<ExportPrefix>IS</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>1032c6bdb8886f3e1a35b43f6bb29b40a0851f4024a1284083904f40</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>8F4E6938-6E16-42A9-A21B-6CDCB0F94356</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>0</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/Water/Water00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Water/Water01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Water/Water02.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Water/Water00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Water/Water01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Water/Water02.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

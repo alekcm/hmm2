@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002052">
+	<Materials>
+		<Item href="/water_wheel_lambert9.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/water_wheel_lambert9.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/water_wheel_lambert9.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/water_wheel_lambert9.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/water_wheel_lambert9.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/water_wheel_lambert9.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_5649ed0a-3e0f-4bbc-af4e-a78af799fdce">
+		<Skeleton ObjectRecordID="1000520">
+			<SrcName href="/Effects/Environment/Water/WaterRipples.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>9D334FC9-6188-466A-A787-5E13E76B8442</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ec5226a6-4e0f-44e3-88c4-87d696a94098">
+		<Geometry ObjectRecordID="1001824">
+			<SrcName href="/Effects/Environment/Water/WaterRipples.mb"/>
+			<uid>B7518BB7-CEEB-4855-93B8-30024DFEA587</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.1488</x>
+				<y>3.14552</y>
+				<z>0</z>
+			</Size>
+			<Center>
+				<x>-1.78814e-007</x>
+				<y>-1.19209e-007</y>
+				<z>0</z>
+			</Center>
+			<BestFitPoint>
+				<x>-5.46376e-008</x>
+				<y>-1.24176e-009</y>
+				<z>0</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>6</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>WaterRipples01Shape</Item>
+				<Item>WaterRipples02Shape</Item>
+				<Item>WaterRipples03Shape</Item>
+				<Item>WaterRipples04Shape</Item>
+				<Item>WaterRipples05Shape</Item>
+				<Item>WaterRipples06Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

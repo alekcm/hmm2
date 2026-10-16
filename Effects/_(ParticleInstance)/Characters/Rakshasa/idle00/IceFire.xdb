@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="1000334">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_64b1c270-1eb7-4934-a7da-50ea6c761267">
+		<Particle ObjectRecordID="1000275">
+			<SrcName href="/Effects/Characters/Rakshasa/Rakshasa_idle00.mb"/>
+			<ExportPrefix>IceFire</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>600fce3ca8fd22bd9a49b83f458f124048c3823f08d36d3f5fd6e93f</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>1BCB5DF7-982E-457F-9507-68F8AD54048D</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>0.4</Speed>
+	<Offset>0</Offset>
+	<EndCycle>3.333</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item/>
+		<Item href="/Textures/Effects/_Various/IceFire.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

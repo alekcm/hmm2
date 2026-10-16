@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7792">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_0ba837c1-d18e-4b0a-ab23-5ea4ba6d8dcd">
+			<Material ObjectRecordID="1001528">
+				<Texture href="/Textures/auto-imported/Buildings/Garrison_Good/garrison_good.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_c4eb6bf6-690c-4540-b22e-7fd5c2b450fa">
+		<Geometry ObjectRecordID="6954">
+			<SrcName href="/models/Buildings/FPP2/Garrison_Good.mb"/>
+			<uid>6DD3FF5C-7021-44CD-AB2A-26700E2DD542</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>7.59846</x>
+				<y>3.71483</y>
+				<z>8.85865</z>
+			</Size>
+			<Center>
+				<x>0.0234382</x>
+				<y>-0.496884</y>
+				<z>4.41236</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0506574</x>
+				<y>0.00730652</y>
+				<z>8.63976</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_9b201c74-74f6-4c98-9cee-dd2249462686">
+				<AIGeometry ObjectRecordID="1000419">
+					<SrcName href="/models/Buildings/FPP2/Garrison_Good.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.00115871</x>
+						<y>0</y>
+						<z>3.64699</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2.96282</x>
+						<y>0.771417</y>
+						<z>3.64699</z>
+					</AABBHalfSize>
+					<uid>96E2BC74-D600-4CA6-A056-36BCC1C0375E</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>garrisonShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

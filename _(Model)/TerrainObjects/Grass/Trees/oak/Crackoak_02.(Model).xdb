@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6805">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_001ec7ec-c9b0-459f-9428-7efcf94d60fd">
+			<Material ObjectRecordID="14202">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Trees/oak/Oaknew_01/Oaknewbark.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_563cbd80-0fdd-4af2-b2a4-5b4308681b3a">
+			<Material ObjectRecordID="14203">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Trees/oak/Oaknew_01/Oaknewbark.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>true</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_1bd32ab0-24d0-4cc1-88da-ee26e0e796cc">
+		<Skeleton ObjectRecordID="1087">
+			<SrcName href="/models/TerrainObjects/Grass/Trees/oak/Crackoak_02.mb"/>
+			<RootJoint>Crackoak_02</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>76DE15C9-FB74-44C4-91B7-8F9B1C2460BB</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ba2f40fb-d961-444c-8067-c3c2d3ffae45">
+		<Geometry ObjectRecordID="6002">
+			<SrcName href="/models/TerrainObjects/Grass/Trees/oak/Crackoak_02.mb"/>
+			<uid>EED988D5-B1BA-4D96-94D0-760B21A33DB6</uid>
+			<RootMesh>Crackoak_02</RootMesh>
+			<RootJoint>Crackoak_02</RootJoint>
+			<Size>
+				<x>4.28365</x>
+				<y>4.73734</y>
+				<z>6.91896</z>
+			</Size>
+			<Center>
+				<x>0.0242306</x>
+				<y>-0.582566</y>
+				<z>2.61429</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.521702</x>
+				<y>-0.306186</y>
+				<z>5.85061</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>stvolShape</Item>
+				<Item>branchShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

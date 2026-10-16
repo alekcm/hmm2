@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapBuildingShared ObjectRecordID="46">
+	<Model href="/_(Model)/TESTS/Buildings/Learning_stone.(Model).xdb#xpointer(/Model)"/>
+	<AnimSet/>
+	<blockedTiles/>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect href="/Effects/_(Effect)/Buildings/LearningStone.xdb#xpointer(/Effect)"/>
+	<EffectWhenOwned href="/Effects/_(Effect)/Buildings/LearningStone.xdb#xpointer(/Effect)"/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Buildings/LearningStone/Name.txt"/>
+		<Item href="/Text/Game/Buildings/LearningStone/Description.txt"/>
+		<Item href="/Text/Game/Buildings/LearningStone/FirstVisit.txt"/>
+		<Item href="/Text/Game/BuildingsCommon/AlreadyVisited.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect href="/Sounds/_(Sound)/Interface/Ingame/Interact.xdb#xpointer(/Sound)"/>
+	<flybyMessageFileRef href="/Text/Game/Buildings/LearningStone/Flyby______3167.txt"/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>BUILDING_LEARNING_STONE</Type>
+</AdvMapBuildingShared>

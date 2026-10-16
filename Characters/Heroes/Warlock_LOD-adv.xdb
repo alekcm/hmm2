@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="1000024">
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="Warlock_LOD-adv-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move</Kind>
+			<Anim href="Warlock_LOD-adv-move.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>buff</Kind>
+			<Anim href="Warlock_LOD-adv-buff.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>cast</Kind>
+			<Anim/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Heroes/Warlock/Warlock_LOD.mb"/>
+	<ExpSrcClipFolder href="/Animations/Heroes/Warlock/Clip_adventure/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

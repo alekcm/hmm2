@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="495">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_19e3d0b0-9bae-4849-828a-9a00f1924d23">
+		<Particle ObjectRecordID="226">
+			<SrcName href="/Effects/Buildings/CristalCavernFPP2.mb"/>
+			<ExportPrefix>Sparks</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>00000000000000000000000000000000000000000000000000000000</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>87A32F2C-D030-432C-A37E-59FAC895760C</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>0.5</Speed>
+	<Offset>0</Offset>
+	<EndCycle>2</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+		<Item/>
+		<Item href="/Textures/Effects/_Various/SparkRed01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

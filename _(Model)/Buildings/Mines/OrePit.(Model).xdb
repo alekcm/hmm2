@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6836">
+	<Materials>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_0e7ce81f-fbc2-4d28-a88b-5f6edfb651af">
+			<Material ObjectRecordID="14465">
+				<Texture href="/Textures/auto-imported_______320/Buildings/Mines/OrePit/Ore_Pit.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_0a30d14c-3682-46da-9e0b-c63b912f8ac3">
+			<Material ObjectRecordID="14466">
+				<Texture href="/Textures/auto-imported_______320/Resourses_____13907/Ore/Ore_Sulfur.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_5babf6ec-bd3f-4517-af3d-8db0265b7d5a">
+		<Skeleton ObjectRecordID="1114">
+			<SrcName href="/models/Buildings/FPP2/OrePit.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1E517F0C-68AB-47FD-A03E-A7491C8D9DCF</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_52f0221f-ef78-4912-97e9-bad4df323acd">
+		<Geometry ObjectRecordID="6032">
+			<SrcName href="/models/Buildings/FPP2/OrePit.mb"/>
+			<uid>70D2B23F-85E3-4AA6-BA29-67841446A591</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>5.6374</x>
+				<y>7.34817</y>
+				<z>6.41187</z>
+			</Size>
+			<Center>
+				<x>0.367697</x>
+				<y>1.32044</y>
+				<z>3.1104</z>
+			</Center>
+			<BestFitPoint>
+				<x>0</x>
+				<y>2</y>
+				<z>7</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_6530197c-dce2-4023-beae-93b403741662">
+				<AIGeometry ObjectRecordID="265">
+					<SrcName href="/models/Buildings/FPP2/OrePit.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.339906</x>
+						<y>1.24278</y>
+						<z>3.05704</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2.64642</x>
+						<y>3.80423</y>
+						<z>3.10424</z>
+					</AABBHalfSize>
+					<uid>EB5BE515-9B21-4D6E-B5A1-8143110DA173</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Ore_Pit_TerrainTextureShape</Item>
+				<Item>MeshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

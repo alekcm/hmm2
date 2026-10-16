@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3954">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_c7b52c5d-420c-46a2-8f28-bfa9fa8c93f7">
+			<Material ObjectRecordID="6264">
+				<Texture href="/Textures/auto-imported_______320/TESTS/dev/TerrainObjects/Water/sea_chest/sea_chest.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_4c924664-a926-4234-9739-b926226ae997">
+		<Skeleton ObjectRecordID="350">
+			<SrcName href="/models/TerrainObjects/Water/SeaChest.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>BD0A2C66-9226-4C32-9E5E-3B839F652717</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_195337bb-b0dd-41e0-9a87-7efe34de68dd">
+		<Geometry ObjectRecordID="3395">
+			<SrcName href="/models/TerrainObjects/Water/SeaChest.mb"/>
+			<uid>46D471D4-C41B-4B2D-AEE2-B8B4566C38D2</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>1.56189</x>
+				<y>0.942567</y>
+				<z>1.10956</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>-0.0218493</y>
+				<z>0.542978</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0345142</x>
+				<y>-0.0383218</y>
+				<z>0.888324</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="/_(Model)/Buildings/SeaChest_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>sea_chestShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

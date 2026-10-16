@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="1000215">
+	<animations>
+		<Item>
+			<Kind>shake00</Kind>
+			<Anim href="MoveShake-shake00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Cutscenes/Camera.mb"/>
+	<ExpSrcClipFolder href="/Cameras/Animated/Titan/Move/"/>
+	<ExpRootTransform>Camera_Global</ExpRootTransform>
+</AnimSet>

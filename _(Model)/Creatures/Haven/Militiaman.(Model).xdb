@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3626">
+	<Materials>
+		<Item href="/_(Material)/Creatures______5903/Haven/Militiaman/Peasant_lambert-1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/Haven/Militiaman/Peasant_lambert-1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_2c9a9542-39df-464b-96ff-1ea8965260d1">
+		<Skeleton ObjectRecordID="368">
+			<SrcName href="/models/Creatures/Castle/Militiaman.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>BC9827D9-8AFE-4472-A95D-3C9C25AA2670</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a8b012b9-ccdc-4de4-9c5e-9afb256ff22b">
+		<Geometry ObjectRecordID="3883">
+			<SrcName href="/models/Creatures/Castle/Militiaman.mb"/>
+			<uid>0BF7E9CB-EC6C-4D68-814B-B5E26BB46C92</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.99691</x>
+				<y>2.63081</y>
+				<z>1.82871</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.010741</y>
+				<z>0.91427</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0195734</x>
+				<y>-0.0368392</y>
+				<z>1.64858</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_8dea3e4c-42aa-4ca7-a58b-961c1d77b5e9">
+				<AIGeometry ObjectRecordID="19">
+					<SrcName href="/models/Creatures/Castle/Militiaman.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0963751</y>
+						<z>0.919596</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.5</x>
+						<y>0.378945</y>
+						<z>0.917247</z>
+					</AABBHalfSize>
+					<uid>47D28E8C-B4A1-4B33-B512-C3EF810E2598</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+				<Item>PitchForkShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

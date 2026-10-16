@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001867">
+	<Materials>
+		<Item href="DRush01-DRushs.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_b8b1082e-35bb-4123-9fbe-74c0d7acaac2">
+		<Geometry ObjectRecordID="1001645">
+			<SrcName href="/models/TerrainObjects/Dirt/Bushs/Dirtbushs_leaf.mb"/>
+			<uid>973A10F6-7902-4F08-9CF2-4FE36B41D460</uid>
+			<RootMesh>DRushs03</RootMesh>
+			<RootJoint>DRushs03</RootJoint>
+			<Size>
+				<x>2.40556</x>
+				<y>2.46258</y>
+				<z>2.43464</z>
+			</Size>
+			<Center>
+				<x>-0.107862</x>
+				<y>-0.125924</y>
+				<z>1.13796</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.253179</x>
+				<y>0.0845529</y>
+				<z>2.20751</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>DRushs0Shape3</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

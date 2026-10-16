@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7640">
+	<Materials>
+		<Item href="FireElemental_LOD-lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_8119e18c-0f47-4f69-b964-3d53906331cf">
+		<Skeleton ObjectRecordID="1560">
+			<SrcName href="/models/Creatures/Neutral/FireElemental_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>DEBD810F-A573-4BAA-AE25-CE98781EE4A1</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_4a730562-2280-44b3-a3dc-ff90caee96e3">
+		<Geometry ObjectRecordID="6810">
+			<SrcName href="/models/Creatures/Neutral/FireElemental_LOD.mb"/>
+			<uid>68436BF7-56F3-440D-874E-B0792E2D34CF</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.93248</x>
+				<y>3.49255</y>
+				<z>1.80768</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>1.33903</y>
+				<z>0.897178</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0118108</x>
+				<y>0.0178458</y>
+				<z>1.64871</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_7b1d8a77-b583-4fd2-aed7-fa87b60ce7f4">
+				<AIGeometry ObjectRecordID="396">
+					<SrcName href="/models/Creatures/Neutral/FireElemental_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-5.96046e-008</x>
+						<y>0.345581</y>
+						<z>0.913797</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.754198</x>
+						<y>0.808046</y>
+						<z>0.902083</z>
+					</AABBHalfSize>
+					<uid>FF977538-C637-43A1-A7F1-D31EA229735E</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

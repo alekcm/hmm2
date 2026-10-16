@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7197">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_3807c648-1a82-41be-bfa6-a8d1835660db">
+			<Material ObjectRecordID="16089">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Bridges/Bridge_1/bridge1_hrail.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_2d27e3e3-5366-4725-a378-82ca0f772cf7">
+			<Material ObjectRecordID="16090">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Bridges/Bridge_1/Bridge_1.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_481f93c4-748a-436c-ad8f-8c5fb5f6cab0">
+		<Geometry ObjectRecordID="6399">
+			<SrcName href="/models/TerrainObjects/Grass/Bridges/Bridges.mb"/>
+			<uid>50D5B649-C4FE-407A-B1E1-B041B59E5681</uid>
+			<RootMesh>Bridge_1</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>8.6072</x>
+				<y>6</y>
+				<z>7.84019</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>2.50023</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0103095</x>
+				<y>-0.0044379</y>
+				<z>6.16709</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_edd2b295-41ea-4896-8eeb-bc2e57216bb7">
+				<AIGeometry ObjectRecordID="350">
+					<SrcName href="/models/TerrainObjects/Grass/Bridges/Bridges.mb"/>
+					<RootMesh>AI_Bridge_1</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-2.38419e-007</x>
+						<y>0</y>
+						<z>1.08973</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>4.3036</x>
+						<y>3.20752</y>
+						<z>2.50959</z>
+					</AABBHalfSize>
+					<uid>DA0B6399-4E89-4943-8270-156416DCCA90</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Bridge_Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

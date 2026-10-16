@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject>
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>s_gate</Name>
+	<DefUpgLevel>1</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="gate1_u1r0.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet href="/_(AnimSet)/CombatArena/FortressArena/Gate_0.xdb#xpointer(/AnimSet)"/>
+				</Item>
+				<Item>
+					<Model href="gate_u1r1.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet href="/_(AnimSet)/CombatArena/FortressArena/Gate_1.xdb#xpointer(/AnimSet)"/>
+				</Item>
+				<Item>
+					<Model href="gate_u1r2.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet href="/_(AnimSet)/CombatArena/FortressArena/Gate_2.xdb#xpointer(/AnimSet)"/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

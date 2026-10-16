@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="1002787">
+	<SrcName href="/models/Buildings/FPP2/Border_guard.mb"/>
+	<uid>CCC814F0-1D69-4A5B-A2D3-83595AA78DED</uid>
+	<RootMesh>Border_Guard</RootMesh>
+	<RootJoint>Border_Guard</RootJoint>
+	<Size>
+		<x>4</x>
+		<y>4</y>
+		<z>6.9223</z>
+	</Size>
+	<Center>
+		<x>1</x>
+		<y>1</y>
+		<z>3.44124</z>
+	</Center>
+	<BestFitPoint>
+		<x>0.996061</x>
+		<y>1.00319</y>
+		<z>6.62862</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+		<w>1</w>
+	</Dir>
+	<AIGeometry href="Border_Guard_Red-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>polySurfaceShape651</Item>
+		<Item>polySurfaceShape652</Item>
+		<Item>GragShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

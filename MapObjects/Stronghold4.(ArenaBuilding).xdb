@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaBuilding>
+	<Pos>
+		<x>11</x>
+		<y>3</y>
+	</Pos>
+	<Size>
+		<x>2</x>
+		<y>2</y>
+	</Size>
+	<Object href="/Arenas/CombatArena/Stronghold_arena/s_wall_4.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+	<Locator/>
+	<Shooter/>
+	<Shot/>
+	<Type>WALL</Type>
+	<HitEffect href="/Effects/_(Effect)/Arenas/InfernoSiege/Hit/Wall4.xdb#xpointer(/Effect)"/>
+	<HitSound/>
+	<DestroyEffects>
+		<Item>
+			<Upgrade>1</Upgrade>
+			<RuinLevel>0</RuinLevel>
+			<Effect href="/Effects/_(Effect)/Arenas/HavenSiege/Wall04Crash01.xdb#xpointer(/Effect)"/>
+			<SoundEffect/>
+			<Locator/>
+		</Item>
+		<Item>
+			<Upgrade>1</Upgrade>
+			<RuinLevel>1</RuinLevel>
+			<Effect href="/Effects/_(Effect)/Arenas/HavenSiege/Wall04Crash02.xdb#xpointer(/Effect)"/>
+			<SoundEffect/>
+			<Locator/>
+		</Item>
+	</DestroyEffects>
+	<blockedTiles>
+		<Item>
+			<x>10</x>
+			<y>2</y>
+		</Item>
+		<Item>
+			<x>10</x>
+			<y>3</y>
+		</Item>
+		<Item>
+			<x>11</x>
+			<y>2</y>
+		</Item>
+		<Item>
+			<x>11</x>
+			<y>3</y>
+		</Item>
+	</blockedTiles>
+	<blockedTilesForDestroyed/>
+	<NameFileRef href="/Text/Game/Creatures/CombatBuildings/Wall.txt"/>
+	<DescriptionFileRef href=""/>
+</ArenaBuilding>

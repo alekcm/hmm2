@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/Buildings/DwarvenWarren.mb"/>
+	<uid>6FCEC239-49B2-4DED-A36E-16027F804BFB</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>8.7235</x>
+		<y>8</y>
+		<z>10.3956</z>
+	</Size>
+	<Center>
+		<x>0.638249</x>
+		<y>-1</y>
+		<z>0.44383</z>
+	</Center>
+	<BestFitPoint>
+		<x>1</x>
+		<y>-1</y>
+		<z>5</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="DwarvenWarren_Snow-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>5</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>AlphaShape</Item>
+		<Item>PodShape</Item>
+		<Item>DiffuseShape</Item>
+		<Item>SpecularShape</Item>
+		<Item>CragShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

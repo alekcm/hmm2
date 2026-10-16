@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect>
+	<Instances>
+		<Item href="Meteors/Meteor3.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Meteors/Meteor3_Explosion.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Meteors/Meteor1.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Meteors/Meteor2.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Meteors/Meteor3_Explosion.(ParticleInstance) (2).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Meteors/Meteor2.(ParticleInstance) (2).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights>
+		<Item href="/Effects/_(Effect)/MainMenu/A1/ExplosionLight.(LightInstance).xdb#xpointer(/LightInstance)"/>
+		<Item href="/Effects/_(Effect)/MainMenu/A1/ExplosionLight.(LightInstance) (2).xdb#xpointer(/LightInstance)"/>
+		<Item href="/Effects/_(Effect)/MainMenu/A1/ExplosionLight.(LightInstance) (3).xdb#xpointer(/LightInstance)"/>
+		<Item href="/Effects/_(Effect)/MainMenu/A1/ExplosionLight.(LightInstance) (2) (2).xdb#xpointer(/LightInstance)"/>
+		<Item href="/Effects/_(Effect)/MainMenu/A1/Cast.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

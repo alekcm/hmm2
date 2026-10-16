@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/AdvmapDwarvenTown/town.mb"/>
+	<uid>6F8D5662-7274-48AA-BA86-EC5EB1AC1995</uid>
+	<RootMesh>Sculpture MG Wall Lift Rock Town Gate Houses Pod Crag</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>22</x>
+		<y>22</y>
+		<z>34.4219</z>
+	</Size>
+	<Center>
+		<x>2</x>
+		<y>-2</y>
+		<z>-6.23554</z>
+	</Center>
+	<BestFitPoint>
+		<x>2</x>
+		<y>1</y>
+		<z>13</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Fortress-town_AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>10</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>2</Item>
+		<Item>2</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>CragShape</Item>
+		<Item>SculptureShape</Item>
+		<Item>MGShape</Item>
+		<Item>WallShape</Item>
+		<Item>LiftShape</Item>
+		<Item>RockShape</Item>
+		<Item>TownShape</Item>
+		<Item>GateShape</Item>
+		<Item>HousesShape</Item>
+		<Item>PodShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

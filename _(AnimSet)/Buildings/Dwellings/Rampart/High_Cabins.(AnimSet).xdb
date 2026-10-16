@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="1000257">
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="High_Cabins-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle01</Kind>
+			<Anim href="High_Cabins-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Buildings/FPP2/Dwellings/Rampart/rampart_HighCabins.mb"/>
+	<ExpSrcClipFolder href="/Animations/Buildings/High_Cabins/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

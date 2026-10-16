@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7691">
+	<Materials>
+		<Item href="Stologmite03-mat_alfa_stalaktit.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Stologmite03-mat_no_alfa.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_1bae6913-ebb1-4896-ba2a-ad1accf15dcc">
+		<Geometry ObjectRecordID="6857">
+			<SrcName href="/models/TerrainObjects/Subterrain/Stoloktites/Stoloktites.mb"/>
+			<uid>12018C8A-BF37-45E9-BF21-4D14D75DA61E</uid>
+			<RootMesh>Stologmite03</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>10</x>
+				<y>10</y>
+				<z>18</z>
+			</Size>
+			<Center>
+				<x>4.76837e-007</x>
+				<y>-6.67572e-006</y>
+				<z>9</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0816933</x>
+				<y>-0.380292</y>
+				<z>18</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_19d8ee29-0197-4e6a-b2d3-dc4bd6224c9a">
+				<AIGeometry ObjectRecordID="1000781">
+					<SrcName href="/models/TerrainObjects/Subterrain/Stoloktites/Stoloktites.mb"/>
+					<RootMesh>AI_03</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.00354707</x>
+						<y>-0.199483</y>
+						<z>4.42593</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>3.10433</x>
+						<y>3.23892</y>
+						<z>4.45324</z>
+					</AABBHalfSize>
+					<uid>EF2386DF-1CFC-4849-9633-F9B3DE7435AF</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Stologmite03|Stologmite|StologmiteShape</Item>
+				<Item>Stologmite03|Stoloktite|StoloktiteShape</Item>
+				<Item>pod_Stoloktite3Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

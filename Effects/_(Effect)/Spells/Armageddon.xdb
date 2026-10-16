@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000359">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_7136f09e-dda8-4229-9f9e-8d2ae1d0b1b3">
+			<ParticleInstance ObjectRecordID="1000493">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_3845e452-31ef-48db-811c-4624049ea4ad">
+					<Particle ObjectRecordID="1000406">
+						<SrcName href="/Effects/Spells/Armageddon.mb"/>
+						<ExportPrefix>Armageddon</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>0010463d0040f33bc8a0b940e6d4074368cba44251c9a442839a8b42</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>C85616DC-7D3D-4978-9BDB-63136E819EDE</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>2</Offset>
+				<EndCycle>5</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire10.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/glow13.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Dust00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion11.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion12.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion13.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion14.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion15.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Armageddon_Stone01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Armageddon_Stone02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Armageddon_Stone03.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_12b200d6-d9a3-4cb8-9fab-7aa924760ad6">
+			<ParticleInstance ObjectRecordID="1000498">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_02aca221-7164-4a28-bf46-b006fdbb519b">
+					<Particle ObjectRecordID="1000412">
+						<SrcName href="/Effects/Spells/ArmageddonHit.mb"/>
+						<ExportPrefix>Hit</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>80dc713e80f6ecbd4c43813f997d184260b5d2412439d441c339ef40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>988A836D-5655-4E2C-8CAB-735A17B04A29</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>5.5</Offset>
+				<EndCycle>4</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Fuzz03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlow02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Blue/Fire00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Blue/Fire04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/NoADD/Blue/Fire09.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights>
+		<Item href="#n:inline(LightInstance)" id="item_0dedeb80-e3bb-4f94-96d2-dacd540144eb">
+			<LightInstance ObjectRecordID="1000043">
+				<Light href="#n:inline(AnimLight)" id="item_66b003e9-12fd-4c3e-9b64-971df978a3aa">
+					<AnimLight ObjectRecordID="1000042">
+						<SrcName href="/Effects/Spells/Armageddon.mb"/>
+						<SelectNode>Light01</SelectNode>
+						<uid>79CB7E78-1328-45BA-9DF2-2685B157E602</uid>
+					</AnimLight>
+				</Light>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</LightInstance>
+		</Item>
+	</Lights>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_440c2b13-3ae0-4382-b0d9-853e146fd09b">
+			<ModelInstance ObjectRecordID="1000142">
+				<Model href="/_(Model)/Effects/Spells/Armageddon.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Spells/Armageddon.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>2</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>8</Duration>
+</Effect>

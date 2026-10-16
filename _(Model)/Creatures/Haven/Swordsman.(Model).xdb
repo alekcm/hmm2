@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2915">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_a5481b9e-7a88-4990-8d90-6a9f730c622d">
+			<Material ObjectRecordID="7569">
+				<Texture href="/Textures/Creatures/Haven/Footman_LOD/Swordsman_weapon.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0.5</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror href="/Textures/auto-imported_______320/dev/Test/TMPcharacters/Swordsman/SwordsmanStuff_Miror.xdb#xpointer(/Texture)"/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_73d07824-98e2-4cad-afe1-82b056a8a603">
+			<Material ObjectRecordID="7570">
+				<Texture href="/Textures/auto-imported_______320/dev/Test/TMPcharacters/Swordsman/Swordsman.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0.5</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror href="/Textures/auto-imported_______320/dev/Test/TMPcharacters/Swordsman/Swordsman_Miror.xdb#xpointer(/Texture)"/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c9fd154f-f4b2-4e65-89cf-098443bc3938">
+		<Skeleton ObjectRecordID="1666">
+			<SrcName href="/models/Creatures/Castle/Swordsman.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>FD4A19CB-9805-4413-9E6C-0672FB00B657</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1cdaa2a7-2fdf-4034-ad0d-dd03e4ff4b7c">
+		<Geometry ObjectRecordID="4097">
+			<SrcName href="/models/Creatures/Castle/Swordsman.mb"/>
+			<uid>B7EAC5C1-79F1-4F96-B10F-F6A3B15A9C95</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.22363</x>
+				<y>2.2734</y>
+				<z>2.08581</z>
+			</Size>
+			<Center>
+				<x>0.11828</x>
+				<y>-0.310738</y>
+				<z>1.04407</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0315489</x>
+				<y>-0.0799104</y>
+				<z>1.87372</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(AIGeometry)/Creatures/Haven/Footman.(AIGeometry).xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>WeaponShape</Item>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

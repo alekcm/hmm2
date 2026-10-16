@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaBuilding>
+	<Pos>
+		<x>12</x>
+		<y>1</y>
+	</Pos>
+	<Size>
+		<x>2</x>
+		<y>2</y>
+	</Size>
+	<Object href="/Arenas/CombatArena/Stronghold_arena/s_tower_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+	<Locator href="/Arenas/CombatArena/Stronghold_arena/shooter_s2.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+	<Shooter href="/Characters/Creatures/Orcs/T1_Orc/T1a_Goblin.(Character).xdb#xpointer(/Character)"/>
+	<Shot href="/GameMechanics/Shot/Creatures/Orcs/Goblin_Siege.xdb#xpointer(/Shot)"/>
+	<Type>RIGHT_TOWER</Type>
+	<HitEffect href="/Effects/_(Effect)/Arenas/InfernoSiege/Tower2_crash.xdb#xpointer(/Effect)"/>
+	<HitSound/>
+	<DestroyEffects>
+		<Item>
+			<Upgrade>1</Upgrade>
+			<RuinLevel>0</RuinLevel>
+			<Effect href="/Effects/_(Effect)/Arenas/HavenSiege/Tower02Crash.xdb#xpointer(/Effect)"/>
+			<SoundEffect/>
+			<Locator/>
+		</Item>
+	</DestroyEffects>
+	<blockedTiles>
+		<Item>
+			<x>11</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>12</x>
+			<y>1</y>
+		</Item>
+	</blockedTiles>
+	<blockedTilesForDestroyed>
+		<Item>
+			<x>11</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>12</x>
+			<y>1</y>
+		</Item>
+	</blockedTilesForDestroyed>
+	<NameFileRef href="/Text/Game/Creatures/CombatBuildings/RightTower.txt"/>
+	<DescriptionFileRef href="/Text/Game/Creatures/CombatBuildings/RightTowerDescription.txt"/>
+</ArenaBuilding>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="1000732">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="rangeattack_hit_flash.(Particle).xdb#xpointer(/Particle)"/>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0.5</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>0.8</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>0</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion02.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion03.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion04.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion05.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion06.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion07.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion08.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion09.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion10.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion11.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion12.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion13.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion14.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion15.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Spells/FlashGlow03.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

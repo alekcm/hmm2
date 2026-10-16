@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6658">
+	<Materials>
+		<Item href="Bigtree-Branche_mat.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Bigtree-Leaf_top_mat.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Bigtree-Branche_leaf_mat.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Bigtree-Leaf_top2_mat.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Bigtree-BigTree_mat.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Bigtree-Pod_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_4899dceb-5bf2-404b-9080-291f5801149c">
+		<Geometry ObjectRecordID="5847">
+			<SrcName href="/models/TerrainObjects/Grass/Trees/bigtree.mb"/>
+			<uid>3141EBC9-14A4-401C-A948-E98D52BDB1A8</uid>
+			<RootMesh>Bigtree</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>10.6131</x>
+				<y>10</y>
+				<z>29.1156</z>
+			</Size>
+			<Center>
+				<x>0.306566</x>
+				<y>2.38419e-007</y>
+				<z>14.5578</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.21778</x>
+				<y>0.550331</y>
+				<z>28.8239</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>4</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>LeafShape</Item>
+				<Item>TreeShape</Item>
+				<Item>PodShape</Item>
+				<Item>CragShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

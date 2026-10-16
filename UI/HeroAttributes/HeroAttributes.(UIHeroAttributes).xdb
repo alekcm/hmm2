@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UIHeroAttributes ObjectRecordID="1000001">
+	<attributes>
+		<Item>
+			<Attribute>HERO_ATTRIB_DEFENCE</Attribute>
+			<Texture href="/Textures/HeroScreen/HeroParam/DefensePic.xdb#xpointer(/Texture)"/>
+			<DescriptionFileRef href="Defence.txt"/>
+			<TooltipFileRef href="DefenceTooltip.txt"/>
+		</Item>
+		<Item>
+			<Attribute>HERO_ATTRIB_OFFENCE</Attribute>
+			<Texture href="/Textures/HeroScreen/HeroParam/AttackPic.xdb#xpointer(/Texture)"/>
+			<DescriptionFileRef href="Offence.txt"/>
+			<TooltipFileRef href="OffenceTooltip.txt"/>
+		</Item>
+		<Item>
+			<Attribute>HERO_ATTRIB_KNOWLEDGE</Attribute>
+			<Texture href="/Textures/HeroScreen/HeroParam/KnowledgePic.xdb#xpointer(/Texture)"/>
+			<DescriptionFileRef href="Knowledge.txt"/>
+			<TooltipFileRef href="KnowledgeTooltip.txt"/>
+		</Item>
+		<Item>
+			<Attribute>HERO_ATTRIB_SPELLPOWER</Attribute>
+			<Texture href="/Textures/HeroScreen/HeroParam/SpellPowerPic.xdb#xpointer(/Texture)"/>
+			<DescriptionFileRef href="SpellPower.txt"/>
+			<TooltipFileRef href="SpellPowerTooltip.txt"/>
+		</Item>
+	</attributes>
+</UIHeroAttributes>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="868">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_3ff65ea9-e1c9-45ec-bcc1-72d4617fb03e">
+		<Particle ObjectRecordID="453">
+			<SrcName href="/Effects/Towns/Haven/HeavenGlobalMap/HeavenGlobalMap.mb"/>
+			<ExportPrefix>Smoke</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>a21edd3f4076303dc6cda540db803d414f6b1241e4648f40a335c140</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>A9452703-1340-4DAA-BB52-DD5ED872C099</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0.9</x>
+		<y>-1.25</y>
+		<z>0.3</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>0.8</Scale>
+	<Speed>0.5</Speed>
+	<Offset>0</Offset>
+	<EndCycle>3</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item/>
+		<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

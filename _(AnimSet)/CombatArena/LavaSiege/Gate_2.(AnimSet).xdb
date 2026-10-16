@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="335">
+	<animations>
+		<Item>
+			<Kind>close</Kind>
+			<Anim href="/_(BasicSkelAnim)/CombatArena/LavaSiege/Gate_2/close.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>open</Kind>
+			<Anim href="/_(BasicSkelAnim)/CombatArena/LavaSiege/Gate_2/open.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Arenas/Lavaarena/Siege.mb"/>
+	<ExpSrcClipFolder href="/Animations/Arena/Lavaarena/Clip/Gate0/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Table_CombatLogEvent_CombatLogEvents ObjectRecordID="-1">
+	<objects>
+		<Item>
+			<ID>COMBAT_LOG_NONE</ID>
+			<obj>
+				<Texts/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_START_COMBAT</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/StartCombat.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_ATTACK</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/AttackBadLuck.txt"/>
+					<Item href="/Text/CombatLog/Attack.txt"/>
+					<Item href="/Text/CombatLog/AttackGoodLuck.txt"/>
+					<Item href="/Text/CombatLog/AttackBadLuckFavored.txt"/>
+					<Item href="/Text/CombatLog/AttackFavored.txt"/>
+					<Item href="/Text/CombatLog/AttackGoodLuckFavored.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_RETALIATE</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/RetaliateBadLuck.txt"/>
+					<Item href="/Text/CombatLog/Retaliate.txt"/>
+					<Item href="/Text/CombatLog/RetaliateGoodLuck.txt"/>
+					<Item href="/Text/CombatLog/RetaliateBadLuckFavored.txt"/>
+					<Item href="/Text/CombatLog/RetaliateFavored.txt"/>
+					<Item href="/Text/CombatLog/RetaliateGoodLuckFavored.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_COMBAT_ABILITY</ID>
+			<obj>
+				<Texts/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_CAST</ID>
+			<obj>
+				<Texts/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_CAST_SPELL</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/CastSpell.txt"/>
+					<Item href="/Text/CombatLog/CastSpellTargeted.txt"/>
+					<Item href="/Text/CombatLog/CastSpellTargetedNoDamage.txt"/>
+					<Item href="/Text/CombatLog/CastSpellTargetedDamage.txt"/>
+					<Item href="/Text/CombatLog/CastSpellDamageInverted.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_DEFEND</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/Defend.txt"/>
+					<Item href="/Text/CombatLog/Wait.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_GHOST_IMMUNE_TO_POSSESS</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/ImmuneToPossess.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_GHOST_POSSESS_CREATURE</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/PossessCreatureSuccess.txt"/>
+					<Item href="/Text/CombatLog/PossessCreatureFailure.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_DISPELL</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/Dispell.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_APPLY_ABILITY</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/ApplyAbility.txt"/>
+					<Item href="/Text/CombatLog/ApplyAbilityTargeted.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_SPELL_RESISTED</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/SpellResisted.txt"/>
+					<Item href="/Text/CombatLog/SpellImmunity.txt"/>
+					<Item href="/Text/CombatLog/SpellBlockedByHero.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_END_COMBAT</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/EndCombatPVP.txt"/>
+					<Item href="/Text/CombatLog/EndCombatWin.txt"/>
+					<Item href="/Text/CombatLog/EndCombatDefeat.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_BONUS_ELEMENTAL_DAMAGE</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/BonusElementalDamage.txt"/>
+					<Item href="/Text/CombatLog/BonusElementalSpellDamage.txt"/>
+					<Item href="/Text/CombatLog/BonusFireDamage.txt"/>
+					<Item href="/Text/CombatLog/BonusColdDamage.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_HERO_USES_SKILL</ID>
+			<obj>
+				<Texts/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_MORALE_CHECK</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/Spells/EffectGoodMorale.txt"/>
+					<Item href="/Text/CombatLog/Spells/EffectBadMorale.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_MOAT_DAMAGE</ID>
+			<obj>
+				<Texts>
+					<Item href="/Text/CombatLog/Spells/MoatMineDamage.txt"/>
+					<Item href="/Text/CombatLog/Spells/MoatMineCastSpell.txt"/>
+				</Texts>
+			</obj>
+		</Item>
+		<Item>
+			<ID>COMBAT_LOG_HERO_SPECIALIZATION_WORKS</ID>
+			<obj>
+				<Texts/>
+			</obj>
+		</Item>
+	</objects>
+</Table_CombatLogEvent_CombatLogEvents>

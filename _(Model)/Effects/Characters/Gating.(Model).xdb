@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7221">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Gating/CentralRay_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_f7763310-374d-4e08-85a3-a8b549cbc265">
+			<Material ObjectRecordID="16126">
+				<Texture href="/Textures/auto-imported_______320/Effects/Characters/Gating/SmokeVortex.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>10</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0.4</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_CLOUDS_H5</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_0b5813b7-09ee-47c3-856b-41dfec346cc2">
+			<Material ObjectRecordID="16127">
+				<Texture href="/Textures/auto-imported_______320/Effects/Characters/Gating/SmokeVortex.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>10</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>1</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_CLOUDS_H5</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Gating/CentralRay_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_e1b1da45-6af8-4be5-ac67-7e32c90266fc">
+		<Skeleton ObjectRecordID="1301">
+			<SrcName href="/Effects/Characters/Gating.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>BF21C6E8-4434-47C3-A727-B38905B81CDC</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_4f65e8b8-6dbb-469d-90ee-6616a9e1c36b">
+		<Geometry ObjectRecordID="6422">
+			<SrcName href="/Effects/Characters/Gating.mb"/>
+			<uid>9D0C0CF3-7BE3-41BB-808D-3258AC8E6853</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3</x>
+				<y>3</y>
+				<z>3.6</z>
+			</Size>
+			<Center>
+				<x>5.96046e-008</x>
+				<y>0</y>
+				<z>1.8</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0944754</x>
+				<y>0.129055</y>
+				<z>3.59999</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>MeteorShape</Item>
+				<Item>CylinderShape1</Item>
+				<Item>CylinderShape2</Item>
+				<Item>SpotShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

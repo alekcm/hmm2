@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7718">
+	<Materials>
+		<Item href="Minotaur_LOD-G3_file1Material.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Minotaur_LOD-G3_file3Material.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_d87fc6da-0870-4665-8212-9b69217931c7">
+		<Skeleton ObjectRecordID="1602">
+			<SrcName href="/models/Creatures/Dungeon/Minotaur_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>5609A4DE-D098-402B-90D0-D4791624BF01</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ee7637da-d5bb-4b36-ba44-fde3f4843aa2">
+		<Geometry ObjectRecordID="6883">
+			<SrcName href="/models/Creatures/Dungeon/Minotaur_LOD.mb"/>
+			<uid>F1A90D7B-737F-4062-B49C-7ABB231C7257</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.10359</x>
+				<y>1.80513</y>
+				<z>2.35566</z>
+			</Size>
+			<Center>
+				<x>-0.106588</x>
+				<y>-0.38837</y>
+				<z>1.17781</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.00439535</x>
+				<y>-0.238232</y>
+				<z>2.30524</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_e4bfdb4c-4715-4f23-8335-611050a9237a">
+				<AIGeometry ObjectRecordID="455">
+					<SrcName href="/models/Creatures/Dungeon/Minotaur_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>5.96046e-008</x>
+						<y>-0.0842611</y>
+						<z>1.21578</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.894548</x>
+						<y>0.502888</y>
+						<z>1.21028</z>
+					</AABBHalfSize>
+					<uid>FB59D734-BCC0-4C78-A313-E40133EFE71F</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

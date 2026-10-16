@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="252">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_4d383865-3fc8-4a2b-a43f-8bd26e7f566b">
+			<ParticleInstance ObjectRecordID="295">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_46efae4b-a185-4d47-ab2a-152a6f9eba1e">
+					<Particle ObjectRecordID="79">
+						<SrcName href="/Effects/Objects/Buoy.mb"/>
+						<ExportPrefix>BuoyLight</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>505e88bd00546d3b84f4ef3faf9b8e4030d6264031151f40aef22740</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>05464017-5F7F-40AA-956C-E29A4AA9AE62</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3.966</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow03.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

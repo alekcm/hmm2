@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7754">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_8a2f5e06-05b0-4a07-905a-9a9f459b2f86">
+			<Material ObjectRecordID="19952">
+				<Texture href="/Textures/auto-imported/TESTS/InvisibleBox/InvisibleBox.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_e0f1b299-18a9-4084-826a-727385ec4459">
+		<Skeleton ObjectRecordID="1613">
+			<SrcName href="/Tests/InvisibleBox/InvisibleBox.mb"/>
+			<RootJoint>InvisibleBox</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>D5A5D8C1-F1F8-473A-892C-9F38BFDE7761</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_c3877dba-69c5-4b96-9960-0e6a580a3ae1">
+		<Geometry ObjectRecordID="6917">
+			<SrcName href="/Tests/InvisibleBox/InvisibleBox.mb"/>
+			<uid>D7BD0DF6-C2EC-4ECA-9F5F-B70230375906</uid>
+			<RootMesh>InvisibleBox</RootMesh>
+			<RootJoint>InvisibleBox</RootJoint>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>2</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+			</Center>
+			<BestFitPoint>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_7e78119d-bba6-4a96-be6d-404fc8916805">
+				<AIGeometry ObjectRecordID="459">
+					<SrcName href="/Tests/InvisibleBox/InvisibleBox.mb"/>
+					<RootMesh>AI_InvisibleBox</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>1</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1</x>
+						<y>1</y>
+						<z>1</z>
+					</AABBHalfSize>
+					<uid>29FE968C-19C4-44D4-91A9-D333BDD7C72F</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>InvisibleBoxShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

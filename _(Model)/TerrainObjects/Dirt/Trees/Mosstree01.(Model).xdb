@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7594">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_5d8cb874-a707-4e13-9c2b-e8a351dfdd96">
+			<Material ObjectRecordID="18793">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Trees/Mosstree01/MossTree.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>1</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_877384e8-57b6-4746-a460-71ed5d3a5047">
+			<Material ObjectRecordID="18794">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Trees/Mosstree01/MossTree.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>2</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>true</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_1c64fa30-135e-4aa5-aa2e-557f6f609863">
+		<Skeleton ObjectRecordID="1524">
+			<SrcName href="/models/TerrainObjects/Dirt/Trees/Mosstrees.mb"/>
+			<RootJoint>Mosstree01</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>8FCBB405-1570-4EB1-8E7E-6B534911D263</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_05032834-5426-4fc9-8798-ac4a6fc9a4ad">
+		<Geometry ObjectRecordID="6768">
+			<SrcName href="/models/TerrainObjects/Dirt/Trees/Mosstrees.mb"/>
+			<uid>B17C1793-52BA-471A-93A4-D5CB98AE13F1</uid>
+			<RootMesh>Mosstree01</RootMesh>
+			<RootJoint>Mosstree01</RootJoint>
+			<Size>
+				<x>7.46541</x>
+				<y>7.78995</y>
+				<z>12.8065</z>
+			</Size>
+			<Center>
+				<x>-0.67792</x>
+				<y>0.533344</y>
+				<z>3.65465</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.91643</x>
+				<y>-1.667</y>
+				<z>9.83423</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Mosstree0Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>0</Item>
+				<Item>0</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

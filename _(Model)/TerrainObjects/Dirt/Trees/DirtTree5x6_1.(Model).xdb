@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7398">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_a0b3d7b3-be34-422c-ab3c-aef67bfea174">
+			<Material ObjectRecordID="17874">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Trees/DirtTree1x1_1/DirtTree01_bark03.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_335825b0-0def-42a4-bc87-7c4eb3b08409">
+			<Material ObjectRecordID="17875">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Trees/DirtTree1x1_1/DirtTree01_bark03.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_a752e245-8290-4e0d-a8ff-bd3926dc20a3">
+		<Skeleton ObjectRecordID="1395">
+			<SrcName href="/models/TerrainObjects/Dirt/Trees/Dirttrees.mb"/>
+			<RootJoint>DirtTree5x6_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>F3281CFF-6589-4EAC-A3AF-F055024852BE</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_6c25f76a-1850-402b-9b18-b4de9177575f">
+		<Geometry ObjectRecordID="6596">
+			<SrcName href="/models/TerrainObjects/Dirt/Trees/Dirttrees.mb"/>
+			<uid>B4694819-6677-486A-9838-0B25780E775C</uid>
+			<RootMesh>DirtTree5x6_1</RootMesh>
+			<RootJoint>DirtTree5x6_1</RootJoint>
+			<Size>
+				<x>10.7725</x>
+				<y>9.82723</y>
+				<z>18.5042</z>
+			</Size>
+			<Center>
+				<x>-1.49446</x>
+				<y>0.562192</y>
+				<z>4.75411</z>
+			</Center>
+			<BestFitPoint>
+				<x>-4.41506</x>
+				<y>2.02787</y>
+				<z>13.9229</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>DirtTree5x6_Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

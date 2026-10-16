@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7352">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_853ed474-7195-4907-8cc3-13b1727e4715">
+			<Material ObjectRecordID="17661">
+				<Texture href="/Textures/auto-imported_______320/CombatArena/Boatarena/tex_ship/ship.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_50a7105f-009b-4ec5-9683-76a228759c53">
+		<Geometry ObjectRecordID="6550">
+			<SrcName href="/models/Arenas/Boatarena/Boatarena.mb"/>
+			<uid>1C04C645-B543-4C99-91D2-CAA2D389EC94</uid>
+			<RootMesh>tex_ship2</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>16.1169</x>
+				<y>64.2032</y>
+				<z>20.3668</z>
+			</Size>
+			<Center>
+				<x>320.512</x>
+				<y>305.307</y>
+				<z>6.31208</z>
+			</Center>
+			<BestFitPoint>
+				<x>319.925</x>
+				<y>337.169</y>
+				<z>16.4226</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>tex_ship2Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

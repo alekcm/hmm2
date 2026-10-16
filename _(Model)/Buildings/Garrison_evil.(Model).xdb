@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7279">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_b5ac895b-28f0-4125-956d-b09634842d10">
+			<Material ObjectRecordID="1005901">
+				<Texture href="/Textures/auto-imported_______320/Buildings/Garrison_evil/Garrison_evil.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_de6501a0-4070-4263-9bec-2987093c66f6">
+		<Geometry ObjectRecordID="6480">
+			<SrcName href="/models/Buildings/FPP2/Garrison_evil.mb"/>
+			<uid>E5435FFB-54F1-4E04-B35C-61CE00ED84C2</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>8.82486</x>
+				<y>2.64932</y>
+				<z>11.7115</z>
+			</Size>
+			<Center>
+				<x>0.00963092</x>
+				<y>-0.212183</y>
+				<z>5.85574</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.111938</x>
+				<y>-0.00293031</y>
+				<z>11.5559</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_28fd31f7-2388-425a-97ff-3176e2e3ecf1">
+				<AIGeometry ObjectRecordID="354">
+					<SrcName href="/models/Buildings/FPP2/Garrison_evil.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0929099</y>
+						<z>5.1884</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>3.12645</x>
+						<y>0.878755</y>
+						<z>5.1884</z>
+					</AABBHalfSize>
+					<uid>EB4D02CF-DFCE-48E9-813E-77C580C430E8</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Garrison_evil_gateShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

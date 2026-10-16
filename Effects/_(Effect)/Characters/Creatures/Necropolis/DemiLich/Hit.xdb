@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000139">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_d889397b-4e91-4d32-a918-210d34763257">
+			<ParticleInstance ObjectRecordID="1000136">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_39369005-6862-4921-8b64-fd784ad17ac5">
+					<Particle ObjectRecordID="1000114">
+						<SrcName href="/Effects/Characters/NECROPOLIS/DemiLich/Hit.mb"/>
+						<ExportPrefix>Hit</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>82e72c3e60c206403431d73ff46ce53fe6064c3f80d9a43fa063753f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>92DCF514-F074-480C-86A5-F1E3D1C412A4</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

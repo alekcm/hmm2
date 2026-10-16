@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000893">
+	<Materials>
+		<Item href="necropolishipyard-lambert1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="necropolishipyard-lambert1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="necropolishipyard-lambert1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_a9f61fc7-a4fb-4102-9ea1-43152c6c4b93">
+		<Geometry ObjectRecordID="1000681">
+			<SrcName href="/Effects/Towns/Necropolis/Shipyard.mb"/>
+			<uid>113834BC-AF2A-4F67-9EF8-2859176FB5DC</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>5.24104</x>
+				<y>9.20279</y>
+				<z>2.32682</z>
+			</Size>
+			<Center>
+				<x>2.34571</x>
+				<y>-2.04109</y>
+				<z>9.25866</z>
+			</Center>
+			<BestFitPoint>
+				<x>2.74692</x>
+				<y>-2.20296</y>
+				<z>10.3638</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Global_Shape</Item>
+				<Item>Global_1Shape</Item>
+				<Item>Global_2Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations>
+		<Item href="/_(BasicSkelAnim)/Effects/Towns/Necropolis_Rays00.xdb#xpointer(/BasicSkelAnim)"/>
+	</Animations>
+	<WindPower>1</WindPower>
+</Model>

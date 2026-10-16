@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="1000011">
+	<ExpScene href="/models/Towns/rampart/rampart.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>A171801B-BA62-44AC-8CE6-CDF6A3512C8E</uid>
+	<objects>
+		<Item href="Ground_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="CoastLine_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="TreeBase_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Floor_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="CoastLineUnder_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="StonesGreatTree_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="GreatTree_M.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Branch_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Trees_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="TownHall.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="HighCabins.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="ForestNest.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="RingOfStones.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="UnicornGlade.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="TreantArches.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="WoodGuard.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Trees2_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Bridge_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="MarketPlace.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="MagicGuild.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Fort.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Shipyard.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="MysticPond.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Tavern.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="AvengersGuild.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Blacksmith.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="WoodGuardian.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="FaerieTree.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="TreantSapplings.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="BloomingGrove.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="RingOfStones_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="SwampGreen_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="ForestNestLocator01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Shipyard_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="FortLocator01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="MarketPlace_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="FaerieTreeLocator01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="WoodGuard_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Forge_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="UnicornGlade_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="FaerieTreesButterflyLocator01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="FaerieTreesButterflyLocator02.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="FaerieTreesButterflyLocator03.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Environment_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="HighCabinsLocator01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Bird01_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Bird02_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Bird03_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Bird04_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="AvangerGuildLocator01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="MysticPound_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="TreanArchesLocator01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="TawnHall_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="WoodGuardian_Locator01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="TreeTop_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Lake_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+	</objects>
+	<lights>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>292.301</x>
+				<y>280.806</y>
+				<z>47.7205</z>
+			</Position>
+			<Color>
+				<x>0.745098</x>
+				<y>0.6</y>
+				<z>0.254902</z>
+			</Color>
+			<Intensity>1.1</Intensity>
+			<Radius>40</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>311.128</x>
+				<y>278.395</y>
+				<z>48.1042</z>
+			</Position>
+			<Color>
+				<x>0.752941</x>
+				<y>0.501961</y>
+				<z>0.247059</z>
+			</Color>
+			<Intensity>1.2</Intensity>
+			<Radius>40</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>278.091</x>
+				<y>331.945</y>
+				<z>48.8489</z>
+			</Position>
+			<Color>
+				<x>0.752941</x>
+				<y>0.501961</y>
+				<z>0.247059</z>
+			</Color>
+			<Intensity>1.3</Intensity>
+			<Radius>40</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>332.865</x>
+				<y>283.629</y>
+				<z>50</z>
+			</Position>
+			<Color>
+				<x>0.627451</x>
+				<y>0.501961</y>
+				<z>0.372549</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>50</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>360.63</x>
+				<y>286.552</y>
+				<z>54.2324</z>
+			</Position>
+			<Color>
+				<x>0.752941</x>
+				<y>0.501961</y>
+				<z>0.247059</z>
+			</Color>
+			<Intensity>0.9</Intensity>
+			<Radius>50</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>265.914</x>
+				<y>286.871</y>
+				<z>48.7452</z>
+			</Position>
+			<Color>
+				<x>0.745098</x>
+				<y>0.6</y>
+				<z>0.254902</z>
+			</Color>
+			<Intensity>1.2</Intensity>
+			<Radius>25</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>299.777</x>
+				<y>302.323</y>
+				<z>83.0401</z>
+			</Position>
+			<Color>
+				<x>0.745098</x>
+				<y>0.6</y>
+				<z>0.254902</z>
+			</Color>
+			<Intensity>0.9</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>320.701</x>
+				<y>297.239</y>
+				<z>57.0514</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>40</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>304.613</x>
+				<y>319.742</y>
+				<z>50.725</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>1.2</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>252.019</x>
+				<y>289.636</y>
+				<z>46.5194</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>30</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>327.946</x>
+				<y>261.951</y>
+				<z>45.5318</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>324.7</x>
+				<y>296.476</y>
+				<z>49.6335</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>1.2</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>342.051</x>
+				<y>309.019</y>
+				<z>46.1027</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>255.758</x>
+				<y>316.547</y>
+				<z>58.5712</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>1.2</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>279.787</x>
+				<y>261.433</y>
+				<z>46.6227</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>356.23</x>
+				<y>315.409</y>
+				<z>45.551</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>209.304</x>
+				<y>264.269</y>
+				<z>53.7486</z>
+			</Position>
+			<Color>
+				<x>0.745098</x>
+				<y>0.643137</y>
+				<z>0.494118</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>200</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>255.187</x>
+				<y>316.698</y>
+				<z>47.4149</z>
+			</Position>
+			<Color>
+				<x>0.376471</x>
+				<y>0.458824</y>
+				<z>0.223529</z>
+			</Color>
+			<Intensity>0.5</Intensity>
+			<Radius>30</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>286.9</x>
+				<y>288.885</y>
+				<z>54.5912</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>50</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>281.839</x>
+				<y>304.336</y>
+				<z>53.4432</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>50</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>281.293</x>
+				<y>294.28</y>
+				<z>56.6335</z>
+			</Position>
+			<Color>
+				<x>0.686275</x>
+				<y>0.54902</y>
+				<z>0.447059</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>40</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>293.725</x>
+				<y>354.019</y>
+				<z>45.6429</z>
+			</Position>
+			<Color>
+				<x>0.67451</x>
+				<y>0.505882</y>
+				<z>0.34902</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>60</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>371.439</x>
+				<y>281.174</y>
+				<z>62.3746</z>
+			</Position>
+			<Color>
+				<x>0.619608</x>
+				<y>0.486275</y>
+				<z>0.403922</z>
+			</Color>
+			<Intensity>0.6</Intensity>
+			<Radius>400</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>345.825</x>
+				<y>344.329</y>
+				<z>48.7049</z>
+			</Position>
+			<Color>
+				<x>0.690196</x>
+				<y>0.52549</y>
+				<z>0.376471</z>
+			</Color>
+			<Intensity>0.7</Intensity>
+			<Radius>400</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>364.753</x>
+				<y>332.838</y>
+				<z>7.62939e-006</z>
+			</Position>
+			<Color>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>1</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>-499.031</x>
+				<y>732.131</y>
+				<z>3.8147e-006</z>
+			</Position>
+			<Color>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>1</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>360.575</x>
+				<y>271.16</y>
+				<z>54.2056</z>
+			</Position>
+			<Color>
+				<x>0.337255</x>
+				<y>0.4</y>
+				<z>0.454902</z>
+			</Color>
+			<Intensity>0.9</Intensity>
+			<Radius>500</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>369.483</x>
+				<y>300.266</y>
+				<z>54.1779</z>
+			</Position>
+			<Color>
+				<x>0.337255</x>
+				<y>0.4</y>
+				<z>0.454902</z>
+			</Color>
+			<Intensity>0.9</Intensity>
+			<Radius>500</Radius>
+		</Item>
+	</lights>
+	<effects>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Rampart/SwampGreen.xdb#xpointer(/Effect)"/>
+			<Locator>SwampGreen_Locator</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Rampart/LeafDown.xdb#xpointer(/Effect)"/>
+			<Locator>Environment_Locator</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Rampart/bird00.xdb#xpointer(/Effect)"/>
+			<Locator>Bird01_Locator</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Rampart/bird01.xdb#xpointer(/Effect)"/>
+			<Locator>Bird02_Locator</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Rampart/bird02.xdb#xpointer(/Effect)"/>
+			<Locator>Bird03_Locator</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Rampart/bird03.xdb#xpointer(/Effect)"/>
+			<Locator>Bird04_Locator</Locator>
+		</Item>
+	</effects>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>328.25</x>
+			<y>219.561</y>
+			<z>59.4169</z>
+		</Pos>
+		<Rot>
+			<x>-6.14519</x>
+			<y>18.9184</y>
+			<z>1.06175e-005</z>
+		</Rot>
+		<Rod>86.7335</Rod>
+		<FOV>49.026</FOV>
+		<ClipDistanceMin>2</ClipDistanceMin>
+		<ClipDistanceMax>1000</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound href="/Sounds/_(Ambient)/Towns/Sylvan.xdb#xpointer(/AmbientSoundSet)"/>
+	<Music href="/Sounds/_(Music)/Towns/Sylvan.(Music).xdb#xpointer(/Music)"/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Town/Rampart/rampartlight (tst).xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model href="/_(Model)/Cutscenes/CameraUpAim.(Model).xdb#xpointer(/Model)"/>
+		<AnimSet href="/_(AnimSet)/AdventureFlyby/TownFlyups/RampartFlyup.xdb#xpointer(/AnimSet)"/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras>
+		<Item href="camera_1.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_2.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_3.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_4.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_5.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_6.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_7.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="AvengersGuild_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Blacksmith_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="FaerieTree_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="ForestNest_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Fort_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="HighCabins_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="MagicGuild_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="MarketPlace_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="MysticPond_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="RingOfStones_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Shipyard_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Tavern_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="TownHall_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="TreantArches_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="TreantSapplings_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="UnicornGlade_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="WoodGuard_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="WoodGuardian_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="BloomingGrove_cam.(Camera).xdb#xpointer(/Camera)"/>
+	</staticCameras>
+	<CameraLimits href="CameraLimits.xdb#xpointer(/CameraLimits)"/>
+	<CameraLimitsSet/>
+</ArenaDesc>

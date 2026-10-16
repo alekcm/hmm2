@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001608">
+	<Materials>
+		<Item href="Fortification_u2r0-City_Walls_lambert10.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Fortification_u2r0-Citadel.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Fortification_u2r0-Citadel.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_4bb541f1-054c-49e6-8417-4ee7f4fdce4e">
+			<Material ObjectRecordID="1004047">
+				<Texture href="/Textures/auto-imported_______320/Town/NewHaven/Fortification_u1r0/Citadelwall.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="Fortification_u2r0-City_Walls_lambert10.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Fortification_u2r0-City_Walls_lambert10.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Fortification_u2r0-City_Walls_lambert10.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_1be094cb-f59f-47c3-bc10-62c84d7682b1">
+			<Material ObjectRecordID="1004048">
+				<Texture href="/Textures/auto-imported_______320/Town/NewHaven/Fortification_u1r0/City_Wall_Tile.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="Fortification_u2r0-geom.xdb#xpointer(/Geometry)"/>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

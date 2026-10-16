@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="308">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_d2105251-c6bc-4e3c-b11d-2963cadef0c6">
+			<ParticleInstance ObjectRecordID="364">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_608db4f1-9cb7-40a5-9ea2-55e632d9a5f2">
+					<Particle ObjectRecordID="137">
+						<SrcName href="/Effects/Spells/LandMinesStart.mb"/>
+						<ExportPrefix>LandMineStart</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>00000000000000000000000000000000000000000000000000000000</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>E8C8231A-FEF7-4271-93B7-66BA40B914D6</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>0.75</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/GroundParts00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/GroundParts01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/GroundParts00.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Spells/LandMine.xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_3c38da26-1937-4451-a4a5-951c3374b908">
+			<ModelInstance ObjectRecordID="37">
+				<Model href="/_(Model)/Effects/Spells/LandMine.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Spells/LandMine.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0.03</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>0.75</Scale>
+				<Offset>0.5</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

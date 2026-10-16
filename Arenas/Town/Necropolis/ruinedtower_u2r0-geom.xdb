@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="1002642">
+	<SrcName href="/models/Towns/necropolis/Necropolis.mb"/>
+	<uid>746341F0-8FE7-488D-939A-4491FF0D8E0C</uid>
+	<RootMesh>rockRT_obj RuinedTowerLv1_O RuinedTowerLv2_O RuinedtowerTrees_noLM</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>14.5344</x>
+		<y>14.486</y>
+		<z>91.053</z>
+	</Size>
+	<Center>
+		<x>333.065</x>
+		<y>287.992</y>
+		<z>47.1511</z>
+	</Center>
+	<BestFitPoint>
+		<x>331.946</x>
+		<y>288.527</y>
+		<z>92.6777</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="ruinedtower_u2r0-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>4</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>RuinedtowerTrees_noLMShape</Item>
+		<Item>rockRT_objShape</Item>
+		<Item>RuinedTowerLv1_OShape</Item>
+		<Item>RuinedTowerLv2_OShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

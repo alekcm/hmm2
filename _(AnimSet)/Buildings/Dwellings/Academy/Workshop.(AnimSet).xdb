@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="1000208">
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="Workshop-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle01</Kind>
+			<Anim href="Workshop-idle01.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Buildings/FPP2/Dwellings/Academy/Workshop.mb"/>
+	<ExpSrcClipFolder href="/Animations/Buildings/Dwellings/Academy/Workshop/Clip_adventure/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

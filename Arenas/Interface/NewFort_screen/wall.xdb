@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001187">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_1f04f392-2ff6-46c5-801b-8132207b8866">
+			<Material ObjectRecordID="1001701">
+				<Texture href="/Textures/auto-imported_______320/Interface/NewFort_screen/wall/NewWall.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_2376927f-6e34-4e44-a8c6-81ff3e8200c6">
+		<Geometry ObjectRecordID="1000970">
+			<SrcName href="/models/Interface/Creature_hire/NewCreature_hire.mb"/>
+			<uid>F79559AA-7823-47E1-8977-F0FEF71E1BC1</uid>
+			<RootMesh>wall</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>48.4239</x>
+				<y>48.4239</y>
+				<z>8.59666</z>
+			</Size>
+			<Center>
+				<x>329</x>
+				<y>280</y>
+				<z>13.4443</z>
+			</Center>
+			<BestFitPoint>
+				<x>329</x>
+				<y>280</y>
+				<z>17.7426</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>wallShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

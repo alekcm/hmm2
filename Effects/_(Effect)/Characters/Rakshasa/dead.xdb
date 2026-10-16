@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000266">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_d0267936-2f93-474c-9504-2ea7f63861fe">
+			<ParticleInstance ObjectRecordID="1000348">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_a624706d-3aa1-4cf1-a8d2-17d5bbe2e6ca">
+					<Particle ObjectRecordID="1000288">
+						<SrcName href="/Effects/Characters/Rakshasa/Rakshasa_dead.mb"/>
+						<ExportPrefix>Glow</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>3053afbdcc8af43e1e63813f8d5ba940c4cb3240641c5540d13e4140</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>6C5267E3-C1DD-42A5-9695-44C46A1ADE81</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>-0.7</y>
+				</Pivot>
+				<Textures>
+					<Item href="/_(Model)/Effects/Characters/RakshasaRukh/RayBlue00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_b40aed96-0f85-4eb2-8c98-78ce7cc6d4e0">
+			<ParticleInstance ObjectRecordID="1000349">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_a93641f9-057e-4796-8cef-955dd73161c2">
+					<Particle ObjectRecordID="1000289">
+						<SrcName href="/Effects/Characters/Rakshasa/Rakshasa_dead.mb"/>
+						<ExportPrefix>Glow02</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>80f740bc48bcee3e17a5883f93d37040e405f03f1b411f404b070740</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>8474B3DA-DDA1-4991-A0F6-6AC5FBFB3021</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_e2186eed-a051-4c87-8fab-c140215bf796">
+			<ParticleInstance ObjectRecordID="1000350">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_03e7e721-d60a-4bee-a0ba-1f736a1077af">
+					<Particle ObjectRecordID="1000290">
+						<SrcName href="/Effects/Characters/Rakshasa/Rakshasa_dead.mb"/>
+						<ExportPrefix>IceFire</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>10983bbd7e7dfa3edfefab3f33f13940d9d29e3fd834fa3fa8a7e03f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>156D4027-4225-47F0-9721-2D4176622740</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/IceFire.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

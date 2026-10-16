@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001816">
+	<Materials>
+		<Item href="MageTowerStones-MageTower_M.2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_a64c2cf6-1737-4296-b824-e10d26cfe115">
+		<Skeleton ObjectRecordID="1000416">
+			<SrcName href="/Effects/Towns/Academy/MageTower/MageTower_Stones.mb"/>
+			<RootJoint>Global02</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>FF065AB6-BEB8-4CF3-B0B3-3F9A9AD5B852</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_339c503e-a215-4ad1-b260-fa92c6d850e7">
+		<Geometry ObjectRecordID="1001595">
+			<SrcName href="/Effects/Towns/Academy/MageTower/MageTower_Stones.mb"/>
+			<uid>8F0190CE-5E6E-4B25-8D62-AA50F38AB2FA</uid>
+			<RootMesh>Global02</RootMesh>
+			<RootJoint>Global02</RootJoint>
+			<Size>
+				<x>1.31221</x>
+				<y>1.20235</y>
+				<z>2.79923</z>
+			</Size>
+			<Center>
+				<x>-6.35048</x>
+				<y>-7.42373</y>
+				<z>-2.82646</z>
+			</Center>
+			<BestFitPoint>
+				<x>-6.41963</x>
+				<y>-7.47602</y>
+				<z>-1.45826</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>StoneShape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

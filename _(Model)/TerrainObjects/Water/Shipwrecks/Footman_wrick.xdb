@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001185">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_3885bd18-43ab-44e1-a697-264e839b257e">
+			<Material ObjectRecordID="1002034">
+				<Texture href="/Textures/Creatures/Haven/Footman/Footman.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_67bb0f77-8abe-4c29-9090-5ce3de3de92c">
+			<Material ObjectRecordID="1002035">
+				<Texture href="Peas_wrick-shipwreckbark.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_71c505b6-f22b-4329-b5c5-ae725ae5b604">
+		<Skeleton ObjectRecordID="1000263">
+			<SrcName href="/models/TerrainObjects/Water/Shipwrecks/Shipwrecks.mb"/>
+			<RootJoint>Footman_wrick</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>295E13BE-2AD3-4054-A6C6-F844E8774A73</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_75f20288-7be6-43c7-86d1-c4e4421320e5">
+		<Geometry ObjectRecordID="1000968">
+			<SrcName href="/models/TerrainObjects/Water/Shipwrecks/Shipwrecks.mb"/>
+			<uid>73F4385A-2077-4989-93E2-435F460622CF</uid>
+			<RootMesh>Footman_wrick</RootMesh>
+			<RootJoint>Footman_wrick</RootJoint>
+			<Size>
+				<x>3.56988</x>
+				<y>1.31383</y>
+				<z>1.67356</z>
+			</Size>
+			<Center>
+				<x>0.172403</x>
+				<y>-0.35995</y>
+				<z>-0.331419</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.622793</x>
+				<y>-0.43645</y>
+				<z>0.300023</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="/_(Model)/TerrainObjects/Water/Footman_wrick_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>FootmanShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

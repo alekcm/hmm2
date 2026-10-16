@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002155">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_32dd63bd-176b-4d97-ab02-23b58f9b548f">
+			<Material ObjectRecordID="1006265">
+				<Texture href="WoodGuardian_u1r0-WoodGuardian.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>false</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_7f98c4d0-f398-4959-92d8-3e82383588ed">
+		<Skeleton ObjectRecordID="1000613">
+			<SrcName href="/Effects/Towns/Rampart/WoodGuardian04.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>59C1816F-AAA2-4B7F-B91F-A3921C05D41E</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_d8488a42-f6db-4093-879c-17e114b42a35">
+		<Geometry ObjectRecordID="1001925">
+			<SrcName href="/Effects/Towns/Rampart/WoodGuardian04.mb"/>
+			<uid>B182CCEB-0EB4-46A1-BD8F-5DE74EB0F680</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.24794</x>
+				<y>5.18175</y>
+				<z>7.65921</z>
+			</Size>
+			<Center>
+				<x>0.00500041</x>
+				<y>0.515081</y>
+				<z>8.53772</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0496152</x>
+				<y>-0.16146</y>
+				<z>12.2863</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>WoodGuardian_OShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

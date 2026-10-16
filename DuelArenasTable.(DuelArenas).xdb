@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DuelArenas ObjectRecordID="1000000">
+	<arenas>
+		<Item>
+			<CombatScene/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Random_Arena.txt"/>
+			<Pic href="/UI/DuelArenas/Random_Arena.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_RANDOM_TYPE</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Lava_Big_02.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Lava_Big.txt"/>
+			<Pic href="/UI/DuelArenas/Lava_Big.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_INFERNO</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Beach_Lava_Big_01.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Lava_Beach.txt"/>
+			<Pic href="/UI/DuelArenas/Lava_Beach.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_INFERNO</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Dirt_Big_02.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Dirt_Big.txt"/>
+			<Pic href="/UI/DuelArenas/Dirt.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_NECROMANCY</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Beach_Dirt_Big_01.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Dirt_Beach.txt"/>
+			<Pic href="/UI/DuelArenas/Dirt_Beach.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_NECROMANCY</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Boat_Arena.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Boat.txt"/>
+			<Pic href="/UI/DuelArenas/Boat.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_PRESERVE</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Grass_Big_02.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Grass_Big.txt"/>
+			<Pic href="/UI/DuelArenas/Grass_Big.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_HEAVEN</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Beach_Grass_Big_01.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Grass_Beach.txt"/>
+			<Pic href="/UI/DuelArenas/Grass_Beach.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_PRESERVE</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Subterra_big_02.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Sub_Big.txt"/>
+			<Pic href="/UI/DuelArenas/Sub_Big.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_DUNGEON</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Subterra_Small_01.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Sub_Small.txt"/>
+			<Pic href="/UI/DuelArenas/Sub_Small.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_DUNGEON</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Sand_Big_02.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Sand_Big.txt"/>
+			<Pic href="/UI/DuelArenas/Sand_Big.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_ACADEMY</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Beach_Sand_Big_01.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Sand_Beach.txt"/>
+			<Pic href="/UI/DuelArenas/Sand_Beach.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_ACADEMY</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Subterra_abyss.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Sub_Abyss.txt"/>
+			<Pic href="/UI/DuelArenas/Sub_Abyss.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_DUNGEON</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Snow_01.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Snow.txt"/>
+			<Pic href="/UI/DuelArenas/SnowArena.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_FORTRESS</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Beach_Snow_01.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Snow_Beach.txt"/>
+			<Pic href="/UI/DuelArenas/Snow_Beach.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_FORTRESS</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/GameMechanics/CombatArenaTypes/Orkish_Medium3.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Orkish_Big.txt"/>
+			<Pic href="/UI/DuelArenas/Orkish.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_STRONGHOLD</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/GameMechanics/CombatArenaTypes/River_Orkish_01.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Orkish_Beach.txt"/>
+			<Pic href="/UI/DuelArenas/Orkish_Beach.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_STRONGHOLD</townType>
+		</Item>
+		<Item>
+			<CombatScene href="/Scenes/CombatArenas/Subterra_Dwarven_01.xdb#xpointer(/AdventureFlybyScene)"/>
+			<ArenaName href="/Text/DuelMode/ArenaNames/Sub_Dwarven.txt"/>
+			<Pic href="/UI/DuelArenas/Sub_Dwarven.xdb#xpointer(/Texture)"/>
+			<townType>TOWN_FORTRESS</townType>
+		</Item>
+	</arenas>
+</DuelArenas>

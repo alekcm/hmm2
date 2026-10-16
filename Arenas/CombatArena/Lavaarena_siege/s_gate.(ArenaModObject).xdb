@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject ObjectRecordID="644">
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>s_gate</Name>
+	<DefUpgLevel>1</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="gate_u1r0.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet href="/_(AnimSet)/CombatArena/LavaSiege/Gate_1.(AnimSet).xdb#xpointer(/AnimSet)"/>
+				</Item>
+				<Item>
+					<Model href="gate_u1r1.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet href="/_(AnimSet)/CombatArena/LavaSiege/Gate_2.(AnimSet).xdb#xpointer(/AnimSet)"/>
+				</Item>
+				<Item>
+					<Model href="gate_u1r2.xdb#xpointer(/Model)"/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet href="/_(AnimSet)/CombatArena/LavaSiege/Gate_3.(AnimSet).xdb#xpointer(/AnimSet)"/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

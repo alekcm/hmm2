@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5696">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/MagicFist_waves/lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/MagicFist_waves/lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_294b14c8-c84d-44b8-b485-ef87f96cb439">
+			<Material ObjectRecordID="13060">
+				<Texture href="/Textures/Effects/Spells/FlashGlow01NoADD.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>10</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_be1dc925-f482-4983-b359-a444e50bb44d">
+			<Material ObjectRecordID="13061">
+				<Texture href="/Textures/auto-imported_______320/Effects/Spells/MagicFist_waves/MagicFist_WaveNoADD.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>10</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_dc7b2434-22e0-499a-9fc7-b0afdbb991b7">
+			<Material ObjectRecordID="13062">
+				<Texture href="/Textures/auto-imported_______320/Effects/Spells/MagicFist_waves/MagicFist_WaveNoADD.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>10</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_a9da0689-23d6-4b03-971c-f5d9b4d7a0d1">
+		<Skeleton ObjectRecordID="517">
+			<SrcName href="/Effects/Spells/MagicFist.mb"/>
+			<RootJoint>Global02</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>579DEA2B-4C3E-4E19-A371-AE32B4320E3D</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_dfd24747-85b1-4de5-a22e-24ab69345181">
+		<Geometry ObjectRecordID="4887">
+			<SrcName href="/Effects/Spells/MagicFist.mb"/>
+			<uid>40735EAD-AF79-4775-A4F4-683EA2CF1898</uid>
+			<RootMesh>Global02</RootMesh>
+			<RootJoint>Global02</RootJoint>
+			<Size>
+				<x>3.10914</x>
+				<y>3.10914</y>
+				<z>0.180501</z>
+			</Size>
+			<Center>
+				<x>-1.78814e-007</x>
+				<y>0</y>
+				<z>0.0902505</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.00338329</x>
+				<y>-0.0035112</y>
+				<z>0.0808994</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>5</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Rays0Shape2</Item>
+				<Item>Rays0Shape1</Item>
+				<Item>Wave03Shape</Item>
+				<Item>Wave02Shape</Item>
+				<Item>Wave01Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

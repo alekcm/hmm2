@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/Arenas/DwarwenTownSiege/Pedal.mb"/>
+	<uid>0C639D80-FBB4-4FDC-9EDF-93D008E03615</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>2</x>
+		<y>2</y>
+		<z>0.399139</z>
+	</Size>
+	<Center>
+		<x>0</x>
+		<y>0</y>
+		<z>0.00413029</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Fortress_Arena_Bomb-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>PodShape</Item>
+		<Item>RoofShape</Item>
+		<Item>CragShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

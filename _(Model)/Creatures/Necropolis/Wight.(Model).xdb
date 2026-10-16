@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3934">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_f2e7e19a-d2d2-49b3-8462-02ae7046b0b5">
+			<Material ObjectRecordID="15819">
+				<Texture href="/Textures/Creatures/Necropolis/Wight/Wight.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_a3816f0f-39da-4ec2-a9db-4ba8d80aea88">
+			<Material ObjectRecordID="15820">
+				<Texture href="/Textures/Creatures/Necropolis/Wight/Wight.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_e3e8983b-0fe5-4147-81b2-e8414fd4043d">
+		<Skeleton ObjectRecordID="273">
+			<SrcName href="/models/Creatures/Necropolis/Wight.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>B080C7E8-4B44-4157-996B-FEC6BBEC3EF6</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_20e13b50-2537-415c-b41b-d1d240b3df92">
+		<Geometry ObjectRecordID="3375">
+			<SrcName href="/models/Creatures/Necropolis/Wight.mb"/>
+			<uid>172502D9-17FD-4615-81C0-9FCC2180A1BD</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.18326</x>
+				<y>2.73856</y>
+				<z>4.99828</z>
+			</Size>
+			<Center>
+				<x>0.169839</x>
+				<y>0.0762311</y>
+				<z>1.37565</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.64591</x>
+				<y>-0.111639</y>
+				<z>3.73294</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_3433a6c5-9472-4518-8d89-30f02198fcbd">
+				<AIGeometry ObjectRecordID="112">
+					<SrcName href="/models/Creatures/Necropolis/Wight.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.143901</y>
+						<z>1.40137</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.825303</x>
+						<y>0.825303</y>
+						<z>1.30628</z>
+					</AABBHalfSize>
+					<uid>795E7565-56B9-4792-9882-1DF8F5E97DA8</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>StickShape</Item>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

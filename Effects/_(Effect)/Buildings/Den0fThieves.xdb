@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000332">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_74d0c261-697e-4fea-ae54-8beb7bcc1b2b">
+			<ParticleInstance ObjectRecordID="1000462">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_b42f0a75-323a-4815-b769-3f3987282079">
+					<Particle ObjectRecordID="1000377">
+						<SrcName href="/Effects/Buildings/FPP2/Den0fThieves.mb"/>
+						<ExportPrefix>Den0fThievesEff01</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>5205e33fd85c26406bc2e940026bb04079e23e40a8c93340e2136c40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>462A4C6A-38DB-475E-A879-FE4638965DEB</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.8</Speed>
+				<Offset>0</Offset>
+				<EndCycle>5</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_b652b2de-7ff1-449e-a7fc-7d0620f59a6d">
+			<ParticleInstance ObjectRecordID="1000463">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_90a1baa8-8de2-46f9-b05c-4e1304c141bc">
+					<Particle ObjectRecordID="1000378">
+						<SrcName href="/Effects/Buildings/FPP2/Den0fThieves.mb"/>
+						<ExportPrefix>Den0fThievesEff02</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>fcf5813fcf15b43ff009814081599c40788934407889344078893440</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>1B82D9AF-2FAF-4D48-BA80-05BB6519A712</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>2</Speed>
+				<Offset>0</Offset>
+				<EndCycle>8</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

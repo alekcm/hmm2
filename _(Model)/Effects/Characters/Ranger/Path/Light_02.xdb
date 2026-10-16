@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000859">
+	<Materials>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Lights-lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_e0e4b632-52c4-419f-907b-6051e898ab8c">
+		<Skeleton ObjectRecordID="1000155">
+			<SrcName href="/Effects/Characters/Ranger/Path/Light02.mb"/>
+			<RootJoint>Lights</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1FA5A008-F814-48A6-9D4F-F7B27A86F34B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_686beed5-f0fb-4a1e-823c-12b8fb52dbc6">
+		<Geometry ObjectRecordID="1000648">
+			<SrcName href="/Effects/Characters/Ranger/Path/Light02.mb"/>
+			<uid>11AE29F6-9CBB-4E54-931E-BE8E5717B24B</uid>
+			<RootMesh>Lights</RootMesh>
+			<RootJoint>Lights</RootJoint>
+			<Size>
+				<x>4.87547</x>
+				<y>4.39307</y>
+				<z>1.6303</z>
+			</Size>
+			<Center>
+				<x>-0.13424</x>
+				<y>-0.6599</y>
+				<z>0.444961</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0370377</x>
+				<y>-0.370496</y>
+				<z>1.26011</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>6</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>group1|Light3|Light3Shape</Item>
+				<Item>group1|Light4|Light4Shape</Item>
+				<Item>group1|Light5|Light5Shape</Item>
+				<Item>TempLight_Lights|Light3|Light3Shape</Item>
+				<Item>TempLight_Lights|Light4|Light4Shape</Item>
+				<Item>TempLight_Lights|Light5|Light5Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

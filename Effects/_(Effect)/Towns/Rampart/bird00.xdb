@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000208">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_920f54f6-a3bb-4353-84d4-67e978ac91e8">
+			<ParticleInstance ObjectRecordID="1000227">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Towns/Rampart/Environment/Bird01.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.2</Scale>
+				<Speed>0.5</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/Bat/Bat00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat11.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat12.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat/Bat13.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

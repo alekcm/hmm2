@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000093">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_125321a0-e730-4f18-8543-d611b7715988">
+			<ParticleInstance ObjectRecordID="1000100">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_f83c6464-ce69-4b65-ad97-66d13b652efe">
+					<Particle ObjectRecordID="1000100">
+						<SrcName href="/Effects/Spells/AnimateDead.mb"/>
+						<ExportPrefix>AnimateDead</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>90ac073e804d9f3ca0d5563e62472e419e0cd840ad5ee24007889940</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>D90AAF01-5155-401C-9611-F8ED44FE1A80</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Arenas/Stone08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Arenas/Stone06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Arenas/Stone07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Arenas/Stone08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Arenas/SmallStones01.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights>
+		<Item href="AnimateDead.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_0939a35b-93c2-4af2-8c7f-d501bf91bd7e">
+			<ModelInstance ObjectRecordID="1000033">
+				<Model href="/_(Model)/Effects/Spells/AnimateDead.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Spells/AnimateDead.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

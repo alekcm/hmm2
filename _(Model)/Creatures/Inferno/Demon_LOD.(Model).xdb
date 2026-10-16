@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5642">
+	<Materials>
+		<Item href="Demon_LOD-Demon_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_14d1fcad-2db1-4134-aa86-dc44154d6ee1">
+		<Skeleton ObjectRecordID="465">
+			<SrcName href="/models/Creatures/Inferno/Demon_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>A61581A4-FCEF-42EA-A159-8523D84634AD</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_605b6817-1a0c-4736-8483-86726019b123">
+		<Geometry ObjectRecordID="4833">
+			<SrcName href="/models/Creatures/Inferno/Demon_LOD.mb"/>
+			<uid>C2AFA39D-85E0-473E-B1EC-ECA27929B659</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.3211</x>
+				<y>1.63269</y>
+				<z>1.4514</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.000123203</y>
+				<z>0.725599</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0540992</x>
+				<y>-0.343459</y>
+				<z>1.29781</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_6429afb4-3aec-41d0-95fd-53a98e8ca260">
+				<AIGeometry ObjectRecordID="187">
+					<SrcName href="/models/Creatures/Inferno/Demon_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.00233287</x>
+						<y>-0.0389057</y>
+						<z>0.699303</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.709239</x>
+						<y>0.901848</y>
+						<z>0.698207</z>
+					</AABBHalfSize>
+					<uid>36A33BF8-BFCA-49D8-BC50-C859941C8132</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Demon_meshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

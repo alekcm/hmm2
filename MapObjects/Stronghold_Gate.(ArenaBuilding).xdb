@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaBuilding>
+	<Pos>
+		<x>10</x>
+		<y>8</y>
+	</Pos>
+	<Size>
+		<x>2</x>
+		<y>4</y>
+	</Size>
+	<Object href="/Arenas/CombatArena/Stronghold_arena/s_gate.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+	<Locator/>
+	<Shooter/>
+	<Shot/>
+	<Type>GATE</Type>
+	<HitEffect href="/Effects/_(Effect)/Arenas/InfernoSiege/Hit/Gate.xdb#xpointer(/Effect)"/>
+	<HitSound/>
+	<DestroyEffects>
+		<Item>
+			<Upgrade>1</Upgrade>
+			<RuinLevel>0</RuinLevel>
+			<Effect href="/Effects/_(Effect)/Arenas/HavenSiege/GateCrash01.xdb#xpointer(/Effect)"/>
+			<SoundEffect/>
+			<Locator/>
+		</Item>
+		<Item>
+			<Upgrade>1</Upgrade>
+			<RuinLevel>1</RuinLevel>
+			<Effect href="/Effects/_(Effect)/Arenas/HavenSiege/GateCrash02.xdb#xpointer(/Effect)"/>
+			<SoundEffect/>
+			<Locator/>
+		</Item>
+	</DestroyEffects>
+	<blockedTiles>
+		<Item>
+			<x>9</x>
+			<y>6</y>
+		</Item>
+		<Item>
+			<x>10</x>
+			<y>6</y>
+		</Item>
+		<Item>
+			<x>9</x>
+			<y>7</y>
+		</Item>
+		<Item>
+			<x>10</x>
+			<y>7</y>
+		</Item>
+		<Item>
+			<x>9</x>
+			<y>8</y>
+		</Item>
+		<Item>
+			<x>10</x>
+			<y>8</y>
+		</Item>
+		<Item>
+			<x>9</x>
+			<y>9</y>
+		</Item>
+		<Item>
+			<x>10</x>
+			<y>9</y>
+		</Item>
+	</blockedTiles>
+	<blockedTilesForDestroyed>
+		<Item>
+			<x>9</x>
+			<y>6</y>
+		</Item>
+		<Item>
+			<x>10</x>
+			<y>6</y>
+		</Item>
+		<Item>
+			<x>9</x>
+			<y>9</y>
+		</Item>
+		<Item>
+			<x>10</x>
+			<y>9</y>
+		</Item>
+	</blockedTilesForDestroyed>
+	<NameFileRef href="/Text/Game/Creatures/CombatBuildings/Gate.txt"/>
+	<DescriptionFileRef href=""/>
+</ArenaBuilding>

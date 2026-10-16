@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="Freyda_DS_U-arena-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move</Kind>
+			<Anim href="Freyda_DS_U-arena-move.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>spbellicose</Kind>
+			<Anim href="Freyda_DS_U-arena-spbellicose.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>sphaughtiness</Kind>
+			<Anim href="Freyda_DS_U-arena-sphaughtiness.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>spneutral</Kind>
+			<Anim href="Freyda_DS_U-arena-spneutral.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>spsad</Kind>
+			<Anim href="Freyda_DS_U-arena-spsad.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle_knee</Kind>
+			<Anim href="Freyda_DS_U-arena-idle_knee.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle_spknee</Kind>
+			<Anim href="Freyda_DS_U-arena-idle_spknee.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle_sad</Kind>
+			<Anim href="Freyda_DS_U-arena-idle_sad.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>attack_01</Kind>
+			<Anim href="Freyda_DS_U-arena-attack_01.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>attack_02</Kind>
+			<Anim href="Freyda_DS_U-arena-attack_02.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>attack_03</Kind>
+			<Anim href="Freyda_DS_U-arena-attack_03.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle_combat</Kind>
+			<Anim href="Freyda_DS_U-arena-idle_combat.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>cast</Kind>
+			<Anim href="Freyda_DS_U-arena-cast.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A1/Models/Heroes/Freyda/Freyda_CS.mb"/>
+	<ExpSrcClipFolder href="/H5A1/Animations/Dialogs/Freyda/Freyda_unmounted/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

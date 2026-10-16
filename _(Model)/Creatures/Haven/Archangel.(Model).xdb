@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2428">
+	<Materials>
+		<Item href="/_(Material)/Creatures______5903/Haven/Archangel/SwordGlow.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/Haven/Archangel/Sword_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/Haven/Archangel/Arch_main.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/Haven/Archangel/Arch_add.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/Haven/Angel/Face_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/Haven/Angel/Hair_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c0cd79e6-8eca-4783-8e2b-459098a039af">
+		<Skeleton ObjectRecordID="221">
+			<SrcName href="/models/Creatures/Castle/ArchAngel.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>E47B8949-413F-4C71-B397-A19D91D44510</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_7a555307-3180-4d28-952c-3711175e8ee0">
+		<Geometry ObjectRecordID="2717">
+			<SrcName href="/models/Creatures/Castle/ArchAngel.mb"/>
+			<uid>2CAA29B4-927F-4FF9-ACD0-C5F52CC5B37F</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.17455</x>
+				<y>5.08792</y>
+				<z>5.56246</z>
+			</Size>
+			<Center>
+				<x>0.232089</x>
+				<y>-0.318602</y>
+				<z>2.70707</z>
+			</Center>
+			<BestFitPoint>
+				<x>-5.1501e-009</x>
+				<y>1.64695</y>
+				<z>5.45207</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(AIGeometry)/Creatures/Haven/ArchAngel.(AIGeometry).xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>4</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>SwordGlowShape</Item>
+				<Item>SwordShape</Item>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6348">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_c0db856a-fd76-4af3-b0f0-8be639339fed">
+			<Material ObjectRecordID="1004818">
+				<Texture href="/Textures/auto-imported_______320/TESTS/Buildings/Mine/Gold_Mine/HighDruid.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="HighDruid-Druid_Add_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="HighDruid-Druid_Add_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="HighDruid-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="HighDruid-lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="/_(Skeleton)/Creatures/Preserve/HighDruid.(Skeleton).xdb#xpointer(/Skeleton)"/>
+	<Geometry href="/_(Geometry)/Creatures/Preserve/HighDruid.(Geometry).xdb#xpointer(/Geometry)"/>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

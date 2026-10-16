@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5690">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_a54e8f6c-8952-40ed-bc9a-74650dbd93d4">
+			<Material ObjectRecordID="9302">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Lava/Craters/Crater2x1_1/crater.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_3b845786-6249-4a67-90bb-17b30ab9af32">
+		<Skeleton ObjectRecordID="512">
+			<SrcName href="/models/TerrainObjects/Lava/Craters/crater4x2_1.mb"/>
+			<RootJoint>crater4x2_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>59C333D1-54FE-4578-803C-41C3780890D8</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_832cc680-17dd-4b4e-b3fb-c142cd8becdd">
+		<Geometry ObjectRecordID="4882">
+			<SrcName href="/models/TerrainObjects/Lava/Craters/crater4x2_1.mb"/>
+			<uid>98E2003A-371F-4387-A6E7-EF70ED9E4583</uid>
+			<RootMesh>crater4x2_1</RootMesh>
+			<RootJoint>crater4x2_1</RootJoint>
+			<Size>
+				<x>8</x>
+				<y>4</y>
+				<z>1.15427</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>1</y>
+				<z>-0.577137</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.354255</x>
+				<y>1.27213</y>
+				<z>-0.0953883</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>pPlaneShape2</Item>
+				<Item>pPlaneShape3</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

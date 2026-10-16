@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7807">
+	<Materials>
+		<Item href="Crystal04-Cristal_steklo.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Crystal04-Cristal_kamen.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_1b7e5328-5c9a-41f9-9afb-2528773f283e">
+		<Skeleton ObjectRecordID="1659">
+			<SrcName href="/models/TerrainObjects/Subterrain/Crystals/crystals.mb"/>
+			<RootJoint>Crystal04</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>6DFE4FE3-9D66-4D2F-9BDC-CDCA93C26197</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a7aedc9e-069e-488d-9fc3-cecc47fa67d6">
+		<Geometry ObjectRecordID="6966">
+			<SrcName href="/models/TerrainObjects/Subterrain/Crystals/crystals.mb"/>
+			<uid>E11EB7E0-DF6A-4C91-A12A-F5387D50C505</uid>
+			<RootMesh>Crystal04</RootMesh>
+			<RootJoint>Crystal04</RootJoint>
+			<Size>
+				<x>2.32776</x>
+				<y>2.95802</y>
+				<z>3.26513</z>
+			</Size>
+			<Center>
+				<x>-0.208699</x>
+				<y>0.108153</y>
+				<z>1.63257</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.252676</x>
+				<y>-0.203227</y>
+				<z>3.1044</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Crystal04Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

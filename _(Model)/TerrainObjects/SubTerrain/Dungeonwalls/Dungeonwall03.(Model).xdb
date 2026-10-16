@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7604">
+	<Materials>
+		<Item href="Dungeonwall03-Pod_mat.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Dungeonwall03-Alfa_mat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_7c1dbcda-0b85-4342-a429-e8ef916021c0">
+		<Geometry ObjectRecordID="6777">
+			<SrcName href="/models/TerrainObjects/Subterrain/Dungeonwall/Dungeonwalls.mb"/>
+			<uid>9FDAFD90-11C1-4791-B101-5697BEAAE912</uid>
+			<RootMesh>Dungeonwall03</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>6.00065</x>
+				<y>6</y>
+				<z>18</z>
+			</Size>
+			<Center>
+				<x>0.000324249</x>
+				<y>0</y>
+				<z>9</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.00358622</x>
+				<y>2.33233</y>
+				<z>17.9861</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Dungeonwall03|Dungeonwall|DungeonwallShape</Item>
+				<Item>Dungeonwall03|Dungeonwall_lamb|Dungeonwall_lambShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

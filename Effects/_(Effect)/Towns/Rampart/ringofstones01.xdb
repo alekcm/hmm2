@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000154">
+	<Instances>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Rampart/RingOfStones/Batterflay_glow.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Rampart/RingOfStones/Light.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Rampart/RingOfStones/Rays.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Towns/Rampart/RingOfStones/batterflay_glow 2.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="#n:inline(ParticleInstance)" id="item_27b201c4-e76a-40ad-b55f-5d7ca972d2c9">
+			<ParticleInstance ObjectRecordID="1000158">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_e09008e8-a584-4618-b8ae-dfd3b1ed956f">
+					<Particle ObjectRecordID="1000145">
+						<SrcName href="/Effects/Towns/Rampart/RingOfStones.mb"/>
+						<ExportPrefix>SphericRays</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>00bddabc4cc932befc204541a8d26f409b770a40905a0a407a900a40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>543D55CD-E196-4FC2-92B2-D5BBEF785154</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-6.7</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3.13333</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/RaysGold01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RaysGold02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_b0a29ec6-c6ca-43a2-9356-5bada5b88fbe">
+			<ParticleInstance ObjectRecordID="1000159">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_c92fd7ac-1e22-405a-ba44-0debb618dba8">
+					<Particle ObjectRecordID="1000146">
+						<SrcName href="/Effects/Towns/Rampart/RingOfStones.mb"/>
+						<ExportPrefix>Rose</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>10269ebc1ced15bea13c454109421c3f5e6eb43e5e6eb43e606eb43e</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>8406F3A6-BFA7-4712-A88F-E3D60CCB40E9</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-6.7</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3.033</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Towns/Rose01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="/Effects/_(ModelInstance)/Effects/Towns/Rampart/Rampart_Batterflay.xdb#xpointer(/ModelInstance)"/>
+		<Item href="/Effects/_(ModelInstance)/Effects/Towns/Rampart/ringofstone_light.xdb#xpointer(/ModelInstance)"/>
+		<Item href="/Effects/_(ModelInstance)/Effects/Towns/Rampart/rampart_batterflay2.xdb#xpointer(/ModelInstance)"/>
+		<Item href="#n:inline(ModelInstance)" id="item_23aaa340-0121-4a13-84a4-c3053414d8c7">
+			<ModelInstance ObjectRecordID="1000047">
+				<Model href="/_(Model)/Effects/Towns/Rampart_Root.xdb#xpointer(/Model)"/>
+				<SkelAnim/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-6.7</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

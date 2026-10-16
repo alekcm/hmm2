@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3946">
+	<Materials>
+		<Item href="Wraith-__Wight_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Wraith-__Wight_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Wraith-WraithADD_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_e6ceda56-0c32-4302-9fdb-155d5d27c4d3">
+		<Skeleton ObjectRecordID="1289">
+			<SrcName href="/models/Creatures/Necropolis/Wraith.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>83861619-F497-41B7-976B-228C4F845035</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b61ade1f-29bb-4f25-99eb-a4e2befa98fb">
+		<Geometry ObjectRecordID="3387">
+			<SrcName href="/models/Creatures/Necropolis/Wraith.mb"/>
+			<uid>34F7499B-BF96-448E-BF25-7DB866C21A7B</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.54044</x>
+				<y>2.83573</y>
+				<z>4.58391</z>
+			</Size>
+			<Center>
+				<x>-0.282278</x>
+				<y>-0.123179</y>
+				<z>1.12926</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.6454</x>
+				<y>-0.348072</y>
+				<z>3.74554</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_57876ea2-3040-4338-8539-e88d6410bacb">
+				<AIGeometry ObjectRecordID="344">
+					<SrcName href="/models/Creatures/Necropolis/Wraith.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.143901</y>
+						<z>1.40137</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.825303</x>
+						<y>0.825303</y>
+						<z>1.30628</z>
+					</AABBHalfSize>
+					<uid>B1F214D9-3581-4290-AFCA-E064E92917CF</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>StickShape</Item>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

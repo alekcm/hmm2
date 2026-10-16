@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="1000043">
+	<ExpScene href="/models/Arenas/AcademySiege/AcademySiege.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>E60618AD-41A8-48A7-8301-2806B5B23678</uid>
+	<objects>
+		<Item href="s_wall_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_3.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_4.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_central_tower.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_gate.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="shooter_s1.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s3.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s2.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Sidewall1.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Sidewall2.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="t2.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="t1.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+	</objects>
+	<lights/>
+	<effects/>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>292.337</x>
+			<y>283.003</y>
+			<z>18.469</z>
+		</Pos>
+		<Rot>
+			<x>-20.7177</x>
+			<y>-94.8118</y>
+			<z>0</z>
+		</Rot>
+		<Rod>56.784</Rod>
+		<FOV>49.0269</FOV>
+		<ClipDistanceMin>0.2</ClipDistanceMin>
+		<ClipDistanceMax>500</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound/>
+	<Music/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Gloss_infno_test.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model/>
+		<AnimSet/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras/>
+	<CameraLimits/>
+	<CameraLimitsSet/>
+</ArenaDesc>

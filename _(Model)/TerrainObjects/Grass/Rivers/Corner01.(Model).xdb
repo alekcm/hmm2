@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3968">
+	<Materials>
+		<Item href="/_(Material)/dev/ReflectiveWater_Rampart_Adv.xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_22d14719-b313-45f1-8f40-c98eb531019f">
+			<Material ObjectRecordID="5833">
+				<Texture href="/Textures/auto-imported_______320/dev/Grass/Rivers/Straight01/Bank.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_3c521e38-53ea-424e-9839-067c7d48d530">
+		<Skeleton ObjectRecordID="298">
+			<SrcName href="/models/TerrainObjects/Grass/River/Turn.mb"/>
+			<RootJoint>turn</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>A8A9DB4B-DDEB-4325-8EB9-5A4961469AF4</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b2af7040-7d0c-49a8-b441-47771a33ba92">
+		<Geometry ObjectRecordID="3407">
+			<SrcName href="/models/TerrainObjects/Grass/River/Turn.mb"/>
+			<uid>99713969-940D-43CE-8304-781CD745BD73</uid>
+			<RootMesh>turn</RootMesh>
+			<RootJoint>turn</RootJoint>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>0.536684</z>
+			</Size>
+			<Center>
+				<x>5.96046e-008</x>
+				<y>-5.96046e-008</y>
+				<z>-0.256707</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0587651</x>
+				<y>0.0203858</y>
+				<z>-0.083702</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>waterShape</Item>
+				<Item>bank2Shape</Item>
+				<Item>bank3Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7142">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_4f896360-96ad-4277-ace5-6acf251eab05">
+			<Material ObjectRecordID="15824">
+				<Texture href="/Textures/Effects/Spells/FlashGlow03NoADD.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_2b2e391c-1718-4c44-bcab-9ac27c643bd4">
+		<Skeleton ObjectRecordID="1291">
+			<SrcName href="/Effects/Arenas/Inferno/InfernoSiege_BigTowerShot.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>934FE21A-C3C7-43BE-8137-EEE1A46355ED</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_3e6dc7a1-72cc-4ebf-89fb-db2a301fd814">
+		<Geometry ObjectRecordID="6344">
+			<SrcName href="/Effects/Arenas/Inferno/InfernoSiege_BigTowerShot.mb"/>
+			<uid>0BB50B1C-45A1-447F-9433-9F1CF709E7E1</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.20075</x>
+				<y>1.68858</y>
+				<z>1.34116</z>
+			</Size>
+			<Center>
+				<x>-0.635149</x>
+				<y>-0.00549388</y>
+				<z>-0.134983</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.038693</x>
+				<y>0.00255787</y>
+				<z>0.498881</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>MeteorShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

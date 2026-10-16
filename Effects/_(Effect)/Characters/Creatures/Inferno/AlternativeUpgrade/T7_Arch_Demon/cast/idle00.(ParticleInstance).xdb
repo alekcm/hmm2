@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance>
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="/Effects/_(Effect)/Characters/Creatures/Inferno/AlternativeUpgrade/T7_Arch_Demon/cast.(Particle).xdb#xpointer(/Particle)"/>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>3.33333</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/FireSequence/Black_NoADD/FireSic.0.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Black_NoADD/FireSic.1.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Black_NoADD/FireSic.2.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Black_NoADD/FireSic.3.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Black_NoADD/FireSic.4.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Black_NoADD/FireSic.5.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Black_NoADD/FireSic.6.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Black_NoADD/FireSic.7.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Black_NoADD/FireSic.8.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Black_NoADD/FireSic.9.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/Black_NoADD/FireSic.10.(Texture).xdb#xpointer(/Texture)"/>
+		<Item/>
+		<Item href="/Textures/Effects/Spells/FlashGlow03.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/auto-imported_______320/Effects/Spells/MagicFist_hand/MagicFist_Rays.tga.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

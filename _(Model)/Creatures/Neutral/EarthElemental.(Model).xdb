@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7629">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_7e595a7d-1be5-474c-b572-6b90a0cf8ca6">
+			<Material ObjectRecordID="18956">
+				<Texture href="/Textures/auto-imported_____18951/Creatures/Neutral/EarthElemental/Earth_Elemental.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_5b93f70d-0e38-45d1-85e4-edf6be6defff">
+		<Skeleton ObjectRecordID="1549">
+			<SrcName href="/models/Creatures/Neutral/EarthElemental.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>9592EC39-E9AA-400B-835E-7DDAF23B823F</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_2fb6d8da-16c1-42e3-87bd-23d3d12a6a35">
+		<Geometry ObjectRecordID="6799">
+			<SrcName href="/models/Creatures/Neutral/EarthElemental.mb"/>
+			<uid>6BCDE885-BC7C-40A7-ABC0-0409D2E69A5E</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4.46594</x>
+				<y>1.05257</y>
+				<z>2.42603</z>
+			</Size>
+			<Center>
+				<x>-0.0191991</x>
+				<y>-0.0366682</y>
+				<z>1.21028</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0160003</x>
+				<y>0.180835</y>
+				<z>2.25402</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_71fbc896-006f-4cb0-b3a5-3e2baf499415">
+				<AIGeometry ObjectRecordID="393">
+					<SrcName href="/models/Creatures/Neutral/EarthElemental.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.0548642</y>
+						<z>1.16105</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.04014</x>
+						<y>0.582601</y>
+						<z>1.16006</z>
+					</AABBHalfSize>
+					<uid>55B5BA3A-AA2A-415B-8CBF-2C9E9E5AD3D6</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>|Body|Body</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

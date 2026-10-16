@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5940">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_8f007a8d-0d7e-438f-b54c-10c4308312fc">
+			<Material ObjectRecordID="9703">
+				<Texture href="/Textures/auto-imported_______320/dev/Grass/Mounting/Mountain/ConquestMountainDirt.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_28fb5457-bb57-4062-b943-862968119a30">
+		<Skeleton ObjectRecordID="604">
+			<SrcName href="/models/TerrainObjects/Dirt/Mountains/Mountain2x2_1.mb"/>
+			<RootJoint>mountain2x2_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>79BA6975-C32E-45D7-9FF9-99D4341CCABA</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_af561d8d-af97-48c4-b617-c7f162df82ef">
+		<Geometry ObjectRecordID="5129">
+			<SrcName href="/models/TerrainObjects/Dirt/Mountains/Mountain2x2_1.mb"/>
+			<uid>47915526-BFC7-40C8-A72F-A66CFD162D71</uid>
+			<RootMesh>mountain2x2_1</RootMesh>
+			<RootJoint>mountain2x2_1</RootJoint>
+			<Size>
+				<x>4</x>
+				<y>4</y>
+				<z>1.84285</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>1</y>
+				<z>0.921427</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.11283</x>
+				<y>1.20516</y>
+				<z>1.5416</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>model1Shape</Item>
+				<Item>model2Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

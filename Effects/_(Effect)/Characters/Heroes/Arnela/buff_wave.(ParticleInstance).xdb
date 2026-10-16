@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance>
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="Buff_waves.(Particle).xdb#xpointer(/Particle)"/>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>0</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/FireSequence/White/FireSic0.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/White/FireSic1.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/White/FireSic2.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/White/FireSic3.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/White/FireSic4.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/White/FireSic5.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/White/FireSic6.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/White/FireSic7.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/White/FireSic8.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/White/FireSic9.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/FireSequence/White/FireSic10.(Texture).xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

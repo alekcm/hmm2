@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6144">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_b1211dd2-cf63-4864-8ce6-c52b05074c3c">
+			<Material ObjectRecordID="10261">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/SubTerrain/Mushrooms/Mushroom1x1_4/mushroom03.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_02433e37-de3b-48b6-9dad-285e04de4ca2">
+		<Skeleton ObjectRecordID="687">
+			<SrcName href="/models/TerrainObjects/Subterrain/Mushrooms/Mushroom1x1_4.mb"/>
+			<RootJoint>mushroom1x1_4</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>C368B413-37D2-4058-975A-36AAB30A7975</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_7f242df9-4dca-475b-91d8-4a7b2a75f986">
+		<Geometry ObjectRecordID="5334">
+			<SrcName href="/models/TerrainObjects/Subterrain/Mushrooms/Mushroom1x1_4.mb"/>
+			<uid>C98AF8C5-D2BF-4D2B-8314-6DE66DB9875D</uid>
+			<RootMesh>mushroom1x1_4</RootMesh>
+			<RootJoint>mushroom1x1_4</RootJoint>
+			<Size>
+				<x>0.76278</x>
+				<y>0.741133</y>
+				<z>1.06147</z>
+			</Size>
+			<Center>
+				<x>-0.0639885</x>
+				<y>-0.0199346</y>
+				<z>0.530735</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0415365</x>
+				<y>-0.0482781</y>
+				<z>0.826137</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>mushroom1x1_4Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>1</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

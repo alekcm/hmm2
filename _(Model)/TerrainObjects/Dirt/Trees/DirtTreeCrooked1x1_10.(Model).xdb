@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7314">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_ffae6bec-729c-4088-a6cc-edda232f8317">
+			<Material ObjectRecordID="17513">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Trees/DirtTreeCrooked1x1_1/DirtTreeCrooked01_bark01.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_b84dff08-24d8-4587-9281-621cf15da2b7">
+		<Skeleton ObjectRecordID="1336">
+			<SrcName href="/models/TerrainObjects/Dirt/Trees/DirtTreeCrooked1x1_1.mb"/>
+			<RootJoint>DirtTreeCrooked1x1_10</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>F80838E5-9587-4578-BAA7-6601D96DA0CB</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ba97e4f7-0bfc-4cfd-b450-a3a977eb1859">
+		<Geometry ObjectRecordID="6513">
+			<SrcName href="/models/TerrainObjects/Dirt/Trees/DirtTreeCrooked1x1_1.mb"/>
+			<uid>0991D97F-BD73-46FB-BC57-B57CC9195EE9</uid>
+			<RootMesh>DirtTreeCrooked1x1_10</RootMesh>
+			<RootJoint>DirtTreeCrooked1x1_10</RootJoint>
+			<Size>
+				<x>2.12192</x>
+				<y>1.38083</y>
+				<z>6.37995</z>
+			</Size>
+			<Center>
+				<x>0.303018</x>
+				<y>0.0265265</y>
+				<z>1.8379</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.592099</x>
+				<y>-0.00126173</y>
+				<z>4.65025</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>DirtTreeCrooked1x1_Shape10</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

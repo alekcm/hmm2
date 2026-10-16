@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000595">
+	<Instances>
+		<Item href="FireWall/idle00.(ParticleInstance) (3).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="FireWall/Flash.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="FireWall/Flash.(ParticleInstance) (2).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="FireWall/Flash.(ParticleInstance) (3).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights>
+		<Item href="FireWall_start.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models>
+		<Item href="FireWall_end.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

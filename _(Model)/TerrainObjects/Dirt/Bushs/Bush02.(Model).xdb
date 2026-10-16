@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5973">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_7a09eff7-e2a7-4d7c-bcf4-0285e2ecf3b0">
+			<Material ObjectRecordID="9750">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Bushs/Bush02/bush02.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_5ade204f-d8fe-4c08-bfed-24818fa2589e">
+		<Skeleton ObjectRecordID="628">
+			<SrcName href="/models/TerrainObjects/Dirt/Bushs/bush02.mb"/>
+			<RootJoint>bush02</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>2A32C1CA-3EB7-4F4B-8699-3E92069E1864</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_d3b998fa-c2e8-4f4c-a021-1228a8bdd5ff">
+		<Geometry ObjectRecordID="5162">
+			<SrcName href="/models/TerrainObjects/Dirt/Bushs/bush02.mb"/>
+			<uid>90D66F02-183C-4AD2-8781-CE72DDEE91D4</uid>
+			<RootMesh>bush02</RootMesh>
+			<RootJoint>bush02</RootJoint>
+			<Size>
+				<x>3.23847</x>
+				<y>3.05308</y>
+				<z>0.877206</z>
+			</Size>
+			<Center>
+				<x>0.0793996</x>
+				<y>0.154792</y>
+				<z>0.438603</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0842391</x>
+				<y>0.129762</y>
+				<z>0.622023</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>bush0Shape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>1</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

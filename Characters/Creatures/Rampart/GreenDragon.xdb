@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001135">
+	<Materials>
+		<Item href="GreenDragon-GreenDragon_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_b239c887-0d0d-4076-bb5c-af32a3f3e087">
+		<Skeleton ObjectRecordID="1000255">
+			<SrcName href="/models/Creatures/Preserve/GreenDragon.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>26995230-028A-4A86-969E-C39710F7A93B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_79ecd49d-d403-4cfb-9689-ea26db88f7a1">
+		<Geometry ObjectRecordID="1000918">
+			<SrcName href="/models/Creatures/Preserve/GreenDragon.mb"/>
+			<uid>12ECCBE5-4D00-4C6D-8C28-04E1228E6111</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4.96928</x>
+				<y>5.31212</y>
+				<z>4.809</z>
+			</Size>
+			<Center>
+				<x>0.114972</x>
+				<y>0.464151</y>
+				<z>2.32325</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.64166</x>
+				<y>1.79536</y>
+				<z>4.59215</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_bd66026f-5a3f-49d6-b4e1-b981df89388b">
+				<AIGeometry ObjectRecordID="1000460">
+					<SrcName href="/models/Creatures/Preserve/GreenDragon.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.0616505</x>
+						<y>0.442583</y>
+						<z>2.72514</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2.36767</x>
+						<y>2.927</y>
+						<z>2.0859</z>
+					</AABBHalfSize>
+					<uid>3A7A919B-C7B5-410C-8C84-94A602EB6FC5</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

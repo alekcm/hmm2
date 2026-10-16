@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowSimpleShared>
+	<Crap>false</Crap>
+	<Children>
+		<Item href="Main/SpellButton_0.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="Main/SpellButton_1.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="Main/SpellButton_2.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="Main/SpellButton_3.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="Main/SpellButton_4.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="Main/SpellButton_5.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="Main/BigHeader.(WindowTextView).xdb#xpointer(/WindowTextView)"/>
+		<Item href="Main/SmallHeader.(WindowTextView).xdb#xpointer(/WindowTextView)"/>
+		<Item href="Main/SpellPrice_0.xdb#xpointer(/WindowSimple)"/>
+		<Item href="Main/SpellPrice_1.xdb#xpointer(/WindowSimple)"/>
+		<Item href="Main/SpellPrice_2.xdb#xpointer(/WindowSimple)"/>
+		<Item href="Main/SpellPrice_3.xdb#xpointer(/WindowSimple)"/>
+		<Item href="Main/SpellPrice_4.xdb#xpointer(/WindowSimple)"/>
+		<Item href="Main/SpellPrice_5.xdb#xpointer(/WindowSimple)"/>
+		<Item href="Main/Buy.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="Main/Cancel.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+	</Children>
+	<Background/>
+	<Foreground/>
+	<Flags>
+		<Transparent>false</Transparent>
+	</Flags>
+	<Placement>
+		<Position>
+			<First>
+				<x>337</x>
+				<y>134</y>
+			</First>
+			<Second>true</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_LOW_END</First>
+			<Second>false</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_LOW_END</First>
+			<Second>false</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>350</x>
+				<y>500</y>
+			</First>
+			<Second>true</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</UpperMargin>
+	</Placement>
+	<ActiveArea/>
+	<IgnoreDblClick>false</IgnoreDblClick>
+	<ActiveMask/>
+</WindowSimpleShared>

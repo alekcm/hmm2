@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000754">
+	<Materials>
+		<Item href="Sandtree01-Sandtrees1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Sandtree01-Lstone_plane.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ad5c1a26-e218-45a7-80ab-0bac8bcc6d33">
+		<Skeleton ObjectRecordID="1000124">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Sandtrees/Sandtrees.mb"/>
+			<RootJoint>Sandtree02</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>6602048C-3D50-429E-830C-3CFA4AA69C48</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_c3ba0474-262f-44b4-805e-80edbf58f1c3">
+		<Geometry ObjectRecordID="1000545">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Sandtrees/Sandtrees.mb"/>
+			<uid>7A9812C0-753A-42CD-A31C-A6EA997425AD</uid>
+			<RootMesh>Sandtree02</RootMesh>
+			<RootJoint>Sandtree02</RootJoint>
+			<Size>
+				<x>2.9965</x>
+				<y>3.91511</y>
+				<z>8.06475</z>
+			</Size>
+			<Center>
+				<x>0.19459</x>
+				<y>-0.957554</y>
+				<z>1.03237</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.1185</x>
+				<y>-0.047048</y>
+				<z>4.82042</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Sandtree02|Sandtree|SandtreeShape</Item>
+				<Item>Sandtree02|Treeshadow|TreeshadowShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

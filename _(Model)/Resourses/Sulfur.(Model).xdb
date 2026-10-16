@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6698">
+	<Materials>
+		<Item href="Sulfur-lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_83f47c2a-a991-4510-9ce3-a398db86e3cc">
+		<Skeleton ObjectRecordID="1047">
+			<SrcName href="/models/ResourcesAndChests/Resourses.mb"/>
+			<RootJoint>Sulfur</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>EA504CC8-9CD7-4507-830F-36C3CB52C84A</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_eb7604e4-f047-45df-b8e4-8011597b8f7b">
+		<Geometry ObjectRecordID="5895">
+			<SrcName href="/models/ResourcesAndChests/sulfur.mb"/>
+			<uid>D22246DF-DB78-4EC1-9D6B-C081BC22058A</uid>
+			<RootMesh>Sulfur</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2.26396</x>
+				<y>2.0523</y>
+				<z>1.48853</z>
+			</Size>
+			<Center>
+				<x>0.0699882</x>
+				<y>-0.0648485</y>
+				<z>0.746683</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.901487</x>
+				<y>0.0740394</y>
+				<z>1.45583</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(Model)/TerrainObjects/Resourses/sulfur_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>SulfurShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

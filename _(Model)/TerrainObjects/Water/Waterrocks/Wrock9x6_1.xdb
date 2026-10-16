@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001320">
+	<Materials>
+		<Item href="Wrock9x6-water_rocks.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_1946419c-eacc-4137-9d79-008076c4b793">
+		<Skeleton ObjectRecordID="1000297">
+			<SrcName href="/models/TerrainObjects/Water/WaterRocks/Waterrocks.mb"/>
+			<RootJoint>Wrock9x6_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>BF2C7092-E1E5-4926-9D14-C7FBA1CD3A23</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_f894008f-4c9b-4ba7-8d9f-5fe38670b907">
+		<Geometry ObjectRecordID="1001100">
+			<SrcName href="/models/TerrainObjects/Water/WaterRocks/Waterrocks.mb"/>
+			<uid>43861632-111C-4C86-8D18-F8488D79E8F2</uid>
+			<RootMesh>Wrock9x6_1</RootMesh>
+			<RootJoint>Wrock9x6_1</RootJoint>
+			<Size>
+				<x>16.5816</x>
+				<y>11.2345</y>
+				<z>10.4264</z>
+			</Size>
+			<Center>
+				<x>-0.0792294</x>
+				<y>0.250351</y>
+				<z>3.2132</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.11416</x>
+				<y>-0.291332</y>
+				<z>8.33817</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Wrock9x6_1|Wrock|WrockShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

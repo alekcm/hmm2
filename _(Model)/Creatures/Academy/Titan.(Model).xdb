@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7445">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Creatures/Academy/Titan/Giant_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_bf626039-929c-461b-b23d-e5d425180e39">
+		<Skeleton ObjectRecordID="1437">
+			<SrcName href="/models/Creatures/Academy/Titan.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>72B1F23E-8737-4EAB-8D02-3CF3234A460A</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_7ac6f423-251b-4dce-b5d6-808751864230">
+		<Geometry ObjectRecordID="6643">
+			<SrcName href="/models/Creatures/Academy/Titan.mb"/>
+			<uid>EFA6E9AC-7C2E-45EF-8AE3-5159A81DD11E</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4.78131</x>
+				<y>1.01924</y>
+				<z>4.74447</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>-0.0493073</y>
+				<z>2.37114</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00602187</x>
+				<y>0.0726621</y>
+				<z>4.57201</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_4d8d5824-3874-4826-97b7-33113ab7ecd7">
+				<AIGeometry ObjectRecordID="381">
+					<SrcName href="/models/Creatures/Academy/Titan.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.082227</y>
+						<z>2.38937</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.37188</x>
+						<y>0.669147</y>
+						<z>2.41443</z>
+					</AABBHalfSize>
+					<uid>4FDBF859-6208-4FBF-AAB2-C294957D5AB6</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Body_meshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

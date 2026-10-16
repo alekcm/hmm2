@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3260">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_e7b03ed9-6574-4387-9b70-a48f4ab0020e">
+			<Material ObjectRecordID="5434">
+				<Texture href="/Textures/auto-imported_______320/dev/Grass/Crags/Wall_02/Steep_Wall_02.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ba3956ca-4e12-433c-bf46-412051326a6d">
+		<Skeleton ObjectRecordID="212">
+			<SrcName href="/models/TerrainObjects/Grass/Steep/Steep_Wall_02.mb"/>
+			<RootJoint>wall2</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>B3361C34-4A23-4E82-B09F-4541CD804876</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_feaba19a-ba4d-403d-918a-933132bcb4ba">
+		<Geometry ObjectRecordID="2708">
+			<SrcName href="/models/TerrainObjects/Grass/Steep/Steep_Wall_02.mb"/>
+			<uid>9C56DF5E-44B2-4D3D-8B9A-63586D0DE957</uid>
+			<RootMesh>wall2</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>2.00018</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>1</y>
+				<z>0.999912</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.975648</x>
+				<y>1.70872</y>
+				<z>1.98328</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>wall1Shape</Item>
+				<Item>wall6Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

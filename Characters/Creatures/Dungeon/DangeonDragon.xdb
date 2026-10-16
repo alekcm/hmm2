@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000744">
+	<Materials>
+		<Item href="DangeonDragon-lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c8772f79-3de8-42f5-8058-3a88f57da67d">
+		<Skeleton ObjectRecordID="1000115">
+			<SrcName href="/models/Creatures/Dungeon/DangeonDragon.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>E6B10920-1806-408F-9E64-BAB7BB28A40F</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_9c1a1fa7-33a1-4cd5-9cc6-23171047a43a">
+		<Geometry ObjectRecordID="1000536">
+			<SrcName href="/models/Creatures/Dungeon/DangeonDragon.mb"/>
+			<uid>55B96E60-0DD9-46F9-8D84-7FC47EEE555F</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.17624</x>
+				<y>8.30079</y>
+				<z>5.57745</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>1.70289</y>
+				<z>2.76913</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.000836367</x>
+				<y>1.68494</y>
+				<z>5.4874</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_f294870b-a4fe-44f7-bb06-65b1068dbdb9">
+				<AIGeometry ObjectRecordID="1000241">
+					<SrcName href="/models/Creatures/Dungeon/DangeonDragon.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.27434</y>
+						<z>0.984045</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.5</x>
+						<y>1.49001</y>
+						<z>0.995005</z>
+					</AABBHalfSize>
+					<uid>1F67CD9A-7A32-4DD7-A08B-F3AB6EBC47A0</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

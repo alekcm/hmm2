@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000930">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_c1e456f7-3386-428c-bd07-61f5a8a13922">
+			<Material ObjectRecordID="1002639">
+				<Texture href="Rakshasa-Rakshasa_Glow.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>false</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_fc24d93b-53d2-44c4-8552-65d66bf8e128">
+			<Material ObjectRecordID="1001532">
+				<Texture href="Rakshasa-Rakshasa.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_821965db-bb82-48fc-a8a2-8859fc898f39">
+		<Skeleton ObjectRecordID="1000220">
+			<SrcName href="/models/Creatures/Academy/Rakshasa.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>6877A934-15BE-4C7F-BE44-373881662188</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a04944a7-9b4d-4e9c-b7ce-e25a60bc1486">
+		<Geometry ObjectRecordID="1000713">
+			<SrcName href="/models/Creatures/Academy/Rakshasa.mb"/>
+			<uid>3F230B42-3FB3-4224-B52F-F1C591338739</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.78944</x>
+				<y>2.40036</y>
+				<z>3.2573</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.837976</y>
+				<z>1.61943</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.100465</x>
+				<y>-0.0202511</y>
+				<z>3.16336</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_2b28394d-5ebc-4ffc-ac6c-402286c0305d">
+				<AIGeometry ObjectRecordID="1000415">
+					<SrcName href="/models/Creatures/Academy/Rakshasa.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>1.30941</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.5</x>
+						<y>0.5</y>
+						<z>1.31017</z>
+					</AABBHalfSize>
+					<uid>48C29CA0-2AE2-4CA8-A8F9-0EFDDB031E8D</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Body_GlowShape</Item>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

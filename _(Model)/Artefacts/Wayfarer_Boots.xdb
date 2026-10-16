@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001756">
+	<Materials>
+		<Item href="Wayfarer_Boots-lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Wayfarer_Boots-lambert3.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_cc152748-9b77-464b-8991-ee27065340ef">
+		<Skeleton ObjectRecordID="1000398">
+			<SrcName href="/models/Artefacts/Wayfarer_Boots.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>E40A8AB2-8412-4E45-AF8E-05754BB18D5E</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_492e28b1-7ef5-4392-8bc0-1ee2654b475c">
+		<Geometry ObjectRecordID="1001536">
+			<SrcName href="/models/Artefacts/Wayfarer_Boots.mb"/>
+			<uid>C79A1EF8-0DCE-4686-BB94-DC379B049F33</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.705212</x>
+				<y>0.713138</y>
+				<z>0.965053</z>
+			</Size>
+			<Center>
+				<x>0.00328201</x>
+				<y>-0.0502857</y>
+				<z>2.0995</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00268209</x>
+				<y>0.0439402</y>
+				<z>2.46265</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="Orb_of_Light-geom-AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Boot0Shape2</Item>
+				<Item>Boot0Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

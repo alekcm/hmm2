@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7902">
+	<Materials>
+		<Item href="Ghosts2-Ghosts_add_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts2-Ghosts_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts2-lambert_Iron.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts2-lambert4.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts2-Ghosts_add_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts2-Ghosts_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts2-lambert_Iron.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts2-lambert4.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts2-Ghosts_add_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts2-Ghosts_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts2-lambert_Iron.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts2-lambert4.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_def5b49d-e4ad-45e9-9aff-0596a94db357">
+		<Skeleton ObjectRecordID="1685">
+			<SrcName href="/models/Creatures/Necropolis/Ghosts2.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>050E1443-59CB-42A6-8D47-371692B97DF1</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ae5a5a51-f92f-4633-95fe-864c004dd6c0">
+		<Geometry ObjectRecordID="7061">
+			<SrcName href="/models/Creatures/Necropolis/Ghosts2.mb"/>
+			<uid>F0E20FD2-F3D6-4C09-8A0A-998B483CB556</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.1853</x>
+				<y>1.04804</y>
+				<z>1.79816</z>
+			</Size>
+			<Center>
+				<x>0.431212</x>
+				<y>-0.173359</y>
+				<z>0.883063</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.110555</x>
+				<y>-0.0617414</y>
+				<z>1.51198</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_454466f6-b917-41e5-964d-015c97c046db">
+				<AIGeometry ObjectRecordID="466">
+					<SrcName href="/models/Creatures/Necropolis/Ghosts2.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.115716</x>
+						<y>0.0740823</y>
+						<z>1.01523</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.706447</x>
+						<y>0.750911</y>
+						<z>0.958478</z>
+					</AABBHalfSize>
+					<uid>E79DE3D4-D988-4D2C-813D-6315B912BE1E</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>4</Item>
+				<Item>4</Item>
+				<Item>4</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>GhostShape1</Item>
+				<Item>GhostShape2</Item>
+				<Item>Ghost3Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

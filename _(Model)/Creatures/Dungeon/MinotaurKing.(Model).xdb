@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7802">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_dc8b04c1-c978-4f05-b743-e2adac62899e">
+			<Material ObjectRecordID="20212">
+				<Texture href="/Textures/auto-imported/Creatures/Dungeon/MinotaurKing_LOD/MinotaurKing.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_310a350e-6da8-4469-809a-44baef6322e0">
+			<Material ObjectRecordID="20213">
+				<Texture href="/Textures/auto-imported/Creatures/Dungeon/MinotaurKing_LOD/MinotaurKing_add.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_08a0f642-ba93-4073-8f8f-a59fdd4eaeaa">
+		<Skeleton ObjectRecordID="1655">
+			<SrcName href="/models/Creatures/Dungeon/MinotaurKing.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>58840892-29E6-432C-928B-8F629C628147</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b64d8fac-95a5-48af-9d5d-d41a8f6528bd">
+		<Geometry ObjectRecordID="6962">
+			<SrcName href="/models/Creatures/Dungeon/MinotaurKing.mb"/>
+			<uid>17FCC4C1-140A-4F19-BE00-51353DC77D3C</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4.47068</x>
+				<y>1.45021</y>
+				<z>2.18351</z>
+			</Size>
+			<Center>
+				<x>-0.000802517</x>
+				<y>-0.210033</y>
+				<z>1.09173</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00618275</x>
+				<y>-0.204995</y>
+				<z>2.00427</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_a4d81b59-31a6-4bc8-b700-c46b12b8c4ec">
+				<AIGeometry ObjectRecordID="460">
+					<SrcName href="/models/Creatures/Dungeon/MinotaurKing.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0130953</y>
+						<z>1.09467</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.941777</x>
+						<y>0.498103</y>
+						<z>1.10042</z>
+					</AABBHalfSize>
+					<uid>40348876-C2CB-4A17-B5FC-5616E9F7B5B1</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

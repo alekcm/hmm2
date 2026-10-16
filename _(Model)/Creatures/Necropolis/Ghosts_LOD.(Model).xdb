@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7593">
+	<Materials>
+		<Item href="Ghosts_LOD-G3_G3_ghosts_skin11.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts_LOD-G3_G3_ghosts_skin21.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts_LOD-G3_G3_ghosts_skin11.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts_LOD-G3_G3_ghosts_skin21.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts_LOD-G3_G3_ghosts_skin11.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Ghosts_LOD-G3_G3_ghosts_skin21.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c1c6dffc-a855-4a3e-a5ba-05beaf5fb65e">
+		<Skeleton ObjectRecordID="1523">
+			<SrcName href="/models/Creatures/Necropolis/Ghosts_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>0EC6575A-5F4E-4F63-B28B-B6A78CD5E7F7</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_6ae35d0b-c3f1-423f-8388-2b91104a463c">
+		<Geometry ObjectRecordID="6767">
+			<SrcName href="/models/Creatures/Necropolis/Ghosts_LOD.mb"/>
+			<uid>C9CA7DD3-19F8-452E-85FB-1B9FD9A90183</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.18442</x>
+				<y>1.05042</y>
+				<z>1.69693</z>
+			</Size>
+			<Center>
+				<x>0.430773</x>
+				<y>-0.174549</y>
+				<z>0.832449</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.422896</x>
+				<y>-0.0500234</y>
+				<z>1.53811</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_5f48c812-b87e-40e5-ab09-3b0ab86dd126">
+				<AIGeometry ObjectRecordID="386">
+					<SrcName href="/models/Creatures/Necropolis/Ghosts_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.115716</x>
+						<y>0.0740823</y>
+						<z>1.01523</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.706447</x>
+						<y>0.750911</y>
+						<z>0.958478</z>
+					</AABBHalfSize>
+					<uid>B4787A9A-D33A-47CB-AA26-3F152C9E7213</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>2</Item>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>G3_G1Shape</Item>
+				<Item>G3_G2Shape</Item>
+				<Item>G3_G3Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

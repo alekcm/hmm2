@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="535">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_56c33290-5bcb-44f0-8b44-fb23925b5c7f">
+			<ParticleInstance ObjectRecordID="721">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_0d4bb241-8bc5-44cb-b555-2514b31c2f9f">
+					<Particle ObjectRecordID="371">
+						<SrcName href="/Effects/Characters/NECROPOLIS/Skeleton_Archer/attack00.mb"/>
+						<ExportPrefix>attack00</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>94e7a33d9488e1bea798b63fba669b3f2cbf163f76db683fba2e0c3f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>1CAB9904-6A4A-42F7-833E-60154042BB30</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>2.33333</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+					<Item/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Characters/NECROPOLIS/Skeleton_Warrior/idle00IS.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/NECROPOLIS/Skeleton_Archer/Bone/Head_bone.xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="/Effects/_(Effect)/Characters/Creatures/Necropolis/Sceleton/Attack00.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

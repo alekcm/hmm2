@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapDescTag>
+	<AdvMapDesc href="M7.xdb#xpointer(/AdvMapDesc)"/>
+	<NameFileRef href="mm7_Name.txt"/>
+	<DescriptionFileRef href="mm7_Description.txt"/>
+	<TileX>136</TileX>
+	<TileY>136</TileY>
+	<MapGoal href="MapGoalText.txt"/>
+	<CustomMapGoal>false</CustomMapGoal>
+	<teams>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</teams>
+	<thumbnailImages>
+		<Item href="mM7_pic.xdb#xpointer(/Texture)"/>
+	</thumbnailImages>
+	<HasUnderground>false</HasUnderground>
+	<RandomMap>false</RandomMap>
+	<CustomGameMap>false</CustomGameMap>
+	<Version>3</Version>
+</AdvMapDescTag>

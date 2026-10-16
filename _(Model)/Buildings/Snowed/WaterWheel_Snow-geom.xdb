@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/models/Buildings/FPP2/WaterWheel.mb"/>
+	<uid>5CC49953-6E0D-4D85-980D-5B12F567C42B</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>6.71033</x>
+		<y>4.01081</y>
+		<z>5.71138</z>
+	</Size>
+	<Center>
+		<x>2.35516</x>
+		<y>0.994595</y>
+		<z>0.389936</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="WaterWheel_Snow-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>4</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Whater_Wheel_roofShape</Item>
+		<Item>Water_Wheel_WheelShape</Item>
+		<Item>Water_Wheel_podShape</Item>
+		<Item>CragShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

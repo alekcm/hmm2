@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3947">
+	<Materials>
+		<Item href="Wraith_LOD-Wight_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_603691a3-5a46-40a6-a011-48a51143562d">
+		<Skeleton ObjectRecordID="1290">
+			<SrcName href="/models/Creatures/Necropolis/Wraith_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>37D4FA6F-88FB-4C15-8E1E-7C0D8697968C</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_05110a8b-465e-4324-b26d-611f6a0c1298">
+		<Geometry ObjectRecordID="3388">
+			<SrcName href="/models/Creatures/Necropolis/Wraith_LOD.mb"/>
+			<uid>667EB33D-EEFC-44FB-AA19-8B647F5192AE</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.18326</x>
+				<y>3.15205</y>
+				<z>4.99828</z>
+			</Size>
+			<Center>
+				<x>0.169839</x>
+				<y>-0.130514</y>
+				<z>1.37565</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.64672</x>
+				<y>-0.356407</y>
+				<z>3.7431</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_cb1c0edd-749a-4df8-a53a-c5ba2dfe7a45">
+				<AIGeometry ObjectRecordID="345">
+					<SrcName href="/models/Creatures/Necropolis/Wraith_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.143901</y>
+						<z>1.40137</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.825303</x>
+						<y>0.825303</y>
+						<z>1.30628</z>
+					</AABBHalfSize>
+					<uid>FA927F64-B9E5-487C-99B1-FDE58A99D379</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="Zephir_Unmounted-arena-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move</Kind>
+			<Anim href="Zephir_Unmounted-arena-move.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_bellicose</Kind>
+			<Anim href="Zephir_Unmounted-arena-speech_bellicose.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_neutral</Kind>
+			<Anim href="Zephir_Unmounted-arena-speech_neutral.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_orator</Kind>
+			<Anim href="Zephir_Unmounted-arena-speech_orator.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>cast</Kind>
+			<Anim href="Zephir_Unmounted-arena-cast.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A2/Heroes/Zephir/Zephir_Unmounted/Zephir_Unmounted.mb"/>
+	<ExpSrcClipFolder href="/H5A2/Heroes/Zephir/Zephir_Unmounted/Animations/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

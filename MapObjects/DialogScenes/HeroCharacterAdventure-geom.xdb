@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/models/Heroes/Shadya/Shadya.mb"/>
+	<uid>E6A87C56-4652-498A-B5C6-10D27FFBE71C</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>2.03997</x>
+		<y>7.23384</y>
+		<z>5.28153</z>
+	</Size>
+	<Center>
+		<x>-0.161394</x>
+		<y>0.855456</y>
+		<z>2.64082</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="HeroCharacterAdventure-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>4</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Hero_stuffShape</Item>
+		<Item>LizardShape</Item>
+		<Item>Flag_DungeonShape</Item>
+		<Item>Shadya_meshShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

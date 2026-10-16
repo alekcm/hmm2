@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6813">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_3bb23328-adac-48bb-88d5-cd3117c91a94">
+			<Material ObjectRecordID="14217">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Misc_____13485/Pumpkin_01/pumpkin_01.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_f6357c96-f70c-4590-a85a-00daa8bfd347">
+		<Skeleton ObjectRecordID="1095">
+			<SrcName href="/models/TerrainObjects/Grass/Misc/pumpkin.mb"/>
+			<RootJoint>pumpkin_03</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>CE02367B-1535-472E-B5F9-1DAC8A54EFA7</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_6249392a-73c2-45a4-a64a-ab980bc1d012">
+		<Geometry ObjectRecordID="6010">
+			<SrcName href="/models/TerrainObjects/Grass/Misc/pumpkin.mb"/>
+			<uid>445CB1FD-FF97-4787-9102-24D1422121F4</uid>
+			<RootMesh>pumpkin_03</RootMesh>
+			<RootJoint>pumpkin_03</RootJoint>
+			<Size>
+				<x>1.45768</x>
+				<y>1.54163</y>
+				<z>0.696277</z>
+			</Size>
+			<Center>
+				<x>-0.00622153</x>
+				<y>0.0988032</y>
+				<z>0.33754</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0787885</x>
+				<y>0.167654</y>
+				<z>0.487333</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>pumpkin_0Shape3</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

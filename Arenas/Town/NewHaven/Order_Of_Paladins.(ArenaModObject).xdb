@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject ObjectRecordID="1000209">
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>Order_Of_Paladins</Name>
+	<DefUpgLevel>2</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Order_of_paladins_u1r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_BigFlag1_1.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc01</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_BigFlag2.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc02</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_BigFlag2.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc03</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_BigFlag1_0.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc04</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_BigFlag1_1.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc05</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag1.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc08</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Order_of_paladins_u2r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_BigFlag1_1.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc01</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_BigFlag2.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc02</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_BigFlag2.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc03</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_BigFlag1_0.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc04</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_BigFlag1_1.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc05</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag1.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc08</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag1.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc06</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag2.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc07</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag1.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc09</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag2.xdb#xpointer(/Effect)"/>
+							<Locator>OrderP_loc10</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

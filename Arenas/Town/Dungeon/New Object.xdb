@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="1000053">
+	<ExpScene href="/models/Towns/dungeon/dungeon.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>91C5EA08-652F-45C4-81F9-4EEBEAD45C25</uid>
+	<objects>
+		<Item href="ground.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="maze.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="chaos_cavern.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="dragon.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="hall_of_inrigue.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="wicked_pastures.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="shipyard.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="townhall.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="tavern.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="fort.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="altar_of_elements.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="mg.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="blood_stone.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="ritual_pit.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="matron_chambers.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="battle_school.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="blacksmith.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="trade_guild.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="market_place_silo.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="grail.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Chaos_Cavern_Locator01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Ritual_Pit_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Townhall_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Blacksmith_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Battle_School_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Blood_Stone_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Dragon_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Matron_Chambers_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Wicked_Pastures_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Mg_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Market_place_silo_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="UpperRock.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="River_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Bat_Loc01.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Bat_Loc02.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Bat_Loc03.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Bat_Loc04.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Bat_Loc05.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Bat_Loc06.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+	</objects>
+	<lights>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>300.496</x>
+				<y>263.808</y>
+				<z>90</z>
+			</Position>
+			<Color>
+				<x>0.517647</x>
+				<y>0.439216</y>
+				<z>0.580392</z>
+			</Color>
+			<Intensity>1.3</Intensity>
+			<Radius>400</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>299.714</x>
+				<y>258.254</y>
+				<z>45.0565</z>
+			</Position>
+			<Color>
+				<x>0.517647</x>
+				<y>0.439216</y>
+				<z>0.580392</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>400</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>277.516</x>
+				<y>238.942</y>
+				<z>157.614</z>
+			</Position>
+			<Color>
+				<x>0.517647</x>
+				<y>0.439216</y>
+				<z>0.580392</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>200</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>253.001</x>
+				<y>264.829</y>
+				<z>152.722</z>
+			</Position>
+			<Color>
+				<x>0.333333</x>
+				<y>0.466667</y>
+				<z>0.615686</z>
+			</Color>
+			<Intensity>1.1</Intensity>
+			<Radius>200</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>297.156</x>
+				<y>278.626</y>
+				<z>34.6162</z>
+			</Position>
+			<Color>
+				<x>0.603922</x>
+				<y>0.643137</y>
+				<z>0.745098</z>
+			</Color>
+			<Intensity>0.6</Intensity>
+			<Radius>1000</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>300.332</x>
+				<y>256.998</y>
+				<z>133.486</z>
+			</Position>
+			<Color>
+				<x>0.517647</x>
+				<y>0.439216</y>
+				<z>0.580392</z>
+			</Color>
+			<Intensity>0.7</Intensity>
+			<Radius>50</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>373.273</x>
+				<y>252.181</y>
+				<z>155.975</z>
+			</Position>
+			<Color>
+				<x>0.517647</x>
+				<y>0.439216</y>
+				<z>0.580392</z>
+			</Color>
+			<Intensity>1.2</Intensity>
+			<Radius>200</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>227.187</x>
+				<y>365.743</y>
+				<z>155.183</z>
+			</Position>
+			<Color>
+				<x>0.647059</x>
+				<y>0.639216</y>
+				<z>0.721569</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>600</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>309.731</x>
+				<y>257.052</y>
+				<z>163.123</z>
+			</Position>
+			<Color>
+				<x>0.517647</x>
+				<y>0.439216</y>
+				<z>0.580392</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>400</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>181.39</x>
+				<y>290.108</y>
+				<z>153.295</z>
+			</Position>
+			<Color>
+				<x>0.709804</x>
+				<y>0.701961</y>
+				<z>0.768627</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>400</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>285.654</x>
+				<y>335.115</y>
+				<z>166.363</z>
+			</Position>
+			<Color>
+				<x>0.517647</x>
+				<y>0.439216</y>
+				<z>0.580392</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>300</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>325.995</x>
+				<y>249.251</y>
+				<z>161.835</z>
+			</Position>
+			<Color>
+				<x>0.960784</x>
+				<y>0.054902</y>
+				<z>0.054902</z>
+			</Color>
+			<Intensity>0.6</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>297.464</x>
+				<y>229.207</y>
+				<z>129.08</z>
+			</Position>
+			<Color>
+				<x>0.705882</x>
+				<y>0.67451</y>
+				<z>0.768627</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>600</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>284.429</x>
+				<y>345.375</y>
+				<z>126.951</z>
+			</Position>
+			<Color>
+				<x>0.521569</x>
+				<y>0.505882</y>
+				<z>0.603922</z>
+			</Color>
+			<Intensity>0.5</Intensity>
+			<Radius>500</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>367.855</x>
+				<y>375.41</y>
+				<z>154.047</z>
+			</Position>
+			<Color>
+				<x>0.647059</x>
+				<y>0.639216</y>
+				<z>0.721569</z>
+			</Color>
+			<Intensity>0.9</Intensity>
+			<Radius>400</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>383.359</x>
+				<y>306.561</y>
+				<z>172.399</z>
+			</Position>
+			<Color>
+				<x>0.635294</x>
+				<y>0.635294</y>
+				<z>0.72549</z>
+			</Color>
+			<Intensity>0.9</Intensity>
+			<Radius>400</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>391.63</x>
+				<y>381.128</y>
+				<z>47.079</z>
+			</Position>
+			<Color>
+				<x>0.701961</x>
+				<y>0.721569</y>
+				<z>0.85098</z>
+			</Color>
+			<Intensity>0.9</Intensity>
+			<Radius>300</Radius>
+		</Item>
+	</lights>
+	<effects>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat00.xdb#xpointer(/Effect)"/>
+			<Locator>Bat_Loc01</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat01.xdb#xpointer(/Effect)"/>
+			<Locator>Bat_Loc02</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat02.xdb#xpointer(/Effect)"/>
+			<Locator>Bat_Loc03</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat04.xdb#xpointer(/Effect)"/>
+			<Locator>Bat_Loc04</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat00.xdb#xpointer(/Effect)"/>
+			<Locator>Bat_Loc05</Locator>
+		</Item>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Necropolis/Bat01.xdb#xpointer(/Effect)"/>
+			<Locator>Bat_Loc06</Locator>
+		</Item>
+	</effects>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>253.21</x>
+			<y>64.3154</y>
+			<z>183.43</z>
+		</Pos>
+		<Rot>
+			<x>-11.4186</x>
+			<y>-11.8486</y>
+			<z>3.42038e-006</z>
+		</Rot>
+		<Rod>233.769</Rod>
+		<FOV>49.026</FOV>
+		<ClipDistanceMin>0.2</ClipDistanceMin>
+		<ClipDistanceMax>1000</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound href="/Sounds/_(Ambient)/Towns/Dungeon.xdb#xpointer(/AmbientSoundSet)"/>
+	<Music href="/Sounds/_(Music)/Towns/Dungeon.(Music).xdb#xpointer(/Music)"/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/dungeon.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model href="/_(Model)/Cutscenes/CameraUpAim.(Model).xdb#xpointer(/Model)"/>
+		<AnimSet href="/_(AnimSet)/AdventureFlyby/TownFlyups/DungeonFlyup.xdb#xpointer(/AnimSet)"/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras>
+		<Item href="camera_5.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_4.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_6.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_2.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_1.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="camera_3.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="altar_of_elements_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="battle_school_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="blacksmith_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="blood_stone_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="chaos_cavern_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="dragon_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="fort_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="grail_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="hall_of_inrigue_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="market_place_silo_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="matron_chambers_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="maze_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="mg_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="ritual_pit_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="shipyard_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="tavern_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="townhall_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="trade_guild_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="wicked_pastures_cam.(Camera).xdb#xpointer(/Camera)"/>
+	</staticCameras>
+	<CameraLimits href="#n:inline(CameraLimits)" id="item_744a1c56-c97a-4f6a-9c2c-542cac95eb34">
+		<CameraLimits ObjectRecordID="1000013">
+			<limits>
+				<MinRod>118</MinRod>
+				<MaxRod>180</MaxRod>
+				<MinX>-1e+006</MinX>
+				<MaxX>1e+006</MaxX>
+				<MinY>1e+006</MinY>
+				<MaxY>-1e+006</MaxY>
+				<MinZ>70</MinZ>
+				<MaxZ>139</MaxZ>
+				<MinPitch>-20</MinPitch>
+				<MaxPitch>12</MaxPitch>
+				<MinYaw>0</MinYaw>
+				<MaxYaw>0</MaxYaw>
+				<UsePitchLimits>false</UsePitchLimits>
+				<UseYawLimits>false</UseYawLimits>
+			</limits>
+		</CameraLimits>
+	</CameraLimits>
+	<CameraLimitsSet/>
+</ArenaDesc>

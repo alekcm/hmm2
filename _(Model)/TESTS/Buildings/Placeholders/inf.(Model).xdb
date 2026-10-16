@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6574">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_2846b31b-edf7-4e3a-b3fa-bc8f89975a7a">
+			<Material ObjectRecordID="12901">
+				<Texture href="/Textures/auto-imported_______320/TESTS/Buildings/Placeholders/inf/Town_Hall.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_83c72088-f7c8-4003-8bdb-16737278b93e">
+		<Geometry ObjectRecordID="5763">
+			<SrcName href="/TestLocation/TMPbuildings/Infernotest.mb"/>
+			<uid>478CAAC0-48EC-4124-9F87-36561E86FF26</uid>
+			<RootMesh>inf</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>10.4171</x>
+				<y>10.4171</y>
+				<z>23.6149</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>2.38419e-007</y>
+				<z>11.8075</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.101353</x>
+				<y>0.0329315</y>
+				<z>23.6149</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>infShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

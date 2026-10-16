@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6999">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ShieldBash/lambert9.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ShieldBash/lambert9.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ShieldBash/lambert9.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ShieldBash/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ShieldBash/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ShieldBash/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ShieldBash/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ShieldBash/Wave02_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ShieldBash/Wave02_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ShieldBash/Wave02_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ShieldBash/Wave02_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_bc04420a-fde3-4bc6-8d22-f1223014c85b">
+		<Skeleton ObjectRecordID="1220">
+			<SrcName href="/Effects/Characters/ShieldBash.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>FDA495A6-8927-433A-BD07-8071E4C575FF</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b911cb0b-145f-4954-ad05-1be39f8dee6a">
+		<Geometry ObjectRecordID="6202">
+			<SrcName href="/Effects/Characters/ShieldBash.mb"/>
+			<uid>31D19884-4937-4BC6-AD02-AF479D5F9B0C</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.833629</x>
+				<y>0.790525</y>
+				<z>1.06643</z>
+			</Size>
+			<Center>
+				<x>-0.0632613</x>
+				<y>-0.00950472</y>
+				<z>-0.00309044</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0011227</x>
+				<y>0.00628274</y>
+				<z>0.460359</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>11</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>ShockWave01Shape</Item>
+				<Item>ShockWave02Shape</Item>
+				<Item>ShockWave03Shape</Item>
+				<Item>Wave0Shape8</Item>
+				<Item>Wave0Shape7</Item>
+				<Item>Wave0Shape6</Item>
+				<Item>Wave0Shape5</Item>
+				<Item>Wave0Shape4</Item>
+				<Item>Wave0Shape9</Item>
+				<Item>Wave0Shape10</Item>
+				<Item>Wave0Shape11</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

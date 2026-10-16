@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7435">
+	<Materials>
+		<Item href="dirtbush03.xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_8dd23982-3f81-435b-9461-a0a23e3091f0">
+			<Material ObjectRecordID="18065">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Bushs/Dirtbush01/Dirt_Bush.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>3</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_6e159b7c-bf5a-4cda-9623-2df055a3efbc">
+			<Material ObjectRecordID="18066">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Bushs/Dirtbush01/Dirt_Bush.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>3</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_cfa6d8ed-505e-4503-8e76-b3e00db277a8">
+		<Geometry ObjectRecordID="6633">
+			<SrcName href="/models/TerrainObjects/Dirt/Bushs/Dirtbushs.mb"/>
+			<uid>F92C4366-D1A1-4A62-A2CD-9FCB021E0ED2</uid>
+			<RootMesh>Dirtbush03</RootMesh>
+			<RootJoint>Dirtbush03</RootJoint>
+			<Size>
+				<x>4.04355</x>
+				<y>3.4296</y>
+				<z>5.64095</z>
+			</Size>
+			<Center>
+				<x>-0.721823</x>
+				<y>1.05838</y>
+				<z>2.76725</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.56074</x>
+				<y>0.517873</y>
+				<z>5.45779</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Dirtbush03|DStone_plane|DStone_planeShape</Item>
+				<Item>Dirtbush03|Dirtbush|DirtbushShape</Item>
+				<Item>Dirtbush03|Dirtbush1|DirtbushShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

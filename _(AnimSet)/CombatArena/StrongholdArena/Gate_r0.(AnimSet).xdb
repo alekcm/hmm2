@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>close</Kind>
+			<Anim href="Gate_r0-close.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>open</Kind>
+			<Anim href="Gate_r0-open.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A2/Arenas/Orc_Siege_Arena.mb"/>
+	<ExpSrcClipFolder href="/H5A2/Arenas/Clip/Gate0/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

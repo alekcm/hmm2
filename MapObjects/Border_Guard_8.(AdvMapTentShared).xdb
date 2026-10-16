@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapTentShared ObjectRecordID="14">
+	<Model href="/_(Model)/Buildings/Border_Guard_Tan.(Model).xdb#xpointer(/Model)"/>
+	<AnimSet/>
+	<blockedTiles>
+		<Item>
+			<x>1</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</blockedTiles>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Tents/BorderGuard_8/Name_Text.txt"/>
+		<Item href="/Text/Game/Tents/BorderGuard_1/Description_Text.txt"/>
+		<Item href="/Text/Game/Tents/BorderGuard_1/nopass.txt"/>
+		<Item href="/Text/Game/Tents/BorderGuard_1/pass.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect href="/Sounds/_(Sound)/Buildings/Keymaster_tent.xdb#xpointer(/Sound)"/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>BUILDING_BORDER_GUARD</Type>
+	<Color>8</Color>
+</AdvMapTentShared>

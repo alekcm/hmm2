@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7906">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_ca0bf660-6f4b-4a15-8069-86b77968be00">
+			<Material ObjectRecordID="20637">
+				<Texture href="/Textures/Preserve_____11264/UnicornBattle_LOD_____13398/UnicornBattle.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_60d4156b-83f3-4163-8176-a6e754b8c99d">
+			<Material ObjectRecordID="20638">
+				<Texture href="/Textures/Preserve_____11264/UnicornBattle_LOD_____13398/UnicornBattle_scarf.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_6d70dc36-aaaa-4601-9fb3-419c00b4fb19">
+		<Skeleton ObjectRecordID="1689">
+			<SrcName href="/models/Creatures/Preserve/BattleUnicorn.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>31E4D2E3-FBDB-4627-A83C-8A8D00615741</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_9cfa9d78-18ed-49a9-ab20-f7bc5a6953b0">
+		<Geometry ObjectRecordID="7065">
+			<SrcName href="/models/Creatures/Preserve/BattleUnicorn.mb"/>
+			<uid>583383D3-571D-4B69-9447-AC29DB7FD752</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.88396</x>
+				<y>5.13557</y>
+				<z>2.42027</z>
+			</Size>
+			<Center>
+				<x>0.00335772</x>
+				<y>0.583483</y>
+				<z>1.20958</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.000871214</x>
+				<y>-0.877329</y>
+				<z>2.2298</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_09cc653f-6a2b-40ca-ba94-7bdced13a6e2">
+				<AIGeometry ObjectRecordID="470">
+					<SrcName href="/models/Creatures/Preserve/BattleUnicorn.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.195478</y>
+						<z>1.03914</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.383507</x>
+						<y>1.31667</y>
+						<z>1.03914</z>
+					</AABBHalfSize>
+					<uid>ABD500E6-03CB-4C42-AA63-C914DF3ADF10</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurfaceShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

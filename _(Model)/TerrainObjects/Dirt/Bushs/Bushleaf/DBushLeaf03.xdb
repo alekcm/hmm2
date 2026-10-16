@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001844">
+	<Materials>
+		<Item href="DBushLeaf03-file17Material.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c5a41be4-75e9-49a4-9eca-47666ccd08d4">
+		<Skeleton ObjectRecordID="1000424">
+			<SrcName href="/models/TerrainObjects/Dirt/Bushs/Dirtbushs_leaf.mb"/>
+			<RootJoint>DBushLeaf03</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>22536F8E-C3F6-42A8-92B9-48C300C2A8A3</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_e874de9d-8f03-4d1b-bf8a-578810dd0f8b">
+		<Geometry ObjectRecordID="1001623">
+			<SrcName href="/models/TerrainObjects/Dirt/Bushs/Dirtbushs_leaf.mb"/>
+			<uid>9B545FEA-186A-4E74-9957-94C58D4B6FDC</uid>
+			<RootMesh>DBushLeaf03</RootMesh>
+			<RootJoint>DBushLeaf03</RootJoint>
+			<Size>
+				<x>2.72783</x>
+				<y>2.95449</y>
+				<z>0.922452</z>
+			</Size>
+			<Center>
+				<x>-0.0390845</x>
+				<y>0.30436</y>
+				<z>0.41598</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.150692</x>
+				<y>0.0700741</y>
+				<z>0.595003</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>DBushLeaf0Shape3</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

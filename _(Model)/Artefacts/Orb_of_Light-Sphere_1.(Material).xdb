@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Material ObjectRecordID="1012367">
+	<Texture href="Sphere-Sphere_1.(Texture).xdb#xpointer(/Texture)"/>
+	<Bump/>
+	<SpecFactor>3</SpecFactor>
+	<SpecColor>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</SpecColor>
+	<Gloss href="Sphere-Sphere_1.(Texture).xdb#xpointer(/Texture)"/>
+	<MetalMirror>1</MetalMirror>
+	<DielMirror>1</DielMirror>
+	<Mirror href="/Textures/auto-imported_______320/SkyDomes/SkyDome_Academy/BoatarenaSky_02.tga.xdb#xpointer(/Texture)"/>
+	<CastShadow>false</CastShadow>
+	<ReceiveShadow>false</ReceiveShadow>
+	<Priority>0</Priority>
+	<TranslucentColor>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</TranslucentColor>
+	<FloatParam>0.15</FloatParam>
+	<DetailTexture/>
+	<DetailScale>5</DetailScale>
+	<ProjectOnTerrain>false</ProjectOnTerrain>
+	<LightingMode>L_SELFILLUM</LightingMode>
+	<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+	<Is2Sided>true</Is2Sided>
+	<Effect>M_GENERIC</Effect>
+	<AlphaMode>AM_TRANSPARENT</AlphaMode>
+	<AffectedByFog>true</AffectedByFog>
+	<AddPlaced>true</AddPlaced>
+	<IgnoreZBuffer>false</IgnoreZBuffer>
+	<BackFaceCastShadow>false</BackFaceCastShadow>
+</Material>

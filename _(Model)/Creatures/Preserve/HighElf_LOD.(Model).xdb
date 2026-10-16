@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7036">
+	<Materials>
+		<Item href="HighElf_LOD-nakidka_Main.(Material).xdb#xpointer(/Material)"/>
+		<Item href="HighElf_LOD-nakidka_Default.(Material).xdb#xpointer(/Material)"/>
+		<Item href="HighElf_LOD-nakidka_Main.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_fa3335de-f217-436b-bd93-ce00bb1518d1">
+		<Skeleton ObjectRecordID="1256">
+			<SrcName href="/models/Creatures/Preserve/HighElf_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>A2F2FE7E-7B5E-4754-A965-7A44AAECC99A</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_07691afb-eec6-489b-a606-92733b42511b">
+		<Geometry ObjectRecordID="6238">
+			<SrcName href="/models/Creatures/Preserve/HighElf_LOD.mb"/>
+			<uid>24B90F95-F6E1-416F-9840-DA09D9F20081</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.1446</x>
+				<y>1.25142</y>
+				<z>1.92965</z>
+			</Size>
+			<Center>
+				<x>0.0527769</x>
+				<y>-0.432873</y>
+				<z>0.964538</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.230042</x>
+				<y>-0.0222257</y>
+				<z>1.65885</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_5666947e-5db0-4cf2-9dd8-00f9f8afbcc8">
+				<AIGeometry ObjectRecordID="334">
+					<SrcName href="/models/Creatures/Preserve/HighElf_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0325497</y>
+						<z>0.879712</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.292086</x>
+						<y>0.262333</y>
+						<z>0.87048</z>
+					</AABBHalfSize>
+					<uid>56EA3779-12FF-4712-AD4F-6D65E7AF6DF9</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Body_meshShape</Item>
+				<Item>Bow_meshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

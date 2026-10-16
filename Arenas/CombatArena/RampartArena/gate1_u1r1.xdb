@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001156">
+	<Materials>
+		<Item href="gate1_u1r1-Gate_map.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="gate1_u1r1-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_254f0307-8863-4953-8a5d-e2934b9fecfc">
+		<Skeleton ObjectRecordID="1000500">
+			<SrcName href="/models/Arenas/RampartSiege/RampartSiege_Gate_r1.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>D5F1C0E2-22A9-4B89-9151-6420DE941C49</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_0897926f-9578-4beb-b922-64a8b4071640">
+		<Geometry ObjectRecordID="1000939">
+			<SrcName href="/models/Arenas/RampartSiege/RampartSiege_Gate_r1.mb"/>
+			<uid>5DDDDAFE-CD47-48DD-A0E5-A8C9639D0788</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>5.47647</x>
+				<y>11.4563</y>
+				<z>9.92755</z>
+			</Size>
+			<Center>
+				<x>316.359</x>
+				<y>284.008</y>
+				<z>13.9638</z>
+			</Center>
+			<BestFitPoint>
+				<x>316.024</x>
+				<y>281.027</y>
+				<z>18.9255</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="gate1_u1r1_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Gate_rShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

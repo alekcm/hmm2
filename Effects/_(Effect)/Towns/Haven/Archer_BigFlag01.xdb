@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="610">
+	<Instances/>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_5795a4a3-596d-414a-a676-bab981ec27d4">
+			<ModelInstance ObjectRecordID="154">
+				<Model href="/_(Model)/Effects/Towns/Haven_BigFlag_Archer.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/Haven_BigFlag00.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

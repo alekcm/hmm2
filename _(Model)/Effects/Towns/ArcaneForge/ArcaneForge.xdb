@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001877">
+	<Materials>
+		<Item href="ArcaneForge-ArcaneForge_M.(Material).xdb#xpointer(/Material)"/>
+		<Item href="ArcaneForge-ArcaneForge_M.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_4e66a343-3b96-4c2b-a0dd-22769b611df7">
+		<Skeleton ObjectRecordID="1000457">
+			<SrcName href="/Effects/Towns/Academy/ArcaneForge/ArcaneForge.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>F74645E0-C37D-4591-BB83-D9FC84C4B5DF</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_e36c7ee8-1f40-4692-8d91-7f9979156e7d">
+		<Geometry ObjectRecordID="1001655">
+			<SrcName href="/Effects/Towns/Academy/ArcaneForge/ArcaneForge.mb"/>
+			<uid>4D7772AD-5F62-49A3-9CD8-E14209D1166C</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.869996</x>
+				<y>2.58327</y>
+				<z>2.49788</z>
+			</Size>
+			<Center>
+				<x>-0.200304</x>
+				<y>-1.11223</y>
+				<z>0.153044</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.183539</x>
+				<y>-0.404079</y>
+				<z>1.2599</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>SmallWheel0Shape1</Item>
+				<Item>BigWheel01Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

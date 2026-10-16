@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shot ObjectRecordID="13">
+	<StartEffect/>
+	<RotateStartEffectToTarget>false</RotateStartEffectToTarget>
+	<MissileShot>
+		<Model/>
+		<Effect href="/Effects/_(Effect)/Spells/Fireball.xdb#xpointer(/Effect)"/>
+		<Speed>0.03</Speed>
+		<Height>0</Height>
+		<ForwardOffset>1</ForwardOffset>
+		<StartZOffset>2</StartZOffset>
+		<RightOffset>0</RightOffset>
+	</MissileShot>
+	<LineShot>
+		<Effects>
+			<Item href="/Effects/_(Effect)/Spells/Fireball_trail1.(Effect).xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Spells/Fireball_trail2.(Effect).xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Spells/Fireball_trail3.(Effect).xdb#xpointer(/Effect)"/>
+		</Effects>
+		<SkipSegmentsNumber>0</SkipSegmentsNumber>
+		<SegmentLength>2</SegmentLength>
+		<StepDelay>66</StepDelay>
+		<EffectLifeTime>4100</EffectLifeTime>
+	</LineShot>
+	<StrikeDelay>0</StrikeDelay>
+	<StrikeEffectID>SPELL_FIREBALL</StrikeEffectID>
+	<DelayBetweenChains>0</DelayBetweenChains>
+	<StrikeVisualEffect href="/GameMechanics/Spell/Combat_Spells/DestructiveMagic/Fireball.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+</Shot>

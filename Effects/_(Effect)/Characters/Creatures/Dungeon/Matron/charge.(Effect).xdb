@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000381">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_dcb370ef-13fc-4b19-bf9c-747a5a62f7fb">
+			<ParticleInstance ObjectRecordID="1000581">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_b2be8c34-910c-430b-b373-2f8669877408">
+					<Particle ObjectRecordID="1000486">
+						<SrcName href="/Effects/Characters/DUNGEON/Matron/RangeAttack_charge.mb"/>
+						<ExportPrefix>FX</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>f8c4143ebca34f3fca19c03f0a55b9400d704640cd447340d0104540</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>C372A0CA-3B93-4072-A1C3-BA017913DAE9</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-1.5</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/RaysBlue01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/IceFire.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow11_Violet.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/RaysBlue00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_c0a5b0fc-15bd-41e8-a426-5cae85e158ab">
+			<ParticleInstance ObjectRecordID="1000582">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_a003cc9e-94ba-48e2-8fcb-792dd3630902">
+					<Particle ObjectRecordID="1000487">
+						<SrcName href="/Effects/Characters/DUNGEON/Matron/RangeAttack_charge.mb"/>
+						<ExportPrefix>FX_discharge</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>889b1f3ec0f34bbcc8efc13fa72622405a84c53f0c0eac3f3432bf3f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>4DAB4EF0-BBE7-4535-A488-3B389E26FC5E</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-1.5</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>-1</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/Lightning00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Lightning02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Lightning03.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights>
+		<Item href="#n:inline(LightInstance)" id="item_f582992e-aa23-40fb-a5d1-d40cd825f815">
+			<LightInstance ObjectRecordID="1000053">
+				<Light href="#n:inline(AnimLight)" id="item_a8e3b1ad-2ce2-4b3e-984a-b0f8d844f3a8">
+					<AnimLight ObjectRecordID="1000049">
+						<SrcName href="/Effects/Characters/DUNGEON/Matron/RangeAttack_charge.mb"/>
+						<SelectNode>Light01</SelectNode>
+						<uid>D71A1054-F276-488C-A3DF-3BF4FE5E009B</uid>
+					</AnimLight>
+				</Light>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-1.5</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1</EndCycle>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</LightInstance>
+		</Item>
+	</Lights>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_1dbae9a1-c7ca-41a2-a0c7-757d64223301">
+			<ModelInstance ObjectRecordID="1000151">
+				<Model href="/_(Model)/Effects/Characters/Matron/charge.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Characters/Matron/charge.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>-1.5</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

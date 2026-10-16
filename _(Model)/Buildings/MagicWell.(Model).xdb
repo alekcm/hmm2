@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1591">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_46ae41a3-7b0a-44f7-a34b-f0ad1527e72a">
+			<Material ObjectRecordID="1006519">
+				<Texture href="/Textures/auto-imported_______320/TESTS/Buildings/Magic_Well/MagicWell.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_9a81e7d5-8a80-49a4-9d24-3c6d9af2694d">
+		<Skeleton ObjectRecordID="1000186">
+			<SrcName href="/models/Buildings/FPP2/Magic_well.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>6120812A-FBC2-424D-82A6-9FB1BA077801</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_4e02ef65-bbc9-4ec8-bb21-a3c8b9e81b3e">
+		<Geometry ObjectRecordID="1289">
+			<SrcName href="/models/Buildings/FPP2/Magic_well.mb"/>
+			<uid>FF4FC802-542C-4E15-A2CA-5DA4A23A65B6</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.37414</x>
+				<y>1.37414</y>
+				<z>1.48193</z>
+			</Size>
+			<Center>
+				<x>9.65297e-005</x>
+				<y>0.000550181</y>
+				<z>0.734683</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.000851958</x>
+				<y>0.00109109</y>
+				<z>1.05264</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_89e5d6f3-3ae2-4660-8662-1a08dc96acfd">
+				<AIGeometry ObjectRecordID="1000413">
+					<SrcName href="/models/Buildings/FPP2/Magic_well.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>0.665008</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.523462</x>
+						<y>0.523462</y>
+						<z>0.6765</z>
+					</AABBHalfSize>
+					<uid>8D3D169B-0FA9-4DFC-BFA5-A028CB483EEA</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>MagicWell1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

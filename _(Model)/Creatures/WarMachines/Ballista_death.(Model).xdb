@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3921">
+	<Materials>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/WarMachines/Ballista_death/Ballista_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_a09cd5fa-d208-4c14-8e3a-a93835a05f04">
+		<Skeleton ObjectRecordID="260">
+			<SrcName href="/Animations/Creatures/WarMachines/Ballista/Ballista_Death.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>3AF3219D-D967-4170-AF41-C38F4722078F</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a458fe22-1015-424b-9f73-6d4dec1e46b3">
+		<Geometry ObjectRecordID="3362">
+			<SrcName href="/Animations/Creatures/WarMachines/Ballista/Ballista_Death.mb"/>
+			<uid>D38B3AB5-82EC-4481-BA58-1E488762C4A9</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2.58206</x>
+				<y>3.52573</y>
+				<z>1.35645</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>-0.2139</y>
+				<z>0.655367</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0354612</x>
+				<y>-0.809199</y>
+				<z>1.15547</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_ce8f5c80-6cad-4e84-aed2-6ce653ab7400">
+				<AIGeometry ObjectRecordID="111">
+					<SrcName href="/Animations/Creatures/WarMachines/Ballista/Ballista_Death.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.094145</y>
+						<z>0.67653</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.07698</x>
+						<y>1.37801</y>
+						<z>0.67653</z>
+					</AABBHalfSize>
+					<uid>8CED93FA-3D52-4A6B-A9AD-409BB1358760</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>12</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+				<Item>PikeShape</Item>
+				<Item>R_WheelShape</Item>
+				<Item>L_WheelShape</Item>
+				<Item>B_WheelShape</Item>
+				<Item>Part1Shape</Item>
+				<Item>Part2Shape</Item>
+				<Item>R_PartShape</Item>
+				<Item>L_PartShape</Item>
+				<Item>L_Bow|R_BowShape</Item>
+				<Item>B_PartShape</Item>
+				<Item>R_Bow|R_BowShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="519">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_3eaf53ad-badd-4236-95f5-cb32c9718231">
+			<ParticleInstance ObjectRecordID="688">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_d67de6a4-8d50-43f4-9d7a-0c88888a627c">
+					<Particle ObjectRecordID="348">
+						<SrcName href="/Effects/Spells/MoralDown.mb"/>
+						<ExportPrefix>MoralDown</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>0038d9bb0000000080a216bfe1311a41d287b8409e389140a0e8c740</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>151DEAA3-5802-4B1F-8675-81D104061A40</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>2</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0.7</z>
+					<w>0.7</w>
+				</Rotation>
+				<Scale>1.5</Scale>
+				<Speed>2</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Rays01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/GlowYellow01.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/GlowOrange02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow01NoADD.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkRed01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

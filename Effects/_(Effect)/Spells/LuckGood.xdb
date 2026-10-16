@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="75">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_518f2be2-8ae3-493d-bb3d-474a9109f330">
+			<ParticleInstance ObjectRecordID="80">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_a149cfa5-eee6-426a-830d-4bcb38682635">
+					<Particle ObjectRecordID="34">
+						<SrcName href="/Effects/Spells/LuckUp.mb"/>
+						<ExportPrefix>LuckUp</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>8038dbbc0000000040d13f3d4aacfd403c87924003ac9140a62b9340</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>BCFA9ADE-84AB-419D-B758-D959CAFDBC5F</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>2</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.5</Scale>
+				<Speed>1.5</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/RainbowCircle.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/GlowColored.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/GlowOrange01.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/GlowOrange02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/LensFlare.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/LensFlareCenter.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

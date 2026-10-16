@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="247">
+	<animations>
+		<Item>
+			<Kind>birth</Kind>
+			<Anim href="/_(BasicSkelAnim)/Heroes/Knight_Path/Cross01/birth.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="/_(BasicSkelAnim)/Heroes/Knight_Path/Cross01/idle00.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>death</Kind>
+			<Anim href="/_(BasicSkelAnim)/Heroes/Knight_Path/Cross01/death.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Heroes/Knight/Path/Cross_01.mb"/>
+	<ExpSrcClipFolder href="/Animations/Heroes/Knight/Path/Clip_Cross/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

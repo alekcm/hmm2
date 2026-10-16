@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7044">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_08a2393f-a9c2-4905-9a96-24b86112d828">
+			<Material ObjectRecordID="15366">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Lava/Stones/LavaStone_1/lavastones.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_f8c53033-da4c-42e4-b4c9-163267d587e2">
+			<Material ObjectRecordID="15367">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Lava/Stones/LavaStone_1/lstone_plane.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_3eb487b9-f4a5-4793-9e8c-6f34a476cdcd">
+		<Skeleton ObjectRecordID="1264">
+			<SrcName href="/models/TerrainObjects/Lava/Stones/LavaStones.mb"/>
+			<RootJoint>LavaStone_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>BABF436F-0B2B-4C44-A458-954195DDF982</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b7ab73df-f99d-41d8-8ec1-9ca26e290e24">
+		<Geometry ObjectRecordID="6246">
+			<SrcName href="/models/TerrainObjects/Lava/Stones/LavaStones.mb"/>
+			<uid>55A88EB9-6571-4AC9-AA24-3EB9AA4AE298</uid>
+			<RootMesh>LavaStone_1</RootMesh>
+			<RootJoint>LavaStone_1</RootJoint>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>2.3444</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>1.1722</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.41681</x>
+				<y>0.239439</y>
+				<z>2.13109</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>LavaStone_1|LavaStone|LavaStoneShape</Item>
+				<Item>LavaStone_1|LStone_plane|LStone_planeShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

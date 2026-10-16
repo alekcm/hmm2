@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapSignShared ObjectRecordID="1">
+	<Model href="/_(Model)/TESTS/Buildings/Sign.(Model).xdb#xpointer(/Model)"/>
+	<AnimSet href="/_(AnimSet)/Buildings/Sign.(AnimSet).xdb#xpointer(/AnimSet)"/>
+	<blockedTiles/>
+	<holeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</holeTiles>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Buildings/Signpost/Name.txt"/>
+		<Item href="/Text/Game/Buildings/Signpost/Description.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect/>
+	<flybyMessageFileRef href="/Text/Game/Buildings/Signpost/Flyby______3190.txt"/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128/>
+</AdvMapSignShared>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6977">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_6ce0fcd3-113c-47d1-b163-a935bbdf6090">
+			<Material ObjectRecordID="15224">
+				<Texture href="/Textures/auto-imported_______320/Heroes/DemonLord_Path/StickOfDeath01/StickOfDeath.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_177f3c31-1723-4355-aa5c-c12a117dc3ae">
+		<Skeleton ObjectRecordID="1198">
+			<SrcName href="/models/Heroes/DemonLord/Path/StickOfDeath01/StickOfDeath01.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>0C0B68D5-B679-4C33-BF3F-D1A010878AB8</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_03bff454-11b8-4582-8e4c-f9935e3cf82c">
+		<Geometry ObjectRecordID="6180">
+			<SrcName href="/models/Heroes/DemonLord/Path/StickOfDeath01/StickOfDeath01.mb"/>
+			<uid>D3CE3EBB-6731-4287-BB5C-94902359B411</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.48483</x>
+				<y>0.543335</y>
+				<z>2.45644</z>
+			</Size>
+			<Center>
+				<x>-0.00172846</x>
+				<y>0.0217216</y>
+				<z>1.21383</z>
+			</Center>
+			<BestFitPoint>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_5b33e111-8fe6-4a97-9ce6-40e439bdba19">
+				<AIGeometry ObjectRecordID="295">
+					<SrcName href="/models/Heroes/DemonLord/Path/StickOfDeath01/StickOfDeath01.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>1.22706</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.196736</x>
+						<y>0.196736</y>
+						<z>1.21713</z>
+					</AABBHalfSize>
+					<uid>41004A39-41B6-42D0-A720-30E4574DC341</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BigStickShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

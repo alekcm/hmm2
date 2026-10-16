@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001693">
+	<Materials>
+		<Item href="Cactus-cactus1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/TerrainObjects/Sandterrain/Sandtrees/Sandtree01-Lstone_plane.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_cada47c4-db94-4ce8-bf14-b7e993309887">
+		<Skeleton ObjectRecordID="1000336">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Cactus/Cactus.mb"/>
+			<RootJoint>Cactus</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>00A1C253-ACEF-4632-A3D5-E9748E82D6B2</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_18489411-3d6c-486b-99f3-dabb249afc3f">
+		<Geometry ObjectRecordID="1001473">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Cactus/Cactus.mb"/>
+			<uid>DB0D3C80-9625-4E1A-9A06-9CE7F54E923C</uid>
+			<RootMesh>Cactus</RootMesh>
+			<RootJoint>Cactus</RootJoint>
+			<Size>
+				<x>2.64157</x>
+				<y>2.84229</y>
+				<z>4.79027</z>
+			</Size>
+			<Center>
+				<x>0.0137781</x>
+				<y>-0.0462862</y>
+				<z>2.38818</z>
+			</Center>
+			<BestFitPoint>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Cactus_Shape</Item>
+				<Item>ShadowShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

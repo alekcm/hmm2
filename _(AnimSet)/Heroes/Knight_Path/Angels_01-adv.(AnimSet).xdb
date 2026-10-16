@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="254">
+	<animations>
+		<Item>
+			<Kind>birth</Kind>
+			<Anim href="/_(BasicSkelAnim)/Heroes/Knight_Path/Angels_01/birth.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="/_(BasicSkelAnim)/Heroes/Knight_Path/Angels_01/idle00.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>death</Kind>
+			<Anim href="/_(BasicSkelAnim)/Heroes/Knight_Path/Angels_01/death.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Heroes/Knight/Path/Angels.mb"/>
+	<ExpSrcClipFolder href="/Animations/Heroes/Knight/Path/Clip_Angels/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

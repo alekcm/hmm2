@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="558">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_be75b18b-7cde-40b3-b2ea-e34062ade57d">
+			<ParticleInstance ObjectRecordID="752">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_7f9f7e00-d7bd-408e-b466-80841bad7f71">
+					<Particle ObjectRecordID="397">
+						<SrcName href="/Effects/Spells/Dispel.mb"/>
+						<ExportPrefix>Dispel</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>f0e64e3f50b7353f795b0141c5fa2c42dca1d2414a68d0418e92b241</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>898C8FEF-2439-4AF1-A783-EB6BB746C206</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>0.8</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/SparkBlue01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Figure01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Figure02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Figure03.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparksBlue.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlow06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlow00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Artefacts/RaysBlue00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights>
+		<Item href="Dispel.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

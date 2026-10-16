@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="218">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_d6fcfab0-6633-4665-91d8-59ec8b29c44a">
+			<ParticleInstance ObjectRecordID="234">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_b9da7012-31c4-4f4a-9e00-268fc01ea352">
+					<Particle ObjectRecordID="45">
+						<SrcName href="/Effects/Buildings/ShrineOfMagic.mb"/>
+						<ExportPrefix>ShrineOfMagic</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>00000000e6790fbf19f0913fc6a1a340a8e51d40eac73f40c00c5540</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>D19432D0-94FB-4C92-B8C8-E274A732059C</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>-1</x>
+					<y>0.5</y>
+					<z>0.3</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

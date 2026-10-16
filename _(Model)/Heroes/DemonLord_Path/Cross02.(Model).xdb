@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6976">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_9b6a6345-e90b-4b86-bc30-18672a2fd4a4">
+			<Material ObjectRecordID="15223">
+				<Texture href="/Textures/auto-imported_______320/Heroes/DemonLord_Path/Cross01/CrossMap.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ff81263e-9ab2-40c7-98c9-c4b0cefcefc2">
+		<Skeleton ObjectRecordID="1197">
+			<SrcName href="/Effects/Characters/Knight/Path/Light01.mb"/>
+			<RootJoint>Light</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>990DE0F5-039C-46A9-A12B-300FC99477EA</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_cfad06da-e356-4732-97ec-608857d2ffaf">
+		<Geometry ObjectRecordID="6179">
+			<SrcName href="/models/Heroes/DemonLord/Path/Cross02/Cross02.mb"/>
+			<uid>959D661B-8F5D-4441-9171-3DB22BB6ABC4</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.09396</x>
+				<y>1.22541</y>
+				<z>3.2598</z>
+			</Size>
+			<Center>
+				<x>-0.20312</x>
+				<y>-0.522962</y>
+				<z>1.57721</z>
+			</Center>
+			<BestFitPoint>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>CrossShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

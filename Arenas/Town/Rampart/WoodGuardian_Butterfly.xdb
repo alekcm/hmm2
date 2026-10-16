@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002154">
+	<Materials>
+		<Item href="/Butterfly_lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/Butterfly_lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/Butterfly_lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/Butterfly_lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/Butterfly_lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/Butterfly_lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/Butterfly_lambert2.3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/Butterfly_lambert2.3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/Butterfly_lambert2.4.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/Butterfly_lambert2.4.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_50f86294-c618-46ae-8381-3c66a2d76dd6">
+		<Skeleton ObjectRecordID="1000612">
+			<SrcName href="/Effects/Towns/Rampart/WoodGuardian02.mb"/>
+			<RootJoint>Butterfly</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1E0250FB-24A7-454C-B396-6C35CF899E8D</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_92040e3f-533d-426b-bb28-35356096ee9c">
+		<Geometry ObjectRecordID="1001924">
+			<SrcName href="/Effects/Towns/Rampart/WoodGuardian02.mb"/>
+			<uid>1E2D6D5D-B0A9-4285-9833-3EFE6A47949E</uid>
+			<RootMesh>Butterfly</RootMesh>
+			<RootJoint>Butterfly</RootJoint>
+			<Size>
+				<x>5.09681</x>
+				<y>4.29541</y>
+				<z>2.4238</z>
+			</Size>
+			<Center>
+				<x>-0.18876</x>
+				<y>-1.41024</y>
+				<z>9.30178</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.635671</x>
+				<y>-3.35552</y>
+				<z>10.458</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>10</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>L_wing01Shape</Item>
+				<Item>R_wing01Shape</Item>
+				<Item>L_wing02Shape</Item>
+				<Item>R_wing02Shape</Item>
+				<Item>L_wing03Shape</Item>
+				<Item>R_wing03Shape</Item>
+				<Item>L_wing04Shape</Item>
+				<Item>R_wing04Shape</Item>
+				<Item>L_wing05Shape</Item>
+				<Item>R_wing05Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3271">
+	<Materials>
+		<Item href="Priest_LOD-__Priest_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_1c0eb8b3-69cd-4c52-ac32-99e12c20b662">
+		<Skeleton ObjectRecordID="224">
+			<SrcName href="/models/Creatures/Castle/Priest_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>98922BF9-C060-4069-A1BA-7D151D624C1A</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1802032f-c06e-4bfd-a315-c07e1dd6a18a">
+		<Geometry ObjectRecordID="2720">
+			<SrcName href="/models/Creatures/Castle/Priest_LOD.mb"/>
+			<uid>4F372982-B0D7-4487-9859-23225CB526BB</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.81271</x>
+				<y>0.977992</y>
+				<z>1.99456</z>
+			</Size>
+			<Center>
+				<x>-0.0168083</x>
+				<y>0.196625</y>
+				<z>0.797059</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.110599</x>
+				<y>-0.0017976</y>
+				<z>1.50498</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_121b2799-4bf7-45bf-96af-cf6a98178505">
+				<AIGeometry ObjectRecordID="69">
+					<SrcName href="/models/Creatures/Castle/Priest_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0495973</y>
+						<z>0.901086</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.509574</x>
+						<y>0.384124</y>
+						<z>0.901086</z>
+					</AABBHalfSize>
+					<uid>1C632E77-D902-4592-BF8F-F1E31BF52BCE</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

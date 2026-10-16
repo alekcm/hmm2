@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002067">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_90e85201-7ac7-4925-8f13-f1b84b15cb06">
+			<Material ObjectRecordID="1005882">
+				<Texture href="Inferno_Town_Ruines-Ruins_Inferno_town.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_791ab23a-f444-4c6c-80a4-66b7023cb668">
+			<Material ObjectRecordID="1005883">
+				<Texture href="/Textures/auto-imported_______320/TownExteriors/Inferno_fpp2_____13424/city_mg/Inferno_stone.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/MapObjects/Inferno-capital_mg_wall2-Lava_mat.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_7e238638-53aa-44ab-890c-8a016228dbee">
+			<Material ObjectRecordID="1005885">
+				<Texture href="Inferno_Town_Ruines-Ruins_Inferno_Town_pod.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_f4c8a19a-f560-4c27-a31f-85e626643141">
+		<Skeleton ObjectRecordID="1000535">
+			<SrcName href="/models/TownsGlobalMap/Inferno/Ruins_Inferno_town.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>D790040D-EB0E-49CF-A1C6-C76A33F0BF94</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_5bb004ee-80f8-497a-8dbc-ff7f26072d0d">
+		<Geometry ObjectRecordID="1001839">
+			<SrcName href="/models/TownsGlobalMap/Inferno/Ruins_Inferno_town.mb"/>
+			<uid>FB68F2AC-BE55-40EA-88BD-F840C23C222F</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>21.5988</x>
+				<y>22</y>
+				<z>24.3406</z>
+			</Size>
+			<Center>
+				<x>2.20062</x>
+				<y>-2</y>
+				<z>4.62112</z>
+			</Center>
+			<BestFitPoint>
+				<x>-3.62599</x>
+				<y>-2.96322</y>
+				<z>16.6703</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_fd19d601-a3d7-4f05-b58c-6a4b6ea807bf">
+				<AIGeometry ObjectRecordID="1000813">
+					<SrcName href="/models/TownsGlobalMap/Inferno/Ruins_Inferno_town.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.0341587</x>
+						<y>-1</y>
+						<z>10.0337</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>6.60379</x>
+						<y>5.49684</y>
+						<z>11.2954</z>
+					</AABBHalfSize>
+					<uid>212AACEA-1186-4D8F-8E01-B76B15539767</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>2</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>TownShape</Item>
+				<Item>Yamka_s_lavoyShape</Item>
+				<Item>PodShape</Item>
+				<Item>CragShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

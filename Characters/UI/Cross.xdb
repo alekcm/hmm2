@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002058">
+	<Materials>
+		<Item href="/UI/HeroPlotitng/Cross.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_56e791ee-e217-48a3-b9f1-ebc2ac3776d8">
+		<Skeleton ObjectRecordID="1000526">
+			<SrcName href="/UI/HeroPlotting/Cross.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>630E4189-6DEC-42BE-9112-7DD375562F98</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b4c3dd4d-6e1f-4f81-b615-a59a5baf6a00">
+		<Geometry ObjectRecordID="1001830">
+			<SrcName href="/UI/HeroPlotting/Cross.mb"/>
+			<uid>BC74AA88-E1C3-420B-B23D-60992636317F</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.14901</x>
+				<y>1.14901</y>
+				<z>0.059083</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>0.0295415</z>
+			</Center>
+			<BestFitPoint>
+				<x>-2.28846e-009</x>
+				<y>5.99359e-009</y>
+				<z>0.0380232</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>ModelShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

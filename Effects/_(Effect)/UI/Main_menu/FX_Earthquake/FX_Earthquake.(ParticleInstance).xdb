@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance>
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="FX_Earthquake.(Particle).xdb#xpointer(/Particle)"/>
+	<Position>
+		<x>11</x>
+		<y>-36.729</y>
+		<z>8</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1.7</Scale>
+	<Speed>0.4</Speed>
+	<Offset>3.6</Offset>
+	<EndCycle>5</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item href="/Textures/Effects/Arenas/Stone00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Spells/GroundParts01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Arenas/Stone02.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Spells/GroundParts00.xdb#xpointer(/Texture)"/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

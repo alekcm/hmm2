@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6853">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_deb169f2-23d9-495d-a120-1a5e0acdfed3">
+			<Material ObjectRecordID="14850">
+				<Texture href="/Textures/auto-imported_______320/ConquestMapObjects/InfernoCapitol/Capitol_Map.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_27374862-9a62-491f-9d4a-2465353af5f4">
+			<Material ObjectRecordID="14851">
+				<Texture href="/Textures/auto-imported_______320/ConquestMapObjects/InfernoCapitol/CapitolTerrain_Texture.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_dfc109e7-e3a8-4393-9592-ce1777294fc6">
+		<Skeleton ObjectRecordID="1131">
+			<SrcName href="/models/Conquest_map/Inferno/Capitol.mb"/>
+			<RootJoint>Capitol_Group</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>AD34AB9A-4CA0-4F84-AE92-A534C4B8354C</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_535fb4f9-f6d2-46f4-ad8e-4b1657501886">
+		<Geometry ObjectRecordID="6050">
+			<SrcName href="/models/Conquest_map/Inferno/Capitol.mb"/>
+			<uid>8256212C-A1C7-4C51-9FFE-7F8FE4124AF7</uid>
+			<RootMesh>Capitol_Group</RootMesh>
+			<RootJoint>Capitol_Group</RootJoint>
+			<Size>
+				<x>38.4864</x>
+				<y>38.4864</y>
+				<z>11.0111</z>
+			</Size>
+			<Center>
+				<x>-1</x>
+				<y>1</y>
+				<z>5.4958</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.74076</x>
+				<y>1.3896</y>
+				<z>10.9785</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>CapitolShape</Item>
+				<Item>Terrain_modelShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

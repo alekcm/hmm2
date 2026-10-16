@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="208">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_3f33992d-f4f9-4854-89be-b96d5a80ed22">
+			<ParticleInstance ObjectRecordID="183">
+				<SrcName/>
+				<Light>L_LIT</Light>
+				<Particle href="/Effects/_(Particle)/Environment/Flora/Tree1_1.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>-1</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Trees/Grass/Yellow/Oak08.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>true</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

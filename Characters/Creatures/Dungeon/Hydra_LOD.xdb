@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000934">
+	<Materials>
+		<Item href="Hydra_LOD-Hydra_LOD_mapping4.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Hydra_LOD-Hydra_LOD_mapping3.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_854da521-864e-41c4-b22d-d5a70569bf00">
+		<Skeleton ObjectRecordID="1000224">
+			<SrcName href="/models/Creatures/Dungeon/Hydra_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>D06A77BA-FF60-4A8E-B07A-4BD74A5086BF</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_4a87f994-fc48-42b6-a596-4c95e8000eeb">
+		<Geometry ObjectRecordID="1000717">
+			<SrcName href="/models/Creatures/Dungeon/Hydra_LOD.mb"/>
+			<uid>C293D25F-4BF3-42E0-A9BB-9D48E0771B05</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.41377</x>
+				<y>6.60989</y>
+				<z>4.68052</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>2.09268</y>
+				<z>2.34026</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0118531</x>
+				<y>-0.408637</y>
+				<z>4.5296</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_91ce5b99-8f7b-417e-845d-8ef4912e7cce">
+				<AIGeometry ObjectRecordID="1000418">
+					<SrcName href="/models/Creatures/Dungeon/Hydra_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.00992155</x>
+						<y>0.386557</y>
+						<z>2.25585</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.509922</x>
+						<y>1.609</y>
+						<z>2.28623</z>
+					</AABBHalfSize>
+					<uid>A0053795-3088-436E-93E8-367004E976A9</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7641">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Necromanser/buff/Wave1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Necromanser/buff/Clot_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Necromanser/buff/Wave1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Necromanser/buff/Wave1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Necromanser/buff/Clot_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Necromanser/buff/Wave1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Necromanser/buff/Wave1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Necromanser/buff/Clot_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_42dc030e-f24e-4f86-bdc7-33bb1099bed0">
+		<Skeleton ObjectRecordID="1561">
+			<SrcName href="/Effects/Characters/Necromanser/buff.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>23C720A7-A302-490C-83F8-8E6CE68440AB</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_263f59b2-bb0d-4293-a519-47041c39815c">
+		<Geometry ObjectRecordID="6811">
+			<SrcName href="/Effects/Characters/Necromanser/buff.mb"/>
+			<uid>55B7D1AA-8C7B-48AA-AAE9-CA35F53E39AE</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.37063</x>
+				<y>1.83217</y>
+				<z>0.589996</z>
+			</Size>
+			<Center>
+				<x>-1.19209e-007</x>
+				<y>-0.269232</y>
+				<z>2</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.00107952</x>
+				<y>-0.397291</y>
+				<z>2.20087</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>8</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Wave0Shape1</Item>
+				<Item>Wave01|EvilClot00|EvilClot00Shape</Item>
+				<Item>Wave0Shape2</Item>
+				<Item>Wave0Shape3</Item>
+				<Item>Wave03|EvilClot00|EvilClot00Shape</Item>
+				<Item>Wave0Shape4</Item>
+				<Item>Wave0Shape5</Item>
+				<Item>Wave05|EvilClot00|EvilClot00Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

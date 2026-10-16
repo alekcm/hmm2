@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5660">
+	<Materials>
+		<Item href="ArchDevil_LOD-Devil_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="ArchDevil_LOD-DevilAxe_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="ArchDevil_LOD-DevilAxe_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_1e165053-2bc2-468f-ba4f-e36e62c7cfd4">
+		<Skeleton ObjectRecordID="482">
+			<SrcName href="/models/Creatures/Inferno/ArchDevil_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>99A873DD-C216-4A66-BBC6-AA1D2E185743</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_2f03fdc8-38b5-421e-8623-d8443566cc6e">
+		<Geometry ObjectRecordID="4852">
+			<SrcName href="/models/Creatures/Inferno/ArchDevil_LOD.mb"/>
+			<uid>A43993F4-E81E-4E93-B753-28147F1AD31D</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>6.66974</x>
+				<y>3.99474</y>
+				<z>3.77192</z>
+			</Size>
+			<Center>
+				<x>-0.806972</x>
+				<y>0.0268795</y>
+				<z>1.88596</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.144117</x>
+				<y>0.325099</y>
+				<z>3.59852</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_35c092bb-c8b1-41c6-9946-adf763893186">
+				<AIGeometry ObjectRecordID="195">
+					<SrcName href="/models/Creatures/Inferno/Devil_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>1.62623</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.995871</x>
+						<y>0.995871</y>
+						<z>1.62623</z>
+					</AABBHalfSize>
+					<uid>4A9ECABC-7887-49FB-B0ED-0165C20CFFB9</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>ArchDevil_meshShape</Item>
+				<Item>ArchDevil_axeShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

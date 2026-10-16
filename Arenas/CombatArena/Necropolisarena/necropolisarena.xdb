@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="1000032">
+	<ExpScene href="/models/Arenas/NecropolisSiege/NecropolisSiege.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>7041E9E7-FE27-474B-8B6A-4D36E1985735</uid>
+	<objects>
+		<Item href="s_gate.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_central_tower.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_3.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="shooter_s1.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s2.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s3.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="s_moat.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_4.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Moat_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="env_wall_2.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="env_wall_1.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+	</objects>
+	<lights/>
+	<effects/>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>262.954</x>
+			<y>278.324</y>
+			<z>31.5084</z>
+		</Pos>
+		<Rot>
+			<x>-27.674</x>
+			<y>-63.5321</y>
+			<z>0</z>
+		</Rot>
+		<Rod>56.784</Rod>
+		<FOV>54.4322</FOV>
+		<ClipDistanceMin>0.2</ClipDistanceMin>
+		<ClipDistanceMax>500</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound/>
+	<Music/>
+	<Wind/>
+	<CamerasSet href="/_(CamerasSet)/PA2.xdb#xpointer(/CamerasSet)"/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Day_light.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model/>
+		<AnimSet/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras/>
+	<CameraLimits/>
+	<CameraLimitsSet/>
+</ArenaDesc>

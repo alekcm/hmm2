@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000870">
+	<Materials>
+		<Item href="special_attack-Arrow_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="special_attack-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="special_attack-Arrow_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_b7f2f58f-5006-4702-887b-f75b775ecba0">
+		<Skeleton ObjectRecordID="1000166">
+			<SrcName href="/Effects/Characters/Ranger/special_attack.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>DFD91159-490D-4AB7-9686-BE1C19B37AED</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_39a7aa68-ff95-4146-aef8-9e792ae3b482">
+		<Geometry ObjectRecordID="1000659">
+			<SrcName href="/Effects/Characters/Ranger/special_attack.mb"/>
+			<uid>604A7416-4F53-42ED-97EE-F114F9814110</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.448784</x>
+				<y>0.980456</y>
+				<z>0.991081</z>
+			</Size>
+			<Center>
+				<x>0.28929</x>
+				<y>0.370981</y>
+				<z>1.86124</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.224651</x>
+				<y>0.0691115</y>
+				<z>2.26165</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>ArrowShape</Item>
+				<Item>ArrowGlowShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

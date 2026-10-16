@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5580">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_bdec21db-6fb6-44a5-99b6-f06368ca6622">
+			<Material ObjectRecordID="8942">
+				<Texture href="/Textures/Creatures/Inferno/Familiar/Familiar.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_7c26c500-462c-498d-ad43-afcd5033f67b">
+		<Skeleton ObjectRecordID="453">
+			<SrcName href="/models/Creatures/Inferno/Familiar.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>C8723FCD-26AA-4F12-885B-6EEBE2DED493</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_550cd9f6-287d-4f05-b08a-1701d92c9057">
+		<Geometry ObjectRecordID="4771">
+			<SrcName href="/models/Creatures/Inferno/Familiar.mb"/>
+			<uid>E404DFA3-541F-48AF-BB96-6F6BC0DFBE1C</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.55255</x>
+				<y>1.80456</y>
+				<z>1.88976</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.564269</y>
+				<z>0.944882</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.00276972</x>
+				<y>0.642416</y>
+				<z>1.78742</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_db873f16-b41c-427c-ae36-1a31c593b7df">
+				<AIGeometry ObjectRecordID="141">
+					<SrcName href="/models/Creatures/Inferno/Familiar.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0758203</y>
+						<z>0.536565</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.514681</x>
+						<y>0.437174</y>
+						<z>0.515223</z>
+					</AABBHalfSize>
+					<uid>080A1E0E-3DCE-4A0C-B9C5-652328EA0830</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

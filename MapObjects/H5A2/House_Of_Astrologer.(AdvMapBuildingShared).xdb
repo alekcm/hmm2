@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapBuildingShared>
+	<Model href="/_(Model)/Buildings/H5A2/HouseOfAstrologer.xdb#xpointer(/Model)"/>
+	<AnimSet href="/_(AnimSet)/Buildings/H5A2/HouseOfAstrologer.xdb#xpointer(/AnimSet)"/>
+	<blockedTiles>
+		<Item>
+			<x>-1</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>0</y>
+		</Item>
+		<Item>
+			<x>-1</x>
+			<y>1</y>
+		</Item>
+		<Item>
+			<x>1</x>
+			<y>1</y>
+		</Item>
+	</blockedTiles>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>1</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect href="/Effects/_(Effect)/Buildings/H5A2/House_Of_Astrologer/House_Of_Astrologer.(Effect).xdb#xpointer(/Effect)"/>
+	<EffectWhenOwned href="/Effects/_(Effect)/Buildings/H5A2/House_Of_Astrologer/House_Of_Astrologer.(Effect).xdb#xpointer(/Effect)"/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Buildings/AstrologerTower/Name.txt"/>
+		<Item href="/Text/Game/Buildings/AstrologerTower/Description.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128 href="/UI/H5A2/Icons/Adv_Buildings/Astrologer_Tower.(Texture).xdb#xpointer(/Texture)"/>
+	<Type>BUILDING_ASTROLOGER_TOWER</Type>
+</AdvMapBuildingShared>

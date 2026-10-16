@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="529">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_9fbc0157-44bf-45e9-ae88-d533ad869b04">
+			<ParticleInstance ObjectRecordID="711">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_19c28c47-3580-460d-85b6-8a83a17f94b0">
+					<Particle ObjectRecordID="363">
+						<SrcName href="/Effects/Spells/Plague.mb"/>
+						<ExportPrefix>Plague</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>e076c73d2011473ef4f79e405348714150f0b940b12cc240a45e4841</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>31597C5E-94DA-48AB-AA4A-7ABA197CD30C</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/PlagueSkulls/Skull00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/PlagueSkulls/Skull01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/PlagueSkulls/Skull02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/PlagueSkulls/Skull03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/PlagueSkulls/Skull04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/PlagueSkulls/Skull05.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/SmokeADD01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/SmokeADD00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/GlowYellow01.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/Artefacts/RayGreen.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_0d6132ac-1dfa-44d3-94f4-0b49dc817b16">
+			<ParticleInstance ObjectRecordID="1000203">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Characters/Necromanser/Path/ScullsGlow.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.2</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_962d48be-f67c-45df-ba5a-d741da5dde11">
+			<ParticleInstance ObjectRecordID="1000204">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Characters/Necromanser/Path/ScullsGlow.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>2</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+					<w>0</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0.2</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_0fe847b7-ec2f-4841-88b7-5af1410bd870">
+			<ModelInstance ObjectRecordID="119">
+				<Model href="/_(Model)/Effects/Spells/Plague.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Spells/Plague.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_c7e9efa8-0556-418e-b4f4-79df8d61aa3b">
+			<ModelInstance ObjectRecordID="1000061">
+				<Model href="/_(Model)/Effects/Characters/Necromanser/Path/Scull.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Heroes/Necromancer/Path/Scull.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.2</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_82ecfe1f-530d-4ea1-9d03-9d8349645555">
+			<ModelInstance ObjectRecordID="1000062">
+				<Model href="/_(Model)/Effects/Characters/Necromanser/Path/Scull.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Heroes/Necromancer/Path/Scull.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>2</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+					<w>0</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0.2</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

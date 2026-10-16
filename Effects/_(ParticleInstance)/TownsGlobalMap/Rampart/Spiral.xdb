@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="1000091">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_3075e9b4-33a5-45ae-9e18-75f18fb7a10b">
+		<Particle ObjectRecordID="1000091">
+			<SrcName href="/Effects/TownsGlobalMap/Rampart/Spiral.mb"/>
+			<ExportPrefix>Spiral</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>a0a22d3dba0100c0ffd696400e24433fca70093f18170b3ec817063f</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>722A51EF-024E-42D6-87A3-F2524E6769F4</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>2</x>
+		<y>0.4</y>
+		<z>-1</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>5</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

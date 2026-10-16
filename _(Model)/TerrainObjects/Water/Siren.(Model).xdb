@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3955">
+	<Materials>
+		<Item href="Siren-Siren_.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="Siren.(Skeleton).xdb#xpointer(/Skeleton)"/>
+	<Geometry href="#n:inline(Geometry)" id="item_65162cbf-17e4-4d97-bf49-4cdebf46937e">
+		<Geometry ObjectRecordID="3396">
+			<SrcName href="/models/TerrainObjects/Water/Siren.mb"/>
+			<uid>5FF8035F-1C32-4A79-839A-15CD6E0E9131</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.77359</x>
+				<y>2.38775</y>
+				<z>6.10577</z>
+			</Size>
+			<Center>
+				<x>0.0372977</x>
+				<y>0.0340394</y>
+				<z>0.352885</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0140646</x>
+				<y>-0.310831</y>
+				<z>2.97943</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="/_(Model)/Buildings/Siren_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>SirenShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

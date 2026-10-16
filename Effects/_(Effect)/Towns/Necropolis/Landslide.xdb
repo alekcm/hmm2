@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000135">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_cfd8e703-ba39-4279-ab2c-96cec0161f26">
+			<ParticleInstance ObjectRecordID="1000132">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Towns/Necropolis/Landslide.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>0.5</Scale>
+				<Speed>2</Speed>
+				<Offset>0</Offset>
+				<EndCycle>30</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0.8</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Arenas/SmallStones00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Arenas/Stone01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Arenas/Stone03.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

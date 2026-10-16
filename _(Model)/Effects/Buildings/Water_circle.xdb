@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002046">
+	<Materials>
+		<Item href="/water_wheel_lambert9.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/water_wheel_lambert9.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/water_wheel_lambert9.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/water_wheel_lambert9.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/water_wheel_lambert9.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/water_wheel_lambert9.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c1d85702-1082-478a-8874-20af2b2352fb">
+		<Skeleton ObjectRecordID="1000514">
+			<SrcName href="/Effects/Buildings/MagicSpring.mb"/>
+			<RootJoint>WaterCircle</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>10AA916C-A59A-435B-B139-7C8A3F10F007</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_fe56148d-ca14-4587-babf-ffa413997004">
+		<Geometry ObjectRecordID="1001818">
+			<SrcName href="/Effects/Buildings/MagicSpring.mb"/>
+			<uid>5FED6FBF-CA64-4991-AE9E-9EC7C11C5A59</uid>
+			<RootMesh>WaterCircle</RootMesh>
+			<RootJoint>WaterCircle</RootJoint>
+			<Size>
+				<x>3.81239</x>
+				<y>1.80392</y>
+				<z>0.0132194</z>
+			</Size>
+			<Center>
+				<x>-1.26822</x>
+				<y>0.740053</y>
+				<z>0.160655</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.34128</x>
+				<y>0.703497</y>
+				<z>0.161799</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_37703142-0f41-4b60-9bac-e763ba1cca59">
+				<AIGeometry ObjectRecordID="1000796">
+					<SrcName href="/Effects/Buildings/MagicSpring.mb"/>
+					<RootMesh>WaterCircle</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBHalfSize>
+					<uid>0CF5C225-EBC1-464E-8087-DFBD32481839</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>6</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>WaterCircle|WaterRipple01|WaterRipple01Shape</Item>
+				<Item>WaterCircle|WaterRipple02|WaterRipple02Shape</Item>
+				<Item>WaterCircle|WaterRipple03|WaterRipple03Shape</Item>
+				<Item>WaterCircle1|WaterRipple01|WaterRipple01Shape</Item>
+				<Item>WaterCircle1|WaterRipple02|WaterRipple02Shape</Item>
+				<Item>WaterCircle1|WaterRipple03|WaterRipple03Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

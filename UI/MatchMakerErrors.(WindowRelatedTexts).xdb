@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowRelatedTexts>
+	<texts>
+		<Item>
+			<TextName>ErrorTextWithCode</TextName>
+			<text href="MatchMakerErrors/ErrorTextWithCode.txt"/>
+		</Item>
+		<Item>
+			<TextName>UCLE_GAME_VERSION_NOT_MATCH</TextName>
+			<text href="Lobby/Texts/VersionsNotMatch.txt"/>
+		</Item>
+		<Item>
+			<TextName>UCLE_INVALID_ROOM_PASSWORD</TextName>
+			<text href="Lobby/InvalidPassword.txt"/>
+		</Item>
+		<Item>
+			<TextName>UCLE_GAME_CHECKSUM_NOT_MATCH</TextName>
+			<text href="Lobby/Texts/UCLE_GAME_CHECKSUM_NOT_MATCH.txt"/>
+		</Item>
+		<Item>
+			<TextName>UCLE_PLAYER_NAME_ALREADY_USED</TextName>
+			<text href="Lobby/Texts/UCLE_PLAYER_NAME_ALREADY_USED.txt"/>
+		</Item>
+		<Item>
+			<TextName>UCLE_COMMAND_DISCARDED_WITHOUT_PROCESSING</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_COMMAND_NOT_IMPLEMENTED</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_INVALID_ROOM_ID</TextName>
+			<text href="MatchMakerErrors/UCLE_INVALID_ROOM_ID.txt"/>
+		</Item>
+		<Item>
+			<TextName>UCLE_INVALID_LOBBY_SERVER_ID</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_CONNECTION_TO_UBI_FAILED</TextName>
+			<text href="MPRegister/cant-connect.txt"/>
+		</Item>
+		<Item>
+			<TextName>UCLE_LIBRARY_UNINITIALIZED</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_PORT_IN_USE</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_GET_SELF_ADDRESS_FAILED</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_ONLY_HOST_CAN_DO_IT</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_PLAYER_NAME_NOT_SPECIFIED</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_NETDRIVER_FAILED_TO_SEND_BROADCAST</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_CANNOT_START_RATED_GAME_ON_LAN</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_LADDER_QUERY_ALREADY_WAITING_REQUEST_RESULT</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_LAN_LOGIN_TIMEOUT</TextName>
+			<text href="MatchMakerErrors/UCLE_LAN_LOGIN_TIMEOUT.txt"/>
+		</Item>
+		<Item>
+			<TextName>UCLE_NOT_LOGGED_IN</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_CANNOT_SEND_EMPTY_CHAT_MESSAGE</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_PASSWORD_TOO_LONG</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>UCLE_GS_ERROR</TextName>
+			<text href="MatchMakerErrors/UCLE_GS_ERROR.txt"/>
+		</Item>
+		<Item>
+			<TextName>UCLE_GS_SEND_FAILED</TextName>
+			<text href="MatchMakerErrors/UCLE_GS_SEND_FAILED.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSLE_ERRORLOBBYSRV_INVALIDGROUPNAME</TextName>
+			<text href="MatchMakerErrors/GSLE_ERRORLOBBYSRV_INVALIDGROUPNAME.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSLE_ERRORLOBBYSRV_NOMOREMEMBERS</TextName>
+			<text href="Lobby/Texts/GameFull.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_USERNAMEEXISTS</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_USERNAMEMALFORMED</TextName>
+			<text href="MatchMakerErrors/GSLGE_ERRORSECURE_USERNAMEFORBIDDEN.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_USERNAMEFORBIDDEN</TextName>
+			<text href="MatchMakerErrors/GSLGE_ERRORSECURE_USERNAMEFORBIDDEN.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_INVALIDACCOUNT</TextName>
+			<text href="MPRegister/LoginInvalidAccount.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_USERNAMERESERVED</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_PASSWORDMALFORMED</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_PASSWORDFORBIDDEN</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_INVALIDPASSWORD</TextName>
+			<text href="MPRegister/LoginIncorrectPassword.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_INVALIDCOUNTRY</TextName>
+			<text href=""/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_DATABASEFAILED</TextName>
+			<text href="MPRegister/LoginDatabaseFailed.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_BANNEDACCOUNT</TextName>
+			<text href="MPRegister/LoginBannedAccount.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_BLOCKEDACCOUNT</TextName>
+			<text href="MPRegister/LoginBlockedAccount.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORSECURE_LOCKEDACCOUNT</TextName>
+			<text href="MPRegister/LoginLockedAccount.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSLGE_ERRORROUTER_CLIENTINCOMPATIBLE</TextName>
+			<text href="MatchMakerErrors/GSLGE_ERRORROUTER_CLIENTINCOMPATIBLE.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSCDE_ERRORCDKEY_SUCCESS</TextName>
+			<text href="MatchMakerErrors/GSCDE_ERRORCDKEY_SUCCESS.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSCDE_ERRORCDKEY_TIMEOUT</TextName>
+			<text href="MatchMakerErrors/GSCDE_ERRORCDKEY_TIMEOUT.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSCDE_ERRORCDKEY_INVALID_CDKEY</TextName>
+			<text href="MatchMakerErrors/GSCDE_ERRORCDKEY_INVALID_CDKEY.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSCDE_ERRORCDKEY_NOT_CHALLENGED</TextName>
+			<text href="MatchMakerErrors/GSCDE_ERRORCDKEY_NOT_CHALLENGED.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSCDE_ERRORCDKEY_ALREADY_ONLINE</TextName>
+			<text href="MatchMakerErrors/GSCDE_ERRORCDKEY_ALREADY_ONLINE.txt"/>
+		</Item>
+		<Item>
+			<TextName>GSCDE_ERRORCDKEY_INTERNAL_ERROR</TextName>
+			<text href="MatchMakerErrors/GSCDE_ERRORCDKEY_INTERNAL_ERROR.txt"/>
+		</Item>
+	</texts>
+</WindowRelatedTexts>

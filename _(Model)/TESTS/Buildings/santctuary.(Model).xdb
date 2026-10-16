@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3915">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_a809d24e-165b-4ccf-881f-6115e4a9b659">
+			<Material ObjectRecordID="1002076">
+				<Texture href="santctuary-sanctuary.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_46395bce-6d1b-476c-9ec6-46758f559d02">
+		<Skeleton ObjectRecordID="254">
+			<SrcName href="/models/Buildings/FPP2/Sanctuary.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>5C2E4FA5-1211-4E97-ACB7-1FF1C1172BC1</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_54b4c139-fee1-4f6b-b253-dc140f752cea">
+		<Geometry ObjectRecordID="3356">
+			<SrcName href="/models/Buildings/FPP2/Sanctuary.mb"/>
+			<uid>6B48A7E2-F199-4B18-8277-9494C23DD6CD</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>6.45276</x>
+				<y>6.46094</y>
+				<z>13.8017</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>-0.017844</y>
+				<z>6.92056</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0789835</x>
+				<y>-0.616978</y>
+				<z>13.8214</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_cb14d8ea-3eda-469b-bec3-adacfeec80a5">
+				<AIGeometry ObjectRecordID="1000469">
+					<SrcName href="/models/Buildings/FPP2/Sanctuary.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.0473857</x>
+						<y>0.0175794</y>
+						<z>5.31096</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2.62296</x>
+						<y>2.53387</y>
+						<z>5.31096</z>
+					</AABBHalfSize>
+					<uid>9849BEB3-3223-4DDF-BD1F-F741CFCFEC40</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurfaceShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

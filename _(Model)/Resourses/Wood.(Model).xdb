@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6702">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_fccd1e25-46d9-4b27-b7a4-46a143134cf8">
+			<Material ObjectRecordID="13908">
+				<Texture href="/Textures/auto-imported_______320/Resourses_____13907/Wood/Wood.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_89428255-ef1f-49d0-b984-0dc93c77d8e0">
+			<Material ObjectRecordID="13909">
+				<Texture href="/Textures/auto-imported_______320/Resourses_____13907/Wood/Wood.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>8</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss href="/Textures/Creatures/Inferno/Imp/Imp_orb_gloss.xdb#xpointer(/Texture)"/>
+				<MetalMirror>0.1</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_20925eb0-8a85-4f06-8645-7fc38d7ff97c">
+		<Skeleton ObjectRecordID="1051">
+			<SrcName href="/models/ResourcesAndChests/Resourses.mb"/>
+			<RootJoint>Wood</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>EE9E41D9-B12F-49E5-AF93-6C878CD8193B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1e00a819-d9a0-4627-85b8-307d1870003b">
+		<Geometry ObjectRecordID="5899">
+			<SrcName href="/models/ResourcesAndChests/Resourses.mb"/>
+			<uid>C94688D0-E25B-41E8-9D28-98319BFCB717</uid>
+			<RootMesh>Wood</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2.11495</x>
+				<y>2.09331</y>
+				<z>1.44963</z>
+			</Size>
+			<Center>
+				<x>0.00507087</x>
+				<y>0.0640724</y>
+				<z>0.724804</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.258893</x>
+				<y>0.54714</y>
+				<z>1.31687</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(Model)/TerrainObjects/Resourses/wood_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>WoodShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

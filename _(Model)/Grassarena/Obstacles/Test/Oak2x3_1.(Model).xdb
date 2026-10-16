@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7579">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/TerrainObjects/Grass/Trees/oak/Oak04/Bark_oak.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/TerrainObjects/Grass/Trees/oak/Oak04/Bark_oak-1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/TerrainObjects/Grass/Trees/oak/Oak04/Leaf_green.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ac4a9196-d5f6-4fae-acb2-ef770504fd0a">
+		<Skeleton ObjectRecordID="1514">
+			<SrcName href="/models/TerrainObjects/Grass/Trees/oak/Oaksnew.mb"/>
+			<RootJoint>Oak2x3_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>6D451DF3-48B7-403F-96EE-D92B25EF6DFB</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_812054a7-1c8c-495e-bace-7dc993129a7f">
+		<Geometry ObjectRecordID="6753">
+			<SrcName href="/models/TerrainObjects/Grass/Trees/oak/Oaksnew.mb"/>
+			<uid>C9B4CCBE-C18D-4A65-9C32-6A67233519DA</uid>
+			<RootMesh>Oak2x3_1</RootMesh>
+			<RootJoint>Oak2x3_1</RootJoint>
+			<Size>
+				<x>12.6123</x>
+				<y>8.49535</y>
+				<z>7.96454</z>
+			</Size>
+			<Center>
+				<x>-0.794292</x>
+				<y>0.482955</y>
+				<z>2.98288</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.89493</x>
+				<y>1.87759</y>
+				<z>6.86286</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Oak2x3_1|branch|branchShape</Item>
+				<Item>Oak2x3_1|stvol|stvolShape</Item>
+				<Item>Oak2x3_1|leaf|leafShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

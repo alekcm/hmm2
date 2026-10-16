@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="1000086">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_373f9b26-cd41-4683-a452-c0a2f7dfb871">
+		<Particle ObjectRecordID="1000085">
+			<SrcName href="/Effects/TownsGlobalMap/Rampart/Rampart.mb"/>
+			<ExportPrefix>Leaves_</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>808e6ebdf0be6b3fd24d81bf5fbd8241219b1d4199c31c4123af0941</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>FE880A0D-0E61-4091-9CB0-0B8B9D57B564</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>2</x>
+		<y>0.4</y>
+		<z>-0.3</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>0.5</Speed>
+	<Offset>0</Offset>
+	<EndCycle>6</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/_Various/Laeve (2).xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

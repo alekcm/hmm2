@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001001">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_60dbe70a-f7b3-4462-b6d3-f24e98b61e78">
+			<Material ObjectRecordID="1001997">
+				<Texture href="UnkemptGalley_Texture.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_0e7572c3-18b0-4b02-8fab-5f5eaf8505cf">
+		<Skeleton ObjectRecordID="1000235">
+			<SrcName href="/models/TerrainObjects/Water/Damaged_Boats/Shipsdamages.mb"/>
+			<RootJoint>UnkemptGalley</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>AB3569B8-6835-48AD-9912-950B3624F7A1</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_8d792d9c-1dfe-49f9-b13f-81cf7c2fb046">
+		<Geometry ObjectRecordID="1000785">
+			<SrcName href="/models/TerrainObjects/Water/Damaged_Boats/Shipsdamages.mb"/>
+			<uid>DA8BACCE-B95D-4635-A5BA-54B42A2ACD3F</uid>
+			<RootMesh>UnkemptGalley</RootMesh>
+			<RootJoint>UnkemptGalley</RootJoint>
+			<Size>
+				<x>3.07207</x>
+				<y>5.67942</y>
+				<z>3.51674</z>
+			</Size>
+			<Center>
+				<x>0.105357</x>
+				<y>0.150578</y>
+				<z>1.05563</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.230243</x>
+				<y>-1.85342</y>
+				<z>2.67842</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(Model)/TerrainObjects/Water/WreckedShips_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>UnkemptGalley|mesh|meshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

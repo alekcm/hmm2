@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="583">
+	<Instances/>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_d56401eb-b624-478c-ba76-d3b428281d94">
+			<ModelInstance ObjectRecordID="137">
+				<Model href="/_(Model)/Effects/Characters/AttackTrails/MarksmanAttack00.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Characters/AttackTrails/MarksmanAttack00.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

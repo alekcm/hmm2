@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="332">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_92039b27-ae1e-49b4-a762-c7f600369658">
+			<ParticleInstance ObjectRecordID="407">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_548df538-dcb0-4802-8a34-226fcddf923f">
+					<Particle ObjectRecordID="168">
+						<SrcName href="/Effects/Characters/SuccubusChainShotHit.mb"/>
+						<ExportPrefix>Fire</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>6a3f9dbf66c51ac1781a2f4022649341370c08417e745241d43a1b41</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>3477A88E-DD8F-4E94-B5B0-B255232D9252</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>1.5</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+					<w>0</w>
+				</Rotation>
+				<Scale>0.3</Scale>
+				<Speed>1.2</Speed>
+				<Offset>0</Offset>
+				<EndCycle>2</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/FireSequence/Red/Fire09.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_ce7e234b-8e3c-4b89-b5a8-c66960480679">
+			<ParticleInstance ObjectRecordID="408">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Characters/SuccubusShot/Hit_flash.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>1.5</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+					<w>0</w>
+				</Rotation>
+				<Scale>0.5</Scale>
+				<Speed>0.9</Speed>
+				<Offset>0</Offset>
+				<EndCycle>2</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion11.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion12.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion13.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion14.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion15.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_d038a7a0-51e5-47c4-9f41-8428e5970232">
+			<ParticleInstance ObjectRecordID="409">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Characters/SuccubusShot/Hit_flash.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>-0.5</y>
+					<z>1.5</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+					<w>0</w>
+				</Rotation>
+				<Scale>0.3</Scale>
+				<Speed>0.7</Speed>
+				<Offset>0.1</Offset>
+				<EndCycle>2</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion11.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion12.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion13.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion14.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Yellow/Explosion15.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="Flash.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_da660822-a608-486e-96d5-5b37b4e1c757">
+			<ModelInstance ObjectRecordID="66">
+				<Model href="/_(Model)/Effects/Characters/SuccubusHitWave.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Characters/SuccubusHitWave.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>1.5</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+					<w>0</w>
+				</Rotation>
+				<Scale>0.35</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000888">
+	<Materials>
+		<Item href="BattleUnicorn_LOD-BattleUnicorn_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="BattleUnicorn_LOD-BattleUnicorn_add_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_bb86f900-1157-4132-8cd9-e1636d7bdd48">
+		<Skeleton ObjectRecordID="1000268">
+			<SrcName href="/models/Creatures/Preserve/BattleUnicorn_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>2F7832EC-681D-4FEA-9C28-B7729C07F08B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_e330c930-a042-470a-83b5-e053dbae8512">
+		<Geometry ObjectRecordID="1000676">
+			<SrcName href="/models/Creatures/Preserve/BattleUnicorn_LOD.mb"/>
+			<uid>273F2D3C-7F05-4506-B270-1A6214F804B4</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.775921</x>
+				<y>5.13557</y>
+				<z>2.42027</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.583483</y>
+				<z>1.20958</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.000869578</x>
+				<y>-0.87742</y>
+				<z>2.22993</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_9b6eae8e-b133-4872-b55d-5760a5b262c4">
+				<AIGeometry ObjectRecordID="1000398">
+					<SrcName href="/models/Creatures/Preserve/BattleUnicorn_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.195478</y>
+						<z>1.03914</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.383507</x>
+						<y>1.31667</y>
+						<z>1.03914</z>
+					</AABBHalfSize>
+					<uid>B87C066A-EA08-471C-937A-5FC453B1589A</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurfaceShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

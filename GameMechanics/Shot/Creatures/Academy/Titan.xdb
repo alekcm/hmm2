@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shot ObjectRecordID="1000011">
+	<StartEffect/>
+	<RotateStartEffectToTarget>false</RotateStartEffectToTarget>
+	<MissileShot>
+		<Model/>
+		<Effect/>
+		<Speed>0.01</Speed>
+		<Height>0</Height>
+		<ForwardOffset>0</ForwardOffset>
+		<StartZOffset>3.5</StartZOffset>
+		<RightOffset>0</RightOffset>
+	</MissileShot>
+	<LineShot>
+		<Effects>
+			<Item href="/Effects/_(Effect)/Characters/Creatures/Academy/Titan/shot_lightning01.(Effect).xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Characters/Creatures/Academy/Titan/shot_lightning02.(Effect).xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Characters/Creatures/Academy/Titan/shot_lightning03.(Effect).xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Characters/Creatures/Academy/Titan/shot_lightning04.(Effect).xdb#xpointer(/Effect)"/>
+		</Effects>
+		<SkipSegmentsNumber>2</SkipSegmentsNumber>
+		<SegmentLength>2</SegmentLength>
+		<StepDelay>0</StepDelay>
+		<EffectLifeTime>700</EffectLifeTime>
+	</LineShot>
+	<StrikeDelay>0</StrikeDelay>
+	<StrikeEffectID>SPELL_NONE</StrikeEffectID>
+	<DelayBetweenChains>0</DelayBetweenChains>
+	<StrikeVisualEffect href="/GameMechanics/SpellVisual/TitanStrikeEffect.xdb#xpointer(/SpellVisual)"/>
+</Shot>

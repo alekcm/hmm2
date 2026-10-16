@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7319">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Slow_spiral/lambert5.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Slow_spiral/lambert5.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_1ef02951-c065-418d-b0ab-d7910a13e2fd">
+		<Skeleton ObjectRecordID="1340">
+			<SrcName href="/Effects/Spells/Slow.mb"/>
+			<RootJoint>Global01</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>B16E1C71-4BEC-4D5C-A94C-E98931F39ED6</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_116248aa-2ba6-44ef-bfe4-497b3cc3e0ce">
+		<Geometry ObjectRecordID="6517">
+			<SrcName href="/Effects/Spells/Slow.mb"/>
+			<uid>C91A0721-CF95-4A20-BF57-26ADFCF8D918</uid>
+			<RootMesh>Global01</RootMesh>
+			<RootJoint>Global01</RootJoint>
+			<Size>
+				<x>10</x>
+				<y>10</y>
+				<z>0.05</z>
+			</Size>
+			<Center>
+				<x>-1.5</x>
+				<y>-1.5</y>
+				<z>0.125</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.5</x>
+				<y>-1.5</y>
+				<z>0.131123</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_98a40b9a-5fe4-45a1-8d5a-c1532a606271">
+				<AIGeometry ObjectRecordID="365">
+					<SrcName href="/Effects/Spells/Slow.mb"/>
+					<RootMesh>0</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBHalfSize>
+					<uid>ECBB6460-FC96-48B6-8792-9555E981477A</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>pPlaneShape4</Item>
+				<Item>pPlaneShape5</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

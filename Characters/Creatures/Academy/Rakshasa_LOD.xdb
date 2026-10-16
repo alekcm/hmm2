@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000932">
+	<Materials>
+		<Item href="Rakshasa_LOD-Rakshasa_mapping_Rakshasa_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_a36f81d6-9777-47a9-80d5-2cabcad6588a">
+		<Skeleton ObjectRecordID="1000222">
+			<SrcName href="/models/Creatures/Academy/Rakshasa_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>332CF003-65C7-4308-B904-E49F7AA30B44</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_814af0f0-7579-48a1-aea7-bd1e1bf26d81">
+		<Geometry ObjectRecordID="1000715">
+			<SrcName href="/models/Creatures/Academy/Rakshasa_LOD.mb"/>
+			<uid>E6DB33DA-D0D8-42DA-A993-8D8CD6BA9E7C</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4.26991</x>
+				<y>2.40856</y>
+				<z>3.2573</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.833879</y>
+				<z>1.61943</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.000561373</x>
+				<y>-0.0875221</y>
+				<z>3.19662</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_8d06cef3-7e5d-4e9d-8ff1-83a628303500">
+				<AIGeometry ObjectRecordID="1000416">
+					<SrcName href="/models/Creatures/Academy/Rakshasa_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>1.31766</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.5</x>
+						<y>0.5</y>
+						<z>1.32586</z>
+					</AABBHalfSize>
+					<uid>15053439-FD00-4D01-87B0-24CA2A6A3B6D</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

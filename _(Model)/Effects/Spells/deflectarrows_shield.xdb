@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000892">
+	<Materials>
+		<Item href="DeflectArrows-t_Shield_lambert1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="DeflectArrows-t_Shield_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="DeflectArrows-Shield_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_0008c985-7ab8-4a9d-a61a-ffe86be49c6e">
+		<Skeleton ObjectRecordID="1000187">
+			<SrcName href="/Effects/Spells/DeflectArrows_shield.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>D3779674-BDC2-4A91-9C82-C7956A245BD3</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_f40f842e-eb0d-4d07-9bc6-cb24b5d619d4">
+		<Geometry ObjectRecordID="1000680">
+			<SrcName href="/Effects/Spells/DeflectArrows_shield.mb"/>
+			<uid>0A33C20C-FF47-4DCD-9C48-0E07AF1D137A</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.86603</x>
+				<y>2.18111</y>
+				<z>3.36524</z>
+			</Size>
+			<Center>
+				<x>1.19209e-007</x>
+				<y>-1.12405</y>
+				<z>1.60858</z>
+			</Center>
+			<BestFitPoint>
+				<x>-4.72546e-008</x>
+				<y>-0.308492</y>
+				<z>3.15608</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>SphereShape3</Item>
+				<Item>SphereShape2</Item>
+				<Item>SphereShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

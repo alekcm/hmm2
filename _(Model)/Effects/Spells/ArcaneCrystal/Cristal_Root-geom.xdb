@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A2/Effects/Spells/Arcane Crystal/FX_Arcane_Crystal_Start.mb"/>
+	<uid>047E15E3-61BE-4BB9-B9C9-EE0C3FC63292</uid>
+	<RootMesh>Cristal_Root</RootMesh>
+	<RootJoint>Cristal_Root</RootJoint>
+	<Size>
+		<x>1.63932</x>
+		<y>1.37963</y>
+		<z>3.65982</z>
+	</Size>
+	<Center>
+		<x>-0.103833</x>
+		<y>-0.102587</y>
+		<z>1.93493</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Cristal_Root-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>2</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>polySurfaceShape1</Item>
+		<Item>polySurfaceShape2</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

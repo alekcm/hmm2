@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Table_HeroAttributeDesc_HeroAttribute>
+	<objects>
+		<Item>
+			<ID>HERO_ATTRIB_DEFENCE</ID>
+			<obj>
+				<NameFileRef href="HeroAttribute/Defence.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>HERO_ATTRIB_OFFENCE</ID>
+			<obj>
+				<NameFileRef href="HeroAttribute/Offence.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>HERO_ATTRIB_KNOWLEDGE</ID>
+			<obj>
+				<NameFileRef href="HeroAttribute/Knowledge.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>HERO_ATTRIB_SPELLPOWER</ID>
+			<obj>
+				<NameFileRef href="HeroAttribute/SpellPower.txt"/>
+			</obj>
+		</Item>
+		<Item>
+			<ID>HERO_ATTRIB_NONE</ID>
+			<obj>
+				<NameFileRef href="HeroAttribute/None.txt"/>
+			</obj>
+		</Item>
+	</objects>
+</Table_HeroAttributeDesc_HeroAttribute>

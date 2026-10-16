@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001861">
+	<Materials>
+		<Item href="DRush01-DRushs.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_e27b072c-04c2-412f-8c54-ddcf82436032">
+		<Skeleton ObjectRecordID="1000440">
+			<SrcName href="/models/TerrainObjects/Dirt/Bushs/Dirtbushs_leaf.mb"/>
+			<RootJoint>DRush01</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1A101FF9-BF9A-45CB-9629-63E7B7E837E8</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a22ea449-81b4-4371-96e6-2e5065beebe4">
+		<Geometry ObjectRecordID="1001639">
+			<SrcName href="/models/TerrainObjects/Dirt/Bushs/Dirtbushs_leaf.mb"/>
+			<uid>30E5DEC0-CCCB-4841-9C66-C0123D822A29</uid>
+			<RootMesh>DRush01</RootMesh>
+			<RootJoint>DRush01</RootJoint>
+			<Size>
+				<x>1.18874</x>
+				<y>0.904171</y>
+				<z>1.32882</z>
+			</Size>
+			<Center>
+				<x>-0.356646</x>
+				<y>0.372601</y>
+				<z>0.664412</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.316909</x>
+				<y>0.432435</y>
+				<z>1.32232</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>DRush0Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

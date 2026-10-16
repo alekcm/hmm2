@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3269">
+	<Materials>
+		<Item href="ArchAngel_LOD-SwordGlow_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="ArchAngel_LOD-Sword_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="ArchAngel_LOD-Arch_add.(Material).xdb#xpointer(/Material)"/>
+		<Item href="ArchAngel_LOD-Arch_main.(Material).xdb#xpointer(/Material)"/>
+		<Item href="ArchAngel_LOD-Face_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_345fad82-f51f-4fe9-9d95-bf67b131eedd">
+		<Skeleton ObjectRecordID="222">
+			<SrcName href="/models/Creatures/Castle/ArchAngel_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>CA895ACF-2BE0-4768-979B-65FBD0B454C6</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ef211323-3866-44e0-a0ff-ef9fefd29eea">
+		<Geometry ObjectRecordID="2718">
+			<SrcName href="/models/Creatures/Castle/ArchAngel_LOD.mb"/>
+			<uid>35C5E41A-1248-401B-89DD-CA85831CCC16</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.17875</x>
+				<y>5.08792</y>
+				<z>5.56246</z>
+			</Size>
+			<Center>
+				<x>0.229844</x>
+				<y>-0.318602</y>
+				<z>2.70707</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.01624e-008</x>
+				<y>1.64682</y>
+				<z>5.45233</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/_(AIGeometry)/Creatures/Haven/ArchAngel_LOD.(AIGeometry).xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>3</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>SwordGlowShape</Item>
+				<Item>SwordShape</Item>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

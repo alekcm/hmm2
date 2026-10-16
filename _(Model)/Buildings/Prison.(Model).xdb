@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7794">
+	<Materials>
+		<Item href="Prison-prison1.3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Prison-prison1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Prison-prison_grass.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_5a543f4b-1197-4846-b3fa-619229ed7d14">
+		<Skeleton ObjectRecordID="1648">
+			<SrcName href="/models/Buildings/FPP2/Prison.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>09556FBE-4B3D-4826-A931-CD2D7F2D28E5</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_7eff1d77-eb15-4a9a-a62e-f26aeb49d71b">
+		<Geometry ObjectRecordID="6955">
+			<SrcName href="/models/Buildings/FPP2/Prison.mb"/>
+			<uid>C3C04625-57FE-4F39-A0B9-384CB52B2A57</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>6</x>
+				<y>6</y>
+				<z>9.17388</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>4.58689</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.277257</x>
+				<y>-0.0670753</y>
+				<z>8.96398</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_01f1f136-fc84-4a5c-8a66-31d28977c6ff">
+				<AIGeometry ObjectRecordID="1000408">
+					<SrcName href="/models/Buildings/FPP2/Prison.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>4.53563</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.7386</x>
+						<y>1.7386</y>
+						<z>4.53563</z>
+					</AABBHalfSize>
+					<uid>89489F46-F7EB-4EDA-AEF5-EAEED4142916</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Prison_podShape</Item>
+				<Item>CragShape</Item>
+				<Item>roofShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

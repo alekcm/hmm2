@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3263">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_b817ec3f-00fd-4883-92ae-713e7145e640">
+			<Material ObjectRecordID="5427">
+				<Texture href="/Textures/auto-imported_______320/dev/Grass/Crags/CornerBig_01/Steep_CornerBig_01.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_3b2ab1ca-ae90-4083-881a-932255b82fce">
+		<Skeleton ObjectRecordID="215">
+			<SrcName href="/models/TerrainObjects/Grass/Steep/Steep_CornerBig_01.mb"/>
+			<RootJoint>CornerBig_01</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>8A45AE1E-72B4-4AFD-A9F1-91B60CFD4600</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_be528149-3619-4dd7-9884-7a1b326fd8e7">
+		<Geometry ObjectRecordID="2711">
+			<SrcName href="/models/TerrainObjects/Grass/Steep/Steep_CornerBig_01.mb"/>
+			<uid>55E56704-850C-4100-93AF-760EC4FDF12F</uid>
+			<RootMesh>CornerBig_01</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>2.00018</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>1</y>
+				<z>0.999912</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.985451</x>
+				<y>1.03294</y>
+				<z>1.99218</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>CornerBig_0Shape0</Item>
+				<Item>CornerBig_0Shape4</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

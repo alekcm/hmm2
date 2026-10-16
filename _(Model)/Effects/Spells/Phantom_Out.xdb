@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001201">
+	<Materials>
+		<Item href="Phantom-Rays_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Phantom-Spot_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Phantom-Rays1_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Phantom-Spot_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_584c975e-54d0-48fc-81a7-4d3f72092310">
+			<Material ObjectRecordID="1002317">
+				<Texture href="Phantom-Phantom_Clot01.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>false</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>2</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_CLOUDS_H5</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_271a32cd-c7cd-42b7-8496-1715c8ae9b4d">
+			<Material ObjectRecordID="1002318">
+				<Texture href="Phantom-Phantom_Clot01.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>false</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>3</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_CLOUDS_H5</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_4ced4714-5dc7-4fc7-aa51-dc7eb76cc09e">
+			<Material ObjectRecordID="1002319">
+				<Texture href="Phantom-Phantom_Clot01.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>false</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>4</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_CLOUDS_H5</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_22b1a089-4a43-465f-a341-059c82b7e827">
+		<Skeleton ObjectRecordID="1000282">
+			<SrcName href="/Effects/Spells/Phantom_Out.mb"/>
+			<RootJoint>Global01</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>9B584798-10D0-4DFC-97F7-251DD7D9B95F</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_bef204f3-7ff6-463c-aa6b-b71007124ad3">
+		<Geometry ObjectRecordID="1000981">
+			<SrcName href="/Effects/Spells/Phantom_Out.mb"/>
+			<uid>CCD1DA63-7FA8-400C-B109-336CABA25ED4</uid>
+			<RootMesh>Global01</RootMesh>
+			<RootJoint>Global01</RootJoint>
+			<Size>
+				<x>3.08319</x>
+				<y>3.08319</y>
+				<z>24.396</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>11.798</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0108936</x>
+				<y>-0.0106537</y>
+				<z>23.996</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>6</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>2</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>RaysShape</Item>
+				<Item>SpotShape</Item>
+				<Item>Rays1Shape</Item>
+				<Item>Wave0Shape1</Item>
+				<Item>Wave0Shape2</Item>
+				<Item>Wave0Shape3</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

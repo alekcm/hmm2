@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="Wolfstan-arena-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>buff</Kind>
+			<Anim href="Wolfstan-arena-buff.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>cast</Kind>
+			<Anim href="Wolfstan-arena-cast.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>happy</Kind>
+			<Anim href="Wolfstan-arena-happy.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>cast</Kind>
+			<Anim/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A1/Models/Heroes/WolfStan/Wolfstan_DS_M.mb"/>
+	<ExpSrcClipFolder href="/H5A1/Animations/Heroes/Wolfstan/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

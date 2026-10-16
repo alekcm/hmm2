@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7448">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/AttackTrails/Glow_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/AttackTrails/Glow_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_9a89658f-3a1f-452a-a1ed-bc9e0225a250">
+		<Skeleton ObjectRecordID="1440">
+			<SrcName href="/Effects/Characters/Archer/Attack01.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>F28010B2-83F9-42BF-89A0-A2559713A257</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_c3d983c8-821b-44e1-9e94-4398a3df3415">
+		<Geometry ObjectRecordID="6646">
+			<SrcName href="/Effects/Characters/Archer/Attack01.mb"/>
+			<uid>F1F3E59F-77D4-4998-8D82-E1C818700583</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.86458</x>
+				<y>1.89943</y>
+				<z>0.779058</z>
+			</Size>
+			<Center>
+				<x>-0.141034</x>
+				<y>-1.07211</y>
+				<z>1.05319</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.612581</x>
+				<y>-1.03339</y>
+				<z>1.3562</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>GlowShape</Item>
+				<Item>Glow1Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

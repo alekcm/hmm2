@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowSimpleShared ObjectRecordID="51">
+	<Crap>false</Crap>
+	<Children>
+		<Item href="CombatOptionsMenu/Exit.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="CombatOptionsMenu/Text.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="CombatOptionsMenu/Text_1.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="CombatOptionsMenu/Text_2.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="CombatOptionsMenu/CheckBox_1.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+		<Item href="CombatOptionsMenu/CheckBox_2.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+	</Children>
+	<Background href="/UI/Misc/Back.(BackgroundTiledTexture).xdb#xpointer(/BackgroundTiledTexture)"/>
+	<Foreground href="/UI/Misc/Front________14.(BackgroundTiledTexture).xdb#xpointer(/BackgroundTiledTexture)"/>
+	<Flags>
+		<Transparent>false</Transparent>
+	</Flags>
+	<Placement>
+		<Position>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_LOW_END</First>
+			<Second>true</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_LOW_END</First>
+			<Second>true</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>350</x>
+				<y>300</y>
+			</First>
+			<Second>true</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</UpperMargin>
+	</Placement>
+	<ActiveArea/>
+	<IgnoreDblClick>false</IgnoreDblClick>
+	<ActiveMask/>
+</WindowSimpleShared>

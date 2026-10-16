@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000518">
+	<Instances>
+		<Item href="FPP2/Elemental_Conflux/Fire_FX.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="FPP2/Elemental_Conflux/Water_FX.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="FPP2/Elemental_Conflux/Cloud_FX.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="FPP2/Elemental_Conflux/Cloud_FX_01.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="FPP2/Elemental_Conflux/Cloud_FX_02.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="FPP2/Elemental_Conflux/FireGlow.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="ElementalConflux/Water.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="ElementalConflux/Stone.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="ElementalConflux/Light.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="ElementalConflux/Light01.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="ElementalConflux/Light02.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="ElementalConflux/Light03.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

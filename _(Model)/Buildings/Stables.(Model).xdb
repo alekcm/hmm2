@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7413">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_11f5d066-6f6e-472b-beb5-6ef59697cee1">
+			<Material ObjectRecordID="20183">
+				<Texture href="/Textures/auto-imported_______320/Buildings/Stables/stables.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_71087087-86af-4dd5-ad62-d039e4066a4c">
+		<Skeleton ObjectRecordID="1408">
+			<SrcName href="/models/Buildings/FPP2/Stables.mb"/>
+			<RootJoint>stables</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>8814285D-F424-4E73-8AE8-E19EA66CBF21</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_43250942-9394-4b91-b335-9b20d4724b0e">
+		<Geometry ObjectRecordID="6611">
+			<SrcName href="/models/Buildings/FPP2/Stables.mb"/>
+			<uid>D3AD7B79-E286-46B1-B4E8-AF6834020C79</uid>
+			<RootMesh>stables</RootMesh>
+			<RootJoint>stables</RootJoint>
+			<Size>
+				<x>3.23471</x>
+				<y>4.635</y>
+				<z>4.97838</z>
+			</Size>
+			<Center>
+				<x>0.256394</x>
+				<y>0.0866334</y>
+				<z>2.39199</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.248811</x>
+				<y>1.09294</y>
+				<z>4.80489</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_14eb9d13-9b42-4c74-bc92-d784ac2a42f8">
+				<AIGeometry ObjectRecordID="371">
+					<SrcName href="/models/Buildings/FPP2/Stables.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.196415</x>
+						<y>-0.0469823</y>
+						<z>2.46623</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.27984</x>
+						<y>1.97902</y>
+						<z>2.49033</z>
+					</AABBHalfSize>
+					<uid>AA85060F-79A7-411A-8957-345D40E670F0</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>stables_buildingShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

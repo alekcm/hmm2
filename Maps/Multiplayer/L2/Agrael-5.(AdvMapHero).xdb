@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapHero ObjectRecordID="396">
+	<Pos>
+		<x>103</x>
+		<y>98</y>
+		<z>0</z>
+	</Pos>
+	<Rot>0</Rot>
+	<Floor>0</Floor>
+	<Name/>
+	<CombatScript/>
+	<pointLights/>
+	<Shared href="/MapObjects/Inferno/Grok.(AdvMapHeroShared).xdb#xpointer(/AdvMapHeroShared)"/>
+	<PlayerID>PLAYER_6</PlayerID>
+	<Experience>0</Experience>
+	<armySlots>
+		<Item>
+			<Creature>CREATURE_IMP</Creature>
+			<Count>70</Count>
+		</Item>
+		<Item>
+			<Creature>CREATURE_HORNED_DEMON</Creature>
+			<Count>10</Count>
+		</Item>
+	</armySlots>
+	<artifactIDs/>
+	<isUntransferable/>
+	<Editable>
+		<NameFileRef href=""/>
+		<BiographyFileRef href=""/>
+		<Offence>0</Offence>
+		<Defence>0</Defence>
+		<Spellpower>0</Spellpower>
+		<Knowledge>0</Knowledge>
+		<skills/>
+		<perkIDs>
+			<Item>HERO_SKILL_FRENZY</Item>
+		</perkIDs>
+		<spellIDs/>
+		<Ballista>false</Ballista>
+		<FirstAidTent>false</FirstAidTent>
+		<AmmoCart>false</AmmoCart>
+		<FavoriteEnemies/>
+	</Editable>
+	<OverrideMask>0</OverrideMask>
+	<PrimarySkillMastery>MASTERY_BASIC</PrimarySkillMastery>
+	<LossTrigger>
+		<Action>
+			<FunctionName/>
+		</Action>
+	</LossTrigger>
+	<AllowQuickCombat>true</AllowQuickCombat>
+</AdvMapHero>

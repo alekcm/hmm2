@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000061">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_24e42a9a-66cf-4f06-844a-710d3713d5e3">
+			<ParticleInstance ObjectRecordID="1000071">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_c156cc10-e936-4cb7-9de8-f47fd01945d1">
+					<Particle ObjectRecordID="1000077">
+						<SrcName href="/Effects/Towns/Necropolis/ForgeSmoke.mb"/>
+						<ExportPrefix>Forge_Smoke</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>52a27c3f362236408b6e2cc08d722a415a6769403bd8af40e4da0541</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>8D96754D-03D3-435B-BAFD-7DA4A8C0BD0E</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>7</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapCaravanShared>
+	<Model href="/Characters/Heroes/CARAVAN.xdb#xpointer(/Model)"/>
+	<AnimSet href="/Characters/Heroes/CARAVAN-adv.xdb#xpointer(/AnimSet)"/>
+	<blockedTiles/>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Caravans/Caravan_Name.txt"/>
+		<Item href="/Text/Game/Caravans/Caravan_Description.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href=""/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128 href="/UI/H5A1/Icons/Caravans/Caravan_ico_128.(Texture).xdb#xpointer(/Texture)"/>
+	<IconTexture href="/UI/H5A1/Icons/Caravans/Caravan_ico_64.(Texture).xdb#xpointer(/Texture)"/>
+	<CharacterAdventure href="/Characters/Heroes/CARAVAN.(Character).xdb#xpointer(/Character)"/>
+</AdvMapCaravanShared>

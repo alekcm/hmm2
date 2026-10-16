@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6959">
+	<Materials>
+		<Item href="CommonDwellingInferno-Common_dwelling_inferno.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwellingInferno-Common_dwelling_inferno.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwellingInferno-Common_dwelling_inferno.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwellingInferno-Common_dwelling_inferno_terrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_11469573-1e4c-4b99-aaab-fc42b8a4f289">
+		<Skeleton ObjectRecordID="1181">
+			<SrcName href="/models/Buildings/FPP2/common_dwelling_Inferno.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>2CCF6C44-2F41-4C24-B268-C9053DCBCDA7</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_9a2fcf04-95f0-4ccc-b7e6-bd63af0240f2">
+		<Geometry ObjectRecordID="6163">
+			<SrcName href="/models/Buildings/FPP2/common_dwelling_Inferno.mb"/>
+			<uid>5CB61CD4-762C-4A05-AF8B-09A45EADB398</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>9.23033</x>
+				<y>8.93197</y>
+				<z>21.2134</z>
+			</Size>
+			<Center>
+				<x>1.00163</x>
+				<y>1.00231</y>
+				<z>4.43362</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.996602</x>
+				<y>1.00042</y>
+				<z>16</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_1b7dcf23-c528-453d-bdea-de3fd7109bce">
+				<AIGeometry ObjectRecordID="287">
+					<SrcName href="/models/Buildings/FPP2/common_dwelling_Inferno.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>1</x>
+						<y>1</y>
+						<z>6.29532</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>3.67701</x>
+						<y>3.67701</y>
+						<z>6.31035</z>
+					</AABBHalfSize>
+					<uid>D4C0D21C-07C6-4475-BAB6-8E7CA4953A44</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>5</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BuildingShape</Item>
+				<Item>ChainShape</Item>
+				<Item>StonesShape</Item>
+				<Item>DefaultShape</Item>
+				<Item>TerrainShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

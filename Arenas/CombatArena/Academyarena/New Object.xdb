@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="1000057">
+	<ExpScene href="/models/Arenas/Academyarena/academyarena.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>8496CA5E-951B-4963-8B1A-F6EE46126FB5</uid>
+	<objects>
+		<Item href="s_central_tower.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_gate.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_3.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_4.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_mines.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="entourb.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+	</objects>
+	<lights/>
+	<effects/>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>323.082</x>
+			<y>-331.446</y>
+			<z>18.5667</z>
+		</Pos>
+		<Rot>
+			<x>-6.07945</x>
+			<y>22.2537</y>
+			<z>-0.594068</z>
+		</Rot>
+		<Rod>5</Rod>
+		<FOV>54.4316</FOV>
+		<ClipDistanceMin>0.2</ClipDistanceMin>
+		<ClipDistanceMax>500</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound/>
+	<Music/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Day.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model/>
+		<AnimSet/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras/>
+	<CameraLimits/>
+	<CameraLimitsSet/>
+</ArenaDesc>

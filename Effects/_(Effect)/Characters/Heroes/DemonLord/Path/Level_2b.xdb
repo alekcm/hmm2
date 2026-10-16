@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000215">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_d494b671-dbf4-4b5c-a194-10323cb8ca97">
+			<ParticleInstance ObjectRecordID="1000246">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_75aaf721-f866-400c-807e-3f2026a78faa">
+					<Particle ObjectRecordID="1000208">
+						<SrcName href="/Effects/Characters/DemonLord/Path/Smoke04.mb"/>
+						<ExportPrefix>Smoke</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>8042cd3d20b6cd3d9334a63ffd32ed401e8993408ec49240e4a56340</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>0F290F8C-2F00-4C22-97AF-A04C5F13F713</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_c20e71b8-4d0c-4762-9e9e-2e3fd30e5285">
+			<ParticleInstance ObjectRecordID="1000243">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_f1ee4ea1-4512-4afb-8a14-ff4d4c3d3ea1">
+					<Particle ObjectRecordID="1000205">
+						<SrcName href="/Effects/Characters/DemonLord/Path/FireSmoke02.mb"/>
+						<ExportPrefix>Smoke</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>d09d9cbdc083433ef7278f3fa384894084b02d406e1125402e040740</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>428DC326-B7D7-4A97-9548-6B2A0AAAD24F</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>-0.7</z>
+					<w>-0.7</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>2</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/RedFire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RedFire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RedFire03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RedFire03.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Characters/DemonLord/Path/Sparks02.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="#n:inline(ParticleInstance)" id="item_07bd9207-54b8-4aeb-b102-3526d82b26d4">
+			<ParticleInstance ObjectRecordID="1000249">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_11d7e652-6807-45f4-b736-43f26899fe35">
+					<Particle ObjectRecordID="1000211">
+						<SrcName href="/Effects/Characters/DemonLord/Path/FireSmoke02_Small.mb"/>
+						<ExportPrefix>Smoke</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>c0b3243dc087c73dd8153d3fb9136e405e2a19409bb41b40fa7dbd3f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>299559E4-D578-484E-A9AD-F700B476F8A4</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>-0.7</z>
+					<w>-0.7</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/RedFire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RedFire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RedFire03.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

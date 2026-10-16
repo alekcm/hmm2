@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5802">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_c3d09e94-c32f-4992-9839-fff08ef9d2d5">
+			<Material ObjectRecordID="9477">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Lava/Volcanos/Volcano5x5_1/Volcano.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_06304df5-e0f9-4ab6-9703-5d6fa8a3c656">
+		<Skeleton ObjectRecordID="582">
+			<SrcName href="/models/TerrainObjects/Lava/Volcanos/Volcano7x7_1.mb"/>
+			<RootJoint>volcano7x7_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>ABDDA216-23AC-4FE4-8E57-848470DA9AB5</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_29e88f53-bed9-424d-9014-740e052b1696">
+		<Geometry ObjectRecordID="4992">
+			<SrcName href="/models/TerrainObjects/Lava/Volcanos/Volcano7x7_1.mb"/>
+			<uid>1A87986C-0EA7-448A-806F-BDAA77D6F378</uid>
+			<RootMesh>volcano7x7_1</RootMesh>
+			<RootJoint>volcano7x7_1</RootJoint>
+			<Size>
+				<x>14</x>
+				<y>14</y>
+				<z>7.48083</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>3.74041</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0813966</x>
+				<y>-0.451592</y>
+				<z>7.39451</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>model1|w</Item>
+				<Item>model2|w</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

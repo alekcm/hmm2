@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowTextView ObjectRecordID="1000526">
+	<ClassTypeID>285694860</ClassTypeID>
+	<Shared href="/UI/Lobby/DefaultTransparent.(WindowTextViewShared).xdb#xpointer(/WindowTextViewShared)"/>
+	<Name>Mode</Name>
+	<TooltipFileRef href=""/>
+	<Visible>true</Visible>
+	<Priority>0</Priority>
+	<GameMessageReactions/>
+	<Placement>
+		<Position>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_MARGIN</First>
+			<Second>true</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_MARGIN</First>
+			<Second>true</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>77</x>
+				<y>0</y>
+			</First>
+			<Second>true</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>true</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>true</Second>
+		</UpperMargin>
+	</Placement>
+	<Enabled>true</Enabled>
+	<TextString/>
+	<relatedTexts href="/UI/MPDMLobby/Games/ModeNames.(WindowRelatedTexts).xdb#xpointer(/WindowRelatedTexts)"/>
+	<relatedTextures/>
+	<Flags>
+		<SuperActive>false</SuperActive>
+	</Flags>
+	<TextFileRef href="/UI/Lobby/Texts/Games/GameFieldText.txt"/>
+	<ResizeOnTextSet>true</ResizeOnTextSet>
+	<ResizeWidthOnTextSet>false</ResizeWidthOnTextSet>
+	<TextFormat/>
+</WindowTextView>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance>
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="/Effects/_(Effect)/Interface/A1_MainMenu/Spears.(Particle).xdb#xpointer(/Particle)"/>
+	<Position>
+		<x>50</x>
+		<y>-30</y>
+		<z>-8</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+		<w>0</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>1</Speed>
+	<Offset>2</Offset>
+	<EndCycle>22</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/MainMenu/Arrow.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/MainMenu/Arrow_blur.(Texture).xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/MainMenu/Arrow.(Texture).xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

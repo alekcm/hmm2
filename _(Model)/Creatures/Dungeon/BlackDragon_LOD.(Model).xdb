@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7891">
+	<Materials>
+		<Item href="BlackDragon_LOD-BlackDragon1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_7e35112b-4f74-47ce-9fca-720d2cf270f0">
+		<Skeleton ObjectRecordID="1679">
+			<SrcName href="/models/Creatures/Dungeon/BlackDragon_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>BA087C0C-F524-4538-B30D-2BDCC305441F</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_74e94bb1-9f42-4b63-93fb-c73901cc90b5">
+		<Geometry ObjectRecordID="7050">
+			<SrcName href="/models/Creatures/Dungeon/BlackDragon_LOD.mb"/>
+			<uid>AFB40C50-C48F-493B-8F1B-7317EE9F7DB9</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>5.84336</x>
+				<y>5.03668</y>
+				<z>3.45981</z>
+			</Size>
+			<Center>
+				<x>0.570024</x>
+				<y>0.303432</y>
+				<z>1.74907</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.09367e-007</x>
+				<y>1.72844</y>
+				<z>5.51468</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_d889f809-c5b1-4793-973f-9b3e58f117be">
+				<AIGeometry ObjectRecordID="465">
+					<SrcName href="/models/Creatures/Dungeon/BlackDragon_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.0622197</y>
+						<z>0.92764</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.5</x>
+						<y>1.18442</y>
+						<z>0.941195</z>
+					</AABBHalfSize>
+					<uid>2ED19EE6-210C-473D-990D-038E6529BBE1</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

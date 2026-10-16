@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001761">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_cfb79319-a014-4acd-8fe3-7c7a087f37fe">
+			<Material ObjectRecordID="1004373">
+				<Texture href="lamp-lampa.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0.4</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>false</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_fcc0fefd-3be6-43cd-8b86-2f8c5858bdba">
+		<Skeleton ObjectRecordID="1000403">
+			<SrcName href="/Effects/Characters/ACADEMY/Genie/Genie_dead.mb"/>
+			<RootJoint>LAMPA</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>D8354CCF-2ABD-4965-BA7F-5BC8E96E2359</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b9843f0e-040b-4876-9a21-12873334bb76">
+		<Geometry ObjectRecordID="1001541">
+			<SrcName href="/Effects/Characters/ACADEMY/Genie/Genie_dead.mb"/>
+			<uid>A3189868-B940-4424-846F-7CFFBE418F76</uid>
+			<RootMesh>LAMPA</RootMesh>
+			<RootJoint>LAMPA</RootJoint>
+			<Size>
+				<x>0.696446</x>
+				<y>0.355213</y>
+				<z>0.441239</z>
+			</Size>
+			<Center>
+				<x>-0.114225</x>
+				<y>-0.00802258</y>
+				<z>1.09474</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.240657</x>
+				<y>0.0758286</y>
+				<z>1.2233</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>LampShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7429">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/LandMineHit/lambert28.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/LandMineHit/lambert9.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/LandMineHit/lambert9.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_7fc83b63-8a13-4b86-a3b3-21a3266db6e1">
+		<Skeleton ObjectRecordID="1422">
+			<SrcName href="/Effects/Characters/CloseCombatHit.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>26605E25-A1A0-45B1-93A4-A95BDBC2F53D</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ccfab818-d8fc-4586-9328-1805de4e4e74">
+		<Geometry ObjectRecordID="6627">
+			<SrcName href="/Effects/Characters/CloseCombatHit.mb"/>
+			<uid>F2399B3D-7EBA-466D-8305-258F48B1D2B2</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.71523</x>
+				<y>0.141421</y>
+				<z>2.47113</z>
+			</Size>
+			<Center>
+				<x>-1.2869</x>
+				<y>0</y>
+				<z>1.35206</z>
+			</Center>
+			<BestFitPoint>
+				<x>-2.60401</x>
+				<y>-0.014637</y>
+				<z>2.55155</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Wave03Shape</Item>
+				<Item>Wave02Shape</Item>
+				<Item>Wave01Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="1000054">
+	<ExpScene href="/models/Arenas/DungeonSiege/DungeonSiege.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>3944D0EB-790F-4CEC-8ADE-5EEE4C0993BD</uid>
+	<objects>
+		<Item href="s_central_tower.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_gate.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_3.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_4.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_moat.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="shooter_s1.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s2.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s3.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="env_wall_2.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="env_wall_1.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+	</objects>
+	<lights/>
+	<effects/>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>291.741</x>
+			<y>272.564</y>
+			<z>23.7489</z>
+		</Pos>
+		<Rot>
+			<x>-19.2428</x>
+			<y>-64.3484</y>
+			<z>0</z>
+		</Rot>
+		<Rod>399.96</Rod>
+		<FOV>54.4316</FOV>
+		<ClipDistanceMin>0.2</ClipDistanceMin>
+		<ClipDistanceMax>500</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound/>
+	<Music/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Day_light.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model/>
+		<AnimSet/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras/>
+	<CameraLimits/>
+	<CameraLimitsSet/>
+</ArenaDesc>

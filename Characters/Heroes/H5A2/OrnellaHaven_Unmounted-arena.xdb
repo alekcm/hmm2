@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="OrnellaHaven_Unmounted-arena-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle01</Kind>
+			<Anim href="OrnellaHaven_Unmounted-arena-idle01.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle02</Kind>
+			<Anim href="OrnellaHaven_Unmounted-arena-idle02.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle03</Kind>
+			<Anim href="OrnellaHaven_Unmounted-arena-idle03.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move</Kind>
+			<Anim href="OrnellaHaven_Unmounted-arena-move.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move_speech</Kind>
+			<Anim href="OrnellaHaven_Unmounted-arena-move_speech.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_bellicose</Kind>
+			<Anim href="OrnellaHaven_Unmounted-arena-speech_bellicose.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_mockery</Kind>
+			<Anim href="OrnellaHaven_Unmounted-arena-speech_mockery.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_neutral</Kind>
+			<Anim href="OrnellaHaven_Unmounted-arena-speech_neutral.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_sad</Kind>
+			<Anim href="OrnellaHaven_Unmounted-arena-speech_sad.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>stir_love</Kind>
+			<Anim href="OrnellaHaven_Unmounted-arena-stir_love.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A2/Heroes/Ornella_HavenKnight/Ornella_Unmounted.mb"/>
+	<ExpSrcClipFolder href="/H5A2/Heroes/Ornella_HavenKnight/Animations/Unmounted/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

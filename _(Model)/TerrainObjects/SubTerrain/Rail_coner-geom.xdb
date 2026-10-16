@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/TerrainObjects/Dwarf_Dang_Obj/Dang_Obj_new.mb"/>
+	<uid>F5A87907-8E65-4CA6-95BD-3EB1595E7759</uid>
+	<RootMesh>Rail_coner</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>2</x>
+		<y>2</y>
+		<z>0.135579</z>
+	</Size>
+	<Center>
+		<x>0</x>
+		<y>0</y>
+		<z>-0.0610102</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Rail_coner-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>2</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Rail_coner_podShape</Item>
+		<Item>Rail_coner|Crag|CragShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

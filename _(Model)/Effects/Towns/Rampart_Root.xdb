@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001103">
+	<Materials>
+		<Item href="Rampart_Root-lambert51.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Rampart_Root-lambert51.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Rampart_Root-lambert51.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Rampart_Root-lambert51.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Rampart_Root-lambert51.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Rampart_Root-lambert51.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_44716151-76ac-409d-9fd4-b5dca14be79c">
+		<Skeleton ObjectRecordID="1000252">
+			<SrcName href="/Effects/Towns/Rampart/RingOfStones.mb"/>
+			<RootJoint>Korni</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>B8F2EE09-EF4E-4F81-8E39-7EA15934B7FC</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b06527c0-7a93-4d12-8648-2d3ab3e4a90f">
+		<Geometry ObjectRecordID="1000886">
+			<SrcName href="/Effects/Towns/Rampart/RingOfStones.mb"/>
+			<uid>D2DA3262-3868-4917-B7A7-2B64FA1905F3</uid>
+			<RootMesh>Korni</RootMesh>
+			<RootJoint>Korni</RootJoint>
+			<Size>
+				<x>8.27502</x>
+				<y>9.482</y>
+				<z>7.29424</z>
+			</Size>
+			<Center>
+				<x>0.198943</x>
+				<y>0.650994</y>
+				<z>9.44554</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0993271</x>
+				<y>-0.155001</y>
+				<z>13.0209</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>6</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurface9|polySurfaceShape15</Item>
+				<Item>polySurfaceShape18</Item>
+				<Item>polySurfaceShape16</Item>
+				<Item>polySurface15|polySurfaceShape15</Item>
+				<Item>polySurfaceShape14</Item>
+				<Item>polySurfaceShape13</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000265">
+	<Instances>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/Head/Head_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/Head/Head_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="#n:inline(ParticleInstance)" id="item_20856385-b749-4686-8481-ed56ad03e5f4">
+			<ParticleInstance ObjectRecordID="1000347">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_3c229ba1-51fc-4c3c-b525-1ce9d79183fa">
+					<Particle ObjectRecordID="1000287">
+						<SrcName href="/Effects/Characters/Rakshasa/Rakshasa_move.mb"/>
+						<ExportPrefix>IceFire</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>30c29d3c650b053f001b8d3fb39a1b40f30e6f3f418fdb3f5b5bb93f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>0F1BE68F-124B-44E2-B0B2-A6EC17450FB0</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1.333</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/IceFire.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/L_Toe/L_Toe_bone1.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/L_Toe/L_Toe_bone_Long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/L_Toe2/L_Toe2_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/L_Toe2/L_Toe2_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/R_Toe/R_Toe_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/R_Toe/R_Toe_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/R_Toe2/R_Toe2_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/R_Toe2/R_Toe2_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/R_Foot/R_Foot_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/LT_ForeArm/LT_ForeArm_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/LT_ForeArm/LT_ForeArm_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/LT_Hand/LT_Hand_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/LT_Hand/LT_Hand_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/RT_Hand/RT_Hand_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/RT_Hand/RT_Hand_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/RT_ForeArm/RT_ForeArm_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/Rakshasa/Bone/RT_ForeArm/RT_ForeArm_bone_long.xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

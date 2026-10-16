@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapTreasureShared ObjectRecordID="111189">
+	<Model href="/_(Model)/TerrainObjects/Water/Shipwrecks/Peas_wrick.xdb#xpointer(/Model)"/>
+	<AnimSet href="/_(AnimSet)/TerrainObjects/Water/Shipwrecks/Peas_wrick.xdb#xpointer(/AnimSet)"/>
+	<blockedTiles/>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Buildings/Shipwrecks/PeasantWreck_Name.txt"/>
+		<Item href="/Text/Game/Buildings/Shipwrecks/PeasantWreck_Desc.txt"/>
+		<Item href=""/>
+		<Item href="/Text/Game/Buildings/Shipwrecks/PeasantWreck_Empty.txt"/>
+	</messagesFileRef>
+	<WaterBased>true</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect href="/Sounds/_(Sound)/Interface/Events/Get_artf_res02.xdb#xpointer(/Sound)"/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Treasures.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>TREASURE_SHIPWRECK</Type>
+	<MinResource>0</MinResource>
+	<MaxResource>0</MaxResource>
+</AdvMapTreasureShared>

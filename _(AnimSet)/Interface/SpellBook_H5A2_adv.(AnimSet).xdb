@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>idle01</Kind>
+			<Anim href="SpellBook_H5A2_adv-idle01.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle02</Kind>
+			<Anim href="SpellBook_H5A2_adv-idle02.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>page01</Kind>
+			<Anim href="SpellBook_H5A2_adv-move00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>page02</Kind>
+			<Anim href="SpellBook_H5A2_adv-move01.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A2/UI/SpellBook/SpellBook.mb"/>
+	<ExpSrcClipFolder href="/H5A2/UI/SpellBook/Animation/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

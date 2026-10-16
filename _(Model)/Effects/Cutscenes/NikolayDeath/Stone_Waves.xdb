@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000989">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/HolyWord/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/HolyWord/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/HolyWord/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/HolyWord/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/HolyWord/Wave_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_80cdafa6-eb83-4210-962c-70abb111d745">
+		<Skeleton ObjectRecordID="1000228">
+			<SrcName href="/Effects/Cutscenes/NikolayDeath/Sc001.mb"/>
+			<RootJoint>Global01</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>F59BC150-0B28-495E-B025-79551C52F2DD</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_843f69c6-76f9-407d-85cc-0886dcb254b8">
+		<Geometry ObjectRecordID="1000772">
+			<SrcName href="/Effects/Cutscenes/NikolayDeath/Sc001.mb"/>
+			<uid>978160D6-4343-44BE-BEA6-651F4104CEA9</uid>
+			<RootMesh>Global01</RootMesh>
+			<RootJoint>Global01</RootJoint>
+			<Size>
+				<x>0.478671</x>
+				<y>0.472739</y>
+				<z>0.478719</z>
+			</Size>
+			<Center>
+				<x>0.159838</x>
+				<y>9.35561</y>
+				<z>1.89064</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.157302</x>
+				<y>9.35568</y>
+				<z>2.01355</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>5</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Global01|Wave01|Wave0Shape1</Item>
+				<Item>Global01|Wave02|Wave0Shape2</Item>
+				<Item>Global01|Wave03|Wave0Shape3</Item>
+				<Item>Global01|Wave04|Wave0Shape4</Item>
+				<Item>Wave0Shape5</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

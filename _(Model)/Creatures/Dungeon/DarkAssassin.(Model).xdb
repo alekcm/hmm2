@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7554">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_a62ab735-9597-40d5-98fe-a3fe618ee54e">
+			<Material ObjectRecordID="18558">
+				<Texture href="/Textures/auto-imported_______320/Creatures/Dungeon/DarkAssassin/DarkAssassin.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_34a25c92-f706-41a5-bd73-32213a9dbb1c">
+			<Material ObjectRecordID="18559">
+				<Texture href="/Textures/auto-imported_______320/Creatures/Dungeon/DarkAssassin/DarkAssassin_add.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c4e18a7f-6805-43d7-ac51-fdda41e4e875">
+		<Skeleton ObjectRecordID="1512">
+			<SrcName href="/models/Creatures/Dungeon/DarkAssassin.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>9F572793-AACE-42F5-AD51-8DBA2417163D</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_74054a9b-3563-4bba-b412-06a07c17922a">
+		<Geometry ObjectRecordID="6748">
+			<SrcName href="/models/Creatures/Dungeon/DarkAssassin.mb"/>
+			<uid>AE7DBD4F-DA35-46C4-8926-205836BE6E6F</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.75734</x>
+				<y>0.589618</y>
+				<z>1.97032</z>
+			</Size>
+			<Center>
+				<x>0.0781246</x>
+				<y>0.00585502</y>
+				<z>0.986237</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.663149</x>
+				<y>-0.0172927</y>
+				<z>1.76227</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_0b2758ac-6f2c-41f0-9bea-7e2b1e03293b">
+				<AIGeometry ObjectRecordID="383">
+					<SrcName href="/models/Creatures/Dungeon/DarkAssassin.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.0167481</x>
+						<y>0.130544</y>
+						<z>0.704036</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.178683</x>
+						<y>0.539892</y>
+						<z>0.704036</z>
+					</AABBHalfSize>
+					<uid>416520E8-4F01-4C8E-9DF1-CB6F81F6FE2E</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

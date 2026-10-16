@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Effects/Creatures/Dwarves/Warlord/moveStart.mb"/>
+	<uid>1F48A997-8467-4562-A095-C23642761F13</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>9.57431</x>
+		<y>9.57431</y>
+		<z>0.00881008</z>
+	</Size>
+	<Center>
+		<x>-0.0677855</x>
+		<y>-0.179902</y>
+		<z>0.109362</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="moveStart-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>2</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>pPlaneShape1</Item>
+		<Item>pPlaneShape2</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

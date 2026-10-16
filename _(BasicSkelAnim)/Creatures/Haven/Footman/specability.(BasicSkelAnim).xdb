@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BasicSkelAnim ObjectRecordID="138">
+	<SrcName href="/models/Creatures/Castle/Footman.mb"/>
+	<uid>0385C2F0-3492-487D-BE1D-F978EA7FEEA9</uid>
+	<ExpSrcClip href="/Animations/Creatures/Footman/Clip/Footman.specability.ma"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+	<ExpFrameFirst>0</ExpFrameFirst>
+	<ExpFrameLast>0</ExpFrameLast>
+	<ExpSettingsFile href=""/>
+	<MovementSpeed>0</MovementSpeed>
+	<SpeedFactor>1</SpeedFactor>
+	<Sound href="/Sounds/_(Sound)/Creatures/Haven/Footman/specability.xdb#xpointer(/Sound)"/>
+	<Effect href="/Effects/_(Effect)/Characters/Creatures/Haven/Footman/Specability.xdb#xpointer(/Effect)"/>
+	<SpeedLineFallTime>200</SpeedLineFallTime>
+	<SpeedLineMaterial href="#n:inline(Material)" id="item_e32e6d3e-6699-425c-867b-0f7d0bbde17d">
+		<Material ObjectRecordID="9305">
+			<Texture href="/Textures/Test/Malkovsky/SpeedLine.xdb#xpointer(/Texture)"/>
+			<Bump/>
+			<SpecFactor>0</SpecFactor>
+			<SpecColor>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</SpecColor>
+			<Gloss/>
+			<MetalMirror>0</MetalMirror>
+			<DielMirror>0</DielMirror>
+			<Mirror/>
+			<CastShadow>false</CastShadow>
+			<ReceiveShadow>true</ReceiveShadow>
+			<Priority>0</Priority>
+			<TranslucentColor>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</TranslucentColor>
+			<FloatParam>0</FloatParam>
+			<DetailTexture/>
+			<DetailScale>5</DetailScale>
+			<ProjectOnTerrain>false</ProjectOnTerrain>
+			<LightingMode>L_SELFILLUM</LightingMode>
+			<DynamicMode>DM_DONT_CARE</DynamicMode>
+			<Is2Sided>true</Is2Sided>
+			<Effect>M_GENERIC</Effect>
+			<AlphaMode>AM_TRANSPARENT</AlphaMode>
+			<AffectedByFog>true</AffectedByFog>
+			<AddPlaced>true</AddPlaced>
+			<IgnoreZBuffer>false</IgnoreZBuffer>
+			<BackFaceCastShadow>false</BackFaceCastShadow>
+		</Material>
+	</SpeedLineMaterial>
+</BasicSkelAnim>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000285">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_24f1c626-87d7-425d-bfdd-c0d20b3a9100">
+			<ParticleInstance ObjectRecordID="1000382">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_6e8e0a42-f23e-47a1-b3e9-94fa8727522d">
+					<Particle ObjectRecordID="1000309">
+						<SrcName href="/Effects/Characters/ACADEMY/Genie/Genie_move.mb"/>
+						<ExportPrefix>Tail</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>d0a65ebcf0e4e33d1143d33ec6b9893f2d12013fb853213fcd2c363f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>1E737E88-9455-4BD7-83D2-E46A71C55D66</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.7</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1.433</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_63a266ef-ebd0-4e95-999a-4ddc65ae2894">
+			<ParticleInstance ObjectRecordID="1000384">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_e40a417d-777e-4e40-9d07-dcc77304df0b">
+					<Particle ObjectRecordID="1000311">
+						<SrcName href="/Effects/Characters/ACADEMY/Genie/Genie_move_IS.mb"/>
+						<ExportPrefix>Tail</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>e05aa7bb80cb033de7fc083fffb29b3f145a003f5777393fcab3563f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>413BC103-C00D-4C59-A981-EC2A0737E425</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.7</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1.433</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Clouds/Cloud02.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7653">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_2e1db77a-3870-4981-9989-20eed077384f">
+			<Material ObjectRecordID="18999">
+				<Texture href="/Textures/auto-imported_____19442/TerrainObjects/SubTerrain/Temp/Cylinder2x2_1/111.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>10</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_1955dcd4-6482-4d8c-a21c-00fab7dd65a2">
+		<Skeleton ObjectRecordID="1567">
+			<SrcName href="/models/TerrainObjects/Subterrain/Temp/Cylinder2x2_1.mb"/>
+			<RootJoint>Cylinder2x2_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>86D26133-9EC0-468F-8446-245D66DC7702</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_82ba8698-220e-4928-93d3-bf3ca9c45d9f">
+		<Geometry ObjectRecordID="6819">
+			<SrcName href="/models/TerrainObjects/Subterrain/Temp/Cylinder2x2_1.mb"/>
+			<uid>C0B39699-1F41-425B-AB4F-229BF992C76B</uid>
+			<RootMesh>Cylinder2x2_1</RootMesh>
+			<RootJoint>Cylinder2x2_1</RootJoint>
+			<Size>
+				<x>4</x>
+				<y>4</y>
+				<z>6.53879</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>1</y>
+				<z>3.2694</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.00239</x>
+				<y>0.832265</y>
+				<z>6.12444</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>CylinderShape</Item>
+				<Item>Cylinder_lambShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/Creatures/Renegates/Arhangel_LOD.mb"/>
+	<uid>D021D5EF-DC48-4CAA-A6FB-3EE9A7771863</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>3.17889</x>
+		<y>5.08792</y>
+		<z>5.47778</z>
+	</Size>
+	<Center>
+		<x>0.229917</x>
+		<y>-0.318602</y>
+		<z>2.74941</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Archangel_LOD-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>4</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>LOD_Sworg_GlowShape</Item>
+		<Item>LOD_SwordShape</Item>
+		<Item>LOD_BodyShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="313">
+	<animations>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="SteelGolem_LOD-adv-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>start</Kind>
+			<Anim href="SteelGolem_LOD-adv-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Creatures/Academy/SteelGolem_LOD.mb"/>
+	<ExpSrcClipFolder href="/Animations/Creatures/ACADEMY/SteelGolem/Clip_adventure/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7427">
+	<Materials>
+		<Item href="Gremlin_LOD-t1_gremlin_LOD_01_t1_gremlin_20_11_2004_lambert3.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Gremlin_LOD-t1_gremlin_LOD_01_t1_gremlin_lod_1_t1_gremlin_20_11_2004_lambert3.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_6ee5acb9-d605-40a9-a7a3-57f7b469730a">
+		<Skeleton ObjectRecordID="1420">
+			<SrcName href="/models/Creatures/Academy/Gremlin_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>9E130A15-E60D-494B-9C00-D629205B1E50</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_3e853921-d677-4283-8aa8-f7101696c68a">
+		<Geometry ObjectRecordID="6625">
+			<SrcName href="/models/Creatures/Academy/Gremlin_LOD.mb"/>
+			<uid>E9B1F5EB-8A17-452D-9CEA-B7EA6371DEFF</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.82461</x>
+				<y>0.806872</y>
+				<z>1.49957</z>
+			</Size>
+			<Center>
+				<x>0.0218591</x>
+				<y>-0.0227151</y>
+				<z>0.749726</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0109765</x>
+				<y>0.0541785</y>
+				<z>1.37314</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="/Characters/Creatures/Academy/Gremlin_LOD_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

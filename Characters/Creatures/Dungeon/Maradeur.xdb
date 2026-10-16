@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000916">
+	<Materials>
+		<Item href="Maradeur-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Maradeur-t3u_marauder_skin11.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Maradeur-t3u_marauder_skin33.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Maradeur-t3u_marauder_skin22.2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_f5655659-ccb5-4578-a221-fc84b5bcb677">
+		<Skeleton ObjectRecordID="1000207">
+			<SrcName href="/models/Creatures/Dungeon/Maradeur.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>42598466-917B-4940-98F0-74436E2A3E33</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a6ed6987-1e08-4cd1-8875-738a4f5ff083">
+		<Geometry ObjectRecordID="1000700">
+			<SrcName href="/models/Creatures/Dungeon/Maradeur.mb"/>
+			<uid>9B98702C-B31A-4E99-A295-62F33229864A</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.79751</x>
+				<y>5.48212</y>
+				<z>2.78263</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.172189</y>
+				<z>1.37141</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0323795</x>
+				<y>-1.7493</y>
+				<z>3.67293</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_0a33287b-1c2f-42b5-b957-4b6314e33c9d">
+				<AIGeometry ObjectRecordID="1000470">
+					<SrcName href="/models/Creatures/Dungeon/Maradeur.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.174336</y>
+						<z>1.13893</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.662835</x>
+						<y>1.15841</y>
+						<z>1.13893</z>
+					</AABBHalfSize>
+					<uid>693E0B04-C2FC-4E40-90E8-B6369AF935E2</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>4</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Maradeur1Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/models/Buildings/FPP2/Sawmill.mb"/>
+	<uid>72E78F26-EA17-4E5C-BE66-0AD3CB487919</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>6</x>
+		<y>6</y>
+		<z>3.59514</z>
+	</Size>
+	<Center>
+		<x>0</x>
+		<y>0</y>
+		<z>1.72438</z>
+	</Center>
+	<BestFitPoint>
+		<x>-1.2</x>
+		<y>0.7</y>
+		<z>4.4</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Sawmill_Snow-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>6</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>roofShape</Item>
+		<Item>Log0Shape1</Item>
+		<Item>Log0Shape2</Item>
+		<Item>SawShape</Item>
+		<Item>podShape</Item>
+		<Item>CragShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

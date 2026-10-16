@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect>
+	<Instances>
+		<Item href="level_4/windows_bldng_glow.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="glow_windows.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="CAPE_fire.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="level_4/Glow_yeas.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="free_fire.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="free_fire.(ParticleInstance) (2).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="level_10/head_smoke.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="level_10/glow_window.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="level_10/metal_SHINE.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="level_10/metal_SHINE.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="Cape_glw_wnd.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="level_4/glow_bldng_geom.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="cape_bright.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

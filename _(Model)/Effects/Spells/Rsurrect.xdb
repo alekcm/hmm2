@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001379">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Bless/Ray3-2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Bless/Ray3-3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Bless/Ray3-2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/Bless/lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_5357e567-bb3b-4dd5-9259-434056181b99">
+		<Skeleton ObjectRecordID="1000317">
+			<SrcName href="/Effects/Spells/Resurrect.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>158DEDBB-9D34-48A6-A8A9-E9CA7D2124BE</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_eba79405-6ae8-4736-94d8-25ebfe496601">
+		<Geometry ObjectRecordID="1001160">
+			<SrcName href="/Effects/Spells/Resurrect.mb"/>
+			<uid>E2C26FE3-E91E-4403-8A11-139D200D9BF0</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>8.51973</x>
+				<y>6.29083</y>
+				<z>14.9516</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>-0.102487</y>
+				<z>7.52419</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0134764</x>
+				<y>0.0425482</y>
+				<z>15</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Ray_Main01Shape</Item>
+				<Item>RaysSmall0Shape1</Item>
+				<Item>RaysSmall0Shape2</Item>
+				<Item>SpotShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

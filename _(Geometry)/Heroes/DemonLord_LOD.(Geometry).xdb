@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="4924">
+	<SrcName href="/models/Heroes/DemonLord/DemonLord_LOD.mb"/>
+	<uid>FB5ECCF4-56C7-4187-8838-E420C2B627A5</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>5.53561</x>
+		<y>5.83799</y>
+		<z>3.95056</z>
+	</Size>
+	<Center>
+		<x>-0.594244</x>
+		<y>0.618137</y>
+		<z>1.97528</z>
+	</Center>
+	<BestFitPoint>
+		<x>-0.0242922</x>
+		<y>0.768076</y>
+		<z>3.69218</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="#n:inline(AIGeometry)" id="item_f53a5bef-e89c-4551-a08a-0ef8c8ea7425">
+		<AIGeometry ObjectRecordID="199">
+			<SrcName href="/models/Heroes/DemonLord/DemonLord_LOD.mb"/>
+			<RootMesh>AI</RootMesh>
+			<RootJoint/>
+			<Volume>0</Volume>
+			<SolidPart>0</SolidPart>
+			<AABBCenter>
+				<x>0</x>
+				<y>0.150454</y>
+				<z>1.69428</z>
+			</AABBCenter>
+			<AABBHalfSize>
+				<x>1.24483</x>
+				<y>0.841131</y>
+				<z>1.70095</z>
+			</AABBHalfSize>
+			<uid>73338926-99F4-40C5-8494-9715B24C1E40</uid>
+		</AIGeometry>
+	</AIGeometry>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Flag_Hero_InfernoShape</Item>
+		<Item>AxeShape</Item>
+		<Item>BodyShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

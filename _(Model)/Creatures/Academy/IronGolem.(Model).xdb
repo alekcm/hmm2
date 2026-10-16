@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7646">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_868c1475-c115-401a-b12b-01b3ffaaa30d">
+			<Material ObjectRecordID="18986">
+				<Texture href="/Textures/auto-imported_____19372/Creatures/Academy/IronGolem_LOD/StoneGolem.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_45510ed3-8350-4b15-889f-9e4e17cee950">
+		<Skeleton ObjectRecordID="1565">
+			<SrcName href="/models/Creatures/Academy/IronGolem.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>7C9CF8DD-53C7-4F94-A6A6-57713D7D41AF</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_495b4ff6-c70b-4b62-bb1b-c12aaf2a4ced">
+		<Geometry ObjectRecordID="6815">
+			<SrcName href="/models/Creatures/Academy/IronGolem.mb"/>
+			<uid>BD5390E6-21D9-4586-86F1-1373DC0BBFA6</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.95636</x>
+				<y>0.465834</y>
+				<z>2.08523</z>
+			</Size>
+			<Center>
+				<x>0.000651389</x>
+				<y>-0.0230058</y>
+				<z>1.02451</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0308666</x>
+				<y>-0.0435083</y>
+				<z>1.91837</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_cfad7607-ecb7-4caf-af55-5c500dc68a32">
+				<AIGeometry ObjectRecordID="400">
+					<SrcName href="/models/Creatures/Academy/IronGolem.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0672233</y>
+						<z>1.03167</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.781373</x>
+						<y>0.385367</y>
+						<z>1.0303</z>
+					</AABBHalfSize>
+					<uid>ACEDC471-3204-482B-AB62-CD48F6A2754B</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>GolemShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

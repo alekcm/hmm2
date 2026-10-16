@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="50">
+	<ExpScene href="/models/Arenas/Lavaarena/Siege.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>57E237A2-7FE7-4A5A-AF4E-8A945380D365</uid>
+	<objects>
+		<Item href="s_tower_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_gate.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_bigtower.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_4.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_3.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_wall_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_tower_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="s_moat.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="shooter_s1.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s2.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="shooter_s3.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="wall8.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="wall9.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="wall10.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="wall11.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="wall4.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="wall5.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="wall6.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="wall7.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="LavaGlow_locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="T1LavaGlow_locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="T2LavaGlow_locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="T3LavaGlow_locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="BigFire.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+	</objects>
+	<lights/>
+	<effects>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Arenas/InfernoSiege/LavaGlow/Lava.xdb#xpointer(/Effect)"/>
+			<Locator>LavaGlow_locator</Locator>
+		</Item>
+	</effects>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>295.099</x>
+			<y>257.84</y>
+			<z>23.8908</z>
+		</Pos>
+		<Rot>
+			<x>-23.025</x>
+			<y>-40.6696</y>
+			<z>0</z>
+		</Rot>
+		<Rod>38.007</Rod>
+		<FOV>54.4322</FOV>
+		<ClipDistanceMin>0.2</ClipDistanceMin>
+		<ClipDistanceMax>500</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound/>
+	<Music/>
+	<Wind/>
+	<CamerasSet href="/_(CamerasSet)/PA2.xdb#xpointer(/CamerasSet)"/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Day_light.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model/>
+		<AnimSet/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras/>
+	<CameraLimits/>
+	<CameraLimitsSet/>
+</ArenaDesc>

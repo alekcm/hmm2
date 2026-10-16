@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Models/TerrainObjects/Dwarf_Dang_Obj/Dang_Obj_new.mb"/>
+	<uid>AF4FDFA0-67B1-4423-80F3-36CF3378FDD4</uid>
+	<RootMesh>Lava_Road_X</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>2</x>
+		<y>2</y>
+		<z>0.905283</z>
+	</Size>
+	<Center>
+		<x>-7.15256e-007</x>
+		<y>0</y>
+		<z>-0.297751</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Lava_Road_X-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>2</NumMeshes>
+	<MaterialQuantities>
+		<Item>3</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Lava_Road_X|Pod|PodShape</Item>
+		<Item>Lava_Road_X|Crag|CragShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

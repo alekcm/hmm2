@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7903">
+	<Materials>
+		<Item href="Pixie-Pixie_Skeleton3_t1u_pixie_a.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_f7ba0926-a943-4b3c-ba52-721b623cc155">
+			<Material ObjectRecordID="1001317">
+				<Texture href="/Textures/auto-imported/Creatures/Preserve/Pixie_LOD/Pixie_add.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="Pixie-Pixie_Skeleton3_t1u_pixie_a.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_63cbdd02-e6fc-4d6b-a22d-e88a7f49578a">
+		<Skeleton ObjectRecordID="1686">
+			<SrcName href="/models/Creatures/Preserve/Pixie.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>FA5DFC3F-EE0D-452D-BFDC-FCCBA4AECA86</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_cbf85d71-6ce6-43ae-b26a-4b74de9de8e5">
+		<Geometry ObjectRecordID="7062">
+			<SrcName href="/models/Creatures/Preserve/Pixie.mb"/>
+			<uid>EC4DCE3D-72EA-4789-B6FE-1C4E62D31FC7</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.45878</x>
+				<y>1.27311</y>
+				<z>1.89647</z>
+			</Size>
+			<Center>
+				<x>-2.00868e-005</x>
+				<y>-0.0189741</y>
+				<z>0.945331</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0385204</x>
+				<y>0.0363218</y>
+				<z>1.67329</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_87a65edc-3a9e-4964-8d4d-55e44f57a813">
+				<AIGeometry ObjectRecordID="467">
+					<SrcName href="/models/Creatures/Preserve/Pixie.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.0449348</y>
+						<z>1.02868</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.419939</x>
+						<y>0.318289</y>
+						<z>0.873207</z>
+					</AABBHalfSize>
+					<uid>4DCE96BC-668D-42B6-82C6-3655954E177C</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+				<Item>ButterfliesShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

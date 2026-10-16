@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5661">
+	<Materials>
+		<Item href="/_(Material)/Creatures______5903/Inferno/Succubus/Infernal_succubus.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/Creatures______5903/Inferno/Succubus/Infernal_succubus_wing.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_08f3841c-33c4-4cbc-ac89-aefe84d7d619">
+		<Skeleton ObjectRecordID="483">
+			<SrcName href="/models/Creatures/Inferno/Succubus.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>65B7867A-FDA6-4289-8547-33CF568DFFF3</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_c1f65c6f-07f3-478e-8398-416f03e1e07f">
+		<Geometry ObjectRecordID="4853">
+			<SrcName href="/models/Creatures/Inferno/Succubus.mb"/>
+			<uid>294C760D-0B96-4D17-9189-E9D4C839D9E6</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.57924</x>
+				<y>1.79578</y>
+				<z>2.86145</z>
+			</Size>
+			<Center>
+				<x>-0.15763</x>
+				<y>0.325124</y>
+				<z>1.43072</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.498434</x>
+				<y>0.298637</y>
+				<z>2.72335</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_7c66e698-3619-491d-b89d-d82a1d02767e">
+				<AIGeometry ObjectRecordID="196">
+					<SrcName href="/models/Creatures/Inferno/Succubus.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.0249566</x>
+						<y>-0.130883</y>
+						<z>1.05145</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.275159</x>
+						<y>0.444275</y>
+						<z>1.05145</z>
+					</AABBHalfSize>
+					<uid>74F7348C-BA94-4092-AD58-F7846087EE29</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>succubusShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3971">
+	<Materials>
+		<Item href="Spellbook-lambert_10.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert_11.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert_12.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert_1.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert_2.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert_3.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert34.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert35.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-spl_pnts.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-r.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-l.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-button_exit.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert35.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert_7.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert_8.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert_9.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert_5.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert29.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-lambert_6.7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-bookmark_2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-bookmark_1.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-bookmark_3.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-bookmark_4.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-bookmark_5.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-bookmark_6.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Spellbook-bookmark_7.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_0540a341-7546-415b-b3f3-5d72a3775243">
+		<Skeleton ObjectRecordID="301">
+			<SrcName href="/models/Interface/Spellbook/Spellbook.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>BAB3FACE-17D7-4042-87D6-8DEBCA0EDC76</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_72b337f7-cc76-4780-9e49-04df27eeb6d5">
+		<Geometry ObjectRecordID="3410">
+			<SrcName href="/models/Interface/Spellbook/Spellbook.mb"/>
+			<uid>1B076AB2-3359-4BB2-90B1-2BF529D95BEB</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>16.2314</x>
+				<y>8.62711</y>
+				<z>6.30379</z>
+			</Size>
+			<Center>
+				<x>-1.67565</x>
+				<y>-0.402035</y>
+				<z>2.88136</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.39305e-007</x>
+				<y>-0.00593426</y>
+				<z>6.02939</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>9</NumMeshes>
+			<MaterialQuantities>
+				<Item>11</Item>
+				<Item>7</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Book_meshShape</Item>
+				<Item>Page_meshShape</Item>
+				<Item>Bm_Shape6</Item>
+				<Item>Bm_Shape7</Item>
+				<Item>Bm_Shape5</Item>
+				<Item>Bm_Shape4</Item>
+				<Item>Bm_Shape3</Item>
+				<Item>Bm_Shape2</Item>
+				<Item>Bm_Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

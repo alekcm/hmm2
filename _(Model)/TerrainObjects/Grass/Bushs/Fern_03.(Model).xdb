@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6687">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_985a3eb7-b43d-427c-8f40-3ef50a0d1758">
+			<Material ObjectRecordID="13721">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Bushs/Fern01/fern01.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>true</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_02c7c490-3816-477c-82a6-eaf66a333926">
+			<Material ObjectRecordID="13722">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Bushs/Fern_02/fern02.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>true</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ad719d94-2255-405d-b1c7-2500fd436616">
+		<Skeleton ObjectRecordID="1036">
+			<SrcName href="/models/TerrainObjects/Grass/Bushs/fern_03.mb"/>
+			<RootJoint>fern_03</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1EEB8E14-8A5A-4254-BA59-86A9A75863FC</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_e8ee028f-f57c-4d28-aef5-bd81773a4a7a">
+		<Geometry ObjectRecordID="5874">
+			<SrcName href="/models/TerrainObjects/Grass/Bushs/fern_03.mb"/>
+			<uid>B0458423-B5F8-4268-928B-478C69429C02</uid>
+			<RootMesh>fern_03</RootMesh>
+			<RootJoint>fern_03</RootJoint>
+			<Size>
+				<x>2.60945</x>
+				<y>2.4192</y>
+				<z>0.593616</z>
+			</Size>
+			<Center>
+				<x>0.127455</x>
+				<y>-0.0132903</y>
+				<z>0.262449</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.297869</x>
+				<y>-0.0180869</y>
+				<z>0.236711</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>fern_0Shape3</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>1</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

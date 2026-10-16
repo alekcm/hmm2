@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shot ObjectRecordID="12">
+	<StartEffect/>
+	<RotateStartEffectToTarget>false</RotateStartEffectToTarget>
+	<MissileShot>
+		<Model/>
+		<Effect href="/Effects/_(Effect)/Spells/MagicArrowCharge.xdb#xpointer(/Effect)"/>
+		<Speed>0.06</Speed>
+		<Height>0.02</Height>
+		<ForwardOffset>0</ForwardOffset>
+		<StartZOffset>2</StartZOffset>
+		<RightOffset>0</RightOffset>
+	</MissileShot>
+	<LineShot>
+		<Effects/>
+		<SkipSegmentsNumber>1</SkipSegmentsNumber>
+		<SegmentLength>2</SegmentLength>
+		<StepDelay>0</StepDelay>
+		<EffectLifeTime>1000</EffectLifeTime>
+	</LineShot>
+	<StrikeDelay>0</StrikeDelay>
+	<StrikeEffectID>SPELL_MAGIC_ARROW</StrikeEffectID>
+	<DelayBetweenChains>0</DelayBetweenChains>
+	<StrikeVisualEffect href="/GameMechanics/Spell/Combat_Spells/DestructiveMagic/MagicArrow.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+</Shot>

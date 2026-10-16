@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7591">
+	<Materials>
+		<Item href="DarkAssassin_LOD-DarkAssassin_LOD_mapping_file6Material1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="DarkAssassin_LOD-DarkAssassin_LOD_mapping_file7Material1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_f67edb18-f020-4884-8466-ef3d8e3b2c38">
+		<Skeleton ObjectRecordID="1521">
+			<SrcName href="/models/Creatures/Dungeon/DarkAssassin_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>B04093A6-E45D-4C9C-A0C9-051A0E0CC142</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_5ce5f9ab-9a81-47a9-bad9-908d6814f409">
+		<Geometry ObjectRecordID="6765">
+			<SrcName href="/models/Creatures/Dungeon/DarkAssassin_LOD.mb"/>
+			<uid>DCB3B68B-572A-4B7B-BE58-A2073E104D17</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.77157</x>
+				<y>0.589618</y>
+				<z>1.97031</z>
+			</Size>
+			<Center>
+				<x>0.0860054</x>
+				<y>0.00585502</y>
+				<z>0.986231</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.74314</x>
+				<y>-0.0224038</y>
+				<z>1.82573</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_f553c94e-ae59-4419-b1a5-c5f53410988a">
+				<AIGeometry ObjectRecordID="384">
+					<SrcName href="/models/Creatures/Dungeon/DarkAssassin_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.00840211</x>
+						<y>-0.0798034</y>
+						<z>0.76412</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.387576</x>
+						<y>0.271683</y>
+						<z>0.762658</z>
+					</AABBHalfSize>
+					<uid>278D6D44-0541-4E97-912D-1104DC625DFF</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

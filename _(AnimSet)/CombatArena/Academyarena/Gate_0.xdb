@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="1000216">
+	<animations>
+		<Item>
+			<Kind>close</Kind>
+			<Anim href="Gate_0-close.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>open</Kind>
+			<Anim href="Gate_0-open.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Arenas/AcademySiege/AcademySiege.mb"/>
+	<ExpSrcClipFolder href="/Animations/Arena/Academy/Clip/Gate0/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

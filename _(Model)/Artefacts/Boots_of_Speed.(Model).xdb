@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5460">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Artefacts/Boots_of_Speed/lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Artefacts/Boots_of_Speed/lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_88dfdf2d-61ba-48be-ad44-74f0f07e452c">
+		<Skeleton ObjectRecordID="435">
+			<SrcName href="/models/Artefacts/Boots_of_Speed.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>5DE52937-DEB3-4ADC-8F4B-67ECF57A768C</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_7d139d54-a33f-4321-a376-2580d2510637">
+		<Geometry ObjectRecordID="4668">
+			<SrcName href="/models/Artefacts/Boots_of_Speed.mb"/>
+			<uid>28B74203-CEE7-4E28-8F01-8566E9570C1A</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.81625</x>
+				<y>1.31407</y>
+				<z>1.69996</z>
+			</Size>
+			<Center>
+				<x>-0.0234416</x>
+				<y>0.0183633</y>
+				<z>1.82827</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.368779</x>
+				<y>0.16108</y>
+				<z>2.64007</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="Orb_of_Light-geom-AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Boot0Shape1</Item>
+				<Item>Boot0Shape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

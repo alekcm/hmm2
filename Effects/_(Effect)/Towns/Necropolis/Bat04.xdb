@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000133">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_b8eb1b45-f90b-4439-91e9-7ae5c8391426">
+			<ParticleInstance ObjectRecordID="1000129">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Towns/Necropolis/Bat.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.3</Speed>
+				<Offset>5</Offset>
+				<EndCycle>45</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/Bat02/Bat00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat02/Bat01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat02/Bat02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Bat02/Bat03.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

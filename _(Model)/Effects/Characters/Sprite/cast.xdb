@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000298">
+	<Materials>
+		<Item href="cast-lambert.xdb#xpointer(/Material)"/>
+		<Item href="cast-lambert.xdb#xpointer(/Material)"/>
+		<Item href="cast-lambert.xdb#xpointer(/Material)"/>
+		<Item href="cast-lambert.xdb#xpointer(/Material)"/>
+		<Item href="cast-lambert.xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_798d3bfd-6890-41e4-8e1a-87241be57149">
+		<Skeleton ObjectRecordID="1000065">
+			<SrcName href="/Effects/Characters/PRESERVE/Sprite/cast.mb"/>
+			<RootJoint>Cast</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>75178226-F494-470B-81D7-6E4F5BD42448</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_56282a6c-71cf-45b6-8b8d-980e59188c3b">
+		<Geometry ObjectRecordID="1000095">
+			<SrcName href="/Effects/Characters/PRESERVE/Sprite/cast.mb"/>
+			<uid>6ECB7D20-1E55-4BA0-8814-E55BB754E9A6</uid>
+			<RootMesh>Cast</RootMesh>
+			<RootJoint>Cast</RootJoint>
+			<Size>
+				<x>1.34495</x>
+				<y>0.730115</y>
+				<z>1.6715</z>
+			</Size>
+			<Center>
+				<x>0.00781775</x>
+				<y>-0.260295</y>
+				<z>1.67428</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0294219</x>
+				<y>-0.2257</y>
+				<z>2.41921</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>5</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>mesh1Shape</Item>
+				<Item>mesh2Shape</Item>
+				<Item>mesh3Shape</Item>
+				<Item>mesh4Shape</Item>
+				<Item>mesh5Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7023">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/TerrainObjects/Lava/Craters/Crater_10x10_1/lambert7.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/TerrainObjects/Lava/Craters/Crater_10x10_1/Crater_10.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_2f4a062b-295b-45b0-8096-177001d9b9af">
+		<Skeleton ObjectRecordID="1243">
+			<SrcName href="/models/TerrainObjects/Lava/Craters/Crater_12x10.mb"/>
+			<RootJoint>Crater_10x10_3</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>BEAF98FA-4AA3-408E-B1C8-CC274182CDEE</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_907dd586-9254-43ff-88d3-58601431da50">
+		<Geometry ObjectRecordID="6225">
+			<SrcName href="/models/TerrainObjects/Lava/Craters/Crater_12x10.mb"/>
+			<uid>C9C76733-6460-40B4-B9CC-390EFBE03F83</uid>
+			<RootMesh>Crater_10x10_3</RootMesh>
+			<RootJoint>Crater_10x10_3</RootJoint>
+			<Size>
+				<x>21.2883</x>
+				<y>20</y>
+				<z>15.2321</z>
+			</Size>
+			<Center>
+				<x>1.64413</x>
+				<y>-1</y>
+				<z>-7.08694</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00750079</x>
+				<y>-2.45271</y>
+				<z>0.0303531</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Crater_10x10_3|lavaflow|lavaflowShape</Item>
+				<Item>Crater_10x10_3|Crater|CraterShape</Item>
+				<Item>Crater_10x10_3|Crater_lambert1|Crater_lambert1Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

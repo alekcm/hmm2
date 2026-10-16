@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000288">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_076c7fc9-2a42-4cb4-9392-b3ff27b6b74b">
+			<Material ObjectRecordID="1000521">
+				<Texture href="/Textures/Test/SnowTerrain/SnowCrackTrees/TreeCrack512x512_01.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>5</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_03e117db-af36-46ae-8b58-8a8b5d6fb6bb">
+		<Geometry ObjectRecordID="1000085">
+			<SrcName href="/models/TerrainObjects/Snow_terrain/SnowCrackTrees/TreesCrack_01.mb"/>
+			<uid>7BFA9C60-8B6E-4DD8-A243-209A8D12FE46</uid>
+			<RootMesh>TreesCrack_1x1_01</RootMesh>
+			<RootJoint>TreesCrack_1x1_01</RootJoint>
+			<Size>
+				<x>0.395928</x>
+				<y>0.633224</y>
+				<z>1.70279</z>
+			</Size>
+			<Center>
+				<x>-0.0237987</x>
+				<y>-0.0108677</y>
+				<z>0.760289</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0484017</x>
+				<y>-0.173953</y>
+				<z>1.53204</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>TreesCrack_1x1_0Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

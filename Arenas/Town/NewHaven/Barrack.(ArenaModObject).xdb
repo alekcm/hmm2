@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject ObjectRecordID="1000203">
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>Barrack</Name>
+	<DefUpgLevel>2</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Barrack_u1r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barack_BigFlag1.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc01</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barack_BigFlag3.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc03</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barack_BigFlag4.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc04</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="Barrack_u2r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barack_BigFlag1.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc01</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barack_BigFlag2.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc02</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barack_BigFlag3.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc03</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barack_BigFlag4.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc04</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barrack_Flag01.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc05</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barrack_Flag02.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc06</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barrack_Flag01.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc07</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barrack_Flag02.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc08</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barrack_Flag01.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc09</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barrack_Flag02.xdb#xpointer(/Effect)"/>
+							<Locator>Barrack_loc010</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

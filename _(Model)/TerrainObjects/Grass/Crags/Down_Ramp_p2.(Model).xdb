@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3930">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_334fcdc3-db86-4868-b462-6c05c1e72be2">
+			<Material ObjectRecordID="5613">
+				<Texture href="/Textures/auto-imported_______320/dev/Grass/Crags/Ramp_p1/Steep_Ramp.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ed3fdc78-1be3-4475-ab20-d82892d4c8fc">
+		<Skeleton ObjectRecordID="269">
+			<SrcName href="/models/TerrainObjects/Grass/Steep/down_ramp_p2.mb"/>
+			<RootJoint>down_ramp_p2</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>25340D38-5488-4884-B7B8-59593826B268</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_95f0c272-946f-4bd4-860b-51a3d6eda24c">
+		<Geometry ObjectRecordID="3371">
+			<SrcName href="/models/TerrainObjects/Grass/Steep/down_ramp_p2.mb"/>
+			<uid>37B8DE62-6FE6-4E11-8DD3-8F2949972CAC</uid>
+			<RootMesh>down_ramp_p2</RootMesh>
+			<RootJoint>down_ramp_p2</RootJoint>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>1.00035</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>1</y>
+				<z>1.5</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.917614</x>
+				<y>1.04258</y>
+				<z>1.96401</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurfaceShape3</Item>
+				<Item>polySurfaceShape7</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

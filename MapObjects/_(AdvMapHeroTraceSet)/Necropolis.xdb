@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapHeroTraceSet ObjectRecordID="1000000">
+	<traces>
+		<Item href="#n:inline(AdvMapHeroTrace)" id="item_fc45d4f6-94bc-40ae-bc34-e6b7e913c762">
+			<AdvMapHeroTrace ObjectRecordID="1000001">
+				<Decals/>
+				<Objects>
+					<Item>
+						<Model/>
+						<AnimSet/>
+						<Effect href="/Effects/_(Effect)/Characters/Heroes/Necromancer/Path/Level1.xdb#xpointer(/Effect)"/>
+						<Frequency>1</Frequency>
+					</Item>
+				</Objects>
+				<ObjectsDensity>1</ObjectsDensity>
+				<DecalsDispersionRadius>0</DecalsDispersionRadius>
+			</AdvMapHeroTrace>
+		</Item>
+		<Item href="#n:inline(AdvMapHeroTrace)" id="item_ad61722c-b1f3-4b17-bf0c-4599151eeaca">
+			<AdvMapHeroTrace ObjectRecordID="1000002">
+				<Decals/>
+				<Objects>
+					<Item>
+						<Model/>
+						<AnimSet/>
+						<Effect href="/Effects/_(Effect)/Characters/Heroes/Necromancer/Path/Level_2.xdb#xpointer(/Effect)"/>
+						<Frequency>1</Frequency>
+					</Item>
+					<Item>
+						<Model/>
+						<AnimSet/>
+						<Effect href="/Effects/_(Effect)/Characters/Heroes/Necromancer/Path/Level_2b.xdb#xpointer(/Effect)"/>
+						<Frequency>1</Frequency>
+					</Item>
+				</Objects>
+				<ObjectsDensity>1</ObjectsDensity>
+				<DecalsDispersionRadius>0</DecalsDispersionRadius>
+			</AdvMapHeroTrace>
+		</Item>
+	</traces>
+</AdvMapHeroTraceSet>

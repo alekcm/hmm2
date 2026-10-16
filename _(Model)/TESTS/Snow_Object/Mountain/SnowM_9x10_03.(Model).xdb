@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7779">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_0b6c4580-adc1-4df2-ad71-34d8452110e1">
+			<Material ObjectRecordID="20148">
+				<Texture href="/Textures/auto-imported/TESTS/Snow_Object/Mountain/SnowM_10x12_01/snowmount04.TGA.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>150</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_01c630fd-2fa2-40c3-956c-9216100a7efc">
+		<Skeleton ObjectRecordID="1635">
+			<SrcName href="/models/TerrainObjects/Snow_terrain/Mountains/Snowmountains_3.mb"/>
+			<RootJoint>SnowM_9x10_03</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1C904182-B7D0-4264-A087-01790EC5CDC3</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_98759baf-02b4-4346-b698-a638fe12f97f">
+		<Geometry ObjectRecordID="6942">
+			<SrcName href="/models/TerrainObjects/Snow_terrain/Mountains/Snowmountains_3.mb"/>
+			<uid>1AC953FA-08EA-427F-81CC-24A4863B2740</uid>
+			<RootMesh>SnowM_9x10_03</RootMesh>
+			<RootJoint>SnowM_9x10_03</RootJoint>
+			<Size>
+				<x>18</x>
+				<y>20</y>
+				<z>7.48907</z>
+			</Size>
+			<Center>
+				<x>-2</x>
+				<y>1</y>
+				<z>3.74454</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.983882</x>
+				<y>0.867653</y>
+				<z>7.36376</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>SnowM_9x10_03|Mountain|MountainShape</Item>
+				<Item>SnowM_9x10_03|Mountain_lamb|Mountain_lambShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

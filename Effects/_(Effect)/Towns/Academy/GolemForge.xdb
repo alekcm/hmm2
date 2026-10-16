@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000256">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_de443d64-dad2-4e87-922d-9113bafec89f">
+			<ParticleInstance ObjectRecordID="1000326">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_e1812377-2a41-4822-a8eb-c5c04429c909">
+					<Particle ObjectRecordID="1000270">
+						<SrcName href="/Effects/Towns/Academy/GolemForge/GolemForge01.mb"/>
+						<ExportPrefix>GolemForgeEff01</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>d4491d40996b71c01ace8cbf23c9b840118b4a406b568f409350e73f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>06F8FA77-C373-4D1D-B231-205874A43C18</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>7</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/LensFlareCenter.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RaysBlue00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_ec253cb4-1bdb-43ac-8dd7-a8ed1634c44f">
+			<ParticleInstance ObjectRecordID="1000327">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_24cecc50-d953-4411-b6d8-22ca40e21d5e">
+					<Particle ObjectRecordID="1000271">
+						<SrcName href="/Effects/Towns/Academy/GolemForge/GolemForge02.mb"/>
+						<ExportPrefix>GolemForgeEff02</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>c8897b40fb378ac0500bb6bd6ff01641707bb2401008d04093f67c40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>267E6BEB-1170-455C-A7C0-08FF48627B97</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.7</Speed>
+				<Offset>0</Offset>
+				<EndCycle>8</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/LensFlareCenter.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RaysBlue00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

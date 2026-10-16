@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000770">
+	<Materials>
+		<Item href="Butterfly-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Butterfly-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Butterfly-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Butterfly-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Butterfly-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Butterfly-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Butterfly-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Butterfly-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Butterfly-lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_e0740e3f-64fe-4018-af11-d5416f5e3757">
+		<Skeleton ObjectRecordID="1000140">
+			<SrcName href="/Effects/Characters/Ranger/Path/Butterfly.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>5736024E-7D84-4558-AE14-1DEC03D69E47</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_17c82056-afd8-4043-ba86-11855aa8def6">
+		<Geometry ObjectRecordID="1000561">
+			<SrcName href="/Effects/Characters/Ranger/Path/Butterfly.mb"/>
+			<uid>DC4FA979-CCF1-4E3C-8541-B55796C5A208</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.63964</x>
+				<y>3.18287</y>
+				<z>0.515794</z>
+			</Size>
+			<Center>
+				<x>-0.638596</x>
+				<y>1.31056</y>
+				<z>1.90823</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.845363</x>
+				<y>1.92804</y>
+				<z>2.12004</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>9</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Global|Body|BodyShape</Item>
+				<Item>Global|Body|R_Wing|R_WingShape</Item>
+				<Item>Global|Body|L_Wing|L_WingShape</Item>
+				<Item>TempButterfly_BodyShape</Item>
+				<Item>TempButterfly_Body|R_Wing|R_WingShape</Item>
+				<Item>TempButterfly_Body|L_Wing|L_WingShape</Item>
+				<Item>Butterfly3|Body|BodyShape</Item>
+				<Item>Butterfly3|Body|R_Wing|R_WingShape</Item>
+				<Item>Butterfly3|Body|L_Wing|L_WingShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

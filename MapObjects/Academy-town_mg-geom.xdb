@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="1003097">
+	<SrcName href="/models/TownsGlobalMap/Academy/Academy.mb"/>
+	<uid>4B0A19AA-DA50-4B12-8400-63000B02AF45</uid>
+	<RootMesh>Pod_O TownHallLv1_O Rocklv1_O MagicGuildRock_O MagicGuildLv1_O Palm_O TreesLv0_0 TreesLv1_0 Stairs_O</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>13.6953</x>
+		<y>16.0352</y>
+		<z>12.5068</z>
+	</Size>
+	<Center>
+		<x>0.651436</x>
+		<y>-2.95749</y>
+		<z>6.25342</z>
+	</Center>
+	<BestFitPoint>
+		<x>1.28499</x>
+		<y>0.196765</y>
+		<z>12.207</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+		<w>1</w>
+	</Dir>
+	<AIGeometry href="Academy-town_mg_AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>9</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>2</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>2</Item>
+		<Item>1</Item>
+		<Item>2</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Stairs_OShape</Item>
+		<Item>Pod_OShape</Item>
+		<Item>TownHallLv1_OShape</Item>
+		<Item>Rocklv1_OShape</Item>
+		<Item>MagicGuildRock_OShape</Item>
+		<Item>MagicGuildLv1_OShape</Item>
+		<Item>Palm_OShape</Item>
+		<Item>TreesLv0_Shape0</Item>
+		<Item>TreesLv1_Shape0</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

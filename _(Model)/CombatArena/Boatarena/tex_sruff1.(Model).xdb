@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5927">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_888a26b3-9403-40ad-9389-1425bc1a7fff">
+			<Material ObjectRecordID="9678">
+				<Texture href="/Textures/auto-imported_______320/CombatArena/Boatarena/tex_sruff/stuff.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_3fbe7876-68b3-441e-8f84-30016d1a5b8e">
+		<Geometry ObjectRecordID="5116">
+			<SrcName href="/models/Arenas/Boatarena/Boatarena.mb"/>
+			<uid>CCE8DB9E-9C65-45EF-8498-5C7C9F83C2D3</uid>
+			<RootMesh>tex_sruff1</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>17.566</x>
+				<y>77.764</y>
+				<z>59.4053</z>
+			</Size>
+			<Center>
+				<x>320.846</x>
+				<y>298.132</y>
+				<z>25.4433</z>
+			</Center>
+			<BestFitPoint>
+				<x>320.129</x>
+				<y>310.231</y>
+				<z>55.1443</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>tex_sruff1Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

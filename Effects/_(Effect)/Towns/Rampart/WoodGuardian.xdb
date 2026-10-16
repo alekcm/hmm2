@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000400">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_ef873417-d9bd-44af-94d8-c05c1c62c14e">
+			<ParticleInstance ObjectRecordID="1000621">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_78ab2336-bca7-4bac-b428-3db0c6447669">
+					<Particle ObjectRecordID="1000527">
+						<SrcName href="/Effects/Towns/Rampart/WoodGuardian01.mb"/>
+						<ExportPrefix>WoodGuardianEff01</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>00790bbd8013873dbaa40741260c2742df4cc14195dec041b37fc041</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>7F2D7283-799A-4894-A42B-04EF72F52552</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.5</Speed>
+				<Offset>0</Offset>
+				<EndCycle>12</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/RaysGold01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_b10cdae7-b8ba-46c1-849e-8d5f68c5c6ea">
+			<ParticleInstance ObjectRecordID="1000622">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Towns/Rampart/WoodGuardian/WoodGuardian02.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>2</Speed>
+				<Offset>0</Offset>
+				<EndCycle>12</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/RaysGold01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/leaf00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/leaf01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/leaf03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/leaf01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_2cffbcea-3d57-4b56-9c2a-5ba578a460e9">
+			<ParticleInstance ObjectRecordID="1000623">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_759db957-9b0c-49b5-8515-18921c992fc1">
+					<Particle ObjectRecordID="1000529">
+						<SrcName href="/Effects/Towns/Rampart/WoodGuardian02.mb"/>
+						<ExportPrefix>WoodGuardianEff03</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>187d8c3e4effd7bf690a14418fd4dd401edda940740b6b40a4c82140</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>7AA9000F-2A6A-4C77-A3D6-7C175E8B0A9D</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>7</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_69c86c9b-5c7a-4242-b92c-1be524603056">
+			<ParticleInstance ObjectRecordID="1000624">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_ae212837-b43b-4463-a5d7-6f2ecdaf472d">
+					<Particle ObjectRecordID="1000530">
+						<SrcName href="/Effects/Towns/Rampart/WoodGuardian03.mb"/>
+						<ExportPrefix>WoodGuardianEff04</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>000040350000243755960641198e5741cde6f840cde6f840cee6f840</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>40C44A68-B046-4870-95A2-C959B5BB45EC</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_fc710325-51fc-49d4-8d84-29a91f449283">
+			<ParticleInstance ObjectRecordID="1000625">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Towns/Rampart/WoodGuardian/WoodGuardian02.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+					<w>0</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>2</Speed>
+				<Offset>0</Offset>
+				<EndCycle>12</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/RaysGold01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/leaf00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/leaf01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/leaf03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/leaf01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_99b70774-7de7-428f-ba6b-7bfd9801e633">
+			<ModelInstance ObjectRecordID="1000159">
+				<Model href="/Arenas/Town/Rampart/WoodGuardian_Butterfly.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Towns/WoodGuardian_Butterfly.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_4d11e240-21ae-4c78-852a-d53267b2b659">
+			<ModelInstance ObjectRecordID="1000160">
+				<Model href="/Arenas/Town/Rampart/WoodGuardian_G.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Town/Rampart/WoodGuardian_G.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

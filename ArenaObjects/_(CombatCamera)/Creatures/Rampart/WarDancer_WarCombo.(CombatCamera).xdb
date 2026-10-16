@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CombatCamera>
+	<Event>
+		<AzimuthRange>
+			<Use>false</Use>
+			<Min>0</Min>
+			<Max>0</Max>
+		</AzimuthRange>
+		<ActionType>CAMERA_ACTION_MELEE</ActionType>
+		<Actor>
+			<Type>CAMERA_CHARACTER_SPECIFIC</Type>
+			<Creature href="/GameMechanics/CreatureVisual/Creatures/Preserve/War_Dancer.xdb#xpointer(/CreatureVisual)"/>
+			<Creatures/>
+			<BuildingType>BUILDING_ANY</BuildingType>
+			<Zone>
+				<Use>false</Use>
+				<Area>
+					<x1>0</x1>
+					<y1>0</y1>
+					<x2>0</x2>
+					<y2>0</y2>
+				</Area>
+			</Zone>
+		</Actor>
+		<Target>
+			<Type>CAMERA_CHARACTER_CREATURE_1x1</Type>
+			<Creature/>
+			<Creatures/>
+			<BuildingType>BUILDING_ANY</BuildingType>
+			<Zone>
+				<Use>false</Use>
+				<Area>
+					<x1>0</x1>
+					<y1>0</y1>
+					<x2>0</x2>
+					<y2>0</y2>
+				</Area>
+			</Zone>
+		</Target>
+		<SpellID>SPELL_NONE</SpellID>
+	</Event>
+	<AnimatedCameras>
+		<AnimSet href="/_(AnimSet)/Creatures/Preserve/WarDancer_WarCombo.(AnimSet).xdb#xpointer(/AnimSet)"/>
+		<PosType>CAMERAPOS_ACTOR</PosType>
+		<RotType>CAMERAROT_ACTOR_POINT</RotType>
+	</AnimatedCameras>
+	<Tracks/>
+	<IsForced>false</IsForced>
+</CombatCamera>

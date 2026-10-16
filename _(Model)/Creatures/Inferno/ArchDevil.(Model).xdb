@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5659">
+	<Materials>
+		<Item href="ArchDevil-t_devil_material.(Material).xdb#xpointer(/Material)"/>
+		<Item href="ArchDevil-devil_material.(Material).xdb#xpointer(/Material)"/>
+		<Item href="ArchDevil-devil_axe_material.(Material).xdb#xpointer(/Material)"/>
+		<Item href="ArchDevil-devil_axe_material.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_5319b52a-0c44-4b38-85e8-fff458d5f96b">
+			<Material ObjectRecordID="13490">
+				<Texture href="/Textures/Creatures/Inferno/ArchDevil/ArchDevil_axeGlow.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>1</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_CLOUDS_H5</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_9996cead-1022-45a3-8429-861ffcc98dae">
+			<Material ObjectRecordID="13486">
+				<Texture href="/Textures/Creatures/Inferno/ArchDevil/ArchDevil_axeGlow.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0.75</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_CLOUDS_H5</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_9e5fa329-d4bb-4fdb-a74e-2e62390d45f9">
+		<Skeleton ObjectRecordID="481">
+			<SrcName href="/models/Creatures/Inferno/ArchDevil.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>C59BD6A3-C11B-4D69-8AD0-8E9653F118A0</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_7cff0e7c-8c2a-4d9a-ac64-086088c35b05">
+		<Geometry ObjectRecordID="4851">
+			<SrcName href="/models/Creatures/Inferno/ArchDevil.mb"/>
+			<uid>5E9FAD21-E3BC-4FA9-B48D-94F00F42F56D</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>6.67358</x>
+				<y>3.99213</y>
+				<z>3.74428</z>
+			</Size>
+			<Center>
+				<x>-0.808893</x>
+				<y>0.0282932</y>
+				<z>1.87214</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.121719</x>
+				<y>0.317539</y>
+				<z>3.5223</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_9dcc6d82-7741-46bc-84f6-822f9b18c3aa">
+				<AIGeometry ObjectRecordID="194">
+					<SrcName href="/models/Creatures/Inferno/Devil.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>1.62623</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.995871</x>
+						<y>0.995871</y>
+						<z>1.62623</z>
+					</AABBHalfSize>
+					<uid>429ACCC7-B7EC-40EA-B660-7BADCA8213A5</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>2</Item>
+				<Item>3</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Devil_glowShape</Item>
+				<Item>ArchDevil_meshShape</Item>
+				<Item>ArchDevil_axeShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

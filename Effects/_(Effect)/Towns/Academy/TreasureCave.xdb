@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000310">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_203b90fb-220c-450b-b4ae-a6df484c753c">
+			<ParticleInstance ObjectRecordID="1000430">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_cfb9e7d4-efe4-4d78-801a-2a8e1a1dd032">
+					<Particle ObjectRecordID="1000347">
+						<SrcName href="/Effects/Towns/Academy/TreasureCave/TreasureCave.mb"/>
+						<ExportPrefix>TreasureCaveEff01</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>e8082abef80690beb7106f40d3b49c40ecf23440edf23440edf23440</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>D65B347D-7183-494C-85A2-6CD260EE2CD6</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.4</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>-0.8</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Artefacts/RaysGold01______3225.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkYellow01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkYellow00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_da4d898b-a223-4a26-8713-c335e284a91e">
+			<ParticleInstance ObjectRecordID="1000431">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_1b57b855-5b20-4eb8-a5fb-2b9df632eddc">
+					<Particle ObjectRecordID="1000348">
+						<SrcName href="/Effects/Towns/Academy/TreasureCave/TreasureCave.mb"/>
+						<ExportPrefix>TreasureCaveEff02</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>a449f7bd41cd83bed2de674082458e3f99bb383f492d463fa8f2ad3e</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>DB436802-4534-43B3-89BD-1551EB339022</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.6</Speed>
+				<Offset>0</Offset>
+				<EndCycle>3</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Artefacts/RaysGold01______3225.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkYellow01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkYellow00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

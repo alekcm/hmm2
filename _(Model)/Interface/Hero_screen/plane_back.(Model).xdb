@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="4689">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_77e57393-dfb1-4670-b77f-c2bc033eb18b">
+			<Material ObjectRecordID="7558">
+				<Texture href="/Textures/auto-imported_______320/Interface/Hero_screen/plane_back/Back.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_4c52041d-1d5b-45ef-84be-6de7e98f59fb">
+		<Geometry ObjectRecordID="4126">
+			<SrcName href="/models/Interface/Hero_screen/Hero_screen.mb"/>
+			<uid>3EB288C3-A425-402D-B9C2-F0D93FE4F565</uid>
+			<RootMesh>plane_back</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>5.70026</x>
+				<y>3.52383</y>
+				<z>6.40172</z>
+			</Size>
+			<Center>
+				<x>0.809178</x>
+				<y>0.878813</y>
+				<z>1.83351</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.892952</x>
+				<y>1.02199</y>
+				<z>5.03437</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>plane_backShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

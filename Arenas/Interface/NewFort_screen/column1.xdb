@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000999">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_cd60d465-0a37-4345-b192-2a03345f11be">
+			<Material ObjectRecordID="1001698">
+				<Texture href="/Textures/auto-imported_______320/Interface/NewFort_screen/column1/NewColumn.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_f533342b-4da4-4980-88a8-21a7921c62e1">
+		<Geometry ObjectRecordID="1000783">
+			<SrcName href="/models/Interface/Creature_hire/NewCreature_hire.mb"/>
+			<uid>52140F95-85D1-4C23-A022-23D50F02D3B7</uid>
+			<RootMesh>column1</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>39.366</x>
+				<y>39.3661</y>
+				<z>20.9137</z>
+			</Size>
+			<Center>
+				<x>329</x>
+				<y>280</y>
+				<z>7.35012</z>
+			</Center>
+			<BestFitPoint>
+				<x>330.463</x>
+				<y>280.003</y>
+				<z>17.807</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>columnShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

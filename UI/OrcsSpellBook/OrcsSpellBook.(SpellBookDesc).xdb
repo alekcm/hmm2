@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpellBookDesc ObjectRecordID="1000000">
+	<Model href="/_(Model)/Interface/SpellBook_H5A2/Spellbook_H5A2_model.xdb#xpointer(/Model)"/>
+	<Light href="/Lights/_(AmbientLight)/Interface/SpellBook.xdb#xpointer(/AmbientLight)"/>
+	<AnimSet href="/_(AnimSet)/Interface/SpellBook_H5A2_adv.(AnimSet).xdb#xpointer(/AnimSet)"/>
+	<SpellMaterial>
+		<x>1</x>
+		<y>1</y>
+		<z>1</z>
+	</SpellMaterial>
+	<SpellHighlightMaterial>
+		<x>0.0588235</x>
+		<y>0.0705882</y>
+		<z>0.45098</z>
+	</SpellHighlightMaterial>
+	<SpellHighlightMaterialOverBright>6</SpellHighlightMaterialOverBright>
+	<BackFadeDuration>0.2</BackFadeDuration>
+	<BackFadeValue>0.3</BackFadeValue>
+	<SchoolHighlightColor>
+		<x>0.74902</x>
+		<y>0.643137</y>
+		<z>0.0156863</z>
+	</SchoolHighlightColor>
+	<PartSpellsFirstPage>
+		<Item>2</Item>
+		<Item>3</Item>
+		<Item>4</Item>
+		<Item>5</Item>
+	</PartSpellsFirstPage>
+	<PartSpellsSecondPage>
+		<Item>6</Item>
+		<Item>14</Item>
+		<Item>7</Item>
+		<Item>8</Item>
+		<Item>9</Item>
+		<Item>10</Item>
+		<Item>11</Item>
+		<Item>15</Item>
+	</PartSpellsSecondPage>
+	<PartSpellSchools/>
+	<PartSpellsCombat>13</PartSpellsCombat>
+	<PartSpellsAdventure>12</PartSpellsAdventure>
+	<PartSP>20</PartSP>
+	<PartClose>19</PartClose>
+	<PartNextPage>-1</PartNextPage>
+	<PartPrevPage>-1</PartPrevPage>
+	<SpellbookCenterPosition>
+		<x>32</x>
+		<y>32</y>
+		<z>2</z>
+	</SpellbookCenterPosition>
+	<OutlinerSize>
+		<x>512</x>
+		<y>512</y>
+	</OutlinerSize>
+	<SpellIcon>
+		<x1>124</x1>
+		<y1>80</y1>
+		<x2>380</x2>
+		<y2>336</y2>
+	</SpellIcon>
+	<SpellTextPosition>
+		<x>0</x>
+		<y>336</y>
+	</SpellTextPosition>
+</SpellBookDesc>

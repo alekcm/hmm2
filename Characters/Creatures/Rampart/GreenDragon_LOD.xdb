@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001386">
+	<Materials>
+		<Item href="GreenDragon_LOD-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_66e923da-63ef-4a37-b26b-0880f4d507ca">
+		<Skeleton ObjectRecordID="1000321">
+			<SrcName href="/models/Creatures/Preserve/GreenDragon_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>868141D4-7E50-429F-9E6C-ECA1DFC99E11</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_91205f6d-4aa7-45d5-9ef0-047c32ed4487">
+		<Geometry ObjectRecordID="1001167">
+			<SrcName href="/models/Creatures/Preserve/GreenDragon_LOD.mb"/>
+			<uid>62FA1148-4D2C-4E00-89AA-5ECAFD5E4450</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4.96926</x>
+				<y>5.31212</y>
+				<z>4.7456</z>
+			</Size>
+			<Center>
+				<x>0.114965</x>
+				<y>0.46415</y>
+				<z>2.43625</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.000695545</x>
+				<y>2.57365</y>
+				<z>5.66843</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="GreenDragon_LOD_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

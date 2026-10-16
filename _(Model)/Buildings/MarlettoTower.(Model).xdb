@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6939">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_295aad21-b16e-4af2-aaac-8d809fdbd8a5">
+			<Material ObjectRecordID="16369">
+				<Texture href="/Textures/auto-imported_______320/Buildings/MarlettoTower/Marletto_Tower.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_9a51386c-34c6-4f54-a934-d06fa82e60c9">
+			<Material ObjectRecordID="16370">
+				<Texture href="/Textures/auto-imported_______320/Buildings/MarlettoTower/Marletto_Tower_terrain.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/ReflectiveWater_Rampart_Adv.xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ecb6b57e-ae1f-43f8-a37d-a3c967c3e0b3">
+		<Skeleton ObjectRecordID="1160">
+			<SrcName href="/models/Buildings/FPP2/Marletto_Tower.mb"/>
+			<RootJoint>MarlettoTower</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>60AC8A25-F079-4DD0-801D-AEDD74314D2A</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_fe9b87ea-c3e3-4a58-86e4-c2cadc589347">
+		<Geometry ObjectRecordID="6140">
+			<SrcName href="/models/Buildings/FPP2/Marletto_Tower.mb"/>
+			<uid>2403FC21-E5F4-4E85-9C8A-8FA20D0571F3</uid>
+			<RootMesh>MarlettoTower</RootMesh>
+			<RootJoint>MarlettoTower</RootJoint>
+			<Size>
+				<x>6</x>
+				<y>6.17356</y>
+				<z>6.5683</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>-0.0867815</y>
+				<z>2.71869</z>
+			</Center>
+			<BestFitPoint>
+				<x>-7.62331e-006</x>
+				<y>-0.00230941</y>
+				<z>5.84767</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_efd28be2-962f-49fb-9cc6-18772bef6468">
+				<AIGeometry ObjectRecordID="273">
+					<SrcName href="/models/Buildings/FPP2/Marletto_Tower.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>3.06618</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.60715</x>
+						<y>1.60715</y>
+						<z>3.01193</z>
+					</AABBHalfSize>
+					<uid>3F2B6F97-CC44-456E-BD7C-5413A9D4E5C5</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>MarlettoTowerShape</Item>
+				<Item>floorShape</Item>
+				<Item>waterShape</Item>
+				<Item>floor_defaultShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

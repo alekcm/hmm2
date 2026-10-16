@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6361">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_c647422f-ffd5-40be-834c-ea77b07b948e">
+			<Material ObjectRecordID="14147">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Mounting/Mounting12x12_1/mounting12x12_1.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_614f2b4c-3de8-4a93-aa9f-fcd7343c7e68">
+		<Skeleton ObjectRecordID="732">
+			<SrcName href="/models/TerrainObjects/Grass/Mountings/mounting10x10.mb"/>
+			<RootJoint>mounting10x10</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>FA5DB5D0-31B2-4C87-83A0-BBFE6EA992BB</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_55a7ed69-81b1-4f23-ba03-41d2d26d23e8">
+		<Geometry ObjectRecordID="5550">
+			<SrcName href="/models/TerrainObjects/Grass/Mountings/mounting10x10.mb"/>
+			<uid>7EE61A10-75E2-48B0-9AE5-4BA6D4382B76</uid>
+			<RootMesh>mounting10x10</RootMesh>
+			<RootJoint>mounting10x10</RootJoint>
+			<Size>
+				<x>20</x>
+				<y>20</y>
+				<z>10.1088</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>-1</y>
+				<z>5.05438</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.691995</x>
+				<y>-0.637844</y>
+				<z>9.96498</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>mounting10Shape</Item>
+				<Item>CragShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

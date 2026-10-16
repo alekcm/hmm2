@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc>
+	<ExpScene href="/H5A1/Models/DwarvenTown/Fortress.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>55B3B1FC-CD97-45A6-AB46-7EF613089F52</uid>
+	<objects>
+		<Item href="Ground.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Fort.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Magic_Guild.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="MarketPlace.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Tavern.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="BlackSmitth.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Shipyard.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Townhall.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Dwelling_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Dwelling_7.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Dwelling_6.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Dwelling_5.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Dwelling_3.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Dwelling_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Special_1.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Dwelling_4.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Special_2.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Special_3.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Special_4.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Special_5.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Grail.(ArenaModObject).xdb#xpointer(/ArenaModObject)"/>
+		<Item href="Stones.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="river_noLM.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="Snowstone_O.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="riverpod_noLM.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+		<Item href="BlackSmith_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Dwelling1_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Dwelling2_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Dwelling3_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Dwelling4_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Dwelling5_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Dwelling6_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Dwelling7_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Fort_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Grail_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Magic_Guild_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="MarketPlace_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="ShipYard_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Special1_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Special2_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Special3_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Special4_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Special5_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Tavern_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="TownHall_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="Lava_Locator.(ArenaLocObject).xdb#xpointer(/ArenaLocObject)"/>
+		<Item href="river2.(ArenaEnvObject).xdb#xpointer(/ArenaEnvObject)"/>
+	</objects>
+	<lights>
+		<Item>
+			<Enabled>false</Enabled>
+			<Position>
+				<x>299.7</x>
+				<y>299.038</y>
+				<z>32.2532</z>
+			</Position>
+			<Color>
+				<x>0.313726</x>
+				<y>0.65098</y>
+				<z>0.929412</z>
+			</Color>
+			<Intensity>0.1</Intensity>
+			<Radius>100</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>299.688</x>
+				<y>300.554</y>
+				<z>-38.4473</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.568627</y>
+				<z>0.309804</z>
+			</Color>
+			<Intensity>0.5</Intensity>
+			<Radius>300</Radius>
+		</Item>
+		<Item>
+			<Enabled>false</Enabled>
+			<Position>
+				<x>298.818</x>
+				<y>298.671</y>
+				<z>61.455</z>
+			</Position>
+			<Color>
+				<x>0.647059</x>
+				<y>0.760784</y>
+				<z>0.819608</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>500</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>284.403</x>
+				<y>260.194</y>
+				<z>26.4221</z>
+			</Position>
+			<Color>
+				<x>0.466667</x>
+				<y>0.6</y>
+				<z>0.709804</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>600</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>336.486</x>
+				<y>276.517</y>
+				<z>25.7355</z>
+			</Position>
+			<Color>
+				<x>0.584314</x>
+				<y>0.647059</y>
+				<z>0.768627</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>600</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>315.787</x>
+				<y>290.606</y>
+				<z>-32.9561</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.509804</y>
+				<z>0.25098</z>
+			</Color>
+			<Intensity>1.2</Intensity>
+			<Radius>50</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>275.119</x>
+				<y>306.447</y>
+				<z>-34.2767</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.509804</y>
+				<z>0.25098</z>
+			</Color>
+			<Intensity>1.2</Intensity>
+			<Radius>50</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>306.247</x>
+				<y>320.621</y>
+				<z>-36</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.509804</y>
+				<z>0.25098</z>
+			</Color>
+			<Intensity>1.2</Intensity>
+			<Radius>50</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>321.815</x>
+				<y>336.883</y>
+				<z>29.732</z>
+			</Position>
+			<Color>
+				<x>0.466667</x>
+				<y>0.6</y>
+				<z>0.709804</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>600</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>258.615</x>
+				<y>310.833</y>
+				<z>29.4104</z>
+			</Position>
+			<Color>
+				<x>0.466667</x>
+				<y>0.6</y>
+				<z>0.709804</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>600</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>293.607</x>
+				<y>284.567</y>
+				<z>-32.7453</z>
+			</Position>
+			<Color>
+				<x>1</x>
+				<y>0.623529</y>
+				<z>0.25098</z>
+			</Color>
+			<Intensity>1.2</Intensity>
+			<Radius>40</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>312.999</x>
+				<y>259.633</y>
+				<z>25.9726</z>
+			</Position>
+			<Color>
+				<x>0.466667</x>
+				<y>0.6</y>
+				<z>0.709804</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>600</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>344.67</x>
+				<y>308.071</y>
+				<z>27.0177</z>
+			</Position>
+			<Color>
+				<x>0.466667</x>
+				<y>0.6</y>
+				<z>0.709804</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>600</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>281.804</x>
+				<y>338.934</y>
+				<z>30.9148</z>
+			</Position>
+			<Color>
+				<x>0.466667</x>
+				<y>0.6</y>
+				<z>0.709804</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>600</Radius>
+		</Item>
+		<Item>
+			<Enabled>true</Enabled>
+			<Position>
+				<x>258.623</x>
+				<y>283.711</y>
+				<z>28.258</z>
+			</Position>
+			<Color>
+				<x>0.466667</x>
+				<y>0.6</y>
+				<z>0.709804</z>
+			</Color>
+			<Intensity>0.8</Intensity>
+			<Radius>600</Radius>
+		</Item>
+		<Item>
+			<Enabled>false</Enabled>
+			<Position>
+				<x>300.59</x>
+				<y>315.504</y>
+				<z>32.0972</z>
+			</Position>
+			<Color>
+				<x>0.717647</x>
+				<y>0.752941</y>
+				<z>0.784314</z>
+			</Color>
+			<Intensity>1</Intensity>
+			<Radius>200</Radius>
+		</Item>
+	</lights>
+	<effects>
+		<Item>
+			<Effect href="/Effects/_(Effect)/Towns/Fortrest/Lava/LavaFX.(Effect).xdb#xpointer(/Effect)"/>
+			<Locator>Lava_Locator</Locator>
+		</Item>
+	</effects>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>334</x>
+			<y>282</y>
+			<z>100</z>
+		</Pos>
+		<Rot>
+			<x>-65</x>
+			<y>66</y>
+			<z>0</z>
+		</Rot>
+		<Rod>90</Rod>
+		<FOV>54.4322</FOV>
+		<ClipDistanceMin>0.2</ClipDistanceMin>
+		<ClipDistanceMax>1000</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound/>
+	<Music/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Town/Fortress_light.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model href="/_(Model)/Cutscenes/CameraUpAim.(Model).xdb#xpointer(/Model)"/>
+		<AnimSet href="/_(AnimSet)/AdventureFlyby/TownFlyups/FortressFlyup.(AnimSet).xdb#xpointer(/AnimSet)"/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras>
+		<Item href="Townhall_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Fort_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Magic_Guild_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="MarketPlace_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="BlackSmitth_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Shipyard_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Tavern_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Dwelling_1_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Dwelling_2_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Dwelling_3_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Dwelling_4_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Dwelling_5_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Dwelling_6_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Dwelling_7_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Special_1_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Special_2_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Special_3_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Special_4_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Special_5_cam.(Camera).xdb#xpointer(/Camera)"/>
+		<Item href="Grail_cam.(Camera).xdb#xpointer(/Camera)"/>
+	</staticCameras>
+	<CameraLimits href="CL_of_Fortress.xdb#xpointer(/CameraLimits)"/>
+	<CameraLimitsSet>
+		<Item href="CL_of_Fortress1.xdb#xpointer(/CameraLimits)"/>
+		<Item href="CL_of_Fortress2.xdb#xpointer(/CameraLimits)"/>
+	</CameraLimitsSet>
+	<WidenPictureIfPossible>false</WidenPictureIfPossible>
+</ArenaDesc>

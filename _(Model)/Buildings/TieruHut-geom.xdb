@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="1003227">
+	<SrcName href="/models/Buildings/FPP2/Tieru_hut.mb"/>
+	<uid>3F8FFCD0-2F5D-4ED6-8D85-656C89725DD1</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>20.0504</x>
+		<y>20</y>
+		<z>20.2328</z>
+	</Size>
+	<Center>
+		<x>-1.02522</x>
+		<y>1</y>
+		<z>9.35141</z>
+	</Center>
+	<BestFitPoint>
+		<x>1.68416</x>
+		<y>6.42887</y>
+		<z>19.1629</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+		<w>1</w>
+	</Dir>
+	<AIGeometry href="TieruHut-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>5</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Tieru_hutShape</Item>
+		<Item>ListvaShape</Item>
+		<Item>VetkiShape</Item>
+		<Item>PodShape</Item>
+		<Item>CragShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected>
+		<Item>0</Item>
+		<Item>1</Item>
+		<Item>0</Item>
+		<Item>0</Item>
+		<Item>0</Item>
+	</MeshWindAffected>
+</Geometry>

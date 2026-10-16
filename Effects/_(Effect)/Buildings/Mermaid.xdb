@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000363">
+	<Instances>
+		<Item href="/Effects/_(Effect)/Environment/TerrainObjects/Water/Mermaids/Mermaids_Surf03.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(Effect)/Environment/TerrainObjects/Water/Mermaids/Mermaids_Surf04.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(Effect)/Environment/TerrainObjects/Water/Mermaids/Mermaids_Surf05.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_fca62133-6772-4b38-b1ed-d90aff1da43b">
+			<ModelInstance ObjectRecordID="1000146">
+				<Model href="/_(Model)/Effects/Water/WaterRipples.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Enviroment/WaterRipples.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>-0.4</x>
+					<y>0.2</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>1</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+		<Item href="#n:inline(ModelInstance)" id="item_71f1d879-cecb-415c-9faf-f27f5b9d9db5">
+			<ModelInstance ObjectRecordID="1000147">
+				<Model href="/_(Model)/Effects/Water/WaterRipples.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Enviroment/WaterRipples.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0.7</x>
+					<y>-0.8</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>0.65</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

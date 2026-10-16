@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A2/Creatures/AlternativeUpgrades/Inferno/T6_Pit_Spawn/Models/PitSpawn.mb"/>
+	<uid>4722E8C5-7C1A-471E-964C-C0F20AE21226</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>4.68616</x>
+		<y>3.74323</y>
+		<z>3.94624</z>
+	</Size>
+	<Center>
+		<x>0.006055</x>
+		<y>0.122336</y>
+		<z>1.92114</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="T6_Pit_Spawn-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>2</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>3</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>BodyShape</Item>
+		<Item>SwordShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

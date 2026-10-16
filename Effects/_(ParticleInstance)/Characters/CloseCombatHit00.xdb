@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="249">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_253f6a16-6f91-4eba-8e24-5f1637915a8d">
+		<Particle ObjectRecordID="55">
+			<SrcName href="/Effects/Characters/CloseCombatHit.mb"/>
+			<ExportPrefix>CloseCombatHit</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>50040ebe060ca13f904f2f3e60c83841afe7c1407e81e3408d4dd940</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>5105F58A-6B62-45FB-A9AD-468077291F3D</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>1</Scale>
+	<Speed>1</Speed>
+	<Offset>0</Offset>
+	<EndCycle>1.5</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/Water/Water07.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Water/Water07.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Spells/FlashGlow06.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Spells/Wave00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/SparkWhite.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Water/Water07.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Rays01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Spells/Flash02.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Spells/Flash01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Smoke02.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

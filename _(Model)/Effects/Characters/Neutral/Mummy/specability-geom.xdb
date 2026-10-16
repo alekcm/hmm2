@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A1/Effects/Creatures/Neutrals/Mummy/specability.mb"/>
+	<uid>E9142693-F783-453B-A9B3-DFA544386DB5</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>17.6849</x>
+		<y>17.6849</y>
+		<z>2</z>
+	</Size>
+	<Center>
+		<x>0</x>
+		<y>-0.342151</y>
+		<z>1.00534</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="specability-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>pCylinderShape1</Item>
+		<Item>pPlaneShape1</Item>
+		<Item>vortex:pCylinderShape1</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

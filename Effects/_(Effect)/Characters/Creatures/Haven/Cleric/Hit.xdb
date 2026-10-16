@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="228">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_fa6ae130-4c8e-426d-9745-eee06fd39196">
+			<ParticleInstance ObjectRecordID="246">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Characters/PriestMagicAttack_Flash.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.1</Scale>
+				<Speed>1</Speed>
+				<Offset>0.48</Offset>
+				<EndCycle>2</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>-0.9</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/Flash04.(Texture).xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_5acbad99-243b-4353-84ed-ba867d2f5b06">
+			<ParticleInstance ObjectRecordID="243">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_d4268ded-1ab6-4c76-b20a-3364727f9ce6">
+					<Particle ObjectRecordID="50">
+						<SrcName href="/Effects/Characters/PriestMagicAttack.mb"/>
+						<ExportPrefix>Charge</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>088000be1b6e48c0bf790b4180b34641904a5040bc1eb740457c2841</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>7CDE9820-0557-4AAB-96F1-463A04951846</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>2</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/SparkBlue00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/ChargeBlue.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/BlueFire00.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/SmokeADD00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/SmokeADD01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BlueFire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BlueFire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BlueFire03.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/BlueFire03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_865b1dc1-214d-43a8-a0e7-9b042b28f80a">
+			<ParticleInstance ObjectRecordID="245">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_4ac33c0d-b09b-4378-9620-0861af393b95">
+					<Particle ObjectRecordID="52">
+						<SrcName href="/Effects/Characters/PriestMagicAttack.mb"/>
+						<ExportPrefix>ExplosionFire</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>40ec663ee0b07ebe3e9e8a3f59836441178b0e41446f05417c71ed40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>E38D16F6-278F-404F-A396-07250789D348</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+					<w>0</w>
+				</Rotation>
+				<Scale>1.25</Scale>
+				<Speed>1</Speed>
+				<Offset>0.5</Offset>
+				<EndCycle>2</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion11.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion12.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/ExplosionSequense/Blue/Explosion13.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Wave00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_a3738d14-d36b-4b50-9033-8582c12800cf">
+			<ParticleInstance ObjectRecordID="244">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_bcbc62d1-aaf4-4d67-b595-1f11aba502d1">
+					<Particle ObjectRecordID="53">
+						<SrcName href="/Effects/Characters/PriestMagicAttack.mb"/>
+						<ExportPrefix>ExplosionDust</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>f040e23e809872bebd5c2d40bd46164195b19e406cb59f40f019c740</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>906C28E6-8FAC-459A-B92B-254949483026</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+					<w>0</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0.5</Offset>
+				<EndCycle>2</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/ChargeBlue.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/GroundParts00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/GroundParts01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/GroundParts00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BlueFire00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/Dust00.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/SmokeADD00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/SmokeADD01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BlueFire01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BlueFire02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BlueFire03.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/Smoke01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Smoke00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_a827c09a-a99c-4986-9fa1-0134f0d5c414">
+			<ParticleInstance ObjectRecordID="247">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Characters/PriestMagicAttack_Flash.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0.1</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>0.9</Scale>
+				<Speed>1.2</Speed>
+				<Offset>0.45</Offset>
+				<EndCycle>2</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>-0.9</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/Flash04.(Texture).xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="Hit_Flash.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_6c949584-80f4-43d2-b4f1-829e13b6f18f">
+			<ModelInstance ObjectRecordID="20">
+				<Model href="/_(Model)/Effects/Characters/ClericHit_waves.(Model).xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Characters/ClericHit.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

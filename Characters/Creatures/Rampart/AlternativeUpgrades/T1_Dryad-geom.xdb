@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/H5A2/Creatures/AlternativeUpgrades/Preserve/T1_Dryad/Models/Dryad.mb"/>
+	<uid>29B596E3-5D9A-47B7-A570-DC249670560C</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>1.47506</x>
+		<y>1.17839</y>
+		<z>1.88824</z>
+	</Size>
+	<Center>
+		<x>0.0828771</x>
+		<y>-0.0673181</y>
+		<z>1.10262</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="T1_Dryad-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>2</NumMeshes>
+	<MaterialQuantities>
+		<Item>3</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>bodyShape</Item>
+		<Item>birdsShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

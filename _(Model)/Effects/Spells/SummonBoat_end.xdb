@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001396">
+	<Materials>
+		<Item href="SummonBoat_end-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="SummonBoat_end-t_lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="SummonBoat_end-lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="SummonBoat_end-t_lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="SummonBoat_end-lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_89dffbbd-638e-48ee-9776-7bd5f8c7c556">
+		<Skeleton ObjectRecordID="1000328">
+			<SrcName href="/Effects/Spells/SummonBoat_end.mb"/>
+			<RootJoint>Global01</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>BBE0864E-7505-4DB4-9A10-EF503899C18F</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_dc6eb439-714b-42de-b1a2-e5ea2abad9b9">
+		<Geometry ObjectRecordID="1001176">
+			<SrcName href="/Effects/Spells/SummonBoat_end.mb"/>
+			<uid>842D3322-B1C0-4364-8F38-787805D47700</uid>
+			<RootMesh>Global01</RootMesh>
+			<RootJoint>Global01</RootJoint>
+			<Size>
+				<x>8</x>
+				<y>8</y>
+				<z>0.0842666</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>0.111793</z>
+			</Center>
+			<BestFitPoint>
+				<x>0</x>
+				<y>0</y>
+				<z>0.131135</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>5</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>WhirlpoolShape</Item>
+				<Item>Whirlpool1Shape</Item>
+				<Item>Whirlpool2Shape</Item>
+				<Item>Whirlpool3Shape</Item>
+				<Item>Whirlpool4Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

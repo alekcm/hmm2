@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7487">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/AttackTrails/Glow_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_cd5b26df-a5fa-4f10-a0c5-72070512c835">
+		<Skeleton ObjectRecordID="1455">
+			<SrcName href="/Effects/Characters/Devil/Attack01Trail.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>FD61364D-C701-49E8-869A-D14255A09215</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_5f601a66-6e6a-460d-838c-73a557014b48">
+		<Geometry ObjectRecordID="6685">
+			<SrcName href="/Effects/Characters/Devil/Attack01Trail.mb"/>
+			<uid>C9FEBD19-204A-43E0-AE47-0815FA24B9FE</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.15222</x>
+				<y>1.99672</y>
+				<z>2.22252</z>
+			</Size>
+			<Center>
+				<x>-0.989858</x>
+				<y>-0.665208</y>
+				<z>2.52535</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.32258</x>
+				<y>-0.269573</y>
+				<z>3.60371</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Glow1Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

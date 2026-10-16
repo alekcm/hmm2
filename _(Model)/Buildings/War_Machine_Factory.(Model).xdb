@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7787">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_19194fdc-b2e4-4666-918f-395bafd3b353">
+			<Material ObjectRecordID="1001434">
+				<Texture href="/Textures/auto-imported/Buildings/War_Machine_Factory/War_Machine_Factory.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_f59e900a-35a1-489e-af8b-42e0049f7d07">
+		<Skeleton ObjectRecordID="1643">
+			<SrcName href="/models/Buildings/FPP2/War_Machine_Factory.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>698B3F8B-E0C5-4DCF-ADC7-80EF2CC9643A</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_aab519c2-d6de-49ba-8b2b-699ffb9279bf">
+		<Geometry ObjectRecordID="6950">
+			<SrcName href="/models/Buildings/FPP2/War_Machine_Factory.mb"/>
+			<uid>78317196-C7A7-46DD-8732-A6CE01DA10E7</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.76862</x>
+				<y>7.31507</y>
+				<z>3.09793</z>
+			</Size>
+			<Center>
+				<x>-1.06606</x>
+				<y>-2.99353</y>
+				<z>1.52481</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.40394</x>
+				<y>-3.48524</y>
+				<z>2.6729</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_dad9ad42-029c-47a9-9293-1ed45dd2a88a">
+				<AIGeometry ObjectRecordID="1000401">
+					<SrcName href="/models/Buildings/FPP2/War_Machine_Factory.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-1.00198</x>
+						<y>-3.16219</y>
+						<z>1.35823</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.45015</x>
+						<y>2.88393</y>
+						<z>1.35823</z>
+					</AABBHalfSize>
+					<uid>5A8D79BE-F421-471D-8C47-BC04013629A9</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>War_Machine_FactoryShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

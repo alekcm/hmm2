@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CharacterView>
+	<Model href="T1b_GoblinTrapper.xdb#xpointer(/Model)"/>
+	<AnimSet href="T1b_GoblinTrapper-arena.xdb#xpointer(/AnimSet)"/>
+	<sequence>
+		<Item>
+			<Kind>idle00</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+		<Item>
+			<Kind>attack00</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+		<Item>
+			<Kind>hit</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+		<Item>
+			<Kind>attack00</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+		<Item>
+			<Kind>stir</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+		<Item>
+			<Kind>happy</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+		<Item>
+			<Kind>death</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+	</sequence>
+	<Effect/>
+</CharacterView>

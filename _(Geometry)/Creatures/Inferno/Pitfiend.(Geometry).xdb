@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="3404">
+	<SrcName href="/models/Creatures/Inferno/Pitfiend.mb"/>
+	<uid>C62C9E80-03E5-4D48-B4A3-EEA1AEBF1AE1</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>4.69363</x>
+		<y>6.36036</y>
+		<z>4.86891</z>
+	</Size>
+	<Center>
+		<x>-0.384154</x>
+		<y>1.56285</y>
+		<z>2.43547</z>
+	</Center>
+	<BestFitPoint>
+		<x>-9.9599e-005</x>
+		<y>1.7708</y>
+		<z>4.85318</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="#n:inline(AIGeometry)" id="item_c61e31e4-f1d2-47e5-ac2a-f65162585cd1">
+		<AIGeometry ObjectRecordID="119">
+			<SrcName href="/models/Creatures/Inferno/Pitfiend.mb"/>
+			<RootMesh>AI</RootMesh>
+			<RootJoint/>
+			<Volume>0</Volume>
+			<SolidPart>0</SolidPart>
+			<AABBCenter>
+				<x>0</x>
+				<y>-0.00838131</y>
+				<z>1.37872</z>
+			</AABBCenter>
+			<AABBHalfSize>
+				<x>1.11113</x>
+				<y>1.236</y>
+				<z>1.37874</z>
+			</AABBHalfSize>
+			<uid>B22A0E28-12CC-4664-AE3E-C86724F7C8A2</uid>
+		</AIGeometry>
+	</AIGeometry>
+	<NumMeshes>2</NumMeshes>
+	<MaterialQuantities>
+		<Item>2</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>polySurfaceShape1</Item>
+		<Item>SwordShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

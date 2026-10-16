@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001131">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_748ae93c-41bb-494b-9ee0-89e3cb34e2c2">
+			<Material ObjectRecordID="1001923">
+				<Texture href="/Textures/auto-imported_______320/CombatArena/Lavaarena_siege/gate_u1r1/siege_gate_damage.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="/_(Skeleton)/CombatArena/Lavaarena_siege/Gate1_Skeleton.xdb#xpointer(/Skeleton)"/>
+	<Geometry href="#n:inline(Geometry)" id="item_13473f84-6d7e-42ba-8220-a0afa07d2214">
+		<Geometry ObjectRecordID="1000914">
+			<SrcName href="/models/Arenas/Lavaarena/Gate_damage.mb"/>
+			<uid>3F099158-06DF-4078-8BD5-4426E95A2520</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.18204</x>
+				<y>8.44745</y>
+				<z>8.68487</z>
+			</Size>
+			<Center>
+				<x>315.676</x>
+				<y>283.983</y>
+				<z>13.3325</z>
+			</Center>
+			<BestFitPoint>
+				<x>315.515</x>
+				<y>283.198</y>
+				<z>17.5747</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="gate_r1_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurfaceShape436</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

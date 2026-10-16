@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001307">
+	<Materials>
+		<Item href="/_(Model)/TownsAdvMap/Rampart/TownHallGlow-lambert6.(Material) (2).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/TownsAdvMap/Rampart/TownHallGlow_02-lambert6.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/TownsAdvMap/Rampart/TownHallGlow-lambert7.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_2d73569e-b0b3-4d67-96b7-15ba29a59f60">
+		<Skeleton ObjectRecordID="1000284">
+			<SrcName href="/Effects/Towns/Rampart/TownHall.mb"/>
+			<RootJoint>GreenRing</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1A6E4A4F-851D-4D8E-BAA9-916935D971CB</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_041596b4-5da4-4538-976c-3ffa1bd9e19f">
+		<Geometry ObjectRecordID="1001087">
+			<SrcName href="/Effects/Towns/Rampart/TownHall.mb"/>
+			<uid>59D33B2C-8596-474B-9336-D43BD82AC1A9</uid>
+			<RootMesh>GreenRing</RootMesh>
+			<RootJoint>GreenRing</RootJoint>
+			<Size>
+				<x>0.500268</x>
+				<y>2.71761</y>
+				<z>2.81743</z>
+			</Size>
+			<Center>
+				<x>-2.62247</x>
+				<y>1.1088</y>
+				<z>4.01511</z>
+			</Center>
+			<BestFitPoint>
+				<x>-2.59927</x>
+				<y>1.23277</y>
+				<z>5.35199</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>TownHallGlow2Shape</Item>
+				<Item>TownHallGlowShape</Item>
+				<Item>pPlaneShape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

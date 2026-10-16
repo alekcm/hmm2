@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6596">
+	<Materials>
+		<Item href="Unicorn_LOD______6596-unicorn_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_448f93f8-e9c6-4a17-b085-64cd78188f52">
+		<Skeleton ObjectRecordID="967">
+			<SrcName href="/models/Creatures/Preserve/Unicorn_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>00BB3731-1171-44CA-91C3-ADCCB4A15848</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_8027b476-6b7e-421b-a767-74a33c731c29">
+		<Geometry ObjectRecordID="5785">
+			<SrcName href="/models/Creatures/Preserve/Unicorn_LOD.mb"/>
+			<uid>CAB065E3-999C-4C40-BCE3-6B38275D406E</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>0.759675</x>
+				<y>5.14157</y>
+				<z>2.42027</z>
+			</Size>
+			<Center>
+				<x>-1.49012e-008</x>
+				<y>0.546482</y>
+				<z>1.20958</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.000497767</x>
+				<y>-0.934777</y>
+				<z>2.25507</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_30fee22f-8ae0-4bb7-914c-d4319068d5bf">
+				<AIGeometry ObjectRecordID="246">
+					<SrcName href="/models/Creatures/Preserve/Unicorn_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.195478</y>
+						<z>1.03914</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.383507</x>
+						<y>1.31667</y>
+						<z>1.03914</z>
+					</AABBHalfSize>
+					<uid>3920E9A9-1B15-4812-B05D-7E1E803B44EB</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurfaceShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

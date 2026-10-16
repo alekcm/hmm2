@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002036">
+	<Materials>
+		<Item href="Blood_Memorial-Dungeon_Blood_Memorial_Mat.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_5055bae7-3a23-4e6e-b645-38e73bb9bf33">
+		<Skeleton ObjectRecordID="1000505">
+			<SrcName href="/models/Buildings/FPP2/Dwellings/Dungeon/Dungeon_Blood_Memorial.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>C2FCEBC6-7116-47EA-844D-266C1049D203</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_9bddbac4-873f-479c-96e0-2e43a7480f24">
+		<Geometry ObjectRecordID="1001808">
+			<SrcName href="/models/Buildings/FPP2/Dwellings/Dungeon/Dungeon_Blood_Memorial.mb"/>
+			<uid>6F445691-D59D-4815-B80F-1D69DAFED240</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>5.30497</x>
+				<y>4.10938</y>
+				<z>10.9668</z>
+			</Size>
+			<Center>
+				<x>1.24473</x>
+				<y>1.08284</y>
+				<z>5.46676</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.20194</x>
+				<y>0.893839</y>
+				<z>10.6241</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_dfbe57e9-6542-4bf1-941d-df9a1953a4a5">
+				<AIGeometry ObjectRecordID="1000775">
+					<SrcName href="/models/Buildings/FPP2/Dwellings/Dungeon/Dungeon_Blood_Memorial.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.997342</x>
+						<y>1.35784</y>
+						<z>4.63455</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2.23759</x>
+						<y>1.79096</y>
+						<z>6.24442</z>
+					</AABBHalfSize>
+					<uid>E20D89ED-24E2-4AB6-84A0-DAA344C6D131</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BuildingShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

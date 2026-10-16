@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapTown ObjectRecordID="454">
+	<Pos>
+		<x>163</x>
+		<y>14</y>
+		<z>0</z>
+	</Pos>
+	<Rot>4.71239</Rot>
+	<Floor>0</Floor>
+	<Name/>
+	<CombatScript/>
+	<pointLights/>
+	<Shared href="/MapObjects/RandomTown.xdb#xpointer(/AdvMapTownShared)"/>
+	<PlayerID>PLAYER_3</PlayerID>
+	<CaptureTrigger>
+		<Action>
+			<FunctionName/>
+		</Action>
+	</CaptureTrigger>
+	<HeroDeployTrigger>
+		<Action>
+			<FunctionName/>
+		</Action>
+	</HeroDeployTrigger>
+	<ShipTile>
+		<x>0</x>
+		<y>0</y>
+	</ShipTile>
+	<Specialization href="#n:inline(TownSpecialization)" id="item_864516d1-81fb-46b6-ab02-5d05f077d12f">
+		<TownSpecialization ObjectRecordID="128">
+			<NameFileRef href="/Text/Game/Towns/Inferno/Random/Azog/Name.txt"/>
+			<BiographyFileRef href="/Text/Game/Towns/Inferno/Random/Azog/Biography.txt"/>
+			<Bonus>TOWN_BONUS_EXTRA_ORE</Bonus>
+			<BonusDescriptionFileRef href=""/>
+			<TownType>TOWN_INFERNO</TownType>
+			<RandomTown>TOWN_RANDOM</RandomTown>
+		</TownSpecialization>
+	</Specialization>
+	<buildings>
+		<Item>
+			<Type>TB_TOWN_HALL</Type>
+			<InitialUpgrade>BLD_UPG_1</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_FORT</Type>
+			<InitialUpgrade>BLD_UPG_1</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_MARKETPLACE</Type>
+			<InitialUpgrade>BLD_UPG_NONE</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_SHIPYARD</Type>
+			<InitialUpgrade>BLD_UPG_NONE</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_TAVERN</Type>
+			<InitialUpgrade>BLD_UPG_1</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_BLACKSMITH</Type>
+			<InitialUpgrade>BLD_UPG_NONE</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_MAGIC_GUILD</Type>
+			<InitialUpgrade>BLD_UPG_NONE</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_DWELLING_1</Type>
+			<InitialUpgrade>BLD_UPG_NONE</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_DWELLING_2</Type>
+			<InitialUpgrade>BLD_UPG_NONE</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_DWELLING_3</Type>
+			<InitialUpgrade>BLD_UPG_NONE</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_DWELLING_4</Type>
+			<InitialUpgrade>BLD_UPG_NONE</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_DWELLING_5</Type>
+			<InitialUpgrade>BLD_UPG_NONE</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_DWELLING_6</Type>
+			<InitialUpgrade>BLD_UPG_NONE</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+		<Item>
+			<Type>TB_DWELLING_7</Type>
+			<InitialUpgrade>BLD_UPG_NONE</InitialUpgrade>
+			<MaxUpgrade>BLD_UPG_5</MaxUpgrade>
+		</Item>
+	</buildings>
+	<Editable>
+		<NameFileRef href=""/>
+		<BiographyFileRef href=""/>
+	</Editable>
+	<armySlots/>
+	<spellIDs/>
+	<CaptionFileRef href=""/>
+	<GarrisonHero/>
+	<Script/>
+	<RndSource>RND_PLAYER</RndSource>
+	<LinkToPlayer>PLAYER_5</LinkToPlayer>
+	<LinkToTown/>
+	<CanCaptureOnlyNotVisit>false</CanCaptureOnlyNotVisit>
+	<AllowQuickCombat>true</AllowQuickCombat>
+</AdvMapTown>

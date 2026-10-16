@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapBuildingShared ObjectRecordID="91">
+	<Model href="/_(Model)/TerrainObjects/Water/Damaged_Boats/DemolishGalleon.xdb#xpointer(/Model)"/>
+	<AnimSet href="/_(AnimSet)/TerrainObjects/Water/Damaged_Boats/DemolishGalleon.xdb#xpointer(/AnimSet)"/>
+	<blockedTiles>
+		<Item>
+			<x>0</x>
+			<y>-1</y>
+		</Item>
+		<Item>
+			<x>0</x>
+			<y>1</y>
+		</Item>
+	</blockedTiles>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Buildings/ShipDemolish/DemolishGalleon_Name.txt"/>
+		<Item href="/Text/Game/Buildings/ShipDemolish/DemolishGalleon_Desc.txt"/>
+		<Item href="/Text/Game/Buildings/ShipDemolish/Demolish_Galleon_question.txt"/>
+		<Item href="/Text/Game/Buildings/ShipDemolish/Demolish_Nothing.txt"/>
+	</messagesFileRef>
+	<WaterBased>true</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Ships.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>BUILDING_DEMOLISH</Type>
+</AdvMapBuildingShared>

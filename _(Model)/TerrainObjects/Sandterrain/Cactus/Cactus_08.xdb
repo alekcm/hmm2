@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001705">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_9cb4a2f7-437b-4a7b-83b2-e382c3c85c8a">
+			<Material ObjectRecordID="1004293">
+				<Texture href="Cactus-cactus.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>true</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Model)/TerrainObjects/Sandterrain/Sandtrees/Sandtree01-Lstone_plane.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_25cb79b0-cc72-43a1-8926-3d0e4c5ee432">
+		<Skeleton ObjectRecordID="1000347">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Cactus/Cactus.mb"/>
+			<RootJoint>Cactus_08</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>6256A3BD-1513-4019-9473-E67F03382959</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_29018f2c-beff-4dd3-adcf-64988cd87736">
+		<Geometry ObjectRecordID="1001485">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Cactus/Cactus.mb"/>
+			<uid>935525D3-0593-417B-A29D-98DA19A7AF1B</uid>
+			<RootMesh>Cactus_08</RootMesh>
+			<RootJoint>Cactus_08</RootJoint>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>1.81717</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>2.98023e-008</y>
+				<z>0.737755</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.035508</x>
+				<y>0.16495</y>
+				<z>1.42297</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_c8198e14-2b6d-4f44-9820-5509996555a2">
+				<AIGeometry ObjectRecordID="1000746">
+					<SrcName href="/models/TerrainObjects/Sandterrain/Cactus/Cactus.mb"/>
+					<RootMesh>Cactus_08</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBHalfSize>
+					<uid>8FCBD677-F1D6-4EF9-B9FD-E546C3413247</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Cactus_08|Cactus_|Cactus_Shape</Item>
+				<Item>Cactus_08|Shadow|ShadowShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

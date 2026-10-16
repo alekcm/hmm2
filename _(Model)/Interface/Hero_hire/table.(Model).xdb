@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7327">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_831414ee-d004-4735-848a-e39bd0015da2">
+			<Material ObjectRecordID="1002147">
+				<Texture href="/Textures/auto-imported_______320/Interface/Hero_hire/table/hero_hire_table.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_10a665b2-9865-474d-96f9-04ed21842538">
+		<Geometry ObjectRecordID="6525">
+			<SrcName href="/models/Interface/Hero_hire/hero_hire.mb"/>
+			<uid>A2583E7B-ACE6-41FA-98C3-5859E5A17E24</uid>
+			<RootMesh>table</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>22.9913</x>
+				<y>23.2867</y>
+				<z>0</z>
+			</Size>
+			<Center>
+				<x>291.475</x>
+				<y>308.049</y>
+				<z>22.2129</z>
+			</Center>
+			<BestFitPoint>
+				<x>291.475</x>
+				<y>308.049</y>
+				<z>22.2129</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>tableShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

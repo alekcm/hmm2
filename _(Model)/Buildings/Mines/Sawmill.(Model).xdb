@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6947">
+	<Materials>
+		<Item href="Sawmill-roof_material.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Sawmill-roof_material.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Sawmill-roof_material.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Sawmill-roof_material.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_f9a42690-9d9c-4bc6-8947-343e9c27259f">
+			<Material ObjectRecordID="1002031">
+				<Texture href="/Textures/auto-imported_______320/Buildings/Mines/sawmill/Sawmill_terr.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_4a876663-2c93-440a-8597-9ff029b32f25">
+		<Skeleton ObjectRecordID="1168">
+			<SrcName href="/models/Buildings/FPP2/Sawmill.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>629E557D-A0A4-463F-B7FC-397964BEC5D9</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_196d5e8d-4695-4bb7-ac96-d3252880c422">
+		<Geometry ObjectRecordID="6148">
+			<SrcName href="/models/Buildings/FPP2/Sawmill.mb"/>
+			<uid>F5BCA4FC-B991-4DD9-A7ED-FB80F76C38D3</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>6</x>
+				<y>6</y>
+				<z>3.59514</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>1.72438</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.22613</x>
+				<y>0.689308</y>
+				<z>4.42272</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_83e650ad-d193-4815-9875-3c32d0ac4143">
+				<AIGeometry ObjectRecordID="279">
+					<SrcName href="/models/Buildings/FPP2/Sawmill.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.222426</y>
+						<z>1.8454</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2.54387</x>
+						<y>2.02221</y>
+						<z>1.84526</z>
+					</AABBHalfSize>
+					<uid>2FF4405E-3C14-4CBC-9228-E5DFF94C41B1</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>6</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>roofShape</Item>
+				<Item>Log0Shape1</Item>
+				<Item>Log0Shape2</Item>
+				<Item>SawShape</Item>
+				<Item>podShape</Item>
+				<Item>CragShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

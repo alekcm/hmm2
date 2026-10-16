@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001860">
+	<Materials>
+		<Item href="/_(Model)/Effects/Characters/Titan/idle00-Lightning_lambert1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Titan/idle00-Lightning_lambert2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_b946fb9d-fd76-41d2-9393-07a5340b598c">
+		<Skeleton ObjectRecordID="1000439">
+			<SrcName href="/Effects/Towns/Academy/CloudTemple_G/CloudTemple_G.mb"/>
+			<RootJoint>handLightning</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>62BE122E-1632-4EDA-83EA-8A81DE07D778</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_0d26556a-4683-4347-a200-16813ff73c2d">
+		<Geometry ObjectRecordID="1001638">
+			<SrcName href="/Effects/Towns/Academy/CloudTemple_G/CloudTemple_G.mb"/>
+			<uid>AF3F603B-49EA-4789-8DC0-08D9BAC66B37</uid>
+			<RootMesh>handLightning</RootMesh>
+			<RootJoint>handLightning</RootJoint>
+			<Size>
+				<x>7.70849</x>
+				<y>5.57682</y>
+				<z>3.56481</z>
+			</Size>
+			<Center>
+				<x>-0.0896176</x>
+				<y>-0.328329</y>
+				<z>13.4606</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.414206</x>
+				<y>-0.280714</y>
+				<z>15.2286</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurfaceShape15</Item>
+				<Item>polySurfaceShape17</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

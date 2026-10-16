@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001397">
+	<Materials>
+		<Item href="GreenDragonUpgrade-GreenDragon2_mapping_lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="GreenDragonUpgrade-GreenDragon2_mapping_lambert3.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_579918cf-f6a4-444e-9713-b05bc9883caf">
+		<Skeleton ObjectRecordID="1000329">
+			<SrcName href="/models/Creatures/Preserve/GreenDragonUpgrade.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>32284A61-1E34-4D38-8077-4B86AF06487A</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_3faddcd5-b0ee-452d-a59d-4b654a04ac31">
+		<Geometry ObjectRecordID="1001177">
+			<SrcName href="/models/Creatures/Preserve/GreenDragonUpgrade.mb"/>
+			<uid>92268890-095E-40D4-983B-DFE172718682</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4.96927</x>
+				<y>5.38566</y>
+				<z>4.81191</z>
+			</Size>
+			<Center>
+				<x>0.114971</x>
+				<y>0.427379</y>
+				<z>2.44401</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.00551287</x>
+				<y>2.55198</y>
+				<z>5.6623</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_9de61e96-c0bb-4be5-9937-3a6826c235f1">
+				<AIGeometry ObjectRecordID="1000560">
+					<SrcName href="/models/Creatures/Preserve/GreenDragonUpgrade.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.175422</x>
+						<y>-0.00228775</y>
+						<z>2.52716</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.98641</x>
+						<y>2.40725</y>
+						<z>1.85986</z>
+					</AABBHalfSize>
+					<uid>2BD8A5F2-7071-47B6-B2E4-EAAE77B3A99E</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

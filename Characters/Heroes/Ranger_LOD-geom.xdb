@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="1000692">
+	<SrcName href="/models/Heroes/Ranger/Ranger.mb"/>
+	<uid>4CF5B7FA-29FD-4632-BABB-D0C42B633B00</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>3.10441</x>
+		<y>5.76459</y>
+		<z>5.35524</z>
+	</Size>
+	<Center>
+		<x>0.25503</x>
+		<y>1.0524</y>
+		<z>2.16265</z>
+	</Center>
+	<BestFitPoint>
+		<x>-1.25194</x>
+		<y>1.2826</y>
+		<z>4.77162</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Ranger_LOD-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>4</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>2</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>UnicornShape</Item>
+		<Item>HeroShape</Item>
+		<Item>BowShape</Item>
+		<Item>Flag_Hero_RampartShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

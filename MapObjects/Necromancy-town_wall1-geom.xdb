@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="1002462">
+	<SrcName href="/models/TownsGlobalMap/Necropolis/Necropolis.mb"/>
+	<uid>4A994012-3407-40DC-BA6A-55F4D3998538</uid>
+	<RootMesh>pod ground th1 wall Crag</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>22</x>
+		<y>22</y>
+		<z>26.3306</z>
+	</Size>
+	<Center>
+		<x>2</x>
+		<y>0</y>
+		<z>7.02097</z>
+	</Center>
+	<BestFitPoint>
+		<x>1.90615</x>
+		<y>1.5687</y>
+		<z>19.9108</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Necromancy-town_AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>5</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>CragShape</Item>
+		<Item>podShape</Item>
+		<Item>groundShape</Item>
+		<Item>thShape1</Item>
+		<Item>wallShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

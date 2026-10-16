@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapBuildingShared>
+	<Model href="/_(Model)/Buildings/H5A2/ShamanOfNommads.xdb#xpointer(/Model)"/>
+	<AnimSet href="/_(AnimSet)/Buildings/H5A2/ShamanOfNommads.xdb#xpointer(/AnimSet)"/>
+	<blockedTiles/>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Buildings/NomadsShaman/Name.txt"/>
+		<Item href="/Text/Game/Buildings/NomadsShaman/Description.txt"/>
+		<Item href="/Text/Game/Buildings/NomadsShaman/FirstVisit.txt"/>
+		<Item href="/Text/Game/BuildingsCommon/AlreadyVisited.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128 href="/UI/H5A2/Icons/Adv_Buildings/Nomads_Shaman.(Texture).xdb#xpointer(/Texture)"/>
+	<Type>BUILDING_NOMADS_SHAMAN</Type>
+</AdvMapBuildingShared>

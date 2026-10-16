@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5665">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_55830bb3-3032-4f66-b67b-603fcf97b54d">
+			<Material ObjectRecordID="9079">
+				<Texture href="/Textures/auto-imported_______320/grassarena_old/sky_noLM/Untitled-1_copy.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_f1680946-1f10-4f6f-a9ac-a7d479892b55">
+		<Geometry ObjectRecordID="4857">
+			<SrcName href="/models/Cutscenes/Sky.mb"/>
+			<uid>1634A383-C248-487D-9C56-23B0FF561ACE</uid>
+			<RootMesh>sky</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>289.175</x>
+				<y>289.175</y>
+				<z>246.978</z>
+			</Size>
+			<Center>
+				<x>-2.49999</x>
+				<y>-2.49997</y>
+				<z>22.9004</z>
+			</Center>
+			<BestFitPoint>
+				<x>-2.50001</x>
+				<y>-2.49999</y>
+				<z>146.39</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>skyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

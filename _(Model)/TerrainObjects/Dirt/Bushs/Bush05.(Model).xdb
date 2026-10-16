@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5976">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_22f42191-4f4c-4e22-b4cd-dc5dc25de507">
+			<Material ObjectRecordID="9753">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Bushs/Bush05/bush04.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_48aebb80-364c-43ca-a0dd-ac62d87fc315">
+			<Material ObjectRecordID="9754">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Dirt/Bushs/Bush03/bush03.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_0559cdc0-b547-48ce-85a5-f3d5afd7f0f0">
+		<Skeleton ObjectRecordID="631">
+			<SrcName href="/models/TerrainObjects/Dirt/Bushs/bush05.mb"/>
+			<RootJoint>bush05</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>66648358-A958-47B2-8CF8-1AD36B92AFA6</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_efe4e151-be76-4f22-a6fb-7c587438b278">
+		<Geometry ObjectRecordID="5165">
+			<SrcName href="/models/TerrainObjects/Dirt/Bushs/bush05.mb"/>
+			<uid>74B04BBF-534F-4946-87D6-8ADA8D153160</uid>
+			<RootMesh>bush05</RootMesh>
+			<RootJoint>bush05</RootJoint>
+			<Size>
+				<x>4.19812</x>
+				<y>2.66049</y>
+				<z>1.2751</z>
+			</Size>
+			<Center>
+				<x>0.823398</x>
+				<y>-0.000180185</y>
+				<z>0.657822</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.11532</x>
+				<y>0.0210859</y>
+				<z>0.869285</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>bush0Shape5</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>1</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

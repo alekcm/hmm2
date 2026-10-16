@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6958">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Balor_cast/Wave02_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Biara/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Balor_cast/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Biara/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Balor_cast/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Biara/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Balor_cast/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/Biara/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_9246cceb-019b-4901-a75f-0c931b16f5dd">
+			<Material ObjectRecordID="15170">
+				<Texture href="/Textures/Effects/Spells/Wave01.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>false</ReceiveShadow>
+				<Priority>10</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_4820986d-d46a-4ad2-95b6-efed0b4dbddd">
+		<Skeleton ObjectRecordID="1180">
+			<SrcName href="/Effects/Characters/Balor/Cast.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>00EDBA86-DA96-447F-82A8-088E91FE8900</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_5d7aaaa1-53ba-4e31-b6f2-90244fbcca41">
+		<Geometry ObjectRecordID="6162">
+			<SrcName href="/Effects/Characters/Balor/Cast.mb"/>
+			<uid>BF322C0E-14CA-4CB3-9102-57B2FFCF4250</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.55012</x>
+				<y>2.88687</y>
+				<z>3.68347</z>
+			</Size>
+			<Center>
+				<x>-0.114982</x>
+				<y>-0.873639</y>
+				<z>2.66181</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.128961</x>
+				<y>-1.15002</y>
+				<z>4.41856</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>9</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Wave0Shape1</Item>
+				<Item>Wave0Shape2</Item>
+				<Item>Wave0Shape3</Item>
+				<Item>Wave0Shape4</Item>
+				<Item>Wave0Shape5</Item>
+				<Item>Wave0Shape6</Item>
+				<Item>Wave0Shape7</Item>
+				<Item>Wave0Shape8</Item>
+				<Item>SpotShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

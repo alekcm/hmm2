@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7706">
+	<Materials>
+		<Item href="Stologtite07-mat_no_alfa_litle.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_6db5c367-4060-49ed-abfa-439a783f8601">
+		<Geometry ObjectRecordID="6872">
+			<SrcName href="/models/TerrainObjects/Subterrain/Stoloktites/Stoloktites.mb"/>
+			<uid>EA8D16C1-A831-4972-8640-328424D19FFF</uid>
+			<RootMesh>Stologtite07</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>6</x>
+				<y>6</y>
+				<z>6.07698</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>3.03849</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00380325</x>
+				<y>0.156104</y>
+				<z>6.04733</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_20a97f52-ab0e-4c9f-a65e-5ecc9715ca93">
+				<AIGeometry ObjectRecordID="1000785">
+					<SrcName href="/models/TerrainObjects/Subterrain/Stoloktites/Stoloktites.mb"/>
+					<RootMesh>AI_07</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.017397</x>
+						<y>0.088796</y>
+						<z>2.94563</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.08222</x>
+						<y>0.98776</y>
+						<z>2.91259</z>
+					</AABBHalfSize>
+					<uid>1CC5DB2F-6A48-4735-9D3B-69ABD48D3955</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Stologtite07|Stologtite|StologtiteShape</Item>
+				<Item>Stologtite07|Stologtite_lamb|Stologtite_lambShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

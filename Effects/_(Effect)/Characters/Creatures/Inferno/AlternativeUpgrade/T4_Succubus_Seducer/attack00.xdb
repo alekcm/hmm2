@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect>
+	<Instances>
+		<Item href="attack00.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Bone/Head_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Bone/Hip_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Bone/L_Hand_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Bone/R_Hand_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="idle00IS.xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="/Effects/_(ModelInstance)/Effects/Characters/AttackTrails/SuccubusAttack00.xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

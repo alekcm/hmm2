@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance ObjectRecordID="1000049">
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="#n:inline(Particle)" id="item_1f0b1d6d-5451-4d6e-8a36-8cc9e1acbb19">
+		<Particle ObjectRecordID="1000058">
+			<SrcName href="/Effects/Characters/Necromanser/Path/Smoke2.mb"/>
+			<ExportPrefix>Smoke</ExportPrefix>
+			<WrapSize>
+				<x>0</x>
+				<y>0</y>
+			</WrapSize>
+			<Bound>d01235be0059f83e004fd53bde46cc40561c85403bb983400c362340</Bound>
+			<PerParticleFog>false</PerParticleFog>
+			<uid>B7594F63-5FB7-4F81-B153-D6187766377E</uid>
+		</Particle>
+	</Particle>
+	<Position>
+		<x>0</x>
+		<y>0</y>
+		<z>0.6</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+		<w>0</w>
+	</Rotation>
+	<Scale>0.9</Scale>
+	<Speed>0.44</Speed>
+	<Offset>0</Offset>
+	<EndCycle>6</EndCycle>
+	<CycleCount>1</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/Clouds/Cloud03ADD.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Spells/SmokeADD01.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

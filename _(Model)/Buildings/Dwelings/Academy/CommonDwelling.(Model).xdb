@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002098">
+	<Materials>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-CommonDwelling_map.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="CommonDwelling-lambert2.2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_5bde8892-9baa-4420-a0b0-b3305c39f1c2">
+		<Skeleton ObjectRecordID="1000560">
+			<SrcName href="/models/Buildings/FPP2/Dwellings/Academy/CommonDwelling.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>FD3806C0-B893-4C46-98AD-8440731A07B7</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b250448a-4069-4254-a697-2cd08cc4fb27">
+		<Geometry ObjectRecordID="1001869">
+			<SrcName href="/models/Buildings/FPP2/Dwellings/Academy/CommonDwelling.mb"/>
+			<uid>45AD16FF-5256-46B6-A358-B686A7A46C2B</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>8.22795</x>
+				<y>8.39462</y>
+				<z>14.6951</z>
+			</Size>
+			<Center>
+				<x>0.876659</x>
+				<y>1.19239</y>
+				<z>7.28086</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.14927</x>
+				<y>2.69861</y>
+				<z>14.3153</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_5c6f53bb-933f-48cf-b2bf-d0dd7cb2c883">
+				<AIGeometry ObjectRecordID="1000836">
+					<SrcName href="/models/Buildings/FPP2/Dwellings/Academy/CommonDwelling.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.996114</x>
+						<y>1.08949</y>
+						<z>8.45885</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>4.13321</x>
+						<y>4.07578</y>
+						<z>6.05022</z>
+					</AABBHalfSize>
+					<uid>8283A9A0-DC2A-4AD9-AA5B-4EEB209B1AAA</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>16</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>CommonDwellingShape</Item>
+				<Item>RocksShape</Item>
+				<Item>Rocks1Shape</Item>
+				<Item>Rocks2Shape</Item>
+				<Item>Rocks3Shape</Item>
+				<Item>Rocks4Shape</Item>
+				<Item>Rocks5Shape</Item>
+				<Item>Rocks6Shape</Item>
+				<Item>Rocks7Shape</Item>
+				<Item>Rocks8Shape</Item>
+				<Item>Rocks9Shape</Item>
+				<Item>Rocks10Shape</Item>
+				<Item>Rocks11Shape</Item>
+				<Item>Rocks12Shape</Item>
+				<Item>Rocks13Shape</Item>
+				<Item>Rocks14Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

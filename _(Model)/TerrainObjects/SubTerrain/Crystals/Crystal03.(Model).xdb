@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7806">
+	<Materials>
+		<Item href="Crystal03-Cristal_steklo.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Crystal03-Cristal_kamen.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_9d12ab45-3c52-4991-a38e-66a505f547d0">
+		<Skeleton ObjectRecordID="1658">
+			<SrcName href="/models/TerrainObjects/Subterrain/Crystals/crystals.mb"/>
+			<RootJoint>Crystal03</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>C2A9B6F8-48EF-465C-8726-ED397455A0DF</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_f06e37d3-743b-4721-87b4-c557b69ff1f2">
+		<Geometry ObjectRecordID="6965">
+			<SrcName href="/models/TerrainObjects/Subterrain/Crystals/crystals.mb"/>
+			<uid>218BECA4-37A4-465B-A016-A38F56DDEB49</uid>
+			<RootMesh>Crystal03</RootMesh>
+			<RootJoint>Crystal03</RootJoint>
+			<Size>
+				<x>1.64482</x>
+				<y>2.44667</y>
+				<z>3.72018</z>
+			</Size>
+			<Center>
+				<x>0.229635</x>
+				<y>0.288999</y>
+				<z>1.86009</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.217466</x>
+				<y>-0.133222</y>
+				<z>3.57105</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Crystal03Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

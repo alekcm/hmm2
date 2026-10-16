@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shot ObjectRecordID="2">
+	<StartEffect href="/Effects/_(Effect)/Characters/Creatures/Inferno/SuccubusShot/SuccubusShot_start.xdb#xpointer(/Effect)"/>
+	<RotateStartEffectToTarget>true</RotateStartEffectToTarget>
+	<MissileShot>
+		<Model/>
+		<Effect/>
+		<Speed>0.05</Speed>
+		<Height>0</Height>
+		<ForwardOffset>0</ForwardOffset>
+		<StartZOffset>1.4</StartZOffset>
+		<RightOffset>0</RightOffset>
+	</MissileShot>
+	<LineShot>
+		<Effects>
+			<Item href="/Effects/_(Effect)/Characters/Creatures/Inferno/SuccubusShot/SuccubusShot01.xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Characters/Creatures/Inferno/SuccubusShot/SuccubusShot02.xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Characters/Creatures/Inferno/SuccubusShot/SuccubusShot03.xdb#xpointer(/Effect)"/>
+			<Item href="/Effects/_(Effect)/Characters/Creatures/Inferno/SuccubusShot/SuccubusShot04.xdb#xpointer(/Effect)"/>
+		</Effects>
+		<SkipSegmentsNumber>1</SkipSegmentsNumber>
+		<SegmentLength>2</SegmentLength>
+		<StepDelay>40</StepDelay>
+		<EffectLifeTime>700</EffectLifeTime>
+	</LineShot>
+	<StrikeDelay>0</StrikeDelay>
+	<StrikeEffectID>SPELL_ABILITY_CHAIN_SHOT_END_EFFECT</StrikeEffectID>
+	<DelayBetweenChains>250</DelayBetweenChains>
+	<StrikeVisualEffect href="/GameMechanics/Spell/Creature_Abilities/Inferno/ChainShot_End.(SpellVisual).xdb#xpointer(/SpellVisual)"/>
+</Shot>

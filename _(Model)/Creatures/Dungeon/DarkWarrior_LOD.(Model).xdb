@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7592">
+	<Materials>
+		<Item href="DarkWarrior_LOD-file5Material.(Material).xdb#xpointer(/Material)"/>
+		<Item href="DarkWarrior_LOD-file6Material.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_52894144-f820-43ba-b42a-dbbdf5956744">
+		<Skeleton ObjectRecordID="1522">
+			<SrcName href="/models/Creatures/Dungeon/DarkWarrior_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>90E31A1C-EED7-45C6-8B6E-8961F1C8C48B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_bf18e7b8-6e4c-47a7-83a9-d9a7e1df2bac">
+		<Geometry ObjectRecordID="6766">
+			<SrcName href="/models/Creatures/Dungeon/DarkWarrior_LOD.mb"/>
+			<uid>5578C124-E3C8-4749-BB8A-91F668C7EF9C</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.79814</x>
+				<y>0.589618</y>
+				<z>1.97032</z>
+			</Size>
+			<Center>
+				<x>0.0727207</x>
+				<y>0.00585502</y>
+				<z>0.986237</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.733775</x>
+				<y>-0.0228832</y>
+				<z>1.82321</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_89ecf246-c66f-456f-94c2-bc0d0b4ad580">
+				<AIGeometry ObjectRecordID="385">
+					<SrcName href="/models/Creatures/Dungeon/DarkAssassin_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.00840211</x>
+						<y>-0.0798034</y>
+						<z>0.76412</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.387576</x>
+						<y>0.271683</y>
+						<z>0.762658</z>
+					</AABBHalfSize>
+					<uid>39D49AD5-CDE5-4AA7-81C3-F1AD052E61A7</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

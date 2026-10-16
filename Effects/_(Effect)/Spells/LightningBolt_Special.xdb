@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect>
+	<Instances>
+		<Item href="LightningBolt_Special_Explozion.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="LightningBolt_Special_L1.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights>
+		<Item href="LightningBolt.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models>
+		<Item href="LightningBolt_Special_Explozion.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="LightningBolt_Special_L1.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="LightningBolt_Special_L2.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

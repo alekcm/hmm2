@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapBuildingShared ObjectRecordID="6">
+	<Model href="/_(Model)/Buildings/MagicWell.(Model).xdb#xpointer(/Model)"/>
+	<AnimSet/>
+	<blockedTiles/>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect href="/Effects/_(Effect)/Buildings/MagicWell.xdb#xpointer(/Effect)"/>
+	<EffectWhenOwned href="/Effects/_(Effect)/Buildings/MagicWell.xdb#xpointer(/Effect)"/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Buildings/MagicWell/Name.txt"/>
+		<Item href="/Text/Game/Buildings/MagicWell/Description.txt"/>
+		<Item href="/Text/Game/Buildings/MagicWell/FirstVisit.txt"/>
+		<Item href="/Text/Game/BuildingsCommon/AlreadyVisited.txt"/>
+		<Item href="/Text/Game/BuildingsCommon/AlreadyMaximum.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect href="/Sounds/_(Sound)/Interface/Ingame/Interact.xdb#xpointer(/Sound)"/>
+	<flybyMessageFileRef href="/Text/Game/Buildings/MagicWell/Flyby______3177.txt"/>
+	<ObjectTypeFileRef href="/Text/Visibility_Types/Buildings.txt"/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect href="/Sounds/_(Sound)/Buildings/MagicWell.xdb#xpointer(/Sound)"/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>BUILDING_MAGIC_WELL</Type>
+</AdvMapBuildingShared>

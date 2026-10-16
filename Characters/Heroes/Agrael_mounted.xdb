@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002071">
+	<Materials>
+		<Item href="Agrael_mounted-Agrael_add.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Agrael_mounted-Agrael_lizard.5.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Agrael_mounted-Agrael_flag.4.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Agrael_mounted-Agrael_staff1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/StuffFX_lambert1.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/StuffFX_lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/StuffFX_lambert3.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Agrael_512.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Agrael_mounted-Agrael_staff1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_7c09043f-d165-4389-b5d1-7388f8f2d643">
+		<Skeleton ObjectRecordID="1000538">
+			<SrcName href="/models/Heroes/Agrael/Agrael_mounted.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>573DEEBF-2493-434E-9C7E-E8F8B8E3DF43</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_4b8098b7-b134-44a2-9c23-4c424bb16682">
+		<Geometry ObjectRecordID="1001843">
+			<SrcName href="/models/Heroes/Agrael/Agrael_mounted.mb"/>
+			<uid>CD05EF2A-565E-47AF-B682-39592515F692</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.02641</x>
+				<y>7.70374</y>
+				<z>7.46055</z>
+			</Size>
+			<Center>
+				<x>-0.652131</x>
+				<y>0.780947</y>
+				<z>3.7112</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.666757</x>
+				<y>-0.513344</y>
+				<z>4.7042</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_6d72073e-03cd-416d-89a1-2cd453b33be2">
+				<AIGeometry ObjectRecordID="1000815">
+					<SrcName href="/models/Heroes/Agrael/Agrael_mounted.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.515573</y>
+						<z>1.86282</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.632822</x>
+						<y>2.07129</y>
+						<z>1.86282</z>
+					</AABBHalfSize>
+					<uid>F3B4B0EF-4AC4-407A-BD6D-8617022F974B</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>1</Item>
+				<Item>4</Item>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>LizardShape</Item>
+				<Item>Flag_InfernoShape</Item>
+				<Item>Agrael_staffShape</Item>
+				<Item>AgraelShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

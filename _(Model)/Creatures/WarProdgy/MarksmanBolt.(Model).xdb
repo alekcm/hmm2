@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2903">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_50316c75-524b-49c5-bef7-0e348468e893">
+			<Material ObjectRecordID="8815">
+				<Texture href="/Textures/auto-imported_______320/dev/wood/Archer.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_23b88f85-3721-43be-8dbe-7d0037fd47fb">
+		<Geometry ObjectRecordID="2359">
+			<SrcName href="/models/Creatures/Prodgy/Marksman_bolt.mb"/>
+			<uid>7347AC28-951B-4606-85C8-3FB690120FF1</uid>
+			<RootMesh>Marksman_bolt</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>0.0358198</x>
+				<y>0.615244</y>
+				<z>0.0349413</z>
+			</Size>
+			<Center>
+				<x>3.48315e-007</x>
+				<y>-0.308203</y>
+				<z>2.81259e-007</z>
+			</Center>
+			<BestFitPoint>
+				<x>7.18104e-005</x>
+				<y>-0.221103</y>
+				<z>0.000812324</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Marksman_boltShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

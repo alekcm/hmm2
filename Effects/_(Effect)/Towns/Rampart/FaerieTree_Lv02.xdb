@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000191">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_312bcfc2-de95-4744-ba1a-2e8908ba6d70">
+			<ParticleInstance ObjectRecordID="1000207">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_80a61b09-f508-45fb-8837-817b938737dd">
+					<Particle ObjectRecordID="1000177">
+						<SrcName href="/Effects/Towns/Rampart/FaerieTree.mb"/>
+						<ExportPrefix>FTeffect02</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>2a3eb83f5c997f40403aacbfde359441af051241e5f55341b5051341</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>4A5D4B78-C24D-4A47-AE60-E6039D0FBEB9</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.2</Scale>
+				<Speed>0.8</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6.5</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/IceFireWhite00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlow07.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

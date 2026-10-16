@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1002088">
+	<Materials>
+		<Item href="NikolayVampire-NikolayVampire.(Material).xdb#xpointer(/Material)"/>
+		<Item href="NikolayVampire-NikolayVampire_face.(Material).xdb#xpointer(/Material)"/>
+		<Item href="NikolayVampire-NikolayVampire.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ad14eb15-07cd-4317-9992-dfe20233ea48">
+		<Skeleton ObjectRecordID="1000550">
+			<SrcName href="/models/Heroes/NikolayVampire/NicolayVampire_CS.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>DD272540-758B-4D31-8144-BD62C04844EE</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_14fafd53-6679-42d9-9f2d-19b9ad3b39a8">
+		<Geometry ObjectRecordID="1001859">
+			<SrcName href="/models/Heroes/NikolayVampire/NicolayVampire_CS.mb"/>
+			<uid>A8884763-150E-4115-B8A2-161FE6E6D5A2</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>2.37534</x>
+				<y>1.8945</y>
+				<z>1.75239</z>
+			</Size>
+			<Center>
+				<x>-0.182112</x>
+				<y>-0.47029</y>
+				<z>0.877241</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.03238</x>
+				<y>-0.0411143</y>
+				<z>1.58169</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_739e2cd6-43f3-4fa9-b171-3a6f422f6a32">
+				<AIGeometry ObjectRecordID="1000827">
+					<SrcName href="/models/Heroes/NikolayVampire/NicolayVampire_CS.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0574775</y>
+						<z>0.877156</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.38834</x>
+						<y>0.219478</y>
+						<z>0.862358</z>
+					</AABBHalfSize>
+					<uid>449EDE28-FACA-4426-B5D3-F25A2345737D</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>SwordShape</Item>
+				<Item>Vampire_meshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

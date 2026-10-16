@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry>
+	<SrcName href="/Effects/Characters/PRESERVE/Druid/RangeAttack.mb"/>
+	<uid>1D0125B1-2A3B-4A9D-B0DE-3B1C70655C1F</uid>
+	<RootMesh>Global</RootMesh>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>1.57983</x>
+		<y>0.524587</y>
+		<z>1.74989</z>
+	</Size>
+	<Center>
+		<x>0</x>
+		<y>-0.651731</y>
+		<z>1.49605</z>
+	</Center>
+	<BestFitPoint>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="FX_Shot-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>SymbolShape</Item>
+		<Item>ThornShape</Item>
+		<Item>Wave01Shape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

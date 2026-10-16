@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParticleInstance>
+	<SrcName/>
+	<Light>L_NORMAL</Light>
+	<Particle href="/Effects/_(Effect)/Spells/Storm/Idle/FX_Linghtning.(Particle).xdb#xpointer(/Particle)"/>
+	<Position>
+		<x>10</x>
+		<y>-65</y>
+		<z>15</z>
+	</Position>
+	<Rotation>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>1</w>
+	</Rotation>
+	<Scale>10</Scale>
+	<Speed>1</Speed>
+	<Offset>2</Offset>
+	<EndCycle>10</EndCycle>
+	<CycleCount>0</CycleCount>
+	<Pivot>
+		<x>0</x>
+		<y>0</y>
+	</Pivot>
+	<Textures>
+		<Item href="/Textures/Effects/Spells/Lightning00.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Spells/Lightning01.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Spells/Lightning02.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/Spells/Lightning03.xdb#xpointer(/Texture)"/>
+		<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+	</Textures>
+	<IsCrown>false</IsCrown>
+	<Static>P_STATIC</Static>
+	<DoesCastShadow>false</DoesCastShadow>
+	<GlueToBone>0</GlueToBone>
+	<GlueToNamedBone/>
+	<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+	<Priority>0</Priority>
+</ParticleInstance>

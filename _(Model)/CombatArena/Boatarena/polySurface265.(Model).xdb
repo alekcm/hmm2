@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7372">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_d06eeb7c-c93b-49b1-919d-2f657bd8b20b">
+			<Material ObjectRecordID="17670">
+				<Texture href="/Textures/auto-imported_______320/CombatArena/Boatarena/polySurface265/Rope.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_8c4d55ef-33c8-4a40-9851-f37e3147ca4b">
+		<Geometry ObjectRecordID="6570">
+			<SrcName href="/models/Arenas/Boatarena/Boatarena.mb"/>
+			<uid>AABEDDAD-1AD1-426F-AF5B-D0963C713619</uid>
+			<RootMesh>polySurface265</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>1.01834</x>
+				<y>1.73679</y>
+				<z>0.214459</z>
+			</Size>
+			<Center>
+				<x>326.071</x>
+				<y>285.004</y>
+				<z>9.32152</z>
+			</Center>
+			<BestFitPoint>
+				<x>326.19</x>
+				<y>285.264</y>
+				<z>9.34254</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurfaceShape278</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

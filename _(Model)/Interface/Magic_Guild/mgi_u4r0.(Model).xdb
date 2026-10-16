@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7619">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/Flask_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/Plane_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/Candle_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/Ring_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/Paper_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/MedallionGem_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/Inkpot_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/Pen_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/RingGem_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/RingGemGlow_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/FlaskGlow_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/FlaskPlaneGlow_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/FlaskGlow_lambert1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Interface/Magic_Guild/mgi_u5r0/Medallion_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_a596ec74-aac4-462c-9327-0799b9750647">
+		<Geometry ObjectRecordID="6792">
+			<SrcName href="/models/Interface/Magic_Guild/magic_guild.mb"/>
+			<uid>25050ABF-9A04-41F2-961C-3812BD2D53E6</uid>
+			<RootMesh>Plane Candle_noLM Ring Paper MedallionGem_noLM Inkpot Pen RingGem_noLM FlaskGlow_noLM Medallion Flask</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>64.9622</x>
+				<y>64.9622</y>
+				<z>7.41507</z>
+			</Size>
+			<Center>
+				<x>313.291</x>
+				<y>310.683</y>
+				<z>8.16823</z>
+			</Center>
+			<BestFitPoint>
+				<x>303.197</x>
+				<y>290.068</y>
+				<z>11.8263</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>11</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>2</Item>
+				<Item>3</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>FlaskShape</Item>
+				<Item>PlaneShape</Item>
+				<Item>Candle_noLMShape</Item>
+				<Item>RingShape</Item>
+				<Item>PaperShape</Item>
+				<Item>MedallionGem_noLMShape</Item>
+				<Item>InkpotShape</Item>
+				<Item>PenShape</Item>
+				<Item>RingGem_noLMShape</Item>
+				<Item>FlaskGlow_noLMShape</Item>
+				<Item>MedallionShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

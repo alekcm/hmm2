@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001709">
+	<Materials>
+		<Item href="Dinobones01-Dinobones.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_70a7b292-f65c-4d67-b267-1fb3e9e89670">
+		<Skeleton ObjectRecordID="1000351">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Dino_bones/Dinobones.mb"/>
+			<RootJoint>Dinobones03</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1FA19998-5F02-40F5-9DE8-4D279D37DBB2</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ddcea312-184c-40ac-95f5-ecd51fd996d4">
+		<Geometry ObjectRecordID="1001489">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Dino_bones/Dinobones.mb"/>
+			<uid>97FEC756-786A-44D5-9882-6DC9EFC7AD91</uid>
+			<RootMesh>Dinobones03</RootMesh>
+			<RootJoint>Dinobones03</RootJoint>
+			<Size>
+				<x>5.68244</x>
+				<y>6.08198</y>
+				<z>2.97346</z>
+			</Size>
+			<Center>
+				<x>1.88358</x>
+				<y>2.0122</y>
+				<z>0.977803</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.91431</x>
+				<y>2.18156</y>
+				<z>2.01675</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Dinobones0Shape3</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

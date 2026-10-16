@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000090">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_49a17b0b-0a12-42fa-9631-8b34eedb3d92">
+			<ParticleInstance ObjectRecordID="1000097">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_7c35efff-aa82-4575-b57d-98d1a0753845">
+					<Particle ObjectRecordID="1000097">
+						<SrcName href="/Effects/Characters/NECROPOLIS/Lich/RangeAttack.mb"/>
+						<ExportPrefix>RangeAttack</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>d0edbabee04b0abedcaf2040e0532d410a46c240c4f9d24002b9c240</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>A57DC92D-8C58-4436-924A-09476C2E7F00</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>2</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Spells/FlashGlow08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Spiral.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow11.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="RangeAttack_01.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_eeb1b751-be67-4139-afd6-4aaa15bdd307">
+			<ModelInstance ObjectRecordID="1000034">
+				<Model href="/_(Model)/Effects/Characters/Lich/Wave.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Creatures/Necropolis/Lich/Wave.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

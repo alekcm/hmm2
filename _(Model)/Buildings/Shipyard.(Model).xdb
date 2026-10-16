@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7798">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_c518c02f-a189-4891-875d-9d4657c70f7e">
+			<Material ObjectRecordID="1001461">
+				<Texture href="/Textures/auto-imported/Buildings/Shipyard/shipyard.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_ab96797b-3dd4-4180-8fab-342eb0232deb">
+			<Material ObjectRecordID="1002154">
+				<Texture href="/Textures/auto-imported/Buildings/Shipyard/shipyard_terra.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_5adfa1db-9f5f-4c7a-b025-8f8ee3be7918">
+		<Skeleton ObjectRecordID="1652">
+			<SrcName href="/models/Buildings/FPP2/Shipyard.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>B0BF095E-ED2E-450C-92A0-2704E7FEC469</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a2860558-0f8b-4956-9c12-4baf08be0e60">
+		<Geometry ObjectRecordID="6959">
+			<SrcName href="/models/Buildings/FPP2/Shipyard.mb"/>
+			<uid>A0DF09F9-DD13-4DC1-A67D-310C3E7E64C6</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4</x>
+				<y>6.33356</y>
+				<z>2.45411</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>-0.166781</y>
+				<z>1.19315</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.04822</x>
+				<y>0.381903</y>
+				<z>1.99406</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_ff0436f9-04f5-4792-a446-87bd90a7d3e6">
+				<AIGeometry ObjectRecordID="1000407">
+					<SrcName href="/models/Buildings/FPP2/Shipyard.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.882032</x>
+						<y>0.105461</y>
+						<z>1.21979</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>1.26834</x>
+						<y>3.086</y>
+						<z>1.21979</z>
+					</AABBHalfSize>
+					<uid>88C5DB12-B919-4C4E-B2F3-7AAD0BEFBAFF</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>shipyard_roofShape</Item>
+				<Item>shipyard_podShape</Item>
+				<Item>CragShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

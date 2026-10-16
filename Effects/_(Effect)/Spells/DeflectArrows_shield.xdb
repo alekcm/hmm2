@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000088">
+	<Instances/>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_100b215b-e302-4c36-931e-8167819bc65a">
+			<ModelInstance ObjectRecordID="1000030">
+				<Model href="/_(Model)/Effects/Spells/deflectarrows_shield.xdb#xpointer(/Model)"/>
+				<SkelAnim href="/_(BasicSkelAnim)/Effects/Spells/DeflectArrows_shield.xdb#xpointer(/BasicSkelAnim)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>1</CycleCount>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>1</Duration>
+</Effect>

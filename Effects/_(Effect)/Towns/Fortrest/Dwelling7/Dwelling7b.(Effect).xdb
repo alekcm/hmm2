@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect>
+	<Instances>
+		<Item href="/Effects/_(Effect)/Towns/Fortrest/Dwelling_7/DwellingFX.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(Effect)/Towns/Fortrest/Dwelling_7/FireFX.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(Effect)/Towns/Fortrest/Dwelling_7/LavaGlowFX.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="LavaGeoFX.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="LavaGeoFX1.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="LavaGeoSmallFX.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="Lava_Root.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+		<Item href="Lava2_Root.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

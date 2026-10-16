@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000939">
+	<Materials>
+		<Item href="/pasted__Gates.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/GateR1_M.2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="/_(Skeleton)/CombatArena/Necropolis/Gate1.xdb#xpointer(/Skeleton)"/>
+	<Geometry href="#n:inline(Geometry)" id="item_d8ace9d0-fbf2-4a50-8b7b-b002c2dd6365">
+		<Geometry ObjectRecordID="1000722">
+			<SrcName href="/models/Arenas/NecropolisSiege/NecropolisSiege_gate_r1.mb"/>
+			<uid>BDAF5DFE-FCE4-4B32-B643-0F802D585FB9</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>5.95264</x>
+				<y>10.9337</y>
+				<z>9.67389</z>
+			</Size>
+			<Center>
+				<x>315.932</x>
+				<y>283.982</y>
+				<z>13.6553</z>
+			</Center>
+			<BestFitPoint>
+				<x>315.218</x>
+				<y>286.703</y>
+				<z>18.4141</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="gater0_AI.xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Gates_rShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

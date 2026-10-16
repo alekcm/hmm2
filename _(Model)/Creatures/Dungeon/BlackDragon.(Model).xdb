@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7890">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_7de5d907-1371-4a9a-a0ab-c596a9b77124">
+			<Material ObjectRecordID="20542">
+				<Texture href="/Textures/auto-imported/Creatures/Dungeon/BlackDragon/BlackDragon.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>30</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss href="/Textures/auto-imported/Creatures/Dungeon/BlackDragon/BlackDragon_mirror.tga.(Texture).xdb#xpointer(/Texture)"/>
+				<MetalMirror>0.3</MetalMirror>
+				<DielMirror>0.3</DielMirror>
+				<Mirror href="/Textures/auto-imported/Creatures/Dungeon/BlackDragon/BlackDragon_mirror.tga.(Texture).xdb#xpointer(/Texture)"/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_FORCE_DYNAMIC</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_a1cc183f-fb73-4639-9608-7168308a3fd7">
+		<Skeleton ObjectRecordID="1678">
+			<SrcName href="/models/Creatures/Dungeon/BlackDragon.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>F02C268A-0147-4A4D-B8F3-D86AB88AE295</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_8fbc011c-2245-414e-b180-f781934348b5">
+		<Geometry ObjectRecordID="7049">
+			<SrcName href="/models/Creatures/Dungeon/BlackDragon.mb"/>
+			<uid>1A228717-AD8F-4D65-A310-09747A467CA7</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.34208</x>
+				<y>9.74874</y>
+				<z>5.57745</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>2.42686</y>
+				<z>2.76913</z>
+			</Center>
+			<BestFitPoint>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_2d92600c-0290-44d4-9f21-5d7ee40f5d18">
+				<AIGeometry ObjectRecordID="464">
+					<SrcName href="/models/Creatures/Dungeon/BlackDragon.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.00488478</y>
+						<z>1.0014</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.5</x>
+						<y>1.52094</y>
+						<z>0.993372</z>
+					</AABBHalfSize>
+					<uid>603141D1-5C1D-4805-9998-F1E01A9DE65B</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

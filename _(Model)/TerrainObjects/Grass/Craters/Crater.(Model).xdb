@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3933">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_87144b03-410f-4f0a-98cb-4d0f1a1e1dd6">
+			<Material ObjectRecordID="5817">
+				<Texture href="/Textures/auto-imported_______320/dev/Grass/Craters/Crater/crater.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_4e112765-d06d-4d9e-b9d9-4a63628e7762">
+		<Skeleton ObjectRecordID="272">
+			<SrcName href="/models/TerrainObjects/Grass/Craters/crater01.mb"/>
+			<RootJoint>crater</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>122B94EC-A9B9-4F8F-BBD0-1315B0AE82B8</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_39cc0996-ef56-4069-b3c7-837342069e4f">
+		<Geometry ObjectRecordID="3374">
+			<SrcName href="/models/TerrainObjects/Grass/Craters/crater01.mb"/>
+			<uid>1EEDEFF9-B809-4DAF-A4B4-3756DC3CCD45</uid>
+			<RootMesh>crater</RootMesh>
+			<RootJoint>crater</RootJoint>
+			<Size>
+				<x>6</x>
+				<y>4</y>
+				<z>1.51502</z>
+			</Size>
+			<Center>
+				<x>2</x>
+				<y>1</y>
+				<z>-0.757511</z>
+			</Center>
+			<BestFitPoint>
+				<x>2.16992</x>
+				<y>0.778921</y>
+				<z>-0.0461665</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>polySurfaceShape12</Item>
+				<Item>polySurfaceShape14</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

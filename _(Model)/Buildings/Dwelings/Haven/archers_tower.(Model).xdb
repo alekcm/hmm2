@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6858">
+	<Materials>
+		<Item href="archers_tower-archers_tower_lambert2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="archers_tower-Pod_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_13e66711-3106-4cc5-bfd5-1deceab9ae0a">
+		<Skeleton ObjectRecordID="1149">
+			<SrcName href="/models/Buildings/archers_tower.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>84123CF3-8E2D-4D49-BFBF-0AD028495FA5</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_cd29f57d-c0db-4143-862f-bb460f7e5916">
+		<Geometry ObjectRecordID="6057">
+			<SrcName href="/models/Buildings/archers_tower.mb"/>
+			<uid>03885F50-86AC-416A-A876-7AC080C0E69A</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4</x>
+				<y>4</y>
+				<z>8.84208</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>1</y>
+				<z>4.314</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.00546</x>
+				<y>1.0382</y>
+				<z>8.68477</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="/_(AIGeometry)/Buildings/Dwellings/Haven/Archers_tower.(AIGeometry).xdb#xpointer(/AIGeometry)"/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Archers_towerShape</Item>
+				<Item>PodShape</Item>
+				<Item>CragShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

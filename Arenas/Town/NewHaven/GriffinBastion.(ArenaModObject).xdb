@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaModObject ObjectRecordID="1000205">
+	<placement>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</placement>
+	<Name>GriffinBastion</Name>
+	<DefUpgLevel>2</DefUpgLevel>
+	<DefRuinLevel>0</DefRuinLevel>
+	<upgrades>
+		<Item>
+			<ruins>
+				<Item>
+					<Model/>
+					<effects/>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="GriffinBastion_u1r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/GriffinB_BigFlag1.xdb#xpointer(/Effect)"/>
+							<Locator>GriffinB_loc01</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barack_BigFlag1.xdb#xpointer(/Effect)"/>
+							<Locator>GriffinB_loc02</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barack_BigFlag2.xdb#xpointer(/Effect)"/>
+							<Locator>GriffinB_loc03</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+		<Item>
+			<ruins>
+				<Item>
+					<Model href="GriffinBastion_u2r0.xdb#xpointer(/Model)"/>
+					<effects>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/GriffinB_BigFlag1.xdb#xpointer(/Effect)"/>
+							<Locator>GriffinB_loc01</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barack_BigFlag1.xdb#xpointer(/Effect)"/>
+							<Locator>GriffinB_loc02</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/Barack_BigFlag2.xdb#xpointer(/Effect)"/>
+							<Locator>GriffinB_loc03</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag1.xdb#xpointer(/Effect)"/>
+							<Locator>GriffinB_loc04</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag2.xdb#xpointer(/Effect)"/>
+							<Locator>GriffinB_loc05</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag1.xdb#xpointer(/Effect)"/>
+							<Locator>GriffinB_loc06</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag2.xdb#xpointer(/Effect)"/>
+							<Locator>GriffinB_loc07</Locator>
+						</Item>
+						<Item>
+							<Effect href="/Effects/_(Effect)/Towns/Haven/OrderP_Flag1.xdb#xpointer(/Effect)"/>
+							<Locator>GriffinB_loc08</Locator>
+						</Item>
+					</effects>
+					<TextDescFileRef href=""/>
+					<AnimSet/>
+				</Item>
+			</ruins>
+		</Item>
+	</upgrades>
+</ArenaModObject>

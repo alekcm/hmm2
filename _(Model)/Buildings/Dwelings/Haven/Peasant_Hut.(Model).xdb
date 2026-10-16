@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2539">
+	<Materials>
+		<Item href="Peasant_Hut-Building_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Peasant_Hut-Cocks_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Peasant_Hut-Pod_mat.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_8c05081a-27f7-4633-94fa-329c62ae2d5c">
+		<Skeleton ObjectRecordID="423">
+			<SrcName href="/models/Buildings/Peasant_Hut.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>777EDA19-B6F3-471C-853F-BE4852C3D384</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_2fd231e7-64a3-4005-a088-d93e35db753a">
+		<Geometry ObjectRecordID="1994">
+			<SrcName href="/models/Buildings/Peasant_Hut.mb"/>
+			<uid>F955650C-659B-47BF-A5F4-10FADE085A13</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>6</x>
+				<y>4.30427</y>
+				<z>4.94331</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>1.12235</y>
+				<z>2.45282</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.68541</x>
+				<y>2.47193</y>
+				<z>4.69417</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_70883dc0-52c8-4e8e-8e4d-b5a9a0f485bf">
+				<AIGeometry ObjectRecordID="266">
+					<SrcName href="/models/Buildings/Peasant_Hut.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.00708604</x>
+						<y>1.03878</y>
+						<z>1.84434</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2.81509</x>
+						<y>2.05567</y>
+						<z>1.85798</z>
+					</AABBHalfSize>
+					<uid>43E2B687-0B34-4049-94E4-AE390C37E144</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>5</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Peasant_HutShape</Item>
+				<Item>Cock0Shape1</Item>
+				<Item>Cock0Shape2</Item>
+				<Item>PodShape</Item>
+				<Item>CragShape</Item>
+			</MeshNames>
+			<MeshAnimated>
+				<Item>0</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>0</Item>
+			</MeshAnimated>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

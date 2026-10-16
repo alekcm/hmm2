@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowComboBox>
+	<ClassTypeID>387064640</ClassTypeID>
+	<Shared href="/UI/Common/ComboBox_201_33/Combo.(WindowComboBoxShared).xdb#xpointer(/WindowComboBoxShared)"/>
+	<Name>Combo</Name>
+	<TooltipFileRef href=""/>
+	<Visible>true</Visible>
+	<Priority>0</Priority>
+	<GameMessageReactions/>
+	<Placement>
+		<Position>
+			<First>
+				<x>0</x>
+				<y>25</y>
+			</First>
+			<Second>true</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_LOW_END</First>
+			<Second>true</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_LOW_END</First>
+			<Second>true</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</UpperMargin>
+	</Placement>
+	<Enabled>true</Enabled>
+	<TextString/>
+	<relatedTexts/>
+	<relatedTextures/>
+	<Flags>
+		<SuperActive>false</SuperActive>
+	</Flags>
+	<ListPriority>1000</ListPriority>
+	<MaxVisibleRows>7</MaxVisibleRows>
+	<OnSelection>
+		<Commands>
+			<Item href="/UI/RMGScreen/Templates/OptionChanged.(UISRunReaction).xdb#xpointer(/UISRunReaction)"/>
+		</Commands>
+		<Reversable>false</Reversable>
+	</OnSelection>
+</WindowComboBox>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="634">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_c12da4b4-bcb7-43f8-8612-bfb22c634ab7">
+			<Material ObjectRecordID="815">
+				<Texture href="/Textures/auto-imported_______320/dev/Test/Windmill/WindMill256X256.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="#n:inline(Material)" id="item_8e4fd139-a240-44d2-a654-54a9483af54c">
+			<Material ObjectRecordID="816">
+				<Texture href="/Textures/auto-imported_______320/dev/Test/Windmill/WindMill256X256.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_dfaaf122-1d5a-47f2-89ce-e082fe25232b">
+		<Skeleton ObjectRecordID="194">
+			<SrcName href="/models/Buildings/WindMill.mb"/>
+			<RootJoint>WindMill</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>86380860-060B-483D-B55A-75228EF29117</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ae2017e7-bf5b-4cb5-aada-11e2c3146af0">
+		<Geometry ObjectRecordID="633">
+			<SrcName href="/models/Buildings/WindMill.mb"/>
+			<uid>9B909A77-2510-4CFB-B005-3BA6147B2353</uid>
+			<RootMesh>WindMill</RootMesh>
+			<RootJoint>WindMill</RootJoint>
+			<Size>
+				<x>4.20009</x>
+				<y>2.95464</y>
+				<z>11.5823</z>
+			</Size>
+			<Center>
+				<x>-6.31809e-006</x>
+				<y>-0.157632</y>
+				<z>-0.208851</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.18603</x>
+				<y>-1.3842</y>
+				<z>5.52659</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>WindMillShape</Item>
+				<Item>PropellerShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

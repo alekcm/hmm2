@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapDescTag>
+	<AdvMapDesc href="S3.xdb#xpointer(/AdvMapDesc)"/>
+	<NameFileRef href="S3_Name.txt"/>
+	<DescriptionFileRef href="S3_Description.txt"/>
+	<TileX>96</TileX>
+	<TileY>96</TileY>
+	<MapGoal href="MapGoalText.txt"/>
+	<CustomMapGoal>false</CustomMapGoal>
+	<teams>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</teams>
+	<thumbnailImages>
+		<Item href="mS3_pic.xdb#xpointer(/Texture)"/>
+	</thumbnailImages>
+	<HasUnderground>true</HasUnderground>
+	<RandomMap>false</RandomMap>
+	<CustomGameMap>false</CustomGameMap>
+	<Version>3</Version>
+</AdvMapDescTag>

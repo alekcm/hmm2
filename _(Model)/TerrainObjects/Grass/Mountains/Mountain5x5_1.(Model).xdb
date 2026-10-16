@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="4703">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_1a387885-0d02-4091-a364-3c1f0940fc1c">
+			<Material ObjectRecordID="7588">
+				<Texture href="/Textures/auto-imported_______320/dev/Grass/Mounting/Mountain/ConquestMountain.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>50</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>true</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OVERLAY</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_6276ebb0-7891-4417-a5ba-72ef793eb0d3">
+		<Skeleton ObjectRecordID="399">
+			<SrcName href="/models/TerrainObjects/Grass/Mountings/Mountain5x5_1.mb"/>
+			<RootJoint>mountain5x5_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>AF9D066F-69F1-4204-8FEF-3840404AEB55</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_fd8666d9-2efb-49a3-8a89-8406bc06627e">
+		<Geometry ObjectRecordID="4136">
+			<SrcName href="/models/TerrainObjects/Grass/Mountings/Mountain5x5_1.mb"/>
+			<uid>74E9C972-E398-4AAF-B260-97FF6B0A57C3</uid>
+			<RootMesh>mountain5x5_1</RootMesh>
+			<RootJoint>mountain5x5_1</RootJoint>
+			<Size>
+				<x>10</x>
+				<y>10</y>
+				<z>5.59408</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>2.79704</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0577553</x>
+				<y>0.188725</y>
+				<z>5.53939</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>model1Shape</Item>
+				<Item>model2Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7289">
+	<Materials>
+		<Item href="MasterGenie_LOD-MasterGenie_LOD_mapping_file3Material1.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="MasterGenie_LOD-MasterGenie_LOD_mapping_file4Material1.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ba238c94-e506-4cbf-a814-9a8e80f18f94">
+		<Skeleton ObjectRecordID="1320">
+			<SrcName href="/models/Creatures/Academy/MasterGenie_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1EFC7306-46EC-499F-A465-48A50AE55E9C</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_73904201-beb7-4bc3-8ae6-3f0e3651ebb7">
+		<Geometry ObjectRecordID="6488">
+			<SrcName href="/models/Creatures/Academy/MasterGenie_LOD.mb"/>
+			<uid>088FBA3D-F5BF-406E-8A4A-0DC9047B8FED</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.73934</x>
+				<y>1.65791</y>
+				<z>2.10892</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.287291</y>
+				<z>1.70968</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00423701</x>
+				<y>0.0628486</y>
+				<z>2.63589</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_0a56140b-f885-45fc-bc66-608b5b8a5bc1">
+				<AIGeometry ObjectRecordID="359">
+					<SrcName href="/models/Creatures/Academy/MasterGenie_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.0138938</x>
+						<y>0.0370489</y>
+						<z>1.48732</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.818496</x>
+						<y>0.419975</y>
+						<z>1.27055</z>
+					</AABBHalfSize>
+					<uid>94BF7EB7-16D2-4BE0-9436-D8CD4863C608</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

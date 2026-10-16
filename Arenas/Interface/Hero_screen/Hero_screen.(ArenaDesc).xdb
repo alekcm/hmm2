@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArenaDesc ObjectRecordID="36">
+	<ExpScene href="/models/Interface/Hero_screen/Hero_screen.mb"/>
+	<ExpSrcClipFolder href=""/>
+	<uid>3DB627E6-4B5E-4B56-B337-D1A45B884B03</uid>
+	<objects>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item/>
+		<Item href="#n:inline(ArenaEnvObject)" id="item_0cb08dac-21b2-4393-beb8-3a6505462dfc">
+			<ArenaEnvObject ObjectRecordID="4060">
+				<placement>c2f35c3f784a01bf000000b300000000b820d63c70f7363d2da87f3f000000001c1e01bff5a75cbf30fd533d0000000042264f3fe8f9603f68b0ea3f0000803f</placement>
+				<Model href="/_(Model)/Interface/Hero_screen/plane_back.(Model).xdb#xpointer(/Model)"/>
+				<AnimSet/>
+			</ArenaEnvObject>
+		</Item>
+		<Item href="#n:inline(ArenaLocObject)" id="item_b0dd7ff1-b2a3-4253-9db1-1431281b9cfc">
+			<ArenaLocObject ObjectRecordID="1">
+				<placement>0000803f000000000000000000000000000000000000803f000000000000000000000000000000000000803f000000000000000000000000000000000000803f</placement>
+				<Name>ph_hero</Name>
+			</ArenaLocObject>
+		</Item>
+	</objects>
+	<lights/>
+	<effects/>
+	<sounds/>
+	<initialCamPos>
+		<Name/>
+		<Pos>
+			<x>-2.03131</x>
+			<y>-3.97545</y>
+			<z>2.12498</z>
+		</Pos>
+		<Rot>
+			<x>-2.93788</x>
+			<y>-30.334</y>
+			<z>0</z>
+		</Rot>
+		<Rod>4.41024</Rod>
+		<FOV>45</FOV>
+		<ClipDistanceMin>0</ClipDistanceMin>
+		<ClipDistanceMax>0</ClipDistanceMax>
+	</initialCamPos>
+	<ObstaclesGroup/>
+	<AmbientSound/>
+	<Music/>
+	<Wind/>
+	<CamerasSet/>
+	<AmbientLights>
+		<Item href="/Lights/_(AmbientLight)/Interface/Fort_screen.xdb#xpointer(/AmbientLight)"/>
+	</AmbientLights>
+	<cameraFlyupRole>
+		<Model/>
+		<AnimSet/>
+		<Player>PLAYER_NONE</Player>
+	</cameraFlyupRole>
+	<staticCameras/>
+	<CameraLimits/>
+	<CameraLimitsSet/>
+</ArenaDesc>

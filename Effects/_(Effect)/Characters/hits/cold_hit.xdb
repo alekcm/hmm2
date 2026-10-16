@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000083">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_eaf54306-edd6-4259-82ef-72b1fc147a0e">
+			<ParticleInstance ObjectRecordID="1000626">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_c0597556-34a3-4477-b2a1-6901f618e012">
+					<Particle ObjectRecordID="1000532">
+						<SrcName href="/Effects/Characters/IceHit.mb"/>
+						<ExportPrefix>FX</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>20a405bec0583e3d949233bfea0a50412d68e6401eb8fe4058dbea40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>8A5BC86E-FBC1-4E4F-AF56-E526CEE717FF</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0.05</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>0.5</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>2.5</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Water/SnowCloud00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/SnowCloud01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/SnowFlake.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Fuzz00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Fuzz02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Ice00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Ice01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Water/Ice02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue01.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_6ec9d734-c8e8-47e7-ac5a-8378f611cdce">
+			<ParticleInstance ObjectRecordID="1000628">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Characters/ShieldBash_flash.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0.1</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>0.7</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/FlashGlow02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlow06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/FlashGlow06.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Characters/Flash.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights>
+		<Item href="/Characters/Hits/IceHit.(LightInstance).xdb#xpointer(/LightInstance)"/>
+	</Lights>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

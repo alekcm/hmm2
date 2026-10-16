@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Table_MicroArtifactShell_MicroArtifactShellType ObjectRecordID="-1">
+	<objects>
+		<Item>
+			<ID>MA_SHELL_NONE</ID>
+			<Obj href="#n:inline(MicroArtifactShell)" id="item_4fb44f02-ab9b-4637-a0f8-9a861aa01978">
+				<MicroArtifactShell ObjectRecordID="1000002">
+					<Name href="/Text/Game/MicroArtifacts/Shell_None_Name.txt"/>
+					<Description href=""/>
+					<Icon1 href="/Textures/Test/NoPicture.xdb#xpointer(/Texture)"/>
+					<Icon2 href="/Textures/Test/NoPicture.xdb#xpointer(/Texture)"/>
+					<Icon3 href="/Textures/Test/NoPicture.xdb#xpointer(/Texture)"/>
+				</MicroArtifactShell>
+			</Obj>
+		</Item>
+		<Item>
+			<ID>MA_SHELL_AMULET</ID>
+			<Obj href="#n:inline(MicroArtifactShell)" id="item_2f237d05-ebe0-4f8a-be3f-1528cf6cbc82">
+				<MicroArtifactShell ObjectRecordID="1000000">
+					<Name href="/Text/Game/MicroArtifacts/Shell_Amulet_Name.txt"/>
+					<Description href="/Text/Game/MicroArtifacts/Shell_Amulet_Desc.txt"/>
+					<Icon1 href="/UI/AcademyCreatureArtifacts/ShellPics/Amulet1.(Texture).xdb#xpointer(/Texture)"/>
+					<Icon2 href="/UI/AcademyCreatureArtifacts/ShellPics/Amulet2.(Texture).xdb#xpointer(/Texture)"/>
+					<Icon3 href="/UI/AcademyCreatureArtifacts/ShellPics/Amulet3.(Texture).xdb#xpointer(/Texture)"/>
+				</MicroArtifactShell>
+			</Obj>
+		</Item>
+		<Item>
+			<ID>MA_SHELL_TRIPLET</ID>
+			<Obj href="#n:inline(MicroArtifactShell)" id="item_d4e99c97-0a3b-499b-9d65-c74c5c184b47">
+				<MicroArtifactShell ObjectRecordID="1000003">
+					<Name href="/Text/Game/MicroArtifacts/Shell_Orb_Name.txt"/>
+					<Description href="/Text/Game/MicroArtifacts/Shell_Orb_Desc.txt"/>
+					<Icon1 href="/UI/AcademyCreatureArtifacts/ShellPics/Orb1.(Texture).xdb#xpointer(/Texture)"/>
+					<Icon2 href="/UI/AcademyCreatureArtifacts/ShellPics/Orb2.(Texture).xdb#xpointer(/Texture)"/>
+					<Icon3 href="/UI/AcademyCreatureArtifacts/ShellPics/Orb3.(Texture).xdb#xpointer(/Texture)"/>
+				</MicroArtifactShell>
+			</Obj>
+		</Item>
+		<Item>
+			<ID>MA_SHELL_BADGE</ID>
+			<Obj href="#n:inline(MicroArtifactShell)" id="item_0cad6c76-9342-450c-a974-4b9b83769269">
+				<MicroArtifactShell ObjectRecordID="1000001">
+					<Name href="/Text/Game/MicroArtifacts/Shell_Trinket_Name.txt"/>
+					<Description href="/Text/Game/MicroArtifacts/Shell_Trinket_Desc.txt"/>
+					<Icon1 href="/UI/AcademyCreatureArtifacts/ShellPics/MechOrb1.(Texture).xdb#xpointer(/Texture)"/>
+					<Icon2 href="/UI/AcademyCreatureArtifacts/ShellPics/MechOrb2.(Texture).xdb#xpointer(/Texture)"/>
+					<Icon3 href="/UI/AcademyCreatureArtifacts/ShellPics/MechOrb3.(Texture).xdb#xpointer(/Texture)"/>
+				</MicroArtifactShell>
+			</Obj>
+		</Item>
+		<Item>
+			<ID>MA_SHELL_RING</ID>
+			<Obj href="#n:inline(MicroArtifactShell)" id="item_21445672-ba15-43ea-a7cb-89bee01757f4">
+				<MicroArtifactShell ObjectRecordID="1000004">
+					<Name href="/Text/Game/MicroArtifacts/Shell_Badge_Name.txt"/>
+					<Description href="/Text/Game/MicroArtifacts/Shell_Badge_Desc.txt"/>
+					<Icon1 href="/UI/AcademyCreatureArtifacts/ShellPics/Medal1.(Texture).xdb#xpointer(/Texture)"/>
+					<Icon2 href="/UI/AcademyCreatureArtifacts/ShellPics/Medal2.(Texture).xdb#xpointer(/Texture)"/>
+					<Icon3 href="/UI/AcademyCreatureArtifacts/ShellPics/Medal3.(Texture).xdb#xpointer(/Texture)"/>
+				</MicroArtifactShell>
+			</Obj>
+		</Item>
+	</objects>
+</Table_MicroArtifactShell_MicroArtifactShellType>

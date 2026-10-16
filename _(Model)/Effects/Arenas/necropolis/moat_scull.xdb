@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001400">
+	<Materials>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Model)/Effects/Characters/Necromanser/Path/Scull-lambert2.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_1feac9c0-a984-4c68-bebb-4642b6fb6954">
+		<Skeleton ObjectRecordID="1000332">
+			<SrcName href="/Effects/Arenas/Necropolis/Moat_Sculls.mb"/>
+			<RootJoint>Scull</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>D212F968-FD1F-40C4-9B51-AF2F3F96ACB1</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_93393bac-e5f2-4ffe-9e8b-e828cab9e246">
+		<Geometry ObjectRecordID="1001180">
+			<SrcName href="/Effects/Arenas/Necropolis/Moat_Sculls.mb"/>
+			<uid>6094C4BC-9ED6-4EF4-AEDB-24F685E928F4</uid>
+			<RootMesh>Scull</RootMesh>
+			<RootJoint>Scull</RootJoint>
+			<Size>
+				<x>4.42765</x>
+				<y>28.815</y>
+				<z>0.584519</z>
+			</Size>
+			<Center>
+				<x>0.230207</x>
+				<y>-0.00549841</y>
+				<z>-0.355559</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.573365</x>
+				<y>3.3498</y>
+				<z>-0.226909</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>12</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Scull_11Shape</Item>
+				<Item>Scull_10Shape</Item>
+				<Item>Scull_09Shape</Item>
+				<Item>Scull_08Shape</Item>
+				<Item>Scull_07Shape</Item>
+				<Item>Scull_06Shape</Item>
+				<Item>Scull_05Shape</Item>
+				<Item>Scull_04Shape</Item>
+				<Item>Scull_03Shape</Item>
+				<Item>Scull_02Shape</Item>
+				<Item>Scull_01Shape</Item>
+				<Item>Scull_00Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000252">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_17995533-80e0-424f-a7d8-cd4bbb85b171">
+			<ParticleInstance ObjectRecordID="1000306">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_15ec432e-bae8-4e06-a230-24b5354d904b">
+					<Particle ObjectRecordID="1000253">
+						<SrcName href="/Effects/Towns/Academy/BlackSmith/BlackSmith.mb"/>
+						<ExportPrefix>BlackSmithEff01</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>000000005159533fa68b254004e7824075b82b403c793040fde2b13f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>E70AA3A5-D6FE-42C8-8574-53301B1C1DFC</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>12</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/LensFlareCenter.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/EnergyRays00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RaysBlue00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_730e852e-3fb9-4758-8646-655a5dcbebc5">
+			<ParticleInstance ObjectRecordID="1000309">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_a22889fc-6cf7-46d1-8a03-33c99f7a1ad4">
+					<Particle ObjectRecordID="1000256">
+						<SrcName href="/Effects/Towns/Academy/BlackSmith/BlackSmith.mb"/>
+						<ExportPrefix>BlackSmithEff02</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>b02f313f8db5f13fef7291406f1a1d41fad99f4004aab0404dd9cc40</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>067EA918-A1DC-4BCD-B168-DDC6E0710DFB</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.7</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/Smoke03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/LensFlareCenter.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/EnergyRays00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/RaysBlue00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

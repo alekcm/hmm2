@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000862">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_dbf268b9-f4e4-4153-b97b-fe6f18b3e33e">
+			<Material ObjectRecordID="1001315">
+				<Texture href="AdvMapHouse1-advmap_house.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton/>
+	<Geometry href="#n:inline(Geometry)" id="item_6f4c6425-a3e3-4ce4-9eb6-68d4ef9a5b10">
+		<Geometry ObjectRecordID="1000651">
+			<SrcName href="/models/Arenas/Grassarena/AdvMapObj/Advm_hb2.mb"/>
+			<uid>571CB900-8EA6-42D7-88AD-300F148A39E4</uid>
+			<RootMesh>AdvMapHouse2</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>12.5523</x>
+				<y>13.4347</y>
+				<z>9.63596</z>
+			</Size>
+			<Center>
+				<x>2.38419e-007</x>
+				<y>0.0780058</y>
+				<z>4.81678</z>
+			</Center>
+			<BestFitPoint>
+				<x>4.36993</x>
+				<y>-3.82687</y>
+				<z>9.63413</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>AdvMapHouseShape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

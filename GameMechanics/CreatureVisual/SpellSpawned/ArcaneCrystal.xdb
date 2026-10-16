@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CreatureVisual>
+	<CreatureNameFileRef href="/Text/Game/Creatures/SpellSpawned/ArcaneCrystal.txt"/>
+	<CreatureAbilitiesFileRef href="/Text/Game/Creatures/SpellSpawned/ArcaneCrystalAbilities.txt"/>
+	<DescriptionFileRef href="/Text/Game/Creatures/SpellSpawned/ArcaneCrystalDescription.txt"/>
+	<Icon href="/Textures/Interface/CombatArena/Faces/Heaven/ico_Peasant.xdb#xpointer(/Texture)"/>
+	<Icon32/>
+	<Icon64/>
+	<Icon128 href="/UI/H5A2/Icons/Creatures/SummonCreatures/ArcaneCrystal.(Texture).xdb#xpointer(/Texture)"/>
+	<AnimCharacter href="/Characters/Dummy/DummyFX_02.(Character).xdb#xpointer(/Character)"/>
+	<DeadCharacter/>
+	<AnimShot/>
+	<SummoningEffect/>
+	<DamageEffect href="/GameMechanics/CreatureDamage/War_Machine.xdb#xpointer(/CreatureDamage)"/>
+	<TeleportingMove>
+		<Use>false</Use>
+		<StartEffect/>
+		<FinishEffect/>
+	</TeleportingMove>
+	<Win3DView/>
+	<MountPoint>
+		<x>0</x>
+		<y>0.921</y>
+		<z>0.155</z>
+	</MountPoint>
+	<MountBone>hitPoint</MountBone>
+</CreatureVisual>

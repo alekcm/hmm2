@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="520">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_232c8db6-32bb-4c38-84f3-1f621adc58a2">
+			<ParticleInstance ObjectRecordID="691">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_beec8b81-473b-47f1-a694-216e3af8582d">
+					<Particle ObjectRecordID="351">
+						<SrcName href="/Effects/Spells/LuckDown.mb"/>
+						<ExportPrefix>LuckDown</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>400c0f3ff0fb983e76ff4ac059038c4125662c41c8b41641942f2141</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>CCFB6641-9506-4DC3-9022-8E053EFC29DC</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>2</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1.5</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>0</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/BadLuck01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BadLuck02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BadLuck_Fragment0.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BadLuck_Fragment1.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BadLuck_Fragment2.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Spells/BadLuck_Fragment3.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/RainbowCircle.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/GlowColored.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/FlashGlow03.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item href="/Textures/Effects/Spells/FlashGlow03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/LensFlare.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/LensFlareCenter.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

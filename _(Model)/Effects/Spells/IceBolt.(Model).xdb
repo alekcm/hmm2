@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6164">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/FrostRing/Cristal_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/FrostRing/Rime_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/FrostRing/Rime_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/FrostRing/Rime_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/FrostRing/Cristal_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/FrostRing/Cristal_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/FrostRing/Cristal_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="IceBolt_wave.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_038efa46-fcec-407d-ae83-53fe281a221c">
+		<Skeleton ObjectRecordID="707">
+			<SrcName href="/Effects/Spells/IceBolt.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>3CEE70E1-C032-48F9-B6ED-AD4A7BFEFF2B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_9eccafef-67f5-4378-9701-893e47c90a12">
+		<Geometry ObjectRecordID="5354">
+			<SrcName href="/Effects/Spells/IceBolt.mb"/>
+			<uid>3652B81D-999C-4FD7-91E0-89ECEA8BC97F</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>4.25224</x>
+				<y>4.29831</y>
+				<z>14.1004</z>
+			</Size>
+			<Center>
+				<x>-0.0750375</x>
+				<y>-0.11548</y>
+				<z>7.09923</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.151006</x>
+				<y>-0.210709</y>
+				<z>14.1217</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>8</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>IceBoltShape</Item>
+				<Item>Rime0Shape3</Item>
+				<Item>Rime0Shape2</Item>
+				<Item>Rime0Shape1</Item>
+				<Item>Cristal0Shape1</Item>
+				<Item>Cristal02Shape</Item>
+				<Item>Cristal0Shape3</Item>
+				<Item>Wave01Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

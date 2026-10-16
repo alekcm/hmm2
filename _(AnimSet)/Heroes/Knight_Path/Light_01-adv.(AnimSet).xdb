@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="327">
+	<animations>
+		<Item>
+			<Kind>birth</Kind>
+			<Anim href="/_(BasicSkelAnim)/Effects/Characters/KnightsPath/Light01.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="/_(BasicSkelAnim)/Heroes/Knight_Path/Light_01/idle00.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>death</Kind>
+			<Anim href="/_(BasicSkelAnim)/Heroes/Knight_Path/Light_01/death.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/Effects/Characters/Knight/Path/Light01.mb"/>
+	<ExpSrcClipFolder href="/Animations/Heroes/Knight/Path/Clip_Light/"/>
+	<ExpRootTransform>Light</ExpRootTransform>
+</AnimSet>

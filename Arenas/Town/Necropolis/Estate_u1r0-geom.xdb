@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="1002638">
+	<SrcName href="/models/Towns/necropolis/Necropolis.mb"/>
+	<uid>32317135-F9B6-4D2E-B3B3-7738513DA5F7</uid>
+	<RootMesh>rockEstate1_obj rockEstate2_obj rockEstateMain_obj EstateWindow_noLM_u1 rockEstateMainTrees_noLM Estate_main</RootMesh>
+	<RootJoint/>
+	<Size>
+		<x>37.5434</x>
+		<y>30.1904</y>
+		<z>77.8362</z>
+	</Size>
+	<Center>
+		<x>265.703</x>
+		<y>321.215</y>
+		<z>8.80327</z>
+	</Center>
+	<BestFitPoint>
+		<x>277.319</x>
+		<y>316.568</y>
+		<z>47.5866</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="Estate_u1r0-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>6</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>2</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Estate_mainShape</Item>
+		<Item>rockEstate1_objShape</Item>
+		<Item>rockEstate2_objShape</Item>
+		<Item>rockEstateMain_objShape</Item>
+		<Item>EstateWindow_noLM_u1Shape</Item>
+		<Item>rockEstateMainTrees_noLMShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

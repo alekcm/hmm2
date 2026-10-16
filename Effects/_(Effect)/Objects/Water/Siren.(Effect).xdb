@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000555">
+	<Instances>
+		<Item href="Siren_Surf01.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Siren_Surf02.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Siren_Surf03.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Siren_Surf04.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+		<Item href="Siren_Surf05.(ParticleInstance).xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="/Effects/_(Effect)/Environment/Water/SirenWaterRiple.(ModelInstance).xdb#xpointer(/ModelInstance)"/>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowSimpleShared>
+	<Crap>false</Crap>
+	<Children>
+		<Item href="Resources/gold-icon.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="Resources/gold-count.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/gold-income.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/wood-icon.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="Resources/wood-count.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/wood-income.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/ore-icon.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="Resources/ore-count.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/ore-income.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/mercury-icon.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="Resources/mercury-count.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/mercury-income.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/crystals-icon.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="Resources/crystals-count.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/crystals-income.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/sulfur-icon.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="Resources/sulfur-count.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/sulfur-income.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/gems-icon.(WindowSimple).xdb#xpointer(/WindowSimple)"/>
+		<Item href="Resources/gems-count.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/gems-income.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/moonweek.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+		<Item href="Resources/monthweekday.(WindowStaticText).xdb#xpointer(/WindowStaticText)"/>
+	</Children>
+	<Background/>
+	<Foreground/>
+	<Flags>
+		<Transparent>false</Transparent>
+	</Flags>
+	<Placement>
+		<Position>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_LOW_END</First>
+			<Second>false</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_LOW_END</First>
+			<Second>false</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>705</x>
+				<y>37</y>
+			</First>
+			<Second>false</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</UpperMargin>
+	</Placement>
+	<ActiveArea/>
+	<IgnoreDblClick>false</IgnoreDblClick>
+	<ActiveMask/>
+</WindowSimpleShared>

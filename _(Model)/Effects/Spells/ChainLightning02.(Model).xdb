@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="5799">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/ChainLightning/lambert8.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Spells/ChainLightning/lambert8-1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c71da40d-df80-42bf-bf60-70a21d0361ec">
+		<Skeleton ObjectRecordID="579">
+			<SrcName href="/Effects/Spells/ChainLightning_model.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>979E2395-2CE0-4D19-94C5-585C08A39352</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_6e7f14eb-567c-49f9-b49b-ff84e603bc1e">
+		<Geometry ObjectRecordID="4989">
+			<SrcName href="/Effects/Spells/ChainLightning_model.mb"/>
+			<uid>190F7ECE-A1A7-4115-AF3F-50F916B13A67</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.86529</x>
+				<y>2.28571</y>
+				<z>0.745305</z>
+			</Size>
+			<Center>
+				<x>-0.101799</x>
+				<y>0</y>
+				<z>0.214763</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.501559</x>
+				<y>0.407845</y>
+				<z>0.535289</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>LightningMainShape</Item>
+				<Item>Lightning0Shape2</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

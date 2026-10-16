@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6951">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ArchDevil_cast/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ArchDevil_cast/Wave02_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ArchDevil_cast/Wave03_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ArchDevil_cast/Wave04_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ArchDevil_cast/Spot_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ArchDevil_cast/Wave04_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ArchDevil_cast/Wave03_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ArchDevil_cast/Wave02_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Effects/Characters/ArchDevil_cast/Wave01_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_b7fb2c06-90b0-4f3a-952f-cefbd06bbeaf">
+		<Skeleton ObjectRecordID="1172">
+			<SrcName href="/Effects/Characters/Devil/DevilCast.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>AE8D4866-9F81-4783-8423-EC970245298C</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1639c201-ba43-4ea3-99eb-107b5eaeff86">
+		<Geometry ObjectRecordID="6153">
+			<SrcName href="/Effects/Characters/Devil/DevilCast.mb"/>
+			<uid>66DF062C-AEA7-43B9-A269-C51A5AD0D718</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.64243</x>
+				<y>1.64243</y>
+				<z>0.471567</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>-1.11105</y>
+				<z>0.282373</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0235011</x>
+				<y>-1.12972</y>
+				<z>0.491622</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>9</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Wave0Shape1</Item>
+				<Item>Wave0Shape2</Item>
+				<Item>Wave0Shape3</Item>
+				<Item>Wave0Shape4</Item>
+				<Item>SpotShape</Item>
+				<Item>Wave0Shape5</Item>
+				<Item>Wave0Shape6</Item>
+				<Item>Wave0Shape7</Item>
+				<Item>Wave0Shape8</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

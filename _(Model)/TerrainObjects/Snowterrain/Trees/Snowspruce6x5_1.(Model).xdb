@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7775">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/TerrainObjects/Snowterrain/Trees/Snow_spruce01/Snow_spruces.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_1c9b6d31-4fc6-40ab-92ec-c14ee88706da">
+		<Skeleton ObjectRecordID="1631">
+			<SrcName href="/models/TerrainObjects/Snow_terrain/Snowtrees/Snowspruces.mb"/>
+			<RootJoint>Snowspruce6x5_1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>1881AE9F-E065-41AE-864A-998CF079544A</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1ffd654f-86a9-4cc2-8db7-51a18cca6023">
+		<Geometry ObjectRecordID="6938">
+			<SrcName href="/models/TerrainObjects/Snow_terrain/Snowtrees/Snowspruces.mb"/>
+			<uid>5503BBDB-0342-4044-B3C3-C4E808F28C8C</uid>
+			<RootMesh>Snowspruce6x5_1</RootMesh>
+			<RootJoint>Snowspruce6x5_1</RootJoint>
+			<Size>
+				<x>11.4375</x>
+				<y>13.5982</y>
+				<z>13.1478</z>
+			</Size>
+			<Center>
+				<x>-0.529707</x>
+				<y>-0.832825</y>
+				<z>3.71705</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.351273</x>
+				<y>-1.51189</y>
+				<z>10.0166</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Snowspruce6x5_Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>1</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

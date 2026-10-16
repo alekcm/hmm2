@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowTextView ObjectRecordID="1000277">
+	<ClassTypeID>285694860</ClassTypeID>
+	<Shared href="Desc.(WindowTextViewShared).xdb#xpointer(/WindowTextViewShared)"/>
+	<Name>DescView</Name>
+	<TooltipFileRef href=""/>
+	<Visible>true</Visible>
+	<Priority>0</Priority>
+	<GameMessageReactions/>
+	<Placement>
+		<Position>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>true</Second>
+		</Position>
+		<VerAllign>
+			<First>ERA_CENTER</First>
+			<Second>true</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_MARGIN</First>
+			<Second>true</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>180</x>
+				<y>21</y>
+			</First>
+			<Second>true</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>8</x>
+				<y>0</y>
+			</First>
+			<Second>true</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>35</x>
+				<y>0</y>
+			</First>
+			<Second>true</Second>
+		</UpperMargin>
+	</Placement>
+	<Enabled>true</Enabled>
+	<TextString/>
+	<relatedTexts/>
+	<relatedTextures/>
+	<Flags>
+		<SuperActive>false</SuperActive>
+	</Flags>
+	<TextFileRef href="ComboViewDesc.txt"/>
+	<ResizeOnTextSet>false</ResizeOnTextSet>
+	<TextFormat/>
+	<ResizeWidthOnTextSet>false</ResizeWidthOnTextSet>
+</WindowTextView>

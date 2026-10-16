@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CharacterView>
+	<Model href="/Characters/Dummy/DummyFX_01.xdb#xpointer(/Model)"/>
+	<AnimSet href="/Characters/Dummy/DummyFX_01-arena.xdb#xpointer(/AnimSet)"/>
+	<sequence>
+		<Item>
+			<Kind>start</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+		<Item>
+			<Kind>death</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+		<Item>
+			<Kind>start</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+		<Item>
+			<Kind>death</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+	</sequence>
+	<Effect/>
+</CharacterView>

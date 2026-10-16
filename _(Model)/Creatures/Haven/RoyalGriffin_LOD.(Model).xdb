@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3762">
+	<Materials>
+		<Item href="RoyalGriffin_LOD-RoyalGriffin_lambert.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_f06588d0-8084-472a-a8e5-01465831b906">
+		<Skeleton ObjectRecordID="240">
+			<SrcName href="/models/Creatures/Castle/RoyalGriffin_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>C1C7343F-F6E9-4293-86BF-EC30FD356DB0</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_b28fd25b-cd32-4fa0-9023-bbbce33516bb">
+		<Geometry ObjectRecordID="3205">
+			<SrcName href="/models/Creatures/Castle/RoyalGriffin_LOD.mb"/>
+			<uid>8B5F85DC-13F8-4C0B-9C1E-521317A73C6B</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.36343</x>
+				<y>3.40341</y>
+				<z>4.24336</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0.235165</y>
+				<z>2.12168</z>
+			</Center>
+			<BestFitPoint>
+				<x>-2.62377e-007</x>
+				<y>0.583391</y>
+				<z>4.24277</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_a3a2e74f-86c5-40b7-bd99-cfccbe6c3823">
+				<AIGeometry ObjectRecordID="108">
+					<SrcName href="/models/Creatures/Castle/RoyalGriffin_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.164359</y>
+						<z>0.900441</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.801411</x>
+						<y>1.26436</y>
+						<z>0.900441</z>
+					</AABBHalfSize>
+					<uid>D081EA28-B0F1-414A-81DE-BB36139B063A</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>RoyalGriffin_meshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

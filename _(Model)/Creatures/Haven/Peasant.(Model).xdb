@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2178">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Grass/Stuff/Log/auto-imported/Creatures/Haven/Peasant/Peasant_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Grass/Stuff/Log/auto-imported/Creatures/Haven/Peasant/Peasant_lambert-1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_a13be278-48ab-412d-ab7b-0f270f4575d8">
+		<Skeleton ObjectRecordID="207">
+			<SrcName href="/models/Creatures/Castle/Peasant.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>419E6DD3-4C1B-460A-9BEF-4B918E33281E</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_4914cc04-6773-4c46-af19-badea144a004">
+		<Geometry ObjectRecordID="2703">
+			<SrcName href="/models/Creatures/Castle/Peasant.mb"/>
+			<uid>B609BA27-66B2-4F26-B681-EF5F7F3A4601</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.8068</x>
+				<y>2.09758</y>
+				<z>1.6026</z>
+			</Size>
+			<Center>
+				<x>-0.0203128</x>
+				<y>0.124129</y>
+				<z>0.801224</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0161046</x>
+				<y>-0.0341759</y>
+				<z>1.42382</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_54431b81-a878-405e-ba1e-3c7c2302d749">
+				<AIGeometry ObjectRecordID="62">
+					<SrcName href="/models/Creatures/Castle/Peasant.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>-0.0885088</y>
+						<z>0.803958</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.425881</x>
+						<y>0.334043</y>
+						<z>0.803958</z>
+					</AABBHalfSize>
+					<uid>AEC49067-9649-45F1-923F-6FFBEB0B7C0E</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+				<Item>PitchForkShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

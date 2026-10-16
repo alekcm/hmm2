@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvMapMonsterShared>
+	<Model href="/Characters/Creatures/Dwarves/AlternativeUpgrade/T1_StoneDefender/T1_StoneDefender.xdb#xpointer(/Model)"/>
+	<AnimSet href="/Characters/Creatures/Dwarves/AlternativeUpgrade/T1_StoneDefender/T1_StoneDefender-arena.xdb#xpointer(/AnimSet)"/>
+	<blockedTiles/>
+	<holeTiles/>
+	<activeTiles>
+		<Item>
+			<x>0</x>
+			<y>0</y>
+		</Item>
+	</activeTiles>
+	<passableTiles/>
+	<PossessionMarkerTile>
+		<x>0</x>
+		<y>0</y>
+	</PossessionMarkerTile>
+	<Effect/>
+	<EffectWhenOwned/>
+	<messagesFileRef>
+		<Item href="/Text/Game/Creatures/Dwarf/3rd/StoneDefender_Name.txt"/>
+	</messagesFileRef>
+	<WaterBased>false</WaterBased>
+	<ApplyHeroTrace>false</ApplyHeroTrace>
+	<SoundEffect/>
+	<flybyMessageFileRef href=""/>
+	<ObjectTypeFileRef href=""/>
+	<TerrainAligned>false</TerrainAligned>
+	<FlyPassable>true</FlyPassable>
+	<AdventureSoundEffect/>
+	<RazedStatic/>
+	<Icon128/>
+	<Type>MONSTER_SPECIFIC</Type>
+	<Creature>CREATURE_STONE_DEFENDER</Creature>
+</AdvMapMonsterShared>

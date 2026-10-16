@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001194">
+	<Materials>
+		<Item href="rampart_baterflay.xdb#xpointer(/Material)"/>
+		<Item href="rampart_baterflay.xdb#xpointer(/Material)"/>
+		<Item href="rampart_baterflay.xdb#xpointer(/Material)"/>
+		<Item href="rampart_baterflay.xdb#xpointer(/Material)"/>
+		<Item href="rampart_baterflay.xdb#xpointer(/Material)"/>
+		<Item href="rampart_baterflay.xdb#xpointer(/Material)"/>
+		<Item href="rampart_baterflay.xdb#xpointer(/Material)"/>
+		<Item href="rampart_baterflay.xdb#xpointer(/Material)"/>
+		<Item href="rampart_baterflay.xdb#xpointer(/Material)"/>
+		<Item href="rampart_baterflay.xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_09f195cb-2bdb-4874-83a3-9f73993be5e0">
+		<Skeleton ObjectRecordID="1000275">
+			<SrcName href="/Effects/Towns/Rampart/UnicornGlade.mb"/>
+			<RootJoint>Babochki</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>4BCF8531-11F6-459F-801E-4E8DC45A8B1E</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_95f670b9-f00d-4031-8fc2-2fa4056f0d93">
+		<Geometry ObjectRecordID="1000974">
+			<SrcName href="/Effects/Towns/Rampart/UnicornGlade.mb"/>
+			<uid>73D3FE10-77BD-45B0-80DB-B98B60D2D545</uid>
+			<RootMesh>Babochki</RootMesh>
+			<RootJoint>Babochki</RootJoint>
+			<Size>
+				<x>4.98903</x>
+				<y>5.87569</y>
+				<z>0.974504</z>
+			</Size>
+			<Center>
+				<x>-8.96013</x>
+				<y>13.9239</y>
+				<z>2.91088</z>
+			</Center>
+			<BestFitPoint>
+				<x>-7.36121</x>
+				<y>11.3256</y>
+				<z>3.34178</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>10</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>batterfly01|L_wing|L_wingShape</Item>
+				<Item>batterfly01|R_wing|R_wingShape</Item>
+				<Item>batterfly02|L_wing|L_wingShape</Item>
+				<Item>batterfly02|R_wing|R_wingShape</Item>
+				<Item>batterfly03|L_wing|L_wingShape</Item>
+				<Item>batterfly03|R_wing|R_wingShape</Item>
+				<Item>batterfly04|L_wing|L_wingShape</Item>
+				<Item>batterfly04|R_wing|R_wingShape</Item>
+				<Item>batterfly05|L_wing|L_wingShape</Item>
+				<Item>batterfly05|R_wing|R_wingShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

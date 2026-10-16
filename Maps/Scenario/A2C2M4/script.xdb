@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Script>
+	<FileName href="script.lua"/>
+	<ScriptText>----a2c2m3
+
+print( &quot;A2C2M3 started...&quot;);
+
+SetObjectEnabled(&quot;h1&quot;, nil);
+
+
+Trigger (OBJECT_TOUCH_TRIGGER, &quot;h1&quot;, &quot;h1&quot;);
+
+function h1(heroName)
+	MessageBox (&quot;Maps/Scenario/A2C2M3/mess1.txt&quot;);
+	sleep( 15 );
+end;</ScriptText>
+</Script>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7904">
+	<Materials>
+		<Item href="Spirit-t1_spirit_a.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_ce0df44c-21d4-4c8f-8a96-f5b05503cdf3">
+			<Material ObjectRecordID="1001319">
+				<Texture href="/Textures/auto-imported/Creatures/Preserve/Spirit_LOD/Spirit_add.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="Spirit-t1_spirit_a.(Material) (2).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_342a349c-2108-4b49-863c-44988c50718a">
+		<Skeleton ObjectRecordID="1687">
+			<SrcName href="/models/Creatures/Preserve/Spirit.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>CE30A2A5-BCF2-4342-A53E-3C0C9D423CFB</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_7820aa7c-6972-49ab-842f-920509bce6a6">
+		<Geometry ObjectRecordID="7063">
+			<SrcName href="/models/Creatures/Preserve/Spirit.mb"/>
+			<uid>DB74C8F6-4D96-47F0-851D-E93B325E1461</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.45878</x>
+				<y>1.27263</y>
+				<z>1.54213</z>
+			</Size>
+			<Center>
+				<x>-2.00868e-005</x>
+				<y>-0.0187348</y>
+				<z>0.76816</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0306078</x>
+				<y>0.0174184</y>
+				<z>1.41987</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_be79815c-7f0d-4ad2-b95c-6e2ff09c045b">
+				<AIGeometry ObjectRecordID="468">
+					<SrcName href="/models/Creatures/Preserve/Spirit.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0.0449348</y>
+						<z>1.02868</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.419939</x>
+						<y>0.318289</y>
+						<z>0.873207</z>
+					</AABBHalfSize>
+					<uid>59669829-3EA2-47AC-A993-0C1434F21BB8</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+				<Item>ButterfliesShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

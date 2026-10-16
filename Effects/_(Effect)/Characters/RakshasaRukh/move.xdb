@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000255">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_a2be1202-6f8a-4be4-a2ed-ddd0f47f949a">
+			<ParticleInstance ObjectRecordID="1000321">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_8430cc6f-555e-4774-91d4-7953e016f097">
+					<Particle ObjectRecordID="1000267">
+						<SrcName href="/Effects/Characters/RakshasaRukh/RakshasaRukh_move.mb"/>
+						<ExportPrefix>Griva</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>c0f7cbbc205f6cbdb4423240a24ee53fdd8e613f713d9c3f279c783f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>8B1EE80C-A5B9-4F47-93A0-7E5548C613FA</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1.5</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/IceFireOrange.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_a938cfea-cc08-496f-b3bc-8d6df3b71688">
+			<ParticleInstance ObjectRecordID="1000322">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_d5c4fc0e-87ee-4218-9c02-7cb6e23c092d">
+					<Particle ObjectRecordID="1000268">
+						<SrcName href="/Effects/Characters/RakshasaRukh/RakshasaRukh_move.mb"/>
+						<ExportPrefix>IceFire</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>30d04ebdd94d033fb310ae3ff51e4340f3d6bd3f50440040b696e03f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>03A437C7-584D-4072-BA14-5A5C98F3A899</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1.5</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/IceFire.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_fd98e333-f2a2-4a5a-b8a9-478436c4f9eb">
+			<ParticleInstance ObjectRecordID="1000354">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_77a1f711-41d8-4fe4-82f5-c8c9d51cfe73">
+					<Particle ObjectRecordID="1000291">
+						<SrcName href="/Effects/Characters/RakshasaRukh/RakshasaRukh_move.mb"/>
+						<ExportPrefix>Griva_IS</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>d0b4b5bd078d84bed73531409918be3ff560383f1aa0673faa896e3f</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>114F120D-DA92-4DA8-9E7C-D3E3425784F2</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>4</EndCycle>
+				<CycleCount>1</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item/>
+					<Item href="/Textures/Effects/_Various/IceFireOrange.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/Head/Head_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/LT_Hand/LT_Hand_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/LT_Hand/LT_Hand_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/RT_Hand/RT_Hand_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/RT_Hand/RT_Hand_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/RT_ForeArm/RT_ForeArm_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/RT_ForeArm/RT_ForeArm_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/RB_Hand/RB_Hand_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/R_Toe/R_Toe_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/R_Toe/R_Toe_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/R_Toe2/R_Toe2_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/R_Toe2/R_Toe2_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/LT_ForeArm/LT_ForeArm_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/LT_ForeArm/LT_ForeArm_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/LB_Hand/LB_Hand_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/L_Toe/L_Toe_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/L_Toe/L_Toe_bone_long.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/L_Toe2/L_Toe2_bone.xdb#xpointer(/ParticleInstance)"/>
+		<Item href="/Effects/_(ParticleInstance)/Characters/ACADEMY/RakshasaRukh/Bone/L_Toe2/L_Toe2_bone_long.xdb#xpointer(/ParticleInstance)"/>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

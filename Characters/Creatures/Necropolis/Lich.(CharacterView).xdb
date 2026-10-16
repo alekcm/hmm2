@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CharacterView ObjectRecordID="248">
+	<Model href="/_(Model)/Creatures/Necropolis/Lich.(Model).xdb#xpointer(/Model)"/>
+	<AnimSet href="/_(AnimSet)/Creatures/Necropolis/Lich-arena.(AnimSet).xdb#xpointer(/AnimSet)"/>
+	<sequence>
+		<Item>
+			<Kind>cast</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+		<Item>
+			<Kind>rangeattack</Kind>
+			<Counter>1</Counter>
+			<CutBegin>false</CutBegin>
+			<CutEnd>false</CutEnd>
+		</Item>
+	</sequence>
+	<Effect/>
+</CharacterView>

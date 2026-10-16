@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BasicSkelAnim ObjectRecordID="904">
+	<SrcName href="/models/TerrainObjects/Water/Boats/Galleon.mb"/>
+	<uid>321A4060-13F2-4F4B-A6A5-5FD93CC22935</uid>
+	<ExpSrcClip href="/Animations/Objects/Galleon/Clip/Galleon.move.ma"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+	<ExpFrameFirst>0</ExpFrameFirst>
+	<ExpFrameLast>0</ExpFrameLast>
+	<ExpSettingsFile href=""/>
+	<MovementSpeed>6</MovementSpeed>
+	<SpeedFactor>1</SpeedFactor>
+	<Sound href="/Sounds/_(Sound)/SFX/Ship/Move.xdb#xpointer(/Sound)"/>
+	<Effect href="/Effects/_(Effect)/Objects/Galleon/move.xdb#xpointer(/Effect)"/>
+	<SpeedLineFallTime>250</SpeedLineFallTime>
+	<SpeedLineMaterial/>
+</BasicSkelAnim>

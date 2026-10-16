@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="1000220">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_f3cd80a6-626f-4544-8627-d369afd8e9c9">
+			<ParticleInstance ObjectRecordID="1000238">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="#n:inline(Particle)" id="item_036a2b30-506f-4e88-8bbb-96b4aa0f8e64">
+					<Particle ObjectRecordID="1000200">
+						<SrcName href="/Effects/Towns/Rampart/TreanArches.mb"/>
+						<ExportPrefix>TreanArchesEFF02</ExportPrefix>
+						<WrapSize>
+							<x>0</x>
+							<y>0</y>
+						</WrapSize>
+						<Bound>786cad3ff7d40b4070fa5040dfd2cf400c436d40f1fa7b40042a6640</Bound>
+						<PerParticleFog>false</PerParticleFog>
+						<uid>9711D6B3-1CB0-4918-8304-2696FA918BDA</uid>
+					</Particle>
+				</Particle>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0.2</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.6</Speed>
+				<Offset>0</Offset>
+				<EndCycle>6</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/_Various/IceFireWhite00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow05.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models>
+		<Item href="#n:inline(ModelInstance)" id="item_e3eb213b-1f1c-4c5b-94b7-8843cdd9b220">
+			<ModelInstance ObjectRecordID="1000075">
+				<Model href="/_(Model)/Effects/Towns/Rampart_TreanArches_SS.xdb#xpointer(/Model)"/>
+				<SkelAnim/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Offset>0</Offset>
+				<CycleLength>0</CycleLength>
+				<CycleCount>0</CycleCount>
+				<GlueToBone>0</GlueToBone>
+			</ModelInstance>
+		</Item>
+	</Models>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

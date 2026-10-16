@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WindowScrollBarShared ObjectRecordID="7">
+	<Crap>false</Crap>
+	<Children/>
+	<Background/>
+	<Foreground/>
+	<Flags>
+		<Transparent>false</Transparent>
+	</Flags>
+	<Placement>
+		<Position>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</Position>
+		<VerAllign>
+			<First>EPA_LOW_END</First>
+			<Second>false</Second>
+		</VerAllign>
+		<HorAllign>
+			<First>EPA_LOW_END</First>
+			<Second>false</Second>
+		</HorAllign>
+		<Size>
+			<First>
+				<x>11</x>
+				<y>432</y>
+			</First>
+			<Second>true</Second>
+		</Size>
+		<LowerMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</LowerMargin>
+		<UpperMargin>
+			<First>
+				<x>0</x>
+				<y>0</y>
+			</First>
+			<Second>false</Second>
+		</UpperMargin>
+	</Placement>
+	<ActiveArea/>
+	<IgnoreDblClick>false</IgnoreDblClick>
+	<ActiveMask/>
+	<Speed>100</Speed>
+	<ButtonLower href="/UI/MissionObjectives/Up.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+	<ButtonGreater href="/UI/MissionObjectives/Down.(WindowMSButton).xdb#xpointer(/WindowMSButton)"/>
+	<Slider href="TextSlider.(WindowSlider).xdb#xpointer(/WindowSlider)"/>
+	<ClickScrollDist>
+		<First>0</First>
+		<Second>false</Second>
+	</ClickScrollDist>
+</WindowScrollBarShared>

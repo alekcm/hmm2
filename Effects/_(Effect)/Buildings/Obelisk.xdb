@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="56">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_2289481a-743f-472e-ab1c-e237e35fd5ad">
+			<ParticleInstance ObjectRecordID="55">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Buildings/Obelisk.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.5</Speed>
+				<Offset>0</Offset>
+				<EndCycle>8</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Runes/Rune00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune11.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune12.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune13.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+		<Item href="#n:inline(ParticleInstance)" id="item_bfef6246-0e7c-459c-b1d8-88fbbeedea0b">
+			<ParticleInstance ObjectRecordID="56">
+				<SrcName/>
+				<Light>L_NORMAL</Light>
+				<Particle href="/Effects/_(Particle)/Buildings/Obelisk.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>1</z>
+					<w>0</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>0.5</Speed>
+				<Offset>0</Offset>
+				<EndCycle>8</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>0</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Runes/Rune00.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune02.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune08.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune09.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune10.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune11.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune12.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Runes/Rune13.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/Glow01.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/_Various/SparkBlue00.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>false</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

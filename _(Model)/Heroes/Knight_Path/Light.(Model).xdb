@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7750">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Heroes/Knight_Path/Light/lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Heroes/Knight_Path/Light/lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Heroes/Knight_Path/Light/lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_2e1eedec-dc18-4f33-8b1d-0b2f614b8c17">
+			<Material ObjectRecordID="19945">
+				<Texture href="/Textures/auto-imported/Effects_____19897/Characters/KnightsPath/Light01/Light01.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_TRANSPARENT</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>true</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+		<Item href="/_(Material)/auto-imported/Heroes/Knight_Path/Light/lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Heroes/Knight_Path/Light/lambert3.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Heroes/Knight_Path/Light/lambert3.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_aa4ef079-01f5-4be0-912b-a87049016a27">
+		<Skeleton ObjectRecordID="1610">
+			<SrcName href="/Effects/Characters/Knight/Path/Light01.mb"/>
+			<RootJoint>Light</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>8059DADD-F7D0-4A77-8881-E8D4BA6FD97B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a3953220-a11b-4651-b5bd-1d3dc5311b19">
+		<Geometry ObjectRecordID="6913">
+			<SrcName href="/Effects/Characters/Knight/Path/Light01.mb"/>
+			<uid>DB007B7D-CEB5-4D82-8738-9BA1E3BC9AC9</uid>
+			<RootMesh>Light</RootMesh>
+			<RootJoint>Light</RootJoint>
+			<Size>
+				<x>2.81239</x>
+				<y>3.22618</y>
+				<z>11.1045</z>
+			</Size>
+			<Center>
+				<x>0.0131956</x>
+				<y>0</y>
+				<z>8.50523</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00659785</x>
+				<y>2.76098e-013</y>
+				<z>14.0575</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>7</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>SmallRays_0Shape1</Item>
+				<Item>SmallRays_0Shape2</Item>
+				<Item>SmallRays_0Shape3</Item>
+				<Item>MainRay1Shape</Item>
+				<Item>SmallRays_0Shape4</Item>
+				<Item>SmallRays_0Shape6</Item>
+				<Item>SmallRays_0Shape5</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

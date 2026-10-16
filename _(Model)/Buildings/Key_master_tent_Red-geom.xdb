@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="1002760">
+	<SrcName href="/models/Buildings/FPP2/key_master_tent.mb"/>
+	<uid>34C1B1E9-AE0A-4918-97EF-B4C1C08AD9A3</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>4</x>
+		<y>4</y>
+		<z>4.26682</z>
+	</Size>
+	<Center>
+		<x>1</x>
+		<y>1</y>
+		<z>1.97684</z>
+	</Center>
+	<BestFitPoint>
+		<x>0.907996</x>
+		<y>1.11905</y>
+		<z>3.60141</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+		<w>1</w>
+	</Dir>
+	<AIGeometry href="Key_master_tent_Red-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>1</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>TerrainShape</Item>
+		<Item>TentShape</Item>
+		<Item>CrackShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

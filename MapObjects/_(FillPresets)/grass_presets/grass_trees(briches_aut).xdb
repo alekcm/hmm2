@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FillPreset ObjectRecordID="1000019">
+	<NameFileRef href="grass_trees_briches_aut.txt"/>
+	<NoRandomAngle>false</NoRandomAngle>
+	<layers>
+		<Item>
+			<NoRandomAngle>false</NoRandomAngle>
+			<objects>
+				<Item>
+					<NoRandomAngle>false</NoRandomAngle>
+					<Object href="/MapObjects/_(AdvMapObjectLink)/Objects-Grass/Trees/Birch/Birch_aut01.xdb#xpointer(/AdvMapObjectLink)"/>
+					<Size>0.2</Size>
+					<Probability>0.9</Probability>
+				</Item>
+				<Item>
+					<NoRandomAngle>false</NoRandomAngle>
+					<Object href="/MapObjects/_(AdvMapObjectLink)/Objects-Grass/Trees/Birch/Birch_aut04.xdb#xpointer(/AdvMapObjectLink)"/>
+					<Size>0.2</Size>
+					<Probability>0.9</Probability>
+				</Item>
+			</objects>
+			<Dispersion>1.9</Dispersion>
+			<Width>0</Width>
+		</Item>
+		<Item>
+			<NoRandomAngle>false</NoRandomAngle>
+			<objects>
+				<Item>
+					<NoRandomAngle>false</NoRandomAngle>
+					<Object href="/MapObjects/_(AdvMapObjectLink)/Objects-Grass/Trees/Birch/Birch_aut02.xdb#xpointer(/AdvMapObjectLink)"/>
+					<Size>0.35</Size>
+					<Probability>0.9</Probability>
+				</Item>
+				<Item>
+					<NoRandomAngle>false</NoRandomAngle>
+					<Object href="/MapObjects/_(AdvMapObjectLink)/Objects-Grass/Trees/Birch/Birch_aut03.xdb#xpointer(/AdvMapObjectLink)"/>
+					<Size>0.35</Size>
+					<Probability>0.9</Probability>
+				</Item>
+			</objects>
+			<Dispersion>1.4</Dispersion>
+			<Width>0.3</Width>
+		</Item>
+	</layers>
+</FillPreset>

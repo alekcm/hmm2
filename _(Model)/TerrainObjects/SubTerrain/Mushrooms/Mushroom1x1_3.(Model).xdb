@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6143">
+	<Materials>
+		<Item href="Mushroom1x1_3-file1Material.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_556f256e-8a08-4c28-8055-6cb1b07e3444">
+		<Skeleton ObjectRecordID="686">
+			<SrcName href="/models/TerrainObjects/Subterrain/Mushrooms/Mushroom1x1_3.mb"/>
+			<RootJoint>mushroom1x1_3</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>D6AE1163-EFC3-4121-9D46-8023330112A2</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_67421ec3-0b19-47bc-b333-5e0f68dadaea">
+		<Geometry ObjectRecordID="5333">
+			<SrcName href="/models/TerrainObjects/Subterrain/Mushrooms/Mushroom1x1_3.mb"/>
+			<uid>6B20B52A-8F26-4BDD-A361-6F08329CEB17</uid>
+			<RootMesh>mushroom1x1_3</RootMesh>
+			<RootJoint>mushroom1x1_3</RootJoint>
+			<Size>
+				<x>0.76383</x>
+				<y>0.808466</y>
+				<z>0.872075</z>
+			</Size>
+			<Center>
+				<x>0.0310222</x>
+				<y>0.06291</y>
+				<z>0.436038</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0836966</x>
+				<y>0.0551653</y>
+				<z>0.721986</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>mushroom1x1_3Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Geometry ObjectRecordID="4903">
+	<SrcName href="/models/Heroes/DemonLord/DemonLord.mb"/>
+	<uid>5C9A2BE8-9C4D-4E52-9C17-464A89094D64</uid>
+	<RootMesh/>
+	<RootJoint>Global</RootJoint>
+	<Size>
+		<x>5.53561</x>
+		<y>5.83792</y>
+		<z>3.95056</z>
+	</Size>
+	<Center>
+		<x>-0.594244</x>
+		<y>0.618101</y>
+		<z>1.97528</z>
+	</Center>
+	<BestFitPoint>
+		<x>-0.0168566</x>
+		<y>0.753713</y>
+		<z>3.68778</z>
+	</BestFitPoint>
+	<Dir>
+		<x>0</x>
+		<y>0</y>
+		<z>0</z>
+		<w>0</w>
+	</Dir>
+	<AIGeometry href="DemonLord-geom-AI.xdb#xpointer(/AIGeometry)"/>
+	<NumMeshes>3</NumMeshes>
+	<MaterialQuantities>
+		<Item>1</Item>
+		<Item>1</Item>
+		<Item>3</Item>
+	</MaterialQuantities>
+	<MeshNames>
+		<Item>Flag_Hero_InfernoShape</Item>
+		<Item>AxeShape</Item>
+		<Item>BodyShape</Item>
+	</MeshNames>
+	<MeshAnimated/>
+	<MeshWindAffected/>
+</Geometry>

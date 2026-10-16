@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet>
+	<animations>
+		<Item>
+			<Kind>attack_01</Kind>
+			<Anim href="Isabel_Ghost-arena-attack_01.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>attack_02</Kind>
+			<Anim href="Isabel_Ghost-arena-attack_02.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>attack_03</Kind>
+			<Anim href="Isabel_Ghost-arena-attack_03.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>cast</Kind>
+			<Anim href="Isabel_Ghost-arena-cast.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="Isabel_Ghost-arena-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle_combat</Kind>
+			<Anim href="Isabel_Ghost-arena-idle_combat.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle_knee</Kind>
+			<Anim href="Isabel_Ghost-arena-idle_knee.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle_sad</Kind>
+			<Anim href="Isabel_Ghost-arena-idle_sad.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move</Kind>
+			<Anim href="Isabel_Ghost-arena-move.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_bellicose</Kind>
+			<Anim href="Isabel_Ghost-arena-speech_bellicose.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_haughtiness</Kind>
+			<Anim href="Isabel_Ghost-arena-speech_haughtiness.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_neutral</Kind>
+			<Anim href="Isabel_Ghost-arena-speech_neutral.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>speech_sad</Kind>
+			<Anim href="Isabel_Ghost-arena-speech_sad.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle_speech_knee</Kind>
+			<Anim href="Isabel_Ghost-arena-idle_speech_knee.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/H5A2/Heroes/Isabel_Ghost/Isabel_Ghost.mb"/>
+	<ExpSrcClipFolder href="/H5A2/Heroes/Isabel_Ghost/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

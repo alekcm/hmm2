@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1001696">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_9d62909e-40f9-49c1-8d7f-177013189ab2">
+			<Material ObjectRecordID="1004264">
+				<Texture href="Dinos_01-dinosaur_01.(Texture).xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>false</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>true</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_e2bef48f-3e3c-4401-a5af-9f8089e04582">
+		<Skeleton ObjectRecordID="1000338">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Dino_bones/Dinobones.mb"/>
+			<RootJoint>Dinos_01</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>CBE87AA6-FA9F-4460-8015-781366B71A4D</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1798abef-373c-4751-9afc-d3585f35ecfd">
+		<Geometry ObjectRecordID="1001476">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Dino_bones/Dinobones.mb"/>
+			<uid>D156441C-A26E-445C-B02A-1B56A77E2932</uid>
+			<RootMesh>Dinos_01</RootMesh>
+			<RootJoint>Dinos_01</RootJoint>
+			<Size>
+				<x>2.91992</x>
+				<y>11.9256</y>
+				<z>7.05308</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>3.07811</y>
+				<z>3.26198</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.0296343</x>
+				<y>-1.92302</y>
+				<z>6.66262</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Dinos_0Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

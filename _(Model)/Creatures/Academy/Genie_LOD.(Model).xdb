@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7288">
+	<Materials>
+		<Item href="Genie_LOD-Genie_LOD_mapping_file3Material.1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="Genie_LOD-Genie_LOD_mapping_file4Material.1.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_7b558906-9c80-4d52-a1a7-82f8a88becc1">
+		<Skeleton ObjectRecordID="1319">
+			<SrcName href="/models/Creatures/Academy/Genie_LOD.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>313DF000-5273-4FED-864B-15E1628D68AF</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_a21e2e4f-77cd-4a06-8711-d670959da9c2">
+		<Geometry ObjectRecordID="6487">
+			<SrcName href="/models/Creatures/Academy/Genie_LOD.mb"/>
+			<uid>462A1EF1-EDF6-46BA-8EB9-D92B4FCF2C34</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>3.73934</x>
+				<y>1.65791</y>
+				<z>2.31244</z>
+			</Size>
+			<Center>
+				<x>-6.73532e-006</x>
+				<y>0.287291</y>
+				<z>1.81144</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.00135365</x>
+				<y>-0.000123194</y>
+				<z>2.88619</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_26d26fb9-3a2e-4e1b-bd5a-4338a27b5349">
+				<AIGeometry ObjectRecordID="358">
+					<SrcName href="/models/Creatures/Academy/Genie_LOD.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</AABBHalfSize>
+					<uid>3B2D3055-7066-49D7-8BB3-9C3A17D5FAAE</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>2</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>BodyShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

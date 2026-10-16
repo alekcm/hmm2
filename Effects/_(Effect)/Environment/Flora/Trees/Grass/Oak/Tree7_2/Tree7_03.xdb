@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Effect ObjectRecordID="107">
+	<Instances>
+		<Item href="#n:inline(ParticleInstance)" id="item_61e75881-05a6-474b-a70b-6fd16cf3fc22">
+			<ParticleInstance ObjectRecordID="168">
+				<SrcName/>
+				<Light>L_LIT</Light>
+				<Particle href="/Effects/_(Particle)/Environment/Flora/Tree7_2.xdb#xpointer(/Particle)"/>
+				<Position>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</Position>
+				<Rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+					<w>1</w>
+				</Rotation>
+				<Scale>1</Scale>
+				<Speed>1</Speed>
+				<Offset>0</Offset>
+				<EndCycle>1</EndCycle>
+				<CycleCount>0</CycleCount>
+				<Pivot>
+					<x>0</x>
+					<y>-1</y>
+				</Pivot>
+				<Textures>
+					<Item href="/Textures/Effects/Trees/Grass/Oak/Oak03.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Trees/Grass/Oak/Oak04.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Trees/Grass/Oak/Oak05.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Trees/Grass/Oak/Oak06.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Trees/Grass/Oak/Oak07.xdb#xpointer(/Texture)"/>
+					<Item href="/Textures/Effects/Trees/Grass/Oak/Oak08.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Trees/Grass/Oak/Oak13.xdb#xpointer(/Texture)"/>
+					<Item/>
+					<Item/>
+					<Item href="/Textures/Effects/Trees/Grass/Oak/Oak16.xdb#xpointer(/Texture)"/>
+				</Textures>
+				<IsCrown>false</IsCrown>
+				<Static>P_STATIC</Static>
+				<DoesCastShadow>true</DoesCastShadow>
+				<GlueToBone>0</GlueToBone>
+				<GlueToNamedBone/>
+				<LeaveParticlesWhereStarted>false</LeaveParticlesWhereStarted>
+				<Priority>0</Priority>
+			</ParticleInstance>
+		</Item>
+	</Instances>
+	<Lights/>
+	<Models/>
+	<WindAffected>false</WindAffected>
+	<WindPower>1</WindPower>
+	<Duration>2.5</Duration>
+</Effect>

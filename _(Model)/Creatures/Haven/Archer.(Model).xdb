@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="3253">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/Grass/Stuff/Log/auto-imported/Creatures/Haven/Archer/Archer_lambert.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Grass/Stuff/Log/auto-imported/Creatures/Haven/Archer/Archer_lambert-1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/Grass/Stuff/Log/auto-imported/Creatures/Haven/Archer/Archer_lambert-2.(Material).xdb#xpointer(/Material)"/>
+		<Item href="#n:inline(Material)" id="item_3e513d3b-88ab-4e2a-b741-b6d17398edc8">
+			<Material ObjectRecordID="4199">
+				<Texture href="/Textures/auto-imported_______320/dev/wood/Archer.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0.5</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror href="/Textures/auto-imported_______320/dev/wood/Archer_Miror.tga.xdb#xpointer(/Texture)"/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_ea0f6239-f14b-4470-b8d6-14657c28c585">
+		<Skeleton ObjectRecordID="205">
+			<SrcName href="/models/Creatures/Castle/Archer.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>6466D8C9-DE73-4D2C-B321-B8890317BFF3</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_055387d7-214c-4eb4-b965-b5cb91d443a5">
+		<Geometry ObjectRecordID="2701">
+			<SrcName href="/models/Creatures/Castle/Archer.mb"/>
+			<uid>09461442-2AAA-491D-9EA6-581DE8FA6034</uid>
+			<RootMesh/>
+			<RootJoint>Global</RootJoint>
+			<Size>
+				<x>1.94185</x>
+				<y>1.74669</y>
+				<z>1.7696</z>
+			</Size>
+			<Center>
+				<x>-0.0813783</x>
+				<y>-0.00467962</y>
+				<z>0.884801</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.254675</x>
+				<y>0.100146</y>
+				<z>1.65336</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_5e543723-715a-49b3-97c7-f2583ce2256e">
+				<AIGeometry ObjectRecordID="60">
+					<SrcName href="/models/Creatures/Castle/Archer.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint/>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>0.0205</x>
+						<y>-0.000177264</y>
+						<z>0.838141</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>0.413502</x>
+						<y>0.31679</y>
+						<z>0.85</z>
+					</AABBHalfSize>
+					<uid>7F184707-E076-4961-96BC-BF1C119A30CA</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>4</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Knife_meshShape</Item>
+				<Item>Arrow_meshShape</Item>
+				<Item>Bow_meshShape</Item>
+				<Item>Archer_meshShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

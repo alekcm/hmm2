@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7756">
+	<Materials>
+		<Item href="Subterranian_Gate_In-Subterranian_gate_in_roof_material.2.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_094a043a-72ac-4028-85d7-fb68f7bab06c">
+		<Skeleton ObjectRecordID="1615">
+			<SrcName href="/models/Buildings/FPP2/Subterrain/Subterranian_Gate_In.mb"/>
+			<RootJoint>Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>9D7E34BD-F1A4-4430-8F1C-D4095BCF787E</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_ff183a65-9d84-44f9-90ee-4fdb250edf7b">
+		<Geometry ObjectRecordID="6919">
+			<SrcName href="/models/Buildings/FPP2/Subterrain/Subterranian_Gate_In.mb"/>
+			<uid>F0134222-1948-4381-9ACC-08EC9125DCB6</uid>
+			<RootMesh>Global</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>4.51599</x>
+				<y>3.91538</y>
+				<z>4.62697</z>
+			</Size>
+			<Center>
+				<x>-0.554654</x>
+				<y>-0.327398</y>
+				<z>1.7527</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.37094</x>
+				<y>1.09519</y>
+				<z>3.95232</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry href="#n:inline(AIGeometry)" id="item_99e0e7a8-84c2-456e-9c84-dcc358f42083">
+				<AIGeometry ObjectRecordID="1000466">
+					<SrcName href="/models/Buildings/FPP2/Subterrain/Subterranian_Gate_In.mb"/>
+					<RootMesh>AI</RootMesh>
+					<RootJoint>AI</RootJoint>
+					<Volume>0</Volume>
+					<SolidPart>0</SolidPart>
+					<AABBCenter>
+						<x>-0.260195</x>
+						<y>-0.348741</y>
+						<z>2.18465</z>
+					</AABBCenter>
+					<AABBHalfSize>
+						<x>2.22767</x>
+						<y>2.22338</y>
+						<z>2.17739</z>
+					</AABBHalfSize>
+					<uid>C279D5BB-B519-4498-9699-9977A4A8DB1A</uid>
+				</AIGeometry>
+			</AIGeometry>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Subterranian_gate_in_roof1Shape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

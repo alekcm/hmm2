@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="6666">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_9412842d-022b-43ad-a8c5-16ee6f1a30a8">
+			<Material ObjectRecordID="13543">
+				<Texture href="/Textures/auto-imported_______320/TerrainObjects/Grass/Flowers/Corns_____13660/Corn_01/corn.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>false</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_SELFILLUM</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_ALPHA_TEST</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_c285650b-bc6a-484b-9009-a293bf3ee386">
+		<Skeleton ObjectRecordID="1017">
+			<SrcName href="/models/TerrainObjects/Grass/Flowers/Corns/corn_01.mb"/>
+			<RootJoint>corn_01</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>13004C47-3C60-46E0-8B4F-41A0E12A4CF1</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_1d125533-dca1-4045-97f5-c65ed00491f2">
+		<Geometry ObjectRecordID="5855">
+			<SrcName href="/models/TerrainObjects/Grass/Flowers/Corns/corn_01.mb"/>
+			<uid>04B989AF-E202-4405-9E24-5C3E3DC7A9DB</uid>
+			<RootMesh>corn_01</RootMesh>
+			<RootJoint>corn_01</RootJoint>
+			<Size>
+				<x>0.971405</x>
+				<y>0.719649</y>
+				<z>1.90315</z>
+			</Size>
+			<Center>
+				<x>-0.0896212</x>
+				<y>-0.0508935</y>
+				<z>0.946465</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.0122724</x>
+				<y>-0.00699579</y>
+				<z>1.60989</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>corn_0Shape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected>
+				<Item>1</Item>
+			</MeshWindAffected>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

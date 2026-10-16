@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="2636">
+	<Materials>
+		<Item href="#n:inline(Material)" id="item_2a954ba8-4c23-4ce9-aab4-03299281573c">
+			<Material ObjectRecordID="3273">
+				<Texture href="/Textures/auto-imported_______320/dev/Grass/Random_objects/Monster_Level3/Monster_Level3.tga.xdb#xpointer(/Texture)"/>
+				<Bump/>
+				<SpecFactor>0</SpecFactor>
+				<SpecColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</SpecColor>
+				<Gloss/>
+				<MetalMirror>0</MetalMirror>
+				<DielMirror>0</DielMirror>
+				<Mirror/>
+				<CastShadow>true</CastShadow>
+				<ReceiveShadow>true</ReceiveShadow>
+				<Priority>0</Priority>
+				<TranslucentColor>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</TranslucentColor>
+				<FloatParam>0</FloatParam>
+				<DetailTexture/>
+				<DetailScale>5</DetailScale>
+				<ProjectOnTerrain>false</ProjectOnTerrain>
+				<LightingMode>L_NORMAL</LightingMode>
+				<DynamicMode>DM_DONT_CARE</DynamicMode>
+				<Is2Sided>false</Is2Sided>
+				<Effect>M_GENERIC</Effect>
+				<AlphaMode>AM_OPAQUE</AlphaMode>
+				<AffectedByFog>true</AffectedByFog>
+				<AddPlaced>false</AddPlaced>
+				<IgnoreZBuffer>false</IgnoreZBuffer>
+				<BackFaceCastShadow>false</BackFaceCastShadow>
+			</Material>
+		</Item>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_01c6519b-4956-42fa-9935-7e382ee624b1">
+		<Skeleton ObjectRecordID="124">
+			<SrcName href="/models/TerrainObjects/Random_objects/Monster_Level3.mb"/>
+			<RootJoint>pCube1</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>7670DC40-965E-4881-8EBA-5EBC5E505839</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_c7f034f2-ae46-4086-92e2-47653b483c01">
+		<Geometry ObjectRecordID="2092">
+			<SrcName href="/models/TerrainObjects/Random_objects/Monster_Level3.mb"/>
+			<uid>79650230-5B5B-4832-9E68-0B8456BA8207</uid>
+			<RootMesh>pCube1</RootMesh>
+			<RootJoint/>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>1.41135</z>
+			</Size>
+			<Center>
+				<x>0</x>
+				<y>0</y>
+				<z>0.705674</z>
+			</Center>
+			<BestFitPoint>
+				<x>-1.97983e-008</x>
+				<y>9.89913e-009</y>
+				<z>1.40638</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>pCubeShape1</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

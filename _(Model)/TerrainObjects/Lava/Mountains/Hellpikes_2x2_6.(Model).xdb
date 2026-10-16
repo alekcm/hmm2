@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7034">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/TerrainObjects/Lava/Mountains/Hellpikes_8x8_2/Craters.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_b4f95954-84f2-44f7-a6bb-94060fb0cee5">
+		<Skeleton ObjectRecordID="1254">
+			<SrcName href="/models/TerrainObjects/Lava/Mountains/Hellpikes_10x10.mb"/>
+			<RootJoint>Hellpikes_2x2_6</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>B4C63E53-4497-4C1F-B179-2B0705568F94</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_615a127f-0fc1-4b72-b5dd-6556d9eb9540">
+		<Geometry ObjectRecordID="6236">
+			<SrcName href="/models/TerrainObjects/Lava/Mountains/Hellpikes_10x10.mb"/>
+			<uid>EBFB6007-2EBA-4BD2-8AA6-5908DF82A4BB</uid>
+			<RootMesh>Hellpikes_2x2_6</RootMesh>
+			<RootJoint>Hellpikes_2x2_6</RootJoint>
+			<Size>
+				<x>4</x>
+				<y>4</y>
+				<z>3.74271</z>
+			</Size>
+			<Center>
+				<x>-1</x>
+				<y>-1</y>
+				<z>1.42867</z>
+			</Center>
+			<BestFitPoint>
+				<x>-0.955453</x>
+				<y>0.309152</y>
+				<z>3.19153</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Hellpikes_2x2_6|Hellpikes|HellpikesShape</Item>
+				<Item>Hellpikes_2x2_6|Hellpikes_lambert|Hellpikes_lambertShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

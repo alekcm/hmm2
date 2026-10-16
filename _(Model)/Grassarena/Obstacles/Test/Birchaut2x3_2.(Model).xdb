@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7585">
+	<Materials>
+		<Item href="/_(Material)/auto-imported/TerrainObjects/Grass/Trees/Birch/Birchaut04/Birch_bark.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/TerrainObjects/Grass/Trees/Birch/Birchaut04/Birch_bark-1.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/auto-imported/TerrainObjects/Grass/Trees/Birch/Birchaut04/Birch_leave_autumn.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_51b1dec6-c175-43e5-ad34-a4c3bac033f7">
+		<Skeleton ObjectRecordID="1520">
+			<SrcName href="/models/TerrainObjects/Grass/Trees/Birchs.mb"/>
+			<RootJoint>Birchaut2x3_2</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>2C1D604D-C6CF-4736-93A0-66752D364F5E</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_2cc5281a-a10c-4671-b095-7d5639440bab">
+		<Geometry ObjectRecordID="6759">
+			<SrcName href="/models/TerrainObjects/Grass/Trees/Birchs.mb"/>
+			<uid>EF4A0B46-5DAB-4B37-9942-30554DB4AEDA</uid>
+			<RootMesh>Birchaut2x3_2</RootMesh>
+			<RootJoint>Birchaut2x3_2</RootJoint>
+			<Size>
+				<x>6.19041</x>
+				<y>8.24309</y>
+				<z>8.83209</z>
+			</Size>
+			<Center>
+				<x>1.17953</x>
+				<y>-0.513114</y>
+				<z>3.60864</z>
+			</Center>
+			<BestFitPoint>
+				<x>0.454825</x>
+				<y>-2.46894</y>
+				<z>7.93827</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>3</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Birchaut2x3_2|branch|branchShape</Item>
+				<Item>Birchaut2x3_2|bark|barkShape</Item>
+				<Item>Birchaut2x3_2|leaves|leavesShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

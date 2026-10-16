@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="33">
+	<animations>
+		<Item>
+			<Kind>hit</Kind>
+			<Anim href="/_(BasicSkelAnim)/Creatures/WarMachines/AmmoWagon/hit.(BasicSkelAnim).xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="AmmoWagon-arena-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Creatures/WarMachines/AmmoWagon.mb"/>
+	<ExpSrcClipFolder href="/Animations/Creatures/WarMachines/AmmoWagon/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

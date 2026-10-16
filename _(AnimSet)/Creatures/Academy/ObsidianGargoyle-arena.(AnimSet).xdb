@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimSet ObjectRecordID="302">
+	<animations>
+		<Item>
+			<Kind>death</Kind>
+			<Anim href="ObsidianGargoyle-arena-death.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>hit</Kind>
+			<Anim href="ObsidianGargoyle-arena-hit.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>idle00</Kind>
+			<Anim href="ObsidianGargoyle-arena-idle00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>move</Kind>
+			<Anim href="ObsidianGargoyle-arena-move.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>attack00</Kind>
+			<Anim href="ObsidianGargoyle-arena-attack00.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+		<Item>
+			<Kind>happy</Kind>
+			<Anim href="ObsidianGargoyle-arena-happy.xdb#xpointer(/BasicSkelAnim)"/>
+		</Item>
+	</animations>
+	<ExpSrcScene href="/models/Creatures/Academy/ObsidianGargoyle.mb"/>
+	<ExpSrcClipFolder href="/Animations/Creatures/ACADEMY/ObsidianGargoyle/Clip/"/>
+	<ExpRootTransform>Global</ExpRootTransform>
+</AnimSet>

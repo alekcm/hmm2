@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="1000767">
+	<Materials>
+		<Item href="Crater8x6_1-Craters.(Material).xdb#xpointer(/Material)"/>
+		<Item href="/_(Material)/dev/Test/Malkovsky/CragTerrain.(Material).xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_995974fa-5a5f-4f41-8069-f6ea24e007d9">
+		<Skeleton ObjectRecordID="1000137">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Craters/Craters.mb"/>
+			<RootJoint>Crater4x3_2</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>94787899-F863-491A-B175-3949E0C0C228</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_57817e76-00b5-4aa3-828d-704cf91f9520">
+		<Geometry ObjectRecordID="1000558">
+			<SrcName href="/models/TerrainObjects/Sandterrain/Craters/Craters.mb"/>
+			<uid>4972F61B-EEFB-4931-A1A7-8B21F545A9C0</uid>
+			<RootMesh>Crater4x3_2</RootMesh>
+			<RootJoint>Crater4x3_2</RootJoint>
+			<Size>
+				<x>8</x>
+				<y>6</y>
+				<z>7.14574</z>
+			</Size>
+			<Center>
+				<x>1</x>
+				<y>0</y>
+				<z>-3.57287</z>
+			</Center>
+			<BestFitPoint>
+				<x>1.02125</x>
+				<y>-0.0812327</y>
+				<z>-0.177706</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+				<w>1</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>2</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>Crater4x3_2|Crater|CraterShape</Item>
+				<Item>Crater4x3_2|Crater_lamb|Crater_lambShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>

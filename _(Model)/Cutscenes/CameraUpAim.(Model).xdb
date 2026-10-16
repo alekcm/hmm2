@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model ObjectRecordID="7703">
+	<Materials>
+		<Item href="/_(Material)/dev/ReflectiveWater.xdb#xpointer(/Material)"/>
+	</Materials>
+	<Skeleton href="#n:inline(Skeleton)" id="item_f992fb87-0f8e-45e5-99be-6ad517290ae5">
+		<Skeleton ObjectRecordID="1587">
+			<SrcName href="/Cameras/Camera_Up_Aim.mb"/>
+			<RootJoint>Camera_Global</RootJoint>
+			<MSRFormat>true</MSRFormat>
+			<Animations/>
+			<uid>47E29FA5-F84E-41E0-AA03-26305665FE5B</uid>
+		</Skeleton>
+	</Skeleton>
+	<Geometry href="#n:inline(Geometry)" id="item_97638631-2dd5-479e-b94b-ec85f2a9a555">
+		<Geometry ObjectRecordID="6869">
+			<SrcName href="/Cameras/Camera_Up_Aim.mb"/>
+			<uid>801592C8-E071-426E-90EE-74C1CF23127C</uid>
+			<RootMesh>Camera_Global</RootMesh>
+			<RootJoint>Camera_Global</RootJoint>
+			<Size>
+				<x>2</x>
+				<y>2</y>
+				<z>1.73205</z>
+			</Size>
+			<Center>
+				<x>-5.96046e-008</x>
+				<y>0</y>
+				<z>8.9407e-008</z>
+			</Center>
+			<BestFitPoint>
+				<x>-3.87296e-007</x>
+				<y>0.999653</y>
+				<z>0.865725</z>
+			</BestFitPoint>
+			<Dir>
+				<x>0</x>
+				<y>0</y>
+				<z>0</z>
+				<w>0</w>
+			</Dir>
+			<AIGeometry/>
+			<NumMeshes>1</NumMeshes>
+			<MaterialQuantities>
+				<Item>1</Item>
+			</MaterialQuantities>
+			<MeshNames>
+				<Item>cameraShape</Item>
+			</MeshNames>
+			<MeshAnimated/>
+			<MeshWindAffected/>
+		</Geometry>
+	</Geometry>
+	<Animations/>
+	<WindPower>1</WindPower>
+</Model>
