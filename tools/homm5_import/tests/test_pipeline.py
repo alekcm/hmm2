@@ -553,5 +553,48 @@ class AssetNamingTest(unittest.TestCase):
             self.assertEqual(os.path.basename(got), "B.dds.png")
 
 
+class ObjectTextureTest(unittest.TestCase):
+    """Object materials must resolve to a .dds the importer actually converts."""
+
+    def setUp(self):
+        from homm5import.xdb import XDB
+        from homm5import.maps import iter_map_files, unique_map_ids, load_map
+        self.xdb = XDB(DATA)
+        self.maps = unique_map_ids(iter_map_files(self.xdb, only_map_descs=True))
+
+    def test_texture_field_is_destname_not_filename(self):
+        """The Texture XDB has no <FileName>; reading it left every object blank."""
+        from homm5import.maps import load_map
+        path, _ = sorted(self.maps.items())[0]
+        m = load_map(self.xdb, path)
+        with_tex = [o for o in m.objects if o.textures]
+        self.assertGreater(len(with_tex), 0,
+                           "no object resolved a texture -- DestName lookup is broken")
+
+    def test_resolved_textures_are_keys_the_manifest_uses(self):
+        """Keys must match Textures/_manifest.json exactly, or lookup misses."""
+        from homm5import.maps import load_map
+        checked = 0
+        for path, _mid in sorted(self.maps.items())[:5]:
+            for o in load_map(self.xdb, path).objects:
+                for t in o.textures:
+                    self.assertTrue(t.startswith("/"), t)
+                    self.assertTrue(os.path.isfile(os.path.join(DATA, t.lstrip("/"))),
+                                    "no such dds: %s" % t)
+                    checked += 1
+        self.assertGreater(checked, 100)
+
+    def test_majority_of_objects_are_textured(self):
+        from homm5import.maps import load_map
+        total = with_tex = 0
+        for path, _mid in sorted(self.maps.items())[:8]:
+            for o in load_map(self.xdb, path).objects:
+                total += 1
+                if o.textures:
+                    with_tex += 1
+        self.assertGreater(with_tex / max(total, 1), 0.5,
+                           "only %d/%d objects textured" % (with_tex, total))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

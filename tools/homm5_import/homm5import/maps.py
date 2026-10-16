@@ -156,7 +156,7 @@ def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject, cache: dict) -
 
     geom_uid: Optional[str] = None
     textures: List[str] = []
-    node = xdb.resolve_field(shared)
+    node, shared_href = xdb.resolve(shared)
     if node is not None:
         for tag in ("blockedTiles", "BlockedTiles"):
             blocked = node.find(tag)
@@ -165,7 +165,8 @@ def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject, cache: dict) -
                 obj.blocked = [[int(xdb.number(i.find("x"))), int(xdb.number(i.find("y")))]
                                for i in xdb.items(blocked)]
                 break
-        model = xdb.resolve_field(node.find("Model"))
+        model_elem = node.find("Model")
+        model, model_href = xdb.resolve(model_elem, shared_href)
         if model is not None:
             geom = model.find("Geometry")
             if geom is not None:
@@ -174,12 +175,24 @@ def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject, cache: dict) -
             mats = model.find("Materials")
             if mats is not None:
                 for item in xdb.items(mats):
-                    mat = xdb.resolve_field(item) or item
-                    tex = xdb.resolve_field(mat.find("Texture")) if mat is not None else None
-                    if tex is not None:
-                        t = xdb.text(tex.find("FileName")) or (tex.get("href") or "")
-                        if t:
-                            textures.append(t)
+                    mat = xdb.resolve_field(item, model_href) or item
+                    if mat is None:
+                        continue
+                    # <Texture> points at a (Texture).xdb, whose <DestName> is
+                    # the shipped .dds -- relative to that file, not to the data
+                    # root.  Reading <FileName> here found nothing: the field is
+                    # called DestName, so every object came out untextured.
+                    tex, tex_href = xdb.resolve(mat.find("Texture"), model_href)
+                    if tex is None:
+                        continue
+                    dest = tex.find("DestName")
+                    ref = dest.get("href") if dest is not None else None
+                    rel = xdb.absolutize(ref, tex_href) if ref else xdb.text(dest)
+                    if not rel:
+                        rel = xdb.text(tex.find("FileName"))
+                    if rel:
+                        # Kept exactly as the texture manifest keys it.
+                        textures.append("/" + rel.lstrip("/"))
     cache[href] = (geom_uid, textures, obj.blocked)
     obj.geometry_uid, obj.textures = geom_uid, textures
 

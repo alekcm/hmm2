@@ -26,6 +26,7 @@ namespace HoMM5
 
         public GameDatabase Database { get; private set; }
         public MeshCache Meshes { get; private set; }
+        public HoMM5.Core.H5TextureCache Textures { get; private set; }
         public MapSceneBuilder CurrentMap { get; private set; }
 
         GameObject _mapRoot;
@@ -38,6 +39,11 @@ namespace HoMM5
             Database.Load();
 
             Meshes = new MeshCache();
+
+            Textures = new HoMM5.Core.H5TextureCache(Shader.Find("Standard"));
+            if (!Textures.LoadManifest())
+                Debug.LogWarning("[HoMM5] no texture manifest found -- objects will be untextured.\n" +
+                                 HoMM5.Data.GameDatabase.MissingImportMessage());
 
             BuildLights();
             BuildCamera();
@@ -62,8 +68,10 @@ namespace HoMM5
         {
             if (CurrentMap != null && CurrentMap.Root != null) Destroy(CurrentMap.Root);
             Meshes.Clear();
+            if (Textures != null) Textures.Dispose();
 
-            var builder = new MapSceneBuilder(Meshes, MakeTerrainMaterial(), MakeObjectMaterial(), MakeWaterMaterial());
+            var builder = new MapSceneBuilder(Meshes, MakeTerrainMaterial(), MakeObjectMaterial(),
+                                              MakeWaterMaterial(), Textures);
             var root = builder.Build(mapId, floor);
             if (root == null)
             {

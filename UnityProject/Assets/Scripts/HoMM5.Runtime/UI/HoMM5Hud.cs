@@ -28,9 +28,17 @@ namespace HoMM5.UI
         ScrollRect _mapScroll;
         RectTransform _mapListContent;
 
-        void Start()
+        // Awake, not Start: H5Bootstrap adds this component and then calls
+        // PopulateMapList in the same frame. Awake runs synchronously inside
+        // AddComponent; Start would not run until the next frame, so the canvas
+        // would still be missing and the map list would silently stay empty.
+        void Awake()
         {
             BuildCanvas();
+        }
+
+        void Start()
+        {
             if (Controller != null) Controller.SelectionChanged += OnSelectionChanged;
         }
 

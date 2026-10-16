@@ -15,6 +15,7 @@ namespace HoMM5.Map
         public const float ObjectScale = 1.0f;
 
         readonly MeshCache _meshes;
+        readonly HoMM5.Core.H5TextureCache _textures;
         readonly Material _terrainMaterial;
         readonly Material _objectMaterial;
         readonly Material _waterMaterial;
@@ -25,12 +26,15 @@ namespace HoMM5.Map
 
         public int ObjectsPlaced { get; private set; }
         public int ObjectsMissingMesh { get; private set; }
+        public int TexturedObjects { get; private set; }
         public int TerrainChunks { get; private set; }
 
         public MapSceneBuilder(MeshCache meshes, Material terrainMaterial,
-                               Material objectMaterial, Material waterMaterial)
+                               Material objectMaterial, Material waterMaterial,
+                               HoMM5.Core.H5TextureCache textures = null)
         {
             _meshes = meshes;
+            _textures = textures;
             _terrainMaterial = terrainMaterial;
             _objectMaterial = objectMaterial;
             _waterMaterial = waterMaterial;
@@ -157,12 +161,29 @@ namespace HoMM5.Map
                 child.transform.SetParent(go.transform, false);
                 child.AddComponent<MeshFilter>().sharedMesh = meshes[m];
                 var mr = child.AddComponent<MeshRenderer>();
-                mr.sharedMaterial = _objectMaterial;
+                mr.sharedMaterial = MaterialForMesh(def, m) ?? _objectMaterial;
                 mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
             }
 
             go.AddComponent<H5MapObject>().Attach(def, this);
             return true;
+        }
+
+        /// <summary>
+        /// The material for the m-th mesh of an object. HoMM5 lists one texture
+        /// per model material in the same order as the meshes, so they line up
+        /// directly; when a model has fewer materials than meshes the last one is
+        /// reused rather than falling back to blank.
+        /// </summary>
+        Material MaterialForMesh(MapObjectDef def, int m)
+        {
+            if (_textures == null || def.textures == null || def.textures.Count == 0) return null;
+            var idx = m < def.textures.Count ? m : def.textures.Count - 1;
+            var src = def.textures[idx];
+            if (string.IsNullOrEmpty(src)) return null;
+            var mat = _textures.MaterialFor(src);
+            if (mat != null) TexturedObjects++;
+            return mat;
         }
 
         static string ObjectName(MapObjectDef def, int index)
