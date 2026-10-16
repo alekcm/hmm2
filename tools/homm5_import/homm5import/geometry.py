@@ -149,7 +149,10 @@ def decode_group(mesh_node: Node) -> Optional[MeshGroup]:
         for i in range(len(blob) // SKIN_STRIDE):
             o = i * SKIN_STRIDE
             bone_weights.append(struct.unpack_from("<4f", blob, o))
-            bone_indices.append(struct.unpack_from("<4B", blob, o + 16))
+            # Bytes 16..19 are the SAME weights quantized to 0..255; the bone
+            # indices are 20..23. Reading them at 16 returns the quantized
+            # weights -- so a vertex weighted 1.0 came back bound to bone 255.
+            bone_indices.append(struct.unpack_from("<4B", blob, o + 20))
 
     _, idx_leaf = _count_and_leaf(mesh_node.find(7)) if mesh_node.find(7) else (None, None)
     triangles: List[tuple] = []

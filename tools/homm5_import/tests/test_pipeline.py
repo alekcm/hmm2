@@ -844,5 +844,86 @@ class Gr2Test(unittest.TestCase):
                 break
 
 
+class SkinBindingTest(unittest.TestCase):
+    """Record tag 4 of bin/Geometries: the vertex-to-bone binding.
+
+    24 bytes per POSITION: 4 float32 weights, the same 4 quantized to 0..255,
+    then 4 bone indices. Reading the indices at 16 returns the quantized
+    weights, which is what this guards against.
+    """
+
+    def _skinned(self, limit=40):
+        import glob
+        from homm5import.geometry import decode_file
+        out = []
+        for path in sorted(glob.glob(os.path.join(DATA, "bin", "Geometries", "*"))):
+            try:
+                geo = decode_file(path)
+            except Exception:
+                continue
+            for mesh in geo.meshes:
+                for grp in mesh.groups:
+                    if grp.bone_weights:
+                        out.append((path, grp))
+                        break
+            if len(out) >= limit:
+                break
+        return out
+
+    def test_weights_sum_to_one(self):
+        """The oracle: a bound position's four weights sum to exactly 1.000. An
+        all-zero record is a position no bone claims, and is allowed -- but a
+        partial sum means the stride or the offset is wrong."""
+        groups = self._skinned()
+        self.assertGreater(len(groups), 5)
+        verts = unbound = bound = 0
+        for _path, grp in groups:
+            for w in grp.bone_weights:
+                total = sum(w)
+                # All-zero is a position no bone claims -- static meshes carry an
+                # unused tag-4 array. Anything between zero and one means the
+                # stride or the offset is wrong, which is what this catches.
+                if total == 0.0:
+                    unbound += 1
+                else:
+                    self.assertAlmostEqual(total, 1.0, places=3)
+                    bound += 1
+                verts += 1
+        self.assertGreater(verts, 1000)
+        self.assertGreater(bound, 1000, "no bound positions found at all")
+
+    def test_quantized_slot_is_not_the_index_slot(self):
+        """A vertex weighted 1.0 quantizes to 255. If the indices were read at
+        the quantized offset, 255 would be the commonest index."""
+        for _path, grp in self._skinned(15):
+            flat = [i for t in grp.bone_indices for i in t]
+            self.assertNotIn(255, flat,
+                             "255 among bone indices: reading the quantized weights")
+
+    def test_indices_are_plausible_bone_numbers(self):
+        """Skeletons run to a few dozen bones; 87 was the largest seen."""
+        for _path, grp in self._skinned(25):
+            for t in grp.bone_indices:
+                for i in t:
+                    self.assertLess(i, 200, "implausible bone index %d" % i)
+
+    def test_skin_arrays_line_up_with_render_vertices(self):
+        """Skin is stored per position and must be remapped onto render vertices,
+        or every triangle would be weighted by the wrong bone."""
+        for _path, grp in self._skinned(25):
+            self.assertEqual(len(grp.bone_weights), len(grp.bone_indices))
+            self.assertEqual(len(grp.bone_weights), grp.vertex_count)
+
+    def test_some_meshes_really_blend(self):
+        """Not every vertex is bound to a single bone; if none blend, the index
+        slot is probably still being misread."""
+        blended = 0
+        for _path, grp in self._skinned(40):
+            for t, w in zip(grp.bone_indices, grp.bone_weights):
+                if len(set(t)) > 1 and sum(1 for x in w if x > 0.01) > 1:
+                    blended += 1
+        self.assertGreater(blended, 0)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
