@@ -93,7 +93,7 @@ namespace HoMM5
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (HoMM5.Core.H5Input.FloorTogglePressed())
                 floor = floor == 1 ? 0 : 1;
         }
 
@@ -143,7 +143,7 @@ namespace HoMM5
             cam.fieldOfView = 45f;
 
             // A uGUI canvas needs an EventSystem for the map list to be clickable.
-            if (Object.FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>() == null)
+            if (Object.FindAnyObjectByType<UnityEngine.EventSystems.EventSystem>() == null)
             {
                 var es = new GameObject("EventSystem");
                 es.AddComponent<UnityEngine.EventSystems.EventSystem>();

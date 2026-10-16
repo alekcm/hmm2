@@ -512,5 +512,46 @@ class MapTest(unittest.TestCase):
         self.assertEqual(empty, 0, f"{empty} maps came out empty")
 
 
+class AssetNamingTest(unittest.TestCase):
+    """Unity rejects asset names that start with a space or hold ? < > : * | "."""
+
+    def test_the_shipped_offending_file_is_renamed(self):
+        from homm5import.cli import safe_relative_path
+        src = "Textures/Effects/_Various/ Balor_swordClot_red_NoADD.(Texture).dds"
+        out = safe_relative_path(src)
+        self.assertFalse(any(part.startswith(" ") for part in out.split("/")), out)
+        self.assertTrue(os.path.isfile(os.path.join(DATA, src)),
+                        "the file this guards against is no longer in the data")
+
+    def test_forbidden_characters_are_replaced(self):
+        from homm5import.cli import safe_relative_path
+        for ch in '?<>:*|"':
+            out = safe_relative_path("Textures/a%sb.dds" % ch)
+            self.assertNotIn(ch, out)
+
+    def test_clean_paths_are_untouched(self):
+        from homm5import.cli import safe_relative_path
+        p = "Textures/Arenas/CombatArena/x-cTower.(Texture).dds"
+        self.assertEqual(safe_relative_path(p), p)
+
+    def test_no_shipped_dds_still_produces_a_bad_name(self):
+        from homm5import.cli import safe_relative_path
+        for path in glob.glob(os.path.join(DATA, "**", "*.dds"), recursive=True):
+            rel = os.path.relpath(path, DATA).replace(os.sep, "/")
+            out = safe_relative_path(rel)
+            for part in out.split("/"):
+                self.assertFalse(part.startswith(" "), path)
+                self.assertFalse(any(c in part for c in '?<>:*|"'), path)
+
+    def test_out_splits_forward_slashes_into_components(self):
+        """A nested source path must not become one component with separators in it."""
+        import tempfile
+        from homm5import.cli import _out
+        with tempfile.TemporaryDirectory() as tmp:
+            got = _out(tmp, "Textures", "Textures/A/B.dds.png")
+            self.assertTrue(os.path.isdir(os.path.join(tmp, "Textures", "Textures", "A")))
+            self.assertEqual(os.path.basename(got), "B.dds.png")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

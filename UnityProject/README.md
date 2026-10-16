@@ -89,6 +89,19 @@ are needed; the swap alone reverses orientation and leaves every face culled.
 models, so `MeshCache` hands out the same `Mesh` to every object and
 `ObjectScale` is a single constant rather than a per-object transform.
 
+## Input
+
+All device access goes through `Core/H5Input.cs`, which compiles against both
+backends and picks one from `ENABLE_INPUT_SYSTEM`:
+
+- **Input Manager** (the default) — the project opens and runs as-is.
+- **Input System** — set *Project Settings ▸ Player ▸ Active Input Handling* to
+  *Both* or *Input System Package (New)*. No code change; the same file switches.
+
+`com.unity.inputsystem` 1.20.0 is in the manifest, the version Unity 6.6 ships.
+Until you flip that setting the Input Manager is still active, so Unity keeps
+logging that it is deprecated — that message is informational, not a fault.
+
 ## What this is
 
 A **map viewer over the real game data** — the terrain, the 197936 placed

@@ -1,3 +1,4 @@
+using HoMM5.Core;
 using UnityEngine;
 
 namespace HoMM5.Map
@@ -72,24 +73,19 @@ namespace HoMM5.Map
 
         void HandleZoom()
         {
-            var wheel = Input.GetAxisRaw("Mouse ScrollWheel");
+            var wheel = H5Input.Scroll();
             if (Mathf.Approximately(wheel, 0f)) return;
             _distance = Mathf.Clamp(_distance - wheel * zoomSpeed, minDistance, maxDistance);
         }
 
         void HandlePan()
         {
-            var move = Vector2.zero;
-
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) move.y += 1f;
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) move.y -= 1f;
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) move.x -= 1f;
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) move.x += 1f;
+            var move = H5Input.PanAxis();
 
             // Edge scrolling, unless the pointer is over the UI.
-            if (move == Vector2.zero && !HoMM5.UI.HudInput.IsPointerOverUi)
+            if (move == Vector2.zero && !H5Input.PointerOverUi)
             {
-                var p = Input.mousePosition;
+                var p = H5Input.PointerPosition();
                 if (p.x <= edgeScrollPixels) move.x -= 1f;
                 else if (p.x >= Screen.width - edgeScrollPixels) move.x += 1f;
                 if (p.y <= edgeScrollPixels) move.y -= 1f;
@@ -98,16 +94,16 @@ namespace HoMM5.Map
             }
 
             // Middle mouse drag pans directly.
-            if (Input.GetMouseButtonDown(2))
+            if (H5Input.PanDragStarted())
             {
                 _dragging = true;
-                _dragOrigin = Input.mousePosition;
+                _dragOrigin = H5Input.PointerPosition();
                 _dragFocus = _focus;
             }
-            if (Input.GetMouseButtonUp(2)) _dragging = false;
+            if (H5Input.PanDragEnded()) _dragging = false;
             if (_dragging)
             {
-                var delta = (Vector3)(_dragOrigin - Input.mousePosition);
+                var delta = _dragOrigin - H5Input.PointerPosition();
                 var scale = _distance / Mathf.Max(1f, Screen.height) * 2f;
                 _focus += (transform.right * delta.x + ProjectedForward() * delta.y) * scale;
             }
@@ -144,11 +140,11 @@ namespace HoMM5.Map
 
         void HandleSelection()
         {
-            if (!Input.GetMouseButtonDown(0)) return;
-            if (HoMM5.UI.HudInput.IsPointerOverUi) return;
+            if (!H5Input.SelectPressed()) return;
+            if (H5Input.PointerOverUi) return;
             if (_cam == null) return;
 
-            var ray = _cam.ScreenPointToRay(Input.mousePosition);
+            var ray = _cam.ScreenPointToRay(H5Input.PointerPosition());
             if (!Physics.Raycast(ray, out var hit, 2000f)) return;
 
             var obj = hit.collider.GetComponentInParent<H5MapObject>();

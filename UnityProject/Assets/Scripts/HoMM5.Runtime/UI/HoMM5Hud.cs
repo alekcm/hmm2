@@ -1,27 +1,10 @@
 using HoMM5.Data;
 using HoMM5.Map;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace HoMM5.UI
 {
-    /// <summary>
-    /// Input needs to know whether the pointer is over the UI before a click can
-    /// be treated as a map click.  Cached once per frame instead of per query.
-    /// </summary>
-    public static class HudInput
-    {
-        public static bool IsPointerOverUi
-        {
-            get
-            {
-                if (EventSystem.current == null) return false;
-                return EventSystem.current.IsPointerOverGameObject();
-            }
-        }
-    }
-
     /// <summary>
     /// The adventure-map HUD: what is selected, and a list of maps to load.
     ///
@@ -30,8 +13,12 @@ namespace HoMM5.UI
     /// </summary>
     public class HoMM5Hud : MonoBehaviour
     {
-        public AdventureMapController Controller;
-        public GameDatabase Database;
+        // Assigned at runtime by H5Bootstrap.  GameDatabase is a plain class, so
+        // leaving these as serializable fields makes Unity's serialization
+        // analyzer flag the one it cannot store; nothing here should round-trip
+        // through a scene anyway.
+        [System.NonSerialized] public AdventureMapController Controller;
+        [System.NonSerialized] public GameDatabase Database;
 
         Text _title;
         Text _details;

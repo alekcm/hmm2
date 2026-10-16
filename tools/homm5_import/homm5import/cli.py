@@ -87,9 +87,40 @@ def _resolve_roots(explicit_data, explicit_texts):
 
 
 def _out(out_dir: str, *parts: str) -> str:
-    p = os.path.join(out_dir, *parts)
-    os.makedirs(os.path.dirname(p), exist_ok=True)
+    """Join a destination path, splitting forward slashes into real components.
+
+    Callers pass source-relative paths like ``Textures/A/B.dds``, which on
+    Windows would otherwise land inside ``os.path.join`` as a single component
+    with embedded separators.
+    """
+    components = [out_dir]
+    for part in parts:
+        components.extend(part.replace("\\", "/").split("/"))
+    p = os.path.join(*[c for c in components if c])
+    parent = os.path.dirname(p)
+    if parent:
+        os.makedirs(parent, exist_ok=True)
     return p
+
+
+# Unity refuses asset names that start with a space or contain ? < > : * | ",
+# and the game ships at least one such file:
+#   data/Textures/Effects/_Various/ Balor_swordClot_red_NoADD.(Texture).dds
+# The source path is preserved in the manifest, so renaming on the way out costs
+# nothing and keeps the import loadable.
+_UNSAFE_NAME_CHARS = set('?<>:*|"')
+
+
+def safe_relative_path(rel: str) -> str:
+    """Normalise a source-relative path into a Unity-acceptable asset path."""
+    parts = []
+    for part in rel.replace("\\", "/").split("/"):
+        cleaned = "".join("_" if c in _UNSAFE_NAME_CHARS else c for c in part)
+        cleaned = cleaned.strip(" ")
+        if cleaned.startswith("."):
+            cleaned = "_" + cleaned[1:]
+        parts.append(cleaned or "_")
+    return "/".join(parts)
 
 
 def _write_json(path: str, obj) -> None:
@@ -200,18 +231,25 @@ def cmd_textures(args) -> int:
     files = _limited(sorted(glob.glob(os.path.join(args.data, "**", "*.dds"), recursive=True)), args.limit)
     ok = bad = 0
     manifest = {}
+    renamed = 0
     for path in files:
         rel = os.path.relpath(path, args.data).replace("\\", "/")
+        asset = safe_relative_path(rel)
+        if asset != rel:
+            renamed += 1
         try:
-            w, h = dds_to_png(path, _out(args.out, "Textures", rel + ".png"))
+            w, h = dds_to_png(path, _out(args.out, "Textures", asset + ".png"))
         except (DDSError, OSError) as exc:
             bad += 1
             if args.verbose:
                 print(f"  SKIP {rel}: {exc}")
             continue
-        manifest["/" + rel] = {"width": w, "height": h, "png": rel + ".png"}
+        # Keyed by the source path, so a material can still find its texture.
+        manifest["/" + rel] = {"width": w, "height": h, "png": asset + ".png"}
         ok += 1
     _write_json(_out(args.out, "Textures", "_manifest.json"), manifest)
+    if renamed:
+        print(f"  ({renamed} renamed to satisfy Unity's asset-name rules)")
     print(f"textures: {ok} written, {bad} failed (of {len(files)})")
     return 0
 
