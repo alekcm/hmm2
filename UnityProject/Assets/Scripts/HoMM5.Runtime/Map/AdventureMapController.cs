@@ -52,7 +52,10 @@ namespace HoMM5.Map
 
         public void SetMapBounds(int tileX, int tileY, float padding = 8f)
         {
-            limits = new Rect(-padding, -padding, tileX + padding * 2f, tileY + padding * 2f);
+            var worldWidth = tileX * TerrainMeshBuilder.TileSize;
+            var worldHeight = tileY * TerrainMeshBuilder.TileSize;
+            limits = new Rect(-padding, -padding, worldWidth + padding * 2f,
+                              worldHeight + padding * 2f);
         }
 
         public void FocusOn(Vector3 worldPosition, float distance = -1f)
@@ -68,6 +71,7 @@ namespace HoMM5.Map
             HandleZoom();
             HandlePan();
             HandleSelection();
+            HandleMoveCommand();
             ApplyTransform();
         }
 
@@ -149,6 +153,21 @@ namespace HoMM5.Map
 
             var obj = hit.collider.GetComponentInParent<H5MapObject>();
             Select(obj);
+        }
+
+        void HandleMoveCommand()
+        {
+            if (!H5Input.MoveCommandPressed() || H5Input.PointerOverUi ||
+                Selected == null || !Selected.IsHero || _cam == null) return;
+            var ray = _cam.ScreenPointToRay(H5Input.PointerPosition());
+            if (!Physics.Raycast(ray, out var hit, 2000f)) return;
+
+            var builder = Selected.Builder;
+            if (builder == null || builder.Root == null) return;
+            var local = builder.Root.transform.InverseTransformPoint(hit.point);
+            var tileX = Mathf.RoundToInt(local.x / TerrainMeshBuilder.TileSize);
+            var tileY = Mathf.RoundToInt(local.z / TerrainMeshBuilder.TileSize);
+            Selected.MoveHeroTo(new Vector2Int(tileX, tileY));
         }
 
         public void Select(H5MapObject obj)

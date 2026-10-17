@@ -23,10 +23,14 @@ namespace HoMM5.UI
         Text _title;
         Text _details;
         Text _stats;
+        Text _turnDate;
+        Text _resourceSummary;
         GameObject _panel;
+        public System.Action EndDayRequested;
         GameObject _mapListPanel;
         ScrollRect _mapScroll;
         RectTransform _mapListContent;
+        float _nextDetailsRefresh;
 
         // Awake, not Start: H5Bootstrap adds this component and then calls
         // PopulateMapList in the same frame. Awake runs synchronously inside
@@ -40,6 +44,14 @@ namespace HoMM5.UI
         void Start()
         {
             if (Controller != null) Controller.SelectionChanged += OnSelectionChanged;
+        }
+
+        void Update()
+        {
+            if (_panel == null || !_panel.activeSelf || Controller == null ||
+                Controller.Selected == null || Time.unscaledTime < _nextDetailsRefresh) return;
+            _nextDetailsRefresh = Time.unscaledTime + 0.25f;
+            _details.text = Controller.Selected.Details();
         }
 
         void OnDestroy()
@@ -77,6 +89,7 @@ namespace HoMM5.UI
             BuildSelectionPanel(canvasGo.transform);
             BuildStatsLabel(canvasGo.transform);
             BuildMapList(canvasGo.transform);
+            BuildTurnControls(canvasGo.transform);
         }
 
         void BuildSelectionPanel(Transform parent)
@@ -94,6 +107,46 @@ namespace HoMM5.UI
         {
             _stats = MakeText(parent, "Stats", 14, FontStyle.Normal, TextAnchor.LowerLeft,
                               new Vector2(16, 16), new Vector2(700, 120));
+        }
+
+        void BuildTurnControls(Transform parent)
+        {
+            var bar = new GameObject("TurnControls", typeof(RectTransform), typeof(Image));
+            var rt = (RectTransform)bar.transform;
+            rt.SetParent(parent, false);
+            rt.anchorMin = new Vector2(0.5f, 1f);
+            rt.anchorMax = new Vector2(0.5f, 1f);
+            rt.pivot = new Vector2(0.5f, 1f);
+            rt.sizeDelta = new Vector2(900, 54);
+            rt.anchoredPosition = new Vector2(0, -12);
+            bar.GetComponent<Image>().color = new Color(0.06f, 0.06f, 0.08f, 0.88f);
+
+            _turnDate = MakeText(bar.transform, "Date", 15, FontStyle.Bold, TextAnchor.MiddleLeft,
+                                 new Vector2(14, 6), new Vector2(-700, -6));
+            _turnDate.text = "Day 1  |  Week 1  |  Month 1";
+            _turnDate.raycastTarget = false;
+            _resourceSummary = MakeText(bar.transform, "Resources", 13, FontStyle.Normal,
+                                        TextAnchor.MiddleCenter, new Vector2(210, 6), new Vector2(-126, -6));
+            _resourceSummary.text = "W 20  O 20  M 10  C 10  S 10  G 10  Gold 20000";
+            _resourceSummary.raycastTarget = false;
+
+            var buttonGo = new GameObject("EndDayButton", typeof(RectTransform), typeof(Image), typeof(Button));
+            var buttonRt = (RectTransform)buttonGo.transform;
+            buttonRt.SetParent(bar.transform, false);
+            buttonRt.anchorMin = new Vector2(1, 0.5f);
+            buttonRt.anchorMax = new Vector2(1, 0.5f);
+            buttonRt.pivot = new Vector2(1, 0.5f);
+            buttonRt.sizeDelta = new Vector2(112, 38);
+            buttonRt.anchoredPosition = new Vector2(-8, 0);
+            var image = buttonGo.GetComponent<Image>();
+            image.color = new Color(0.34f, 0.25f, 0.12f, 1f);
+            var button = buttonGo.GetComponent<Button>();
+            button.targetGraphic = image;
+            button.onClick.AddListener(() => EndDayRequested?.Invoke());
+            var label = MakeText(buttonGo.transform, "Label", 14, FontStyle.Bold, TextAnchor.MiddleCenter,
+                                 new Vector2(4, 2), new Vector2(-4, -2));
+            label.text = "End Day";
+            label.raycastTarget = false;
         }
 
         void BuildMapList(Transform parent)
@@ -164,6 +217,18 @@ namespace HoMM5.UI
                 le.minHeight = 28;
                 le.preferredHeight = 28;
             }
+        }
+
+        public void SetTurnDate(int day, int week, int month)
+        {
+            if (_turnDate != null)
+                _turnDate.text = $"Day {day}  |  Week {week}  |  Month {month}";
+        }
+
+        public void SetResourceSummary(string text)
+        {
+            if (_resourceSummary != null && !string.IsNullOrEmpty(text))
+                _resourceSummary.text = text;
         }
 
         public void SetStats(string text)

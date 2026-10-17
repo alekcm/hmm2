@@ -131,6 +131,80 @@ def load_spells(xdb: XDB, loc: Optional[Localization] = None, subdirs=(
     return out
 
 
+MINE_INCOME_DESCRIPTIONS = {
+    "GOLD": "GoldMine",
+    "ORE": "OrePit",
+    "WOOD": "Sawmill",
+    "MERCURY": "AlchemistLab",
+    "CRYSTAL": "CrystalCavern",
+    "SULFUR": "SulfurDune",
+    "GEM": "GemPond",
+}
+MINE_DAILY_INCOME_FALLBACK = {
+    "GOLD": 1000, "ORE": 2, "WOOD": 2, "MERCURY": 1,
+    "CRYSTAL": 1, "SULFUR": 1, "GEM": 1,
+}
+
+
+def load_mine_daily_income(loc: Optional[Localization]) -> Dict[str, int]:
+    """Read production amounts from the shipped mine description texts.
+
+    The descriptions explicitly state daily yields. Fall back to those same
+    shipped values if the caller omitted the optional text bundle.
+    """
+    if loc is None:
+        return dict(MINE_DAILY_INCOME_FALLBACK)
+    income = {}
+    for resource, mine in MINE_INCOME_DESCRIPTIONS.items():
+        description = loc.read(f"/Text/Game/Mines/{mine}/Description.txt")
+        match = re.search(r"\d+", description or "")
+        if match:
+            income[resource] = int(match.group(0))
+    return income or dict(MINE_DAILY_INCOME_FALLBACK)
+
+
+def load_game_rules(xdb: XDB, loc: Optional[Localization] = None) -> dict:
+    """Import data-driven adventure/RPG constants from the authoritative stats record.
+
+    These are raw shipped values. This does not emulate the native engine's
+    formulas that combine the constants with army, terrain, artifact and skill data.
+    """
+    root = xdb.load("/GameMechanics/RPGStats/DefaultStats.xdb")
+    if root is None:
+        return {}
+    adventure = root.find("adventure")
+    adventure = adventure if adventure is not None else ET.Element("adventure")
+
+    def number(parent, field):
+        return int(xdb.number(parent.find(field)))
+
+    def resource_rows(parent, field):
+        group = parent.find(field)
+        if group is None:
+            return []
+        rows = []
+        for item in xdb.items(group):
+            rows.append({key[0].lower() + key[1:]: int(xdb.number(item.find(key)))
+                         for key in RESOURCE_FIELDS})
+        return rows
+
+    return {
+        "source": "/GameMechanics/RPGStats/DefaultStats.xdb",
+        "baseHeroMovement": number(adventure, "BaseHeroMovement"),
+        "minCreatureSpeed": number(adventure, "MinCreatureSpeed"),
+        "maxCreatureSpeed": number(adventure, "MaxCreatureSpeed"),
+        "visitFountainOfYouthMovementBonus": number(adventure, "VisitFountainOfYouthMovementBonus"),
+        "visitRallyFlagMovementBonus": number(adventure, "VisitRallyFlagMovementBonus"),
+        "visitOasisMovementBonus": number(adventure, "VisitOasisMovementBonus"),
+        "visitStablesMovementBonus": number(adventure, "VisitStablesMovementBonus"),
+        "forWeekStablesMaxLandMovementBonus": number(adventure, "ForWeekStablesMaxLandMovementBonus"),
+        "lighthouseMaxSeaMovementBonus": number(adventure, "LighthouseMaxSeaMovementBonus"),
+        "startHumanResources": resource_rows(adventure, "StartHumanResources"),
+        "startComputerResources": resource_rows(adventure, "StartComputerResources"),
+        "mineDailyIncome": load_mine_daily_income(loc),
+    }
+
+
 def model_geometry(xdb: XDB, model: Optional[ET.Element],
                    model_href: Optional[str]) -> tuple:
     """From a ``<Model>`` record: its geometry UID and its material textures."""
@@ -202,12 +276,17 @@ def load_town_buildings(xdb: XDB, loc: Optional[Localization] = None) -> List[di
             root = ET.parse(path).getroot()
         except ET.ParseError:
             continue
+        description = _text_ref(xdb, loc, root.find("DescriptionFileRef"))
+        income_match = re.search(r"ежедневн\w*.*?(\d+)\s+золот", description or "", re.I | re.S)
         rec = {
             "id": _base_key(path),
             "source": xdb.href_from_path(path),
             "name": _text_ref(xdb, loc, root.find("NameFileRef")),
+            "type": xdb.text(root.find("Type")),
+            "upgrade": xdb.text(root.find("Upgrade")),
             "cost": _res(xdb, root.find("Cost")),
             "growth": int(xdb.number(root.find("Growth"))),
+            "incomeGoldPerDay": int(income_match.group(1)) if income_match else 0,
         }
         out.append(rec)
     return out
@@ -279,4 +358,5 @@ def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object
         "artifacts": load_artifacts(xdb, loc),
         "townBuildings": load_town_buildings(xdb, loc),
         "modelAnimations": load_model_animations(xdb),
+        "rules": load_game_rules(xdb),
     }

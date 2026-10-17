@@ -45,6 +45,19 @@ namespace HoMM5.Map
 
         public int VertexCount => Info != null ? Info.vertexCount : 0;
         public int Tiles => Info != null ? Info.tileX : 0;
+        public int TilesX => Info != null ? Info.tileX : 0;
+        public int TilesY => Info != null ? Info.tileY : 0;
+
+        /// <summary>Whether a map tile can be entered according to its imported plane.</summary>
+        public bool IsPassable(int x, int y)
+        {
+            if (x < 0 || y < 0 || x > TilesX || y > TilesY) return false;
+            var stride = TilesX + 1;
+            var index = y * stride + x;
+            if (Passability != null && index >= 0 && index < Passability.Length)
+                return Passability[index] != 0;
+            return FlagAt(x, y) != FlagWater;
+        }
 
         public static H5Terrain Load(string mapId, string plane)
         {

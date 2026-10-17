@@ -5,10 +5,11 @@ What is here, what is verified, and what is not done.
 ## Scope, stated plainly
 
 A full port of the game is not something one pass produces. The engine is
-`bin/H5_Game_PEST.exe` (13 MB of compiled code): turn order, pathfinding, combat
-resolution, spells, abilities, hero levelling, town growth, AI, the Lua VM,
-network play. None of that is in the data files, and none of it is reimplemented
-here.
+`bin/H5_Game_PEST.exe` (13 MB of compiled code): original turn order, movement
+rules, combat resolution, spells, abilities, hero levelling, town growth, AI,
+the Lua VM, network play. The data files do not contain those implementations;
+only a clearly labelled prototype day loop and simplified path movement are
+implemented here.
 
 What **is** here is the other half — the content and the formats. Every number
 the game plays with, every mesh it draws, every map it ships, decoded from the
@@ -29,7 +30,7 @@ Standard library only, no dependencies. Reads the shipped formats:
 | `.dds` (9258) | DXT1/3/4/5, BGRA, RGB565 | **decoded, 9258/9258** |
 | `texts/` (15860) | UTF-16 LE localization | **decoded** |
 | `GameMechanics` | creatures, spells, artifacts, buildings | **decoded** |
-| `AdvMapDesc` (142) | map objects | **decoded, 197936 objects** |
+| `AdvMapDesc` (142) | map objects | **decoded, 198001 objects across 21 kinds** |
 | `bin/Skeletons` (2242) | Granny GR2, Oodle-compressed | **not decoded** |
 | `bin/animations` (3393) | Granny GR2, Oodle-compressed | **not decoded** |
 | `bin/effects` (1919) | particle systems | **not decoded** |
@@ -41,13 +42,53 @@ Standard library only, no dependencies. Reads the shipped formats:
 
 `6000.6.6f1`, built-in render pipeline, two assemblies, no dependency on any
 glTF package. Adventure-map viewer: chunked terrain with cliff walls, water,
-197936 placed objects, click-to-select with the shipped stats, a map list for all
+198001 placed objects across all 21 shipped map-object kinds, click-to-select with the shipped stats, a map list for all
 142 maps, surface/underground switch.
+
+## Recent continuation
+
+- Map-floor semantics now match the shipped Lua constants (`GROUND=0`,
+  `UNDERGROUND=1`); each map's `InitialFloor` is imported and used at load. This
+  corrects the earlier reversed Unity mapping, which put surface objects on the
+  wrong floor and made the default map appear empty.
+- The importer now recognizes all **21** `AdvMap` object kinds found in the
+  shipped maps (including Hill Forts, Seer Huts, Dwarven Warrens and Cartographers).
+  It resolves object identity from shared XDBs where the instance stores only a
+  reference; all exported monsters, heroes and artifacts in the corpus now have
+  their defining ID, and mine types map to resource kinds.
+- Relative geometry references are now resolved against the model XDB, fixing
+  terrain-object models that were previously dropped. Fixed-faction towns read
+  their faction and exterior model from `AdvMapTownShared.Exterior`; random
+  towns remain explicitly unresolved rather than being assigned a guessed race.
+  Across the 142 maps, the importer now resolves geometry for **182290 of 198001
+  placed objects (92.1%)**, up from 160657 (81.2%). Remaining misses are largely
+  effect-only/no-model objects and placeholder test records. `RandomTown` still
+  points to the shipped flat test marker; its actual faction is chosen at runtime.
+- Terrain files now use the same unique map IDs as map JSON. F1 rebuilds the scene
+  for the other floor (when the map has an underground plane), map bounds respect
+  both dimensions, and the camera focuses on the map center in world units.
+- The Unity DTO now reads town buildings/garrisons and additional map payloads;
+  the selection panel reports town faction, owner, and building/garrison counts.
+- Added a prototype local day loop: a date/resource HUD and End Day control
+  advance days, weeks and 28-day months. Starting resources are loaded from the
+  selected difficulty row in `DefaultStats.xdb` (default normal). Owned map mines
+  pay their documented daily yield; owned towns pay the daily income for their
+  Town Hall upgrade. Both incomes are read from shipped description texts. Player
+  heroes receive the shipped base movement (`2500` MP); remaining points persist across
+  floor switches by map object ID. The current 100 MP per grid step is provisional,
+  not claimed to match the original terrain/army path-cost formula.
+- Left-click selects map objects; right-click issues A* movement for local-player
+  heroes over imported passability, with diagonal corner-cutting prevented. A hero
+  entering a custom map-authored wood/ore/rare-resource pile receives its authored
+  amount and the pile disappears; collection persists across floor switches. Random
+  piles, gold scaling, chests, mine capture and battles remain unimplemented. Enemy
+  heroes are non-controllable; terrain/army/artifact/skill movement rules and
+  obstacles beyond the passability plane are not reproduced.
 
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **34 tests,
-all passing, ~46 s**, every one against the real shipped data. These are
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **85 tests**
+(84 pass, 1 skipped), every one against the real shipped data. These are
 cross-checks between independent sources, not golden files:
 
 - **Container grammar** — every geometry file ends in the 6-byte marker
@@ -80,7 +121,7 @@ Conversion counts actually produced in this repository:
 ```
 gamedata   196 creatures, 321 spells, 97 artifacts, 328 town buildings, 15860 strings
 terrain    293 planes, 0 failed
-maps       142 maps, 197936 objects
+maps       142 maps, 198001 objects across 21 kinds
 meshes     3561 .glb, 6 skipped (empty), 320 MB
 textures   9258 .png, 0 failed
 ```
@@ -102,23 +143,31 @@ maps look.
 
 ## Not done
 
-- **No game logic.** No turn order, movement, combat, spells, abilities,
-  hero levelling, town screen, campaigns, AI, Lua or networking.
+- **Game logic is still a prototype.** There is a local player ID and a
+  day/week/month counter. The base hero movement points are imported from the
+  original stats, but tile costs remain a provisional flat 100 MP. Resources
+  cover starting stocks and passive mine/Town Hall income only: there is no
+  original multiplayer turn order, terrain/army/artifact movement calculation,
+  map-script override execution, mine capture, random/gold treasure rewards,
+  chests, combat, spells, abilities, hero levelling, town screen, campaigns, AI,
+  Lua runtime or networking.
 - **No animation.** Skeletons are Granny GR2 with per-section Oodle compression;
   reading them needs an Oodle1 decompressor. Creatures sit in bind pose.
-- **No materials.** Everything renders with Standard. The engine's alpha modes,
-  additive blending, lightmaps and effects are not translated — foliage cards and
-  banners will render opaque.
-- **No terrain texturing.** Vertex colour by ground kind; the shipped maps carry
-  no splat weights that survive import.
+- **Materials are partial.** Object textures and alpha modes are bound to Unity's
+  Standard shader; alpha-test cutouts and basic transparency work. Two-sided
+  materials are detected but Built-in Standard has no culling switch; additive
+  blending, lightmaps and engine effects still need translation.
+- **Terrain blending is partial.** Painted layer descriptors and byte coverage
+  planes are imported and consumed. The renderer currently chooses the dominant
+  layer per cell (hard boundaries), rather than smoothly blending weights.
 - **No audio, no UI art, no video.**
 
 ## Suggested order from here
 
 1. Get it compiling and open a map — cheapest way to find what the missing
    compile check left behind.
-2. Materials: map `AlphaMode` / `Is2Sided` / `AddPlaced` onto shader keywords and
-   bind the imported textures.
+2. Finish material translation: two-sided culling, additive passes, lightmaps and
+   visual effects; smoothly blend the imported terrain coverage layers.
 3. GR2 + Oodle1, so creatures animate.
 4. Combat: the data is already here — `creatures.json` carries attack, defence,
    damage, initiative, speed and abilities, and `spells.json` the spell table.

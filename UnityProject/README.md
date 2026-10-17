@@ -38,9 +38,16 @@ there is nothing to lose.
 | middle mouse drag | pan directly |
 | wheel | zoom |
 | left click | select a map object |
+| right click | issue a pathfinding move to a selected hero |
 | F1 | switch surface / underground |
+| End Day | advance the prototype calendar and restore hero movement |
 
-The map list on the right loads any of the 142 imported maps.
+The map list on the right loads any of the 142 imported maps. The importer now
+reads the shipped base hero movement (`2500` MP) and movement bonuses from
+`GameMechanics/RPGStats/DefaultStats.xdb`. The runtime currently approximates a
+flat tile as 100 MP; terrain, army, road, artifact and skill cost calculations
+are still being reconstructed from the native engine, so this conversion is
+explicitly provisional rather than a claimed original rule.
 
 ## Layout
 
@@ -121,13 +128,20 @@ every click, so the map list would render and never respond.
 
 ## What this is
 
-A **map viewer over the real game data** — the terrain, the 197936 placed
-objects, the creature and artifact tables, and the Russian localization, all
+A **map viewer over the real game data** — the terrain, all 198001 placed map
+objects across 21 kinds, the creature and artifact tables, and the Russian localization, all
 rendered from what the shipped engine reads. Selecting a monster shows its
 shipped stats because they are its shipped stats.
 
-It is not the game. There is no turn order, no movement, no combat resolution,
-no AI, no town screen, no campaigns and no Lua. Those live in
+It is not the game. There is a prototype day/week/month counter and a movement
+budget seeded from the game's `2500` MP base value for heroes owned by the
+configured local player (default `PLAYER_1`), using basic A* over imported
+passability. Per-tile cost and the original turn scheduler remain incomplete;
+combat resolution, mine capture, chests/random treasure rewards, map-script
+resource overrides, AI, town screen, campaign flow and Lua execution are still
+absent. Starting resources, owned-mine/Town Hall income, and collection of
+custom-authored non-gold resource piles are implemented from shipped data/text.
+The remaining systems live in
 `bin/H5_Game_PEST.exe`; `data/scripts/*.lua` holds the campaign and map scripting
 and is imported nowhere. See `../PORT_STATUS.md` for the full accounting.
 
