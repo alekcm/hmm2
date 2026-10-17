@@ -21,7 +21,28 @@ render pipeline, so the project opens without any URP asset to reconstruct.
    Until this has run, Play mode logs "No import found" together with the exact
    command for your machine. The scene itself is fine: it is one GameObject with
    `H5Bootstrap`, which builds the camera, lights and HUD on Start.
-3. Open `Assets/Scenes/AdventureMap.unity` and press Play.
+3. Open **`Assets/Scenes/MainMenu.unity`** and press Play. This is the first
+   enabled build scene. Starting a new game / Continue transitions to
+   `AdventureMap`; Escape opens the in-game pause menu without destroying the map.
+
+If you already imported the project before the native-UI update, only this
+small additional stage is needed (no full textures reimport):
+
+```bash
+python import_to_unity.py ui
+```
+
+Or **Tools ▸ HoMM5 ▸ Run Importer (original UI)**. It exports 160 original
+DDS-derived images and 24 XDB layouts, including ToTE placement overrides,
+button states, resource icons, town icons, and campaign/multiplayer portraits.
+Generated PNGs remain gitignored. With no UI import the fallback HUD remains
+available, and the menu shows the command above.
+
+Play normally starts `MainMenu` even when a map-inspection scene is open.
+**Tools ▸ HoMM5 ▸ Play From Current Scene (debug)** opts out; direct map startup
+also needs `startDirectlyOnMap` explicitly enabled on `H5Bootstrap`.
+Use Game view **Scale = Fit**, not a zoomed 1.3× view, to inspect the entire HUD;
+Unity's Game-view zoom can crop off the top/side UI.
 
 If Unity refuses the scene file, **Tools ▸ HoMM5 ▸ Create Bootstrap Scene**
 rebuilds it from scratch — the scene is one GameObject with `H5Bootstrap`, so
@@ -51,7 +72,8 @@ Combat and Flee buttons along the bottom; the queue at the top shows who acts
 next. Before the first round a tactics phase lets you deploy your stacks in
 the front columns.
 
-The map list on the right loads any of the 142 imported maps. The importer now
+The main menu offers imported scenarios; the debug map list is no longer
+shown on the adventure HUD. The importer now
 reads the shipped base hero movement (`2500` MP) and movement bonuses from
 `GameMechanics/RPGStats/DefaultStats.xdb`. The runtime currently approximates a
 flat tile as 100 MP; terrain, army, road, artifact and skill cost calculations
@@ -182,3 +204,20 @@ and is imported nowhere. See `../PORT_STATUS.md` for the full accounting.
 - Treasure payout constants that the shipped tables do not carry are inferred
   and marked in `H5ObjectVisits` (gold roll scaling, chest XP).
 - No audio. `sound/`, `soundsfx/` and `music/` are untouched.
+
+## Visual fidelity limits
+
+The native chrome is now consumed by Unity, not just exported: resource bar at
+centre-top, minimap at lower-left, command dial at lower-right, and hero/town
+roster beside the minimap. Menu uses the supplied ToTE logo and parchment.
+The animated 3D main-menu backdrop, original fonts, town/hero modal layouts,
+and full original effects/lighting are **not** reproduced. The Move Hero dial
+button is disabled until queued routes exist; right-click movement still works.
+The book opens the existing hero panel, not a completed adventure-spell system.
+
+Terrain now uses continuous source heights and global seam-consistent normals,
+with per-vertex coverage textures blended in a Built-in surface shader. GPUs
+without 2D texture arrays retain the older dominant-layer fallback. Editor-only
+random-object cube models have not been hidden: replacing them requires resolving
+random towns/treasures/monsters to gameplay-consistent assets first.
+This source update has not been compiled/rendered in Unity in the sandbox.

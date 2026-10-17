@@ -53,6 +53,9 @@ namespace HoMM5.EditorTools
         [MenuItem(MenuRoot + "Run Importer (meshes)")]
         public static void RunImporterMeshes() => RunImporter("meshes");
 
+        [MenuItem(MenuRoot + "Run Importer (original UI)")]
+        public static void RunImporterUI() => RunImporter("ui");
+
         [MenuItem(MenuRoot + "Run Importer (textures)")]
         public static void RunImporterTextures() => RunImporter("textures");
 
@@ -96,7 +99,8 @@ namespace HoMM5.EditorTools
             var meshes = new MeshCache();
             var builder = new MapSceneBuilder(meshes,
                 MakeMaterial("H5_Terrain", 0.05f), MakeMaterial("H5_Object", 0.25f), MakeMaterial("H5_Object", 0.25f));
-            builder.Build(picked, 1);
+            var definition = MapSceneBuilder.LoadMapDef(picked);
+            builder.Build(picked, definition != null ? definition.initialFloor : 0);
             EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
         }
 

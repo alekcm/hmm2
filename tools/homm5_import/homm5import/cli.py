@@ -276,6 +276,14 @@ def cmd_meshes(args) -> int:
     return 0
 
 
+def cmd_ui(args) -> int:
+    from .ui import export_ui
+    skin = export_ui(args.data, args.out)
+    print("ui: %d native images, %d window layouts -> UI/skin.json" %
+          (len(skin["assets"]), len(skin["windows"])))
+    return 0
+
+
 def cmd_textures(args) -> int:
     import glob
 
@@ -530,7 +538,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     for name, fn in (("info", cmd_info), ("gamedata", cmd_gamedata), ("maps", cmd_maps),
                      ("meshes", cmd_meshes), ("textures", cmd_textures), ("terrain", cmd_terrain),
-                     ("animations", cmd_animations), ("sounds", cmd_sounds)):
+                     ("animations", cmd_animations), ("sounds", cmd_sounds), ("ui", cmd_ui)):
         sp = sub.add_parser(name)
         common(sp)
         sp.set_defaults(func=fn)
@@ -549,7 +557,7 @@ def _all(args) -> int:
     stages = (("gamedata", cmd_gamedata), ("terrain", cmd_terrain),
               ("maps", cmd_maps), ("meshes", cmd_meshes),
               ("textures", cmd_textures), ("animations", cmd_animations),
-              ("sounds", cmd_sounds))
+              ("sounds", cmd_sounds), ("ui", cmd_ui))
     started = time.monotonic()
     for i, (name, fn) in enumerate(stages, 1):
         print("[%d/%d] %s" % (i, len(stages), name), flush=True)

@@ -2,6 +2,39 @@
 
 What is here, what is verified, and what is not done.
 
+## Native presentation / separate main-menu scene — 2026-10-18
+
+- `Assets/Scenes/MainMenu.unity` is now enabled build scene 0, with a real
+  scene transition to AdventureMap for New Game / Continue. Editor Play also
+  enters it by default, with an explicit current-scene debug opt-out. A stale
+  initialMapId no longer skips the menu without startDirectlyOnMap.
+- New stdlib `ui` importer stage resolves ToTE expansion layout overrides,
+  exports 160 original DDS-derived images and 24 XDB window layouts, crops
+  padded native pixel backgrounds, and includes both roster and campaign faces.
+  `all` includes the stage; existing imports need only `python import_to_unity.py ui`.
+- Runtime consumes that skin: native top resources, bottom-left minimap,
+  bottom-right command dial and button states, hero/town roster, menu logo and
+  parchment. Diagnostic stats/log/map-list widgets are not the native play HUD.
+  End Turn, menu, next hero, floor switch, scenario info and existing hero panel
+  use gameplay callbacks. Queued-route Move Hero stays explicitly disabled.
+- Removed artificial cut-cell caps/walls and height snapping. Heights and
+  colliders share triangle sampling; normals use the global height field across
+  chunk seams. Original coverage planes now blend original ground textures via
+  a Resources-included Built-in surface shader / 2D arrays, with older hardware
+  retaining the dominant-layer fallback. GPU resources have per-map ownership.
+
+**Not finished / not claimed:** animated 3D menu backdrop, native fonts and all
+modal panels, exact effects/lighting, gameplay-consistent replacement of random
+object editor cubes, and original scenario scripting. The cubes are NOT blindly
+hidden because they represent playable towns/resources/monsters. The user's
+Game view is zoomed 1.3×; use Fit when judging the complete UI.
+
+Validation: original UI stage successfully executed; full Python suite passes
+167 tests (one skipped), including 9 new UI/scene checks. Four heuristic C#
+analyzers pass and all 49 C# syntax trees parse. CPU layout/terrain cases added to Unity PlayMode tests (not run
+here). No Unity executable is present: C# heuristics / syntax parsing are not
+Unity compilation, shader compilation or screenshot validation.
+
 ## Follow-up: Newtonsoft test dependency and WAV warning — 2026-10-18
 
 With overrideReferences enabled, the PlayMode assembly must explicitly list

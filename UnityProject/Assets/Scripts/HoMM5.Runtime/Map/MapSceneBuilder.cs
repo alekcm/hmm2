@@ -96,8 +96,12 @@ namespace HoMM5.Map
 
             var terrainRoot = new GameObject("Terrain");
             terrainRoot.transform.SetParent(Root.transform, false);
-            var builder = new TerrainMeshBuilder(Terrain);
-            TerrainChunks = builder.BuildAll(terrainRoot.transform, TerrainMaterials());
+            var rendering = terrainRoot.AddComponent<H5TerrainRendering>();
+            var blended = rendering.Configure(Terrain, _textures);
+            var materials = blended != null ? new[] { blended } : TerrainMaterials();
+            if (blended != null) TerrainTexturesBound = rendering.TexturesBound;
+            var builder = new TerrainMeshBuilder(Terrain, TerrainMeshBuilder.DefaultChunkSize, blended != null);
+            TerrainChunks = builder.BuildAll(terrainRoot.transform, materials);
 
             if (Terrain.AnyWater && _waterMaterial != null)
                 BuildWaterPlane(terrainRoot.transform);

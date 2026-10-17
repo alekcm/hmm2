@@ -18,6 +18,7 @@ tools/homm5_import/
 │   ├── maps.py         AdvMapDesc → map objects
 │   ├── gr2.py          RAD Granny GR2 skeletons and animations
 │   ├── sounds.py       sound / music catalog and the audio it names
+│   ├── ui.py           original UI XDB layouts, button states, DDS art / portraits
 │   └── cli.py          entry point
 └── tests/test_pipeline.py
 ```
@@ -30,6 +31,7 @@ in, works on any platform:
 ```bash
 python import_to_unity.py          # everything
 python import_to_unity.py gamedata # one stage
+python import_to_unity.py ui       # small original HUD/menu skin export
 python import_to_unity.py --help
 ```
 
@@ -250,3 +252,17 @@ Documented gaps, not silent ones:
   declarations) are present in the data and unused.
 - Textures are exported as PNG without mipmaps or the engine's alpha modes;
   `AM_ALPHA_TEST` and `AM_OVERLAY` materials render opaque.
+
+## Native UI stage
+
+`ui` (also included as stage 8 of `all`) exports `UI/skin.json` and 160 PNGs.
+It resolves the supplied `a2p1-data` overrides before the base `data`, then
+follows shared-window backgrounds and Normal/Pushed/Disabled visual states.
+Positions retain the source coordinate/alignment enums for the Unity adapter;
+HIGH_END means the far edge, not the top-left of an element. Native-size DDS
+padding is clipped rather than squeezed (697×52 resource bar from 1024×64).
+Main-menu logo/parchment transparent padding is trimmed. Campaign hero portraits
+also have a shared-href lookup, independent of the multiplayer hero pool.
+No screenshot textures, image generation, external libraries or full texture
+manifest are required for this stage. This is an explicit subset of the UI,
+not a general interpreter for every original window / animated menu scene.

@@ -6,15 +6,7 @@ using UnityEngine;
 
 namespace HoMM5.Map
 {
-    /// <summary>
-    /// The decoded terrain planes of one map floor.
-    ///
-    /// Heights are not a smooth field: the ground is built from flat steps.
-    /// 2.0 is the default ground level, 0.0 a bed dug out for water and 1.6 the
-    /// shore ring the editor lays between them.  Ground flags say what KIND of
-    /// ground a vertex is -- 0 water, 16 ordinary ground, 32 plateau, bit 3 a
-    /// ramp -- and that kind, not steepness, is what makes an edge a cliff.
-    /// </summary>
+    /// <summary>Imported heights, gameplay flags and painted coverage planes.</summary>
     public class H5Terrain
     {
         public const float DefaultGroundLevel = 2.0f;
@@ -175,68 +167,45 @@ namespace HoMM5.Map
         public bool IsPlateau(int x, int y) => (FlagAt(x, y) & FlagPlateau) != 0;
         public bool IsRamp(int x, int y) => (FlagAt(x, y) & FlagRampBit) != 0;
 
-        /// <summary>
-        /// Ground height in world units at a tile position.
-        ///
-        /// A cell is a step whenever its four corners are not all at the same
-        /// height and the change crosses a ground KIND boundary; sampling such a
-        /// cell bilinearly would put units inside a cliff face, so those cells
-        /// snap to the corner the position is nearest.
-        /// </summary>
+        /// <summary>Sample the same two triangles emitted by TerrainMeshBuilder.</summary>
         public float SampleWorldHeight(float tileX, float tileY)
         {
-            var v = VertexCount;
-            var fx = Mathf.Clamp(tileX, 0f, v - 1.001f);
-            var fy = Mathf.Clamp(tileY, 0f, v - 1.001f);
-            var ix = Mathf.FloorToInt(fx);
-            var iy = Mathf.FloorToInt(fy);
-            if (ix >= Tiles || iy >= Tiles) return HeightAt(ix, iy);
-
+            if (VertexCount < 2) return VertexCount == 1 ? HeightAt(0, 0) : 0f;
+            var fx = Mathf.Clamp(tileX, 0f, VertexCount - 1f);
+            var fy = Mathf.Clamp(tileY, 0f, VertexCount - 1f);
+            var ix = Mathf.Min(Mathf.FloorToInt(fx), VertexCount - 2);
+            var iy = Mathf.Min(Mathf.FloorToInt(fy), VertexCount - 2);
+            var tx = fx - ix;
+            var ty = fy - iy;
             var h00 = HeightAt(ix, iy);
             var h10 = HeightAt(ix + 1, iy);
             var h01 = HeightAt(ix, iy + 1);
             var h11 = HeightAt(ix + 1, iy + 1);
-
-            if (Mathf.Approximately(h00, h10) && Mathf.Approximately(h00, h01) && Mathf.Approximately(h00, h11))
-                return h00;
-
-            if (!IsCutCell(ix, iy))
-            {
-                var tx = fx - ix;
-                var ty = fy - iy;
-                var a = Mathf.Lerp(h00, h10, tx);
-                var b = Mathf.Lerp(h01, h11, tx);
-                return Mathf.Lerp(a, b, ty);
-            }
-
-            // Step: take the nearest corner rather than interpolating the drop.
-            var tx2 = fx - ix;
-            var ty2 = fy - iy;
-            return tx2 < 0.5f ? (ty2 < 0.5f ? h00 : h01) : (ty2 < 0.5f ? h10 : h11);
+            return ty <= tx
+                ? h00 + (h10 - h00) * tx + (h11 - h10) * ty
+                : h00 + (h11 - h01) * tx + (h01 - h00) * ty;
         }
 
-        /// <summary>
-        /// A cut is a change of ground KIND, not steepness.  Smoothed hillsides
-        /// can reach 12 units of relief and must not be cut; a 0.8 step where
-        /// water meets land must be.
-        /// </summary>
-        public bool IsCutCell(int x, int y)
+        /// <summary>Global derivatives keep lighting continuous at chunk edges.</summary>
+        public Vector3 NormalAt(int x, int y)
         {
-            if (x < 0 || y < 0 || x >= Tiles || y >= Tiles) return false;
-            var k00 = GroundKind(x, y);
-            var k10 = GroundKind(x + 1, y);
-            var k01 = GroundKind(x, y + 1);
-            var k11 = GroundKind(x + 1, y + 1);
-            if (k00 == k10 && k00 == k01 && k00 == k11) return false;
+            var left = Mathf.Max(0, x - 1);
+            var right = Mathf.Min(VertexCount - 1, x + 1);
+            var down = Mathf.Max(0, y - 1);
+            var up = Mathf.Min(VertexCount - 1, y + 1);
+            var dx = (HeightAt(right, y) - HeightAt(left, y)) /
+                     (Mathf.Max(1, right - left) * TerrainMeshBuilder.TileSize);
+            var dz = (HeightAt(x, up) - HeightAt(x, down)) /
+                     (Mathf.Max(1, up - down) * TerrainMeshBuilder.TileSize);
+            return new Vector3(-dx, 1f, -dz).normalized;
+        }
 
-            // Ramps stay walkable across a boundary.
-            if (IsRamp(x, y) || IsRamp(x + 1, y) || IsRamp(x, y + 1) || IsRamp(x + 1, y + 1)) return false;
-
-            var lo = Mathf.Min(Mathf.Min(HeightAt(x, y), HeightAt(x + 1, y)),
-                               Mathf.Min(HeightAt(x, y + 1), HeightAt(x + 1, y + 1)));
-            var hi = Mathf.Max(Mathf.Max(HeightAt(x, y), HeightAt(x + 1, y)),
-                               Mathf.Max(HeightAt(x, y + 1), HeightAt(x + 1, y + 1)));
-            return hi - lo >= 0.8f;
+        public byte LayerWeightAt(int layer, int x, int y)
+        {
+            if (_layerWeights == null || layer < 0 || layer >= LayerCount || _layerStride < 1) return 0;
+            x = Mathf.Clamp(x, 0, _layerStride - 1);
+            y = Mathf.Clamp(y, 0, _layerStride - 1);
+            return _layerWeights[layer * _layerStride * _layerStride + y * _layerStride + x];
         }
 
         /// <summary>Water / ground / plateau -- the KIND, ignoring ramps.</summary>

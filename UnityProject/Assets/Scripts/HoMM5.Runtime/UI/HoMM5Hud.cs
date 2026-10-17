@@ -37,6 +37,20 @@ namespace HoMM5.UI
         public System.Action SaveRequested;
         public System.Action LoadRequested;
         public System.Action TownScreenRequested;
+        public System.Action MenuRequested;
+        public System.Action NextHeroRequested;
+        public System.Action HeroScreenRequested;
+        public System.Action FloorRequested;
+        public System.Action ScenarioRequested;
+        public System.Action<H5TownState> TownSelectedRequested;
+
+        public void OpenTown(H5TownState town) => TownSelectedRequested?.Invoke(town);
+
+        public void SetResources(PlayerResourceInventory resources)
+        {
+            if (_native != null) _native.SetResources(resources);
+            SetResourceSummary(resources != null ? resources.ToString() : "");
+        }
 
         /// <summary>The town screen, created with the rest of the HUD.</summary>
         public TownScreen Town { get; private set; }
@@ -44,6 +58,7 @@ namespace HoMM5.UI
         ScrollRect _mapScroll;
         RectTransform _mapListContent;
         H5Minimap _minimap;
+        NativeAdventureHud _native;
         Transform _canvasRoot;
         Transform _adventureRoot;
         float _nextDetailsRefresh;
@@ -160,7 +175,7 @@ namespace HoMM5.UI
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             var scaler = canvasGo.GetComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1920, 1080);
+            scaler.referenceResolution = new Vector2(1536, 864);
             scaler.matchWidthOrHeight = 0.5f;
 
             _canvasRoot = canvasGo.transform;
@@ -177,8 +192,21 @@ namespace HoMM5.UI
             BuildStatsLabel(_adventureRoot);
             BuildLogLabel(_adventureRoot);
             BuildMapList(_adventureRoot);
-            BuildTurnControls(_adventureRoot);
-            _minimap = H5Minimap.Create(_adventureRoot, new Vector2(-16, 16), new Vector2(240, 240));
+            _native = NativeAdventureHud.Create(_adventureRoot, this);
+            if (_native != null)
+            {
+                _minimap = _native.Minimap;
+                // Viewer diagnostics and map replacement are not gameplay HUD.
+                _stats.gameObject.SetActive(false);
+                _log.transform.parent.gameObject.SetActive(false);
+                _mapListPanel.SetActive(false);
+            }
+            else
+            {
+                BuildTurnControls(_adventureRoot);
+                _minimap = H5Minimap.Create(_adventureRoot, new Vector2(-16, 16), new Vector2(240, 240));
+                _mapListPanel.SetActive(false);
+            }
             Town = TownScreen.Create(_adventureRoot);
         }
 
@@ -350,6 +378,7 @@ namespace HoMM5.UI
 
         public void SetTurnDate(int day, int week, int month)
         {
+            if (_native != null) _native.SetDate(day, week, month);
             if (_turnDate != null)
                 _turnDate.text = $"Day {day}  |  Week {week}  |  Month {month}";
         }
@@ -360,6 +389,7 @@ namespace HoMM5.UI
         /// </summary>
         public void SetCurrentPlayer(string name, bool isLocal)
         {
+            if (_native != null) _native.SetCurrentPlayer(name, isLocal);
             if (_turnDate == null) return;
             var suffix = string.IsNullOrEmpty(name) ? "" : $"  |  {name}'s turn";
             if (!string.IsNullOrEmpty(name) && !isLocal) suffix += " (thinking)";

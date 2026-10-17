@@ -5,13 +5,8 @@ using UnityEngine.Rendering;
 namespace HoMM5.Map
 {
     /// <summary>
-    /// Builds the render mesh for one terrain plane.
-    ///
-    /// The engine's ground is a grid of flat steps, so a naive two-triangles-per-
-    /// cell grid shows a diagonal seam across every step and, at a cliff, leaves
-    /// a hole you can see straight through.  Cells whose corners straddle a
-    /// ground KIND boundary are therefore emitted as a vertical wall plus flat
-    /// caps, and everything else stays a plain quad.
+    /// A continuous height-field mesh. Flags are gameplay metadata, not a
+    /// license to replace a height cell with a sealed box.
     /// </summary>
     public class TerrainMeshBuilder
     {
@@ -32,11 +27,11 @@ namespace HoMM5.Map
         readonly List<List<int>> _slots = new List<List<int>>();
         readonly int _slotCount;
 
-        public TerrainMeshBuilder(H5Terrain terrain, int chunkSize = DefaultChunkSize)
+        public TerrainMeshBuilder(H5Terrain terrain, int chunkSize = DefaultChunkSize, bool blendLayers = false)
         {
             _t = terrain;
             _chunkSize = Mathf.Max(1, chunkSize);
-            _slotCount = Mathf.Max(1, terrain != null ? terrain.LayerCount : 1);
+            _slotCount = blendLayers ? 1 : Mathf.Max(1, terrain != null ? terrain.LayerCount : 1);
             for (var i = 0; i < _slotCount; i++) _slots.Add(new List<int>());
         }
 
@@ -80,8 +75,7 @@ namespace HoMM5.Map
             for (var y = y0; y < y1; y++)
                 for (var x = x0; x < x1; x++)
                 {
-                    if (_t.IsCutCell(x, y)) EmitCutCell(x, y);
-                    else EmitFlatCell(x, y);
+                    EmitFlatCell(x, y);
                 }
 
             if (_tri.Count == 0 || _pos.Count == 0) return null;
@@ -138,54 +132,7 @@ namespace HoMM5.Map
             Add(cx + 1, cy, h10, null);
             Add(cx + 1, cy + 1, h11, null);
             Add(cx, cy + 1, h01, null);
-            AddQuad(i, _t.DominantLayerAt(cx, cy));
-        }
-
-        void EmitCutCell(int cx, int cy)
-        {
-            var h00 = _t.HeightAt(cx, cy);
-            var h10 = _t.HeightAt(cx + 1, cy);
-            var h01 = _t.HeightAt(cx, cy + 1);
-            var h11 = _t.HeightAt(cx + 1, cy + 1);
-            var hi = Mathf.Max(Mathf.Max(h00, h10), Mathf.Max(h01, h11));
-            var lo = Mathf.Min(Mathf.Min(h00, h10), Mathf.Min(h01, h11));
-
-            // Flat caps at both levels, then the wall between them.
-            EmitCap(cx, cy, hi);
-            EmitCap(cx, cy, lo);
-
-            // A plateau dropped onto uneven ground inherits that unevenness, so
-            // the wall follows each corner's own two heights rather than a mean.
-            EmitWall(cx, cy, cx + 1, cy, hi, lo);
-            EmitWall(cx + 1, cy, cx + 1, cy + 1, hi, lo);
-            EmitWall(cx + 1, cy + 1, cx, cy + 1, hi, lo);
-            EmitWall(cx, cy + 1, cx, cy, hi, lo);
-        }
-
-        void EmitCap(int cx, int cy, float h)
-        {
-            var i = _pos.Count;
-            var n = Vector3.up;
-            Add(cx, cy, h, n);
-            Add(cx + 1, cy, h, n);
-            Add(cx + 1, cy + 1, h, n);
-            Add(cx, cy + 1, h, n);
-            AddQuad(i, _t.DominantLayerAt(cx, cy));
-        }
-
-        void EmitWall(int ax, int ay, int bx, int by, float hi, float lo)
-        {
-            if (hi - lo < 0.01f) return;
-            var i = _pos.Count;
-            // The wall faces away from the cell interior.
-            var along = ToUnity(bx - ax, by - ay, 0f);
-            var normal = Vector3.Cross(along, Vector3.up).normalized;
-
-            Add(ax, ay, hi, normal);
-            Add(bx, by, hi, normal);
-            Add(bx, by, lo, normal);
-            Add(ax, ay, lo, normal);
-            AddQuad(i, _t.DominantLayerAt(ax, ay));
+            AddQuad(i, _slotCount == 1 ? 0 : _t.DominantLayerAt(cx, cy));
         }
 
         void AddQuad(int i, int slot)
@@ -204,24 +151,12 @@ namespace HoMM5.Map
         {
             _pos.Add(ToUnity(vx, vy, h));
             _uv.Add(new Vector2(vx * 0.25f, vy * 0.25f));
-            _nor.Add(normal ?? Vector3.up);
+            _nor.Add(normal ?? _t.NormalAt(vx, vy));
             _col.Add(ColorFor(vx, vy));
         }
 
-        /// <summary>
-        /// Tint by ground kind.  The shipped maps carry no splat weights that
-        /// survive import, so kind is what the renderer has to work with: water
-        /// reads blue, plateau brown, ordinary ground green, ramps olive.
-        /// </summary>
-        Color32 ColorFor(int x, int y)
-        {
-            switch (_t.GroundKind(x, y))
-            {
-                case 0: return new Color32(52, 92, 138, 255);
-                case 2: return new Color32(142, 118, 88, 255);
-                default: return _t.IsRamp(x, y) ? new Color32(126, 148, 84, 255)
-                                               : new Color32(96, 132, 72, 255);
-            }
-        }
+        // Textured ground must not be multiplied by a diagnostic green/brown
+        // vertex tint. The fallback material also uses neutral vertex colours.
+        Color32 ColorFor(int x, int y) => new Color32(255, 255, 255, 255);
     }
 }

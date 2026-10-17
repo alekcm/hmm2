@@ -30,6 +30,7 @@ namespace HoMM5.UI
         public Action ResumeRequested;
         public Action QuitRequested;
 
+        H5UiSkin _skin;
         GameObject _root;
         UnityEngine.UI.Text _title;
         UnityEngine.UI.Text _status;
@@ -70,15 +71,32 @@ namespace HoMM5.UI
             overlay.anchorMax = Vector2.one;
             overlay.offsetMin = overlay.offsetMax = Vector2.zero;
             _root.GetComponent<Image>().color = new Color(0.02f, 0.025f, 0.04f, 1f);
+            _skin = H5UiSkin.Load();
+            if (_skin != null)
+            {
+                var logo = new GameObject("OriginalLogo", typeof(RectTransform), typeof(Image));
+                var lr = logo.GetComponent<RectTransform>();
+                lr.SetParent(overlay, false);
+                lr.anchorMin = lr.anchorMax = new Vector2(0.5f, 1);
+                lr.pivot = new Vector2(0.5f, 1);
+                lr.anchoredPosition = new Vector2(0, -12);
+                lr.sizeDelta = new Vector2(380, 112);
+                var li = logo.GetComponent<Image>();
+                li.sprite = _skin.GetSprite("menuLogo");
+                li.preserveAspect = true;
+                li.raycastTarget = false;
+            }
             var panel = MakePanel(overlay, "MenuPanel", new Vector2(-500, -330), new Vector2(500, 330));
-            panel.GetComponent<Image>().color = new Color(0.05f, 0.06f, 0.09f, 0.98f);
+            var panelImage = panel.GetComponent<Image>();
+            panelImage.sprite = _skin != null ? _skin.GetSprite("menuPanel") : null;
+            panelImage.color = panelImage.sprite != null ? Color.white : new Color(0.05f, 0.06f, 0.09f, 0.98f);
 
             _title = MakeText(panel.transform, "Title", 34, FontStyle.Bold, TextAnchor.MiddleCenter,
                               new Vector2(0, -84), new Vector2(0, -26));
             _title.rectTransform.anchorMin = new Vector2(0, 1);
             _title.rectTransform.anchorMax = Vector2.one;
             _title.text = "Heroes of Might and Magic V";
-            _title.color = new Color(0.86f, 0.78f, 0.58f);
+            _title.color = _skin != null ? new Color(0.24f, 0.14f, 0.07f) : new Color(0.86f, 0.78f, 0.58f);
 
             _body = MakeScroll(panel.transform, "Body", new Vector2(40, 70), new Vector2(-40, -96));
 
@@ -89,6 +107,7 @@ namespace HoMM5.UI
 
             _status = MakeText(panel.transform, "Status", 14, FontStyle.Normal, TextAnchor.MiddleCenter,
                                new Vector2(18, 62), new Vector2(-18, 92));
+            if (_skin != null) _status.color = new Color(0.35f, 0.14f, 0.08f);
             _status.rectTransform.anchorMin = Vector2.zero;
             _status.rectTransform.anchorMax = new Vector2(1, 0);
             ShowRoot();
@@ -403,6 +422,7 @@ namespace HoMM5.UI
                                      TextAnchor.MiddleLeft,
                                      new Vector2(16, 0), new Vector2(-320, 0));
                 label.text = row.Label ?? "";
+                if (_skin != null) label.color = new Color(0.98f, 0.91f, 0.75f);
 
                 var note = MakeText(go.transform, "Note", 13, FontStyle.Italic,
                                     TextAnchor.MiddleRight,
@@ -422,6 +442,8 @@ namespace HoMM5.UI
             _body.sizeDelta = new Vector2(0, y + 80f);
             _body.anchoredPosition = Vector2.zero;
         }
+
+        void OnDestroy() { _skin?.Dispose(); }
 
         // -- widgets --------------------------------------------------------
 

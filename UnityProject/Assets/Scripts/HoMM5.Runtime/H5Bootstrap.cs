@@ -6,6 +6,7 @@ using HoMM5.Data;
 using HoMM5.Map;
 using HoMM5.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace HoMM5
 {
@@ -20,8 +21,12 @@ namespace HoMM5
     [DefaultExecutionOrder(-100)]
     public class H5Bootstrap : MonoBehaviour
     {
-        [Tooltip("Load this map on start.  Empty means the first one in the index.")]
+        [Tooltip("Debug only: explicitly bypass the main menu using initialMapId.")]
+        public bool startDirectlyOnMap;
         public string initialMapId = "";
+
+        static NewGameSetup _launchSetup;
+        static bool _launchSave;
 
         [Tooltip("0 = surface (GROUND), 1 = underground (UNDERGROUND).")]
         public int floor = 0;
@@ -85,8 +90,14 @@ namespace HoMM5
             _hud.SaveRequested = SaveGame;
             _hud.LoadRequested = LoadGame;
             _hud.TownScreenRequested = ShowTownScreen;
+            _hud.TownSelectedRequested = OpenTown;
+            _hud.MenuRequested = ReturnToMenu;
+            _hud.NextHeroRequested = SelectNextHero;
+            _hud.HeroScreenRequested = ShowHeroSkills;
+            _hud.FloorRequested = ToggleFloor;
+            _hud.ScenarioRequested = ShowScenario;
             RefreshTurnHud();
-            // PopulateMapList needs the HUD's Start to have built its canvas.
+            // Awake has built the HUD before these dependencies are assigned.
             _hud.PopulateMapList(LoadMap);
             GameState.MatchEnded += OnMatchEnded;
 
@@ -106,9 +117,22 @@ namespace HoMM5
                 return;
             }
 
-            // A map named on the component skips the menu, which is how the
-            // editor and a quick smoke test still land straight in a scenario.
-            if (!string.IsNullOrEmpty(initialMapId))
+            if (_launchSetup != null)
+            {
+                var setup = _launchSetup;
+                _launchSetup = null;
+                StartNewGame(setup);
+                return;
+            }
+            if (_launchSave)
+            {
+                _launchSave = false;
+                LoadGame();
+                return;
+            }
+
+            // A stale inspector map name must never silently bypass the menu.
+            if (startDirectlyOnMap && !string.IsNullOrEmpty(initialMapId))
             {
                 _menu.Hide();
                 LoadMap(initialMapId);
@@ -118,6 +142,8 @@ namespace HoMM5
             _hud.Hide();
             _controller.enabled = false;
             GameState.AddLog("Choose a scenario to begin.");
+            if (H5Paths.ReadAllText(H5Paths.Import("UI/skin.json")) == null)
+                _menu.SetStatus("Original UI not imported. Run: python import_to_unity.py ui");
             H5Audio.Theme(H5Cues.MainMenuTheme);
         }
 
@@ -137,6 +163,13 @@ namespace HoMM5
                 return;
             }
 
+            if (SceneManager.GetActiveScene().name == "MainMenu" &&
+                Application.CanStreamedLevelBeLoaded("AdventureMap"))
+            {
+                _launchSetup = setup;
+                SceneManager.LoadScene("AdventureMap");
+                return;
+            }
             gameDifficulty = Mathf.Clamp(setup.Difficulty, 0, 3);
             localPlayerId = "PLAYER_1";
             _pendingSetup = setup;
@@ -308,6 +341,13 @@ namespace HoMM5
             {
                 if (_menu != null && _menu.IsOpen) _menu.SetStatus("The saved scenario is not imported.");
                 GameState.AddLog("Cannot load: the saved scenario is not imported.");
+                return;
+            }
+            if (SceneManager.GetActiveScene().name == "MainMenu" &&
+                Application.CanStreamedLevelBeLoaded("AdventureMap"))
+            {
+                _launchSave = true;
+                SceneManager.LoadScene("AdventureMap");
                 return;
             }
             // Validate first; a failed Continue must leave the menu and the
@@ -511,7 +551,7 @@ namespace HoMM5
             // The treasury shown is the local player's own, not a shared pot.
             var local = GameState.LocalPlayer;
             var resources = GameState.TreasuryOf(local);
-            _hud.SetResourceSummary(resources != null ? resources.ToString() : "");
+            _hud.SetResources(resources);
         }
 
         void RefreshStats()
@@ -553,9 +593,38 @@ namespace HoMM5
             }
             if (!string.Equals(town.Owner, GameState.LocalPlayerId, System.StringComparison.OrdinalIgnoreCase))
                 GameState.AddLog($"{town.Name} belongs to {town.Owner}; its screen is read-only.");
+            OpenTown(town);
+        }
+
+        void OpenTown(H5TownState town)
+        {
+            if (town == null || CombatActive || _hud == null || _hud.Town == null) return;
             _hud.Town.Show(town);
             _townMusic = true;
             H5Audio.Theme(H5Cues.TownTheme(H5Cues.FactionFolder(town.TownType, town.Faction)));
+        }
+
+        void SelectNextHero()
+        {
+            if (GameState == null || _controller == null) return;
+            var heroes = GameState.HeroesOf(GameState.LocalPlayer);
+            if (heroes.Count == 0) return;
+            var index = heroes.IndexOf(_controller.Selected);
+            var hero = heroes[(index + 1) % heroes.Count];
+            _controller.Select(hero);
+            _controller.FocusOn(hero.transform.position);
+        }
+
+        void ShowScenario()
+        {
+            if (GameState == null || CurrentMap == null) return;
+            var request = new H5DialogRequest
+            {
+                Message = CurrentMap.Map.id + "\n\nCapture your opponents' towns and defeat their heroes.\n" +
+                          "Scripted scenario objectives are not implemented."
+            };
+            request.Options.Add(new H5DialogOption { Label = "Close" });
+            GameState.RequestDialog(request);
         }
 
         /// <summary>
@@ -607,9 +676,13 @@ namespace HoMM5
             // reach the adventure map underneath.
             if (_hud != null && _hud.Town != null && _hud.Town.IsOpen) return;
 
-            if (!HoMM5.Core.H5Input.FloorTogglePressed() || CurrentMap == null || CurrentMap.Map == null)
-                return;
+            if (HoMM5.Core.H5Input.FloorTogglePressed()) ToggleFloor();
+        }
 
+        void ToggleFloor()
+        {
+            if (CombatActive || CurrentMap == null || CurrentMap.Map == null ||
+                (GameState != null && GameState.HasMovingHero)) return;
             // F1 must rebuild the scene on the other plane; changing only the
             // integer leaves the current level rendered. Respect each map's
             // available floors and use the source game's GROUND=0 convention.
@@ -763,6 +836,7 @@ namespace HoMM5
                 GameState.MatchEnded -= OnMatchEnded;
             }
             if (Meshes != null) Meshes.DestroyMeshes();
+            if (Textures != null) Textures.Dispose();
         }
     }
 }
