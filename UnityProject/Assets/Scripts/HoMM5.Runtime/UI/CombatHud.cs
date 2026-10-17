@@ -12,15 +12,22 @@ namespace HoMM5.UI
     public class CombatHud : MonoBehaviour
     {
         public CombatController Controller;
+        /// <summary>Set by the bootstrap; needed to resolve spell ids.</summary>
+        public HoMM5.Data.GameDatabase Database;
 
         GameObject _root;
         RectTransform _queueRow;
         Text _roundLabel;
         Text _info;
         Text _log;
+        Text _siegeLabel;
         GameObject _resultPanel;
         Text _resultText;
         Button _continueButton;
+        GameObject _tacticsBar;
+        GameObject _spellPanel;
+        RectTransform _spellList;
+        Button _castButton;
 
         void Awake()
         {
@@ -79,6 +86,30 @@ namespace HoMM5.UI
 
             var unit = selected != null ? selected : state.Active;
             _info.text = unit != null ? Describe(unit) : "";
+
+            // Tactics banner and siege structures.
+            if (_tacticsBar != null) _tacticsBar.SetActive(state.TacticsActive);
+            if (_siegeLabel != null)
+            {
+                if (state.Siege == null)
+                {
+                    _siegeLabel.text = "";
+                }
+                else
+                {
+                    var lines = new System.Collections.Generic.List<string> { "Siege works:" };
+                    foreach (var s in state.Siege.Structures)
+                    {
+                        if (s.Kind == SiegeStructure.Wall && lines.Count > 3) continue;   // walls summarized
+                        var hp = Mathf.Max(0, s.Health);
+                        lines.Add($"  {CombatGameState.PrettyStructure(s.Kind)}: {hp}/{s.MaxHealth}");
+                    }
+                    var walls = state.Siege.Structures.FindAll(
+                        s => s.Kind == SiegeStructure.Wall && s.IsAlive).Count;
+                    if (walls > 0) lines.Add($"  walls standing: {walls}");
+                    _siegeLabel.text = string.Join("\n", lines);
+                }
+            }
         }
 
         static string Describe(CombatUnit u)
@@ -91,6 +122,13 @@ namespace HoMM5.UI
                 $"Damage {u.MinDamage}-{u.MaxDamage}   Speed {u.Speed}   Initiative {u.Initiative}",
             };
             if (u.IsRanged) lines.Add($"Shots {u.ShotsLeft}/{(u.Def != null ? u.Def.Shots : 0)}");
+            if (u.Effects.Count > 0)
+            {
+                var effects = new System.Collections.Generic.List<string>();
+                foreach (var e in u.Effects)
+                    effects.Add(e.Turns >= 900 ? e.Kind : $"{e.Kind} ({e.Turns})");
+                lines.Add("Effects: " + string.Join(", ", effects));
+            }
             if (u.Def != null && !string.IsNullOrEmpty(u.Def.Description))
                 lines.Add("", u.Def.Description);
             return string.Join("\n", lines);
@@ -102,6 +140,59 @@ namespace HoMM5.UI
         void OnDefend() => Controller?.OnDefendPressed();
         void OnQuick() => Controller?.OnQuickCombatPressed();
         void OnFlee() => Controller?.OnFleePressed();
+
+        /// <summary>Toggle the spellbook panel.</summary>
+        void OnCastSpell()
+        {
+            if (_spellPanel == null || Controller == null || Controller.State == null) return;
+            if (_spellPanel.activeSelf)
+            {
+                _spellPanel.SetActive(false);
+                return;
+            }
+            BuildSpellList();
+            _spellPanel.SetActive(true);
+        }
+
+        void BuildSpellList()
+        {
+            if (_spellList == null) return;
+            foreach (Transform child in _spellList) Destroy(child.gameObject);
+            var state = Controller != null ? Controller.State : null;
+            if (state == null) return;
+
+            HoMM5.Map.H5HeroState hero = null;
+            foreach (var u in state.Units)
+                if (u.Side == CombatSide.Attacker && u.Leader != null) { hero = u.Leader; break; }
+            if (hero == null) return;
+
+            foreach (var spellId in hero.Spells)
+            {
+                var spell = Database != null ? Database.GetSpell(spellId) : null;
+                if (spell == null || spell.category != "Combat_Spells") continue;
+                var mana = (int)hero.Mana;
+                var affordable = mana >= spell.manaCost && !state.SpellCastThisRound;
+                var go = new GameObject(spell.DisplayName, typeof(RectTransform), typeof(Image), typeof(Button));
+                var rt = (RectTransform)go.transform;
+                rt.SetParent(_spellList, false);
+                rt.sizeDelta = new Vector2(330, 30);
+                var img = go.GetComponent<Image>();
+                img.color = affordable ? new Color(0.22f, 0.28f, 0.18f, 0.95f)
+                                       : new Color(0.14f, 0.14f, 0.16f, 0.85f);
+                var button = go.GetComponent<Button>();
+                button.targetGraphic = img;
+                var chosen = spell;
+                button.onClick.AddListener(() =>
+                {
+                    _spellPanel.SetActive(false);
+                    Controller.BeginSpellTargeting(chosen);
+                });
+                var label = MakeText(go.transform, "L", 12, FontStyle.Normal, TextAnchor.MiddleLeft,
+                                     new Vector2(8, 0), new Vector2(-8, 0));
+                label.text = $"{spell.DisplayName}   ({spell.manaCost} mana)";
+                label.raycastTarget = false;
+            }
+        }
 
         public void ShowResult(CombatResult result, System.Action continueAction)
         {
@@ -171,6 +262,53 @@ namespace HoMM5.UI
             MakeButton(_root.transform, "Defend", new Vector2(430, -20), OnDefend);
             MakeButton(_root.transform, "Quick Combat", new Vector2(585, -20), OnQuick);
             MakeButton(_root.transform, "Flee", new Vector2(760, -20), OnFlee);
+            _castButton = MakeButtonObject(_root.transform, "CastSpell", new Vector2(890, -20),
+                                           new Vector2(130, 42), "Cast Spell", OnCastSpell);
+
+            // Siege structures panel (hidden in field battles).
+            _siegeLabel = MakeText(_root.transform, "Siege", 12, FontStyle.Normal, TextAnchor.UpperRight,
+                                   new Vector2(-420, -76), new Vector2(-16, -230));
+            _siegeLabel.text = "";
+
+            // Tactics bar (deployment phase).
+            _tacticsBar = MakePanel(_root.transform, "Tactics", new Vector2(0.5f, 1),
+                                    new Vector2(-260, -120), new Vector2(260, -64));
+            var trt = (RectTransform)_tacticsBar.transform;
+            trt.anchorMin = trt.anchorMax = new Vector2(0.5f, 1f);
+            trt.sizeDelta = new Vector2(520, 56);
+            var tacticsText = MakeText(_tacticsBar.transform, "T", 15, FontStyle.Bold, TextAnchor.MiddleLeft,
+                                       new Vector2(14, 0), new Vector2(-150, 0));
+            tacticsText.text = "Tactics: place your stacks in the first columns";
+            var beginButton = MakeButtonObject(_tacticsBar.transform, "Begin", new Vector2(380, 8),
+                                               new Vector2(120, 40), "Begin Battle",
+                                               () => Controller?.OnBeginBattlePressed());
+            var brt = (RectTransform)beginButton.transform;
+            brt.anchorMin = brt.anchorMax = new Vector2(1, 0.5f);
+            brt.pivot = new Vector2(1, 0.5f);
+            brt.anchoredPosition = new Vector2(-8, 0);
+
+            // Spell panel (hidden until Cast Spell).
+            _spellPanel = MakePanel(_root.transform, "Spells", new Vector2(1, 0),
+                                    new Vector2(-370, 70), new Vector2(-16, 420));
+            var sprt = (RectTransform)_spellPanel.transform;
+            sprt.anchorMin = sprt.anchorMax = new Vector2(1, 0);
+            sprt.pivot = new Vector2(1, 0);
+            sprt.sizeDelta = new Vector2(354, 350);
+            var spellTitle = MakeText(_spellPanel.transform, "T", 14, FontStyle.Bold, TextAnchor.UpperLeft,
+                                      new Vector2(10, -8), new Vector2(-10, -30));
+            spellTitle.text = "Spellbook";
+            var listGo = new GameObject("List", typeof(RectTransform), typeof(VerticalLayoutGroup));
+            _spellList = (RectTransform)listGo.transform;
+            _spellList.SetParent(_spellPanel.transform, false);
+            _spellList.anchorMin = Vector2.zero;
+            _spellList.anchorMax = Vector2.one;
+            _spellList.offsetMin = new Vector2(8, 8);
+            _spellList.offsetMax = new Vector2(-8, -34);
+            var layout = listGo.GetComponent<VerticalLayoutGroup>();
+            layout.spacing = 3;
+            layout.childForceExpandHeight = false;
+            layout.childControlHeight = false;
+            _spellPanel.SetActive(false);
 
             // Result modal (hidden until the battle ends).
             _resultPanel = MakePanel(_root.transform, "Result", new Vector2(0, 0), Vector2.zero, Vector2.zero);

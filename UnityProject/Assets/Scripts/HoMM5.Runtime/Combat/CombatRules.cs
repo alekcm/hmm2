@@ -55,26 +55,59 @@ namespace HoMM5.Combat
 
         /// <summary>
         /// Roll one attack. Damage = stack size × per-creature roll, scaled by
-        /// the attack/defence difference, then by luck. Returns 0 on nothing.
+        /// the attack/defence difference, ability multipliers and luck.
+        /// Returns 0 on a miss (incorporeal targets).
         /// </summary>
         public static DamageOutcome RollAttack(System.Random rng, CombatUnit attacker,
                                                CombatUnit defender, bool ranged,
-                                               bool shooterInMelee)
+                                               bool shooterInMelee, int cellsMoved = 0)
         {
             var outcome = new DamageOutcome();
             if (attacker == null || defender == null || !attacker.IsAlive || !defender.IsAlive)
                 return outcome;
 
-            var perCreature = rng.Next(attacker.MinDamage, attacker.MaxDamage + 1);
-            var baseDamage = (float)perCreature * attacker.Count;
+            // Incorporeal: half the time physical blows pass through.
+            if (!ranged && CombatAbilities.HasAbility(defender, "ABILITY_INCORPOREAL") &&
+                rng.NextDouble() < CombatAbilities.IncorporealMissChance)
+            {
+                outcome.Missed = true;
+                return outcome;
+            }
+
+            // Blessed rolls maximum, cursed minimum damage.
+            int perCreature;
+            float baseDamage;
+            if (attacker.UnitType == CombatUnitType.WarMachine)
+            {
+                // Ballista: the machine's offence plus the hero's attack
+                // (both roll into AttackSkill), scaled by the shipped damage
+                // factor range for the War Machines tier.
+                var factor = rng.Next(attacker.WarMachineMinFactor, attacker.WarMachineMaxFactor + 1);
+                baseDamage = attacker.AttackSkill * factor;
+            }
+            else
+            {
+                if (attacker.HasEffect(CombatEffect.Blessed)) perCreature = attacker.MaxDamage;
+                else if (attacker.HasEffect(CombatEffect.Cursed)) perCreature = attacker.MinDamage;
+                else perCreature = rng.Next(attacker.MinDamage, attacker.MaxDamage + 1);
+                baseDamage = (float)perCreature * attacker.Count;
+            }
 
             var diff = attacker.AttackSkill - defender.DefenceSkill;
+            var charge = CombatAbilities.ChargeDefenceReduction(attacker, cellsMoved);
+            diff += Mathf.RoundToInt(charge * defender.DefenceSkill);
             var multiplier = diff >= 0
                 ? Mathf.Min(MaxAttackMultiplier, 1f + AttackBonusPerPoint * diff)
                 : Mathf.Max(MinDefenceMultiplier, 1f + DefenceReductionPerPoint * diff);
             baseDamage *= multiplier;
 
-            if (ranged && shooterInMelee) baseDamage *= ShooterInMeleeMultiplier;
+            // Jousting/brutality and friends.
+            baseDamage *= CombatAbilities.AttackDamageMultiplier(attacker, cellsMoved);
+
+            // Shooter penalty channel + Large Shield and other takers' filters.
+            if (ranged && shooterInMelee && !CombatAbilities.HasAbility(attacker, "ABILITY_NO_MELEE_PENALTY"))
+                baseDamage *= ShooterInMeleeMultiplier;
+            baseDamage *= CombatAbilities.DamageTakenMultiplier(defender, ranged, false, null);
 
             // Luck: double, halve, or nothing. Rolled against the attacker's
             // own luck (hero bonus included).
@@ -164,5 +197,6 @@ namespace HoMM5.Combat
         public int CreaturesKilled;
         public bool GoodLuck;
         public bool BadLuck;
+        public bool Missed;
     }
 }

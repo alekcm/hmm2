@@ -45,9 +45,11 @@ there is nothing to lose.
 | End Day | advance the prototype calendar and restore hero movement |
 
 In battle: left click a highlighted cell to move, click an enemy stack to
-attack (a walk to the nearest attack cell resolves with the blow); Wait,
-Defend, Quick Combat and Flee buttons along the bottom; the queue at the top
-shows who acts next.
+attack (a walk to the nearest attack cell resolves with the blow); click a
+wall/gate/tower to strike it during a siege. Wait, Defend, Cast Spell, Quick
+Combat and Flee buttons along the bottom; the queue at the top shows who acts
+next. Before the first round a tactics phase lets you deploy your stacks in
+the front columns.
 
 The map list on the right loads any of the 142 imported maps. The importer now
 reads the shipped base hero movement (`2500` MP) and movement bonuses from
@@ -150,10 +152,14 @@ weekly Windmill/Water Wheel all fire when a hero steps on an object's active
 tile, with modal choices (chests, the Arena) in the HUD. Walking onto a
 monster starts a turn-based battle on real combat-arena scenery -- initiative
 rounds, Wait/Defend, luck and morale wired to the shipped `DefaultStats`
-constants, a greedy opponent, Quick Combat, and army/experience consequences
-that persist to saves. Quick save/load (F5/F9) persists the world state, and
+constants, creature abilities, hero spellcasting, war machines (ballista,
+catapult, first aid tent), sieges with walls, gate, towers and a moat, a
+tactics phase, a greedy opponent, Quick Combat, and army/experience
+consequences that persist to saves. Enemy towns, garrisons, guarded dwellings
+and the classic banks (Crypt, Dragon Utopia, ...) are battle sites too.
+Quick save/load (F5/F9) persists the world state, and
 the minimap shows terrain, objects and the camera viewport. Town screen,
-campaign flow, spells, creature abilities, sieges and Lua execution are still
+campaign flow, secondary skills and Lua execution are still
 absent. The remaining systems live in
 `bin/H5_Game_PEST.exe`; `data/scripts/*.lua` holds the campaign and map scripting
 and is imported nowhere. See `../PORT_STATUS.md` for the full accounting.
@@ -163,10 +169,11 @@ and is imported nowhere. See `../PORT_STATUS.md` for the full accounting.
 - Adventure-map idle and move clips play (extracted from Granny GR2); other
   animation sets are not imported, and clips that start far from the bind pose
   deform incorrectly (see `H5Rig`).
-- Battle rules are a reconstruction: damage coefficients and proc chances are
-  inferred (marked in `CombatRules`), the 14x10 grid and initiative rounds
-  approximate the engine's ATB model. No creature abilities, war machines,
-  hero spells, sieges or tactics placement in battle yet.
+- Battle rules are a reconstruction: damage coefficients, proc chances and
+  ability probabilities are inferred (marked in `CombatRules`/`CombatAbilities`),
+  the 14x10 grid and initiative rounds approximate the engine's ATB model.
+  Siege wall layouts and bank guard rosters are prototype tables. Secondary
+  skills (magic masteries, Tactics, War Machines tiers) are not implemented.
 - Materials render with the Standard shader. The engine's additive blending,
   lightmaps and particle effects are not translated.
 - Terrain is chosen per cell from the dominant painted layer; smooth weight

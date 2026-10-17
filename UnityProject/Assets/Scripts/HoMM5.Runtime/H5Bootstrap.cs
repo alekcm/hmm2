@@ -173,17 +173,20 @@ namespace HoMM5
 
         // -- combat --------------------------------------------------------
 
-        void StartCombat(H5MapObject heroObj, H5MapObject monsterObj)
+        void StartCombat(AdventureMapGameState.BattleContext context)
         {
-            if (_combat != null || CurrentMap == null || GameState == null) return;
+            if (_combat != null || CurrentMap == null || GameState == null || context == null) return;
 
-            var arenaId = PickArenaId();
-            var state = CombatGameState.Create(heroObj, monsterObj, Database, GameState.Rand);
+            var arenaId = PickArenaId(context.IsSiege);
+            var state = CombatGameState.Create(context.Hero, context.Monster, Database,
+                                               GameState.Rand, context.GuardOverride);
             if (state.Units.Find(u => u.Side == CombatSide.Attacker) == null)
             {
                 GameState.AddLog("There is no army to attack with.");
                 return;
             }
+            if (context.IsSiege)
+                state.SetupSiege(context.FortLevel);
 
             var scene = new CombatSceneBuilder(Meshes, Textures, Database,
                 MakeTerrainMaterial(), MakeObjectMaterial(), MakeWaterMaterial());
@@ -194,10 +197,11 @@ namespace HoMM5
                 return;
             }
             scene.BuildUnits(state);
+            scene.BuildSiege(state.Siege);
 
             _combatScene = scene;
-            _combatHero = heroObj;
-            _combatMonster = monsterObj;
+            _combatHero = context.Hero;
+            _combatMonster = context.Monster;
 
             // The adventure map hides under the arena until the battle ends.
             if (CurrentMap.Root != null) CurrentMap.Root.SetActive(false);
@@ -215,6 +219,7 @@ namespace HoMM5
             _combatHud = host.AddComponent<CombatHud>();
             _combat.Hud = _combatHud;
             _combatHud.Controller = _combat;
+            _combatHud.Database = Database;
             _combat.BattleFinished += OnCombatFinished;
             _combat.StartBattle(state, scene, _controller != null ? _controller.GetComponent<Camera>() : null);
         }
@@ -252,28 +257,35 @@ namespace HoMM5
 
         /// <summary>
         /// Pick a combat arena whose scenery matches the adventure terrain
-        /// (grass fights on grass arenas); fall back to any open arena.
+        /// (grass fights on grass arenas); sieges prefer siege arenas. Falls
+        /// back to any open arena.
         /// </summary>
-        string PickArenaId()
+        string PickArenaId(bool siege)
         {
             var keyword = TerrainKeyword();
             string fallback = null;
             string best = null;
+            string siegeBest = null;
             foreach (var entry in Database.MapIndex)
             {
                 if (entry == null || !entry.arena) continue;
                 var id = entry.id ?? "";
                 var lower = id.ToLowerInvariant();
-                if (lower.Contains("siege") || lower.Contains("boss") ||
-                    lower.Contains("boat") || lower.Contains("citadel")) continue;
-                if (fallback == null) fallback = id;
-                if (keyword.Length > 0 && lower.Contains(keyword))
+                if (lower.Contains("boss") || lower.Contains("boat") ||
+                    lower.Contains("citadel")) continue;
+                var isSiegeArena = lower.Contains("siege");
+                if (siege && isSiegeArena && (keyword.Length == 0 || lower.Contains(keyword)))
+                {
+                    siegeBest = siegeBest ?? id;
+                }
+                if (fallback == null && !isSiegeArena) fallback = id;
+                if (!isSiegeArena && keyword.Length > 0 && lower.Contains(keyword))
                 {
                     best = id;
                     if (lower.Contains("small")) break;
                 }
             }
-            return best ?? fallback ?? "AbandonedMine";
+            return (siege ? siegeBest : null) ?? best ?? fallback ?? "AbandonedMine";
         }
 
         string TerrainKeyword()

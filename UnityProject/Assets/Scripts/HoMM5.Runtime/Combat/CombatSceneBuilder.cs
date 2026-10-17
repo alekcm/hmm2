@@ -86,6 +86,9 @@ namespace HoMM5.Combat
         readonly Material _objectMaterial;
         GameObject _highlight;
         MeshFilter _highlightFilter;
+        readonly List<KeyValuePair<SiegeStructure, GameObject>> _siegeViews =
+            new List<KeyValuePair<SiegeStructure, GameObject>>();
+        readonly Dictionary<GameObject, float> _siegeBaseHeights = new Dictionary<GameObject, float>();
 
         public CombatSceneBuilder(MeshCache meshes, H5TextureCache textures, GameDatabase db,
                                   Material terrainMaterial, Material objectMaterial, Material waterMaterial)
@@ -259,6 +262,93 @@ namespace HoMM5.Combat
         }
 
         // -- highlights ----------------------------------------------------
+
+        /// <summary>
+        /// Draw the siege works: wall blocks, a heavier gate, tall towers and
+        /// the moat strip. The prototype layout mirrors CombatGameState's
+        /// wall line; destroyed pieces vanish.
+        /// </summary>
+        public void BuildSiege(SiegeState siege)
+        {
+            if (siege == null || Root == null) return;
+            var container = new GameObject("Siege");
+            container.transform.SetParent(Root.transform, false);
+            foreach (var s in siege.Structures)
+            {
+                if (s.Cells.Count == 0) continue;
+                var cell = s.Cells[0];
+                var world = CellToWorld(cell.x, cell.y);
+                GameObject block;
+                switch (s.Kind)
+                {
+                    case SiegeStructure.Gate:
+                        block = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                        block.transform.localScale = new Vector3(1.9f, 3.2f, 1.4f);
+                        Paint(block, new Color(0.42f, 0.30f, 0.16f));
+                        break;
+                    case SiegeStructure.LeftTower:
+                    case SiegeStructure.BigTower:
+                    case SiegeStructure.RightTower:
+                        block = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                        block.transform.localScale = new Vector3(1.9f, 1.6f, 1.9f);
+                        Paint(block, new Color(0.55f, 0.52f, 0.48f));
+                        break;
+                    default:
+                        block = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                        block.transform.localScale = new Vector3(1.9f, 2.4f, 1.1f);
+                        Paint(block, new Color(0.62f, 0.58f, 0.52f));
+                        break;
+                }
+                block.name = s.Kind;
+                block.transform.SetParent(container.transform, false);
+                block.transform.position = world + Vector3.up * block.transform.localScale.y * 0.5f;
+                var col = block.GetComponent<Collider>();
+                if (col != null) Object.Destroy(col);
+                _siegeViews.Add(new KeyValuePair<SiegeStructure, GameObject>(s, block));
+                _siegeBaseHeights[block] = block.transform.localScale.y;
+            }
+
+            foreach (var moat in siege.MoatCells)
+            {
+                var strip = GameObject.CreatePrimitive(PrimitiveType.Quad);
+                strip.name = "moat";
+                strip.transform.SetParent(container.transform, false);
+                strip.transform.position = CellToWorld(moat.x, moat.y) + Vector3.up * 0.12f;
+                strip.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+                strip.transform.localScale = new Vector3(1.8f, 1.8f, 1f);
+                var col = strip.GetComponent<Collider>();
+                if (col != null) Object.Destroy(col);
+                Paint(strip, new Color(0.25f, 0.22f, 0.12f, 0.75f));
+            }
+        }
+
+        /// <summary>Hide destroyed works and shrink damaged ones.</summary>
+        public void RefreshSiege()
+        {
+            foreach (var kv in _siegeViews)
+            {
+                if (kv.Value == null) continue;
+                var s = kv.Key;
+                if (!s.IsAlive)
+                {
+                    kv.Value.SetActive(false);
+                    continue;
+                }
+                var fraction = Mathf.Clamp01((float)s.Health / Mathf.Max(1, s.MaxHealth));
+                var baseHeight = _siegeBaseHeights.TryGetValue(kv.Value, out var bh) ? bh : 1f;
+                var scale = kv.Value.transform.localScale;
+                kv.Value.transform.localScale = new Vector3(
+                    scale.x, Mathf.Max(0.3f, baseHeight * (0.4f + 0.6f * fraction)), scale.z);
+            }
+        }
+
+        static void Paint(GameObject go, Color color)
+        {
+            var mr = go.GetComponent<MeshRenderer>();
+            if (mr == null) return;
+            var mat = new Material(Shader.Find("Standard")) { color = color };
+            mr.sharedMaterial = mat;
+        }
 
         /// <summary>Draw the reachable/attack cells as translucent quads.</summary>
         public void SetHighlight(IEnumerable<Vector2Int> cells, Color color)

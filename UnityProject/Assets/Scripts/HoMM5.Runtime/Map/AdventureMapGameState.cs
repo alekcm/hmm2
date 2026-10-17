@@ -79,7 +79,7 @@ namespace HoMM5.Map
         /// this into a battle scene; without a listener the fight is resolved
         /// headless by the battle AI.
         /// </summary>
-        public event Action<H5MapObject, H5MapObject> CombatRequested;
+        public event Action<BattleContext> CombatRequested;
 
         public event Action Changed;
         public bool HasMovingHero
@@ -236,6 +236,20 @@ namespace HoMM5.Map
             }
             hs.Mana = hs.MaxMana;
             hs.EnsureArmy(hero.Def != null ? hero.Def.army : null);
+            if (hs.Spells.Count == 0)
+            {
+                // Town guilds and hero classes do not feed spellbooks yet;
+                // until they do every hero carries a modest starter grimoire
+                // so spellcasting is playable. Replaced when the town screen
+                // lands.
+                foreach (var starter in new[]
+                {
+                    "Magic_Arrow", "Ice_Bolt", "Lightning_Bolt", "Fireball",
+                    "Haste", "Slow", "Bless", "Curse", "StoneSkin", "Weakness",
+                    "Blind", "Resurrect",
+                })
+                    hs.LearnSpell(starter);
+            }
             _heroStates[key] = hs;
             hero.BindHeroState(hs);
             return hs;
@@ -243,30 +257,98 @@ namespace HoMM5.Map
 
         // -- combat --------------------------------------------------------
 
+        /// <summary>Everything one battle needs beyond the two stacks.</summary>
+        public class BattleContext
+        {
+            public H5MapObject Hero;
+            public H5MapObject Monster;
+            /// <summary>Guard stacks when they come from a table, not the map (banks).</summary>
+            public List<HoMM5.Combat.ArmyStackState> GuardOverride;
+            /// <summary>0-3 fort level for sieges (Fort/Citadel/Castle).</summary>
+            public int FortLevel;
+            /// <summary>True when walls, towers and a catapult come into play.</summary>
+            public bool IsSiege;
+        }
+
         /// <summary>
         /// Start a battle between a local hero and a map monster. Halts the
-        /// hero first: the fight pauses the adventure map.
+        /// hero first: the fight pauses the adventure map. Garrison stacks on
+        /// the object become the defenders; towns and garrison posts fight
+        /// behind their walls.
         /// </summary>
         internal void RequestCombat(H5MapObject hero, H5MapObject monster)
         {
+            RequestCombat(hero, monster, null);
+        }
+
+        internal void RequestCombat(H5MapObject hero, H5MapObject monster,
+                                    List<HoMM5.Combat.ArmyStackState> guardOverride)
+        {
             if (hero == null || monster == null) return;
             hero.HaltMovement();
+
+            var context = new BattleContext
+            {
+                Hero = hero,
+                Monster = monster,
+                GuardOverride = guardOverride,
+                IsSiege = IsSiegeFight(monster.Def),
+                FortLevel = FortLevelOf(monster.Def),
+            };
+
             if (CombatRequested != null)
             {
-                CombatRequested.Invoke(hero, monster);
+                CombatRequested.Invoke(context);
                 return;
             }
             // Headless (no combat scene attached): resolve with the battle AI.
-            GetHeroState(hero);
-            var battle = HoMM5.Combat.CombatGameState.Create(hero, monster, Database, Rand);
+            RunHeadlessBattle(context);
+        }
+
+        void RunHeadlessBattle(BattleContext context)
+        {
+            GetHeroState(context.Hero);
+            var battle = HoMM5.Combat.CombatGameState.Create(
+                context.Hero, context.Monster, Database, Rand, context.GuardOverride);
             if (battle.Units.Find(u => u.Side == HoMM5.Combat.CombatSide.Attacker) == null)
             {
                 AddLog("There is no army to attack with.");
                 return;
             }
+            if (context.IsSiege) battle.SetupSiege(context.FortLevel);
             AddLog("Battle begins!");
             var result = battle.RunQuickCombat();
-            ApplyCombatResult(hero, monster, result);
+            ApplyCombatResult(context.Hero, context.Monster, result);
+        }
+
+        /// <summary>Defenders fight behind walls.</summary>
+        public static bool IsSiegeFight(HoMM5.Data.MapObjectDef def)
+        {
+            if (def == null) return false;
+            return def.kind == "AdvMapTown" || def.kind == "AdvMapGarrison" ||
+                   (def.garrison != null && def.garrison.stacks != null && def.garrison.stacks.Count > 0 &&
+                    def.kind != "AdvMapDwelling");
+        }
+
+        /// <summary>Town fortification tier from its Fort building (0-3).</summary>
+        public int FortLevelOf(HoMM5.Data.MapObjectDef def)
+        {
+            if (def == null || def.buildings == null || _townBuildingDefs == null) return 0;
+            var level = 0;
+            foreach (var buildingState in def.buildings)
+            {
+                if (buildingState == null) continue;
+                foreach (var building in _townBuildingDefs)
+                {
+                    if (building == null || building.type != "TB_FORT") continue;
+                    if (!string.Equals(building.upgrade, buildingState.upgrade,
+                                       StringComparison.OrdinalIgnoreCase)) continue;
+                    var tier = building.upgrade == "BLD_UPG_2" ? 2
+                             : building.upgrade == "BLD_UPG_3" ? 3 : 1;
+                    if (tier > level) level = tier;
+                }
+            }
+            return level;
         }
 
         /// <summary>
@@ -287,7 +369,19 @@ namespace HoMM5.Map
                         heroState.SetArmy(result.AttackerSurvivors);
                         WriteArmyToDef(heroObj.Def, result.AttackerSurvivors);
                     }
-                    if (monsterObj != null) CollectObject(monsterObj);
+                    if (monsterObj != null)
+                    {
+                        // Dwellings and mines change hands; towns and banks
+                        // are cleared out; everything else is picked up.
+                        if (monsterObj.Def != null &&
+                            (monsterObj.Def.kind == "AdvMapDwelling" ||
+                             monsterObj.Def.kind == "AdvMapTown" ||
+                             monsterObj.Def.kind == "AdvMapGarrison"))
+                            CaptureObject(monsterObj);
+                        if (monsterObj.Def != null && IsBank(monsterObj.Def))
+                            PayBankReward(monsterObj.Def, heroState);
+                        CollectObject(monsterObj);
+                    }
                     AddLog(result.Experience > 0
                         ? $"Victory! The army earns {result.Experience} experience."
                         : "Victory! The enemy stack is destroyed.");
@@ -360,6 +454,86 @@ namespace HoMM5.Map
                     count = s.Count,
                     customAmount = true,
                 });
+            }
+        }
+
+        // -- banks ---------------------------------------------------------
+
+        /// <summary>Guarded treasure sites whose prize is claimed after battle.</summary>
+        public static bool IsBank(HoMM5.Data.MapObjectDef def)
+        {
+            var t = (def.sharedType ?? "").ToUpperInvariant();
+            return t == "BUILDING_CRYPT" || t == "BUILDING_FORGOTTEN_CRYPT" ||
+                   t == "BUILDING_GRAVEYARD" || t == "BUILDING_DRAGON_UTOPIA" ||
+                   t == "BUILDING_NAGA_BANK" || t == "BUILDING_PYRAMID" ||
+                   t == "BUILDING_SUNKEN_TEMPLE" || t == "BUILDING_TOMB_OF_THE_WARRIOR" ||
+                   t == "TREASURE_SOULSTONE" || t == "TREASURE_SHIPWRECK";
+        }
+
+        /// <summary>
+        /// Payout of a cleared bank. The shipped records carry the guards'
+        /// existence but not the prize tables (those are scenario-scripted in
+        /// the original), so these are the classic HoMM5 payouts, inferred and
+        /// marked here.
+        /// </summary>
+        void PayBankReward(HoMM5.Data.MapObjectDef def, H5HeroState heroState)
+        {
+            var t = (def.sharedType ?? "").ToUpperInvariant();
+            switch (t)
+            {
+                case "BUILDING_CRYPT":
+                    PayLoot(2000 + Rand.Next(0, 1001), "the Crypt", artifactChance: 0.3f, heroState);
+                    break;
+                case "BUILDING_FORGOTTEN_CRYPT":
+                    PayLoot(3000 + Rand.Next(0, 1001), "the Forgotten Crypt", artifactChance: 0.3f, heroState);
+                    break;
+                case "BUILDING_GRAVEYARD":
+                    PayLoot(1500 + Rand.Next(0, 1001), "the Graveyard", artifactChance: 0f, heroState);
+                    break;
+                case "BUILDING_DRAGON_UTOPIA":
+                    PayLoot(20000 + Rand.Next(0, 10001), "Dragon Utopia", artifactChance: 1f, heroState);
+                    break;
+                case "BUILDING_NAGA_BANK":
+                    PayLoot(5000, "the Naga Bank", artifactChance: 0f, heroState);
+                    Resources.Add("GEM", 10);
+                    AddLog("The Naga Bank also held 10 gems.");
+                    break;
+                case "BUILDING_PYRAMID":
+                    PayLoot(4000, "the Pyramid", artifactChance: 0.5f, heroState);
+                    heroState?.AddExperience(2000);
+                    break;
+                case "BUILDING_SUNKEN_TEMPLE":
+                case "BUILDING_TOMB_OF_THE_WARRIOR":
+                    PayLoot(1500 + Rand.Next(0, 1001), "the ruins", artifactChance: 0.3f, heroState);
+                    heroState?.AddExperience(1500);
+                    break;
+                case "TREASURE_SOULSTONE":
+                case "TREASURE_SHIPWRECK":
+                    PayLoot(1500 + Rand.Next(0, 1001), "the wreck", artifactChance: 0.2f, heroState);
+                    break;
+            }
+        }
+
+        void PayLoot(int gold, string place, float artifactChance, H5HeroState heroState)
+        {
+            Resources.gold += gold;
+            AddLog($"{place} yields {gold} gold.");
+            if (artifactChance <= 0f || Database == null || heroState == null) return;
+            if (Rand.NextDouble() > artifactChance) return;
+            // A random minor-class artifact from the shipped table.
+            HoMM5.Data.ArtifactDef prize = null;
+            foreach (var kv in Database.Artifacts)
+            {
+                var a = kv.Value;
+                if (a == null || a.artifactClass != "ARTF_CLASS_MINOR") continue;
+                if (Rand.Next(4) == 0) { prize = a; break; }
+                prize = prize ?? a;
+            }
+            if (prize == null) return;
+            if (heroState.WearArtifact(prize.id))
+            {
+                heroState.ApplyArtifactStats(prize);
+                AddLog($"Among the spoils: the {prize.DisplayName}!");
             }
         }
 

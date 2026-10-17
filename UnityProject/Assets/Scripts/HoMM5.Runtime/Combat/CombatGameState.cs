@@ -31,6 +31,20 @@ namespace HoMM5.Combat
         public CombatResult Result { get; private set; }
         public System.Random Rand { get; private set; }
 
+        /// <summary>Siege works of this battle, null for field fights.</summary>
+        public SiegeState Siege { get; private set; }
+
+        /// <summary>Hero casts once per round.</summary>
+        public bool SpellCastThisRound { get; set; }
+
+        /// <summary>Deployment phase before the first round.</summary>
+        public bool TacticsActive { get; private set; }
+
+        /// <summary>Number of columns the tactics phase allows rearranging.</summary>
+        public const int TacticsColumns = 2;
+
+        HoMM5.Data.GameDatabase _db;
+
         readonly List<CombatUnit> _order = new List<CombatUnit>();
         int _orderIndex;
         bool _extraActionPending;
@@ -42,9 +56,10 @@ namespace HoMM5.Combat
         // -- setup ---------------------------------------------------------
 
         public static CombatGameState Create(H5MapObject heroObj, H5MapObject monsterObj,
-                                             HoMM5.Data.GameDatabase db, System.Random rng)
+                                             HoMM5.Data.GameDatabase db, System.Random rng,
+                                             List<ArmyStackState> guardOverride = null)
         {
-            var state = new CombatGameState { Rand = rng ?? new System.Random(12345) };
+            var state = new CombatGameState { Rand = rng ?? new System.Random(12345), _db = db };
             var heroState = heroObj != null ? heroObj.HeroState : null;
 
             var id = 0;
@@ -59,9 +74,32 @@ namespace HoMM5.Combat
                     state.AddUnit(CombatSide.Attacker, stack.CreatureId, stack.Count, db, heroState, id++);
                 }
             }
+            // The hero's war machines ride into battle beside the army.
+            if (heroState != null && heroState.WarMachines != null)
+                foreach (var machine in heroState.WarMachines)
+                    state.AddWarMachine(CombatSide.Attacker, machine, db, heroState, id++);
 
             var def = monsterObj != null ? monsterObj.Def : null;
-            if (def != null)
+            if (guardOverride != null && guardOverride.Count > 0)
+            {
+                // Guard table (banks): the whole defending force comes in as
+                // explicit stacks.
+                foreach (var guard in guardOverride)
+                    if (guard != null && guard.Count > 0 && !string.IsNullOrEmpty(guard.CreatureId))
+                        state.AddUnit(CombatSide.Defender, guard.CreatureId, guard.Count, db, null, id++);
+            }
+            else if (def != null && def.garrison != null && def.garrison.stacks != null &&
+                     def.garrison.stacks.Count > 0)
+            {
+                // Garrison (town, garrison post, dwarven warren): fight the
+                // posted stacks.
+                foreach (var stack in def.garrison.stacks)
+                    if (stack != null && !string.IsNullOrEmpty(stack.creature))
+                        state.AddUnit(CombatSide.Defender, stack.creature,
+                                      Mathf.Max(1, stack.count > 0 ? stack.count : stack.amount),
+                                      db, null, id++);
+            }
+            else if (def != null)
             {
                 var count = def.customAmount || def.amount2 <= def.amount
                     ? Mathf.Max(1, def.amount)
@@ -94,6 +132,233 @@ namespace HoMM5.Combat
                 Leader = leader,
             };
             Units.Add(unit);
+        }
+
+        /// <summary>Add a ballista/catapult/aid tent/ammo cart to a side.</summary>
+        public void AddWarMachine(CombatSide side, string machineId,
+                                  HoMM5.Data.GameDatabase db, H5HeroState leader, int id)
+        {
+            if (string.IsNullOrEmpty(machineId)) return;
+            var def = db != null && db.WarMachines != null &&
+                      db.WarMachines.TryGetValue(machineId, out var wm) ? wm : null;
+            var unit = new CombatUnit
+            {
+                Id = id,
+                Side = side,
+                UnitType = CombatUnitType.WarMachine,
+                WarMachineId = machineId,
+                CreatureId = machineId,
+                Count = 1,
+                StartCount = 1,
+                HealthLeft = def != null ? def.health : 100,
+                Def = null,
+                ShotsLeft = def != null ? def.shots : 0,
+                Leader = leader,
+            };
+            if (def != null)
+            {
+                // Ballista damage runs on the hero's attack via factors; keep
+                // the table's own offence as the machine's combat stat.
+                unit.WarMachineTier = 0;
+                var tier = Mathf.Clamp(unit.WarMachineTier, 0, Mathf.Max(0, def.offence.Count - 1));
+                if (def.offence != null && def.offence.Count > 0)
+                    unit.WarMachineAttack = def.offence[tier];
+                if (def.minDamageFactor != null && def.minDamageFactor.Count > 0)
+                    unit.WarMachineMinFactor = def.minDamageFactor[tier];
+                if (def.maxDamageFactor != null && def.maxDamageFactor.Count > 0)
+                    unit.WarMachineMaxFactor = Mathf.Max(unit.WarMachineMinFactor, def.maxDamageFactor[tier]);
+            }
+            Units.Add(unit);
+        }
+
+        /// <summary>First aid tent: mend the most wounded friendly stack.</summary>
+        public void ExecuteAid(CombatUnit tent, CombatUnit patient)
+        {
+            if (tent == null || patient == null || !patient.IsAlive) return;
+            // Inferred: the tent heals one to two creatures' worth of health.
+            var heal = patient.MaxHealth * (patient.Count < patient.StartCount ? 2 : 1);
+            var revived = CombatAbilities.HealStack(patient, heal);
+            AddLog($"The First Aid Tent tends {patient.DisplayName}" +
+                   (revived > 0 ? $", reviving {revived}." : $", healing {heal}."));
+            Changed?.Invoke();
+        }
+
+        // -- siege ---------------------------------------------------------
+
+        /// <summary>
+        /// Build the siege works for a fortified defender. Fort level comes
+        /// from the town's buildings (0 none ... 3 Castle). Structure health is
+        /// ArenaBuildingsStats; the wall line is a prototype layout (three
+        /// segments plus gate) since per-arena wall coordinates are still
+        /// locked in the executable.
+        /// </summary>
+        public void SetupSiege(int fortLevel)
+        {
+            Siege = new SiegeState { FortLevel = Mathf.Clamp(fortLevel, 0, 3) };
+            var wallX = GridWidth - 3;
+            var gateRows = new HashSet<int> { GridHeight / 2 - 1, GridHeight / 2 };
+            var towerRows = new Dictionary<int, string>
+            {
+                { 0, SiegeStructure.LeftTower },
+                { GridHeight / 2, SiegeStructure.BigTower },
+                { GridHeight - 1, SiegeStructure.RightTower },
+            };
+
+            SiegeStructure Make(string kind, int x, int y)
+            {
+                var hp = StructureHealth(kind);
+                var s = new SiegeStructure { Kind = kind, Health = hp, MaxHealth = hp, X = x, Y = y };
+                s.Cells.Add(new Vector2Int(x, y));
+                Siege.Structures.Add(s);
+                return s;
+            }
+
+            // One structure per cell along the defender's wall line: walls,
+            // a two-cell gate in the middle, towers at the ends and center.
+            for (var y = 0; y < GridHeight; y++)
+            {
+                if (gateRows.Contains(y)) Make(SiegeStructure.Gate, wallX, y);
+                else if (towerRows.TryGetValue(y, out var towerKind)) Make(towerKind, wallX, y);
+                else Make(SiegeStructure.Wall, wallX, y);
+            }
+
+            // The moat covers the wall line on the attacker's side.
+            for (var y = 0; y < GridHeight; y++)
+                Siege.MoatCells.Add(new Vector2Int(wallX - 1, y));
+
+            // A defender catapult pounds the walls back... no, it defends:
+            // give the DEFENDER a catapult only if besieged (it repairs? no --
+            // in HoMM5 the defender's towers shoot; the attacker brings the
+            // catapult). The attacker gets one automatically.
+            AddWarMachine(CombatSide.Attacker, "WAR_MACHINE_CATAPULT", _db, null, Units.Count + 1);
+            PlaceArmies();
+        }
+
+        int StructureHealth(string kind)
+        {
+            if (_db == null || _db.ArenaBuildings == null ||
+                !_db.ArenaBuildings.TryGetValue(kind, out var ab) || ab == null)
+                return 200;
+            return ab.HealthAtFortLevel(Siege != null ? Siege.FortLevel : 0);
+        }
+
+        /// <summary>Cells a structure blocks for walking.</summary>
+        public bool BlockedBySiege(int x, int y)
+        {
+            if (Siege == null) return false;
+            var s = Siege.StructureAt(x, y);
+            // Everything on the wall line blocks until destroyed (a wrecked
+            // tower or wall becomes a breach the army can pour through).
+            return s != null && s.IsAlive;
+        }
+
+        /// <summary>Hero (or catapult) strikes a siege structure.</summary>
+        public void AttackStructure(CombatUnit attacker, SiegeStructure structure)
+        {
+            if (attacker == null || structure == null || !structure.IsAlive) return;
+            var damage = attacker.UnitType == CombatUnitType.WarMachine
+                ? 250   // catapult shot: inferred fixed damage
+                : attacker.Count * Mathf.Max(1, (attacker.MinDamage + attacker.MaxDamage) / 2);
+            structure.Health -= damage;
+            AddLog($"{attacker.DisplayName} hits the {PrettyStructure(structure.Kind)} for {damage} " +
+                   $"({Mathf.Max(0, structure.Health)}/{structure.MaxHealth}).");
+            if (!structure.IsAlive)
+                AddLog($"The {PrettyStructure(structure.Kind)} is destroyed!");
+            Changed?.Invoke();
+        }
+
+        public static string PrettyStructure(string kind)
+        {
+            switch (kind)
+            {
+                case SiegeStructure.Wall: return "wall";
+                case SiegeStructure.Gate: return "gate";
+                case SiegeStructure.LeftTower:
+                case SiegeStructure.RightTower: return "arrow tower";
+                case SiegeStructure.BigTower: return "main tower";
+                case SiegeStructure.Moat: return "moat";
+                default: return kind.ToLowerInvariant();
+            }
+        }
+
+        /// <summary>Moat check on movement: deals damage to whoever ends there.</summary>
+        void ApplyMoat(CombatUnit unit)
+        {
+            if (Siege == null || unit == null || !unit.IsAlive) return;
+            if (!Siege.MoatCells.Contains(new Vector2Int(unit.X, unit.Y))) return;
+            // Moat: half a stack's top health per crossing (inferred).
+            var damage = Mathf.Max(1, unit.MaxHealth / 2);
+            CombatRules.ApplyDamage(unit, damage);
+            AddLog($"{unit.DisplayName} crosses the moat for {damage} damage.");
+            if (!unit.IsAlive) NotifyDeath(unit);
+        }
+
+        // -- deaths and summons --------------------------------------------
+
+        /// <summary>Handle a stack's death: enrage, death explosions, auras.</summary>
+        public void NotifyDeath(CombatUnit dead)
+        {
+            if (dead == null || dead.IsAlive) return;
+            AddLog($"{dead.DisplayName} is destroyed.");
+
+            // Enrage: allies gain a notch of fury.
+            var allies = Units.FindAll(u => u.Side == dead.Side);
+            CombatAbilities.OnFriendlyDeath(allies, dead);
+
+            // Death explosion (Obsidian Gargoyles and friends).
+            var blast = CombatAbilities.DeathExplosionDamage(dead);
+            if (blast > 0)
+            {
+                foreach (var u in Units)
+                {
+                    if (u == null || !u.IsAlive || u == dead) continue;
+                    if (Mathf.Abs(u.X - dead.X) > 1 || Mathf.Abs(u.Y - dead.Y) > 1) continue;
+                    var dealt = CombatRules.ApplyDamage(u, blast);
+                    AddLog($"{dead.DisplayName} explodes: {blast} to {u.DisplayName}, {dealt} killed.");
+                    if (!u.IsAlive) NotifyDeath(u);
+                }
+            }
+            Changed?.Invoke();
+        }
+
+        /// <summary>
+        /// Place a summoned stack near the summoning side's front. Returns
+        /// null when there is no room left.
+        /// </summary>
+        public CombatUnit SummonStack(CombatSide side, string creatureId, int totalHealth)
+        {
+            var def = _db != null ? _db.GetCreature(creatureId) : null;
+            var perCreature = def != null && def.Health > 0 ? def.Health : 50;
+            var count = Mathf.Max(1, totalHealth / perCreature);
+
+            // Find a free cell on the side's half of the board.
+            var startX = side == CombatSide.Attacker ? 1 : GridWidth - 2;
+            for (var radius = 0; radius < GridWidth / 2; radius++)
+            for (var dy = -radius; dy <= radius; dy++)
+            for (var dx = -radius; dx <= radius; dx++)
+            {
+                var x = startX + (side == CombatSide.Attacker ? dx : -dx);
+                var y = GridHeight / 2 + dy;
+                if (!InBounds(x, y) || UnitAt(x, y) != null || BlockedBySiege(x, y)) continue;
+
+                var unit = new CombatUnit
+                {
+                    Id = Units.Count + 100,
+                    Side = side,
+                    CreatureId = creatureId ?? "",
+                    Def = def,
+                    Count = count,
+                    StartCount = count,
+                    HealthLeft = perCreature,
+                    Summoned = true,
+                };
+                unit.X = x;
+                unit.Y = y;
+                Units.Add(unit);
+                AddLog($"{unit.DisplayName} answers the summon.");
+                return unit;
+            }
+            return null;
         }
 
         /// <summary>
@@ -139,6 +404,7 @@ namespace HoMM5.Combat
         void StartRound()
         {
             _order.Clear();
+            SpellCastThisRound = false;
             foreach (var u in Units)
                 if (u.IsAlive)
                 {
@@ -152,7 +418,37 @@ namespace HoMM5.Combat
             _order.Sort((a, b) => b.Initiative.CompareTo(a.Initiative));
             _orderIndex = 0;
             _extraActionPending = false;
+            TowersShoot();
             Advance();
+        }
+
+        /// <summary>Every surviving arrow tower picks a target at the round's start.</summary>
+        void TowersShoot()
+        {
+            if (Siege == null) return;
+            foreach (var tower in Siege.Towers)
+            {
+                // Towers harry the strongest attacker stack.
+                CombatUnit best = null;
+                var bestPower = float.MinValue;
+                foreach (var u in Units)
+                {
+                    if (!u.IsAlive || u.Side != CombatSide.Attacker) continue;
+                    var power = u.TotalHealth * (float)u.AttackSkill;
+                    if (power > bestPower)
+                    {
+                        bestPower = power;
+                        best = u;
+                    }
+                }
+                if (best == null) return;
+                // Inferred: a tower shot eats ~8% of a stack's current health.
+                var damage = Mathf.Max(1, Mathf.RoundToInt(best.TotalHealth * 0.08f));
+                var killed = CombatRules.ApplyDamage(best, damage);
+                AddLog($"The {PrettyStructure(tower.Kind)} shoots {best.DisplayName}: " +
+                       $"{damage} damage, {killed} killed.");
+                if (!best.IsAlive) NotifyDeath(best);
+            }
         }
 
         /// <summary>Move to the next unit that acts.</summary>
@@ -180,6 +476,33 @@ namespace HoMM5.Combat
                 return;
             }
 
+            // Statuses resolve before the unit may act: poison and burns tick,
+            // blind and stun steal the turn, durations wind down.
+            if (Active.HasEffect(CombatEffect.Blind))
+            {
+                AddLog($"{Active.DisplayName} is blinded and misses the turn.");
+                SkipAndAdvance(Active);
+                return;
+            }
+            if (Active.HasEffect(CombatEffect.Stun))
+            {
+                AddLog($"{Active.DisplayName} is stunned and misses the turn.");
+                SkipAndAdvance(Active);
+                return;
+            }
+            var turnLog = CombatAbilities.OnTurnStart(Rand, Active);
+            if (turnLog != null) AddLog(turnLog);
+            if (!Active.IsAlive)
+            {
+                NotifyDeath(Active);
+                _orderIndex++;
+                Advance();
+                return;
+            }
+            foreach (var expired in Active.TickEffects())
+                if (expired != CombatEffect.Poison)
+                    AddLog($"{Active.DisplayName}: {expired} wears off.");
+
             // Morale: bad skips the turn, good grants an extra action after it.
             var morale = CombatRules.RollMorale(Rand, Active);
             if (morale == MoraleOutcome.Bad)
@@ -204,6 +527,16 @@ namespace HoMM5.Combat
             for (var i = 0; i < Units.Count; i++)
                 if (Units[i].Side == side && Units[i].IsAlive) return true;
             return false;
+        }
+
+        /// <summary>The active unit loses its turn (stun/blind); countdown and move on.</summary>
+        void SkipAndAdvance(CombatUnit unit)
+        {
+            unit.HasActedThisRound = true;
+            unit.TickEffects();
+            _orderIndex++;
+            Active = null;
+            Advance();
         }
 
         /// <summary>The active unit is done; go to the next one.</summary>
@@ -288,7 +621,7 @@ namespace HoMM5.Combat
                 for (var y = 0; y < GridHeight; y++)
                 for (var x = 0; x < GridWidth; x++)
                 {
-                    if (UnitAt(x, y) != null) continue;
+                    if (UnitAt(x, y) != null || BlockedBySiege(x, y)) continue;
                     if (Mathf.Max(Mathf.Abs(x - unit.X), Mathf.Abs(y - unit.Y)) <= budget)
                         result.Add(new Vector2Int(x, y));
                 }
@@ -316,7 +649,7 @@ namespace HoMM5.Combat
                     var ny = cy + dy;
                     if (!InBounds(nx, ny)) continue;
                     var ni = ny * GridWidth + nx;
-                    if (UnitAt(nx, ny) != null) continue;
+                    if (UnitAt(nx, ny) != null || BlockedBySiege(nx, ny)) continue;
                     if (dist[ni] <= d + 1) continue;
                     dist[ni] = d + 1;
                     queue.Enqueue(ni);
@@ -356,36 +689,100 @@ namespace HoMM5.Combat
             if (unit == null || IsOver) return;
             unit.X = x;
             unit.Y = y;
+            ApplyMoat(unit);
             Changed?.Invoke();
         }
 
-        /// <summary>One melee or ranged attack with its retaliation.</summary>
-        public void ExecuteAttack(CombatUnit attacker, CombatUnit target, bool ranged, bool shooterInMelee)
+        /// <summary>One melee or ranged attack with its retaliation and on-hit effects.</summary>
+        public void ExecuteAttack(CombatUnit attacker, CombatUnit target, bool ranged,
+                                  bool shooterInMelee, int cellsMoved = 0)
         {
             if (attacker == null || target == null || IsOver) return;
             if (ranged && attacker.ShotsLeft > 0) attacker.ShotsLeft--;
 
-            var outcome = CombatRules.RollAttack(Rand, attacker, target, ranged, shooterInMelee);
-            var luckText = outcome.GoodLuck ? " (good luck!)" : outcome.BadLuck ? " (bad luck!)" : "";
-            AddLog($"{attacker.DisplayName} hits {target.DisplayName} for {outcome.Damage} damage, " +
-                   $"{outcome.CreaturesKilled} killed{luckText}.");
-
-            if (!target.IsAlive)
+            var outcome = CombatRules.RollAttack(Rand, attacker, target, ranged, shooterInMelee, cellsMoved);
+            if (outcome.Missed)
             {
-                AddLog($"{target.DisplayName} is destroyed.");
+                AddLog($"{target.DisplayName} is incorporeal -- the blow passes through.");
                 Changed?.Invoke();
                 return;
             }
 
-            // Retaliation: once per round, melee only, and never if the
-            // defender is a shooter with a ranged preference.
-            if (!ranged && !target.RetaliatedThisRound && target.IsAlive && attacker.IsAlive)
+            var luckText = outcome.GoodLuck ? " (good luck!)" : outcome.BadLuck ? " (bad luck!)" : "";
+            AddLog($"{attacker.DisplayName} hits {target.DisplayName} for {outcome.Damage} damage, " +
+                   $"{outcome.CreaturesKilled} killed{luckText}.");
+
+            // Fire shield burns the melee attacker back.
+            if (!ranged && outcome.Damage > 0)
             {
-                target.RetaliatedThisRound = true;
-                var back = CombatRules.RollAttack(Rand, target, attacker, false, false);
-                AddLog($"{target.DisplayName} retaliates for {back.Damage}, {back.CreaturesKilled} killed.");
-                if (!attacker.IsAlive)
-                    AddLog($"{attacker.DisplayName} is destroyed.");
+                var reflect = CombatAbilities.MeleeReflect(target, outcome.Damage);
+                if (reflect > 0)
+                {
+                    CombatRules.ApplyDamage(attacker, reflect);
+                    AddLog($"{target.DisplayName}'s shield burns back for {reflect}.");
+                    if (!attacker.IsAlive) NotifyDeath(attacker);
+                }
+            }
+
+            // Life drain feeds the attacker's stack.
+            if (outcome.Damage > 0 && CombatAbilities.HasAbility(attacker, "ABILITY_LIFE_DRAIN"))
+            {
+                var revived = CombatAbilities.LifeDrainHeal(attacker, outcome.Damage);
+                AddLog($"{attacker.DisplayName} drains life" +
+                       (revived > 0 ? $", reviving {revived}." : "."));
+            }
+
+            // On-hit abilities: poison, blind, bash, curses, marks.
+            if (target.IsAlive && outcome.Damage > 0)
+            {
+                var effect = CombatAbilities.ApplyOnHitEffects(Rand, attacker, target, outcome.Damage);
+                if (effect != null) AddLog($"{target.DisplayName} is {effect}.");
+            }
+
+            // Sweeping strikes spill onto extra stacks.
+            foreach (var extra in CombatAbilities.ExtraTargets(attacker, target, Units))
+            {
+                if (extra == null || !extra.IsAlive) continue;
+                var side = CombatRules.RollAttack(Rand, attacker, extra, ranged, false, 0);
+                AddLog($"{attacker.DisplayName} sweeps {extra.DisplayName} for {side.Damage}, " +
+                       $"{side.CreaturesKilled} killed.");
+                if (!extra.IsAlive) NotifyDeath(extra);
+            }
+
+            if (!target.IsAlive)
+            {
+                AddLog($"{target.DisplayName} is destroyed.");
+                NotifyDeath(target);
+                Changed?.Invoke();
+                return;
+            }
+
+            // Strike and return is handled by the move+attack order.
+
+            // Retaliation: one per round, melee; shooters can return fire with
+            // Ranged retaliate; unlimited retaliation breaks the one-per-round
+            // rule; No enemy retaliation silences it entirely.
+            var canRetaliate = !CombatAbilities.BlocksRetaliation(attacker) && attacker.IsAlive;
+            if (canRetaliate)
+            {
+                var usedRetaliation = target.RetaliatedThisRound && !CombatAbilities.AlwaysRetaliates(target);
+                var meleeRange = IsAdjacent(target, attacker);
+                var returnChannel = (!ranged && meleeRange) ||
+                                     (ranged && CombatAbilities.RangedRetaliate(target) && target.IsRanged);
+                if (!usedRetaliation && returnChannel && target.IsAlive)
+                {
+                    target.RetaliatedThisRound = true;
+                    var isReturnShot = ranged && target.IsRanged;
+                    if (isReturnShot && target.ShotsLeft > 0) target.ShotsLeft--;
+                    var back = CombatRules.RollAttack(Rand, target, attacker, isReturnShot, false);
+                    if (back.Missed)
+                        AddLog($"{target.DisplayName}'s retaliation passes through.");
+                    else
+                    {
+                        AddLog($"{target.DisplayName} retaliates for {back.Damage}, {back.CreaturesKilled} killed.");
+                        if (!attacker.IsAlive) NotifyDeath(attacker);
+                    }
+                }
             }
             Changed?.Invoke();
         }
@@ -396,10 +793,13 @@ namespace HoMM5.Combat
             if (attacker == null || target == null || IsOver) return;
             if (ranged)
             {
-                ExecuteAttack(attacker, target, true, HasEnemyAdjacent(attacker));
+                ExecuteAttack(attacker, target, true, HasEnemyAdjacent(attacker), 0);
                 return;
             }
 
+            var originX = attacker.X;
+            var originY = attacker.Y;
+            var moved = 0;
             if (!IsAdjacent(attacker, target))
             {
                 var cells = AttackCells(attacker, target);
@@ -416,9 +816,19 @@ namespace HoMM5.Combat
                         best = c;
                     }
                 }
+                moved = bestDist;
                 MoveUnit(attacker, best.x, best.y);
             }
-            ExecuteAttack(attacker, target, false, false);
+            attacker.CellsMovedLastTurn = moved;
+            ExecuteAttack(attacker, target, false, false, moved);
+
+            // Strike and return: spring back after the blow.
+            if (moved > 0 && attacker.IsAlive && CombatAbilities.StrikeAndReturn(attacker) &&
+                UnitAt(originX, originY) == null)
+            {
+                MoveUnit(attacker, originX, originY);
+                AddLog($"{attacker.DisplayName} strikes and returns.");
+            }
         }
 
         public bool HasEnemyAdjacent(CombatUnit unit)
@@ -435,14 +845,102 @@ namespace HoMM5.Combat
         // -- AI ------------------------------------------------------------
 
         /// <summary>
-        /// Greedy battle AI: shoot the juiciest target when shooting is free,
-        /// otherwise walk at the weakest reachable enemy and hit it; defend in
-        /// place when there is nothing useful to do.
+        /// Greedy battle AI: war machines serve their function, shooters pick
+        /// a target when free, everyone else walks at the weakest reachable
+        /// enemy and hits it; defend in place when there is nothing to do.
         /// </summary>
         public CombatOrder ChooseAiOrder(CombatUnit unit)
         {
             var order = new CombatOrder();
             if (unit == null || !unit.IsAlive) return order;
+
+            // -- war machines ------------------------------------------
+            if (unit.UnitType == CombatUnitType.WarMachine)
+            {
+                switch (unit.WarMachineId)
+                {
+                    case "WAR_MACHINE_FIRST_AID_TENT":
+                    {
+                        // Heal the most wounded friendly creature stack.
+                        CombatUnit patient = null;
+                        var worst = float.MaxValue;
+                        foreach (var u in Units)
+                        {
+                            if (u == null || !u.IsAlive || u.Side != unit.Side ||
+                                u.UnitType != CombatUnitType.Creature) continue;
+                            var ratio = (float)u.TotalHealth / Mathf.Max(1, u.StartCount * u.MaxHealth);
+                            if (ratio < worst)
+                            {
+                                worst = ratio;
+                                patient = u;
+                            }
+                        }
+                        if (patient != null && worst < 0.999f)
+                        {
+                            order.Target = patient;
+                            order.Aid = true;
+                            return order;
+                        }
+                        order.Defend = true;
+                        return order;
+                    }
+                    case "WAR_MACHINE_CATAPULT":
+                    {
+                        if (Siege == null)
+                        {
+                            order.Defend = true;
+                            return order;
+                        }
+                        // Pound the healthiest structure (gate first when up).
+                        SiegeStructure target = null;
+                        SiegeStructure gate = null;
+                        foreach (var s in Siege.Structures)
+                        {
+                            if (!s.IsAlive) continue;
+                            if (s.Kind == SiegeStructure.Gate) gate = s;
+                            if (target == null || s.Health > target.Health) target = s;
+                        }
+                        target = gate ?? target;
+                        if (target != null)
+                        {
+                            AttackStructure(unit, target);
+                            order.Done = true;
+                            return order;
+                        }
+                        order.Defend = true;
+                        return order;
+                    }
+                    case "WAR_MACHINE_BALLISTA":
+                    {
+                        if (unit.ShotsLeft <= 0)
+                        {
+                            order.Defend = true;
+                            return order;
+                        }
+                        CombatUnit prey = null;
+                        var best = float.MinValue;
+                        foreach (var u in Units)
+                        {
+                            if (!u.IsAlive || u.Side == unit.Side) continue;
+                            var score = u.TotalHealth + u.AttackSkill * 10f;
+                            if (score > best)
+                            {
+                                best = score;
+                                prey = u;
+                            }
+                        }
+                        if (prey != null)
+                        {
+                            order.Target = prey;
+                            order.Ranged = true;
+                        }
+                        return order;
+                    }
+                    default:
+                        order.Defend = true;
+                        return order;
+                }
+            }
 
             var enemies = Units.FindAll(u => u.IsAlive && u.Side != unit.Side);
             if (enemies.Count == 0) return order;
@@ -525,12 +1023,103 @@ namespace HoMM5.Combat
                 var unit = Active;
                 if (unit == null) break;
                 var order = ChooseAiOrder(unit);
-                if (order.Defend) DoDefend();
-                else if (order.Target != null) MoveAndAttack(unit, order.Target, order.Ranged);
-                else if (order.MoveX >= 0) MoveUnit(unit, order.MoveX, order.MoveY);
-                if (!IsOver) EndTurn();
+                ExecuteOrder(order, unit);
+                if (!IsOver && Active == unit) EndTurn();
             }
             return Result;
+        }
+
+        /// <summary>Carry out one AI order headless (quick combat / auto-resolve).</summary>
+        public void ExecuteOrder(CombatOrder order, CombatUnit unit)
+        {
+            if (order == null || unit == null) return;
+            if (order.Done) return;
+            if (order.Aid && order.Target != null) ExecuteAid(unit, order.Target);
+            else if (order.Defend) DoDefend();
+            else if (order.Target != null) MoveAndAttack(unit, order.Target, order.Ranged);
+            else if (order.MoveX >= 0) MoveUnit(unit, order.MoveX, order.MoveY);
+            else DoDefend();
+        }
+
+        // -- spells and tactics ---------------------------------------------
+
+        /// <summary>
+        /// The player's hero casts one spell per round. Returns the log line,
+        /// or null when the cast failed (state.Err explains). Mana is spent on
+        /// success and the hero's spell for the round is used up.
+        /// </summary>
+        public string CastSpell(H5HeroState hero, HoMM5.Data.SpellDef spell,
+                                CombatUnit target, int cellX, int cellY)
+        {
+            Err = null;
+            if (hero == null || spell == null)
+            {
+                Err = "No spell.";
+                return null;
+            }
+            if (SpellCastThisRound)
+            {
+                Err = "The hero has already cast a spell this round.";
+                return null;
+            }
+            if (!CombatSpells.CanCast(hero, spell, (int)hero.Mana, out var reason))
+            {
+                Err = reason;
+                return null;
+            }
+
+            var line = CombatSpells.Cast(this, hero, spell, target, cellX, cellY);
+            if (line == null)
+            {
+                Err = $"{spell.DisplayName} has no implemented effect yet.";
+                return null;
+            }
+            hero.Mana = Mathf.Max(0f, hero.Mana - spell.manaCost);
+            SpellCastThisRound = true;
+            AddLog(line);
+            return line;
+        }
+
+        /// <summary>Why the last CastSpell (or similar) refused; null on success.</summary>
+        public string Err;
+
+        /// <summary>
+        /// Enter the tactics phase: the player may rearrange their stacks in
+        /// the first <see cref="TacticsColumns"/> columns before the first
+        /// round. (The Tactics secondary skill widens the zone in the
+        /// original; skills are not implemented, so the zone is fixed.)
+        /// </summary>
+        public void BeginTactics()
+        {
+            TacticsActive = true;
+            AddLog("Tactics: arrange your army, then begin the battle.");
+        }
+
+        public bool CanPlaceInTactics(int x, int y)
+        {
+            return TacticsActive && InBounds(x, y) && x < TacticsColumns &&
+                   UnitAt(x, y) == null && !BlockedBySiege(x, y);
+        }
+
+        /// <summary>Move a stack inside the tactics zone (or start from a cell).</summary>
+        public bool TacticsMove(CombatUnit unit, int x, int y)
+        {
+            if (!TacticsActive || unit == null || unit.Side != CombatSide.Attacker) return false;
+            if (!CanPlaceInTactics(x, y)) return false;
+            unit.X = x;
+            unit.Y = y;
+            Changed?.Invoke();
+            return true;
+        }
+
+        /// <summary>End deployment and start the battle.</summary>
+        public void CommitTactics()
+        {
+            if (!TacticsActive) return;
+            TacticsActive = false;
+            AddLog("The battle begins!");
+            Round = 1;
+            StartRound();
         }
 
         // -- result --------------------------------------------------------

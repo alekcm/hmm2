@@ -26,8 +26,9 @@ from homm5import import terrain  # noqa: E402
 from homm5import.container import END_MARKER, parse_records  # noqa: E402
 from homm5import.maps import iter_map_files, load_map  # noqa: E402
 from homm5import.dds import DDSError, decode_dds, write_png  # noqa: E402
-from homm5import.gamedata import (load_artifacts, load_creatures, load_game_rules,
-                                 load_spells, load_town_buildings)  # noqa: E402
+from homm5import.gamedata import (load_arena_buildings, load_artifacts,
+                                 load_creatures, load_game_rules, load_spells,
+                                 load_town_buildings, load_war_machines)  # noqa: E402
 from homm5import.geometry import decode_file as decode_geometry  # noqa: E402
 from homm5import.gltf import geometry_to_glb  # noqa: E402
 from homm5import.localization import Localization  # noqa: E402
@@ -425,6 +426,39 @@ class GameDataTest(unittest.TestCase):
         self.assertEqual(c["badMoraleAtbValue"], 0.5)
         self.assertEqual(c["heroInitiative"], 10)
         self.assertEqual(c["atbBaseTime"], 100000)
+
+    def test_spell_damage_mana_and_mastery_rows_come_through(self):
+        """DeepFreeze spells out its per-mastery damage rows and mana cost in
+        the spell record itself; the runtime needs all of it to cast."""
+        s = self.spells["DeepFreeze"]
+        self.assertEqual(s["manaCost"], 11)
+        self.assertTrue(s["damageIsElemental"])
+        self.assertEqual(len(s["damage"]), 4, "damage rows are per mastery tier")
+        self.assertEqual(s["damage"][0], {"base": 10.0, "perPower": 10.0})
+        self.assertEqual(s["damage"][3], {"base": 30.0, "perPower": 30.0})
+        self.assertEqual(s["duration"][0], {"base": 1.0, "perPower": 0.0})
+        self.assertEqual(s["target"], "TARGET_HOSTILE")
+
+    def test_war_machine_stats_match_the_reference_table(self):
+        wm = load_war_machines(self.xdb)
+        self.assertEqual(set(wm), {
+            "WAR_MACHINE_BALLISTA", "WAR_MACHINE_CATAPULT",
+            "WAR_MACHINE_FIRST_AID_TENT", "WAR_MACHINE_AMMO_CART"})
+        b = wm["WAR_MACHINE_BALLISTA"]
+        self.assertEqual(b["shots"], 100)
+        self.assertEqual(b["health"], 250)
+        self.assertEqual(b["initiative"], 10)
+        self.assertEqual(b["offence"], [5, 10, 12, 15, 17])
+        self.assertEqual(b["minDamageFactor"], [2, 2, 2, 5, 5])
+        self.assertEqual(b["cost"]["Gold"], 1500)
+
+    def test_siege_structure_health_matches_the_reference_table(self):
+        ab = load_arena_buildings(self.xdb)
+        self.assertEqual(ab["WALL"]["baseHealth"], 200)
+        self.assertEqual(ab["WALL"]["healthFortBonuses"], [0, 0, 100])
+        self.assertEqual(ab["GATE"]["healthFortBonuses"], [0, 100, 200])
+        self.assertEqual(ab["BIG_TOWER"]["baseHealth"], 400)
+        self.assertEqual(ab["MAGIC_WALL"]["baseHealth"], 500)
 
     def test_creature_stats_match_the_xml(self):
         c = self.creatures["CombatMage"]

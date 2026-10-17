@@ -123,10 +123,47 @@ namespace HoMM5.Map
                 case "AdvMapSign": return VisitSign(state, hero, obj);
                 case "AdvMapBuilding": return VisitBuilding(state, heroState, hero, obj);
                 case "AdvMapDwelling":
+                {
+                    // Unguarded dwellings simply change hands; guarded ones
+                    // must be taken by force.
+                    if (HasGarrison(obj))
+                    {
+                        state.AddLog($"Battle for the {DisplayName(obj)}!");
+                        state.RequestCombat(hero, mapObj);
+                    }
+                    else
+                    {
+                        state.CaptureObject(mapObj);
+                        state.AddLog($"The {DisplayName(obj)} now flies your flag.");
+                    }
+                    return true;
+                }
                 case "AdvMapGarrison":
                 case "AdvMapDwarvenWarren":
-                    state.LogOncePerDay(obj, "The " + DisplayName(obj) + " garrison screen is not implemented yet.");
+                    state.AddLog($"Battle for the {DisplayName(obj)}!");
+                    state.RequestCombat(hero, mapObj);
                     return true;
+                case "AdvMapTown":
+                {
+                    var owner = obj.owner;
+                    if (!string.IsNullOrEmpty(owner) &&
+                        string.Equals(owner, state.LocalPlayerId, StringComparison.OrdinalIgnoreCase))
+                    {
+                        state.LogOncePerDay(obj, "This town is already yours.");
+                        return true;
+                    }
+                    if (HasGarrison(obj) || obj.garrison != null)
+                    {
+                        state.AddLog($"The siege of {DisplayName(obj)} begins!");
+                        state.RequestCombat(hero, mapObj);
+                    }
+                    else
+                    {
+                        state.CaptureObject(mapObj);
+                        state.AddLog($"{DisplayName(obj)} surrenders to your banner.");
+                    }
+                    return true;
+                }
                 case "AdvMapSphinx":
                 case "AdvMapSeerHut":
                     state.LogOncePerDay(obj, "Riddles and quests are not implemented yet.");
@@ -142,6 +179,13 @@ namespace HoMM5.Map
                     return true;
             }
             return false;
+        }
+
+        /// <summary>Whether the object posts a defending garrison.</summary>
+        static bool HasGarrison(MapObjectDef obj)
+        {
+            return obj != null && obj.garrison != null && obj.garrison.stacks != null &&
+                   obj.garrison.stacks.Count > 0;
         }
 
         // -- treasures -----------------------------------------------------
@@ -241,7 +285,8 @@ namespace HoMM5.Map
                 }
                 case "TREASURE_SOULSTONE":
                 case "TREASURE_SHIPWRECK":
-                    state.LogOncePerDay(obj, "This treasure is guarded by creatures -- combat is not implemented yet.");
+                    state.AddLog($"Battle for the {DisplayName(obj)}!");
+                    state.RequestCombat(hero, mapObj, BankGuards(sharedType, state.Rand));
                     return true;
                 default:
                     // Unknown pile kinds with an authored amount still pay out.
@@ -581,7 +626,7 @@ namespace HoMM5.Map
                 case "BUILDING_KEYMASTER_TENT":
                     return VisitTent(state, hero, mapObj, obj);
 
-                // -- blocked on later systems ------------------------------
+                // -- guarded banks ---------------------------------------
                 case "BUILDING_CRYPT":
                 case "BUILDING_FORGOTTEN_CRYPT":
                 case "BUILDING_GRAVEYARD":
@@ -594,7 +639,8 @@ namespace HoMM5.Map
                 case "BUILDING_TOMB_OF_THE_WARRIOR":
                 case "BUILDING_PYRAMID":
                 case "BUILDING_RUINED_TOWER":
-                    state.LogOncePerDay(obj, "This bank is guarded by creatures -- combat is not implemented yet.");
+                    state.AddLog($"Battle for the {DisplayName(obj)}!");
+                    state.RequestCombat(hero, mapObj, BankGuards(sharedType, state.Rand));
                     return true;
                 case "BUILDING_HILL_FORT":
                 case "BUILDING_BLACK_MARKET":
@@ -650,6 +696,88 @@ namespace HoMM5.Map
         }
 
         // -- helpers -------------------------------------------------------
+
+        /// <summary>
+        /// Standing guard of a guarded treasury. The shipped maps say a bank
+        /// is guarded but the exact rosters are scenario-scripted in the
+        /// original's Lua, so these are the classic HoMM5 garrisons --
+        /// inferred and tweakable here. Sizes scale a little with the roll.
+        /// </summary>
+        public static List<ArmyStackState> BankGuards(string sharedType, System.Random rng)
+        {
+            var guards = new List<ArmyStackState>();
+            void Add(string creature, int count)
+            {
+                if (count > 0) guards.Add(new ArmyStackState(creature, count));
+            }
+            var jitter = rng != null ? rng.Next(0, 4) : 0;
+            switch ((sharedType ?? "").ToUpperInvariant())
+            {
+                case "BUILDING_CRYPT":
+                    Add("Skeleton", 30 + jitter * 2);
+                    Add("Walking_Dead", 25 + jitter);
+                    Add("Ghosts", 15 + jitter);
+                    Add("Vampire", 8 + jitter / 2);
+                    break;
+                case "BUILDING_FORGOTTEN_CRYPT":
+                    Add("Lich", 12 + jitter);
+                    Add("Vampire", 12 + jitter);
+                    Add("Ghosts", 20 + jitter);
+                    break;
+                case "BUILDING_GRAVEYARD":
+                    Add("Zombie", 35 + jitter * 2);
+                    Add("Ghosts", 20 + jitter);
+                    Add("Wight", 15 + jitter);
+                    break;
+                case "BUILDING_DRAGON_UTOPIA":
+                    Add("Black_Dragon", 2);
+                    Add("Gold_Dragon", 2);
+                    Add("Fire_Dragon", 2);
+                    Add("Green_Dragon", 2);
+                    break;
+                case "BUILDING_NAGA_BANK":
+                    Add("Hydra", 10 + jitter);
+                    Add("Water_Elemental", 20 + jitter);
+                    break;
+                case "BUILDING_PYRAMID":
+                    Add("Mummy", 20 + jitter * 2);
+                    break;
+                case "BUILDING_SUNKEN_TEMPLE":
+                    Add("Water_Elemental", 25 + jitter);
+                    Add("Hydra", 6 + jitter / 2);
+                    break;
+                case "BUILDING_TOMB_OF_THE_WARRIOR":
+                    Add("Skeleton", 40 + jitter * 2);
+                    Add("Skeleton_Archer", 25 + jitter);
+                    break;
+                case "BUILDING_CYCLOPS_STOCKPILE":
+                    Add("Orc1", 25 + jitter);
+                    Add("OrcWarmonger", 15 + jitter);
+                    break;
+                case "BUILDING_DWARVEN_TREASURE":
+                    Add("WhiteBearRider", 12 + jitter);
+                    Add("Bear_Raider", 15 + jitter);
+                    break;
+                case "BUILDING_GARGOYLE_STONEVAULT":
+                    Add("Gremlin", 30 + jitter * 2);
+                    Add("Master_Gremlin", 20 + jitter);
+                    break;
+                case "BUILDING_RUINED_TOWER":
+                    Add("Sprite", 25 + jitter);
+                    Add("Manticore", 10 + jitter);
+                    break;
+                case "TREASURE_SOULSTONE":
+                case "TREASURE_SHIPWRECK":
+                    Add("Ghosts", 25 + jitter);
+                    Add("Poltergeist", 15 + jitter);
+                    break;
+                default:
+                    // Unknown bank: a modest skeleton band keeps it honest.
+                    Add("Skeleton", 20 + jitter);
+                    break;
+            }
+            return guards;
+        }
 
         /// <summary>Once-ever stat or skill grant.</summary>
         static bool Permanent(AdventureMapGameState state, H5HeroState hero, MapObjectDef obj,

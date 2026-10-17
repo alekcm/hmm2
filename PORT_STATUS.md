@@ -156,10 +156,64 @@ glTF package. Adventure-map viewer: chunked terrain with cliff walls, water,
 - Quick combat also runs headless (no combat scene attached), so the rules
   path is exercised without the UI.
 
+## Continuation: full combat scope
+
+- **Creature abilities** (`CombatAbilities`): implemented against the shipped
+  ability descriptions. Passive: Large Shield (half non-magical shots),
+  Armored (no defence debuffs), magic proofs 25/50/75, elemental immunities,
+  undead/demon/elemental/mechanical tags, incorporeal 50% miss. On-hit:
+  poison (3 turns), blind (wakes on damage; undead/elementals/mechanicals
+  immune), bash stun, cursing attack (Weakness), hexing attack, wound (no
+  healing), mark of fire, life drain (heals/revives), fire/magma shield
+  reflect (shipped 0.2/0.4 multipliers). Sweeps: fire/acid breath and cleave
+  hit the cell behind, three/six-headed and spray hit neighbors, whirlwind
+  hits all adjacent. Tactical: jousting (+5%/cell moved, shipped),
+  rider charge, strike and return, double shot, enrage (+30% attack per
+  friendly death), death explosions, regeneration (30-50/turn, shipped
+  desc), lay hands, fright auras. Probabilities not in the data are marked
+  inferred in `CombatAbilities`.
+- **Spellcasting** (`CombatSpells`): mana costs (`TrainedCost`) and the
+  per-mastery damage/duration rows (Base + PerPower x SpellPower) are now
+  imported with the spell records and drive every cast. Implemented: the
+  destructive damage line (Magic Arrow through Empowered variants, areas
+  included), the Light/Dark buff-debuff line (Haste, Slow, Stone Skin,
+  Bloodlust, Bless, Curse, Weakness, Disrupting Ray, Blind, Berserk,
+  Forgetfulness, Plague, Anti-Magic, Deflect Arrows), resurrection
+  (Resurrect/Animate Dead), summons (elementals, phoenix, phantom) and
+  Dispel. Elemental immunities and magic proofs gate spell damage. The hero
+  casts once per round from a spellbook panel (Spell Power scales; mastery
+  tiers wait on the skills system).
+- **War machines**: ballista, catapult, first aid tent and ammo cart are
+  imported from `RefTables/WarMachines.xdb` (offence/defence/damage factors
+  per skill tier, health, shots). Ballistas shoot with hero attack x shipped
+  factors, the tent heals the most wounded stack each turn, the catapult
+  pounds siege structures, machines ride into battle with the hero's army.
+- **Sieges**: walls, gate, three towers and the moat with shipped
+  `ArenaBuildingsStats` health (wall 200+100@Castle, gate 200+100/200,
+  towers 400). Structures block movement until wrecked, towers shoot every
+  round, the moat burns crossers, the attacker brings a catapult. Sieges
+  fire on towns/garrison posts; fort level comes from the town's Fort
+  building (Fort/Citadel/Castle). The wall-line layout is a prototype grid
+  placement (per-arena wall coordinates are still in the executable).
+- **Tactics phase**: before the first round the player deploys their stacks
+  in the first two columns (the Tactics skill's wider zone waits on skills).
+- **Battles everywhere**: monster stacks (as before), enemy towns (siege,
+  capture on win), garrison posts and dwarven warrens, guarded dwellings
+  (unguarded ones just change hands), and the guarded banks -- Crypt,
+  Forgotten Crypt, Graveyard, Dragon Utopia, Naga Bank, Pyramid, Sunken
+  Temple, Tomb of the Warrior, Cyclops Stockpile, Dwarven Treasure,
+  Gargoyle Stonevault, Ruined Tower, soulstone piles and shipwrecks -- each
+  with its classic guard roster and payout (both marked inferred: the
+  originals script them in Lua). Payouts grant gold, gems, artifacts and
+  experience.
+- Death handling: enrage feed, death explosions, poison/blind/stun ticks,
+  blessed/cursed damage rolls, one retaliation per round with unlimited and
+  ranged retaliation and no-retaliation all wired.
+
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **87 tests**
-(86 pass, 1 skipped), every one against the real shipped data. These are
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **90 tests**
+(89 pass, 1 skipped), every one against the real shipped data. These are
 cross-checks between independent sources, not golden files:
 
 - **Container grammar** — every geometry file ends in the 6-byte marker
@@ -227,12 +281,17 @@ maps look.
   town screen, campaigns, AI, Lua runtime or networking. Individual hero
   starting stats are not in the imported tables (heroes start at 1/1/1/1).
 - **Combat is a playable reconstruction, not the original.** The luck and
-  morale multipliers, the defending bonus and the creature stats are shipped
-  numbers; the attack/defence damage coefficients, proc chances, the 14x10
-  battle grid and the discrete initiative rounds are documented
-  approximations of the engine's ATB model. Not yet in battles: creature
-  abilities, war machines, hero spellcasting, siege walls/towers, two-hero
-  armies, banks/dwellings as battle sites, tactics placement and flee costs.
+  morale multipliers, defending bonus, siege structure health, war machine
+  stats and creature stats are shipped numbers; the attack/defence damage
+  coefficients, proc chances, ability probabilities, the 14x10 battle grid
+  and the discrete initiative rounds are documented approximations of the
+  engine's ATB model. The siege wall layout and bank guard rosters are
+  prototype tables (the originals script them per scenario). Secondary
+  skills (magic masteries, Tactics, War Machines tiers) are not implemented:
+  casts use mastery tier 0, the tactics zone is fixed, machines use tier 0.
+  Two-hero battles, hero spellcasting beyond the once-per-round combat cast,
+  battlefield obstacles (fire wall, land mines) and creature-activated
+  specials (battle dive, gating, seduce) remain stubs or inert.
 - **Animation is partial.** Adventure-map idle and move clips are extracted
   from Granny GR2 and play through `H5Rig`/`H5Anim`; the bind-pose caveat in
   `H5Rig` applies to clips that start far from rest. Combat stances and
@@ -252,9 +311,8 @@ maps look.
    compile check left behind.
 2. Finish material translation: two-sided culling, additive passes, lightmaps and
    visual effects; smoothly blend the imported terrain coverage layers.
-3. Grow combat: creature abilities (`CombatAbilities.xdb`), war machines,
-   hero spellcasting (`spells.json` is imported), sieges; then open guarded
-   banks and dwelling fights on it.
-4. Town screen and hero screen; secondary skills (Witch Huts and hero levelling
-   dialogs already expect a skill system behind them).
+3. Secondary skills system (magic masteries, Tactics, War Machines, Logistics
+   ...): the combat and movement systems already read the hooks it feeds.
+4. Town screen and hero screen; campaigns (Witch Huts and hero levelling
+   dialogs expect the skill system behind them).
 5. Audio: `music/`, `sound/`, `soundsfx/` are FMOD-packed and untouched.

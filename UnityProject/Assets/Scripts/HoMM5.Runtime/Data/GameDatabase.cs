@@ -20,6 +20,8 @@ namespace HoMM5.Data
         public Dictionary<string, ArtifactDef> Artifacts { get; private set; } = new Dictionary<string, ArtifactDef>();
         public List<TownBuildingDef> TownBuildings { get; private set; } = new List<TownBuildingDef>();
         public GameRulesDef Rules { get; private set; } = new GameRulesDef { baseHeroMovement = 2500 };
+        public Dictionary<string, WarMachineDef> WarMachines { get; private set; } = new Dictionary<string, WarMachineDef>();
+        public Dictionary<string, ArenaBuildingDef> ArenaBuildings { get; private set; } = new Dictionary<string, ArenaBuildingDef>();
         public Dictionary<string, ModelAnimDef> ModelAnimations { get; private set; } = new Dictionary<string, ModelAnimDef>();
         public Dictionary<string, string> Localization { get; private set; } = new Dictionary<string, string>();
         public List<MapIndexEntry> MapIndex { get; private set; } = new List<MapIndexEntry>();
@@ -41,6 +43,8 @@ namespace HoMM5.Data
             Artifacts = LoadDict<ArtifactDef>(H5Paths.Game("artifacts.json")) ?? Artifacts;
             TownBuildings = LoadList<TownBuildingDef>(H5Paths.Game("townBuildings.json")) ?? TownBuildings;
             Rules = LoadSingle<GameRulesDef>(H5Paths.Game("rules.json")) ?? Rules;
+            WarMachines = LoadDict<WarMachineDef>(H5Paths.Game("warMachines.json")) ?? WarMachines;
+            ArenaBuildings = LoadDict<ArenaBuildingDef>(H5Paths.Game("arenaBuildings.json")) ?? ArenaBuildings;
             ModelAnimations = LoadDict<ModelAnimDef>(H5Paths.Game("modelAnimations.json")) ?? ModelAnimations;
             Localization = LoadDict<string>(H5Paths.Game("Localization.json")) ?? Localization;
             MapIndex = LoadList<MapIndexEntry>(H5Paths.Maps("_index.json")) ?? MapIndex;

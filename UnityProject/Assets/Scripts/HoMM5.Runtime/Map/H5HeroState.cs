@@ -49,6 +49,16 @@ namespace HoMM5.Map
         /// </summary>
         public List<ArmyStackState> Army = new List<ArmyStackState>();
 
+        /// <summary>
+        /// War machine ids (WAR_MACHINE_BALLISTA, ...) the hero brings to
+        /// battles. Seeded with the workshop trio; town recruitment screens
+        /// will replace this when they exist.
+        /// </summary>
+        public List<string> WarMachines = new List<string>
+        {
+            "WAR_MACHINE_BALLISTA", "WAR_MACHINE_AMMO_CART", "WAR_MACHINE_FIRST_AID_TENT",
+        };
+
         /// <summary>Spell points cap: the shipped engine uses Knowledge * 10.</summary>
         public int MaxMana => Knowledge * 10;
 

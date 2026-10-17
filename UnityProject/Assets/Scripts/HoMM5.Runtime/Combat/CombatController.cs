@@ -25,6 +25,10 @@ namespace HoMM5.Combat
         bool _busy;
         bool _autoResolving;
         CombatUnitView _selectedView;
+        HoMM5.Data.SpellDef _spellTargeting;
+
+        /// <summary>Set while the next click picks a spell target.</summary>
+        public bool IsTargetingSpell => _spellTargeting != null;
 
         public void StartBattle(CombatGameState state, CombatSceneBuilder scene, Camera cam)
         {
@@ -35,7 +39,20 @@ namespace HoMM5.Combat
             {
                 State.TurnStarted += OnTurnStarted;
                 State.BattleEnded += OnBattleEnded;
-                State.BeginBattle();
+                // The player's side deploys first; quick/field fights skip it.
+                var playerLeads = State.Units.Exists(u =>
+                    u.Side == CombatSide.Attacker && u.Leader != null &&
+                    u.UnitType == CombatUnitType.Creature);
+                if (playerLeads)
+                {
+                    State.BeginTactics();
+                    _awaitingPlayerInput = true;
+                    RefreshHud();
+                }
+                else
+                {
+                    State.BeginBattle();
+                }
             }
         }
 
@@ -102,7 +119,16 @@ namespace HoMM5.Combat
             }
 
             var order = State.ChooseAiOrder(unit);
-            if (order.Defend)
+            if (order.Done)
+            {
+                // The AI already spent the action (catapult shot); just end.
+            }
+            else if (order.Aid && order.Target != null)
+            {
+                State.ExecuteAid(unit, order.Target);
+                RefreshCounts();
+            }
+            else if (order.Defend)
             {
                 State.DoDefend();
             }
@@ -121,18 +147,19 @@ namespace HoMM5.Combat
                 yield return AnimateStrike(unit, order.Target);
                 State.ExecuteAttack(unit, order.Target, order.Ranged, State.HasEnemyAdjacent(unit));
                 RefreshCounts();
-                if (State != null && !State.IsOver && State.Active == unit) State.EndTurn();
             }
             else if (order.MoveX >= 0)
             {
                 yield return MoveView(unit, order.MoveX, order.MoveY);
                 State.MoveUnit(unit, order.MoveX, order.MoveY);
-                if (State != null && !State.IsOver && State.Active == unit) State.EndTurn();
             }
-            else if (State != null && !State.IsOver && State.Active == unit)
+            else
             {
                 State.DoDefend();
+                _busy = false;
+                yield break;
             }
+            if (State != null && !State.IsOver && State.Active == unit) State.EndTurn();
             _busy = false;
         }
 
@@ -156,6 +183,11 @@ namespace HoMM5.Combat
 
         void HandlePlayerInput()
         {
+            if (State.TacticsActive)
+            {
+                HandleTacticsInput();
+                return;
+            }
             if (H5Input.PointerOverUi) return;
             var unit = State.Active;
             if (unit == null || unit.Side != CombatSide.Attacker) return;
@@ -166,6 +198,15 @@ namespace HoMM5.Combat
                 if (Physics.Raycast(ray, out var hit, 3000f))
                 {
                     var view = hit.collider.GetComponentInParent<CombatUnitView>();
+                    if (_spellTargeting != null)
+                    {
+                        // Spell targeting: any clicked unit is the target.
+                        if (view != null && view.Unit != null)
+                            CastAt(view.Unit, view.Unit.X, view.Unit.Y);
+                        else if (Scene.TryGetCell(hit.point, out var sx, out var sy))
+                            CastAt(null, sx, sy);
+                        return;
+                    }
                     if (view != null && view.Unit != null)
                     {
                         if (view.Unit.Side != unit.Side) PlayerAttack(unit, view.Unit);
@@ -173,10 +214,76 @@ namespace HoMM5.Combat
                     }
                     else if (Scene.TryGetCell(hit.point, out var cx, out var cy))
                     {
-                        PlayerMove(unit, cx, cy);
+                        // A live wall/gate/tower cell is a strike, not a move.
+                        var structure = State.Siege != null ? State.Siege.StructureAt(cx, cy) : null;
+                        if (structure != null && structure.IsAlive)
+                            PlayerAttackStructure(unit, structure);
+                        else
+                            PlayerMove(unit, cx, cy);
                     }
                 }
             }
+        }
+
+        void HandleTacticsInput()
+        {
+            if (H5Input.PointerOverUi || _cam == null || !H5Input.SelectPressed()) return;
+            var ray = _cam.ScreenPointToRay(H5Input.PointerPosition());
+            if (!Physics.Raycast(ray, out var hit, 3000f)) return;
+
+            var view = hit.collider.GetComponentInParent<CombatUnitView>();
+            if (view != null && view.Unit != null && view.Unit.Side == CombatSide.Attacker)
+            {
+                SelectView(view);
+                return;
+            }
+            if (_selectedView == null || _selectedView.Unit == null) return;
+            if (Scene.TryGetCell(hit.point, out var x, out var y))
+            {
+                State.TacticsMove(_selectedView.Unit, x, y);
+                if (Scene.Views.TryGetValue(_selectedView.Unit.Id, out var moved) && moved != null)
+                    moved.SnapTo(Scene.CellToWorld(x, y), moved.transform.eulerAngles.y);
+                RefreshHud();
+            }
+        }
+
+        /// <summary>The HUD hands over the spell to aim.</summary>
+        public void BeginSpellTargeting(HoMM5.Data.SpellDef spell)
+        {
+            _spellTargeting = spell;
+            RefreshHud();
+        }
+
+        void CastAt(CombatUnit target, int x, int y)
+        {
+            var spell = _spellTargeting;
+            _spellTargeting = null;
+            if (spell == null || State == null) return;
+            var hero = State.Active != null ? State.Active.Leader : null;
+            if (hero == null)
+            {
+                foreach (var u in State.Units)
+                    if (u.Side == CombatSide.Attacker && u.Leader != null) { hero = u.Leader; break; }
+            }
+            State.CastSpell(hero, spell, target, x, y);
+            RefreshCounts();
+        }
+
+        void PlayerAttackStructure(CombatUnit unit, SiegeStructure structure)
+        {
+            if (unit.UnitType == CombatUnitType.WarMachine && unit.WarMachineId != "WAR_MACHINE_CATAPULT")
+                return;   // only the catapult and living creatures break walls
+            _awaitingPlayerInput = false;
+            StartCoroutine(PlayerAttackStructureRoutine(unit, structure));
+        }
+
+        System.Collections.IEnumerator PlayerAttackStructureRoutine(CombatUnit unit, SiegeStructure structure)
+        {
+            _busy = true;
+            State.AttackStructure(unit, structure);
+            yield return new WaitForSeconds(0.2f);
+            if (State != null && !State.IsOver && State.Active == unit) State.EndTurn();
+            _busy = false;
         }
 
         void SelectView(CombatUnitView view)
@@ -233,6 +340,14 @@ namespace HoMM5.Combat
 
         // -- HUD buttons ---------------------------------------------------
 
+        /// <summary>Tactics phase: the player is done deploying.</summary>
+        public void OnBeginBattlePressed()
+        {
+            if (State == null || !State.TacticsActive || _busy) return;
+            State.CommitTactics();
+            _awaitingPlayerInput = false;
+        }
+
         public void OnWaitPressed()
         {
             if (State == null || State.IsOver || _busy || !_awaitingPlayerInput) return;
@@ -268,11 +383,7 @@ namespace HoMM5.Combat
             {
                 var unit = State.Active;
                 if (unit == null) break;
-                var order = State.ChooseAiOrder(unit);
-                if (order.Defend) State.DoDefend();
-                else if (order.Target != null) State.MoveAndAttack(unit, order.Target, order.Ranged);
-                else if (order.MoveX >= 0) State.MoveUnit(unit, order.MoveX, order.MoveY);
-                else State.DoDefend();
+                State.ExecuteOrder(State.ChooseAiOrder(unit), unit);
                 if (!State.IsOver && State.Active == unit) State.EndTurn();
             }
             _autoResolving = false;
@@ -342,6 +453,7 @@ namespace HoMM5.Combat
                 view.RefreshCount();
                 if (view.Unit != null && !view.Unit.IsAlive) view.gameObject.SetActive(false);
             }
+            Scene.RefreshSiege();
             RefreshHud();
         }
 

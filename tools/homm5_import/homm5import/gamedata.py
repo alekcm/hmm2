@@ -37,6 +37,19 @@ def _text_ref(xdb: XDB, loc: Optional[Localization], node: Optional[ET.Element])
     return loc.read(href) if href else None
 
 
+def _mastery_rows(xdb: XDB, node: Optional[ET.Element]) -> List[dict]:
+    """<damage>/<duration> rows: one per mastery tier, Base + PerPower."""
+    if node is None:
+        return []
+    rows = []
+    for item in xdb.items(node):
+        rows.append({
+            "base": float(xdb.number(item.find("Base"))),
+            "perPower": float(xdb.number(item.find("PerPower"))),
+        })
+    return rows
+
+
 def _base_key(path: str) -> str:
     return os.path.splitext(os.path.basename(path))[0]
 
@@ -123,7 +136,15 @@ def load_spells(xdb: XDB, loc: Optional[Localization] = None, subdirs=(
                 "isAimed": xdb.boolean(root.find("IsAimed")),
                 "isAreaAttack": xdb.boolean(root.find("IsAreaAttack")),
                 "cost": _res(xdb, root.find("sSpellCost")),
+                # Mana is spelled <TrainedCost> in the spell record.
+                "manaCost": int(xdb.number(root.find("TrainedCost"))),
+                "canSelectDead": xdb.boolean(root.find("CanSelectDead")),
+                "damageIsElemental": xdb.boolean(root.find("DamageIsElemental")),
             }
+            # damage/duration carry four mastery tiers (none/basic/advanced/
+            # expert), each scaling with spell power: Base + PerPower * Power.
+            rec["damage"] = _mastery_rows(xdb, root.find("damage"))
+            rec["duration"] = _mastery_rows(xdb, root.find("duration"))
             rec["visuals"] = [
                 xdb.href_of(i) or xdb.text(i) for i in xdb.items(root.find("visuals"))
             ]
@@ -227,6 +248,71 @@ def load_game_rules(xdb: XDB, loc: Optional[Localization] = None) -> dict:
             "atbEndTime": number(root, "ATBEndTime"),
         },
     }
+
+
+def load_war_machines(xdb: XDB) -> Dict[str, dict]:
+    """Ballista / catapult / first aid tent / ammo cart combat stats.
+
+    The table carries per-skill-tier rows for offence, defence and the damage
+    factors (tier 0 = no War Machines skill ... tier 4 = ultimate).
+    """
+    root = xdb.load("/GameMechanics/RefTables/WarMachines.xdb")
+    out: Dict[str, dict] = {}
+    if root is None:
+        return out
+
+    def tier_rows(node):
+        return [int(xdb.number(i)) for i in xdb.items(node)]
+
+    for item in xdb.items(root.find("objects")):
+        key = xdb.text(item.find("ID"))
+        obj = item.find("Obj")
+        if obj is not None:
+            # An #n:inline(WarMachine) href resolves to the WarMachine record
+            # itself; a plain record would sit under <Obj>.
+            inner = xdb.resolve_field(obj, "/GameMechanics/RefTables/WarMachines.xdb") or obj
+        else:
+            inner = None
+        wm = inner if inner is not None and inner.tag == "WarMachine" else (
+            inner.find("WarMachine") if inner is not None else None)
+        if wm is None or key == "WAR_MACHINE_NONE":
+            continue
+        out[key] = {
+            "id": key,
+            "shots": int(xdb.number(wm.find("Shots"))),
+            "initiative": int(xdb.number(wm.find("Initiative"))),
+            "health": int(xdb.number(wm.find("Health"))),
+            "cost": _res(xdb, wm.find("Cost")),
+            "offence": tier_rows(wm.find("Offense")),
+            "defence": tier_rows(wm.find("Defense")),
+            "minDamageFactor": tier_rows(wm.find("MinDamageFactor")),
+            "maxDamageFactor": tier_rows(wm.find("MaxDamageFactor")),
+            "visual": xdb.href_of(wm.find("Visual")),
+        }
+    return out
+
+
+def load_arena_buildings(xdb: XDB) -> Dict[str, dict]:
+    """Siege structure health: walls, gate, towers, moat, magic wall.
+
+    ``HealthFortBonuses`` are the per-fort-tier additions (Fort, Citadel,
+    Castle) on top of BaseHealth.
+    """
+    root = xdb.load("/GameMechanics/RefTables/ArenaBuildingsStats.xdb")
+    out: Dict[str, dict] = {}
+    if root is None:
+        return out
+    for item in xdb.items(root.find("objects")):
+        key = xdb.text(item.find("ID"))
+        obj = item.find("obj")
+        if obj is None:
+            continue
+        out[key] = {
+            "id": key,
+            "baseHealth": int(xdb.number(obj.find("BaseHealth"))),
+            "healthFortBonuses": [int(xdb.number(i)) for i in xdb.items(obj.find("HealthFortBonuses"))],
+        }
+    return out
 
 
 def model_geometry(xdb: XDB, model: Optional[ET.Element],
@@ -383,4 +469,6 @@ def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object
         "townBuildings": load_town_buildings(xdb, loc),
         "modelAnimations": load_model_animations(xdb),
         "rules": load_game_rules(xdb),
+        "warMachines": load_war_machines(xdb),
+        "arenaBuildings": load_arena_buildings(xdb),
     }

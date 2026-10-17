@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace HoMM5.Data
 {
@@ -108,7 +109,71 @@ namespace HoMM5.Data
         public ResourceCost cost;
         public List<string> visuals;
 
+        /// <summary>Mana the hero spends to cast (the record's TrainedCost).</summary>
+        public int manaCost;
+        public bool canSelectDead;
+        public bool damageIsElemental;
+        /// <summary>Damage rows per mastery tier: base + perPower * spell power.</summary>
+        public List<SpellLevelRow> damage;
+        /// <summary>Buff/debuff duration rows per mastery tier.</summary>
+        public List<SpellLevelRow> duration;
+
         public string DisplayName => string.IsNullOrEmpty(name) ? id : name;
+
+        /// <summary>Value of one row at a given spell power; 0 when absent.</summary>
+        public float LevelValue(List<SpellLevelRow> rows, int tier, int spellPower)
+        {
+            if (rows == null || rows.Count == 0) return 0f;
+            var row = rows[Mathf.Clamp(tier, 0, rows.Count - 1)];
+            return row.baseValue + row.perPower * spellPower;
+        }
+    }
+
+    /// <summary>One mastery-tier scaling row of a spell (damage, duration).</summary>
+    public class SpellLevelRow
+    {
+        public float baseValue;
+        public float perPower;
+
+        // The JSON spells these as "base"; JsonProperty alias keeps old and new
+        // imports readable.
+        [Newtonsoft.Json.JsonProperty("base")]
+        public float BaseAlias { set { baseValue = value; } }
+    }
+
+    /// <summary>Ballista / catapult / first aid tent / ammo cart stats.</summary>
+    public class WarMachineDef
+    {
+        public string id;
+        public int shots;
+        public int initiative;
+        public int health;
+        public ResourceCost cost;
+        /// <summary>Offence per War Machines skill tier (0 = none ... 4 = ultimate).</summary>
+        public List<int> offence;
+        public List<int> defence;
+        public List<int> minDamageFactor;
+        public List<int> maxDamageFactor;
+        public string visual;
+
+        public string DisplayName => GameDatabase.PrettifyEnum(id);
+    }
+
+    /// <summary>Siege structure health (walls, gate, towers, moat).</summary>
+    public class ArenaBuildingDef
+    {
+        public string id;
+        public int baseHealth;
+        /// <summary>Per fort tier: Fort, Citadel, Castle.</summary>
+        public List<int> healthFortBonuses;
+
+        public int HealthAtFortLevel(int fortLevel)
+        {
+            var bonus = 0;
+            if (healthFortBonuses != null && fortLevel > 0)
+                bonus = healthFortBonuses[Mathf.Min(fortLevel, healthFortBonuses.Count) - 1];
+            return baseHealth + bonus;
+        }
     }
 
     public class ArtifactStats
@@ -156,7 +221,7 @@ namespace HoMM5.Data
         public List<StartResourcesDef> startComputerResources;
         public Dictionary<string, int> mineDailyIncome;
         /// <summary>Combat constants (combat/LuckAndMorale, combat/Creatures).</summary>
-        public GameCombatRulesDef combat;
+        public GameCombatRulesDef combat = new GameCombatRulesDef();
     }
 
     /// <summary>
