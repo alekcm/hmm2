@@ -1112,6 +1112,121 @@ namespace HoMM5.Combat
             return order;
         }
 
+        // -- the battle AI's hero ----------------------------------------------
+
+        /// <summary>
+        /// The side whose hero the battle AI commands. Set for computer fights;
+        /// null when the player commands the battle, so their hero waits for
+        /// input.
+        /// </summary>
+        public CombatSide? AiHeroSide;
+
+        /// <summary>Buffs the AI casts on its strongest stack in the first round.</summary>
+        static readonly string[] AiBuffSpells = { "Bless", "Haste", "StoneSkin", "Bloodlust" };
+
+        /// <summary>
+        /// The AI's army gives up when the enemy's worth is at least this many
+        /// times its own, from the second round on.
+        /// </summary>
+        public const float AiRetreatRatio = 4f;
+
+        /// <summary>
+        /// A stack's worth on the battlefield: its live count times the shipped
+        /// creature Power rating (tier + 1 when a record has none).
+        /// </summary>
+        static float UnitValue(CombatUnit u)
+        {
+            if (u == null || u.Def == null) return 0f;
+            var power = u.Def.Power > 0 ? u.Def.Power : 1 + u.Def.CreatureTier;
+            return u.Count * power;
+        }
+
+        /// <summary>
+        /// Once per round, the AI's hero casts the strongest damage spell it can
+        /// afford at the enemy stack worth the most. In the first round, when no
+        /// damage spell is castable, it buffs its own strongest stack instead.
+        /// Returns true when a spell was cast.
+        /// </summary>
+        public bool AiCastSpell()
+        {
+            var hero = AttackerLeader;
+            if (hero == null || SpellCastThisRound || _db == null) return false;
+            var side = AiHeroSide ?? CombatSide.Attacker;
+
+            CombatUnit enemy = null;
+            CombatUnit friend = null;
+            foreach (var u in Units)
+            {
+                if (u == null || !u.IsAlive || u.UnitType != CombatUnitType.Creature) continue;
+                if (u.Side == side)
+                {
+                    if (friend == null || UnitValue(u) > UnitValue(friend)) friend = u;
+                }
+                else if (enemy == null || UnitValue(u) > UnitValue(enemy))
+                {
+                    enemy = u;
+                }
+            }
+
+            HoMM5.Data.SpellDef spell = null;
+            CombatUnit target = null;
+            if (enemy != null)
+            {
+                var bestCost = -1;
+                foreach (var id in hero.Spells)
+                {
+                    var candidate = _db.GetSpell(id);
+                    if (!CombatSpells.IsDamageSpell(candidate)) continue;
+                    if (!CombatSpells.CanCast(hero, candidate, (int)hero.Mana, out _)) continue;
+                    var cost = CombatSpells.ManaCost(hero, candidate);
+                    if (cost > bestCost)
+                    {
+                        bestCost = cost;
+                        spell = candidate;
+                        target = enemy;
+                    }
+                }
+            }
+            if (spell == null && friend != null && Round <= 1)
+            {
+                var bestCost = -1;
+                foreach (var id in hero.Spells)
+                {
+                    if (System.Array.IndexOf(AiBuffSpells, id) < 0) continue;
+                    var candidate = _db.GetSpell(id);
+                    if (candidate == null || !CombatSpells.CanCast(hero, candidate, (int)hero.Mana, out _)) continue;
+                    var cost = CombatSpells.ManaCost(hero, candidate);
+                    if (cost > bestCost)
+                    {
+                        bestCost = cost;
+                        spell = candidate;
+                        target = friend;
+                    }
+                }
+            }
+            if (spell == null || target == null) return false;
+            return CastSpell(hero, spell, target, target.X, target.Y) != null;
+        }
+
+        /// <summary>
+        /// Whether the AI's army should give up: from the second round, when the
+        /// enemy outweighs it by <see cref="AiRetreatRatio"/>.
+        /// </summary>
+        public bool AiShouldRetreat()
+        {
+            if (Round < 2 || AttackerLeader == null) return false;
+            var side = AiHeroSide ?? CombatSide.Attacker;
+            float ours = 0f;
+            float theirs = 0f;
+            foreach (var u in Units)
+            {
+                if (u == null || !u.IsAlive || u.UnitType != CombatUnitType.Creature) continue;
+                if (u.Side == side) ours += UnitValue(u);
+                else theirs += UnitValue(u);
+            }
+            return theirs > 0f && ours * AiRetreatRatio < theirs;
+        }
+
         /// <summary>Resolve the whole battle headless (quick combat).</summary>
         public CombatResult RunQuickCombat()
         {
@@ -1121,6 +1236,17 @@ namespace HoMM5.Combat
             {
                 var unit = Active;
                 if (unit == null) break;
+                if (AiHeroSide.HasValue && unit.Side == AiHeroSide.Value)
+                {
+                    if (AiShouldRetreat())
+                    {
+                        AddLog("The computer's army retreats.");
+                        Finish(CombatOutcome.Fled);
+                        break;
+                    }
+                    AiCastSpell();
+                    if (IsOver) break;
+                }
                 var order = ChooseAiOrder(unit);
                 ExecuteOrder(order, unit);
                 if (!IsOver && Active == unit) EndTurn();

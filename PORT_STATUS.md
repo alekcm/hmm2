@@ -374,8 +374,8 @@ on those, unowned towns are handed to the computer at match setup. Authored
 more than two players still has all of them acting.
 
 Not done, and worth saying plainly: there is no hot-seat; the computer answers immediately. The
-AI does not use spells, does not retreat, and does not defend a besieged town
-differently from an open field. Town interiors and the siege battlefield are
+AI does not defend a besieged town differently from an open field (its hero now
+casts and retreats; see the battle AI section below). Town interiors and the siege battlefield are
 still not rendered.
 
 ### Computer opponent: review pass (what was broken, what changed)
@@ -615,4 +615,24 @@ maps look.
   project or common .NET/Unity type used where neither its namespace nor a
   `using` makes it visible. A planted file with the same mistakes is caught
   (4 of 4), and the project now reports 0. It is a heuristic; read every hit.
+
+### Battle AI: hero spells and retreat
+
+Computer fights (`RunHeadlessBattle`) now run the attacking hero's magic and
+retreat, through `CombatGameState.AiHeroSide`. The player's own battles are
+unchanged; their hero still waits for input.
+
+- **Spells**, once per round before the AI's units move (`AiCastSpell`): the
+  most expensive damage spell the hero can afford (`CombatSpells.IsDamageSpell`,
+  the same rule `Cast` uses) at the enemy stack worth the most. In round 1, if no
+  damage spell is castable, one of Bless / Haste / Stone Skin / Bloodlust goes on
+  the AI's strongest stack. Worth is `Count x Def.Power` (the shipped rating).
+- **Retreat** (`AiShouldRetreat`): from round 2, when the enemy's worth is at
+  least `AiRetreatRatio` (4) times the AI's. The army keeps its survivors, the
+  enemy keeps its wounds (the `Fled` outcome, which `ApplyCombatResult` already
+  handled for the player).
+- **Not done.** The AI does not choose spells by value against its own
+  creatures (no curses or debuffs), does not defend a siege differently, and the
+  4x threshold is a guess, not measured against the original engine.
+- **Not compiled.** These are static checks only; see the checker notes above.
 

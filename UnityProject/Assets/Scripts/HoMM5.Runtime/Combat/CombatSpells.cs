@@ -33,6 +33,18 @@ namespace HoMM5.Combat
             "Empowered_Magic_Arrow", "Empowered_Meteor_Shower", "Empowered_StoneSpikes",
         };
 
+        /// <summary>
+        /// Whether <see cref="Cast"/> resolves this spell as destructive damage.
+        /// The battle AI uses it to pick damage spells without casting them.
+        /// </summary>
+        public static bool IsDamageSpell(SpellDef spell)
+        {
+            if (spell == null) return false;
+            if (DamageSpells.Contains(spell.id ?? "")) return true;
+            return spell.damage != null && spell.damage.Count > 0 &&
+                   (spell.target == "TARGET_HOSTILE" || spell.target == "TARGET_ALL");
+        }
+
         /// <summary>Can this hero cast this spell right now?</summary>
         public static bool CanCast(H5HeroState hero, SpellDef spell, int manaLeft, out string reason)
         {

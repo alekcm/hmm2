@@ -523,6 +523,8 @@ namespace HoMM5.Map
                 return;
             }
             if (context.IsSiege) battle.SetupSiege(context.FortLevel);
+            // The computer's hero leads the attackers; the battle AI runs its spells and retreat.
+            battle.AiHeroSide = HoMM5.Combat.CombatSide.Attacker;
             AddLog("Battle begins!");
             var result = battle.RunQuickCombat();
             ApplyCombatResult(context.Hero, context.Monster, result);
