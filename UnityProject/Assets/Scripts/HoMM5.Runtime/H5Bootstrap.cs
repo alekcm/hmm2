@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using HoMM5.Combat;
+using HoMM5.Audio;
 using HoMM5.Core;
 using HoMM5.Data;
 using HoMM5.Map;
@@ -58,6 +59,7 @@ namespace HoMM5
         {
             Database = new GameDatabase();
             Database.Load();
+            H5Audio.Create(gameObject, Database);
             GameState = new AdventureMapGameState();
             GameState.Database = Database;
             GameState.SetBaseHeroMovement(Database.Rules != null
@@ -114,6 +116,7 @@ namespace HoMM5
 
             _hud.Hide();
             GameState.AddLog("Choose a scenario to begin.");
+            H5Audio.Theme(H5Cues.MainMenuTheme);
         }
 
         // -- new game ------------------------------------------------------
@@ -147,6 +150,11 @@ namespace HoMM5
             var name = winner != null ? winner.Name : winnerId;
             var localWon = string.Equals(winnerId, localPlayerId,
                                          System.StringComparison.OrdinalIgnoreCase);
+            var folder = LocalFactionFolder();
+            if (localWon)
+                H5Audio.Stinger(new[] { "win-campaign/" + H5Cues.Dashed(folder), "win-campaign/haven" }, null);
+            else
+                H5Audio.Stinger(new[] { "lose-campaign/" + H5Cues.Dashed(folder), "lose-campaign/haven" }, null);
             GameState.AddLog(localWon ? $"Victory -- {name} wins the scenario."
                                       : $"Defeat -- {name} wins the scenario.");
             var request = new H5DialogRequest
@@ -232,6 +240,7 @@ namespace HoMM5
 
             _hud.AttachMap(builder);
             RefreshStats();
+            ResumeMapMusic();
         }
 
         // -- save / load ---------------------------------------------------
@@ -332,13 +341,31 @@ namespace HoMM5
             _combatHud.Controller = _combat;
             _combatHud.Database = Database;
             _combat.BattleFinished += OnCombatFinished;
-            _combat.StartBattle(state, scene, _controller != null ? _controller.GetComponent<Camera>() : null);
+
+            var cam = _controller != null ? _controller.GetComponent<Camera>() : null;
+            var effects = host.AddComponent<CombatEffects>();
+            effects.Setup(scene, Textures, cam);
+            effects.Bind(state);
+
+            var folder = BattleFolder(context);
+            H5Audio.Theme(H5Cues.BattleTheme(folder), H5Cues.BattleTheme(""));
+            _combat.StartBattle(state, scene, cam);
         }
 
         void OnCombatFinished(CombatResult result)
         {
             if (_combat == null) return;
             _combat.BattleFinished -= OnCombatFinished;
+
+            var folder = LocalFactionFolder();
+            var resume = MapThemeKey();
+            var outcome = result != null ? result.Outcome : CombatOutcome.Fled;
+            if (outcome == CombatOutcome.AttackerWon)
+                H5Audio.Stinger(H5Cues.VictoryCandidates(folder), resume);
+            else if (outcome == CombatOutcome.DefenderWon)
+                H5Audio.Stinger(H5Cues.DefeatCandidates(folder), resume);
+            else
+                H5Audio.Stinger(H5Cues.RetreatCandidates(folder), resume);
 
             if (GameState != null)
                 GameState.ApplyCombatResult(_combatHero, _combatMonster, result);
@@ -481,6 +508,8 @@ namespace HoMM5
             if (!string.Equals(town.Owner, GameState.LocalPlayerId, System.StringComparison.OrdinalIgnoreCase))
                 GameState.AddLog($"{town.Name} belongs to {town.Owner}; its screen is read-only.");
             _hud.Town.Show(town);
+            _townMusic = true;
+            H5Audio.Theme(H5Cues.TownTheme(H5Cues.FactionFolder(town.TownType, town.Faction)));
         }
 
         /// <summary>
@@ -502,7 +531,21 @@ namespace HoMM5
 
         void Update()
         {
+            if (HoMM5.Core.H5Input.MutePressed() && H5Audio.Instance != null)
+            {
+                H5Audio.Instance.ToggleMute();
+                if (GameState != null)
+                    GameState.AddLog(H5Audio.Instance.Muted ? "Sound off (M toggles)." : "Sound on.");
+            }
             if (CombatActive) return;
+
+            // Closing the town screen by any route (its button, Esc, T) brings the map theme back.
+            if (_townMusic && (_hud == null || _hud.Town == null || !_hud.Town.IsOpen))
+            {
+                _townMusic = false;
+                ResumeMapMusic();
+            }
+
             if (HoMM5.Core.H5Input.EndTurnPressed()) EndDay();
             if (HoMM5.Core.H5Input.SavePressed()) SaveGame();
             if (HoMM5.Core.H5Input.LoadPressed()) LoadGame();
@@ -524,6 +567,40 @@ namespace HoMM5
             if (targetFloor == 1 && !CurrentMap.Map.hasUnderground) return;
             if (targetFloor == 0 && !CurrentMap.Map.hasSurface) return;
             LoadMapAtFloor(CurrentMap.Map.id, targetFloor);
+        }
+
+        // -- music -----------------------------------------------------------
+
+        bool _townMusic;
+
+        /// <summary>The adventure theme for the terrain under the current map and floor.</summary>
+        string MapThemeKey()
+        {
+            if (H5Audio.Instance == null || CurrentMap == null) return null;
+            return H5Audio.Instance.FirstTrack(H5Cues.TerrainCandidates(TerrainKeyword(), floor == 1));
+        }
+
+        void ResumeMapMusic()
+        {
+            var key = MapThemeKey();
+            if (key != null) H5Audio.Instance.PlayTheme(key);
+        }
+
+        /// <summary>The faction folder of the local player's first town, or "" when there is none.</summary>
+        string LocalFactionFolder()
+        {
+            if (GameState == null) return "";
+            var owned = GameState.OwnedTowns();
+            if (owned == null || owned.Count == 0) return "";
+            return H5Cues.FactionFolder(owned[0].TownType, owned[0].Faction);
+        }
+
+        /// <summary>A siege fights on its defender's faction; a field battle on the neutral theme.</summary>
+        string BattleFolder(AdventureMapGameState.BattleContext context)
+        {
+            if (context == null || !context.IsSiege || context.Monster == null || GameState == null) return "";
+            var town = GameState.GetTownState(context.Monster);
+            return town != null ? H5Cues.FactionFolder(town.TownType, town.Faction) : "";
         }
 
         // -- scene furniture -----------------------------------------------

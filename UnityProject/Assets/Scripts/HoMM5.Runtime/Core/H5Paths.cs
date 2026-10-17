@@ -36,6 +36,13 @@ namespace HoMM5.Core
         public static string Meshes(string uid) => Path.Combine(Root, "Meshes", uid + ".glb");
         public static string Textures(string pngRelPath) => Path.Combine(Root, "Textures", pngRelPath);
 
+        /// <summary>
+        /// A path the importer wrote, given as the relative form sounds.json uses
+        /// (<c>Audio/Sfx/x.wav</c>), resolved under the import root.
+        /// </summary>
+        public static string Import(string relative) =>
+            Path.Combine(Root, relative.Replace('/', Path.DirectorySeparatorChar));
+
         public static bool HasImport => Directory.Exists(Root) && Directory.Exists(Path.Combine(Root, "Game"));
 
         /// <summary>

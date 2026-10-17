@@ -390,7 +390,7 @@ namespace HoMM5.UI
                 {
                     var captured = row.Action;
                     var button = go.AddComponent<Button>();
-                    button.onClick.AddListener(() => captured());
+                    button.onClick.AddListener(() => { HoMM5.Audio.H5Audio.Click(); captured(); });
                 }
             }
         }
@@ -478,7 +478,7 @@ namespace HoMM5.UI
             text.text = label;
 
             var button = go.AddComponent<Button>();
-            if (onClick != null) button.onClick.AddListener(() => onClick());
+            if (onClick != null) button.onClick.AddListener(() => { HoMM5.Audio.H5Audio.Click(); onClick(); });
             return button;
         }
     }

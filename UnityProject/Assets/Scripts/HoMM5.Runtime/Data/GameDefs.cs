@@ -92,6 +92,11 @@ namespace HoMM5.Data
         public List<KnownSpell> knownSpells;
         public List<string> upgrades;
         public CreatureVisualDef visual;
+        /// <summary>
+        /// Sound keys by animation event (attack, rangeattack, hit, death, ...), into
+        /// sounds.json. Empty when the creature's animation set names none.
+        /// </summary>
+        public Dictionary<string, string> sounds = new Dictionary<string, string>();
 
         public string DisplayName => (visual != null && !string.IsNullOrEmpty(visual.name)) ? visual.name : id;
         public string Description => visual != null ? visual.description : null;
@@ -116,6 +121,11 @@ namespace HoMM5.Data
         public bool isAreaAttack;
         public ResourceCost cost;
         public List<string> visuals;
+        /// <summary>
+        /// Sound and particle data per SpellVisual, resolved from the XDBs. Empty for
+        /// spells whose visuals name no sound or texture.
+        /// </summary>
+        public List<SpellVisualDef> visualInfo = new List<SpellVisualDef>();
 
         /// <summary>Mana the hero spends to cast (the record's TrainedCost).</summary>
         public int manaCost;
@@ -135,6 +145,49 @@ namespace HoMM5.Data
             var row = rows[Mathf.Clamp(tier, 0, rows.Count - 1)];
             return row.baseValue + row.perPower * spellPower;
         }
+    }
+
+    /// <summary>
+    /// One SpellVisual: the sound its cast plays and the particle textures that
+    /// are drawn for it (paths relative to the texture manifest, e.g. "/Textures/...").
+    /// </summary>
+    public class SpellVisualDef
+    {
+        public string sound;
+        public List<string> textures = new List<string>();
+        public float particleDuration;
+        public float hitDelay;
+    }
+
+    /// <summary>One sound effect of sounds.json. File is relative to the HoMM5 import root.</summary>
+    public class SoundDef
+    {
+        public string uid;
+        public string file;
+        public string source;
+        public bool loop;
+        public bool is3D;
+        public float minDistance;
+        public float maxDistance;
+        public float volume = 1f;
+        public int priority;
+    }
+
+    /// <summary>One music track of sounds.json. Times are milliseconds, as in the XDBs.</summary>
+    public class MusicDef
+    {
+        public string file;
+        public float fadeIn;
+        public float fadeOut;
+        public float minPause;
+        public float maxPause;
+    }
+
+    /// <summary>The top level of sounds.json: effects and music, each keyed by a path-like name.</summary>
+    public class SoundCatalogDef
+    {
+        public Dictionary<string, SoundDef> sounds = new Dictionary<string, SoundDef>();
+        public Dictionary<string, MusicDef> music = new Dictionary<string, MusicDef>();
     }
 
     /// <summary>One mastery-tier scaling row of a spell (damage, duration).</summary>

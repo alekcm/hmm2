@@ -158,6 +158,17 @@ namespace HoMM5.Core
 #endif
         }
 
+        /// <summary>M: mute or unmute all sound.</summary>
+        public static bool MutePressed()
+        {
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
+            var kb = UnityEngine.InputSystem.Keyboard.current;
+            return kb != null && kb.mKey.wasPressedThisFrame;
+#else
+            return Input.GetKeyDown(KeyCode.M);
+#endif
+        }
+
         /// <summary>T: town screen of the selected (or first owned) town.</summary>
         public static bool TownScreenPressed()
         {

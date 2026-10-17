@@ -85,6 +85,8 @@ namespace HoMM5.Combat
         public int CellsMovedLastTurn;
         /// <summary>Set when the unit was summoned this battle (not army casualties).</summary>
         public bool Summoned;
+        /// <summary>Set once the stack's death has been shown, so a second notice does not repeat it.</summary>
+        public bool DeathPresented;
 
         /// <summary>Grid cell on the battlefield.</summary>
         public int X;
@@ -295,6 +297,40 @@ namespace HoMM5.Combat
     /// What the adventure layer needs after the dust settles: who won, the
     /// hero's surviving army, the monster's surviving stacks, experience.
     /// </summary>
+    /// <summary>What a combat event looks like on screen. Raised, never acted on, by CombatGameState.</summary>
+    public enum CombatVisualKind
+    {
+        /// <summary>One blow or shot from Source at Target.</summary>
+        Strike,
+        /// <summary>Target's stack has died.</summary>
+        Death,
+        /// <summary>A spell was cast by the hero of Side. Target or cell says where it landed.</summary>
+        Spell,
+        /// <summary>Target is a freshly summoned stack.</summary>
+        Summon,
+        /// <summary>First aid tent work on Target.</summary>
+        Aid,
+    }
+
+    /// <summary>
+    /// One presentable combat event. The state is already updated when this is raised:
+    /// Strike.Target may have lost creatures, Death.Target is no longer alive.
+    /// </summary>
+    public class CombatVisual
+    {
+        public CombatVisualKind Kind;
+        public CombatUnit Source;
+        public CombatUnit Target;
+        public CombatSide Side;
+        public bool Ranged;
+        public bool Missed;
+        public int Damage;
+        public HoMM5.Data.SpellDef Spell;
+        public bool HasCell;
+        public int CellX;
+        public int CellY;
+    }
+
     public class CombatResult
     {
         public CombatOutcome Outcome;

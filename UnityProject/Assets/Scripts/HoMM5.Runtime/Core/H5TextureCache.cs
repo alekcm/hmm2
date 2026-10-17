@@ -29,6 +29,19 @@ namespace HoMM5.Core
 
         public int LoadedCount => _textures.Count;
         public int ManifestCount => _manifest.Count;
+
+        /// <summary>
+        /// True when the manifest names this source texture and its PNG is on disk.
+        /// Get() substitutes a magenta placeholder for anything else, so callers that
+        /// would rather skip a missing texture ask first.
+        /// </summary>
+        public bool Has(string sourcePath)
+        {
+            if (string.IsNullOrEmpty(sourcePath)) return false;
+            Entry entry;
+            return _manifest.TryGetValue(sourcePath, out entry) &&
+                   File.Exists(Path.Combine(H5Paths.Root, "Textures", entry.png));
+        }
         public int MissingCount { get; private set; }
 
         /// <summary>A texture no map object referenced; used as a visible placeholder.</summary>

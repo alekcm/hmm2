@@ -85,6 +85,12 @@ def param_info(node, src):
     required = optional = 0
     has_params = False
     for child in node.children:
+        # tree-sitter-c-sharp puts the ``params`` keyword directly in the
+        # parameter list (a sibling of the parameter it modifies), not inside
+        # the parameter node, so it is recognised here.
+        if child.type == "params":
+            has_params = True
+            continue
         if child.type != "parameter":
             continue
         if has_params:

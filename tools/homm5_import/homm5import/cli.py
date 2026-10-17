@@ -351,6 +351,29 @@ def cmd_animations(args) -> int:
     return 0
 
 
+def cmd_sounds(args) -> int:
+    """Sound and music catalog, plus the audio files it names.
+
+    Writes ``Game/sounds.json`` and copies the referenced files into ``Audio/``.
+    Only referenced files are copied: the shipped ``soundsfx`` and ``music``
+    trees hold more than the catalog uses (localized dialogue voices in
+    ``sound/``, for one), and those are not part of this stage.
+    """
+    from .sounds import copy_audio, load_sound_catalog
+
+    xdb = XDB(args.data)
+    repo_root = os.path.dirname(os.path.abspath(args.data))
+    sounds, music, report = load_sound_catalog(xdb, repo_root)
+    _write_json(_out(args.out, "Game", "sounds.json"), {"sounds": sounds, "music": music})
+    copied, skipped = copy_audio(repo_root, args.out, sounds, music)
+    print(f"sounds: {len(sounds)} effects, {len(music)} music tracks; "
+          f"{copied} files copied, {skipped} already present")
+    dropped = {k: v for k, v in report.items() if v and ("Missing" in k or "Duplicate" in k)}
+    if dropped:
+        print("  dropped:", ", ".join(f"{k}={v}" for k, v in sorted(dropped.items())))
+    return 0
+
+
 def cmd_terrain(args) -> int:
     import glob
 
@@ -423,7 +446,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     for name, fn in (("info", cmd_info), ("gamedata", cmd_gamedata), ("maps", cmd_maps),
                      ("meshes", cmd_meshes), ("textures", cmd_textures), ("terrain", cmd_terrain),
-                     ("animations", cmd_animations)):
+                     ("animations", cmd_animations), ("sounds", cmd_sounds)):
         sp = sub.add_parser(name)
         common(sp)
         sp.set_defaults(func=fn)
@@ -440,7 +463,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 def _all(args) -> int:
     for fn in (cmd_gamedata, cmd_terrain, cmd_maps, cmd_meshes, cmd_textures,
-               cmd_animations):
+               cmd_animations, cmd_sounds):
         rc = fn(args)
         if rc:
             return rc

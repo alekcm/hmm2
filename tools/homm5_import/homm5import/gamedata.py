@@ -13,6 +13,8 @@ from typing import Dict, List, Optional
 from xml.etree import ElementTree as ET
 
 from .localization import Localization
+from .sounds import (creature_anim_sounds, creature_sounds_for, load_creature_sounds,
+                     resolve_spell_visuals)
 from .xdb import XDB, texture_dds_path
 
 RESOURCE_FIELDS = ("Wood", "Ore", "Mercury", "Crystal", "Sulfur", "Gem", "Gold")
@@ -180,6 +182,7 @@ def load_creatures(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
 
         visual, visual_href = xdb.resolve(root.find("Visual"), xdb.href_from_path(path))
         rec["visual"] = {}
+        rec["sounds"] = {}
         if visual is not None:
             rec["visual"]["name"] = _text_ref(xdb, loc, visual.find("CreatureNameFileRef"))
             rec["visual"]["description"] = _text_ref(xdb, loc, visual.find("DescriptionFileRef"))
@@ -189,6 +192,7 @@ def load_creatures(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
             rec["visual"]["icon"] = xdb.href_of(visual.find("Icon128")) or xdb.href_of(visual.find("Icon"))
             anim, anim_href = xdb.resolve(visual.find("AnimCharacter"), visual_href)
             if anim is not None:
+                rec["sounds"] = creature_anim_sounds(xdb, anim, anim_href)
                 model, model_href = xdb.resolve(anim.find("Model"), anim_href)
                 geom_uid, textures = model_geometry(xdb, model, model_href)
                 rec["visual"]["geometryUid"] = geom_uid
@@ -244,6 +248,9 @@ def load_spells(xdb: XDB, loc: Optional[Localization] = None, subdirs=(
             rec["visuals"] = [
                 xdb.href_of(i) or xdb.text(i) for i in xdb.items(root.find("visuals"))
             ]
+            # The sound each cast plays and the particle textures its effect
+            # uses, resolved through the SpellVisual -> Effect chain.
+            rec["visualInfo"] = resolve_spell_visuals(xdb, rec["source"], rec["visuals"])
             out[key] = rec
     return out
 
@@ -958,6 +965,12 @@ def load_model_animations(xdb: XDB) -> Dict[str, dict]:
 
 def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object]:
     creatures = load_creatures(xdb, loc)
+    sound_index = load_creature_sounds(xdb)
+    for rec in creatures.values():
+        # The creature's own animation set is exact; the folder name is only a
+        # fallback for creatures whose set does not resolve.
+        if not rec.get("sounds"):
+            rec["sounds"] = creature_sounds_for(rec["id"], sound_index)
     town_buildings = load_town_buildings(xdb, loc)
     fill_dwelling_growth(town_buildings,
                          {r["enumId"]: r for r in creatures.values() if r.get("enumId")})

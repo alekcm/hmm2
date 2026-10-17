@@ -231,7 +231,7 @@ namespace HoMM5.UI
             image.color = new Color(0.34f, 0.25f, 0.12f, 1f);
             var button = buttonGo.GetComponent<Button>();
             button.targetGraphic = image;
-            button.onClick.AddListener(() => EndDayRequested?.Invoke());
+            button.onClick.AddListener(() => { HoMM5.Audio.H5Audio.Click(); EndDayRequested?.Invoke(); });
             var label = MakeText(buttonGo.transform, "Label", 14, FontStyle.Bold, TextAnchor.MiddleCenter,
                                  new Vector2(4, 2), new Vector2(-4, -2));
             label.text = "End Turn";
@@ -260,7 +260,7 @@ namespace HoMM5.UI
             image.color = new Color(0.16f, 0.18f, 0.24f, 1f);
             var button = go.GetComponent<Button>();
             button.targetGraphic = image;
-            button.onClick.AddListener(() => onClick?.Invoke());
+            button.onClick.AddListener(() => { HoMM5.Audio.H5Audio.Click(); onClick?.Invoke(); });
             var text = MakeText(go.transform, "Label", 13, FontStyle.Bold, TextAnchor.MiddleCenter,
                                 new Vector2(4, 2), new Vector2(-4, -2));
             text.text = label;
@@ -324,7 +324,7 @@ namespace HoMM5.UI
                 img.color = new Color(0.16f, 0.16f, 0.18f, 0.9f);
                 var btn = go.GetComponent<Button>();
                 btn.targetGraphic = img;
-                btn.onClick.AddListener(() => onLoad(id));
+                btn.onClick.AddListener(() => { HoMM5.Audio.H5Audio.Click(); onLoad(id); });
 
                 var text = MakeText(go.transform, "Label", 13, FontStyle.Normal, TextAnchor.MiddleLeft,
                                     new Vector2(10, 4), new Vector2(-10, -4));

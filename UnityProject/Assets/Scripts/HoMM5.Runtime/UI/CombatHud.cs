@@ -184,6 +184,7 @@ namespace HoMM5.UI
                 var chosen = spell;
                 button.onClick.AddListener(() =>
                 {
+                    HoMM5.Audio.H5Audio.Click();
                     _spellPanel.SetActive(false);
                     Controller.BeginSpellTargeting(chosen);
                 });
@@ -207,7 +208,7 @@ namespace HoMM5.UI
                 (result != null && result.CreaturesKilledByAttacker > 0
                     ? $"\n{result.CreaturesKilledByAttacker} enemy creatures slain" : "");
             _continueButton.onClick.RemoveAllListeners();
-            _continueButton.onClick.AddListener(() => continueAction?.Invoke());
+            _continueButton.onClick.AddListener(() => { HoMM5.Audio.H5Audio.Click(); continueAction?.Invoke(); });
         }
 
         // -- construction --------------------------------------------------
@@ -346,7 +347,7 @@ namespace HoMM5.UI
             img.color = new Color(0.30f, 0.24f, 0.13f, 0.95f);
             var button = go.GetComponent<Button>();
             button.targetGraphic = img;
-            button.onClick.AddListener(() => action?.Invoke());
+            button.onClick.AddListener(() => { HoMM5.Audio.H5Audio.Click(); action?.Invoke(); });
             var text = MakeText(go.transform, "Label", 14, FontStyle.Bold, TextAnchor.MiddleCenter,
                                 new Vector2(4, 2), new Vector2(-4, -2));
             text.text = label;

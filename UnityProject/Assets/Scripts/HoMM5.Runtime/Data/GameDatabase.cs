@@ -28,6 +28,12 @@ namespace HoMM5.Data
         public Dictionary<string, ModelAnimDef> ModelAnimations { get; private set; } = new Dictionary<string, ModelAnimDef>();
         public Dictionary<string, string> Localization { get; private set; } = new Dictionary<string, string>();
         public List<MapIndexEntry> MapIndex { get; private set; } = new List<MapIndexEntry>();
+        /// <summary>Sound effects by key (e.g. <c>spells/fireball</c>). Keys are case-insensitive.</summary>
+        public Dictionary<string, SoundDef> Sounds { get; private set; } =
+            new Dictionary<string, SoundDef>(StringComparer.OrdinalIgnoreCase);
+        /// <summary>Music tracks by key (e.g. <c>advmap-terrain/grass</c>). Keys are case-insensitive.</summary>
+        public Dictionary<string, MusicDef> Music { get; private set; } =
+            new Dictionary<string, MusicDef>(StringComparer.OrdinalIgnoreCase);
 
         readonly Dictionary<string, CreatureDef> _creaturesByEnum =
             new Dictionary<string, CreatureDef>(StringComparer.Ordinal);
@@ -62,6 +68,12 @@ namespace HoMM5.Data
             ModelAnimations = LoadDict<ModelAnimDef>(H5Paths.Game("modelAnimations.json")) ?? ModelAnimations;
             Localization = LoadDict<string>(H5Paths.Game("Localization.json")) ?? Localization;
             MapIndex = LoadList<MapIndexEntry>(H5Paths.Maps("_index.json")) ?? MapIndex;
+            var catalog = LoadSingle<SoundCatalogDef>(H5Paths.Game("sounds.json"));
+            if (catalog != null)
+            {
+                Sounds = CaseInsensitive(catalog.sounds);
+                Music = CaseInsensitive(catalog.music);
+            }
 
             IsLoaded = true;
             Debug.Log($"[HoMM5] loaded {Creatures.Count} creatures, {Spells.Count} spells, " +
@@ -122,6 +134,20 @@ namespace HoMM5.Data
                     return kv.Value;
             }
             return null;
+        }
+
+        /// <summary>One sound effect by key, or null when the catalogue has no such key.</summary>
+        public SoundDef GetSound(string key)
+        {
+            if (string.IsNullOrEmpty(key)) return null;
+            return Sounds.TryGetValue(key, out var s) ? s : null;
+        }
+
+        /// <summary>One music track by key, or null when the catalogue has no such key.</summary>
+        public MusicDef GetMusic(string key)
+        {
+            if (string.IsNullOrEmpty(key)) return null;
+            return Music.TryGetValue(key, out var m) ? m : null;
         }
 
         /// <summary>One building record by its faction-qualified key.</summary>
@@ -283,6 +309,16 @@ namespace HoMM5.Data
                 Debug.LogError("[HoMM5] failed to parse " + path + ": " + e.Message);
                 return null;
             }
+        }
+
+        /// <summary>Copy a dictionary onto a case-insensitive one; a null source gives an empty copy.</summary>
+        static Dictionary<string, T> CaseInsensitive<T>(Dictionary<string, T> source)
+        {
+            var copy = new Dictionary<string, T>(StringComparer.OrdinalIgnoreCase);
+            if (source == null) return copy;
+            foreach (var kv in source)
+                if (kv.Key != null) copy[kv.Key] = kv.Value;
+            return copy;
         }
 
         static Dictionary<string, T> LoadDict<T>(string path)

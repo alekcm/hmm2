@@ -56,6 +56,21 @@ namespace HoMM5.Combat
         public event Action TurnStarted;
         public event Action BattleEnded;
 
+        /// <summary>
+        /// Every event a viewer should show or play, in the order it happened, each
+        /// raised after the state has changed. Headless fights raise nothing: the
+        /// controller clears <see cref="Presenting"/> while quick combat runs.
+        /// </summary>
+        public event Action<CombatVisual> Presented;
+
+        /// <summary>False while a fight resolves without a viewer (quick combat).</summary>
+        public bool Presenting { get; set; } = true;
+
+        void Present(CombatVisual visual)
+        {
+            if (Presenting && Presented != null && visual != null) Presented.Invoke(visual);
+        }
+
         // -- setup ---------------------------------------------------------
 
         public static CombatGameState Create(H5MapObject heroObj, H5MapObject monsterObj,
@@ -210,6 +225,7 @@ namespace HoMM5.Combat
             var revived = CombatAbilities.HealStack(patient, heal);
             AddLog($"The First Aid Tent tends {patient.DisplayName}" +
                    (revived > 0 ? $", reviving {revived}." : $", healing {heal}."));
+            Present(new CombatVisual { Kind = CombatVisualKind.Aid, Source = tent, Target = patient, Side = patient.Side });
             Changed?.Invoke();
         }
 
@@ -356,6 +372,11 @@ namespace HoMM5.Combat
         public void NotifyDeath(CombatUnit dead)
         {
             if (dead == null || dead.IsAlive) return;
+            if (!dead.DeathPresented)
+            {
+                dead.DeathPresented = true;
+                Present(new CombatVisual { Kind = CombatVisualKind.Death, Target = dead, Side = dead.Side });
+            }
             AddLog($"{dead.DisplayName} is destroyed.");
 
             // Enrage: allies gain a notch of fury.
@@ -413,6 +434,7 @@ namespace HoMM5.Combat
                 unit.Y = y;
                 Units.Add(unit);
                 AddLog($"{unit.DisplayName} answers the summon.");
+                Present(new CombatVisual { Kind = CombatVisualKind.Summon, Side = side, Target = unit });
                 return unit;
             }
             return null;
@@ -760,12 +782,22 @@ namespace HoMM5.Combat
             var outcome = CombatRules.RollAttack(Rand, attacker, target, ranged, shooterInMelee, cellsMoved);
             if (outcome.Missed)
             {
+                Present(new CombatVisual
+                {
+                    Kind = CombatVisualKind.Strike, Source = attacker, Target = target,
+                    Side = attacker.Side, Ranged = ranged, Missed = true,
+                });
                 AddLog($"{target.DisplayName} is incorporeal -- the blow passes through.");
                 Changed?.Invoke();
                 return;
             }
 
             var luckText = outcome.GoodLuck ? " (good luck!)" : outcome.BadLuck ? " (bad luck!)" : "";
+            Present(new CombatVisual
+            {
+                Kind = CombatVisualKind.Strike, Source = attacker, Target = target,
+                Side = attacker.Side, Ranged = ranged, Damage = outcome.Damage,
+            });
             AddLog($"{attacker.DisplayName} hits {target.DisplayName} for {outcome.Damage} damage, " +
                    $"{outcome.CreaturesKilled} killed{luckText}.");
 
@@ -801,6 +833,11 @@ namespace HoMM5.Combat
             {
                 if (extra == null || !extra.IsAlive) continue;
                 var side = CombatRules.RollAttack(Rand, attacker, extra, ranged, false, 0);
+                Present(new CombatVisual
+                {
+                    Kind = CombatVisualKind.Strike, Source = attacker, Target = extra,
+                    Side = attacker.Side, Ranged = ranged, Missed = side.Missed, Damage = side.Damage,
+                });
                 AddLog($"{attacker.DisplayName} sweeps {extra.DisplayName} for {side.Damage}, " +
                        $"{side.CreaturesKilled} killed.");
                 if (!extra.IsAlive) NotifyDeath(extra);
@@ -832,6 +869,11 @@ namespace HoMM5.Combat
                     var isReturnShot = ranged && target.IsRanged;
                     if (isReturnShot && target.ShotsLeft > 0) target.ShotsLeft--;
                     var back = CombatRules.RollAttack(Rand, target, attacker, isReturnShot, false, retaliation: true);
+                    Present(new CombatVisual
+                    {
+                        Kind = CombatVisualKind.Strike, Source = target, Target = attacker,
+                        Side = target.Side, Ranged = isReturnShot, Missed = back.Missed, Damage = back.Damage,
+                    });
                     if (back.Missed)
                         AddLog($"{target.DisplayName}'s retaliation passes through.");
                     else
@@ -1134,6 +1176,16 @@ namespace HoMM5.Combat
             hero.Mana = Mathf.Max(0f, hero.Mana - CombatSpells.ManaCost(hero, spell));
             SpellCastThisRound = true;
             AddLog(line);
+            Present(new CombatVisual
+            {
+                Kind = CombatVisualKind.Spell,
+                Side = AttackerLeader == hero ? CombatSide.Attacker : CombatSide.Defender,
+                Spell = spell,
+                Target = target,
+                HasCell = InBounds(cellX, cellY),
+                CellX = cellX,
+                CellY = cellY,
+            });
             return line;
         }
 

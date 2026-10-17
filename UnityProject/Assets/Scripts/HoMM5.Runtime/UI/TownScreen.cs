@@ -340,7 +340,7 @@ namespace HoMM5.UI
             image.color = new Color(0.30f, 0.24f, 0.13f, 1f);
             var button = go.GetComponent<Button>();
             button.targetGraphic = image;
-            if (onClick != null) button.onClick.AddListener(() => onClick());
+            if (onClick != null) button.onClick.AddListener(() => { HoMM5.Audio.H5Audio.Click(); onClick(); });
             var text = MakeText(go.transform, "Label", 13, FontStyle.Bold, TextAnchor.MiddleCenter,
                                 new Vector2(4, 2), new Vector2(-4, -2));
             text.text = label;

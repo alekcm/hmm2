@@ -73,6 +73,7 @@ namespace HoMM5.UI
                 var action = option.Action;
                 button.onClick.AddListener(() =>
                 {
+                    HoMM5.Audio.H5Audio.Click();
                     action?.Invoke();
                     Close(closed);
                 });

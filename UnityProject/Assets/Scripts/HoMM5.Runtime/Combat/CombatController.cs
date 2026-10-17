@@ -378,6 +378,8 @@ namespace HoMM5.Combat
             _awaitingPlayerInput = false;
             Scene.SetHighlight(null, Color.clear);
             _autoResolving = true;
+            // Nobody watches a quick fight: skip building effects for every blow in it.
+            State.Presenting = false;
             var guard = 0;
             while (!State.IsOver && guard++ < 2000)
             {
@@ -386,6 +388,7 @@ namespace HoMM5.Combat
                 State.ExecuteOrder(State.ChooseAiOrder(unit), unit);
                 if (!State.IsOver && State.Active == unit) State.EndTurn();
             }
+            State.Presenting = true;
             _autoResolving = false;
             RefreshCounts();
         }
