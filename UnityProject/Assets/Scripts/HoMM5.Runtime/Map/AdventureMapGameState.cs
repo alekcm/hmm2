@@ -125,6 +125,9 @@ namespace HoMM5.Map
                 _rosterHeroes.Clear();
                 _heroPositions.Clear();
                 _townStates.Clear();
+                _garrisonArmies.Clear();
+                _views.Clear();
+                Players = new H5PlayerRoster();
                 Log.Clear();
                 Rand = new System.Random(12345);
             }
@@ -988,6 +991,14 @@ namespace HoMM5.Map
                     town.SyncFromMap(Database, def);
                 else
                     _townStates[id] = H5TownState.FromMapObject(def, Database);
+                // Income, siege and ownership queries read the map DTO too.
+                var live = _townStates[id];
+                if (live != null)
+                {
+                    def.owner = live.Owner;
+                    def.townType = live.TownType;
+                    def.buildings = live.Slots;
+                }
             }
         }
 
@@ -1064,10 +1075,13 @@ namespace HoMM5.Map
             cpu.Faction = PickOpponentFaction(human.Faction);
             cpu.TownType = TownTypeForFaction(cpu.Faction);
             cpu.HeroClass = ClassForTown(cpu.TownType);
+            cpu.Difficulty = human.Difficulty;
             if (setup != null && !string.IsNullOrEmpty(setup.OpponentName)) cpu.Name = setup.OpponentName;
 
             Players.TurnIndex = 0;
             ApplyPlayerFactions();
+            // Dwellings begin with a week's stock, not seven empty days.
+            foreach (var town in AllTowns()) town.AddWeeklyGrowth(Database);
             Changed?.Invoke();
         }
 
@@ -1106,85 +1120,44 @@ namespace HoMM5.Map
         }
 
         /// <summary>
-        /// Give every neutral town and hero on the map an owner, so a scenario
-        /// that authored only <c>PLAYER_1</c> objects still has an opponent.
-        /// The player keeps what the map gave them; everything else goes to the
-        /// first computer that does not already have a town.
+        /// Register authored owners without handing neutral towns to the AI.
+        /// Apply the human's choice to their first town's gameplay state.
+        /// Exterior model replacement remains a separate rendering task.
         /// </summary>
         void ApplyPlayerFactions()
         {
-            var human = Players != null ? Players.Find(LocalPlayerId) : null;
-            var cpu = Players != null ? Players.Computers() : null;
-            if (cpu == null || cpu.Count == 0) return;
-
-            // A shipped Multiplayer scenario authors a PlayerID per town, and
-            // 38 of the 40 do. Those players are real opponents and need a
-            // record each, or their towns belong to nobody the roster knows
-            // about and never act. Only PLAYER_1 is the human; everyone else
-            // the map named is the computer.
-            foreach (var town in AllTowns())
-            {
-                if (town == null || string.IsNullOrEmpty(town.Owner)) continue;
-                if (town.Owner == "PLAYER_NONE") continue;
-                if (Players.Find(town.Owner) != null) continue;
-                var extra = Players.GetOrAdd(town.Owner, false);
-                extra.IsHuman = string.Equals(extra.Id, LocalPlayerId,
-                                              StringComparison.OrdinalIgnoreCase);
-                extra.IsAlive = true;
-            }
-            cpu = Players.Computers();
-
-            var assigned = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
-            foreach (var town in AllTowns())
-            {
-                if (town == null) continue;
-                var existingOwner = string.IsNullOrEmpty(town.Owner)
-                    ? null : Players.Find(town.Owner);
-                if (existingOwner != null)
+            if (Players == null) return;
+            if (_map != null && _map.objects != null)
+                foreach (var def in _map.objects)
                 {
-                    if (!existingOwner.TownIds.Contains(town.ObjectId))
-                        existingOwner.TownIds.Add(town.ObjectId);
-                    continue;
+                    if (def == null || (def.kind != "AdvMapTown" && def.kind != "AdvMapHero")) continue;
+                    if (string.IsNullOrEmpty(def.owner) || def.owner == "PLAYER_NONE") continue;
+                    var player = Players.GetOrAdd(def.owner,
+                        string.Equals(def.owner, LocalPlayerId, StringComparison.OrdinalIgnoreCase));
+                    player.Difficulty = LocalPlayer != null ? LocalPlayer.Difficulty : player.Difficulty;
+                    if (def.kind == "AdvMapHero" && !player.HeroIds.Contains(def.objectId))
+                        player.HeroIds.Add(def.objectId);
                 }
-                // Hand unowned towns out round-robin, least-loaded first.
-                var target = LeastLoaded(cpu, assigned);
-                town.Owner = target.Id;
-                assigned[target.Id] = assigned.TryGetValue(target.Id, out var n) ? n + 1 : 1;
-            }
 
-            // A player's faction is whatever their first town says, so the town
-            // screen, the dwellings and the hero class all agree.
             foreach (var player in Players.Alive())
             {
                 var first = FirstTownOf(player);
-                if (first != null && !string.IsNullOrEmpty(first.TownType))
+                if (first == null) continue;
+                if (player.IsHuman && !string.IsNullOrEmpty(player.TownType))
                 {
-                    player.TownType = first.TownType;
-                    player.Faction = first.Faction;
+                    if (!first.SetStartingFaction(Database, player.TownType))
+                        AddLog("The selected town faction is unavailable: " + player.TownType);
+                    SyncTownDef(first);
                 }
+                // Computer factions follow the towns the scenario actually
+                // assigned them. The human's chosen faction now matches too.
+                player.TownType = first.TownType;
+                player.Faction = first.Faction;
+                if (!player.IsHuman || string.IsNullOrEmpty(player.HeroClass))
+                    player.HeroClass = ClassForTown(player.TownType);
+                foreach (var town in TownsOf(player))
+                    if (!player.TownIds.Contains(town.ObjectId)) player.TownIds.Add(town.ObjectId);
             }
-            // The player's chosen faction wins over whatever the map authored
-            // on their first town, so the menu's choice is what they get.
-            if (human != null && !string.IsNullOrEmpty(human.Faction) &&
-                string.IsNullOrEmpty(human.TownType))
-                human.TownType = TownTypeForFaction(human.Faction);
-        }
-
-        static H5PlayerState LeastLoaded(List<H5PlayerState> candidates, Dictionary<string, int> assigned)
-        {
-            H5PlayerState best = null;
-            var bestCount = int.MaxValue;
-            foreach (var c in candidates)
-            {
-                if (c == null) continue;
-                var count = assigned.TryGetValue(c.Id, out var n) ? n : 0;
-                if (count < bestCount)
-                {
-                    bestCount = count;
-                    best = c;
-                }
-            }
-            return best ?? candidates[0];
         }
 
         H5TownState FirstTownOf(H5PlayerState player)
@@ -1235,7 +1208,18 @@ namespace HoMM5.Map
             if (string.IsNullOrEmpty(key)) return false;
             _rosterHeroes[key] = roster;
             if (_heroStates.TryGetValue(key, out var existing) && existing != null)
+            {
                 ApplyRosterHero(existing, roster);
+                existing.RecalculateEffects(Database);
+                existing.Mana = existing.MaxMana;
+                heroes[0].BindHeroState(existing);
+            }
+            else
+            {
+                // Materialise now: an immediate F5 must persist the chosen
+                // identity even if the player has not opened the hero screen.
+                GetHeroState(heroes[0]);
+            }
             return true;
         }
 
@@ -1507,6 +1491,8 @@ namespace HoMM5.Map
             var def = TownDef(town);
             if (def == null || town == null) return;
             def.buildings = town.Slots;
+            def.townType = town.TownType;
+            def.owner = town.Owner;
         }
 
         // -- treasuries ----------------------------------------------------
@@ -1637,8 +1623,12 @@ namespace HoMM5.Map
             Day = Math.Max(1, save.day);
             LocalPlayerId = string.IsNullOrEmpty(save.localPlayerId) ? "PLAYER_1" : save.localPlayerId;
             if (save.resources != null) Resources = save.resources;
-            if (save.players != null && save.players.Count > 0)
-                Players = new H5PlayerRoster { Players = save.players, TurnIndex = save.turnIndex };
+            Players = new H5PlayerRoster
+            {
+                Players = save.players ?? new List<H5PlayerState>(),
+                TurnIndex = save.turnIndex
+            };
+            _rosterHeroes.Clear();
             _movement.Clear();
             if (save.movement != null)
                 foreach (var kv in save.movement) _movement[kv.Key] = kv.Value;

@@ -2,6 +2,24 @@
 
 What is here, what is verified, and what is not done.
 
+## Latest audit — 2026-10-17
+
+See [the current single-mission audit (Russian)](SINGLE_MISSION_AUDIT_RU.md)
+for the capability matrix, fixes, verification commands and remaining blockers.
+The sections below are an incremental history, not a consistent current feature
+inventory: old statements such as "no audio" or "no AI" are superseded by later
+continuations. **No Unity Editor/player run or compilation has been performed.**
+
+This continuation repairs the hidden/uninitialised main menu, separates the
+adventure UI layer from its shared canvas, adds pause/resume and safe failed-load
+navigation, registers the bootstrap scene for builds and references uGUI
+explicitly. The chosen faction now drives the first human town's gameplay
+state (not its exterior model), neutral towns stay neutral, initial dwelling
+stock is populated, and new scenarios/legacy saves no longer inherit old
+rosters or garrison caches. Ten Unity PlayMode regressions have been added
+but require execution in Unity; four project-wiring tests run in Python.
+Generated import output is now ignored rather than committed.
+
 ## Scope, stated plainly
 
 A full port of the game is not something one pass produces. The engine is

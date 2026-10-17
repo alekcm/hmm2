@@ -17,3 +17,10 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# Reproducible importer output (original source data stays in the repository)
+/UnityProject/Assets/StreamingAssets/HoMM5/
+/UnityProject/Assets/StreamingAssets/HoMM5.meta
+
+# Local verification artifacts
+.cache/

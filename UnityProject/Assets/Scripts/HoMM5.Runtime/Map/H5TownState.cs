@@ -73,7 +73,7 @@ namespace HoMM5.Map
             if (def.buildings != null)
                 foreach (var slot in def.buildings)
                     if (slot != null && !string.IsNullOrEmpty(slot.type))
-                        town.Slots.Add(slot);
+                        town.Slots.Add(CopySlot(slot));
             town.ResolveFaction(db, def.bannedRaces);
             return town;
         }
@@ -87,7 +87,9 @@ namespace HoMM5.Map
         {
             if (def == null) return;
             Name = string.IsNullOrEmpty(def.name) ? Name : def.name;
-            TownType = string.IsNullOrEmpty(def.townType) ? TownType : def.townType;
+            // A chosen/random faction is live state, not an authored default.
+            // Re-reading the map on F1/F9 must not undo that choice.
+            if (!FactionResolved && !string.IsNullOrEmpty(def.townType)) TownType = def.townType;
             Floor = def.floor;
             X = def.x;
             Y = def.y;
@@ -99,12 +101,32 @@ namespace HoMM5.Map
             if (authored != null)
                 foreach (var slot in authored)
                     if (slot != null && !string.IsNullOrEmpty(slot.type))
-                        Slots.Add(slot);
+                        Slots.Add(CopySlot(slot));
             // Owner may have changed hands during play; the def is the imported
             // one, so keep the live value unless this is the first look.
             if (string.IsNullOrEmpty(Owner)) Owner = def.owner ?? "";
             ResolveFaction(db, def.bannedRaces);
             ReplayBuilt(db);
+        }
+
+        static MapBuildingStateDef CopySlot(MapBuildingStateDef slot)
+        {
+            return new MapBuildingStateDef { type = slot.type, upgrade = slot.upgrade, maxUpgrade = slot.maxUpgrade };
+        }
+
+        /// <summary>Apply a new-game faction choice before construction/recruitment.</summary>
+        public bool SetStartingFaction(GameDatabase db, string townType)
+        {
+            var type = db != null ? db.GetTownType(townType) : null;
+            if (type == null || string.IsNullOrEmpty(type.faction) || type.faction == "RandomTown" ||
+                type.buildings == null || type.buildings.Count == 0) return false;
+            TownType = type.id;
+            Faction = type.faction;
+            FactionResolved = true;
+            Built.Clear();
+            Pools.Clear();
+            BuiltToday = false;
+            return true;
         }
 
         /// <summary>Re-apply the tiers built during play onto the authored slots.</summary>
@@ -158,7 +180,7 @@ namespace HoMM5.Map
             // race; a save carries the resolved faction anyway.
             var seed = 0;
             foreach (var ch in ObjectId) seed = seed * 31 + ch;
-            TownType = choices[System.Math.Abs(seed) % choices.Count];
+            TownType = choices[(int)((uint)seed % (uint)choices.Count)];
             var picked = db.GetTownType(TownType);
             Faction = picked != null ? picked.faction : "";
             FactionResolved = !string.IsNullOrEmpty(Faction);

@@ -45,6 +45,7 @@ namespace HoMM5.UI
         RectTransform _mapListContent;
         H5Minimap _minimap;
         Transform _canvasRoot;
+        Transform _adventureRoot;
         float _nextDetailsRefresh;
 
         // Awake, not Start: H5Bootstrap adds this component and then calls
@@ -110,7 +111,7 @@ namespace HoMM5.UI
         /// <summary>Modal choice (chest, arena, tree of knowledge).</summary>
         public void ShowDialog(H5DialogRequest request)
         {
-            if (_canvasRoot != null) H5Dialog.Show(_canvasRoot, request);
+            if (_adventureRoot != null) H5Dialog.Show(_adventureRoot, request);
         }
 
         /// <summary>Called after a map load so the minimap tracks the new scene.</summary>
@@ -122,16 +123,17 @@ namespace HoMM5.UI
 
         /// <summary>The canvas every panel in this HUD hangs off.</summary>
         public Transform CanvasRoot => _canvasRoot;
+        public bool IsVisible => _adventureRoot != null && _adventureRoot.gameObject.activeInHierarchy;
 
         /// <summary>Hide the adventure HUD while a battle runs.</summary>
         public void Show()
         {
-            if (_canvasRoot != null) _canvasRoot.gameObject.SetActive(true);
+            if (_adventureRoot != null) _adventureRoot.gameObject.SetActive(true);
         }
 
         public void Hide()
         {
-            if (_canvasRoot != null) _canvasRoot.gameObject.SetActive(false);
+            if (_adventureRoot != null) _adventureRoot.gameObject.SetActive(false);
         }
 
         void OnSelectionChanged(H5MapObject obj)
@@ -162,13 +164,22 @@ namespace HoMM5.UI
             scaler.matchWidthOrHeight = 0.5f;
 
             _canvasRoot = canvasGo.transform;
-            BuildSelectionPanel(canvasGo.transform);
-            BuildStatsLabel(canvasGo.transform);
-            BuildLogLabel(canvasGo.transform);
-            BuildMapList(canvasGo.transform);
-            BuildTurnControls(canvasGo.transform);
-            _minimap = H5Minimap.Create(canvasGo.transform, new Vector2(-16, 16), new Vector2(240, 240));
-            Town = TownScreen.Create(canvasGo.transform);
+            // Keep the canvas alive: MainMenu is a sibling of this layer, not
+            // part of the adventure HUD that is hidden in menus and battles.
+            var adventure = new GameObject("AdventureHUD", typeof(RectTransform));
+            var rect = adventure.GetComponent<RectTransform>();
+            rect.SetParent(_canvasRoot, false);
+            rect.anchorMin = Vector2.zero;
+            rect.anchorMax = Vector2.one;
+            rect.offsetMin = rect.offsetMax = Vector2.zero;
+            _adventureRoot = rect;
+            BuildSelectionPanel(_adventureRoot);
+            BuildStatsLabel(_adventureRoot);
+            BuildLogLabel(_adventureRoot);
+            BuildMapList(_adventureRoot);
+            BuildTurnControls(_adventureRoot);
+            _minimap = H5Minimap.Create(_adventureRoot, new Vector2(-16, 16), new Vector2(240, 240));
+            Town = TownScreen.Create(_adventureRoot);
         }
 
         void BuildSelectionPanel(Transform parent)

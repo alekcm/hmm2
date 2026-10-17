@@ -93,15 +93,16 @@ namespace HoMM5
             // The main menu is the front door: the map, the faction and the
             // hero are the player's choices, not a default. It is created on
             // the HUD's canvas and sits above every adventure panel.
-            _menu = HoMM5.UI.MainMenu.Create(_hud.CanvasRoot);
-            _menu.Database = Database;
+            _menu = HoMM5.UI.MainMenu.Create(_hud.CanvasRoot, Database);
             _menu.StartRequested = StartNewGame;
-            _menu.LoadRequested = () => { _menu.Hide(); _hud.Show(); LoadGame(); };
+            _menu.LoadRequested = LoadGame;
             _menu.QuitRequested = QuitGame;
 
             if (!Database.IsLoaded)
             {
-                _hud.SetStats("Import not found.\nRun: python -m homm5import.cli all\n(see tools/homm5_import/README.md)");
+                _hud.Hide();
+                _controller.enabled = false;
+                _menu.SetStatus("Import not found: run python import_to_unity.py from the repository.");
                 return;
             }
 
@@ -115,6 +116,7 @@ namespace HoMM5
             }
 
             _hud.Hide();
+            _controller.enabled = false;
             GameState.AddLog("Choose a scenario to begin.");
             H5Audio.Theme(H5Cues.MainMenuTheme);
         }
@@ -128,14 +130,17 @@ namespace HoMM5
         public void StartNewGame(HoMM5.UI.NewGameSetup setup)
         {
             if (setup == null || string.IsNullOrEmpty(setup.MapId)) return;
-            if (Database == null || !Database.IsLoaded) return;
+            if (Database == null || !Database.IsLoaded || CombatActive || GameState.HasMovingHero) return;
+            if (MapSceneBuilder.LoadMapDef(setup.MapId) == null)
+            {
+                _menu.SetStatus("Cannot open scenario: " + setup.MapId + ". Check the maps import.");
+                return;
+            }
 
             gameDifficulty = Mathf.Clamp(setup.Difficulty, 0, 3);
             localPlayerId = "PLAYER_1";
             _pendingSetup = setup;
 
-            _menu.Hide();
-            _hud.Show();
             LoadMap(setup.MapId);
             GameState.AddLog($"{setup.PlayerName} ({setup.FactionName}) vs {setup.OpponentName}. " +
                              "End Turn hands the map over; F5 saves, F9 loads.");
@@ -170,12 +175,35 @@ namespace HoMM5
             GameState.RequestDialog(request);
         }
 
-        /// <summary>Back to the front door, dropping the running scenario.</summary>
+        /// <summary>Pause the adventure behind the main menu.</summary>
         public void ReturnToMenu()
         {
-            if (CombatActive) return;
-            if (_menu != null) _menu.Show();
-            if (_hud != null) _hud.Hide();
+            if (CombatActive || (GameState != null && GameState.HasMovingHero)) return;
+            if (_hud != null)
+            {
+                if (_hud.Town != null) _hud.Town.Hide();
+                _hud.Hide();
+            }
+            _townMusic = false;
+            if (_controller != null) _controller.enabled = false;
+            if (CurrentMap != null && CurrentMap.Root != null) CurrentMap.Root.SetActive(false);
+            if (_menu != null)
+            {
+                var local = GameState != null ? GameState.LocalPlayer : null;
+                _menu.ResumeRequested = CurrentMap != null && (local == null || local.IsAlive)
+                    ? (System.Action)ResumeAdventure : null;
+                _menu.Show();
+            }
+            H5Audio.Theme(H5Cues.MainMenuTheme);
+        }
+
+        void ResumeAdventure()
+        {
+            if (_menu != null) _menu.Hide();
+            if (CurrentMap != null && CurrentMap.Root != null) CurrentMap.Root.SetActive(true);
+            if (_controller != null) _controller.enabled = true;
+            if (_hud != null) _hud.Show();
+            ResumeMapMusic();
         }
 
         void QuitGame()
@@ -199,10 +227,20 @@ namespace HoMM5
             var previousMapId = CurrentMap != null && CurrentMap.Map != null ? CurrentMap.Map.id : "";
             var previousFloor = floor;
             var preserveScenarioState = string.Equals(previousMapId, mapId,
-                System.StringComparison.OrdinalIgnoreCase) && previousFloor != targetFloor;
+                System.StringComparison.OrdinalIgnoreCase) && previousFloor != targetFloor && _pendingSetup == null;
+            // Do not tear down a running scenario for a missing map.
+            if (MapSceneBuilder.LoadMapDef(mapId) == null)
+            {
+                if (_menu != null && _menu.IsOpen) _menu.SetStatus("Cannot open scenario: " + mapId);
+                return;
+            }
             floor = targetFloor == 1 ? 1 : 0;
             if (_controller != null) _controller.Select(null);
-            if (CurrentMap != null && CurrentMap.Root != null) Destroy(CurrentMap.Root);
+            if (CurrentMap != null && CurrentMap.Root != null)
+            {
+                CurrentMap.Root.SetActive(false);
+                Destroy(CurrentMap.Root);
+            }
             Meshes.Clear();
             if (Textures != null) Textures.Dispose();
 
@@ -240,7 +278,7 @@ namespace HoMM5
 
             _hud.AttachMap(builder);
             RefreshStats();
-            ResumeMapMusic();
+            ResumeAdventure();
         }
 
         // -- save / load ---------------------------------------------------
@@ -260,15 +298,23 @@ namespace HoMM5
             var save = H5SaveGame.LoadFromFile();
             if (save == null)
             {
-                GameState.AddLog("No quick save found (F5 to save).");
+                GameState.AddLog("No readable quick save found (F5 to save).");
+                if (_menu != null && _menu.IsOpen) _menu.SetStatus("No readable quick save found. Choose New Game.");
                 return;
             }
-            // Restore the world state first: BindMap applies ownership and
-            // hero positions from it when the scene is rebuilt.
-            GameState.RestoreState(save);
             var mapId = string.IsNullOrEmpty(save.mapId) && CurrentMap != null && CurrentMap.Map != null
                 ? CurrentMap.Map.id : save.mapId;
-            if (string.IsNullOrEmpty(mapId)) return;
+            if (string.IsNullOrEmpty(mapId) || MapSceneBuilder.LoadMapDef(mapId) == null)
+            {
+                if (_menu != null && _menu.IsOpen) _menu.SetStatus("The saved scenario is not imported.");
+                GameState.AddLog("Cannot load: the saved scenario is not imported.");
+                return;
+            }
+            // Validate first; a failed Continue must leave the menu and the
+            // running state intact. BindMap must use the saved local player.
+            _pendingSetup = null;
+            GameState.RestoreState(save);
+            localPlayerId = GameState.LocalPlayerId;
             LoadMapAtFloor(mapId, save.floor == 1 ? 1 : 0, true);
             GameState.AddLog("Game loaded.");
         }
@@ -537,7 +583,7 @@ namespace HoMM5
                 if (GameState != null)
                     GameState.AddLog(H5Audio.Instance.Muted ? "Sound off (M toggles)." : "Sound on.");
             }
-            if (CombatActive) return;
+            if (CombatActive || (_menu != null && _menu.IsOpen)) return;
 
             // Closing the town screen by any route (its button, Esc, T) brings the map theme back.
             if (_townMusic && (_hud == null || _hud.Town == null || !_hud.Town.IsOpen))
@@ -551,8 +597,12 @@ namespace HoMM5
             if (HoMM5.Core.H5Input.LoadPressed()) LoadGame();
             if (HoMM5.Core.H5Input.HeroScreenPressed()) ShowHeroSkills();
             if (HoMM5.Core.H5Input.TownScreenPressed()) ShowTownScreen();
-            if (HoMM5.Core.H5Input.CancelPressed() && _hud != null && _hud.Town != null)
-                _hud.Town.Hide();
+            if (HoMM5.Core.H5Input.CancelPressed())
+            {
+                if (_hud != null && _hud.Town != null && _hud.Town.IsOpen) _hud.Town.Hide();
+                else ReturnToMenu();
+                return;
+            }
             // The town screen sits over the map, so clicks on it must not also
             // reach the adventure map underneath.
             if (_hud != null && _hud.Town != null && _hud.Town.IsOpen) return;
@@ -608,6 +658,7 @@ namespace HoMM5
         void BuildLights()
         {
             var go = new GameObject("Sun");
+            go.transform.SetParent(transform, false);
             var light = go.AddComponent<Light>();
             light.type = LightType.Directional;
             light.color = new Color(1f, 0.96f, 0.88f);
@@ -635,6 +686,7 @@ namespace HoMM5
             else
             {
                 go = new GameObject("Main Camera");
+                go.transform.SetParent(transform, false);
                 go.tag = "MainCamera";
                 go.AddComponent<Camera>();
                 go.AddComponent<AudioListener>();
@@ -652,6 +704,7 @@ namespace HoMM5
             if (Object.FindAnyObjectByType<UnityEngine.EventSystems.EventSystem>() == null)
             {
                 var es = new GameObject("EventSystem");
+                es.transform.SetParent(transform, false);
                 es.AddComponent<UnityEngine.EventSystems.EventSystem>();
 #if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
                 // StandaloneInputModule reads the old Input manager. With the
@@ -707,6 +760,7 @@ namespace HoMM5
             {
                 GameState.Changed -= RefreshTurnHud;
                 GameState.CombatRequested -= StartCombat;
+                GameState.MatchEnded -= OnMatchEnded;
             }
             if (Meshes != null) Meshes.DestroyMeshes();
         }

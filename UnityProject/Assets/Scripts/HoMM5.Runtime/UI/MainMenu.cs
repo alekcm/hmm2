@@ -27,10 +27,12 @@ namespace HoMM5.UI
         /// <summary>Raised when the player commits a new game.</summary>
         public Action<NewGameSetup> StartRequested;
         public Action LoadRequested;
+        public Action ResumeRequested;
         public Action QuitRequested;
 
         GameObject _root;
         UnityEngine.UI.Text _title;
+        UnityEngine.UI.Text _status;
         RectTransform _body;
 
         // Which step of the setup the panel is on.
@@ -40,13 +42,18 @@ namespace HoMM5.UI
         List<TownTypeDef> _factions = new List<TownTypeDef>();
         List<HeroDef> _heroes = new List<HeroDef>();
 
-        public bool IsOpen => _root != null && _root.activeSelf;
+        public bool IsOpen => _root != null && _root.activeInHierarchy;
 
-        public static MainMenu Create(Transform canvas)
+        public static MainMenu Create(Transform canvas, GameDatabase database = null)
         {
-            var go = new GameObject("MainMenu");
-            go.transform.SetParent(canvas, false);
+            var go = new GameObject("MainMenu", typeof(RectTransform));
+            var rect = go.GetComponent<RectTransform>();
+            rect.SetParent(canvas, false);
+            rect.anchorMin = Vector2.zero;
+            rect.anchorMax = Vector2.one;
+            rect.offsetMin = rect.offsetMax = Vector2.zero;
             var menu = go.AddComponent<MainMenu>();
+            menu.Database = database;
             menu.Build();
             return menu;
         }
@@ -55,22 +62,41 @@ namespace HoMM5.UI
 
         void Build()
         {
-            _root = MakePanel(transform, "MenuPanel", new Vector2(-500, -330), new Vector2(500, 330));
-            _root.GetComponent<Image>().color = new Color(0.05f, 0.06f, 0.09f, 0.98f);
+            // A full-screen raycast target prevents clicks through the menu.
+            _root = new GameObject("MenuOverlay", typeof(RectTransform), typeof(Image));
+            var overlay = _root.GetComponent<RectTransform>();
+            overlay.SetParent(transform, false);
+            overlay.anchorMin = Vector2.zero;
+            overlay.anchorMax = Vector2.one;
+            overlay.offsetMin = overlay.offsetMax = Vector2.zero;
+            _root.GetComponent<Image>().color = new Color(0.02f, 0.025f, 0.04f, 1f);
+            var panel = MakePanel(overlay, "MenuPanel", new Vector2(-500, -330), new Vector2(500, 330));
+            panel.GetComponent<Image>().color = new Color(0.05f, 0.06f, 0.09f, 0.98f);
 
-            _title = MakeText(_root.transform, "Title", 34, FontStyle.Bold, TextAnchor.MiddleCenter,
-                              new Vector2(0, -26), new Vector2(0, -84));
+            _title = MakeText(panel.transform, "Title", 34, FontStyle.Bold, TextAnchor.MiddleCenter,
+                              new Vector2(0, -84), new Vector2(0, -26));
+            _title.rectTransform.anchorMin = new Vector2(0, 1);
+            _title.rectTransform.anchorMax = Vector2.one;
             _title.text = "Heroes of Might and Magic V";
             _title.color = new Color(0.86f, 0.78f, 0.58f);
 
-            _body = MakeScroll(_root.transform, "Body", new Vector2(40, 70), new Vector2(-40, -96));
+            _body = MakeScroll(panel.transform, "Body", new Vector2(40, 70), new Vector2(-40, -96));
 
-            var back = MakeButton(_root.transform, "BackButton", "Back", new Vector2(0, 0),
+            var back = MakeButton(panel.transform, "BackButton", "Back", new Vector2(0.5f, 0),
                                   new Vector2(-40, 22), new Vector2(40, 58), OnBack);
             back.gameObject.SetActive(false);
             _backButton = back;
 
+            _status = MakeText(panel.transform, "Status", 14, FontStyle.Normal, TextAnchor.MiddleCenter,
+                               new Vector2(18, 62), new Vector2(-18, 92));
+            _status.rectTransform.anchorMin = Vector2.zero;
+            _status.rectTransform.anchorMax = new Vector2(1, 0);
             ShowRoot();
+        }
+
+        public void SetStatus(string message)
+        {
+            if (_status != null) _status.text = message ?? "";
         }
 
         Button _backButton;
@@ -84,6 +110,7 @@ namespace HoMM5.UI
 
         public void ShowRoot()
         {
+            SetStatus("");
             _step = 0;
             _title.text = "Heroes of Might and Magic V";
             ShowBack(false);
@@ -99,13 +126,17 @@ namespace HoMM5.UI
                               Action = () => { if (QuitRequested != null) QuitRequested(); } },
             };
 
+            if (ResumeRequested != null)
+                rows.Insert(0, new MenuRow { Label = "Resume", Note = "Return to the current scenario",
+                    Action = () => ResumeRequested?.Invoke(), Bold = true });
+
             if (Database == null || !Database.IsLoaded)
             {
                 rows.Clear();
                 rows.Add(new MenuRow
                 {
                     Label = "Import not found",
-                    Note = "Run: python -m homm5import.cli all",
+                    Note = "Run: python import_to_unity.py",
                     Bold = true,
                 });
             }
@@ -386,6 +417,10 @@ namespace HoMM5.UI
                     button.onClick.AddListener(() => { HoMM5.Audio.H5Audio.Click(); captured(); });
                 }
             }
+            // The content must fit its rows. A fixed 2000px left Start far
+            // below short lists and clipped long scenario lists.
+            _body.sizeDelta = new Vector2(0, y + 80f);
+            _body.anchoredPosition = Vector2.zero;
         }
 
         // -- widgets --------------------------------------------------------
