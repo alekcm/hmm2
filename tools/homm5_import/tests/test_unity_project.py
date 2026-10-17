@@ -35,8 +35,21 @@ class UnityProjectWiringTest(unittest.TestCase):
         definition = json.loads((PROJECT / "Assets/Tests/PlayMode/HoMM5.PlayMode.Tests.asmdef").read_text())
         self.assertIn("TestAssemblies", definition["optionalUnityReferences"])
         self.assertIn("HoMM5.Runtime", definition["references"])
-        self.assertIn("UnityEngine.TestRunner", definition["references"])
+        # TestAssemblies already injects the test-runner references. Adding
+        # UnityEngine.TestRunner explicitly makes Unity reject the assembly.
+        self.assertNotIn("UnityEngine.TestRunner", definition["references"])
         self.assertFalse(definition.get("includePlatforms"), "PlayMode tests must not be Editor-only")
+
+    def test_assembly_references_do_not_duplicate_implicit_test_runners(self):
+        for path in (PROJECT / "Assets").rglob("*.asmdef"):
+            with self.subTest(assembly=str(path.relative_to(PROJECT))):
+                definition = json.loads(path.read_text())
+                references = definition.get("references", [])
+                self.assertEqual(len(references), len(set(references)), "Duplicate explicit references")
+                if "TestAssemblies" in definition.get("optionalUnityReferences", []):
+                    implicit_runners = {"UnityEngine.TestRunner", "UnityEditor.TestRunner"}
+                    self.assertFalse(implicit_runners.intersection(references),
+                                     "TestAssemblies already supplies test-runner references")
 
 
 if __name__ == "__main__":
