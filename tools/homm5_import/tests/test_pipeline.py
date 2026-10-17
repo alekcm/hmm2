@@ -1806,6 +1806,51 @@ def _parse_dto_fields(path: str) -> dict:
     return out
 
 
+class CSharpCallCheckTest(unittest.TestCase):
+    """The C# side cannot be compiled here, so the call checker is the only
+    thing standing between a wrong argument count and a Unity compile error
+    found by hand. This test runs it over the real sources and over its own
+    self-test corpus, so a checker that silently stops resolving calls fails
+    here rather than quietly blessing broken code.
+    """
+
+    TOOLS = os.path.join(REPO, "tools")
+    UNITY = os.path.join(REPO, "UnityProject")
+
+    def _run(self, *args):
+        import subprocess
+        import sys
+        proc = subprocess.run(
+            [sys.executable, os.path.join(self.TOOLS, "csharp_call_check.py"), *args],
+            capture_output=True, text=True, timeout=600)
+        return proc.returncode, proc.stdout + proc.stderr
+
+    @unittest.skipUnless(os.path.isdir(os.path.join(REPO, "UnityProject")),
+                         "no UnityProject checkout")
+    def test_repository_sources_have_no_arity_errors(self):
+        rc, out = self._run(self.UNITY)
+        self.assertEqual(rc, 0, out)
+        self.assertIn("every resolved call matches a declaration's arity", out)
+
+    @unittest.skipUnless(os.path.isdir(os.path.join(REPO, "UnityProject")),
+                         "no UnityProject checkout")
+    def test_checker_actually_resolves_calls(self):
+        """A checker that resolves nothing also reports nothing. The count is
+        the assertion: if resolution breaks, the repo goes quiet and this fails.
+        """
+        rc, out = self._run(self.UNITY)
+        match = re.search(r"resolved (\d+) calls", out)
+        self.assertIsNotNone(match, out)
+        self.assertGreater(int(match.group(1)), 1000,
+                           "resolution collapsed: " + out)
+
+    def test_checker_self_test_catches_planted_violations(self):
+        rc, out = self._run("--self-test")
+        self.assertEqual(rc, 0, out)
+        self.assertIn("self-test PASSED", out)
+
+
+
 def _upgrade_rank(upgrade: str) -> int:
     """BLD_UPG_NONE < BLD_UPG_1 < ... (a map caps a building at a tier)."""
     return 0 if upgrade in ("", "BLD_UPG_NONE") else int(upgrade.rsplit("_", 1)[1])

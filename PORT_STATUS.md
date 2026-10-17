@@ -336,8 +336,8 @@ source for the siege battlefield, still unused.
 
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **109
-tests** (108 pass, 1 skipped), every one against the real shipped data. These
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **112
+tests** (111 pass, 1 skipped), every one against the real shipped data. These
 are cross-checks between independent sources, not golden files:
 
 - **Town data** (10 tests) — 328 buildings with 328 unique keys and zero
@@ -346,6 +346,10 @@ are cross-checks between independent sources, not golden files:
   all eight factions; all eight grails 1.5× and 5000 gold/day;
   `Haven/Peasant_Huts` growth 22 = `CREATURE_PEASANT`'s `WeeklyGrowth`, gold
   500; the single cross-faction dependency pinned.
+- **C# call sites** (3 tests) — the arity checker runs over the real
+  `UnityProject` sources and must report nothing; must resolve more than 1000
+  calls (a checker that resolves nothing also reports nothing, so silence is not
+  a pass); and must still fail its own self-test corpus of planted violations.
 - **Python↔C# contract** (5 tests) — every key the importer emits for
   `TownBuildingDef`, `TownTypeDef`, `TownMoatSpellDef`, `CreatureDef`,
   `MapObjectDef`, `MapBuildingStateDef` and `MapArmyStackDef` is a field of the
@@ -398,6 +402,30 @@ textures   9258 .png, 0 failed
 were written but never built. The Python pipeline is tested; the Unity side is
 not. Expect to fix compile errors on first open — the API surface used is
 deliberately conservative for that reason.
+
+Two checkers narrow that gap, and neither is a compiler:
+
+- `tools/csharp_access_check.py` — resolves every qualified `Type.Member`
+  against the declared types and checks accessibility (private used outside its
+  type, internal across assemblies) and existence.
+- `tools/csharp_call_check.py` — infers the type of locals, fields, properties,
+  parameters, `foreach` variables and `var` initialisers, then checks that every
+  call on one of our own types matches a declaration's **arity**. It resolves
+  ~1285 call sites across the 35 files and currently reports none.
+
+The second exists because two defects reached the town layer that the first
+cannot see, both of them calls through a variable: `MakePanel` called with four
+arguments against three parameters, and `H5TownState.X` declared `int` where
+`MapObjectDef.x` is `float`. Both are now caught — the regression is pinned by
+planting the original `MakePanel` signature back into a copy of the tree and
+watching the checker name the line.
+
+What the call checker still does not do, so a real compiler can reject what it
+accepts: **argument types** (count only — passing an `int` where a `string` goes
+is not caught), overload resolution (a call passes if any signature fits the
+count), and anything on UnityEngine/System types, which are not indexed. A type
+deriving from `MonoBehaviour` therefore has its inherited members skipped rather
+than reported, which is why `Destroy()` and `StartCoroutine()` are not flagged.
 
 The `.unity` scene is hand-written YAML. If Unity rejects it, **Tools ▸ HoMM5 ▸
 Create Bootstrap Scene** rebuilds it; the scene is one GameObject with
@@ -452,11 +480,17 @@ maps look.
 ## Suggested order from here
 
 1. Get it compiling and open a map — cheapest way to find what the missing
-   compile check left behind.
-2. Town screen and hero screen (the level-up dialog and skill roster are
-   placeholders in the IMGUI/uGUI HUD; the shipped screens carry the art).
-3. Finish material translation: two-sided culling, additive passes, lightmaps and
+   compile check left behind. The two checkers under "Not verified" catch
+   accessibility and call-arity errors, not argument types, so expect some.
+2. Hero screen — the town screen is in, the hero side is still the placeholder
+   level-up dialog and skill roster; the shipped screens carry the art. The
+   hero's grimoire is a hardcoded 12 spells and should read `Spells.xdb`
+   through the class's preferred-spell list.
+3. Town interior and siege battlefield — `AdvMapTownShared` already points at
+   the `/Arenas/Town/...` interior scenes and the siege arena's wall, tower and
+   gate `ArenaModObject`s; that data is imported but unused.
+4. Finish material translation: two-sided culling, additive passes, lightmaps and
    visual effects; smoothly blend the imported terrain coverage layers.
-4. Active skill perks (Holy Charge, Prayer, Gating, Demonic Fire, ...) and
+5. Active skill perks (Holy Charge, Prayer, Gating, Demonic Fire, ...) and
    per-tile terrain movement costs (Pathfinding hooks are in place).
-5. Audio: `music/`, `sound/`, `soundsfx/` are FMOD-packed and untouched.
+6. Audio: `music/`, `sound/`, `soundsfx/` are FMOD-packed and untouched.
