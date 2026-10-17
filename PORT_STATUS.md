@@ -380,10 +380,50 @@ AI does not use spells, does not retreat, and does not defend a besieged town
 differently from an open field. Town interiors and the siege battlefield are
 still not rendered.
 
+### Computer opponent: review pass (what was broken, what changed)
+
+The section above says "against a computer". A review found that, before this
+pass, that was not true in practice, and the review fixed it:
+
+- **The project did not compile.** `H5ObjectVisits.TryVisit` used an undefined
+  `mapObj`, and two visit helpers passed a `H5HeroState` where a
+  `H5MapObject` was needed. Those visits also collected the *hero*
+  (`CollectObject(mapObj)` deactivates its argument), so picking up a treasury
+  would hide the hero. Visit helpers now use `mapObj` for the hero and `obj`
+  for the target; `AdventureMapGameState.ViewOf(def)` gives the scene object.
+  `VisitMine` never captured a mine (it tested the hero's owner, then captured
+  the hero), and now does.
+- **Computer heroes never moved.** Only the local player's heroes were on the
+  roster and only they could walk. All heroes are now on the roster; the
+  computer's walk the same path and budget, one step at a time, and resolve
+  each visit at once (`MoveComputerHeroTo`). Computer fights are resolved
+  headlessly (`RunHeadlessBattle`); the player's still open the combat scene.
+- **Computer never built or recruited.** Building was checked against `null`
+  resources (always "cannot afford" for anything that costs something), and the
+  computer's treasury was an empty inventory nothing ever funded. Each player
+  now has a treasury (`AdventureMapGameState.TreasuryOf`), and a computer is
+  funded from `startComputerResources` the first time it is used.
+- **Everything paid into the human.** Mines, towns, estates, chest and pile
+  visits, bank rewards and captures all went to the local player. They now go
+  to the owner (`TreasuryOf(hero)`, `ActingPlayerId`).
+- **The HUD showed an empty treasury.** It read the roster's empty inventory for
+  the human; it now reads the human's real treasury.
+- **Computer targets.** It no longer sends heroes at hero-versus-hero fights
+  (not supported), and it walks to an active tile of its target, so the visit
+  fires on arrival.
+- **Saves.** Positions of every hero are saved, and the roster (with the
+  computer's treasuries) is saved in `H5SaveGame.players`. Older saves restore
+  without a roster.
+
+Still open for the computer: no walking animation (it moves in one step), no
+spells, no retreat, no defence of a besieged town, and its battles are the
+headless reconstruction. Nothing above has been run in Unity; the checks listed
+under "Verified" are static.
+
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **115
-tests** (114 pass, 1 skipped), every one against the real shipped data. These
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **139
+tests** (138 pass, 1 skipped), every one against the real shipped data. These
 are cross-checks between independent sources, not golden files:
 
 - **Town data** (10 tests) — 328 buildings with 328 unique keys and zero
@@ -400,6 +440,10 @@ are cross-checks between independent sources, not golden files:
   `UnityProject` sources and must report nothing; must resolve more than 1000
   calls (a checker that resolves nothing also reports nothing, so silence is not
   a pass); and must still fail its own self-test corpus of planted violations.
+- **C# undeclared names** (2 tests) — `csharp_name_check.py` flags a lowercase
+  simple name used outside any declaration that could bind it (CS0103). It
+  catches the `mapObj` defect that existed on `HEAD`; it does not check types,
+  so a wrong argument *type* still needs a compiler or a reading.
 - **Python↔C# contract** (5 tests) — every key the importer emits for
   `TownBuildingDef`, `TownTypeDef`, `TownMoatSpellDef`, `CreatureDef`,
   `MapObjectDef`, `MapBuildingStateDef` and `MapArmyStackDef` is a field of the

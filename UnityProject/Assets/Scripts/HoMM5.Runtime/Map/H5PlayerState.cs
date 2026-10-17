@@ -41,6 +41,9 @@ namespace HoMM5.Map
         public HoMM5.Data.PlayerResourceInventory Resources =
             new HoMM5.Data.PlayerResourceInventory();
 
+        /// <summary>Set once a computer player has been given its starting stake.</summary>
+        public bool TreasuryFunded;
+
         /// <summary>Map-object ids of the heroes this player commands.</summary>
         public List<string> HeroIds = new List<string>();
 

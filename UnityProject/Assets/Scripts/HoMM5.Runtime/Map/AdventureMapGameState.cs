@@ -44,6 +44,14 @@ namespace HoMM5.Map
         readonly Dictionary<string, int> _visitedWeek = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
         readonly Dictionary<string, string> _ownerOverrides = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         readonly Dictionary<string, H5HeroState> _heroStates = new Dictionary<string, H5HeroState>(StringComparer.OrdinalIgnoreCase);
+        readonly Dictionary<MapObjectDef, H5MapObject> _views = new Dictionary<MapObjectDef, H5MapObject>();
+
+        /// <summary>The scene object for a map definition, or null when it has no mesh.</summary>
+        public H5MapObject ViewOf(MapObjectDef def)
+        {
+            return def != null && _views.TryGetValue(def, out var view) ? view : null;
+        }
+
         readonly Dictionary<string, H5TownState> _townStates = new Dictionary<string, H5TownState>(StringComparer.OrdinalIgnoreCase);
         readonly Dictionary<string, Vector2> _heroPositions = new Dictionary<string, Vector2>(StringComparer.OrdinalIgnoreCase);
         HoMM5.Data.MapDef _map;
@@ -127,10 +135,12 @@ namespace HoMM5.Map
             if (builder != null && builder.Root != null)
             {
                 var objects = builder.Root.GetComponentsInChildren<H5MapObject>(true);
+                _views.Clear();
                 for (var i = 0; i < objects.Length; i++)
                 {
                     var obj = objects[i];
                     if (obj == null || obj.Def == null) continue;
+                    _views[obj.Def] = obj;
                     var objectId = obj.Def.objectId;
 
                     // Ownership and hero positions change over the game and
@@ -158,11 +168,13 @@ namespace HoMM5.Map
                     }
                     if (!obj.IsHero) continue;
                     var key = KeyFor(obj.Def, i);
+                    // Every hero is on the roster, the computer's included: they
+                    // move, fight, earn and count towards the match. Only the
+                    // local player's are interactive (IsLocalHero).
                     var isLocalHero = string.Equals(obj.Def.owner, LocalPlayerId, StringComparison.OrdinalIgnoreCase);
-                    if (isLocalHero) _heroes.Add(obj);
-                    obj.BindMovement(isLocalHero ? this : null, key,
-                                     isLocalHero ? GetMovement(key) : 0f);
-                    if (isLocalHero && _heroStates.TryGetValue(key, out var heroState))
+                    _heroes.Add(obj);
+                    obj.BindMovement(this, key, GetMovement(key), isLocalHero);
+                    if (_heroStates.TryGetValue(key, out var heroState))
                         obj.BindHeroState(heroState);
                 }
             }
@@ -196,7 +208,7 @@ namespace HoMM5.Map
                     // doubled by Mysticism.
                     if (hs.Effects.EstatesGoldPerDay > 0)
                     {
-                        Resources.gold += hs.Effects.EstatesGoldPerDay;
+                        TreasuryOf(_heroes[i]).gold += hs.Effects.EstatesGoldPerDay;
                         AddLog($"{hs.HeroName}: Estates add {hs.Effects.EstatesGoldPerDay} gold.");
                     }
                     var regen = hs.MaxMana * 0.1f * hs.Effects.ManaRegenMultiplier;
@@ -222,12 +234,7 @@ namespace HoMM5.Map
             }
             else
             {
-                // advmap-common.lua's default resources at normal difficulty.
-                Resources.Set(new HoMM5.Data.StartResourcesDef
-                {
-                    wood = 20, ore = 20, mercury = 10, crystal = 10,
-                    sulfur = 10, gem = 10, gold = 20000
-                });
+                Resources.Set(DefaultStartResources());
             }
         }
 
@@ -236,7 +243,9 @@ namespace HoMM5.Map
         /// <summary>Called as a hero steps onto a tile; runs any visit triggers there.</summary>
         internal void HeroEnteredTile(H5MapObject hero, UnityEngine.Vector2Int tile)
         {
-            if (hero != null && hero.Def != null && hero.IsLocalHero)
+            // Every hero's position is kept, the computer's included, so a save
+            // restores where they were.
+            if (hero != null && hero.Def != null)
                 _heroPositions[hero.StateKey] = new Vector2(hero.Def.x, hero.Def.y);
             H5ObjectVisits.TryVisitAtTile(this, hero, tile);
             Changed?.Invoke();
@@ -247,7 +256,7 @@ namespace HoMM5.Map
         {
             for (var i = 0; i < _heroes.Count; i++)
             {
-                if (_heroes[i] == null) continue;
+                if (_heroes[i] == null || !_heroes[i].IsLocalHero) continue;
                 var hs = GetHeroState(_heroes[i]);
                 if (hs != null) return hs;
             }
@@ -429,12 +438,13 @@ namespace HoMM5.Map
                 FortLevel = FortLevelOf(monster.Def),
             };
 
-            if (CombatRequested != null)
+            // The player's own fights go to the combat scene. The computer's
+            // are resolved here, as its turn happens, with the battle AI.
+            if (CombatRequested != null && hero.IsLocalHero)
             {
                 CombatRequested.Invoke(context);
                 return;
             }
-            // Headless (no combat scene attached): resolve with the battle AI.
             RunHeadlessBattle(context);
         }
 
@@ -516,7 +526,7 @@ namespace HoMM5.Map
                              monsterObj.Def.kind == "AdvMapGarrison"))
                             CaptureObject(monsterObj);
                         if (monsterObj.Def != null && IsBank(monsterObj.Def))
-                            PayBankReward(monsterObj.Def, heroState);
+                            PayBankReward(monsterObj.Def, heroState, TreasuryOf(heroObj));
                         CollectObject(monsterObj);
                     }
                     AddLog(result.Experience > 0
@@ -657,47 +667,47 @@ namespace HoMM5.Map
         /// the original), so these are the classic HoMM5 payouts, inferred and
         /// marked here.
         /// </summary>
-        void PayBankReward(HoMM5.Data.MapObjectDef def, H5HeroState heroState)
+        void PayBankReward(HoMM5.Data.MapObjectDef def, H5HeroState heroState, HoMM5.Data.PlayerResourceInventory treasury)
         {
             var t = (def.sharedType ?? "").ToUpperInvariant();
             switch (t)
             {
                 case "BUILDING_CRYPT":
-                    PayLoot(2000 + Rand.Next(0, 1001), "the Crypt", artifactChance: 0.3f, heroState);
+                    PayLoot(2000 + Rand.Next(0, 1001), "the Crypt", artifactChance: 0.3f, heroState, treasury);
                     break;
                 case "BUILDING_FORGOTTEN_CRYPT":
-                    PayLoot(3000 + Rand.Next(0, 1001), "the Forgotten Crypt", artifactChance: 0.3f, heroState);
+                    PayLoot(3000 + Rand.Next(0, 1001), "the Forgotten Crypt", artifactChance: 0.3f, heroState, treasury);
                     break;
                 case "BUILDING_GRAVEYARD":
-                    PayLoot(1500 + Rand.Next(0, 1001), "the Graveyard", artifactChance: 0f, heroState);
+                    PayLoot(1500 + Rand.Next(0, 1001), "the Graveyard", artifactChance: 0f, heroState, treasury);
                     break;
                 case "BUILDING_DRAGON_UTOPIA":
-                    PayLoot(20000 + Rand.Next(0, 10001), "Dragon Utopia", artifactChance: 1f, heroState);
+                    PayLoot(20000 + Rand.Next(0, 10001), "Dragon Utopia", artifactChance: 1f, heroState, treasury);
                     break;
                 case "BUILDING_NAGA_BANK":
-                    PayLoot(5000, "the Naga Bank", artifactChance: 0f, heroState);
-                    Resources.Add("GEM", 10);
+                    PayLoot(5000, "the Naga Bank", artifactChance: 0f, heroState, treasury);
+                    treasury.Add("GEM", 10);
                     AddLog("The Naga Bank also held 10 gems.");
                     break;
                 case "BUILDING_PYRAMID":
-                    PayLoot(4000, "the Pyramid", artifactChance: 0.5f, heroState);
+                    PayLoot(4000, "the Pyramid", artifactChance: 0.5f, heroState, treasury);
                     heroState?.AddExperience(2000);
                     break;
                 case "BUILDING_SUNKEN_TEMPLE":
                 case "BUILDING_TOMB_OF_THE_WARRIOR":
-                    PayLoot(1500 + Rand.Next(0, 1001), "the ruins", artifactChance: 0.3f, heroState);
+                    PayLoot(1500 + Rand.Next(0, 1001), "the ruins", artifactChance: 0.3f, heroState, treasury);
                     heroState?.AddExperience(1500);
                     break;
                 case "TREASURE_SOULSTONE":
                 case "TREASURE_SHIPWRECK":
-                    PayLoot(1500 + Rand.Next(0, 1001), "the wreck", artifactChance: 0.2f, heroState);
+                    PayLoot(1500 + Rand.Next(0, 1001), "the wreck", artifactChance: 0.2f, heroState, treasury);
                     break;
             }
         }
 
-        void PayLoot(int gold, string place, float artifactChance, H5HeroState heroState)
+        void PayLoot(int gold, string place, float artifactChance, H5HeroState heroState, HoMM5.Data.PlayerResourceInventory treasury)
         {
-            Resources.gold += gold;
+            treasury.gold += gold;
             AddLog($"{place} yields {gold} gold.");
             if (artifactChance <= 0f || Database == null || heroState == null) return;
             if (Rand.NextDouble() > artifactChance) return;
@@ -769,26 +779,43 @@ namespace HoMM5.Map
         /// <summary>Pick an object up: mark it gone and hide its scene object.</summary>
         public void CollectObject(H5MapObject mapObj)
         {
-            if (mapObj == null || mapObj.Def == null) return;
-            if (!string.IsNullOrEmpty(mapObj.Def.objectId))
-                _collectedObjects.Add(mapObj.Def.objectId);
+            if (mapObj == null) return;
+            CollectObject(mapObj.Def);
             mapObj.gameObject.SetActive(false);
+        }
+
+        /// <summary>Remove a map object from play (picked up, cleared, or a visit used up).</summary>
+        public void CollectObject(MapObjectDef def)
+        {
+            if (def == null) return;
+            if (!string.IsNullOrEmpty(def.objectId))
+                _collectedObjects.Add(def.objectId);
+            var view = ViewOf(def);
+            if (view != null) view.gameObject.SetActive(false);
         }
 
         /// <summary>Flag an object (mine, town) for the local player.</summary>
         public void CaptureObject(H5MapObject mapObj)
         {
-            if (mapObj == null || mapObj.Def == null) return;
-            mapObj.Def.owner = LocalPlayerId;
-            if (!string.IsNullOrEmpty(mapObj.Def.objectId))
-                _ownerOverrides[mapObj.Def.objectId] = LocalPlayerId;
+            if (mapObj == null) return;
+            CaptureObject(mapObj.Def);
+        }
 
-            // A captured town changes hands: its owner is the local player now,
-            // and whatever the garrison had bred is gone with the defenders.
-            var town = GetTownState(mapObj.Def);
+        /// <summary>Hand a map object to the acting player.</summary>
+        public void CaptureObject(MapObjectDef def)
+        {
+            if (def == null) return;
+            var owner = ActingPlayerId;
+            def.owner = owner;
+            if (!string.IsNullOrEmpty(def.objectId))
+                _ownerOverrides[def.objectId] = owner;
+
+            // A captured town changes hands: its owner is the capturing player
+            // now, and whatever the garrison had bred is gone with the defenders.
+            var town = GetTownState(def);
             if (town != null)
             {
-                town.Owner = LocalPlayerId;
+                town.Owner = owner;
                 town.Pools.Clear();
                 town.BuiltToday = true;      // it did not build for you today
             }
@@ -820,14 +847,15 @@ namespace HoMM5.Map
             for (var i = 0; i < _map.objects.Count; i++)
             {
                 var obj = _map.objects[i];
-                if (obj == null || !string.Equals(obj.owner, LocalPlayerId,
-                                                  StringComparison.OrdinalIgnoreCase)) continue;
+                if (obj == null || string.IsNullOrEmpty(obj.owner) ||
+                    string.Equals(obj.owner, "PLAYER_NONE", StringComparison.OrdinalIgnoreCase)) continue;
+                var treasury = TreasuryOfOwner(obj.owner);
                 if (obj.kind == "AdvMapMine" && _rules != null && _rules.mineDailyIncome != null &&
                     !string.IsNullOrEmpty(obj.resource) &&
                     _rules.mineDailyIncome.TryGetValue(obj.resource.ToUpperInvariant(), out var mineIncome))
-                    Resources.Add(obj.resource, mineIncome);
+                    treasury.Add(obj.resource, mineIncome);
                 else if (obj.kind == "AdvMapTown")
-                    PayTownIncome(GetTownState(obj));
+                    PayTownIncome(GetTownState(obj), treasury);
             }
         }
 
@@ -837,13 +865,13 @@ namespace HoMM5.Map
         /// are shipped numbers (the hall and Grail amounts come out of their
         /// descriptions, the silo resource from TownTypesInfo).
         /// </summary>
-        void PayTownIncome(H5TownState town)
+        void PayTownIncome(H5TownState town, HoMM5.Data.PlayerResourceInventory treasury)
         {
-            if (town == null) return;
+            if (town == null || treasury == null) return;
             int gold;
             string siloResource;
             int siloAmount;
-            town.PayDailyIncome(Database, Resources, out gold, out siloResource, out siloAmount);
+            town.PayDailyIncome(Database, treasury, out gold, out siloResource, out siloAmount);
             if (gold > 0 || siloAmount > 0)
                 AddLog($"{town.Name} pays {gold} gold" +
                        (siloAmount > 0 ? $" and {siloAmount} {siloResource}" : "") + ".");
@@ -1161,7 +1189,7 @@ namespace HoMM5.Map
                 army = _garrisonArmies[TownKey(def)];
             }
             string reason;
-            var taken = town.Recruit(Database, slotType, creatureId, count, player.Resources, army,
+            var taken = town.Recruit(Database, slotType, creatureId, count, TreasuryOf(player), army,
                                      H5HeroState.MaxArmySlots, out reason);
             if (taken > 0) SyncTownDef(town);
             return taken;
@@ -1205,7 +1233,10 @@ namespace HoMM5.Map
             var guard = 0;
             while (CurrentPlayer != null && !CurrentPlayer.IsHuman && guard++ < 16)
             {
-                var lines = H5AiController.PlayTurn(this, CurrentPlayer);
+                List<string> lines;
+                _actingPlayerId = CurrentPlayer.Id;
+                try { lines = H5AiController.PlayTurn(this, CurrentPlayer); }
+                finally { _actingPlayerId = null; }
                 foreach (var line in lines) AddLog(line);
                 var wrapped = Players.EndTurn();
                 if (wrapped) EndDay();
@@ -1368,7 +1399,7 @@ namespace HoMM5.Map
             for (var i = 0; i < _heroes.Count; i++)
             {
                 var hero = _heroes[i];
-                if (hero == null || hero.Def == null) continue;
+                if (hero == null || hero.Def == null || !hero.IsLocalHero) continue;
                 var dx = hero.Def.x - town.X;
                 var dy = hero.Def.y - town.Y;
                 // A town covers several tiles; its blocked footprint reaches two
@@ -1386,6 +1417,63 @@ namespace HoMM5.Map
             var def = TownDef(town);
             if (def == null || town == null) return;
             def.buildings = town.Slots;
+        }
+
+        // -- treasuries ----------------------------------------------------
+
+        /// <summary>The player whose turn is being played: the computer during its turn, otherwise the human.</summary>
+        public string ActingPlayerId => _actingPlayerId ?? LocalPlayerId;
+        string _actingPlayerId;
+
+        /// <summary>The treasury a player spends from and earns into.</summary>
+        public HoMM5.Data.PlayerResourceInventory TreasuryOf(H5PlayerState player)
+        {
+            if (player == null || player.IsHuman) return Resources;
+            if (!player.TreasuryFunded) FundComputer(player);
+            return player.Resources;
+        }
+
+        /// <summary>The treasury of whoever owns a hero or other map object.</summary>
+        public HoMM5.Data.PlayerResourceInventory TreasuryOf(H5MapObject hero)
+        {
+            return TreasuryOfOwner(hero != null && hero.Def != null ? hero.Def.owner : null);
+        }
+
+        public HoMM5.Data.PlayerResourceInventory TreasuryOfOwner(string ownerId)
+        {
+            if (string.IsNullOrEmpty(ownerId) ||
+                string.Equals(ownerId, LocalPlayerId, StringComparison.OrdinalIgnoreCase))
+                return Resources;
+            var player = Players != null ? Players.Find(ownerId) : null;
+            // An owner the roster does not know is paid into nothing, rather than
+            // into the human's purse.
+            return player != null ? TreasuryOf(player) : new HoMM5.Data.PlayerResourceInventory();
+        }
+
+        /// <summary>A computer opponent starts with the shipped computer stake for its difficulty.</summary>
+        void FundComputer(H5PlayerState player)
+        {
+            player.TreasuryFunded = true;
+            var rows = _rules != null ? _rules.startComputerResources : null;
+            if (rows != null && rows.Count > 0)
+            {
+                var index = Math.Max(0, Math.Min(rows.Count - 1, player.Difficulty));
+                player.Resources.Set(rows[index]);
+            }
+            else
+            {
+                player.Resources.Set(DefaultStartResources());
+            }
+        }
+
+        static HoMM5.Data.StartResourcesDef DefaultStartResources()
+        {
+            // advmap-common.lua's default resources at normal difficulty.
+            return new HoMM5.Data.StartResourcesDef
+            {
+                wood = 20, ore = 20, mercury = 10, crystal = 10,
+                sulfur = 10, gem = 10, gold = 20000
+            };
         }
 
         // -- movement ------------------------------------------------------
@@ -1427,6 +1515,10 @@ namespace HoMM5.Map
                 day = Day,
                 localPlayerId = LocalPlayerId,
                 resources = Resources,
+                // The roster carries each computer's treasury and whether it is
+                // still in the match; the human's treasury stays in `resources`.
+                players = Players != null ? new List<H5PlayerState>(Players.Players) : new List<H5PlayerState>(),
+                turnIndex = Players != null ? Players.TurnIndex : 0,
             };
             foreach (var kv in _movement) save.movement[kv.Key] = kv.Value;
             foreach (var kv in _heroStates) save.heroes.Add(kv.Value);
@@ -1455,6 +1547,8 @@ namespace HoMM5.Map
             Day = Math.Max(1, save.day);
             LocalPlayerId = string.IsNullOrEmpty(save.localPlayerId) ? "PLAYER_1" : save.localPlayerId;
             if (save.resources != null) Resources = save.resources;
+            if (save.players != null && save.players.Count > 0)
+                Players = new H5PlayerRoster { Players = save.players, TurnIndex = save.turnIndex };
             _movement.Clear();
             if (save.movement != null)
                 foreach (var kv in save.movement) _movement[kv.Key] = kv.Value;

@@ -99,6 +99,7 @@ namespace HoMM5.Map
             if (state == null || hero == null || hero.Def == null || obj == null) return false;
             if (state.IsCollected(obj)) return false;
             var heroState = state.GetHeroState(hero);
+            var view = state.ViewOf(obj);
 
             switch (obj.kind)
             {
@@ -112,7 +113,7 @@ namespace HoMM5.Map
                         return true;
                     }
                     state.AddLog($"Battle: {hs.HeroName} attacks the {DisplayName(obj)}!");
-                    state.RequestCombat(hero, mapObj);
+                    state.RequestCombat(hero, view);
                     return true;
                 }
                 case "AdvMapTreasure": return VisitTreasure(state, heroState, hero, obj);
@@ -124,43 +125,47 @@ namespace HoMM5.Map
                 case "AdvMapBuilding": return VisitBuilding(state, heroState, hero, obj);
                 case "AdvMapDwelling":
                 {
+                    if (OwnedByHero(obj, hero)) return false;
                     // Unguarded dwellings simply change hands; guarded ones
                     // must be taken by force.
                     if (HasGarrison(obj))
                     {
                         state.AddLog($"Battle for the {DisplayName(obj)}!");
-                        state.RequestCombat(hero, mapObj);
+                        state.RequestCombat(hero, view);
                     }
                     else
                     {
-                        state.CaptureObject(mapObj);
-                        state.AddLog($"The {DisplayName(obj)} now flies your flag.");
+                        state.CaptureObject(obj);
+                        state.AddLog(hero.IsLocalHero
+                            ? $"The {DisplayName(obj)} now flies your flag."
+                            : $"The {DisplayName(obj)} changes hands.");
                     }
                     return true;
                 }
                 case "AdvMapGarrison":
                 case "AdvMapDwarvenWarren":
+                    if (OwnedByHero(obj, hero)) return false;
                     state.AddLog($"Battle for the {DisplayName(obj)}!");
-                    state.RequestCombat(hero, mapObj);
+                    state.RequestCombat(hero, view);
                     return true;
                 case "AdvMapTown":
                 {
-                    var owner = obj.owner;
-                    if (!string.IsNullOrEmpty(owner) &&
-                        string.Equals(owner, state.LocalPlayerId, StringComparison.OrdinalIgnoreCase))
+                    if (OwnedByHero(obj, hero))
                     {
-                        state.LogOncePerDay(obj, "This town is already yours.");
-                        return true;
+                        if (hero.IsLocalHero) state.LogOncePerDay(obj, "This town is already yours.");
+                        return hero.IsLocalHero;
                     }
                     if (HasGarrison(obj) || obj.garrison != null)
                     {
                         state.AddLog($"The siege of {DisplayName(obj)} begins!");
-                        state.RequestCombat(hero, mapObj);
+                        state.RequestCombat(hero, view);
                     }
                     else
                     {
-                        state.CaptureObject(mapObj);
-                        state.AddLog($"{DisplayName(obj)} surrenders to your banner.");
+                        state.CaptureObject(obj);
+                        state.AddLog(hero.IsLocalHero
+                            ? $"{DisplayName(obj)} surrenders to your banner."
+                            : $"{DisplayName(obj)} surrenders to the enemy.");
                     }
                     return true;
                 }
@@ -202,8 +207,8 @@ namespace HoMM5.Map
                 var resource = CustomTreasureResource(sharedType);
                 if (resource != null)
                 {
-                    state.Resources.Add(resource, obj.amount);
-                    state.CollectObject(mapObj);
+                    state.TreasuryOf(mapObj).Add(resource, obj.amount);
+                    state.CollectObject(obj);
                     state.AddLog($"Picked up {obj.amount} {resource.ToLowerInvariant()}.");
                     return true;
                 }
@@ -215,8 +220,8 @@ namespace HoMM5.Map
                 case "TREASURE_CAMPFIRE":
                 {
                     var gold = roll * GoldRollUnit;
-                    state.Resources.gold += gold;
-                    state.CollectObject(mapObj);
+                    state.TreasuryOf(mapObj).gold += gold;
+                    state.CollectObject(obj);
                     state.AddLog($"Picked up {gold} gold.");
                     return true;
                 }
@@ -234,8 +239,8 @@ namespace HoMM5.Map
                         Label = $"Take {gold} gold",
                         Action = () =>
                         {
-                            state.Resources.gold += gold;
-                            state.CollectObject(mapObj);
+                            state.TreasuryOf(mapObj).gold += gold;
+                            state.CollectObject(obj);
                             state.AddLog($"Took {gold} gold from the chest.");
                         }
                     });
@@ -245,7 +250,7 @@ namespace HoMM5.Map
                         Action = () =>
                         {
                             hero.AddExperience(ChestExperience);
-                            state.CollectObject(mapObj);
+                            state.CollectObject(obj);
                             state.AddLog($"The peasants reward you: +{ChestExperience} experience.");
                             state.CheckLevelUps(hero);
                         }
@@ -260,8 +265,8 @@ namespace HoMM5.Map
                 case "TREASURE_GEMS":
                 {
                     var resource = sharedType.Substring("TREASURE_".Length);
-                    state.Resources.Add(resource, roll);
-                    state.CollectObject(mapObj);
+                    state.TreasuryOf(mapObj).Add(resource, roll);
+                    state.CollectObject(obj);
                     state.AddLog($"Picked up {roll} {resource.ToLowerInvariant()}.");
                     return true;
                 }
@@ -269,9 +274,9 @@ namespace HoMM5.Map
                 {
                     var wood = Roll(state, obj);
                     var ore = Roll(state, obj);
-                    state.Resources.Add("WOOD", wood);
-                    state.Resources.Add("ORE", ore);
-                    state.CollectObject(mapObj);
+                    state.TreasuryOf(mapObj).Add("WOOD", wood);
+                    state.TreasuryOf(mapObj).Add("ORE", ore);
+                    state.CollectObject(obj);
                     state.AddLog($"Flotsam: {wood} wood, {ore} ore.");
                     return true;
                 }
@@ -279,22 +284,22 @@ namespace HoMM5.Map
                 {
                     var resource = AllResources[state.Rand.Next(AllResources.Length)];
                     var amount = Mathf.Max(1, obj.maxResource > 0 ? Roll(state, obj) : state.Rand.Next(2, 5));
-                    state.Resources.Add(resource, amount);
-                    state.CollectObject(mapObj);
+                    state.TreasuryOf(mapObj).Add(resource, amount);
+                    state.CollectObject(obj);
                     state.AddLog($"Picked up {amount} {resource.ToLowerInvariant()}.");
                     return true;
                 }
                 case "TREASURE_SOULSTONE":
                 case "TREASURE_SHIPWRECK":
                     state.AddLog($"Battle for the {DisplayName(obj)}!");
-                    state.RequestCombat(hero, mapObj, BankGuards(sharedType, state.Rand));
+                    state.RequestCombat(mapObj, state.ViewOf(obj), BankGuards(sharedType, state.Rand));
                     return true;
                 default:
                     // Unknown pile kinds with an authored amount still pay out.
                     if (obj.amount > 0)
                     {
-                        state.Resources.gold += obj.amount;
-                        state.CollectObject(mapObj);
+                        state.TreasuryOf(mapObj).gold += obj.amount;
+                        state.CollectObject(obj);
                         state.AddLog($"Picked up {obj.amount} gold.");
                         return true;
                     }
@@ -324,20 +329,29 @@ namespace HoMM5.Map
             var artifact = state.Database != null ? state.Database.GetArtifact(obj.artifact) : null;
             if (hero.WearArtifact(obj.artifact ?? ""))
                 hero.ApplyArtifactStats(artifact);
-            state.CollectObject(mapObj);
+            state.CollectObject(obj);
             state.AddLog(artifact != null
                 ? $"Picked up the {artifact.DisplayName}."
                 : "Picked up an artifact.");
             return true;
         }
 
-        static bool VisitMine(AdventureMapGameState state, H5MapObject mapObj, MapObjectDef obj)
+        static bool VisitMine(AdventureMapGameState state, H5MapObject hero, MapObjectDef obj)
         {
-            var owner = mapObj.Def != null ? mapObj.Def.owner : null;
-            if (string.Equals(owner, state.LocalPlayerId, StringComparison.OrdinalIgnoreCase)) return false;
-            state.CaptureObject(mapObj);
-            state.AddLog($"The {GameDatabase.PrettifyEnum(obj.resource)} mine is now yours.");
+            if (OwnedByHero(obj, hero)) return false;
+            state.CaptureObject(obj);
+            state.AddLog(hero.IsLocalHero
+                ? $"The {GameDatabase.PrettifyEnum(obj.resource)} mine is now yours."
+                : $"The {GameDatabase.PrettifyEnum(obj.resource)} mine changes hands.");
             return true;
+        }
+
+        /// <summary>Whether the object already belongs to the visiting hero's player.</summary>
+        static bool OwnedByHero(MapObjectDef obj, H5MapObject hero)
+        {
+            return obj != null && hero != null && hero.Def != null &&
+                   !string.IsNullOrEmpty(obj.owner) &&
+                   string.Equals(obj.owner, hero.Def.owner, StringComparison.OrdinalIgnoreCase);
         }
 
         static bool VisitShrine(AdventureMapGameState state, H5HeroState hero, H5MapObject mapObj, MapObjectDef obj)
@@ -440,12 +454,12 @@ namespace HoMM5.Map
                         Label = "Pay",
                         Action = () =>
                         {
-                            if (state.Resources.gold < TreeOfKnowledgeGold)
+                            if (state.TreasuryOf(mapObj).gold < TreeOfKnowledgeGold)
                             {
                                 state.AddLog("Not enough gold for the Tree of Knowledge.");
                                 return;
                             }
-                            state.Resources.gold -= TreeOfKnowledgeGold;
+                            state.TreasuryOf(mapObj).gold -= TreeOfKnowledgeGold;
                             hero.AddExperience(H5HeroState.ExperienceForLevel(hero.Level + 1) - hero.Experience);
                             state.AddLog($"{hero.HeroName} reaches level {hero.Level}.");
                             state.CheckLevelUps(hero);
@@ -508,16 +522,16 @@ namespace HoMM5.Map
                     {
                         var resource = RareResources[state.Rand.Next(RareResources.Length)];
                         var amount = state.Rand.Next(1, 4);
-                        state.Resources.Add(resource, amount);
+                        state.TreasuryOf(mapObj).Add(resource, amount);
                         state.AddLog($"The wagon holds {amount} {resource.ToLowerInvariant()}.");
                     }
                     else
                     {
                         var gold = Roll(state, obj) * GoldRollUnit;
-                        state.Resources.gold += gold;
+                        state.TreasuryOf(mapObj).gold += gold;
                         state.AddLog($"The wagon holds {gold} gold.");
                     }
-                    state.CollectObject(mapObj);
+                    state.CollectObject(obj);
                     return true;
                 }
                 case "BUILDING_LEAN_TO":
@@ -525,8 +539,8 @@ namespace HoMM5.Map
                     if (!state.TryBeginVisit(obj, VisitFrequency.OnceEver)) return true;
                     var resource = RareResources[state.Rand.Next(RareResources.Length)];
                     var amount = state.Rand.Next(1, 4);
-                    state.Resources.Add(resource, amount);
-                    state.CollectObject(mapObj);
+                    state.TreasuryOf(mapObj).Add(resource, amount);
+                    state.CollectObject(obj);
                     state.AddLog($"The lean-to holds {amount} {resource.ToLowerInvariant()}.");
                     return true;
                 }
@@ -534,8 +548,8 @@ namespace HoMM5.Map
                 {
                     if (!state.TryBeginVisit(obj, VisitFrequency.OnceEver)) return true;
                     var gold = Roll(state, obj) * GoldRollUnit;
-                    state.Resources.gold += gold;
-                    state.CollectObject(mapObj);
+                    state.TreasuryOf(mapObj).gold += gold;
+                    state.CollectObject(obj);
                     state.AddLog($"The remains hold {gold} gold.");
                     return true;
                 }
@@ -581,7 +595,7 @@ namespace HoMM5.Map
                 case "BUILDING_WATER_WHEEL":
                 {
                     if (!state.TryBeginVisit(obj, VisitFrequency.OncePerWeek)) return true;
-                    state.Resources.gold += WaterWheelGold;
+                    state.TreasuryOf(mapObj).gold += WaterWheelGold;
                     state.AddLog($"The Water Wheel pays {WaterWheelGold} gold.");
                     return true;
                 }
@@ -590,7 +604,7 @@ namespace HoMM5.Map
                     if (!state.TryBeginVisit(obj, VisitFrequency.OncePerWeek)) return true;
                     var resource = RareResources[state.Rand.Next(RareResources.Length)];
                     var amount = state.Rand.Next(3, 6);
-                    state.Resources.Add(resource, amount);
+                    state.TreasuryOf(mapObj).Add(resource, amount);
                     state.AddLog($"The Windmill produces {amount} {resource.ToLowerInvariant()}.");
                     return true;
                 }
@@ -674,7 +688,7 @@ namespace HoMM5.Map
                 case "BUILDING_PYRAMID":
                 case "BUILDING_RUINED_TOWER":
                     state.AddLog($"Battle for the {DisplayName(obj)}!");
-                    state.RequestCombat(hero, mapObj, BankGuards(sharedType, state.Rand));
+                    state.RequestCombat(mapObj, state.ViewOf(obj), BankGuards(sharedType, state.Rand));
                     return true;
                 case "BUILDING_HILL_FORT":
                 case "BUILDING_BLACK_MARKET":

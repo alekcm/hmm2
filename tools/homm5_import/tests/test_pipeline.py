@@ -1899,6 +1899,53 @@ class ScenarioSetupDataTest(unittest.TestCase):
 
 
 
+class CSharpNameCheckTest(unittest.TestCase):
+    """Undeclared simple names are CS0103, which neither the call checker nor
+    the access checker sees. A method that uses a local from another method
+    compiled in no environment we had, so this runs the name checker over the
+    sources and over a planted corpus, and must catch both kinds of error.
+    """
+
+    TOOL = os.path.join(REPO, "tools", "csharp_name_check.py")
+    UNITY = os.path.join(REPO, "UnityProject", "Assets", "Scripts")
+
+    def _run(self, root):
+        import subprocess
+        import sys
+        proc = subprocess.run([sys.executable, self.TOOL, root],
+                              capture_output=True, text=True, timeout=600)
+        return proc.returncode, proc.stdout + proc.stderr
+
+    @unittest.skipUnless(os.path.isdir(os.path.join(REPO, "UnityProject")),
+                         "no UnityProject checkout")
+    def test_repository_sources_have_no_undeclared_names(self):
+        rc, out = self._run(self.UNITY)
+        self.assertEqual(rc, 0, out)
+        self.assertIn("0 undeclared name(s)", out)
+
+    def test_planted_out_of_scope_names_are_reported(self):
+        import tempfile
+        code = (
+            "public class Planted {\n"
+            "    void Helper(int mapObj) { var local = 1; }\n"
+            "    public void Uses(int x) {\n"
+            "        Helper(mapObj);\n"
+            "        var a = local + x;\n"
+            "    }\n"
+            "    public bool Ok(int y, out int z) { z = y; return Sum(z, y); }\n"
+            "    int Sum(int a, int b) => a + b;\n"
+            "}\n")
+        with tempfile.TemporaryDirectory() as d:
+            with open(os.path.join(d, "Planted.cs"), "w", encoding="utf8") as f:
+                f.write(code)
+            rc, out = self._run(d)
+        self.assertEqual(rc, 1, out)
+        self.assertIn("'mapObj' is used but never declared", out)
+        self.assertIn("'local' is used but never declared", out)
+        self.assertNotIn("'x'", out)
+        self.assertNotIn("'z'", out)
+
+
 class CSharpCallCheckTest(unittest.TestCase):
     """The C# side cannot be compiled here, so the call checker is the only
     thing standing between a wrong argument count and a Unity compile error

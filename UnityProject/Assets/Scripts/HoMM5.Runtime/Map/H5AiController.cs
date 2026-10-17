@@ -56,11 +56,12 @@ namespace HoMM5.Map
                 var options = town.Buildable(state.Database);
                 if (options == null || options.Count == 0) continue;
 
-                var pick = ChooseBuild(state, town, options);
+                var treasury = state.TreasuryOf(player);
+                var pick = ChooseBuild(state, town, options, treasury);
                 if (pick == null) continue;
 
                 string reason;
-                if (town.Build(state.Database, pick, player.Resources, out reason))
+                if (town.Build(state.Database, pick, treasury, out reason))
                     log.Add($"{player.Name}: {town.Name} builds {pick.DisplayName}.");
             }
         }
@@ -71,14 +72,15 @@ namespace HoMM5.Map
         /// Ties go to the cheaper building, so a poor AI still progresses.
         /// </summary>
         static TownBuildingDef ChooseBuild(AdventureMapGameState state, H5TownState town,
-                                           List<TownBuildingDef> options)
+                                           List<TownBuildingDef> options,
+                                           HoMM5.Data.PlayerResourceInventory treasury)
         {
             TownBuildingDef best = null;
             var bestScore = int.MinValue;
             foreach (var b in options)
             {
                 if (b == null) continue;
-                if (!H5TownState.CanAfford(null, b.cost)) continue;   // affordability checked below
+                if (!H5TownState.CanAfford(treasury, b.cost)) continue;
                 var score = BuildPriority(b) * 10000 - TotalCost(b.cost);
                 if (score > bestScore)
                 {
@@ -137,26 +139,70 @@ namespace HoMM5.Map
         {
             foreach (var hero in state.HeroesOf(player))
             {
-                if (hero == null || hero.Def == null) continue;
+                if (hero == null || hero.Def == null || !hero.gameObject.activeSelf) continue;
                 if (hero.MovementPointsRemaining <= 0f) continue;
 
                 var target = ChooseTarget(state, player, hero);
                 if (target == null) continue;
 
-                var destination = new Vector2Int(Mathf.RoundToInt(target.x),
-                                                 Mathf.RoundToInt(target.y));
-                if (IsAdjacent(hero.Def, destination))
+                var here = new Vector2Int(Mathf.RoundToInt(hero.Def.x), Mathf.RoundToInt(hero.Def.y));
+                // Already standing on one of the target's active tiles: the visit
+                // is what a step onto it would have done, so make it now.
+                if (H5ObjectVisits.IsActivationTile(target, here))
                 {
-                    // Walking onto the target is how an attack starts; the game
-                    // state resolves the fight from the arrival.
-                    if (hero.MoveHeroTo(destination))
-                        log.Add($"{player.Name}: {HeroName(hero)} engages.");
+                    if (H5ObjectVisits.TryVisit(state, hero, target))
+                        log.Add($"{player.Name}: {HeroName(hero)} engages the {DisplayName(target)}.");
+                    continue;
                 }
-                else if (hero.MoveHeroTo(destination))
+
+                // Otherwise walk to the nearest reachable active tile. Monsters and
+                // towns sit on blocked tiles, so the walk ends beside them and the
+                // visit fires on the step that lands on an active tile.
+                var terrain = hero.Builder != null ? hero.Builder.Terrain : null;
+                if (terrain == null) continue;
+                List<Vector2Int> bestPath = null;
+                Vector2Int best = here;
+                foreach (var tile in ActivationTiles(target))
                 {
-                    log.Add($"{player.Name}: {HeroName(hero)} advances.");
+                    if (!terrain.IsPassable(tile.x, tile.y)) continue;
+                    var path = H5Pathfinder.FindPath(terrain, here, tile);
+                    if (path.Count == 0) continue;
+                    if (bestPath == null || path.Count < bestPath.Count)
+                    {
+                        bestPath = path;
+                        best = tile;
+                    }
                 }
+                if (bestPath == null) continue;
+
+                if (hero.MoveComputerHeroTo(best))
+                    log.Add($"{player.Name}: {HeroName(hero)} advances on the {DisplayName(target)}.");
             }
+        }
+
+        /// <summary>The tiles that trigger an object's visit, in map coordinates.</summary>
+        static List<Vector2Int> ActivationTiles(MapObjectDef obj)
+        {
+            var tiles = new List<Vector2Int>();
+            var ox = Mathf.RoundToInt(obj.x);
+            var oy = Mathf.RoundToInt(obj.y);
+            if (obj.activeTiles != null && obj.activeTiles.Count > 0)
+            {
+                foreach (var at in obj.activeTiles)
+                    if (at != null && at.Count >= 2) tiles.Add(new Vector2Int(ox + at[0], oy + at[1]));
+            }
+            else
+            {
+                for (var dy = -1; dy <= 1; dy++)
+                    for (var dx = -1; dx <= 1; dx++)
+                        tiles.Add(new Vector2Int(ox + dx, oy + dy));
+            }
+            return tiles;
+        }
+
+        static string DisplayName(MapObjectDef obj)
+        {
+            return !string.IsNullOrEmpty(obj.name) ? obj.name : obj.kind;
         }
 
         static string HeroName(H5MapObject hero)
@@ -165,27 +211,18 @@ namespace HoMM5.Map
             return hs != null && !string.IsNullOrEmpty(hs.HeroName) ? hs.HeroName : "hero";
         }
 
-        static bool IsAdjacent(MapObjectDef def, Vector2Int tile)
-        {
-            if (def == null) return false;
-            var dx = Mathf.Abs(def.x - tile.x);
-            var dy = Mathf.Abs(def.y - tile.y);
-            return dx <= 1f && dy <= 1f;
-        }
-
         /// <summary>
         /// The best thing this hero can go at: an enemy town if it is close,
         /// otherwise the richest pickable object within reach, weighted by how
         /// dangerous it looks.
         /// </summary>
-        static Vector2 ChooseTarget(AdventureMapGameState state, H5PlayerState player, H5MapObject hero)
+        static MapObjectDef ChooseTarget(AdventureMapGameState state, H5PlayerState player, H5MapObject hero)
         {
             var objects = state.MapObjects;
-            if (objects == null || hero.Def == null) return Vector2.zero;
+            if (objects == null || hero.Def == null) return null;
 
-            var best = Vector2.zero;
+            MapObjectDef best = null;
             var bestScore = float.MinValue;
-            var found = false;
 
             for (var i = 0; i < objects.Count; i++)
             {
@@ -194,6 +231,8 @@ namespace HoMM5.Map
                 if (obj.floor != hero.Def.floor) continue;
                 if (string.Equals(obj.owner, player.Id, System.StringComparison.OrdinalIgnoreCase))
                     continue;                                  // already ours
+                // Hero against hero is not a battle the game can fight yet.
+                if (obj.kind == "AdvMapHero") continue;
                 if (state.IsCollected(obj)) continue;
 
                 var dx = obj.x - hero.Def.x;
@@ -205,11 +244,10 @@ namespace HoMM5.Map
                 if (score > bestScore)
                 {
                     bestScore = score;
-                    best = new Vector2(obj.x, obj.y);
-                    found = true;
+                    best = obj;
                 }
             }
-            return found ? best : Vector2.zero;
+            return best;
         }
 
         /// <summary>

@@ -464,7 +464,7 @@ namespace HoMM5
                 _hud.SetCurrentPlayer(current.Name, GameState.IsLocalTurn);
             // The treasury shown is the local player's own, not a shared pot.
             var local = GameState.LocalPlayer;
-            var resources = local != null && local.Resources != null ? local.Resources : GameState.Resources;
+            var resources = GameState.TreasuryOf(local);
             _hud.SetResourceSummary(resources != null ? resources.ToString() : "");
         }
 

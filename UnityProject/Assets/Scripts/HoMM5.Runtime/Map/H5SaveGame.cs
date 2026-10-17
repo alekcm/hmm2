@@ -21,6 +21,10 @@ namespace HoMM5.Map
         public string localPlayerId = "PLAYER_1";
         public HoMM5.Data.PlayerResourceInventory resources;
 
+        /// <summary>Every player in the match, with the computer's treasuries (older saves have none).</summary>
+        public List<H5PlayerState> players = new List<H5PlayerState>();
+        public int turnIndex;
+
         /// <summary>Hero movement points remaining, keyed by hero map-object id.</summary>
         public Dictionary<string, float> movement = new Dictionary<string, float>();
 

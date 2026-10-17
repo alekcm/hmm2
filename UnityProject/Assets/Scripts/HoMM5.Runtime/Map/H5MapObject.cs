@@ -45,7 +45,8 @@ namespace HoMM5.Map
         public string StateKey => _movementKey;
 
         /// <summary>Whether this hero belongs to the locally played player.</summary>
-        public bool IsLocalHero => _gameState != null;
+        public bool IsLocalHero => _isLocal;
+        bool _isLocal;
 
         /// <summary>The hero's persistent stats, once bound.</summary>
         public H5HeroState HeroState { get; private set; }
@@ -54,10 +55,11 @@ namespace HoMM5.Map
         string _idleClip;
         string _moveClip;
 
-        internal void BindMovement(AdventureMapGameState state, string key, float points)
+        internal void BindMovement(AdventureMapGameState state, string key, float points, bool isLocal)
         {
             _gameState = state;
             _movementKey = key;
+            _isLocal = isLocal;
             MovementPointsRemaining = points;
         }
 
@@ -106,9 +108,25 @@ namespace HoMM5.Map
         public bool MoveHeroTo(Vector2Int destination)
         {
             // Only heroes of the locally played player take orders.
-            if (!IsHero || !IsLocalHero || Def == null || Builder == null || Builder.Terrain == null ||
+            return MoveHeroTo(destination, false);
+        }
+
+        /// <summary>
+        /// The computer's heroes walk the same passability path and budget as
+        /// the player's, but resolve each step at once: there is no camera on
+        /// them and the computer's turn must finish before the player's begins.
+        /// </summary>
+        internal bool MoveComputerHeroTo(Vector2Int destination)
+        {
+            return MoveHeroTo(destination, true);
+        }
+
+        bool MoveHeroTo(Vector2Int destination, bool computer)
+        {
+            if (!IsHero || Def == null || Builder == null || Builder.Terrain == null ||
                 _moveRoutine != null || MovementPointsRemaining <= 0.0001f ||
                 !Builder.Terrain.IsPassable(destination.x, destination.y)) return false;
+            if (computer == IsLocalHero) return false;
             var start = new Vector2Int(Mathf.RoundToInt(Def.x), Mathf.RoundToInt(Def.y));
             var fullPath = H5Pathfinder.FindPath(Builder.Terrain, start, destination);
             if (fullPath.Count == 0) return start == destination;
@@ -119,8 +137,28 @@ namespace HoMM5.Map
                         AdventureMapGameState.PrototypeMovementPointsPerTile;
             SetMovementPoints(MovementPointsRemaining - spent);
             _halted = false;
+            if (computer)
+            {
+                WalkComputerPath(path);
+                return true;
+            }
             _moveRoutine = StartCoroutine(FollowPath(path));
             return true;
+        }
+
+        void WalkComputerPath(List<Vector2Int> path)
+        {
+            for (var i = 0; i < path.Count; i++)
+            {
+                // A fight can remove the hero (lost army) or halt the walk.
+                if (Def == null || !gameObject.activeSelf) break;
+                var tile = path[i];
+                transform.position = Builder.TileToWorld(tile.x, tile.y);
+                Def.x = tile.x;
+                Def.y = tile.y;
+                if (_gameState != null) _gameState.HeroEnteredTile(this, tile);
+                if (_halted) break;
+            }
         }
 
         IEnumerator FollowPath(List<Vector2Int> path)
