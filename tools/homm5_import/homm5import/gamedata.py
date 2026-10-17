@@ -551,6 +551,107 @@ def load_hero_classes(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str,
     return out
 
 
+def load_hero_pools(xdb: XDB) -> Dict[str, List[str]]:
+    """Race -> the hero files its random-map hero pool lists, from RMGPresetTable.
+
+    Each race's ``<HeroPool>`` names ``AdvMapHeroShared`` records by href. Races
+    with an empty pool (special/random placeholders) are left out.
+    """
+    root = xdb.load("/GameMechanics/RefTables/RMGPresetTable.xdb")
+    pools: Dict[str, List[str]] = {}
+    if root is None:
+        return pools
+    for item in xdb.items(root.find("objects")):
+        race = xdb.text(item.find("ID"))
+        obj = item.find("obj")
+        if not race or obj is None:
+            continue
+        hrefs = [i.get("href") for i in xdb.items(obj.find("HeroPool")) if i.get("href")]
+        if hrefs:
+            pools[race] = hrefs
+    return pools
+
+
+def load_heroes(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, dict]:
+    """Named heroes from the random-map pools, keyed ``<Faction>/<File>``.
+
+    ``<Faction>`` is the hero's MapObjects folder (``Haven``, ``Stronghold``...)
+    and ``<File>`` the record name, so ``Stronghold/Hero1`` cannot collide with
+    another faction. Each record carries the hero's class, specialization,
+    starting primary stats, skills, perks, spells and portrait. Heroes listed
+    in more than one pool keep their first race.
+    """
+    out: Dict[str, dict] = {}
+    for race, hrefs in load_hero_pools(xdb).items():
+        for href in hrefs:
+            path = href.partition("#")[0]
+            root = xdb.load(path)
+            if root is None:
+                continue
+            key = _hero_key(path)
+            if key in out:
+                out[key]["pools"].append(race)
+                continue
+            out[key] = _hero_record(xdb, loc, root, key, path, race)
+    return out
+
+
+# Mastery strings -> numeric ranks, as in Mastery.xdb and the map hero records.
+MASTERY_RANK = {"MASTERY_NONE": 0, "MASTERY_BASIC": 1, "MASTERY_ADVANCED": 2,
+                "MASTERY_EXPERT": 3, "MASTERY_EXTRA_EXPERT": 4}
+
+
+def _hero_key(path: str) -> str:
+    parts = path.strip("/").split("/")
+    folder = parts[1] if len(parts) > 2 else ""
+    stem = parts[-1].split(".", 1)[0]
+    return f"{folder}/{stem}" if folder else stem
+
+
+def _hero_record(xdb: XDB, loc: Optional[Localization], root: ET.Element,
+                 key: str, path: str, race: str) -> dict:
+    ed = root.find("Editable")
+    ed = ed if ed is not None else ET.Element("Editable")
+    face_elem, face_href = xdb.resolve(root.find("FaceTexture"), path)
+    small_elem, small_href = xdb.resolve(root.find("FaceTextureSmall"), path)
+    skill_node = ed.find("skills")
+    primary = root.find("PrimarySkill")
+    return {
+        "id": key,
+        "internalName": xdb.text(root.find("InternalName")),
+        "name": _text_ref(xdb, loc, ed.find("NameFileRef")) or xdb.text(root.find("InternalName")),
+        "biography": _text_ref(xdb, loc, ed.find("BiographyFileRef")),
+        "townType": xdb.text(root.find("TownType")),
+        "pools": [race],
+        "heroClass": xdb.text(root.find("Class")),
+        "specialization": xdb.text(root.find("Specialization")),
+        "specializationName": _text_ref(xdb, loc, root.find("SpecializationNameFileRef")),
+        "primarySkill": {
+            "skill": xdb.text(primary.find("SkillID")) if primary is not None else "",
+            "mastery": MASTERY_RANK.get(xdb.text(primary.find("Mastery")), 0) if primary is not None else 0,
+        },
+        "stats": {
+            "offence": int(xdb.number(ed.find("Offence"))),
+            "defence": int(xdb.number(ed.find("Defence"))),
+            "spellpower": int(xdb.number(ed.find("Spellpower"))),
+            "knowledge": int(xdb.number(ed.find("Knowledge"))),
+        },
+        "skills": [{"skill": xdb.text(s.find("SkillID")),
+                    "mastery": MASTERY_RANK.get(xdb.text(s.find("Mastery")), 0)}
+                   for s in xdb.items(skill_node)
+                   if xdb.text(s.find("SkillID")) not in ("", "HERO_SKILL_NONE")],
+        "perks": [xdb.text(p) for p in xdb.items(ed.find("perkIDs"))
+                  if xdb.text(p) not in ("", "HERO_SKILL_NONE")],
+        "spells": [xdb.text(s) for s in xdb.items(ed.find("spellIDs"))
+                   if xdb.text(s) not in ("", "SPELL_NONE")],
+        "ballista": xdb.boolean(ed.find("Ballista")),
+        "firstAidTent": xdb.boolean(ed.find("FirstAidTent")),
+        "ammoCart": xdb.boolean(ed.find("AmmoCart")),
+        "face": texture_dds_path(xdb, face_elem, face_href),
+        "faceSmall": texture_dds_path(xdb, small_elem, small_href),
+    }
+
+
 def load_skills(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, dict]:
     """Every skill, perk and feat from the shipped skill table.
 
@@ -987,4 +1088,5 @@ def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object
         "arenaBuildings": load_arena_buildings(xdb),
         "skills": load_skills(xdb, loc),
         "heroClasses": load_hero_classes(xdb, loc),
+        "heroes": load_heroes(xdb, loc),
     }

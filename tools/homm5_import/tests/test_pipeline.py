@@ -30,7 +30,7 @@ from homm5import.gamedata import (fill_dwelling_growth, fill_grail_values,
                                  load_arena_buildings,
                                  load_artifacts, load_creature_enum_ids,
                                  load_creatures, load_game_rules,
-                                 load_hero_classes, load_skills, load_spells,
+                                 load_hero_classes, load_heroes, load_skills, load_spells,
                                  load_town_buildings, load_town_types,
                                  load_war_machines, town_building_key)  # noqa: E402
 from homm5import.geometry import decode_file as decode_geometry  # noqa: E402
@@ -526,6 +526,41 @@ class GameDataTest(unittest.TestCase):
                       "HERO_CLASS_RUNEMAGE": "HERO_SKILL_RUNELORE",
                       "HERO_CLASS_BARBARIAN": "HERO_SKILL_DEMONIC_RAGE"}[cls_id]
             self.assertGreater(row["skillsProbs"].get(racial, 0), 0, cls_id)
+
+    def test_named_heroes_come_from_the_random_map_pools(self):
+        heroes = load_heroes(self.xdb, self.loc)
+        classes = load_hero_classes(self.xdb, self.loc)
+        # RMGPresetTable lists eight heroes for each of the eight factions.
+        self.assertEqual(len(heroes), 64)
+        from collections import Counter
+        per_town = Counter(h["townType"] for h in heroes.values())
+        self.assertEqual(set(per_town.values()), {8})
+        self.assertEqual(len(per_town), 8)
+
+        axel = heroes["Haven/Axel"]
+        self.assertEqual(axel["name"], "Фрида")
+        self.assertEqual(axel["internalName"], "Axel")
+        self.assertEqual(axel["townType"], "TOWN_HEAVEN")
+        self.assertEqual(axel["heroClass"], "HERO_CLASS_KNIGHT")
+        self.assertEqual(axel["specializationName"], "Бегущий как ветер")
+        self.assertEqual(axel["stats"],
+                         {"offence": 1, "defence": 2, "spellpower": 1, "knowledge": 1})
+        # Mastery is the numeric rank the map hero records use, not the enum string.
+        self.assertIn({"skill": "HERO_SKILL_OFFENCE", "mastery": 1}, axel["skills"])
+        self.assertEqual(axel["perks"], ["HERO_SKILL_TACTICS"])
+        self.assertEqual(axel["spells"], ["SPELL_HASTE"])
+        self.assertEqual(axel["pools"], ["RACE_HEAVEN"])
+        self.assertTrue(axel["face"].endswith(".dds"))
+
+        # Stronghold heroes are numbered records; the key keeps the faction folder.
+        self.assertEqual(heroes["Stronghold/Hero1"]["name"], "Краг")
+        self.assertEqual(heroes["Stronghold/Hero1"]["townType"], "TOWN_STRONGHOLD")
+
+        for key, hero in heroes.items():
+            self.assertIn(hero["heroClass"], classes, key)
+            self.assertTrue(hero["face"], key)
+            self.assertTrue(hero["name"], key)
+            self.assertGreaterEqual(hero["primarySkill"]["mastery"], 0, key)
 
     def test_hero_skill_constants_reach_the_rules_export(self):
         """The engine's skill coefficients stay data-driven: the runtime reads

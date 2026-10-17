@@ -38,7 +38,7 @@ namespace HoMM5.UI
         NewGameSetup _pending = new NewGameSetup();
         List<MapIndexEntry> _maps = new List<MapIndexEntry>();
         List<TownTypeDef> _factions = new List<TownTypeDef>();
-        List<HeroClassDef> _heroes = new List<HeroClassDef>();
+        List<HeroDef> _heroes = new List<HeroDef>();
 
         public bool IsOpen => _root != null && _root.activeSelf;
 
@@ -229,49 +229,42 @@ namespace HoMM5.UI
             ShowBack(true);
             Clear();
 
+            // The named heroes of the chosen faction (the random-map pools).
+            // Their class, specialty and starting stats come with the record.
             _heroes.Clear();
-            if (Database != null && Database.HeroClasses != null)
-            {
-                // HeroClassDef carries no faction: the eight classes are not
-                // tagged to towns in the imported data. The faction's own class
-                // is offered first, then the rest, so the natural choice is on
-                // top. ClassForTown maps a TOWN_* id to the class that serves it.
-                var preferred = H5Map.AdventureMapGameState.ClassForTown(_pending.TownType);
-                HeroClassDef first = null;
-                foreach (var kv in Database.HeroClasses)
-                {
-                    var heroClass = kv.Value;
-                    if (heroClass == null) continue;
-                    if (string.Equals(heroClass.id, preferred, StringComparison.OrdinalIgnoreCase))
-                        first = heroClass;
-                    else
-                        _heroes.Add(heroClass);
-                }
-                if (first != null) _heroes.Insert(0, first);
-            }
+            if (Database != null)
+                _heroes.AddRange(Database.HeroesForTown(_pending.TownType));
 
             var rows = new List<MenuRow>();
-            foreach (var heroClass in _heroes)
+            foreach (var hero in _heroes)
             {
-                if (heroClass == null) continue;
-                var captured = heroClass;
+                if (hero == null) continue;
+                var captured = hero;
+                var heroClass = Database.GetHeroClass(hero.heroClass);
+                var className = heroClass != null ? heroClass.DisplayName
+                                                  : GameDatabase.PrettifyEnum(hero.heroClass);
+                var note = string.IsNullOrEmpty(hero.specializationName)
+                    ? className
+                    : className + " · " + hero.specializationName;
                 rows.Add(new MenuRow
                 {
-                    Label = string.IsNullOrEmpty(heroClass.name) ? heroClass.id : heroClass.name,
-                    Note = heroClass.id,
+                    Label = hero.DisplayName,
+                    Note = note,
                     Action = () => PickHero(captured),
                 });
             }
             if (rows.Count == 0)
-                rows.Add(new MenuRow { Label = "No hero classes were imported", Note = "" });
+                rows.Add(new MenuRow { Label = "This faction has no named heroes", Note = "" });
             Render(rows);
         }
 
-        void PickHero(HeroClassDef heroClass)
+        void PickHero(HeroDef hero)
         {
-            _pending.HeroClass = heroClass != null ? heroClass.id : "";
-            _pending.HeroClassName = heroClass != null && !string.IsNullOrEmpty(heroClass.name)
-                ? heroClass.name : _pending.HeroClass;
+            _pending.HeroId = hero != null ? hero.id : "";
+            _pending.HeroName = hero != null ? hero.DisplayName : "";
+            _pending.HeroClass = hero != null ? hero.heroClass ?? "" : "";
+            var heroClass = hero != null && Database != null ? Database.GetHeroClass(hero.heroClass) : null;
+            _pending.HeroClassName = heroClass != null ? heroClass.DisplayName : _pending.HeroClass;
             ShowConfirm();
         }
 
@@ -288,7 +281,7 @@ namespace HoMM5.UI
             {
                 new MenuRow { Label = "Scenario", Note = _pending.MapName },
                 new MenuRow { Label = "Faction", Note = _pending.FactionName },
-                new MenuRow { Label = "Hero", Note = _pending.HeroClassName },
+                new MenuRow { Label = "Hero", Note = _pending.HeroName + " · " + _pending.HeroClassName },
                 new MenuRow { Label = "Opponent", Note = "Computer" },
             };
             Render(rows);
@@ -492,6 +485,9 @@ namespace HoMM5.UI
         public string Faction = "";
         public string FactionName = "";
         public string TownType = "";
+        /// <summary>Id of the named roster hero (heroes.json key); "" when none.</summary>
+        public string HeroId = "";
+        public string HeroName = "";
         public string HeroClass = "";
         public string HeroClassName = "";
         public string PlayerName = "Player 1";

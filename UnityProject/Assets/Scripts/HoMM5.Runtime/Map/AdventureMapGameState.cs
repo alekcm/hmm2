@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using HoMM5.Data;
 using UnityEngine;
 
 namespace HoMM5.Map
@@ -44,6 +45,8 @@ namespace HoMM5.Map
         readonly Dictionary<string, int> _visitedWeek = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
         readonly Dictionary<string, string> _ownerOverrides = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         readonly Dictionary<string, H5HeroState> _heroStates = new Dictionary<string, H5HeroState>(StringComparer.OrdinalIgnoreCase);
+        /// <summary>Named roster heroes placed on a map hero, keyed by its state key.</summary>
+        readonly Dictionary<string, HeroDef> _rosterHeroes = new Dictionary<string, HeroDef>(StringComparer.OrdinalIgnoreCase);
         readonly Dictionary<MapObjectDef, H5MapObject> _views = new Dictionary<MapObjectDef, H5MapObject>();
 
         /// <summary>The scene object for a map definition, or null when it has no mesh.</summary>
@@ -119,6 +122,7 @@ namespace HoMM5.Map
                 _visitedWeek.Clear();
                 _ownerOverrides.Clear();
                 _heroStates.Clear();
+                _rosterHeroes.Clear();
                 _heroPositions.Clear();
                 _townStates.Clear();
                 Log.Clear();
@@ -271,6 +275,7 @@ namespace HoMM5.Map
             if (string.IsNullOrEmpty(key)) return null;
             if (_heroStates.TryGetValue(key, out var state) && state != null) return state;
 
+            _rosterHeroes.TryGetValue(key, out var roster);
             var hs = new H5HeroState { Id = key, HeroName = hero.Def.hero ?? "Hero" };
             // Per-hero starting stats are not in the imported tables yet (the
             // shipped per-hero records live outside GameMechanics/Creature);
@@ -286,6 +291,36 @@ namespace HoMM5.Map
                         if (s != null && !string.IsNullOrEmpty(s.spell)) hs.Spells.Add(s.spell);
                 hs.HeroClass = ClassForTown(def.town);
             }
+            if (roster != null) ApplyRosterHero(hs, roster);
+            else ApplyAuthoredHistory(hs, hero);
+            hs.RecalculateEffects(Database);
+            hs.Mana = hs.MaxMana;
+            hs.EnsureArmy(hero.Def != null ? hero.Def.army : null);
+            if (hs.Spells.Count == 0)
+            {
+                // Town guilds and hero classes do not feed spellbooks yet;
+                // until they do every hero carries a modest starter grimoire
+                // so spellcasting is playable. Replaced when the town screen
+                // lands.
+                foreach (var starter in new[]
+                {
+                    "Magic_Arrow", "Ice_Bolt", "Lightning_Bolt", "Fireball",
+                    "Haste", "Slow", "Bless", "Curse", "StoneSkin", "Weakness",
+                    "Blind", "Resurrect",
+                })
+                    hs.LearnSpell(starter);
+            }
+            _heroStates[key] = hs;
+            hero.BindHeroState(hs);
+            return hs;
+        }
+
+        /// <summary>
+        /// The level-up history a map authored for its hero (Editable block of
+        /// AdvMapHero): primary stats, experience, skills, perks, spells.
+        /// </summary>
+        void ApplyAuthoredHistory(H5HeroState hs, H5MapObject hero)
+        {
             // Map-authored level-up history (Editable block of AdvMapHero).
             var mapDef = hero.Def;
             if (mapDef.primarySkills != null)
@@ -323,26 +358,48 @@ namespace HoMM5.Map
                     hs.LearnPerk(hs.PickPerkFor(racial, Database, Rand));
                 }
             }
-            hs.RecalculateEffects(Database);
-            hs.Mana = hs.MaxMana;
-            hs.EnsureArmy(hero.Def != null ? hero.Def.army : null);
-            if (hs.Spells.Count == 0)
+        }
+
+        /// <summary>
+        /// Sets a named roster hero's identity, primary stats, skills, perks and
+        /// spells on a hero state. Replaces the authored history: the chosen
+        /// hero starts at level 1 with exactly the roster's learned abilities.
+        /// </summary>
+        void ApplyRosterHero(H5HeroState hs, HeroDef roster)
+        {
+            hs.HeroName = roster.DisplayName;
+            if (!string.IsNullOrEmpty(roster.heroClass)) hs.HeroClass = roster.heroClass;
+            hs.Specialty = roster.specializationName ?? "";
+            if (roster.stats != null)
             {
-                // Town guilds and hero classes do not feed spellbooks yet;
-                // until they do every hero carries a modest starter grimoire
-                // so spellcasting is playable. Replaced when the town screen
-                // lands.
-                foreach (var starter in new[]
-                {
-                    "Magic_Arrow", "Ice_Bolt", "Lightning_Bolt", "Fireball",
-                    "Haste", "Slow", "Bless", "Curse", "StoneSkin", "Weakness",
-                    "Blind", "Resurrect",
-                })
-                    hs.LearnSpell(starter);
+                hs.Attack = roster.stats.offence;
+                hs.Defence = roster.stats.defence;
+                hs.SpellPower = roster.stats.spellpower;
+                hs.Knowledge = roster.stats.knowledge;
             }
-            _heroStates[key] = hs;
-            hero.BindHeroState(hs);
-            return hs;
+            hs.Level = 1;
+            hs.Experience = 0;
+            hs.PendingLevelUps = 0;
+            hs.Skills.Clear();
+            hs.Perks.Clear();
+            hs.Spells.Clear();
+            if (roster.skills != null)
+                foreach (var s in roster.skills)
+                    if (s != null && !string.IsNullOrEmpty(s.skill))
+                        hs.LearnSkill(s.skill, s.mastery > 0 ? s.mastery : 1);
+            if (roster.perks != null)
+                foreach (var p in roster.perks) hs.LearnPerk(p);
+            if (roster.spells != null)
+                foreach (var s in roster.spells) hs.LearnSpell(s);
+            if (hs.Skills.Count == 0)
+            {
+                var racial = hs.RacialSkill;
+                if (racial != null)
+                {
+                    hs.LearnSkill(racial, 1);
+                    hs.LearnPerk(hs.PickPerkFor(racial, Database, Rand));
+                }
+            }
         }
 
         /// <summary>HERO_CLASS_* for a town id (hero classes are per faction).</summary>
@@ -981,6 +1038,12 @@ namespace HoMM5.Map
             human.Faction = setup != null ? setup.Faction : "";
             human.TownType = setup != null ? setup.TownType : "";
             human.HeroClass = setup != null ? setup.HeroClass : "";
+            if (setup != null && !string.IsNullOrEmpty(setup.HeroId))
+            {
+                var chosen = Database != null ? Database.GetHero(setup.HeroId) : null;
+                if (chosen != null && !AssignRosterHero(human.Id, chosen))
+                    AddLog("This map gives you no hero; " + chosen.DisplayName + " was not placed.");
+            }
             human.Difficulty = setup != null ? setup.Difficulty : 2;
             if (setup != null && !string.IsNullOrEmpty(setup.PlayerName)) human.Name = setup.PlayerName;
 
@@ -1147,6 +1210,24 @@ namespace HoMM5.Map
                     result.Add(hero);
             }
             return result;
+        }
+
+        /// <summary>
+        /// Places the named hero the player chose on that player's first
+        /// authored hero. Returns false when the map gives the player no hero,
+        /// in which case the choice has nothing to attach to.
+        /// </summary>
+        public bool AssignRosterHero(string playerId, HeroDef roster)
+        {
+            if (roster == null) return false;
+            var heroes = HeroesOf(Players != null ? Players.Find(playerId) : null);
+            if (heroes.Count == 0) return false;
+            var key = heroes[0].StateKey;
+            if (string.IsNullOrEmpty(key)) return false;
+            _rosterHeroes[key] = roster;
+            if (_heroStates.TryGetValue(key, out var existing) && existing != null)
+                ApplyRosterHero(existing, roster);
+            return true;
         }
 
         /// <summary>

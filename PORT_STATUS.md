@@ -346,7 +346,7 @@ was not the local player's simply never moved. A viewer, not a game.
 - `UI/MainMenu.cs` — the front door. New Game / Continue / Quit, then the four
   setup steps: a scenario list (arenas filtered out — they are battlefields,
   not scenarios), the eight playable factions with their building counts, the
-  hero classes with the faction's own class first, and a confirmation panel.
+  faction's named heroes (see the roster section below), and a confirmation panel.
   `H5Bootstrap` no longer loads a map on start; it opens the menu. A map named
   on the component still skips straight in, which is how the editor works.
 - `Map/H5PlayerState.cs` — a player record: id, human/computer, faction, town
@@ -373,9 +373,7 @@ on those, unowned towns are handed to the computer at match setup. Authored
 `PLAYER_3..8` opponents get a roster record each, so a scenario written for
 more than two players still has all of them acting.
 
-Not done, and worth saying plainly: there is no hero *roster* to choose from —
-`HeroClassDef` carries no names, so the menu offers the eight classes, not
-individual heroes. There is no hot-seat; the computer answers immediately. The
+Not done, and worth saying plainly: there is no hot-seat; the computer answers immediately. The
 AI does not use spells, does not retreat, and does not defend a besieged town
 differently from an open field. Town interiors and the siege battlefield are
 still not rendered.
@@ -588,3 +586,33 @@ maps look.
 5. Active skill perks (Holy Charge, Prayer, Gating, Demonic Fire, ...) and
    per-tile terrain movement costs (Pathfinding hooks are in place).
 6. Audio: `music/`, `sound/`, `soundsfx/` are FMOD-packed and untouched.
+
+### Named hero roster and static type-scope check
+
+- **Roster.** `RMGPresetTable.xdb`'s `<HeroPool>` lists eight named heroes per
+  faction (64 in all). `load_heroes` (`tools/homm5_import`) exports them to
+  `Game/heroes.json`, keyed `Faction/File` (e.g. `Haven/Axel`): name, biography,
+  `TownType`, class, specialization, primary skill, starting primary stats,
+  skills (mastery as ranks 1..4), perks, spells, bank/tent/cart flags and portrait
+  paths. The menu's hero step lists the faction's eight heroes. `GameDatabase`
+  reads them into `Heroes`, with `GetHero` and `HeroesForTown`.
+- **Placement.** `SetupMatch` calls `AssignRosterHero`, which puts the chosen
+  hero on the human's first hero authored in the map. `GetHeroState` then uses
+  `ApplyRosterHero` (identity, stats, skills, perks, spells, specialty, level 1)
+  instead of the authored level-up history (`ApplyAuthoredHistory`). If the map
+  gives the human no hero, the log says so and the choice is not placed.
+- **Not done.** Portraits are imported but no screen draws them yet. Only the
+  first authored hero of the human is replaced; a map that gives the human
+  several heroes keeps the others as authored. Skill `PrimarySkill` is stored
+  but not learned on its own; the roster's `Editable` skills are what a hero
+  starts with.
+- **Bug found by static checking.** `AdventureMapGameState.cs` used
+  `MapObjectDef` and `HeroDef` without `using HoMM5.Data;`, and
+  `H5ObjectVisits.cs` used `ArmyStackState` without `using HoMM5.Combat;`. Each
+  is CS0246 and would have stopped the Unity build. Neither the call, access nor
+  name checker sees type names, so this went unnoticed. Both usings are added.
+- **New checker.** `tools/csharp_type_scope_check.py` (tree-sitter) flags a
+  project or common .NET/Unity type used where neither its namespace nor a
+  `using` makes it visible. A planted file with the same mistakes is caught
+  (4 of 4), and the project now reports 0. It is a heuristic; read every hit.
+

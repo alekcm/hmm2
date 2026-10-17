@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using HoMM5.Combat;
 using HoMM5.Data;
 using UnityEngine;
 

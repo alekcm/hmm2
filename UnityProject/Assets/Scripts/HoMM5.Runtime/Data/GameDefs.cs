@@ -450,6 +450,37 @@ namespace HoMM5.Data
         public string DisplayName => string.IsNullOrEmpty(name) ? GameDatabase.PrettifyEnum(id) : name;
     }
 
+    /// <summary>
+    /// A named hero from the random-map pools (heroes.json). Keyed in the
+    /// database by <c>Faction/File</c>; <see cref="townType"/> decides which
+    /// faction's setup offers the hero.
+    /// </summary>
+    public class HeroDef
+    {
+        public string id;
+        public string internalName;
+        public string name;
+        public string biography;
+        public string townType;
+        public List<string> pools = new List<string>();
+        public string heroClass;
+        public string specialization;
+        public string specializationName;
+        public MapSkillEntry primarySkill = new MapSkillEntry();
+        public MapHeroPrimarySkills stats = new MapHeroPrimarySkills();
+        public List<MapSkillEntry> skills = new List<MapSkillEntry>();
+        public List<string> perks = new List<string>();
+        public List<string> spells = new List<string>();
+        public bool ballista;
+        public bool firstAidTent;
+        public bool ammoCart;
+        /// <summary>Portrait source path (keys the texture manifest).</summary>
+        public string face;
+        public string faceSmall;
+
+        public string DisplayName => string.IsNullOrEmpty(name) ? GameDatabase.PrettifyEnum(internalName ?? id) : name;
+    }
+
     public class StartResourcesDef
     {
         public int wood;

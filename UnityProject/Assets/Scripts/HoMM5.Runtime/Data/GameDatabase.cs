@@ -25,6 +25,8 @@ namespace HoMM5.Data
         public Dictionary<string, ArenaBuildingDef> ArenaBuildings { get; private set; } = new Dictionary<string, ArenaBuildingDef>();
         public Dictionary<string, SkillDef> Skills { get; private set; } = new Dictionary<string, SkillDef>();
         public Dictionary<string, HeroClassDef> HeroClasses { get; private set; } = new Dictionary<string, HeroClassDef>();
+        /// <summary>Named heroes of the random-map pools, keyed <c>Faction/File</c>.</summary>
+        public Dictionary<string, HeroDef> Heroes { get; private set; } = new Dictionary<string, HeroDef>();
         public Dictionary<string, ModelAnimDef> ModelAnimations { get; private set; } = new Dictionary<string, ModelAnimDef>();
         public Dictionary<string, string> Localization { get; private set; } = new Dictionary<string, string>();
         public List<MapIndexEntry> MapIndex { get; private set; } = new List<MapIndexEntry>();
@@ -65,6 +67,7 @@ namespace HoMM5.Data
             ArenaBuildings = LoadDict<ArenaBuildingDef>(H5Paths.Game("arenaBuildings.json")) ?? ArenaBuildings;
             Skills = LoadDict<SkillDef>(H5Paths.Game("skills.json")) ?? Skills;
             HeroClasses = LoadDict<HeroClassDef>(H5Paths.Game("heroClasses.json")) ?? HeroClasses;
+            Heroes = LoadDict<HeroDef>(H5Paths.Game("heroes.json")) ?? Heroes;
             ModelAnimations = LoadDict<ModelAnimDef>(H5Paths.Game("modelAnimations.json")) ?? ModelAnimations;
             Localization = LoadDict<string>(H5Paths.Game("Localization.json")) ?? Localization;
             MapIndex = LoadList<MapIndexEntry>(H5Paths.Maps("_index.json")) ?? MapIndex;
@@ -80,6 +83,7 @@ namespace HoMM5.Data
                       $"{Artifacts.Count} artifacts, {TownBuildings.Count} town buildings " +
                       $"({TownTypes.Count} town types), " +
                       $"{Skills.Count} skills/perks, {HeroClasses.Count} hero classes, " +
+                      $"{Heroes.Count} named heroes, " +
                       $"{Localization.Count} strings, {MapIndex.Count} maps, " +
                       $"{ModelAnimations.Count} animated models");
             Loaded?.Invoke();
@@ -194,6 +198,25 @@ namespace HoMM5.Data
         {
             if (string.IsNullOrEmpty(id)) return null;
             return HeroClasses.TryGetValue(id, out var c) ? c : null;
+        }
+
+        public HeroDef GetHero(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return null;
+            return Heroes.TryGetValue(id, out var h) ? h : null;
+        }
+
+        /// <summary>The named heroes a faction's setup offers, in file order.</summary>
+        public List<HeroDef> HeroesForTown(string townType)
+        {
+            var result = new List<HeroDef>();
+            if (string.IsNullOrEmpty(townType)) return result;
+            foreach (var kv in Heroes)
+                if (kv.Value != null &&
+                    string.Equals(kv.Value.townType, townType, StringComparison.OrdinalIgnoreCase))
+                    result.Add(kv.Value);
+            result.Sort((a, b) => string.CompareOrdinal(a.id, b.id));
+            return result;
         }
 
         /// <summary>Every perk hanging off one skill (any kind but "skill").</summary>

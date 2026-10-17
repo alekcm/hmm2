@@ -21,6 +21,9 @@ namespace HoMM5.Map
         /// <summary>HERO_CLASS_* of the hero's town (drives level-up offers).</summary>
         public string HeroClass = "HERO_CLASS_KNIGHT";
 
+        /// <summary>Specialization display name of a named hero ("" for unnamed ones).</summary>
+        public string Specialty = "";
+
         public int Attack = 1;
         public int Defence = 1;
         public int SpellPower = 1;
@@ -464,6 +467,7 @@ namespace HoMM5.Map
             var sb = new System.Text.StringBuilder();
             sb.AppendLine(HeroName + "  —  " + (db != null && db.GetHeroClass(HeroClass) != null
                 ? db.GetHeroClass(HeroClass).DisplayName : GameDatabase.PrettifyEnum(HeroClass)));
+            if (!string.IsNullOrEmpty(Specialty)) sb.AppendLine("Specialty: " + Specialty);
             foreach (var kv in Skills)
             {
                 if (kv.Value <= 0) continue;
