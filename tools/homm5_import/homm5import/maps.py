@@ -289,6 +289,23 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
                 shared_type = xdb.text(shared_node.find("Type"))
                 if shared_type:
                     obj.extra["sharedType"] = shared_type
+                # Which tiles trigger a visit. Every shared record carries the
+                # list; the runtime walks onto one of these offsets to interact,
+                # since the blocked footprint itself is impassable.
+                active = [
+                    [int(xdb.number(i.find("x"))), int(xdb.number(i.find("y")))]
+                    for i in xdb.items(shared_node.find("activeTiles"))
+                ]
+                if active:
+                    obj.extra["activeTiles"] = active
+                # Treasure amounts: the roll the engine makes when the pile is
+                # picked up. Units differ per treasure kind (see the runtime's
+                # H5ObjectVisits), so carry the raw roll range across unchanged.
+                mn = xdb.number(shared_node.find("MinResource"), 0)
+                mx = xdb.number(shared_node.find("MaxResource"), 0)
+                if mn or mx:
+                    obj.extra["minResource"] = int(mn)
+                    obj.extra["maxResource"] = int(mx)
 
         # Type specific payloads worth carrying across.
         if inner.tag == "AdvMapMonster":

@@ -45,6 +45,7 @@ namespace HoMM5
             Database = new GameDatabase();
             Database.Load();
             GameState = new AdventureMapGameState();
+            GameState.Database = Database;
             GameState.SetBaseHeroMovement(Database.Rules != null
                 ? Database.Rules.baseHeroMovement : AdventureMapGameState.DefaultDailyHeroMovement);
             GameState.Changed += RefreshTurnHud;
@@ -61,7 +62,10 @@ namespace HoMM5
             _hud = gameObject.AddComponent<HoMM5Hud>();
             _hud.Controller = _controller;
             _hud.Database = Database;
+            _hud.GameState = GameState;
             _hud.EndDayRequested = EndDay;
+            _hud.SaveRequested = SaveGame;
+            _hud.LoadRequested = LoadGame;
             RefreshTurnHud();
             // PopulateMapList needs the HUD's Start to have built its canvas.
             _hud.PopulateMapList(LoadMap);
@@ -75,6 +79,7 @@ namespace HoMM5
             var id = initialMapId;
             if (string.IsNullOrEmpty(id) && Database.MapIndex.Count > 0) id = Database.MapIndex[0].id;
             if (!string.IsNullOrEmpty(id)) LoadMap(id);
+            GameState.AddLog("Left-click selects; right-click moves the selected hero. F5 saves, F9 loads.");
         }
 
         public void LoadMap(string mapId)
@@ -83,7 +88,7 @@ namespace HoMM5
             LoadMapAtFloor(mapId, map != null ? map.initialFloor : floor);
         }
 
-        void LoadMapAtFloor(string mapId, int targetFloor)
+        void LoadMapAtFloor(string mapId, int targetFloor, bool restoredState = false)
         {
             if (GameState != null && GameState.HasMovingHero) return;
             var previousMapId = CurrentMap != null && CurrentMap.Map != null ? CurrentMap.Map.id : "";
@@ -105,7 +110,10 @@ namespace HoMM5
                 return;
             }
             CurrentMap = builder;
-            var newScenario = !preserveScenarioState;
+            // A restored save carries its own day, resources and world changes;
+            // a floor switch preserves the running scenario; anything else is a
+            // brand-new scenario.
+            var newScenario = !restoredState && !preserveScenarioState;
             GameState.BindMap(builder, newScenario, localPlayerId, Database.Rules,
                               Database.TownBuildings, gameDifficulty);
 
@@ -115,7 +123,38 @@ namespace HoMM5
             _controller.FocusOn(builder.TileToWorld(builder.Map.tileX * 0.5f,
                                                     builder.Map.tileY * 0.5f), 45f);
 
+            _hud.AttachMap(builder);
             RefreshStats();
+        }
+
+        // -- save / load ---------------------------------------------------
+
+        public void SaveGame()
+        {
+            if (GameState == null || CurrentMap == null || GameState.HasMovingHero) return;
+            var save = GameState.CaptureState();
+            save.floor = floor;
+            save.SaveToFile();
+            GameState.AddLog("Game saved.");
+        }
+
+        public void LoadGame()
+        {
+            if (GameState == null || GameState.HasMovingHero) return;
+            var save = H5SaveGame.LoadFromFile();
+            if (save == null)
+            {
+                GameState.AddLog("No quick save found (F5 to save).");
+                return;
+            }
+            // Restore the world state first: BindMap applies ownership and
+            // hero positions from it when the scene is rebuilt.
+            GameState.RestoreState(save);
+            var mapId = string.IsNullOrEmpty(save.mapId) && CurrentMap != null && CurrentMap.Map != null
+                ? CurrentMap.Map.id : save.mapId;
+            if (string.IsNullOrEmpty(mapId)) return;
+            LoadMapAtFloor(mapId, save.floor == 1 ? 1 : 0, true);
+            GameState.AddLog("Game loaded.");
         }
 
         void EndDay()
@@ -149,6 +188,9 @@ namespace HoMM5
 
         void Update()
         {
+            if (HoMM5.Core.H5Input.SavePressed()) SaveGame();
+            if (HoMM5.Core.H5Input.LoadPressed()) LoadGame();
+
             if (!HoMM5.Core.H5Input.FloorTogglePressed() || CurrentMap == null || CurrentMap.Map == null)
                 return;
 

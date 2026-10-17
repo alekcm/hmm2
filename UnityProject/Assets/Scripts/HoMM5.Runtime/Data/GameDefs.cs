@@ -318,6 +318,15 @@ namespace HoMM5.Data
         public List<string> textures;
         public List<MaterialDef> materials;
         public List<List<int>> blocked;
+        /// <summary>
+        /// Tile offsets (relative to x/y) that trigger a visit when a hero
+        /// walks onto them. The blocked footprint is impassable, so these are
+        /// the actual interaction tiles the shared record declares.
+        /// </summary>
+        public List<List<int>> activeTiles;
+        /// <summary>Treasure pickup roll range from the shared record (see H5ObjectVisits).</summary>
+        public int minResource;
+        public int maxResource;
 
         // AdvMapMonster
         public string creature;

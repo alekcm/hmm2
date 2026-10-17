@@ -36,6 +36,15 @@ namespace HoMM5.Map
         Vector3 _dragFocus;
         bool _dragging;
 
+        /// <summary>Where the camera looks, in world space (minimap, save files).</summary>
+        public Vector3 Focus => _focus;
+
+        /// <summary>Current zoom distance (minimap viewport rectangle).</summary>
+        public float Distance => _distance;
+
+        /// <summary>Vertical field of view in degrees (minimap viewport rectangle).</summary>
+        public float ViewFov => _cam != null ? _cam.fieldOfView : 45f;
+
         public event System.Action<H5MapObject> SelectionChanged;
         public H5MapObject Selected { get; private set; }
 
@@ -167,7 +176,37 @@ namespace HoMM5.Map
             var local = builder.Root.transform.InverseTransformPoint(hit.point);
             var tileX = Mathf.RoundToInt(local.x / TerrainMeshBuilder.TileSize);
             var tileY = Mathf.RoundToInt(local.z / TerrainMeshBuilder.TileSize);
-            Selected.MoveHeroTo(new Vector2Int(tileX, tileY));
+            var tile = ResolvePassableTile(builder.Terrain, new Vector2Int(tileX, tileY));
+            Selected.MoveHeroTo(tile);
+        }
+
+        /// <summary>
+        /// Map the clicked tile to the nearest tile a hero can actually stand
+        /// on. Objects' footprints and water are impassable, and a right-click
+        /// on a mine or a monster lands on exactly those -- the hero should
+        /// walk up to it (and onto its activation tile), not refuse the order.
+        /// </summary>
+        static Vector2Int ResolvePassableTile(H5Terrain terrain, Vector2Int tile)
+        {
+            if (terrain == null || terrain.IsPassable(tile.x, tile.y)) return tile;
+            for (var r = 1; r <= 4; r++)
+            {
+                var best = tile;
+                var bestDist = float.MaxValue;
+                for (var dy = -r; dy <= r; dy++)
+                for (var dx = -r; dx <= r; dx++)
+                {
+                    if (Mathf.Abs(dx) != r && Mathf.Abs(dy) != r) continue;
+                    var t = new Vector2Int(tile.x + dx, tile.y + dy);
+                    if (!terrain.IsPassable(t.x, t.y)) continue;
+                    var dist = dx * dx + dy * dy;
+                    if (dist >= bestDist) continue;
+                    bestDist = dist;
+                    best = t;
+                }
+                if (bestDist < float.MaxValue) return best;
+            }
+            return tile;
         }
 
         public void Select(H5MapObject obj)

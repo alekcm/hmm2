@@ -519,6 +519,25 @@ class MapTest(unittest.TestCase):
         self.assertEqual(wood.extra["amount"], 8)
         self.assertTrue(wood.object_id)
 
+    def test_shared_records_supply_visit_tiles_and_treasure_rolls(self):
+        """The visit trigger tiles and the pickup roll range live on the shared
+        record. Without them the runtime cannot tell which tile activates a
+        building, nor how much a treasure pile pays out."""
+        path = os.path.join(DATA, "Maps", "Scenario", "A2C0M0", "map.xdb")
+        if not os.path.isfile(path):
+            self.skipTest("scenario map not present")
+        md = load_map(self.xdb, path, resolve_models=False)
+        wood = next(o for o in md.objects if o.extra.get("sharedType") == "TREASURE_WOOD")
+        self.assertEqual(wood.extra["activeTiles"], [[0, 0]])
+        self.assertEqual(wood.extra["minResource"], 4)
+        self.assertEqual(wood.extra["maxResource"], 7)
+        gold = next(o for o in md.objects if o.extra.get("sharedType") == "TREASURE_GOLD")
+        self.assertEqual((gold.extra["minResource"], gold.extra["maxResource"]), (5, 10))
+        arena = next(o for o in md.objects if o.extra.get("sharedType") == "BUILDING_ARENA")
+        self.assertTrue(arena.extra.get("activeTiles"))
+        for tile in arena.extra["activeTiles"]:
+            self.assertEqual(len(tile), 2, tile)
+
     def test_map_floor_indices_follow_shipped_lua_constants(self):
         """The source defines GROUND=0 and UNDERGROUND=1; don't swap values
         while importing map objects for Unity's layer selection.

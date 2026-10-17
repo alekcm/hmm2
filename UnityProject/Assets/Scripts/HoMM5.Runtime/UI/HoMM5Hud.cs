@@ -19,17 +19,23 @@ namespace HoMM5.UI
         // through a scene anyway.
         [System.NonSerialized] public AdventureMapController Controller;
         [System.NonSerialized] public GameDatabase Database;
+        [System.NonSerialized] public AdventureMapGameState GameState;
 
         Text _title;
         Text _details;
         Text _stats;
+        Text _log;
         Text _turnDate;
         Text _resourceSummary;
         GameObject _panel;
         public System.Action EndDayRequested;
+        public System.Action SaveRequested;
+        public System.Action LoadRequested;
         GameObject _mapListPanel;
         ScrollRect _mapScroll;
         RectTransform _mapListContent;
+        H5Minimap _minimap;
+        Transform _canvasRoot;
         float _nextDetailsRefresh;
 
         // Awake, not Start: H5Bootstrap adds this component and then calls
@@ -44,6 +50,11 @@ namespace HoMM5.UI
         void Start()
         {
             if (Controller != null) Controller.SelectionChanged += OnSelectionChanged;
+            if (GameState != null)
+            {
+                GameState.MessageLogged += OnLogMessage;
+                GameState.DialogRequested += ShowDialog;
+            }
         }
 
         void Update()
@@ -57,6 +68,40 @@ namespace HoMM5.UI
         void OnDestroy()
         {
             if (Controller != null) Controller.SelectionChanged -= OnSelectionChanged;
+            if (GameState != null)
+            {
+                GameState.MessageLogged -= OnLogMessage;
+                GameState.DialogRequested -= ShowDialog;
+            }
+        }
+
+        // -- game events ---------------------------------------------------
+
+        void OnLogMessage(string message)
+        {
+            if (_log == null) return;
+            var lines = GameState != null ? GameState.Log : null;
+            if (lines == null || lines.Count == 0)
+            {
+                _log.text = message;
+                return;
+            }
+            // Show the tail; the log is capped by the game state itself.
+            var count = Mathf.Min(6, lines.Count);
+            _log.text = string.Join("\n", lines.GetRange(lines.Count - count, count));
+        }
+
+        /// <summary>Modal choice (chest, arena, tree of knowledge).</summary>
+        public void ShowDialog(H5DialogRequest request)
+        {
+            if (_canvasRoot != null) H5Dialog.Show(_canvasRoot, request);
+        }
+
+        /// <summary>Called after a map load so the minimap tracks the new scene.</summary>
+        public void AttachMap(MapSceneBuilder builder)
+        {
+            if (_minimap != null && builder != null)
+                _minimap.Build(builder, Controller, GameState);
         }
 
         void OnSelectionChanged(H5MapObject obj)
@@ -86,10 +131,13 @@ namespace HoMM5.UI
             scaler.referenceResolution = new Vector2(1920, 1080);
             scaler.matchWidthOrHeight = 0.5f;
 
+            _canvasRoot = canvasGo.transform;
             BuildSelectionPanel(canvasGo.transform);
             BuildStatsLabel(canvasGo.transform);
+            BuildLogLabel(canvasGo.transform);
             BuildMapList(canvasGo.transform);
             BuildTurnControls(canvasGo.transform);
+            _minimap = H5Minimap.Create(canvasGo.transform, new Vector2(-16, 16), new Vector2(240, 240));
         }
 
         void BuildSelectionPanel(Transform parent)
@@ -109,6 +157,16 @@ namespace HoMM5.UI
                               new Vector2(16, 16), new Vector2(700, 120));
         }
 
+        void BuildLogLabel(Transform parent)
+        {
+            // Right of the stats block, left of the minimap.
+            var panel = MakePanel(parent, "LogPanel", new Vector2(560, 110),
+                                  new Vector2(0, 0), new Vector2(710, 16), new Vector2(1270, 126));
+            _log = MakeText(panel.transform, "Log", 13, FontStyle.Normal, TextAnchor.LowerLeft,
+                            new Vector2(10, 6), new Vector2(-10, -6));
+            _log.text = "";
+        }
+
         void BuildTurnControls(Transform parent)
         {
             var bar = new GameObject("TurnControls", typeof(RectTransform), typeof(Image));
@@ -126,7 +184,7 @@ namespace HoMM5.UI
             _turnDate.text = "Day 1  |  Week 1  |  Month 1";
             _turnDate.raycastTarget = false;
             _resourceSummary = MakeText(bar.transform, "Resources", 13, FontStyle.Normal,
-                                        TextAnchor.MiddleCenter, new Vector2(210, 6), new Vector2(-126, -6));
+                                        TextAnchor.MiddleCenter, new Vector2(210, 6), new Vector2(-360, -6));
             _resourceSummary.text = "W 20  O 20  M 10  C 10  S 10  G 10  Gold 20000";
             _resourceSummary.raycastTarget = false;
 
@@ -147,6 +205,33 @@ namespace HoMM5.UI
                                  new Vector2(4, 2), new Vector2(-4, -2));
             label.text = "End Day";
             label.raycastTarget = false;
+
+            MakeBarButton(bar.transform, "SaveButton", "Save (F5)", -128,
+                          () => SaveRequested?.Invoke());
+            MakeBarButton(bar.transform, "LoadButton", "Load (F9)", -244,
+                          () => LoadRequested?.Invoke());
+        }
+
+        static void MakeBarButton(Transform parent, string name, string label, float xOffset,
+                                  System.Action onClick)
+        {
+            var go = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(Button));
+            var rt = (RectTransform)go.transform;
+            rt.SetParent(parent, false);
+            rt.anchorMin = new Vector2(1, 0.5f);
+            rt.anchorMax = new Vector2(1, 0.5f);
+            rt.pivot = new Vector2(1, 0.5f);
+            rt.sizeDelta = new Vector2(108, 38);
+            rt.anchoredPosition = new Vector2(xOffset, 0);
+            var image = go.GetComponent<Image>();
+            image.color = new Color(0.16f, 0.18f, 0.24f, 1f);
+            var button = go.GetComponent<Button>();
+            button.targetGraphic = image;
+            button.onClick.AddListener(() => onClick?.Invoke());
+            var text = MakeText(go.transform, "Label", 13, FontStyle.Bold, TextAnchor.MiddleCenter,
+                                new Vector2(4, 2), new Vector2(-4, -2));
+            text.text = label;
+            text.raycastTarget = false;
         }
 
         void BuildMapList(Transform parent)

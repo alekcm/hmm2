@@ -185,8 +185,11 @@ namespace HoMM5.Map
             // always 0 for statics).
             var height = Terrain != null ? Terrain.SampleWorldHeight(def.x, def.y) : 0f;
             go.transform.localPosition = TerrainMeshBuilder.ToUnity(def.x, def.y, height);
-            // A map rotation is a turn about the vertical axis.
-            go.transform.localRotation = Quaternion.Euler(0f, def.rot, 0f);
+            // A map rotation is a turn about the vertical axis. The map files
+            // store it in radians (pi for a half-turn), Unity's Euler wants
+            // degrees -- without the conversion every rotated object faces
+            // within a few degrees of its authored direction.
+            go.transform.localRotation = Quaternion.Euler(0f, def.rot * Mathf.Rad2Deg, 0f);
             go.transform.localScale = Vector3.one * ObjectScale;
 
             var mats = new List<Material>(meshes.Length);
@@ -194,12 +197,25 @@ namespace HoMM5.Map
                 mats.Add(MaterialForMesh(def, m) ?? _objectMaterial);
 
             // An object whose model names an adventure-map clip is rigged and
-            // animated; anything else stays a static mesh.
-            var clip = ClipFor(def);
-            if (clip != null && HoMM5.Anim.H5Rig.Build(go, new List<Mesh>(meshes), mats, clip) != null)
+            // animated; anything else stays a static mesh. Models with a move
+            // clip get both, so a walking hero can switch between them.
+            var idle = ClipFor(def, "idle");
+            if (idle != null && HoMM5.Anim.H5Rig.Build(go, new List<Mesh>(meshes), mats, idle) is Animation anim)
             {
                 AnimatedObjects++;
-                go.AddComponent<H5MapObject>().Attach(def, this);
+                var mapObject = go.AddComponent<H5MapObject>();
+                mapObject.Attach(def, this);
+                var move = ClipFor(def, "move");
+                if (move != null)
+                {
+                    var baked = HoMM5.Anim.H5Anim.Bake(move, "Rig");
+                    if (baked != null)
+                    {
+                        baked.name = baked.name + "#move";
+                        anim.AddClip(baked, baked.name);
+                        mapObject.AttachAnimation(anim, anim.clip != null ? anim.clip.name : null, baked.name);
+                    }
+                }
                 return true;
             }
 
@@ -252,21 +268,33 @@ namespace HoMM5.Map
         }
 
         /// <summary>
-        /// The adventure-map idle for an object's model, or null when the model
-        /// is not animated. Cached per geometry uid: a map holds hundreds of
-        /// objects sharing a handful of models.
+        /// One adventure-map clip (idle or move) for an object's model, or null
+        /// when the model is not animated. Cached per clip uid: a map holds
+        /// hundreds of objects sharing a handful of models.
         /// </summary>
-        HoMM5.Anim.H5Clip ClipFor(MapObjectDef def)
+        HoMM5.Anim.H5Clip ClipFor(MapObjectDef def, string kind)
         {
             if (_db == null || string.IsNullOrEmpty(def.geometryUid)) return null;
             if (!_db.ModelAnimations.TryGetValue(def.geometryUid, out var ma)) return null;
             if (ma == null || ma.advmap == null || ma.advmap.Count == 0) return null;
 
-            string uid;
-            if (!ma.advmap.TryGetValue("idle00", out uid))
+            string uid = null;
+            if (kind == "move")
             {
-                // Not every set names idle00; take whatever it has.
-                foreach (var kv in ma.advmap) { uid = kv.Value; break; }
+                // Clip sets name the walk cycle "move" or "moveNN".
+                foreach (var kv in ma.advmap)
+                    if (kv.Key == "move" || kv.Key.StartsWith("move"))
+                    { uid = kv.Value; break; }
+            }
+            else
+            {
+                if (!ma.advmap.TryGetValue("idle00", out uid))
+                {
+                    // Not every set names idle00; take whatever it has that is
+                    // not a move cycle (that one is attached separately).
+                    foreach (var kv in ma.advmap)
+                        if (!kv.Key.StartsWith("move")) { uid = kv.Value; break; }
+                }
             }
             if (string.IsNullOrEmpty(uid)) return null;
 

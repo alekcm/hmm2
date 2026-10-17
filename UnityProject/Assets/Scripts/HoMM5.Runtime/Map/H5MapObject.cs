@@ -40,11 +40,42 @@ namespace HoMM5.Map
         public float MovementPointsRemaining { get; private set; } = AdventureMapGameState.DefaultDailyHeroMovement;
         public bool IsMoving => _moveRoutine != null;
 
+        /// <summary>Stable id for save files and state dicts (the map object id).</summary>
+        public string StateKey => _movementKey;
+
+        /// <summary>Whether this hero belongs to the locally played player.</summary>
+        public bool IsLocalHero => _gameState != null;
+
+        /// <summary>The hero's persistent stats, once bound.</summary>
+        public H5HeroState HeroState { get; private set; }
+
+        Animation _anim;
+        string _idleClip;
+        string _moveClip;
+
         internal void BindMovement(AdventureMapGameState state, string key, float points)
         {
             _gameState = state;
             _movementKey = key;
             MovementPointsRemaining = points;
+        }
+
+        internal void BindHeroState(H5HeroState state) => HeroState = state;
+
+        /// <summary>Wire up the idle/move animation pair of a rigged model.</summary>
+        public void AttachAnimation(Animation anim, string idleClip, string moveClip)
+        {
+            _anim = anim;
+            _idleClip = idleClip;
+            _moveClip = moveClip;
+        }
+
+        void SetMoveState(bool moving)
+        {
+            if (_anim == null) return;
+            var name = moving ? _moveClip : _idleClip;
+            if (string.IsNullOrEmpty(name) || _anim[name] == null) return;
+            _anim.CrossFade(name, 0.25f);
         }
 
         internal void SetMovementPoints(float points)
@@ -53,11 +84,18 @@ namespace HoMM5.Map
             if (_gameState != null) _gameState.StoreMovement(_movementKey, MovementPointsRemaining);
         }
 
+        /// <summary>Grant extra movement (fountains, stables, rally flags).</summary>
+        public void AddMovement(float bonus)
+        {
+            if (bonus > 0f) SetMovementPoints(MovementPointsRemaining + bonus);
+        }
+
         /// <summary>Move along the passability path, spending this day's simplified movement allowance.</summary>
         public bool MoveHeroTo(Vector2Int destination)
         {
-            if (!IsHero || Def == null || Builder == null || Builder.Terrain == null || _moveRoutine != null ||
-                MovementPointsRemaining <= 0.0001f ||
+            // Only heroes of the locally played player take orders.
+            if (!IsHero || !IsLocalHero || Def == null || Builder == null || Builder.Terrain == null ||
+                _moveRoutine != null || MovementPointsRemaining <= 0.0001f ||
                 !Builder.Terrain.IsPassable(destination.x, destination.y)) return false;
             var start = new Vector2Int(Mathf.RoundToInt(Def.x), Mathf.RoundToInt(Def.y));
             var fullPath = H5Pathfinder.FindPath(Builder.Terrain, start, destination);
@@ -74,6 +112,7 @@ namespace HoMM5.Map
 
         IEnumerator FollowPath(List<Vector2Int> path)
         {
+            SetMoveState(true);
             for (var i = 0; i < path.Count; i++)
             {
                 var tile = path[i];
@@ -89,6 +128,7 @@ namespace HoMM5.Map
                 Def.y = tile.y;
                 if (_gameState != null) _gameState.HeroEnteredTile(this, tile);
             }
+            SetMoveState(false);
             _moveRoutine = null;
         }
 
@@ -160,6 +200,16 @@ namespace HoMM5.Map
                 var lines = new System.Collections.Generic.List<string> { Summary() };
                 if (!string.IsNullOrEmpty(Def.owner))
                     lines.Add("Owner: " + GameDatabase.PrettifyEnum(Def.owner));
+                if (HeroState != null)
+                {
+                    lines.Add(HeroState.Summary());
+                    if (HeroState.Artifacts.Count > 0)
+                        lines.Add("Artifacts: " + HeroState.Artifacts.Count);
+                    if (HeroState.Spells.Count > 0)
+                        lines.Add("Spells: " + HeroState.Spells.Count);
+                    if (HeroState.KeyColors.Count > 0)
+                        lines.Add("Keys: " + string.Join(", ", HeroState.KeyColors));
+                }
                 if (Def.army != null)
                     lines.Add("Army stacks: " + Def.army.Count);
                 var dailyMovement = _gameState != null

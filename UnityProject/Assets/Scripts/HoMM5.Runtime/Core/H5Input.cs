@@ -125,6 +125,28 @@ namespace HoMM5.Core
 #endif
         }
 
+        /// <summary>F5: quick save.</summary>
+        public static bool SavePressed()
+        {
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
+            var kb = UnityEngine.InputSystem.Keyboard.current;
+            return kb != null && kb.f5Key.wasPressedThisFrame;
+#else
+            return Input.GetKeyDown(KeyCode.F5);
+#endif
+        }
+
+        /// <summary>F9: quick load.</summary>
+        public static bool LoadPressed()
+        {
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
+            var kb = UnityEngine.InputSystem.Keyboard.current;
+            return kb != null && kb.f9Key.wasPressedThisFrame;
+#else
+            return Input.GetKeyDown(KeyCode.F9);
+#endif
+        }
+
         /// <summary>
         /// Whether the pointer is over a uGUI element, so a click on the map
         /// list is not also treated as a click on the map.

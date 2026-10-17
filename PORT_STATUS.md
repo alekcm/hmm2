@@ -85,10 +85,48 @@ glTF package. Adventure-map viewer: chunked terrain with cliff walls, water,
   heroes are non-controllable; terrain/army/artifact/skill movement rules and
   obstacles beyond the passability plane are not reproduced.
 
+## Continuation: object interactions, save/load, minimap
+
+- The importer now exports the shared record's **`activeTiles`** (which tile a
+  hero must step on to trigger a visit) and the treasure **`MinResource`/
+  `MaxResource`** pickup roll range. Both were already in the shipped data; the
+  runtime could not see them.
+- **Adventure-map object interactions** (`H5ObjectVisits`), dispatched on the
+  shared `Type` enum (`BUILDING_*`, `TREASURE_*`) and the `AdvMap*` object
+  kinds: treasure pickups with data-driven rolls (resource piles, campfires,
+  flotsam, random piles, map-authored custom piles), artifact pickup with
+  artifact stat bonuses, mine capture, permanent stat visits (Mercenary Camp,
+  Marletto Tower, Star Axis, Garden of Revelation, Arena with a modal choice,
+  Library of Enlightenment gated on level 10, Learning Stone, Tree of Knowledge
+  level purchase), School of Magic spell learning, shrines, keymaster tents,
+  once-per-day Magic Well / Fountain of Youth / Oasis / Stables / Rally Flag /
+  Fountain of Fortune (movement bonuses are the shipped `DefaultStats.xdb`
+  values), once-per-week Windmill / Water Wheel / Magic Spring / Idol of
+  Fortune, and temporary morale/luck visits. Combat-, screen- and
+  teleport-dependent objects log a clear "not implemented yet" notice at most
+  once a day. Amounts the shipped tables do not carry are marked "inferred" in
+  `H5ObjectVisits` (gold pile roll unit x100, chest gold x500 / 2500 XP).
+- **Per-hero state** (`H5HeroState`): primary skills, level with the triangular
+  XP curve, mana, spellbook, artifact satchel, key colors, temporary
+  morale/luck (reset daily).
+- **Quick save/load** (F5/F9 or HUD buttons): day, resources, hero states and
+  positions, collected objects, fired visit effects, mine ownership — JSON in
+  `persistentDataPath`, reapplied on the next map rebuild so floor switches
+  and loads go through one code path.
+- **Minimap**: terrain colors from the painted layers' texture names, object
+  dots by kind, camera viewport rectangle; clicking moves the camera.
+- Hero models that ship a `move` clip now crossfade idle <-> walk during
+  movement.
+- Right-clicking an impassable tile (a mine, a monster's footprint) walks the
+  hero to the nearest free tile instead of refusing the order.
+- Fixed object rotation: map files store radians, the scene builder applied
+  them as degrees, so every rotated prop faced within a few degrees of its
+  authored direction.
+
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **85 tests**
-(84 pass, 1 skipped), every one against the real shipped data. These are
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **86 tests**
+(85 pass, 1 skipped), every one against the real shipped data. These are
 cross-checks between independent sources, not golden files:
 
 - **Container grammar** — every geometry file ends in the 6-byte marker
@@ -109,6 +147,9 @@ cross-checks between independent sources, not golden files:
 - **Map selection** — only `AdvMapDesc` roots are maps: 142 of the 1176 `.xdb`
   under `data/Maps`, the rest being sounds (466), statics (243), textures (150)
   and `AdvMapDescTag` files (62). Every map gets a distinct id.
+- **Visit data** — shared records export their `activeTiles` offsets and
+  treasure `MinResource`..`MaxResource` roll ranges (TREASURE_WOOD 4..7,
+  TREASURE_GOLD 5..10), asserted against A2C0M0's placed objects.
 - **Data integrity** — a creature's localized name equals the file its
   `CreatureVisual` points at; its geometry UID names a real file in
   `bin/Geometries`; `ANGEL_WINGS` comes out `ARTF_CLASS_RELIC` / `SHOULDERS` /
@@ -145,14 +186,17 @@ maps look.
 
 - **Game logic is still a prototype.** There is a local player ID and a
   day/week/month counter. The base hero movement points are imported from the
-  original stats, but tile costs remain a provisional flat 100 MP. Resources
-  cover starting stocks and passive mine/Town Hall income only: there is no
-  original multiplayer turn order, terrain/army/artifact movement calculation,
-  map-script override execution, mine capture, random/gold treasure rewards,
-  chests, combat, spells, abilities, hero levelling, town screen, campaigns, AI,
-  Lua runtime or networking.
-- **No animation.** Skeletons are Granny GR2 with per-section Oodle compression;
-  reading them needs an Oodle1 decompressor. Creatures sit in bind pose.
+  original stats, but tile costs remain a provisional flat 100 MP. Object
+  visits, pickups, mine capture and hero levelling now run from the shipped
+  tables where those exist; there is still no original multiplayer turn order,
+  terrain/army/artifact movement calculation, map-script override execution,
+  combat, spells, abilities, town screen, campaigns, AI, Lua runtime or
+  networking. Individual hero starting stats are not in the imported tables
+  (heroes start at 1/1/1/1).
+- **Animation is partial.** Adventure-map idle and move clips are extracted
+  from Granny GR2 and play through `H5Rig`/`H5Anim`; the bind-pose caveat in
+  `H5Rig` applies to clips that start far from rest. Combat stances and
+  per-bone masking are not implemented.
 - **Materials are partial.** Object textures and alpha modes are bound to Unity's
   Standard shader; alpha-test cutouts and basic transparency work. Two-sided
   materials are detected but Built-in Standard has no culling switch; additive
@@ -168,6 +212,9 @@ maps look.
    compile check left behind.
 2. Finish material translation: two-sided culling, additive passes, lightmaps and
    visual effects; smoothly blend the imported terrain coverage layers.
-3. GR2 + Oodle1, so creatures animate.
-4. Combat: the data is already here — `creatures.json` carries attack, defence,
+3. Combat: the data is already here — `creatures.json` carries attack, defence,
    damage, initiative, speed and abilities, and `spells.json` the spell table.
+   Guarded banks, monster stacks and hero battles all gate on this.
+4. Town screen and hero screen; secondary skills (Witch Huts and hero levelling
+   dialogs already expect a skill system behind them).
+5. Audio: `music/`, `sound/`, `soundsfx/` are FMOD-packed and untouched.

@@ -37,9 +37,11 @@ there is nothing to lose.
 | pointer at screen edge | edge scroll |
 | middle mouse drag | pan directly |
 | wheel | zoom |
-| left click | select a map object |
+| left click | select a map object (or click the minimap to pan the camera) |
 | right click | issue a pathfinding move to a selected hero |
 | F1 | switch surface / underground |
+| F5 / Save | quick save |
+| F9 / Load | quick load |
 | End Day | advance the prototype calendar and restore hero movement |
 
 The map list on the right loads any of the 142 imported maps. The importer now
@@ -136,23 +138,27 @@ shipped stats because they are its shipped stats.
 It is not the game. There is a prototype day/week/month counter and a movement
 budget seeded from the game's `2500` MP base value for heroes owned by the
 configured local player (default `PLAYER_1`), using basic A* over imported
-passability. Per-tile cost and the original turn scheduler remain incomplete;
-combat resolution, mine capture, chests/random treasure rewards, map-script
-resource overrides, AI, town screen, campaign flow and Lua execution are still
-absent. Starting resources, owned-mine/Town Hall income, and collection of
-custom-authored non-gold resource piles are implemented from shipped data/text.
-The remaining systems live in
+passability. Per-tile cost and the original turn scheduler remain incomplete.
+Object visits run from the shipped shared records: treasure pickups, artifact
+grants, mine capture, stat-boosting buildings, shrines, magic wells and the
+weekly Windmill/Water Wheel all fire when a hero steps on an object's active
+tile, with modal choices (chests, the Arena) in the HUD. Quick save/load (F5/F9)
+persists the world state, and the minimap shows terrain, objects and the camera
+viewport. Combat resolution, map-script resource overrides, AI, town screen,
+campaign flow and Lua execution are still absent. The remaining systems live in
 `bin/H5_Game_PEST.exe`; `data/scripts/*.lua` holds the campaign and map scripting
 and is imported nowhere. See `../PORT_STATUS.md` for the full accounting.
 
 ## Known limits
 
-- Creatures are static meshes in their bind pose — skeletons and animations
-  (`bin/Skeletons`, `bin/animations`) are Granny GR2 and not imported.
-- Materials render with the Standard shader. The engine's alpha modes
-  (`AM_ALPHA_TEST`, `AM_OVERLAY`) and additive blending are not translated, so
-  foliage cards and banners render opaque.
-- Terrain is vertex-coloured by ground kind. The shipped maps carry no splat
-  weights that survive import.
+- Adventure-map idle and move clips play (extracted from Granny GR2); other
+  animation sets are not imported, and clips that start far from the bind pose
+  deform incorrectly (see `H5Rig`).
+- Materials render with the Standard shader. The engine's additive blending,
+  lightmaps and particle effects are not translated.
+- Terrain is chosen per cell from the dominant painted layer; smooth weight
+  blending is not implemented.
 - Water is a single flat plane at level 1.5, just under the 1.6 shore ring.
+- Treasure payout constants that the shipped tables do not carry are inferred
+  and marked in `H5ObjectVisits` (gold roll scaling, chest XP).
 - No audio. `sound/`, `soundsfx/` and `music/` are untouched.
