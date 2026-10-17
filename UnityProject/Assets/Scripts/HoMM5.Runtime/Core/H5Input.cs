@@ -62,6 +62,16 @@ namespace HoMM5.Core
 #endif
         }
 
+        public static bool MoveCommandPressed()
+        {
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
+            var m = UnityEngine.InputSystem.Mouse.current;
+            return m != null && m.rightButton.wasPressedThisFrame;
+#else
+            return Input.GetMouseButtonDown(1);
+#endif
+        }
+
         public static bool SelectPressed()
         {
 #if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM

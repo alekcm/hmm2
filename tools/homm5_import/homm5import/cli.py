@@ -358,6 +358,12 @@ def cmd_terrain(args) -> int:
         glob.glob(os.path.join(args.data, "Maps/**/GroundTerrain.bin"), recursive=True) +
         glob.glob(os.path.join(args.data, "Maps/**/UndergroundTerrain.bin"), recursive=True)
     ), args.limit)
+    # Several shipped maps share a folder name (notably S1). Map JSON uses
+    # collision-free ids from unique_map_ids; terrain must use the same identity
+    # or one map silently reads another map's height planes.
+    map_files = iter_map_files(tile_db, only_map_descs=True)
+    terrain_ids = {os.path.normpath(os.path.dirname(path)): map_id
+                   for path, map_id in unique_map_ids(map_files).items()}
     ok = bad = 0
     for path in files:
         try:
@@ -369,7 +375,8 @@ def cmd_terrain(args) -> int:
             bad += 1
             print(f"  SKIP {path}: {exc}")
             continue
-        map_dir = os.path.basename(os.path.dirname(path))
+        parent = os.path.normpath(os.path.abspath(os.path.dirname(path)))
+        map_dir = terrain_ids.get(parent, os.path.basename(parent))
         plane = os.path.basename(path).replace(".bin", "")
         lo, hi, mean = terr.height_stats()
         _write_json(_out(args.out, "Terrain", map_dir, plane + ".json"), {

@@ -26,7 +26,8 @@ from homm5import import terrain  # noqa: E402
 from homm5import.container import END_MARKER, parse_records  # noqa: E402
 from homm5import.maps import iter_map_files, load_map  # noqa: E402
 from homm5import.dds import DDSError, decode_dds, write_png  # noqa: E402
-from homm5import.gamedata import load_artifacts, load_creatures, load_spells  # noqa: E402
+from homm5import.gamedata import (load_artifacts, load_creatures, load_game_rules,
+                                 load_spells, load_town_buildings)  # noqa: E402
 from homm5import.geometry import decode_file as decode_geometry  # noqa: E402
 from homm5import.gltf import geometry_to_glb  # noqa: E402
 from homm5import.localization import Localization  # noqa: E402
@@ -389,6 +390,28 @@ class GameDataTest(unittest.TestCase):
         cls.creatures = load_creatures(cls.xdb, cls.loc)
         cls.spells = load_spells(cls.xdb, cls.loc)
         cls.artifacts = load_artifacts(cls.xdb, cls.loc)
+        cls.rules = load_game_rules(cls.xdb, cls.loc)
+        cls.town_buildings = load_town_buildings(cls.xdb, cls.loc)
+
+    def test_town_hall_income_matches_shipped_building_descriptions(self):
+        halls = {b["upgrade"]: b["incomeGoldPerDay"] for b in self.town_buildings
+                 if b["type"] == "TB_TOWN_HALL"}
+        self.assertEqual(halls, {
+            "BLD_UPG_1": 500, "BLD_UPG_2": 1000,
+            "BLD_UPG_3": 2000, "BLD_UPG_4": 4000,
+        })
+
+    def test_adventure_rules_and_resource_tables_match_shipped_stats(self):
+        self.assertEqual(self.rules["baseHeroMovement"], 2500)
+        self.assertEqual(self.rules["visitFountainOfYouthMovementBonus"], 400)
+        self.assertEqual(self.rules["visitOasisMovementBonus"], 800)
+        self.assertEqual(self.rules["forWeekStablesMaxLandMovementBonus"], 600)
+        self.assertEqual(self.rules["startHumanResources"][0]["wood"], 50)
+        self.assertEqual(self.rules["startHumanResources"][0]["gold"], 50000)
+        self.assertEqual(self.rules["mineDailyIncome"], {
+            "GOLD": 1000, "ORE": 2, "WOOD": 2, "MERCURY": 1,
+            "CRYSTAL": 1, "SULFUR": 1, "GEM": 1,
+        })
 
     def test_creature_stats_match_the_xml(self):
         c = self.creatures["CombatMage"]
@@ -443,6 +466,74 @@ class MapTest(unittest.TestCase):
         self.assertEqual(len(with_mesh), len(md.objects), "every static should resolve a model")
         for o in with_mesh[:20]:
             self.assertTrue(os.path.isfile(os.path.join(DATA, "bin", "Geometries", o.geometry_uid)))
+
+    def test_relative_geometry_href_is_resolved_against_model_file(self):
+        """Terrain objects often use a model-local href such as Rail-geom.xdb.
+        Treating it as data-rooted silently drops the model and its materials.
+        """
+        path = os.path.join(DATA, "Maps", "Multiplayer", "A2M1", "map.xdb")
+        if not os.path.isfile(path):
+            self.skipTest("multiplayer map not present")
+        md = load_map(self.xdb, path)
+        rail = [o for o in md.objects if o.shared_href and "/Subterra/Rail." in o.shared_href]
+        self.assertTrue(rail, "reference map no longer contains the rail object")
+        self.assertTrue(rail[0].geometry_uid)
+        self.assertTrue(os.path.isfile(os.path.join(DATA, "bin", "Geometries", rail[0].geometry_uid)))
+
+    def test_faction_town_resolves_exterior_model_and_type(self):
+        """The shared town's direct Model is empty; the faction's exterior
+        upgrade list supplies the actual adventure-map model.
+        """
+        path = os.path.join(DATA, "Maps", "Scenario", "A2C0M0", "map.xdb")
+        if not os.path.isfile(path):
+            self.skipTest("scenario map not present")
+        md = load_map(self.xdb, path)
+        towns = [o for o in md.objects if o.kind == "AdvMapTown"
+                 and o.shared_href and "Heaven.(AdvMapTownShared)" in o.shared_href]
+        self.assertTrue(towns)
+        self.assertEqual(towns[0].extra.get("townType"), "TOWN_HEAVEN")
+        self.assertTrue(towns[0].geometry_uid)
+        self.assertTrue(os.path.isfile(os.path.join(DATA, "bin", "Geometries", towns[0].geometry_uid)))
+
+    def test_shared_records_supply_hero_monster_mine_and_artifact_identity(self):
+        """These values live in the referenced Shared XDB, not on each placed
+        instance. Empty fields made the Unity inspector unable to identify them.
+        """
+        path = os.path.join(DATA, "Maps", "Scenario", "A2C0M0", "map.xdb")
+        if not os.path.isfile(path):
+            self.skipTest("scenario map not present")
+        md = load_map(self.xdb, path, resolve_models=False)
+        first = lambda kind: next(o for o in md.objects if o.kind == kind)
+        self.assertEqual(first("AdvMapMonster").extra["creature"], "CREATURE_CHAMPION")
+        self.assertEqual(first("AdvMapMine").extra["resource"], "GOLD")
+        self.assertEqual(first("AdvMapArtifact").extra["artifact"], "GOLDEN_HORSESHOE")
+        self.assertTrue(first("AdvMapHero").extra["hero"])
+        self.assertTrue(first("AdvMapHero").object_id,
+                        "hero map-object IDs are needed to persist movement across floor loads")
+
+    def test_custom_resource_piles_preserve_authored_type_and_amount(self):
+        path = os.path.join(DATA, "Maps", "Multiplayer", "A1M4", "map.xdb")
+        md = load_map(self.xdb, path, resolve_models=False)
+        piles = [o for o in md.objects if o.kind == "AdvMapTreasure" and o.extra.get("isCustom")]
+        wood = next(o for o in piles if o.extra.get("sharedType") == "TREASURE_WOOD")
+        self.assertEqual(wood.extra["amount"], 8)
+        self.assertTrue(wood.object_id)
+
+    def test_map_floor_indices_follow_shipped_lua_constants(self):
+        """The source defines GROUND=0 and UNDERGROUND=1; don't swap values
+        while importing map objects for Unity's layer selection.
+        """
+        script = os.path.join(DATA, "scripts", "advmap-startup.lua")
+        with open(script, "r", encoding="utf-8", errors="replace") as fh:
+            source = fh.read()
+        self.assertRegex(source, r"(?m)^\s*GROUND\s*=\s*0\s*$")
+        self.assertRegex(source, r"(?m)^\s*UNDERGROUND\s*=\s*1\s*$")
+        path = os.path.join(DATA, "Maps", "Scenario", "A2C0M0", "map.xdb")
+        if not os.path.isfile(path):
+            self.skipTest("scenario map not present")
+        md = load_map(self.xdb, path, resolve_models=False)
+        self.assertTrue(md.objects)
+        self.assertEqual({o.floor for o in md.objects}, {0})
 
     def test_blocked_tiles_are_tile_offsets(self):
         path = os.path.join(DATA, "Maps", "CombatArenas", "AbandonedMine", "AbandonedMine.xdb")
@@ -512,6 +603,23 @@ class MapTest(unittest.TestCase):
                 empty += 1
         self.assertGreater(checked, 100)
         self.assertEqual(empty, 0, f"{empty} maps came out empty")
+
+    def test_every_shipped_advmap_object_kind_is_imported(self):
+        """Guard the completeness of the map-object union against the XDB corpus."""
+        from xml.etree import ElementTree as ET
+        from homm5import.maps import OBJECT_TYPES, iter_map_files
+        xdb = XDB(DATA)
+        observed = set()
+        for path in iter_map_files(xdb, only_map_descs=True):
+            root = ET.parse(path).getroot()
+            base = xdb.href_from_path(path)
+            for item in xdb.items(root.find("objects")):
+                inner = list(item)[0] if len(item) else xdb.resolve_field(item, base)
+                if inner is not None:
+                    observed.add(inner.tag)
+        self.assertGreaterEqual(len(observed), 20)
+        self.assertEqual(observed - set(OBJECT_TYPES), set(),
+                         "new map object kinds need an importer handler")
 
 
 class AssetNamingTest(unittest.TestCase):
@@ -1162,11 +1270,16 @@ class TownPayloadTest(unittest.TestCase):
         for expected in ("TB_TOWN_HALL", "TB_FORT"):
             self.assertIn(expected, types)
 
-    def test_no_faction_is_invented(self):
-        """The map does not name a race -- RandomTown is resolved at load time.
-        Claiming one here would be a guess dressed as data."""
-        for t in self.towns:
+    def test_only_random_towns_omit_the_faction(self):
+        """A fixed AdvMapTownShared names its faction; RandomTown does not.
+        Keep the former and do not guess the latter at import time."""
+        random_towns = [t for t in self.towns if "RandomTown.xdb" in (t.shared_href or "")]
+        self.assertTrue(random_towns)
+        for t in random_towns:
             self.assertNotIn("townType", t.extra)
+        for t in self.towns:
+            if t not in random_towns:
+                self.assertTrue(t.extra.get("townType"), t.shared_href)
 
     def test_chest_payload(self):
         self.assertGreater(len(self.chests), 0)

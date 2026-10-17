@@ -19,6 +19,7 @@ namespace HoMM5.Data
         public Dictionary<string, SpellDef> Spells { get; private set; } = new Dictionary<string, SpellDef>();
         public Dictionary<string, ArtifactDef> Artifacts { get; private set; } = new Dictionary<string, ArtifactDef>();
         public List<TownBuildingDef> TownBuildings { get; private set; } = new List<TownBuildingDef>();
+        public GameRulesDef Rules { get; private set; } = new GameRulesDef { baseHeroMovement = 2500 };
         public Dictionary<string, ModelAnimDef> ModelAnimations { get; private set; } = new Dictionary<string, ModelAnimDef>();
         public Dictionary<string, string> Localization { get; private set; } = new Dictionary<string, string>();
         public List<MapIndexEntry> MapIndex { get; private set; } = new List<MapIndexEntry>();
@@ -39,6 +40,7 @@ namespace HoMM5.Data
             Spells = LoadDict<SpellDef>(H5Paths.Game("spells.json")) ?? Spells;
             Artifacts = LoadDict<ArtifactDef>(H5Paths.Game("artifacts.json")) ?? Artifacts;
             TownBuildings = LoadList<TownBuildingDef>(H5Paths.Game("townBuildings.json")) ?? TownBuildings;
+            Rules = LoadSingle<GameRulesDef>(H5Paths.Game("rules.json")) ?? Rules;
             ModelAnimations = LoadDict<ModelAnimDef>(H5Paths.Game("modelAnimations.json")) ?? ModelAnimations;
             Localization = LoadDict<string>(H5Paths.Game("Localization.json")) ?? Localization;
             MapIndex = LoadList<MapIndexEntry>(H5Paths.Maps("_index.json")) ?? MapIndex;
@@ -165,6 +167,25 @@ namespace HoMM5.Data
             sb.AppendLine("  Or from the editor: Tools > HoMM5 > Run Importer (all).");
             sb.AppendLine("  See tools/homm5_import/README.md.");
             return sb.ToString();
+        }
+
+        static T LoadSingle<T>(string path) where T : class
+        {
+            var json = H5Paths.ReadAllText(path);
+            if (json == null)
+            {
+                Debug.LogWarning("[HoMM5] missing " + path);
+                return null;
+            }
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("[HoMM5] failed to parse " + path + ": " + e.Message);
+                return null;
+            }
         }
 
         static Dictionary<string, T> LoadDict<T>(string path)

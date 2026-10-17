@@ -139,13 +139,87 @@ namespace HoMM5.Data
         public string DisplayName => string.IsNullOrEmpty(name) ? id : name;
     }
 
+    /// <summary>Raw movement and start-resource values from DefaultStats.xdb.</summary>
+    public class GameRulesDef
+    {
+        public string source;
+        public int baseHeroMovement;
+        public int minCreatureSpeed;
+        public int maxCreatureSpeed;
+        public int visitFountainOfYouthMovementBonus;
+        public int visitRallyFlagMovementBonus;
+        public int visitOasisMovementBonus;
+        public int visitStablesMovementBonus;
+        public int forWeekStablesMaxLandMovementBonus;
+        public int lighthouseMaxSeaMovementBonus;
+        public List<StartResourcesDef> startHumanResources;
+        public List<StartResourcesDef> startComputerResources;
+        public Dictionary<string, int> mineDailyIncome;
+    }
+
+    public class StartResourcesDef
+    {
+        public int wood;
+        public int ore;
+        public int mercury;
+        public int crystal;
+        public int sulfur;
+        public int gem;
+        public int gold;
+    }
+
+    public class PlayerResourceInventory
+    {
+        public int wood;
+        public int ore;
+        public int mercury;
+        public int crystal;
+        public int sulfur;
+        public int gem;
+        public int gold;
+
+        public void Set(StartResourcesDef values)
+        {
+            if (values == null) return;
+            wood = values.wood;
+            ore = values.ore;
+            mercury = values.mercury;
+            crystal = values.crystal;
+            sulfur = values.sulfur;
+            gem = values.gem;
+            gold = values.gold;
+        }
+
+        public void Add(string resource, int amount)
+        {
+            switch ((resource ?? "").ToUpperInvariant())
+            {
+                case "WOOD": wood += amount; break;
+                case "ORE": ore += amount; break;
+                case "MERCURY": mercury += amount; break;
+                case "CRYSTAL": crystal += amount; break;
+                case "SULFUR": sulfur += amount; break;
+                case "GEM": case "GEMS": gem += amount; break;
+                case "GOLD": gold += amount; break;
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"W {wood}   O {ore}   M {mercury}   C {crystal}   S {sulfur}   G {gem}   Gold {gold}";
+        }
+    }
+
     public class TownBuildingDef
     {
         public string id;
         public string source;
         public string name;
+        public string type;
+        public string upgrade;
         public ResourceCost cost;
         public int growth;
+        public int incomeGoldPerDay;
     }
 
     // -- maps --------------------------------------------------------------
@@ -199,9 +273,40 @@ namespace HoMM5.Data
         public List<TerrainLayerInfo> layers;
     }
 
+    public class MapBuildingStateDef
+    {
+        public string type;
+        public string upgrade;
+    }
+
+    public class MapArmyStackDef
+    {
+        public string creature;
+        public int amount;
+        public int count;
+        public bool customAmount;
+    }
+
+    public class MapTilePointDef
+    {
+        public int x;
+        public int y;
+    }
+
+    public class MapQuestDef
+    {
+        public string name;
+        public string kind;
+        public string caption;
+        public string description;
+        public int timeout;
+        public int holdout;
+    }
+
     public class MapObjectDef
     {
         public string kind;
+        public string objectId;
         public float x;
         public float y;
         public float z;
@@ -228,6 +333,38 @@ namespace HoMM5.Data
         public string resource;
         public string artifact;
         public string guardType;
+        public List<MapBuildingStateDef> buildings;
+        public List<MapArmyStackDef> garrison;
+        public List<MapArmyStackDef> additionalStacks;
+        public List<MapArmyStackDef> army;
+        public string garrisonHero;
+        public List<string> bannedRaces;
+        public bool isCustom;
+        public string message;
+        public string sharedType;
+        public string buildingType;
+        public string randomSource;
+        public string linkToPlayer;
+        public string linkToTown;
+        public string spell;
+        public string prisonedHero;
+        public string riddle;
+        public string keyColor;
+        public int amount2;
+        public int groupId;
+        public int spellLevel;
+        public int cost;
+        public bool randomCreatures;
+        public bool collectableArmy;
+        public bool allowQuickCombat;
+        public bool randomHero;
+        public bool randomRiddle;
+        public bool creatureSwapBlockedForAI;
+        public List<string> creatures;
+        public List<int> availableResources;
+        public MapTilePointDef shipTile;
+        public Dictionary<string, List<string>> upgradeFilter;
+        public MapQuestDef quest;
     }
 
     public class MapDef
@@ -236,6 +373,7 @@ namespace HoMM5.Data
         public string source;
         public int tileX;
         public int tileY;
+        public int initialFloor;
         public bool hasSurface;
         public bool hasUnderground;
         public Dictionary<string, int> objectCounts;

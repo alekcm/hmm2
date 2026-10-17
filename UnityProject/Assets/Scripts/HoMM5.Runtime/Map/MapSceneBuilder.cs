@@ -61,7 +61,7 @@ namespace HoMM5.Map
         }
 
         /// <summary>Build the map into a new root GameObject.</summary>
-        public GameObject Build(string mapId, int floor = 1)
+        public GameObject Build(string mapId, int floor = 0)
         {
             Map = LoadMapDef(mapId);
             if (Map == null)
@@ -71,7 +71,8 @@ namespace HoMM5.Map
             }
 
             Root = new GameObject("Map_" + mapId);
-            Terrain = H5Terrain.Load(mapId, floor == 0 ? "UndergroundTerrain" : "GroundTerrain");
+            // Shipped script constants: GROUND=0, UNDERGROUND=1.
+            Terrain = H5Terrain.Load(mapId, floor == 1 ? "UndergroundTerrain" : "GroundTerrain");
 
             BuildTerrain(floor);
             BuildObjects(floor);

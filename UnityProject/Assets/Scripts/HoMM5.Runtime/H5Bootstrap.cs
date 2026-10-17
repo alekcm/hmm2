@@ -21,13 +21,20 @@ namespace HoMM5
         [Tooltip("Load this map on start.  Empty means the first one in the index.")]
         public string initialMapId = "";
 
-        [Tooltip("0 = underground, 1 = surface.")]
-        public int floor = 1;
+        [Tooltip("0 = surface (GROUND), 1 = underground (UNDERGROUND).")]
+        public int floor = 0;
+
+        [Tooltip("Map player whose heroes/resources this local prototype controls.")]
+        public string localPlayerId = "PLAYER_1";
+
+        [Tooltip("Starting-resource tier from DefaultStats: 0 easiest, 1, 2 normal, 3 hardest.")]
+        [Range(0, 3)] public int gameDifficulty = 2;
 
         public GameDatabase Database { get; private set; }
         public MeshCache Meshes { get; private set; }
         public HoMM5.Core.H5TextureCache Textures { get; private set; }
         public MapSceneBuilder CurrentMap { get; private set; }
+        public AdventureMapGameState GameState { get; private set; }
 
         GameObject _mapRoot;
         HoMM5Hud _hud;
@@ -37,6 +44,10 @@ namespace HoMM5
         {
             Database = new GameDatabase();
             Database.Load();
+            GameState = new AdventureMapGameState();
+            GameState.SetBaseHeroMovement(Database.Rules != null
+                ? Database.Rules.baseHeroMovement : AdventureMapGameState.DefaultDailyHeroMovement);
+            GameState.Changed += RefreshTurnHud;
 
             Meshes = new MeshCache();
 
@@ -50,6 +61,8 @@ namespace HoMM5
             _hud = gameObject.AddComponent<HoMM5Hud>();
             _hud.Controller = _controller;
             _hud.Database = Database;
+            _hud.EndDayRequested = EndDay;
+            RefreshTurnHud();
             // PopulateMapList needs the HUD's Start to have built its canvas.
             _hud.PopulateMapList(LoadMap);
 
@@ -66,6 +79,19 @@ namespace HoMM5
 
         public void LoadMap(string mapId)
         {
+            var map = MapSceneBuilder.LoadMapDef(mapId);
+            LoadMapAtFloor(mapId, map != null ? map.initialFloor : floor);
+        }
+
+        void LoadMapAtFloor(string mapId, int targetFloor)
+        {
+            if (GameState != null && GameState.HasMovingHero) return;
+            var previousMapId = CurrentMap != null && CurrentMap.Map != null ? CurrentMap.Map.id : "";
+            var previousFloor = floor;
+            var preserveScenarioState = string.Equals(previousMapId, mapId,
+                System.StringComparison.OrdinalIgnoreCase) && previousFloor != targetFloor;
+            floor = targetFloor == 1 ? 1 : 0;
+            if (_controller != null) _controller.Select(null);
             if (CurrentMap != null && CurrentMap.Root != null) Destroy(CurrentMap.Root);
             Meshes.Clear();
             if (Textures != null) Textures.Dispose();
@@ -79,12 +105,33 @@ namespace HoMM5
                 return;
             }
             CurrentMap = builder;
+            var newScenario = !preserveScenarioState;
+            GameState.BindMap(builder, newScenario, localPlayerId, Database.Rules,
+                              Database.TownBuildings, gameDifficulty);
 
-            if (builder.Terrain != null)
-                _controller.SetMapBounds(builder.Terrain.Tiles, builder.Terrain.Tiles);
-            _controller.FocusOn(new Vector3((builder.Map.tileX) * 0.5f, 0f, (builder.Map.tileY) * 0.5f), 45f);
+            _controller.SetMapBounds(builder.Map.tileX, builder.Map.tileY);
+            // TileToWorld accounts for both the horizontal tile scale and the
+            // terrain height at the map center.
+            _controller.FocusOn(builder.TileToWorld(builder.Map.tileX * 0.5f,
+                                                    builder.Map.tileY * 0.5f), 45f);
 
             RefreshStats();
+        }
+
+        void EndDay()
+        {
+            if (GameState == null || GameState.HasMovingHero) return;
+            GameState.EndDay();
+            RefreshStats();
+        }
+
+        void RefreshTurnHud()
+        {
+            if (_hud != null && GameState != null)
+            {
+                _hud.SetTurnDate(GameState.Day, GameState.Week, GameState.Month);
+                _hud.SetResourceSummary(GameState.Resources != null ? GameState.Resources.ToString() : "");
+            }
         }
 
         void RefreshStats()
@@ -102,8 +149,16 @@ namespace HoMM5
 
         void Update()
         {
-            if (HoMM5.Core.H5Input.FloorTogglePressed())
-                floor = floor == 1 ? 0 : 1;
+            if (!HoMM5.Core.H5Input.FloorTogglePressed() || CurrentMap == null || CurrentMap.Map == null)
+                return;
+
+            // F1 must rebuild the scene on the other plane; changing only the
+            // integer leaves the current level rendered. Respect each map's
+            // available floors and use the source game's GROUND=0 convention.
+            var targetFloor = floor == 0 ? 1 : 0;
+            if (targetFloor == 1 && !CurrentMap.Map.hasUnderground) return;
+            if (targetFloor == 0 && !CurrentMap.Map.hasSurface) return;
+            LoadMapAtFloor(CurrentMap.Map.id, targetFloor);
         }
 
         // -- scene furniture -----------------------------------------------
@@ -206,6 +261,7 @@ namespace HoMM5
 
         void OnDestroy()
         {
+            if (GameState != null) GameState.Changed -= RefreshTurnHud;
             if (Meshes != null) Meshes.DestroyMeshes();
         }
     }

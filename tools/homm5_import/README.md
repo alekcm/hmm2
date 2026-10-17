@@ -54,10 +54,17 @@ the slow one (~15 min in pure Python for all 9258 files):
 ```bash
 python3 -m homm5import.cli gamedata -o <out>   # 1 s   game tables + localization
 python3 -m homm5import.cli terrain  -o <out>   # 14 s  293 terrain planes
-python3 -m homm5import.cli maps     -o <out>   # 16 s  142 maps, 197936 objects
+python3 -m homm5import.cli maps     -o <out>   # 142 maps, 198001 objects across 21 kinds
 python3 -m homm5import.cli meshes   -o <out>   # 58 s  3561 meshes
 python3 -m homm5import.cli textures -o <out>   # slow  9258 textures
 ```
+
+`gamedata` also exports `Game/rules.json`: raw adventure constants and
+four human/computer starting-resource tiers from `DefaultStats.xdb`, plus mine
+yields read from shipped mine descriptions. `townBuildings.json` carries each
+building's type/upgrade and daily gold income when stated in its shipped
+localized description. Those are data values; the native engine's formulas that
+combine them with hero/army/terrain state are a separate reverse-engineering task.
 
 `--limit N` caps any stage, which is how you smoke-test without waiting.
 
@@ -65,7 +72,7 @@ python3 -m homm5import.cli textures -o <out>   # slow  9258 textures
 
 ```
 HoMM5/
-├── Game/creatures.json  spells.json  artifacts.json  townBuildings.json  Localization.json
+├── Game/creatures.json  spells.json  artifacts.json  townBuildings.json  rules.json  Localization.json
 ├── Maps/<mapId>.json  _index.json
 ├── Terrain/<mapId>/GroundTerrain.{json,heights,flags,passability}
 ├── Meshes/<geometryUid>.glb
@@ -188,7 +195,7 @@ preserve through a PNG round trip anyway.
 cd tools/homm5_import && python3 -m unittest discover -s tests
 ```
 
-34 tests, ~46 s, all against the real shipped data. They are cross-checks
+82 tests, ~232 s, all against the real shipped data. They are cross-checks
 between independent sources rather than golden files:
 
 - decoded positions fit the bounding box the geometry's own `.xdb` declares
@@ -203,6 +210,8 @@ between independent sources rather than golden files:
 - a creature's geometry UID names a file that exists in `bin/Geometries`
 - only `AdvMapDesc` roots count as maps (142 of the 1176 `.xdb` under
   `data/Maps`), and every map gets a distinct id
+- every `AdvMap` object kind found in the map corpus is represented in the
+  importer, and floor IDs match the shipped constants (`GROUND=0`, `UNDERGROUND=1`)
 
 ## Not imported
 
