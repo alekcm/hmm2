@@ -1806,6 +1806,99 @@ def _parse_dto_fields(path: str) -> dict:
     return out
 
 
+class ScenarioSetupDataTest(unittest.TestCase):
+    """The data the main menu needs to offer a real 1v1.
+
+    A menu that lists nothing is not a menu, and a faction picker with no
+    factions is a dead end. These assert the shipped corpus can actually
+    populate the new-game flow: scenarios that author two opposing players,
+    eight playable factions, and a hero class for each.
+    """
+
+    def test_multiplayer_scenarios_author_owners(self):
+        """38 of the 40 Multiplayer maps put a PlayerID on their towns.
+
+        Without an authored owner every town is neutral and there is nobody to
+        play against, so this is what makes a 1v1 possible at all.
+        """
+        xdb = XDB(DATA)
+        paths = iter_map_files(xdb, only_map_descs=True)
+        multiplayer = [p for p in paths if "Multiplayer" in p]
+        self.assertGreater(len(multiplayer), 0)
+
+        owned = 0
+        two_player = []
+        owners_seen = set()
+        for path in multiplayer:
+            try:
+                desc = load_map(xdb, path)
+            except Exception:
+                continue
+            owners = set()
+            for obj in desc.objects or []:
+                if obj.kind != "AdvMapTown":
+                    continue
+                owner = obj.extra.get("owner")
+                # PLAYER_NONE is the shipped spelling of "neutral", not a player.
+                if owner and owner != "PLAYER_NONE":
+                    owners.add(owner)
+            if owners:
+                owned += 1
+                owners_seen |= owners
+                if len(owners) == 2:
+                    two_player.append(path)
+        self.assertGreaterEqual(owned, 30, "too few scenarios author town owners")
+        self.assertIn("PLAYER_1", owners_seen)
+        self.assertIn("PLAYER_2", owners_seen)
+        self.assertGreaterEqual(len(two_player), 1,
+                                "no scenario is written for exactly two players")
+
+    def test_eight_playable_factions(self):
+        """The menu's faction list: eight towns with buildings to run."""
+        xdb = XDB(DATA)
+        loc = Localization(TEXTS) if os.path.isdir(TEXTS) else None
+        town_types = load_town_types(xdb, loc)
+        playable = []
+        for town_type in _values(town_types):
+            faction = town_type.get("faction") or ""
+            buildings = town_type.get("buildings") or []
+            if not faction or faction == "RandomTown" or not buildings:
+                continue
+            playable.append(town_type)
+        self.assertEqual(len(playable), 8,
+                         "expected the eight playable factions, got %d" % len(playable))
+        factions = {t["faction"] for t in playable}
+        for expected in ("Haven", "Academy", "Necromancy", "Inferno",
+                         "Preserve", "Dungeon", "Dwarves", "Stronghold"):
+            self.assertIn(expected, factions)
+
+    def test_every_faction_maps_to_a_hero_class(self):
+        """The hero list must not be empty for any faction the menu offers."""
+        # Mirrors AdventureMapGameState.ClassForTown, which the menu calls to
+        # put the faction's own class at the top of the list.
+        mapping = {
+            "TOWN_HEAVEN": "HERO_CLASS_KNIGHT",
+            "TOWN_INFERNO": "HERO_CLASS_DEMON_LORD",
+            "TOWN_NECROMANCY": "HERO_CLASS_NECROMANCER",
+            "TOWN_PRESERVE": "HERO_CLASS_RANGER",
+            "TOWN_ACADEMY": "HERO_CLASS_WIZARD",
+            "TOWN_DUNGEON": "HERO_CLASS_WARLOCK",
+            "TOWN_FORTRESS": "HERO_CLASS_RUNEMAGE",
+            "TOWN_STRONGHOLD": "HERO_CLASS_BARBARIAN",
+        }
+        xdb = XDB(DATA)
+        loc = Localization(TEXTS) if os.path.isdir(TEXTS) else None
+        town_types = load_town_types(xdb, loc)
+        playable = [t for t in _values(town_types)
+                    if (t.get("faction") or "") and t["faction"] != "RandomTown"
+                    and (t.get("buildings") or [])]
+        self.assertEqual(len(playable), 8)
+        for town_type in playable:
+            self.assertIn(town_type["id"], mapping,
+                          "no hero class for %s" % town_type["id"])
+
+
+
 class CSharpCallCheckTest(unittest.TestCase):
     """The C# side cannot be compiled here, so the call checker is the only
     thing standing between a wrong argument count and a Unity compile error
@@ -1849,6 +1942,13 @@ class CSharpCallCheckTest(unittest.TestCase):
         self.assertEqual(rc, 0, out)
         self.assertIn("self-test PASSED", out)
 
+
+
+def _values(container):
+    """Iterate the records of a table that may be a list or an id-keyed dict."""
+    if isinstance(container, dict):
+        return list(container.values())
+    return list(container or [])
 
 
 def _upgrade_rank(upgrade: str) -> int:

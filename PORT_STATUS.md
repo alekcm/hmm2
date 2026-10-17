@@ -334,10 +334,56 @@ carries only the `Bonus` enum with no magnitudes, and no shipped map sets
 scenes (`/Arenas/Town/...`, wall/tower/gate `ArenaModObject`s) — that is the
 source for the siege battlefield, still unused.
 
+## Continuation: a match you can actually play
+
+Until now the project had no front door. `H5Bootstrap.Start` loaded the first
+map in the index, there was one shared treasury, one player id, and no
+opponent: `BindMovement(isLocalHero ? this : null, ...)` meant every hero that
+was not the local player's simply never moved. A viewer, not a game.
+
+**Now**: main menu → scenario → faction → hero → play, against a computer.
+
+- `UI/MainMenu.cs` — the front door. New Game / Continue / Quit, then the four
+  setup steps: a scenario list (arenas filtered out — they are battlefields,
+  not scenarios), the eight playable factions with their building counts, the
+  hero classes with the faction's own class first, and a confirmation panel.
+  `H5Bootstrap` no longer loads a map on start; it opens the menu. A map named
+  on the component still skips straight in, which is how the editor works.
+- `Map/H5PlayerState.cs` — a player record: id, human/computer, faction, town
+  type, hero class, **their own treasury**, their heroes and towns, and whether
+  they are still alive. Plus the roster: turn index, `EndTurn` advancing to the
+  next survivor, `Defeat`, `Winner`.
+- Turn order follows the source game: the day advances only when the *last*
+  surviving player has acted, not once per player. The HUD's button is relabelled
+  "End Turn" for that reason, and Space is bound to it.
+- `Map/H5AiController.cs` — the computer's turn: build (dwellings first, then
+  fort, then income, cheapest wins), recruit the whole pool it can afford, then
+  send each hero at the best target in reach and attack on arrival. Every
+  number is a shipped one — cost, growth, prerequisites, `CreatureTier`. It is
+  a heuristic, not the engine's AI, which lives in the exe and the Lua scripts.
+- Victory and defeat: a player with no town and no hero is out; when one is
+  left standing the match ends and a dialog offers the main menu.
+
+**What the data allowed, checked rather than assumed.** The scenario list is
+populated because 38 of the 40 `Multiplayer` maps author a `PlayerID` on their
+towns — six of them for exactly two players (A1M3, A1S1, A2M4, A2M12, A2M13,
+S4), which the menu says outright. `PLAYER_NONE` is the shipped spelling of
+"neutral", not a player, and most single-player maps use it for everything;
+on those, unowned towns are handed to the computer at match setup. Authored
+`PLAYER_3..8` opponents get a roster record each, so a scenario written for
+more than two players still has all of them acting.
+
+Not done, and worth saying plainly: there is no hero *roster* to choose from —
+`HeroClassDef` carries no names, so the menu offers the eight classes, not
+individual heroes. There is no hot-seat; the computer answers immediately. The
+AI does not use spells, does not retreat, and does not defend a besieged town
+differently from an open field. Town interiors and the siege battlefield are
+still not rendered.
+
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **112
-tests** (111 pass, 1 skipped), every one against the real shipped data. These
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **115
+tests** (114 pass, 1 skipped), every one against the real shipped data. These
 are cross-checks between independent sources, not golden files:
 
 - **Town data** (10 tests) — 328 buildings with 328 unique keys and zero
@@ -346,6 +392,10 @@ are cross-checks between independent sources, not golden files:
   all eight factions; all eight grails 1.5× and 5000 gold/day;
   `Haven/Peasant_Huts` growth 22 = `CREATURE_PEASANT`'s `WeeklyGrowth`, gold
   500; the single cross-faction dependency pinned.
+- **Scenario setup** (3 tests) — the new-game flow has data behind it: 38 of
+  the 40 Multiplayer scenarios author a `PlayerID` per town (six of them for
+  exactly two players), eight factions have buildings to run, and every one of
+  the eight maps to a hero class. A menu that lists nothing is not a menu.
 - **C# call sites** (3 tests) — the arity checker runs over the real
   `UnityProject` sources and must report nothing; must resolve more than 1000
   calls (a checker that resolves nothing also reports nothing, so silence is not

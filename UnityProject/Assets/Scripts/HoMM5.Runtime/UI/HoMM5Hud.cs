@@ -28,6 +28,11 @@ namespace HoMM5.UI
         Text _turnDate;
         Text _resourceSummary;
         GameObject _panel;
+        /// <summary>
+        /// End Turn. In a match this hands the map to the next player and the
+        /// day only advances once the last of them has acted, so the button is
+        /// labelled for the turn, not the day.
+        /// </summary>
         public System.Action EndDayRequested;
         public System.Action SaveRequested;
         public System.Action LoadRequested;
@@ -114,6 +119,9 @@ namespace HoMM5.UI
             if (_minimap != null && builder != null)
                 _minimap.Build(builder, Controller, GameState);
         }
+
+        /// <summary>The canvas every panel in this HUD hangs off.</summary>
+        public Transform CanvasRoot => _canvasRoot;
 
         /// <summary>Hide the adventure HUD while a battle runs.</summary>
         public void Show()
@@ -226,7 +234,7 @@ namespace HoMM5.UI
             button.onClick.AddListener(() => EndDayRequested?.Invoke());
             var label = MakeText(buttonGo.transform, "Label", 14, FontStyle.Bold, TextAnchor.MiddleCenter,
                                  new Vector2(4, 2), new Vector2(-4, -2));
-            label.text = "End Day";
+            label.text = "End Turn";
             label.raycastTarget = false;
 
             MakeBarButton(bar.transform, "SaveButton", "Save (F5)", -128,
@@ -333,6 +341,20 @@ namespace HoMM5.UI
         {
             if (_turnDate != null)
                 _turnDate.text = $"Day {day}  |  Week {week}  |  Month {month}";
+        }
+
+        /// <summary>
+        /// Whose turn it is, next to the date. Without it a player cannot tell
+        /// whether the map is theirs or the computer is thinking.
+        /// </summary>
+        public void SetCurrentPlayer(string name, bool isLocal)
+        {
+            if (_turnDate == null) return;
+            var suffix = string.IsNullOrEmpty(name) ? "" : $"  |  {name}'s turn";
+            if (!string.IsNullOrEmpty(name) && !isLocal) suffix += " (thinking)";
+            _turnDate.text = _turnDate.text.Split('|').Length >= 3
+                ? string.Join("|", _turnDate.text.Split('|'), 0, 3).TrimEnd() + suffix
+                : _turnDate.text + suffix;
         }
 
         public void SetResourceSummary(string text)

@@ -169,6 +169,20 @@ namespace HoMM5.Core
 #endif
         }
 
+        /// <summary>
+        /// Space: end the turn. Heroes 5 binds this to the turn hand-off, and it
+        /// is the key a player reaches for most often in a match.
+        /// </summary>
+        public static bool EndTurnPressed()
+        {
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
+            var kb = UnityEngine.InputSystem.Keyboard.current;
+            return kb != null && kb.spaceKey.wasPressedThisFrame;
+#else
+            return Input.GetKeyDown(KeyCode.Space);
+#endif
+        }
+
         /// <summary>Escape: close whatever modal panel is open.</summary>
         public static bool CancelPressed()
         {

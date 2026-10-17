@@ -43,6 +43,8 @@ namespace HoMM5
 
         // One battle at a time: its scene lives in its own root while the
         // adventure map is hidden under it.
+        HoMM5.UI.MainMenu _menu;
+
         CombatSceneBuilder _combatScene;
         CombatController _combat;
         CombatHud _combatHud;
@@ -84,6 +86,16 @@ namespace HoMM5
             RefreshTurnHud();
             // PopulateMapList needs the HUD's Start to have built its canvas.
             _hud.PopulateMapList(LoadMap);
+            GameState.MatchEnded += OnMatchEnded;
+
+            // The main menu is the front door: the map, the faction and the
+            // hero are the player's choices, not a default. It is created on
+            // the HUD's canvas and sits above every adventure panel.
+            _menu = HoMM5.UI.MainMenu.Create(_hud.CanvasRoot);
+            _menu.Database = Database;
+            _menu.StartRequested = StartNewGame;
+            _menu.LoadRequested = () => { _menu.Hide(); _hud.Show(); LoadGame(); };
+            _menu.QuitRequested = QuitGame;
 
             if (!Database.IsLoaded)
             {
@@ -91,10 +103,80 @@ namespace HoMM5
                 return;
             }
 
-            var id = initialMapId;
-            if (string.IsNullOrEmpty(id) && Database.MapIndex.Count > 0) id = Database.MapIndex[0].id;
-            if (!string.IsNullOrEmpty(id)) LoadMap(id);
-            GameState.AddLog("Left-click selects; right-click moves the selected hero. F5 saves, F9 loads.");
+            // A map named on the component skips the menu, which is how the
+            // editor and a quick smoke test still land straight in a scenario.
+            if (!string.IsNullOrEmpty(initialMapId))
+            {
+                _menu.Hide();
+                LoadMap(initialMapId);
+                return;
+            }
+
+            _hud.Hide();
+            GameState.AddLog("Choose a scenario to begin.");
+        }
+
+        // -- new game ------------------------------------------------------
+
+        /// <summary>
+        /// The menu's "Start": load the chosen scenario, hand the game state
+        /// the chosen faction and hero, and give the player an opponent.
+        /// </summary>
+        public void StartNewGame(HoMM5.UI.NewGameSetup setup)
+        {
+            if (setup == null || string.IsNullOrEmpty(setup.MapId)) return;
+            if (Database == null || !Database.IsLoaded) return;
+
+            gameDifficulty = Mathf.Clamp(setup.Difficulty, 0, 3);
+            localPlayerId = "PLAYER_1";
+            _pendingSetup = setup;
+
+            _menu.Hide();
+            _hud.Show();
+            LoadMap(setup.MapId);
+            GameState.AddLog($"{setup.PlayerName} ({setup.FactionName}) vs {setup.OpponentName}. " +
+                             "End Turn hands the map over; F5 saves, F9 loads.");
+        }
+
+        HoMM5.UI.NewGameSetup _pendingSetup;
+
+        void OnMatchEnded(string winnerId)
+        {
+            if (GameState == null) return;
+            var winner = GameState.Players != null ? GameState.Players.Find(winnerId) : null;
+            var name = winner != null ? winner.Name : winnerId;
+            var localWon = string.Equals(winnerId, localPlayerId,
+                                         System.StringComparison.OrdinalIgnoreCase);
+            GameState.AddLog(localWon ? $"Victory -- {name} wins the scenario."
+                                      : $"Defeat -- {name} wins the scenario.");
+            var request = new H5DialogRequest
+            {
+                Message = localWon ? "Victory!\n\nThe scenario is yours."
+                                   : "Defeat.\n\nYour last town and hero are gone.",
+            };
+            request.Options.Add(new H5DialogOption
+            {
+                Label = "Main menu",
+                Action = () => ReturnToMenu(),
+            });
+            GameState.RequestDialog(request);
+        }
+
+        /// <summary>Back to the front door, dropping the running scenario.</summary>
+        public void ReturnToMenu()
+        {
+            if (CombatActive) return;
+            if (_menu != null) _menu.Show();
+            if (_hud != null) _hud.Hide();
+        }
+
+        void QuitGame()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
         }
 
         public void LoadMap(string mapId)
@@ -131,6 +213,16 @@ namespace HoMM5
             var newScenario = !restoredState && !preserveScenarioState;
             GameState.BindMap(builder, newScenario, localPlayerId, Database.Rules,
                               Database.TownBuildings, gameDifficulty);
+
+            // A new game sets up its match once, after the map's objects exist:
+            // ownership, the opponent's faction and the starting treasury all
+            // need the towns and heroes BindMap just registered. A floor switch
+            // or a load must not re-deal the scenario.
+            if (newScenario && _pendingSetup != null)
+            {
+                GameState.SetupMatch(_pendingSetup);
+                _pendingSetup = null;
+            }
 
             _controller.SetMapBounds(builder.Map.tileX, builder.Map.tileY);
             // TileToWorld accounts for both the horizontal tile scale and the
@@ -320,20 +412,33 @@ namespace HoMM5
             return "";
         }
 
+        /// <summary>
+        /// End Turn. With a roster this passes play to the next player and the
+        /// computer answers immediately; the day advances on the wrap. Without a
+        /// roster -- a map opened straight from the editor -- it is the old
+        /// single-player day step.
+        /// </summary>
         void EndDay()
         {
             if (GameState == null || GameState.HasMovingHero || CombatActive) return;
-            GameState.EndDay();
+            if (GameState.Players != null && GameState.Players.Players.Count > 0)
+                GameState.EndTurn();
+            else
+                GameState.EndDay();
             RefreshStats();
         }
 
         void RefreshTurnHud()
         {
-            if (_hud != null && GameState != null)
-            {
-                _hud.SetTurnDate(GameState.Day, GameState.Week, GameState.Month);
-                _hud.SetResourceSummary(GameState.Resources != null ? GameState.Resources.ToString() : "");
-            }
+            if (_hud == null || GameState == null) return;
+            _hud.SetTurnDate(GameState.Day, GameState.Week, GameState.Month);
+            var current = GameState.CurrentPlayer;
+            if (current != null)
+                _hud.SetCurrentPlayer(current.Name, GameState.IsLocalTurn);
+            // The treasury shown is the local player's own, not a shared pot.
+            var local = GameState.LocalPlayer;
+            var resources = local != null && local.Resources != null ? local.Resources : GameState.Resources;
+            _hud.SetResourceSummary(resources != null ? resources.ToString() : "");
         }
 
         void RefreshStats()
@@ -398,6 +503,7 @@ namespace HoMM5
         void Update()
         {
             if (CombatActive) return;
+            if (HoMM5.Core.H5Input.EndTurnPressed()) EndDay();
             if (HoMM5.Core.H5Input.SavePressed()) SaveGame();
             if (HoMM5.Core.H5Input.LoadPressed()) LoadGame();
             if (HoMM5.Core.H5Input.HeroScreenPressed()) ShowHeroSkills();
