@@ -244,8 +244,8 @@ namespace HoMM5.UI
         bool PointerOnMinimap()
         {
             var rt = (RectTransform)transform;
-            return RectTransformUtility.ScreenPointInRectangle(
-                rt, H5Input.PointerPosition(), null, out _);
+            return RectTransformUtility.RectangleContainsScreenPoint(
+                rt, H5Input.PointerPosition(), null);
         }
 
         void FocusAtPointer()

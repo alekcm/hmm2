@@ -3,8 +3,11 @@
     "references": [
         "HoMM5.Runtime",
         "Unity.ugui",
+        "UnityEngine.TestRunner",
         "Unity.Nuget.Newtonsoft-Json"
     ],
-    "optionalUnityReferences": ["TestAssemblies"],
+    "overrideReferences": true,
+    "precompiledReferences": ["nunit.framework.dll"],
+    "defineConstraints": ["UNITY_INCLUDE_TESTS"],
     "autoReferenced": false
 }

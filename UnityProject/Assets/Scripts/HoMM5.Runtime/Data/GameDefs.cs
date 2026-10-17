@@ -492,6 +492,7 @@ namespace HoMM5.Data
         public int gold;
     }
 
+    [System.Serializable]
     public class PlayerResourceInventory
     {
         public int wood;

@@ -2,7 +2,25 @@
 
 What is here, what is verified, and what is not done.
 
-## Latest audit — 2026-10-17
+## Unity 6.6 compiler diagnostics — 2026-10-18
+
+The user's first Editor compile exposed errors that the heuristic checkers did
+not detect. These have been addressed in source: Quaternion normalization,
+double-to-float conversion for regeneration, List.Add arity, duplicate/shadowed
+locals, missing creature-name API, a static IsBank call, garrison list access,
+minimap hit testing, and GetInstanceID (replaced by GetEntityId for Unity 6.6).
+Runtime-only view fields are NonSerialized; PlayerResourceInventory is now
+Serializable without excluding it from JSON saves.
+
+The PlayMode assembly now uses an explicit UnityEngine.TestRunner reference and
+an explicit NUnit DLL, with overrideReferences and UNITY_INCLUDE_TESTS, and no
+legacy optionalUnityReferences/TestAssemblies injection. Seven narrow Python
+source-regression tests cover the reported bad expressions; Unity behaviour
+tests cover quaternion sampling, garrisons/siege detection, regeneration and
+resource serialization. They still need execution in the real Editor; this
+sandbox has not compiled the fixes against Unity DLLs.
+
+## Previous audit — 2026-10-17
 
 See [the current single-mission audit (Russian)](SINGLE_MISSION_AUDIT_RU.md)
 for the capability matrix, fixes, verification commands and remaining blockers.

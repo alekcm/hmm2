@@ -484,7 +484,7 @@ namespace HoMM5.Combat
             var shader = additive ? _additive : _alpha;
             if (shader == null) return null;
 
-            var key = (additive ? "add|" : "alpha|") + (texture != null ? texture.GetInstanceID() : 0);
+            var key = (additive ? "add|" : "alpha|") + (texture != null ? texture.GetEntityId().ToString() : "none");
             Material m;
             if (_materials.TryGetValue(key, out m) && m != null) return m;
 
@@ -504,7 +504,7 @@ namespace HoMM5.Combat
             EnsureShaders();
             if (_additive == null) return null;
 
-            var key = "head|" + (texture != null ? texture.GetInstanceID() : 0) + "|" + tint.ToString();
+            var key = "head|" + (texture != null ? texture.GetEntityId().ToString() : "none") + "|" + tint.ToString();
             Material m;
             if (_materials.TryGetValue(key, out m) && m != null) return m;
 

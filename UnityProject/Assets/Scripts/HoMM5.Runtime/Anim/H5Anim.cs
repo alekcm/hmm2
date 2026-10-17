@@ -224,7 +224,7 @@ namespace HoMM5.Anim
             if (c == null) return Quaternion.identity;
             var q = new Quaternion(Sample(c, t, 0), Sample(c, t, 1),
                                    Sample(c, t, 2), Sample(c, t, 3));
-            var m = q.magnitude;
+            var m = Mathf.Sqrt(Quaternion.Dot(q, q));
             return m > 1e-6f ? new Quaternion(q.x / m, q.y / m, q.z / m, q.w / m)
                              : Quaternion.identity;
         }

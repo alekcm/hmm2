@@ -538,7 +538,7 @@ namespace HoMM5.Map
         {
             if (def == null) return false;
             return def.kind == "AdvMapTown" || def.kind == "AdvMapGarrison" ||
-                   (def.garrison != null && def.garrison.stacks != null && def.garrison.stacks.Count > 0 &&
+                   (def.garrison != null && def.garrison.Count > 0 &&
                     def.kind != "AdvMapDwelling");
         }
 

@@ -190,8 +190,8 @@ namespace HoMM5.Map
         /// <summary>Whether the object posts a defending garrison.</summary>
         static bool HasGarrison(MapObjectDef obj)
         {
-            return obj != null && obj.garrison != null && obj.garrison.stacks != null &&
-                   obj.garrison.stacks.Count > 0;
+            return obj != null && obj.garrison != null &&
+                   obj.garrison.Count > 0;
         }
 
         // -- treasures -----------------------------------------------------
@@ -228,6 +228,7 @@ namespace HoMM5.Map
                 }
                 case "TREASURE_CHEST":
                 case "TREASURE_SEA_CHEST":
+                {
                     // The classic dialog: gold, or experience for the peasants.
                     // Deferred to the HUD when one is listening.
                     var gold = roll * ChestGoldRollUnit;
@@ -258,6 +259,7 @@ namespace HoMM5.Map
                     });
                     state.RequestDialog(request);
                     return true;
+                }
                 case "TREASURE_WOOD":
                 case "TREASURE_ORE":
                 case "TREASURE_MERCURY":

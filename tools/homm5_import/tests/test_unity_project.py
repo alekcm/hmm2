@@ -33,11 +33,14 @@ class UnityProjectWiringTest(unittest.TestCase):
 
     def test_playmode_regressions_are_a_test_assembly(self):
         definition = json.loads((PROJECT / "Assets/Tests/PlayMode/HoMM5.PlayMode.Tests.asmdef").read_text())
-        self.assertIn("TestAssemblies", definition["optionalUnityReferences"])
+        # Use ONE mechanism: explicit runner + NUnit, not legacy TestAssemblies
+        # injection mixed with explicit/auto references in Unity 6.6.
+        self.assertNotIn("TestAssemblies", definition.get("optionalUnityReferences", []))
         self.assertIn("HoMM5.Runtime", definition["references"])
-        # TestAssemblies already injects the test-runner references. Adding
-        # UnityEngine.TestRunner explicitly makes Unity reject the assembly.
-        self.assertNotIn("UnityEngine.TestRunner", definition["references"])
+        self.assertEqual(definition["references"].count("UnityEngine.TestRunner"), 1)
+        self.assertTrue(definition["overrideReferences"])
+        self.assertEqual(definition["precompiledReferences"], ["nunit.framework.dll"])
+        self.assertIn("UNITY_INCLUDE_TESTS", definition["defineConstraints"])
         self.assertFalse(definition.get("includePlatforms"), "PlayMode tests must not be Editor-only")
 
     def test_assembly_references_do_not_duplicate_implicit_test_runners(self):

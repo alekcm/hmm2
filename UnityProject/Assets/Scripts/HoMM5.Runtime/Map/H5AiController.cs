@@ -127,7 +127,7 @@ namespace HoMM5.Map
                         var taken = state.RecruitFor(player, town, dwelling.type, creatureId, 0);
                         if (taken > 0)
                             log.Add($"{player.Name}: {town.Name} fields {taken} " +
-                                    $"{state.Database.CreatureName(creatureId)}.");
+                                    $"{(state.Database?.GetCreature(creatureId)?.DisplayName ?? creatureId)}.");
                     }
                 }
             }
@@ -258,7 +258,7 @@ namespace HoMM5.Map
         {
             if (obj.kind == "AdvMapTown") return 500f;
             if (obj.kind == "AdvMapHero") return 300f;
-            if (state.IsBank(obj)) return 160f;
+            if (AdventureMapGameState.IsBank(obj)) return 160f;
             if (obj.kind == "AdvMapMonster")
             {
                 // Attack only what looks beatable; the creature's own tier is a

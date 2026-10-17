@@ -108,12 +108,12 @@ namespace HoMM5.Combat
                     if (guard != null && guard.Count > 0 && !string.IsNullOrEmpty(guard.CreatureId))
                         state.AddUnit(CombatSide.Defender, guard.CreatureId, guard.Count, db, null, id++);
             }
-            else if (def != null && def.garrison != null && def.garrison.stacks != null &&
-                     def.garrison.stacks.Count > 0)
+            else if (def != null && def.garrison != null &&
+                     def.garrison.Count > 0)
             {
                 // Garrison (town, garrison post, dwarven warren): fight the
                 // posted stacks.
-                foreach (var stack in def.garrison.stacks)
+                foreach (var stack in def.garrison)
                     if (stack != null && !string.IsNullOrEmpty(stack.creature))
                         state.AddUnit(CombatSide.Defender, stack.creature,
                                       Mathf.Max(1, stack.count > 0 ? stack.count : stack.amount),
@@ -991,18 +991,18 @@ namespace HoMM5.Combat
                             return order;
                         }
                         // Pound the healthiest structure (gate first when up).
-                        SiegeStructure target = null;
+                        SiegeStructure structureTarget = null;
                         SiegeStructure gate = null;
                         foreach (var s in Siege.Structures)
                         {
                             if (!s.IsAlive) continue;
                             if (s.Kind == SiegeStructure.Gate) gate = s;
-                            if (target == null || s.Health > target.Health) target = s;
+                            if (structureTarget == null || s.Health > structureTarget.Health) structureTarget = s;
                         }
-                        target = gate ?? target;
-                        if (target != null)
+                        structureTarget = gate ?? structureTarget;
+                        if (structureTarget != null)
                         {
-                            AttackStructure(unit, target);
+                            AttackStructure(unit, structureTarget);
                             order.Done = true;
                             return order;
                         }

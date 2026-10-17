@@ -13,7 +13,7 @@ namespace HoMM5.UI
     {
         public CombatController Controller;
         /// <summary>Set by the bootstrap; needed to resolve spell ids.</summary>
-        public HoMM5.Data.GameDatabase Database;
+        [System.NonSerialized] public HoMM5.Data.GameDatabase Database;
 
         GameObject _root;
         RectTransform _queueRow;
@@ -130,7 +130,10 @@ namespace HoMM5.UI
                 lines.Add("Effects: " + string.Join(", ", effects));
             }
             if (u.Def != null && !string.IsNullOrEmpty(u.Def.Description))
-                lines.Add("", u.Def.Description);
+            {
+                lines.Add("");
+                lines.Add(u.Def.Description);
+            }
             return string.Join("\n", lines);
         }
 
@@ -305,10 +308,10 @@ namespace HoMM5.UI
             _spellList.anchorMax = Vector2.one;
             _spellList.offsetMin = new Vector2(8, 8);
             _spellList.offsetMax = new Vector2(-8, -34);
-            var layout = listGo.GetComponent<VerticalLayoutGroup>();
-            layout.spacing = 3;
-            layout.childForceExpandHeight = false;
-            layout.childControlHeight = false;
+            var spellLayout = listGo.GetComponent<VerticalLayoutGroup>();
+            spellLayout.spacing = 3;
+            spellLayout.childForceExpandHeight = false;
+            spellLayout.childControlHeight = false;
             _spellPanel.SetActive(false);
 
             // Result modal (hidden until the battle ends).

@@ -257,7 +257,7 @@ namespace HoMM5.Combat
             {
                 var heal = unit.HasEffect(CombatEffect.Regeneration)
                     ? Mathf.RoundToInt(unit.FindEffect(CombatEffect.Regeneration).Magnitude)
-                    : Mathf.RoundToInt(RegenerationMin + rng.NextDouble() * (RegenerationMax - RegenerationMin));
+                    : Mathf.RoundToInt(RegenerationMin + (float)rng.NextDouble() * (RegenerationMax - RegenerationMin));
                 HealStack(unit, heal);
                 return $"{unit.DisplayName} regenerates {heal} health.";
             }

@@ -14,7 +14,7 @@ namespace HoMM5.Combat
     /// </summary>
     public class CombatUnitView : MonoBehaviour
     {
-        public CombatUnit Unit;
+        [System.NonSerialized] public CombatUnit Unit;
         TextMesh _countLabel;
         Coroutine _moveRoutine;
 
