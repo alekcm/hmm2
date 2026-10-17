@@ -483,7 +483,14 @@ namespace HoMM5.Map
         internal void RequestCombat(H5MapObject hero, H5MapObject monster,
                                     List<HoMM5.Combat.ArmyStackState> guardOverride)
         {
-            if (hero == null || monster == null) return;
+            if (hero == null) return;
+            if (monster == null)
+            {
+                // The object has no scene view (no mesh), so there is nothing to
+                // fight through. Say so instead of ending the turn silently.
+                AddLog("That creature cannot be engaged on this map.");
+                return;
+            }
             hero.HaltMovement();
 
             var context = new BattleContext
