@@ -16,6 +16,8 @@ tools/homm5_import/
 │   ├── localization.py UTF-16 text tables
 │   ├── gamedata.py     creatures, spells, artifacts, town buildings
 │   ├── maps.py         AdvMapDesc → map objects
+│   ├── gr2.py          RAD Granny GR2 skeletons and animations
+│   ├── sounds.py       sound / music catalog and the audio it names
 │   └── cli.py          entry point
 └── tests/test_pipeline.py
 ```
@@ -57,7 +59,14 @@ python3 -m homm5import.cli terrain  -o <out>   # 14 s  293 terrain planes
 python3 -m homm5import.cli maps     -o <out>   # 142 maps, 198001 objects across 21 kinds
 python3 -m homm5import.cli meshes   -o <out>   # 58 s  3561 meshes
 python3 -m homm5import.cli textures -o <out>   # slow  9258 textures
+python3 -m homm5import.cli animations -o <out> # ~2 min  2816 clips, 577 Oodle-packed skipped
+python3 -m homm5import.cli sounds   -o <out>   # a few s  2013 effects, 155 music tracks
 ```
+
+`all` and the stages that take more than a few seconds report progress as they
+go (`textures 1200/9258 (13%)`, once every two seconds), so a run that is merely
+slow cannot be mistaken for one that has hung. A rerun of a single stage is
+safe: files are overwritten in place.
 
 `gamedata` also exports `Game/rules.json`: raw adventure constants and
 four human/computer starting-resource tiers from `DefaultStats.xdb`, plus mine
@@ -68,6 +77,10 @@ combine them with hero/army/terrain state are a separate reverse-engineering tas
 
 `--limit N` caps any stage, which is how you smoke-test without waiting.
 
+`info` also counts what already sits under `-o` (textures, meshes, maps, terrain
+planes, animations), so `import_to_unity.bat info` is the quickest answer to
+"did the import actually write the textures?" without opening a file manager.
+
 ## Output
 
 ```
@@ -76,7 +89,10 @@ HoMM5/
 ├── Maps/<mapId>.json  _index.json
 ├── Terrain/<mapId>/GroundTerrain.{json,heights,flags,passability}
 ├── Meshes/<geometryUid>.glb
-└── Textures/<original path>.dds.png  _manifest.json
+├── Animations/<animationUid>.json.gz  _index.json
+├── Audio/Sfx/<soundUid>.<wav|ogg>  Music/<path>.ogg
+├── Textures/<original path>.dds.png  _manifest.json
+└── Game/sounds.json
 ```
 
 Terrain planes ship as raw little-endian arrays (`.heights` = `V²` float32,
@@ -119,7 +135,11 @@ every `.xdb` there as a map produces 1034 zero-tile empty maps -- and worse,
 `Maps/Multiplayer/S1` and `Maps/SingleMissions/S1` both reduce to the id `S1`,
 so one silently overwrites the other on disk. `maps.is_map_desc` filters on the
 root tag and `maps.unique_map_ids` prefixes colliding ids with their parent
-folder.
+folder. Terrain has the same hazard plus a second one: arena folders ship
+`GroundTerrain.bin` under basenames like `S1` without containing any map
+descriptor. `cli._terrain_ids` gives those a path-derived folder name, so 293
+planes produce 293 distinct files instead of 262 (the multiplayer maps S1-S3
+used to be overwritten by an arena of the same name).
 
 ### Terrain planes
 
@@ -195,8 +215,10 @@ preserve through a PNG round trip anyway.
 cd tools/homm5_import && python3 -m unittest discover -s tests
 ```
 
-82 tests, ~232 s, all against the real shipped data. They are cross-checks
-between independent sources rather than golden files:
+144 tests, ~3 min, all against the real shipped data. (Five drive the C# static
+checkers and need `pip install tree-sitter tree-sitter-c-sharp`; without it they
+fail rather than skip.) They are cross-checks between independent sources rather
+than golden files:
 
 - decoded positions fit the bounding box the geometry's own `.xdb` declares
 - `<NumMeshes>` equals both the binary's declared count and the count decoded
@@ -217,10 +239,13 @@ between independent sources rather than golden files:
 
 Documented gaps, not silent ones:
 
-- **`bin/Skeletons` and `bin/animations`** are RAD Granny GR2, not the Nival
-  container. They carry their own type tree and are Oodle-compressed by section,
-  so they need an Oodle1 decompressor. Nothing here reads them, so imported
-  creatures are static meshes in their bind pose.
+- **`bin/Skeletons`** are RAD Granny GR2, not the Nival container, and every
+  section in them is Oodle1-packed; that codec is not implemented, so they are
+  unread. `bin/animations` use the same format, but 2816 of the 3393 files store
+  their sections uncompressed and are exported to `Animations/` (bones, rest pose
+  and curves in one pass); the other 577 are Oodle1-packed and counted as
+  skipped. Adventure-map models that name an `idle`/`move` clip are rigged and
+  animated by the Unity side (`H5Rig`); combat units still use the bind pose.
 - **`bin/effects`**, lightmaps, and the `types.xml` schema (2.4 MB, 775 type
   declarations) are present in the data and unused.
 - Textures are exported as PNG without mipmaps or the engine's alpha modes;

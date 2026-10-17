@@ -131,6 +131,42 @@ class TerrainTest(unittest.TestCase):
 
 
 @requires_data
+class TerrainOutputIdTest(unittest.TestCase):
+    """Output folder names, which must never collide.
+
+    Map JSON ids come from unique_map_ids, and terrain has to agree with them.
+    Arena folders add a second hazard: they ship ``GroundTerrain.bin`` under
+    basenames like ``S1`` without holding any map descriptor, so a plain
+    basename fallback overwrote the real multiplayer maps S1-S3 on disk.
+    """
+
+    def _files(self):
+        return sorted(
+            glob.glob(os.path.join(DATA, "Maps/**/GroundTerrain.bin"), recursive=True) +
+            glob.glob(os.path.join(DATA, "Maps/**/UndergroundTerrain.bin"), recursive=True))
+
+    def test_every_terrain_plane_gets_its_own_output_path(self):
+        from homm5import.cli import _terrain_ids
+        files = self._files()
+        self.assertGreater(len(files), 200)
+        ids = _terrain_ids(files, iter_map_files(XDB(DATA), only_map_descs=True), DATA)
+        paths = set()
+        for path in files:
+            folder = os.path.normpath(os.path.abspath(os.path.dirname(path)))
+            paths.add((ids[folder], os.path.basename(path)))
+        self.assertEqual(len(paths), len(files), "two planes share an output path")
+
+    def test_multiplayer_maps_keep_their_plain_ids(self):
+        """S1-S3 must not be borrowed by the arena folders of the same name."""
+        from homm5import.cli import _terrain_ids
+        ids = _terrain_ids(self._files(), iter_map_files(XDB(DATA), only_map_descs=True), DATA)
+        for name in ("S1", "S2", "S3"):
+            folder = os.path.normpath(os.path.abspath(
+                os.path.join(DATA, "Maps", "Multiplayer", name)))
+            self.assertEqual(ids.get(folder), name)
+
+
+@requires_data
 class GeometryTest(unittest.TestCase):
     @staticmethod
     def _model_uid_index(limit=None):
@@ -1085,6 +1121,50 @@ class Gr2Test(unittest.TestCase):
                 packed += 1
         self.assertEqual(stored, 2816)
         self.assertEqual(packed, 577)
+
+    def _first_stored(self):
+        from homm5import.gr2 import GR2
+        for path in self._files():
+            if GR2(open(path, "rb").read()).is_stored():
+                return path
+        self.fail("no stored animation in the library")
+
+    def test_section_payload_is_sliced_once(self):
+        """A section is cut out of the file once and the bytes reused.
+
+        Slicing per read instead is quadratic: every knot in a curve copied the
+        entire section, which is why a single animation took minutes. The
+        identity check is what keeps the cache from being dropped again.
+        """
+        from homm5import.gr2 import GR2
+        g = GR2(open(self._first_stored(), "rb").read())
+        self.assertIs(g.section_bytes(0), g.section_bytes(0))
+
+    def test_knots_use_the_scalar_fast_path(self):
+        """Knots and controls are arrays of a one-field Real32 struct.
+
+        ``_read_array`` reads a run of them with one ``struct.unpack`` instead
+        of building a dict per knot; over the library that is the difference
+        between minutes and hours. ``_curve`` flattens either shape, so nothing
+        else would notice the slow one coming back -- this test does.
+        """
+        from homm5import import gr2
+        g = gr2.GR2(open(self._first_stored(), "rb").read())
+
+        def find(sec, off, seen):
+            for m in g.members(sec, off):
+                if m.name == "Knots" and m.kind == gr2.REFERENCE_TO_ARRAY:
+                    return m
+                if m.type_sec >= 0 and (m.type_sec, m.type_off) not in seen:
+                    seen.add((m.type_sec, m.type_off))
+                    hit = find(m.type_sec, m.type_off, seen)
+                    if hit is not None:
+                        return hit
+            return None
+
+        m = find(g.root_type[0], g.root_type[1], set())
+        self.assertIsNotNone(m, "no Knots array in the type tree")
+        self.assertEqual(g._single_scalar(m.type_sec, m.type_off), gr2.REAL32)
 
     def _extract(self, n=40):
         from homm5import.gr2 import GR2, extract
