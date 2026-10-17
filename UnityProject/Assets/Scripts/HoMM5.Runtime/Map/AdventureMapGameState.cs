@@ -74,6 +74,13 @@ namespace HoMM5.Map
         /// <summary>Modal choices (chest, arena, tree of knowledge).</summary>
         public event Action<H5DialogRequest> DialogRequested;
 
+        /// <summary>
+        /// A hero stepped onto a monster's activation tile. The bootstrap turns
+        /// this into a battle scene; without a listener the fight is resolved
+        /// headless by the battle AI.
+        /// </summary>
+        public event Action<H5MapObject, H5MapObject> CombatRequested;
+
         public event Action Changed;
         public bool HasMovingHero
         {
@@ -228,9 +235,132 @@ namespace HoMM5.Map
                         if (s != null && !string.IsNullOrEmpty(s.spell)) hs.Spells.Add(s.spell);
             }
             hs.Mana = hs.MaxMana;
+            hs.EnsureArmy(hero.Def != null ? hero.Def.army : null);
             _heroStates[key] = hs;
             hero.BindHeroState(hs);
             return hs;
+        }
+
+        // -- combat --------------------------------------------------------
+
+        /// <summary>
+        /// Start a battle between a local hero and a map monster. Halts the
+        /// hero first: the fight pauses the adventure map.
+        /// </summary>
+        internal void RequestCombat(H5MapObject hero, H5MapObject monster)
+        {
+            if (hero == null || monster == null) return;
+            hero.HaltMovement();
+            if (CombatRequested != null)
+            {
+                CombatRequested.Invoke(hero, monster);
+                return;
+            }
+            // Headless (no combat scene attached): resolve with the battle AI.
+            GetHeroState(hero);
+            var battle = HoMM5.Combat.CombatGameState.Create(hero, monster, Database, Rand);
+            if (battle.Units.Find(u => u.Side == HoMM5.Combat.CombatSide.Attacker) == null)
+            {
+                AddLog("There is no army to attack with.");
+                return;
+            }
+            AddLog("Battle begins!");
+            var result = battle.RunQuickCombat();
+            ApplyCombatResult(hero, monster, result);
+        }
+
+        /// <summary>
+        /// Fold a finished battle back into the adventure map: army
+        /// casualties, experience, the defeated monster (or the defeated hero).
+        /// </summary>
+        public void ApplyCombatResult(H5MapObject heroObj, H5MapObject monsterObj,
+                                      HoMM5.Combat.CombatResult result)
+        {
+            if (result == null) return;
+            var heroState = heroObj != null ? GetHeroState(heroObj) : null;
+
+            switch (result.Outcome)
+            {
+                case HoMM5.Combat.CombatOutcome.AttackerWon:
+                    if (heroState != null)
+                    {
+                        heroState.SetArmy(result.AttackerSurvivors);
+                        WriteArmyToDef(heroObj.Def, result.AttackerSurvivors);
+                    }
+                    if (monsterObj != null) CollectObject(monsterObj);
+                    AddLog(result.Experience > 0
+                        ? $"Victory! The army earns {result.Experience} experience."
+                        : "Victory! The enemy stack is destroyed.");
+                    break;
+
+                case HoMM5.Combat.CombatOutcome.Fled:
+                    if (heroState != null)
+                    {
+                        heroState.SetArmy(result.AttackerSurvivors);
+                        WriteArmyToDef(heroObj.Def, result.AttackerSurvivors);
+                    }
+                    WriteMonsterSurvivors(monsterObj, result.DefenderSurvivors);
+                    AddLog("The army retreats; the enemy keeps its wounds.");
+                    break;
+
+                default:
+                    // The army is gone and so is the hero.
+                    AddLog("The hero's army is destroyed in battle.");
+                    if (heroObj != null)
+                    {
+                        heroObj.gameObject.SetActive(false);
+                        _heroes.Remove(heroObj);
+                    }
+                    break;
+            }
+            Changed?.Invoke();
+        }
+
+        static void WriteArmyToDef(HoMM5.Data.MapObjectDef def, List<HoMM5.Combat.ArmyStackState> survivors)
+        {
+            if (def == null) return;
+            def.army = new List<HoMM5.Data.MapArmyStackDef>();
+            if (survivors == null) return;
+            foreach (var s in survivors)
+            {
+                if (s == null || s.Count <= 0 || string.IsNullOrEmpty(s.CreatureId)) continue;
+                def.army.Add(new HoMM5.Data.MapArmyStackDef
+                {
+                    creature = s.CreatureId,
+                    count = s.Count,
+                    amount = s.Count,
+                    customAmount = true,
+                });
+            }
+        }
+
+        /// <summary>
+        /// Write a wounded monster's surviving stacks back to the map object,
+        /// so a rematch fights the remainder.
+        /// </summary>
+        static void WriteMonsterSurvivors(H5MapObject monsterObj, List<HoMM5.Combat.ArmyStackState> survivors)
+        {
+            if (monsterObj == null || monsterObj.Def == null || survivors == null) return;
+            var def = monsterObj.Def;
+            var main = survivors.Count > 0 ? survivors[0] : null;
+            if (main == null || main.Count <= 0) return;
+            def.creature = main.CreatureId;
+            def.amount = main.Count;
+            def.amount2 = main.Count;
+            def.customAmount = true;
+            def.additionalStacks = new List<HoMM5.Data.MapArmyStackDef>();
+            for (var i = 1; i < survivors.Count; i++)
+            {
+                var s = survivors[i];
+                if (s == null || s.Count <= 0) continue;
+                def.additionalStacks.Add(new HoMM5.Data.MapArmyStackDef
+                {
+                    creature = s.CreatureId,
+                    amount = s.Count,
+                    count = s.Count,
+                    customAmount = true,
+                });
+            }
         }
 
         /// <summary>

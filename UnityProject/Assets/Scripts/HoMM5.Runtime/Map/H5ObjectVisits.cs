@@ -102,6 +102,19 @@ namespace HoMM5.Map
 
             switch (obj.kind)
             {
+                case "AdvMapMonster":
+                {
+                    var hs = state.GetHeroState(hero);
+                    if (hs == null || hs.Army == null || hs.Army.Count == 0)
+                    {
+                        state.LogOncePerDay(obj, "There is no army to attack the " +
+                                                  DisplayName(obj) + " with.");
+                        return true;
+                    }
+                    state.AddLog($"Battle: {hs.HeroName} attacks the {DisplayName(obj)}!");
+                    state.RequestCombat(hero, mapObj);
+                    return true;
+                }
                 case "AdvMapTreasure": return VisitTreasure(state, heroState, hero, obj);
                 case "AdvMapArtifact": return VisitArtifact(state, heroState, hero, obj);
                 case "AdvMapMine": return VisitMine(state, hero, obj);

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using HoMM5.Combat;
 using HoMM5.Data;
 
 namespace HoMM5.Map
@@ -41,6 +42,12 @@ namespace HoMM5.Map
 
         /// <summary>Keymaster tent colors, for border guards.</summary>
         public List<string> KeyColors = new List<string>();
+
+        /// <summary>
+        /// The army the hero carries between battles. Seeded from the map's
+        /// armySlots on first use; casualties are written back here.
+        /// </summary>
+        public List<ArmyStackState> Army = new List<ArmyStackState>();
 
         /// <summary>Spell points cap: the shipped engine uses Knowledge * 10.</summary>
         public int MaxMana => Knowledge * 10;
@@ -130,6 +137,38 @@ namespace HoMM5.Map
         {
             TemporaryMorale = 0;
             TemporaryLuck = 0;
+        }
+
+        /// <summary>Fill the army from map-authored stacks, once.</summary>
+        public void EnsureArmy(List<MapArmyStackDef> mapStacks)
+        {
+            if (Army.Count > 0 || mapStacks == null) return;
+            foreach (var stack in mapStacks)
+            {
+                if (stack == null || string.IsNullOrEmpty(stack.creature)) continue;
+                var count = stack.count > 0 ? stack.count : stack.amount;
+                if (count > 0) Army.Add(new ArmyStackState(stack.creature, count));
+            }
+        }
+
+        /// <summary>Replace the army with battle survivors.</summary>
+        public void SetArmy(List<ArmyStackState> survivors)
+        {
+            Army.Clear();
+            if (survivors == null) return;
+            foreach (var s in survivors)
+                if (s != null && s.Count > 0 && !string.IsNullOrEmpty(s.CreatureId))
+                    Army.Add(new ArmyStackState(s.CreatureId, s.Count));
+        }
+
+        public int ArmyCount
+        {
+            get
+            {
+                var total = 0;
+                foreach (var s in Army) if (s != null) total += s.Count;
+                return total;
+            }
         }
 
         /// <summary>One-line summary for the HUD.</summary>

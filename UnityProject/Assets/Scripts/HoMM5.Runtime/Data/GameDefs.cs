@@ -155,6 +155,26 @@ namespace HoMM5.Data
         public List<StartResourcesDef> startHumanResources;
         public List<StartResourcesDef> startComputerResources;
         public Dictionary<string, int> mineDailyIncome;
+        /// <summary>Combat constants (combat/LuckAndMorale, combat/Creatures).</summary>
+        public GameCombatRulesDef combat;
+    }
+
+    /// <summary>
+    /// Combat constants read from DefaultStats.xdb. These are the shipped
+    /// numbers; the attack/defence per-point damage coefficients are not in the
+    /// data files and live in CombatRules with an "inferred" note.
+    /// </summary>
+    public class GameCombatRulesDef
+    {
+        public float defenceBonusOnDefend = 0.3f;
+        public float goodLuckDamageMultiplier = 2f;
+        public float badLuckDamageMultiplier = 0.5f;
+        public float goodMoraleAtbValue = 0.5f;
+        public float badMoraleAtbValue = 0.5f;
+        public int heroInitiative = 10;
+        public int spellInitiative = 10;
+        public int atbBaseTime = 100000;
+        public int atbEndTime = 20000;
     }
 
     public class StartResourcesDef
@@ -396,6 +416,8 @@ namespace HoMM5.Data
         public int tileY;
         public int objects;
         public Dictionary<string, int> counts;
+        /// <summary>True for Maps/CombatArenas scenery, used as battlefields.</summary>
+        public bool arena;
     }
 
     // -- terrain -----------------------------------------------------------

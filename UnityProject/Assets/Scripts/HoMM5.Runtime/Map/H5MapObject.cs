@@ -34,6 +34,7 @@ namespace HoMM5.Map
         public void AttachDatabase(GameDatabase db) => Database = db;
 
         Coroutine _moveRoutine;
+        bool _halted;
         AdventureMapGameState _gameState;
         string _movementKey;
         public float moveUnitsPerSecond = 7f;
@@ -90,6 +91,17 @@ namespace HoMM5.Map
             if (bonus > 0f) SetMovementPoints(MovementPointsRemaining + bonus);
         }
 
+        /// <summary>
+        /// Stop the walk where it stands (a battle started mid-path). The
+        /// FollowPath loop notices the flag and unwinds itself.
+        /// </summary>
+        public void HaltMovement()
+        {
+            _halted = true;
+            _moveRoutine = null;
+            SetMoveState(false);
+        }
+
         /// <summary>Move along the passability path, spending this day's simplified movement allowance.</summary>
         public bool MoveHeroTo(Vector2Int destination)
         {
@@ -106,6 +118,7 @@ namespace HoMM5.Map
             var spent = H5Pathfinder.PathCost(start, path) *
                         AdventureMapGameState.PrototypeMovementPointsPerTile;
             SetMovementPoints(MovementPointsRemaining - spent);
+            _halted = false;
             _moveRoutine = StartCoroutine(FollowPath(path));
             return true;
         }
@@ -127,6 +140,7 @@ namespace HoMM5.Map
                 Def.x = tile.x;
                 Def.y = tile.y;
                 if (_gameState != null) _gameState.HeroEnteredTile(this, tile);
+                if (_halted) yield break;   // halted (e.g. a battle started)
             }
             SetMoveState(false);
             _moveRoutine = null;

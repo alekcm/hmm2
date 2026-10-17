@@ -104,6 +104,17 @@ namespace HoMM5.UI
                 _minimap.Build(builder, Controller, GameState);
         }
 
+        /// <summary>Hide the adventure HUD while a battle runs.</summary>
+        public void Show()
+        {
+            if (_canvasRoot != null) _canvasRoot.gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            if (_canvasRoot != null) _canvasRoot.gameObject.SetActive(false);
+        }
+
         void OnSelectionChanged(H5MapObject obj)
         {
             if (_details == null) return;

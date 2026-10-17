@@ -188,6 +188,15 @@ def load_game_rules(xdb: XDB, loc: Optional[Localization] = None) -> dict:
                          for key in RESOURCE_FIELDS})
         return rows
 
+    def real(parent, field, default):
+        node = parent.find(field) if parent is not None else None
+        value = xdb.number(node, default)
+        return float(value)
+
+    combat = root.find("combat")
+    combat_creatures = combat.find("Creatures") if combat is not None else None
+    luck_morale = combat.find("LuckAndMorale") if combat is not None else None
+
     return {
         "source": "/GameMechanics/RPGStats/DefaultStats.xdb",
         "baseHeroMovement": number(adventure, "BaseHeroMovement"),
@@ -202,6 +211,21 @@ def load_game_rules(xdb: XDB, loc: Optional[Localization] = None) -> dict:
         "startHumanResources": resource_rows(adventure, "StartHumanResources"),
         "startComputerResources": resource_rows(adventure, "StartComputerResources"),
         "mineDailyIncome": load_mine_daily_income(loc),
+        # Combat constants the engine reads from the same file. The luck and
+        # morale multipliers and the defending bonus are the shipped numbers;
+        # the ATB scale is exposed because the turn model is reconstructed
+        # around it.
+        "combat": {
+            "defenceBonusOnDefend": real(combat_creatures, "DefenceBonusOnDefend", 0.3),
+            "goodLuckDamageMultiplier": real(luck_morale, "GoodLuck_DamageMultiplier", 2.0),
+            "badLuckDamageMultiplier": real(luck_morale, "BadLuck_DamageMultiplier", 0.5),
+            "goodMoraleAtbValue": real(luck_morale, "GoodMorale_ATBValue", 0.5),
+            "badMoraleAtbValue": real(luck_morale, "BadMorale_ATBValue", 0.5),
+            "heroInitiative": number(root, "HeroInitiative"),
+            "spellInitiative": number(root, "SpellInitiative"),
+            "atbBaseTime": number(root, "ATBBaseTime"),
+            "atbEndTime": number(root, "ATBEndTime"),
+        },
     }
 
 

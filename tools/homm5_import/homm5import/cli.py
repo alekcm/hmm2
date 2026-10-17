@@ -191,7 +191,10 @@ def cmd_maps(args) -> int:
         _write_json(_out(args.out, "Maps", name + ".json"), md.to_json())
         total_objects += len(md.objects)
         index.append({"id": name, "tileX": md.tile_x, "tileY": md.tile_y,
-                      "objects": len(md.objects), "counts": md.by_kind()})
+                      "objects": len(md.objects), "counts": md.by_kind(),
+                      # Combat arenas double as battle scenery; the runtime
+                      # picks one when a fight starts.
+                      "arena": "CombatArenas" in path.replace("\\", "/")})
     _write_json(_out(args.out, "Maps", "_index.json"), index)
     print(f"maps: {len(index)} written, {total_objects} objects")
     return 0

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using HoMM5.Combat;
 using HoMM5.Core;
 using HoMM5.Data;
 using HoMM5.Map;
@@ -40,6 +41,17 @@ namespace HoMM5
         HoMM5Hud _hud;
         AdventureMapController _controller;
 
+        // One battle at a time: its scene lives in its own root while the
+        // adventure map is hidden under it.
+        CombatSceneBuilder _combatScene;
+        CombatController _combat;
+        CombatHud _combatHud;
+        H5MapObject _combatHero;
+        H5MapObject _combatMonster;
+
+        /// <summary>Whether a battle is in progress (blocks turns, F1, saving).</summary>
+        public bool CombatActive => _combat != null;
+
         void Start()
         {
             Database = new GameDatabase();
@@ -49,6 +61,8 @@ namespace HoMM5
             GameState.SetBaseHeroMovement(Database.Rules != null
                 ? Database.Rules.baseHeroMovement : AdventureMapGameState.DefaultDailyHeroMovement);
             GameState.Changed += RefreshTurnHud;
+            GameState.CombatRequested += StartCombat;
+            CombatRules.Configure(Database.Rules != null ? Database.Rules.combat : null);
 
             Meshes = new MeshCache();
 
@@ -131,7 +145,7 @@ namespace HoMM5
 
         public void SaveGame()
         {
-            if (GameState == null || CurrentMap == null || GameState.HasMovingHero) return;
+            if (GameState == null || CurrentMap == null || GameState.HasMovingHero || CombatActive) return;
             var save = GameState.CaptureState();
             save.floor = floor;
             save.SaveToFile();
@@ -140,7 +154,7 @@ namespace HoMM5
 
         public void LoadGame()
         {
-            if (GameState == null || GameState.HasMovingHero) return;
+            if (GameState == null || GameState.HasMovingHero || CombatActive) return;
             var save = H5SaveGame.LoadFromFile();
             if (save == null)
             {
@@ -157,9 +171,127 @@ namespace HoMM5
             GameState.AddLog("Game loaded.");
         }
 
+        // -- combat --------------------------------------------------------
+
+        void StartCombat(H5MapObject heroObj, H5MapObject monsterObj)
+        {
+            if (_combat != null || CurrentMap == null || GameState == null) return;
+
+            var arenaId = PickArenaId();
+            var state = CombatGameState.Create(heroObj, monsterObj, Database, GameState.Rand);
+            if (state.Units.Find(u => u.Side == CombatSide.Attacker) == null)
+            {
+                GameState.AddLog("There is no army to attack with.");
+                return;
+            }
+
+            var scene = new CombatSceneBuilder(Meshes, Textures, Database,
+                MakeTerrainMaterial(), MakeObjectMaterial(), MakeWaterMaterial());
+            if (!scene.BuildArena(arenaId))
+            {
+                Debug.LogWarning("[HoMM5] failed to build combat arena " + arenaId);
+                GameState.AddLog("The battlefield could not be built.");
+                return;
+            }
+            scene.BuildUnits(state);
+
+            _combatScene = scene;
+            _combatHero = heroObj;
+            _combatMonster = monsterObj;
+
+            // The adventure map hides under the arena until the battle ends.
+            if (CurrentMap.Root != null) CurrentMap.Root.SetActive(false);
+            _hud.Hide();
+            if (_controller != null)
+            {
+                _controller.Select(null);
+                _controller.SetMapBounds(scene.Arena.Map.tileX, scene.Arena.Map.tileY);
+                _controller.FocusOn(scene.Arena.TileToWorld(scene.Arena.Map.tileX * 0.5f,
+                                                            scene.Arena.Map.tileY * 0.5f), 38f);
+            }
+
+            var host = new GameObject("Combat");
+            _combat = host.AddComponent<CombatController>();
+            _combatHud = host.AddComponent<CombatHud>();
+            _combat.Hud = _combatHud;
+            _combatHud.Controller = _combat;
+            _combat.BattleFinished += OnCombatFinished;
+            _combat.StartBattle(state, scene, _controller != null ? _controller.GetComponent<Camera>() : null);
+        }
+
+        void OnCombatFinished(CombatResult result)
+        {
+            if (_combat == null) return;
+            _combat.BattleFinished -= OnCombatFinished;
+
+            if (GameState != null)
+                GameState.ApplyCombatResult(_combatHero, _combatMonster, result);
+
+            if (_combatScene != null && _combatScene.Root != null) Destroy(_combatScene.Root);
+            _combatScene = null;
+            Destroy(_combat.gameObject);
+            _combat = null;
+            _combatHud = null;
+
+            // Back to the adventure map.
+            if (CurrentMap != null && CurrentMap.Root != null) CurrentMap.Root.SetActive(true);
+            if (_controller != null && CurrentMap != null && CurrentMap.Map != null)
+            {
+                _controller.SetMapBounds(CurrentMap.Map.tileX, CurrentMap.Map.tileY);
+                var focus = _combatHero != null && _combatHero.gameObject.activeInHierarchy
+                    ? _combatHero.transform.position
+                    : CurrentMap.TileToWorld(CurrentMap.Map.tileX * 0.5f, CurrentMap.Map.tileY * 0.5f);
+                _controller.FocusOn(focus, 45f);
+            }
+            _combatHero = null;
+            _combatMonster = null;
+            _hud.Show();
+            RefreshTurnHud();
+            RefreshStats();
+        }
+
+        /// <summary>
+        /// Pick a combat arena whose scenery matches the adventure terrain
+        /// (grass fights on grass arenas); fall back to any open arena.
+        /// </summary>
+        string PickArenaId()
+        {
+            var keyword = TerrainKeyword();
+            string fallback = null;
+            string best = null;
+            foreach (var entry in Database.MapIndex)
+            {
+                if (entry == null || !entry.arena) continue;
+                var id = entry.id ?? "";
+                var lower = id.ToLowerInvariant();
+                if (lower.Contains("siege") || lower.Contains("boss") ||
+                    lower.Contains("boat") || lower.Contains("citadel")) continue;
+                if (fallback == null) fallback = id;
+                if (keyword.Length > 0 && lower.Contains(keyword))
+                {
+                    best = id;
+                    if (lower.Contains("small")) break;
+                }
+            }
+            return best ?? fallback ?? "AbandonedMine";
+        }
+
+        string TerrainKeyword()
+        {
+            var terrain = CurrentMap != null ? CurrentMap.Terrain : null;
+            if (terrain == null || terrain.Layers == null) return "";
+            foreach (var layer in terrain.Layers)
+            {
+                var name = layer != null ? (layer.texture ?? "").ToLowerInvariant() : "";
+                foreach (var keyword in new[] { "grass", "dirt", "snow", "lava", "sand", "orc", "moss", "beach" })
+                    if (name.Contains(keyword)) return keyword;
+            }
+            return "";
+        }
+
         void EndDay()
         {
-            if (GameState == null || GameState.HasMovingHero) return;
+            if (GameState == null || GameState.HasMovingHero || CombatActive) return;
             GameState.EndDay();
             RefreshStats();
         }
@@ -188,6 +320,7 @@ namespace HoMM5
 
         void Update()
         {
+            if (CombatActive) return;
             if (HoMM5.Core.H5Input.SavePressed()) SaveGame();
             if (HoMM5.Core.H5Input.LoadPressed()) LoadGame();
 
@@ -303,7 +436,11 @@ namespace HoMM5
 
         void OnDestroy()
         {
-            if (GameState != null) GameState.Changed -= RefreshTurnHud;
+            if (GameState != null)
+            {
+                GameState.Changed -= RefreshTurnHud;
+                GameState.CombatRequested -= StartCombat;
+            }
             if (Meshes != null) Meshes.DestroyMeshes();
         }
     }

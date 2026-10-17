@@ -413,6 +413,19 @@ class GameDataTest(unittest.TestCase):
             "CRYSTAL": 1, "SULFUR": 1, "GEM": 1,
         })
 
+    def test_combat_constants_match_shipped_stats(self):
+        """The combat engine's own numbers: defending bonus, luck damage
+        multipliers and the ATB morale values live in DefaultStats.xdb and
+        must reach the runtime unchanged."""
+        c = self.rules["combat"]
+        self.assertEqual(c["defenceBonusOnDefend"], 0.3)
+        self.assertEqual(c["goodLuckDamageMultiplier"], 2.0)
+        self.assertEqual(c["badLuckDamageMultiplier"], 0.5)
+        self.assertEqual(c["goodMoraleAtbValue"], 0.5)
+        self.assertEqual(c["badMoraleAtbValue"], 0.5)
+        self.assertEqual(c["heroInitiative"], 10)
+        self.assertEqual(c["atbBaseTime"], 100000)
+
     def test_creature_stats_match_the_xml(self):
         c = self.creatures["CombatMage"]
         self.assertEqual(c["AttackSkill"], 12)

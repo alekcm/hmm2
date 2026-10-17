@@ -123,10 +123,43 @@ glTF package. Adventure-map viewer: chunked terrain with cliff walls, water,
   them as degrees, so every rotated prop faced within a few degrees of its
   authored direction.
 
+## Continuation: combat system
+
+- **Combat constants** are now imported from `DefaultStats.xdb`
+  (`combat/LuckAndMorale`, `combat/Creatures`, root ATB block): defending
+  bonus +30%, good/bad luck damage multipliers 2.0 / 0.5, morale ATB values,
+  hero initiative. The attack/defence per-point damage coefficients (5% /
+  2.5%, caps 3.0 / 0.3) and morale/luck proc chances (4% per point) are not
+  in the data files and live in `CombatRules` marked "inferred".
+- **Turn-based battles** (`HoMM5.Combat`): square-cell battlefield (the
+  engine's `Cell` type is a plain {x,y} pair) 14x10, deployed on real combat
+  arena scenery (the shipped `Maps/CombatArenas` maps, picked to match the
+  adventure terrain). Initiative-ordered rounds approximate the original ATB
+  gauge; Wait, Defend (+30% defence), morale extra/lost turns and luck
+  (double/half damage) are all wired to the shipped numbers.
+- Damage: stack size x per-creature roll, scaled by the attack/defence
+  difference and luck; shooters in melee deal half; one melee retaliation per
+  round. Casualties wound the top creature first, exactly by health pools.
+- **Player battles**: walking onto a monster's activation tile starts the
+  fight (hero halts mid-path). Click to move, click an enemy to attack
+  (move-then-attack resolves as one order); Wait/Defend/Flee buttons; Quick
+  Combat resolves the rest with the battle AI. The greedy AI shoots when free
+  and walks at the weakest enemy otherwise.
+- **Aftermath**: victory removes the monster, writes the surviving army to the
+  hero state (persisting in saves) and grants experience from the shipped
+  per-creature `Exp` values; fleeing leaves the monster wounded for a rematch;
+  defeat removes the hero. Monster stack rolls honor `amount`/`amount2` and
+  `additionalStacks`.
+- Battle HUD: initiative queue, unit cards with the shipped stats, battle log,
+  result panel. Unit models use the imported creature geometry (capsule
+  fallback without an import).
+- Quick combat also runs headless (no combat scene attached), so the rules
+  path is exercised without the UI.
+
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **86 tests**
-(85 pass, 1 skipped), every one against the real shipped data. These are
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **87 tests**
+(86 pass, 1 skipped), every one against the real shipped data. These are
 cross-checks between independent sources, not golden files:
 
 - **Container grammar** — every geometry file ends in the 6-byte marker
@@ -188,11 +221,18 @@ maps look.
   day/week/month counter. The base hero movement points are imported from the
   original stats, but tile costs remain a provisional flat 100 MP. Object
   visits, pickups, mine capture and hero levelling now run from the shipped
-  tables where those exist; there is still no original multiplayer turn order,
-  terrain/army/artifact movement calculation, map-script override execution,
-  combat, spells, abilities, town screen, campaigns, AI, Lua runtime or
-  networking. Individual hero starting stats are not in the imported tables
-  (heroes start at 1/1/1/1).
+  tables where those exist; battles run on reconstructed rules (see below).
+  There is still no original multiplayer turn order, terrain/army/artifact
+  movement calculation, map-script override execution, spells, abilities,
+  town screen, campaigns, AI, Lua runtime or networking. Individual hero
+  starting stats are not in the imported tables (heroes start at 1/1/1/1).
+- **Combat is a playable reconstruction, not the original.** The luck and
+  morale multipliers, the defending bonus and the creature stats are shipped
+  numbers; the attack/defence damage coefficients, proc chances, the 14x10
+  battle grid and the discrete initiative rounds are documented
+  approximations of the engine's ATB model. Not yet in battles: creature
+  abilities, war machines, hero spellcasting, siege walls/towers, two-hero
+  armies, banks/dwellings as battle sites, tactics placement and flee costs.
 - **Animation is partial.** Adventure-map idle and move clips are extracted
   from Granny GR2 and play through `H5Rig`/`H5Anim`; the bind-pose caveat in
   `H5Rig` applies to clips that start far from rest. Combat stances and
@@ -212,9 +252,9 @@ maps look.
    compile check left behind.
 2. Finish material translation: two-sided culling, additive passes, lightmaps and
    visual effects; smoothly blend the imported terrain coverage layers.
-3. Combat: the data is already here — `creatures.json` carries attack, defence,
-   damage, initiative, speed and abilities, and `spells.json` the spell table.
-   Guarded banks, monster stacks and hero battles all gate on this.
+3. Grow combat: creature abilities (`CombatAbilities.xdb`), war machines,
+   hero spellcasting (`spells.json` is imported), sieges; then open guarded
+   banks and dwelling fights on it.
 4. Town screen and hero screen; secondary skills (Witch Huts and hero levelling
    dialogs already expect a skill system behind them).
 5. Audio: `music/`, `sound/`, `soundsfx/` are FMOD-packed and untouched.
