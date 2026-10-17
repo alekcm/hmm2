@@ -26,10 +26,13 @@ from homm5import import terrain  # noqa: E402
 from homm5import.container import END_MARKER, parse_records  # noqa: E402
 from homm5import.maps import iter_map_files, load_map  # noqa: E402
 from homm5import.dds import DDSError, decode_dds, write_png  # noqa: E402
-from homm5import.gamedata import (load_arena_buildings, load_artifacts,
+from homm5import.gamedata import (fill_dwelling_growth, fill_grail_values,
+                                 load_arena_buildings,
+                                 load_artifacts, load_creature_enum_ids,
                                  load_creatures, load_game_rules,
                                  load_hero_classes, load_skills, load_spells,
-                                 load_town_buildings, load_war_machines)  # noqa: E402
+                                 load_town_buildings, load_town_types,
+                                 load_war_machines, town_building_key)  # noqa: E402
 from homm5import.geometry import decode_file as decode_geometry  # noqa: E402
 from homm5import.gltf import geometry_to_glb  # noqa: E402
 from homm5import.localization import Localization  # noqa: E402
@@ -1464,6 +1467,348 @@ class TownPayloadTest(unittest.TestCase):
         for c in self.chests:
             self.assertIn("isCustom", c.extra)
             self.assertIsInstance(c.extra["amount"], int)
+
+
+@requires_data
+class TownScreenDataTest(unittest.TestCase):
+    """The tables a town screen is built from.
+
+    Every assertion is a cross-check between two shipped sources rather than a
+    golden file: a building's dependencies against the building table itself, a
+    dwelling's weekly number against the creature it breeds, a faction's
+    building list against the files on disk, a town's ``TOWN_*`` enum against the
+    ``AdvMapTownShared`` record that names its buildings.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.xdb = XDB(DATA)
+        cls.loc = Localization(TEXTS) if os.path.isdir(TEXTS) else None
+        cls.creatures = load_creatures(cls.xdb, cls.loc)
+        cls.raw_buildings = load_town_buildings(cls.xdb, cls.loc)
+        cls.buildings = [dict(r) for r in cls.raw_buildings]
+        cls.by_enum = {r["enumId"]: r for r in cls.creatures.values() if r.get("enumId")}
+        cls.grown = fill_dwelling_growth(cls.buildings, cls.by_enum)
+        fill_grail_values(cls.buildings)
+        cls.by_key = {r["key"]: r for r in cls.buildings}
+        cls.town_types = load_town_types(cls.xdb, cls.loc)
+        # The eight factions a player can actually own; TOWN_SPECIAL /
+        # TOWN_NO_TYPE / TOWN_RANDOM_TYPE are markers, not towns.
+        cls.playable = {k: v for k, v in cls.town_types.items()
+                        if v["faction"] and v["faction"] != "RandomTown"}
+
+    def test_building_keys_are_faction_qualified_and_unique(self):
+        """Every faction ships a Fort.xdb, so the folder has to be in the key."""
+        self.assertEqual(len(self.buildings), 328)
+        self.assertEqual(len(self.by_key), len(self.buildings))
+        folders = {os.path.basename(p) for p in glob.glob(
+            os.path.join(DATA, "GameMechanics", "TownBuildingSharedStats", "*"))}
+        self.assertEqual({r["faction"] for r in self.buildings}, folders)
+        for rec in self.buildings:
+            self.assertEqual(rec["key"], rec["faction"] + "/" + rec["id"])
+
+    def test_every_dependency_resolves_and_only_one_crosses_a_faction(self):
+        """An upgraded dwelling names the building it replaces, by relative href.
+
+        Exactly one record breaks the pattern: Necromancy's Ruined Tower depends
+        on ``/Preserve/Fort/Fort.xdb`` -- an absolute href into another faction's
+        folder, where every other dependency in the table is relative. A
+        Necropolis can never hold a Sylvan Fort, so the shipped row is a
+        copy-paste bug; the runtime drops cross-faction prerequisites rather
+        than making the building unbuildable. Pinned here so a change shows up.
+        """
+        with_deps = [r for r in self.buildings if r["dependencies"]]
+        self.assertGreater(len(with_deps), 100)
+        cross = []
+        for rec in with_deps:
+            for dep in rec["dependencies"]:
+                self.assertIn(dep, self.by_key, f"{rec['key']} -> {dep}")
+                if self.by_key[dep]["faction"] != rec["faction"]:
+                    cross.append((rec["key"], dep))
+        self.assertEqual(cross, [("Necromancy/RuinedTower", "Preserve/Fort")])
+        # The chain is a tree: upgrading never leads back to itself.
+        for rec in with_deps:
+            seen, stack = {rec["key"]}, list(rec["dependencies"])
+            while stack:
+                dep = stack.pop()
+                self.assertNotIn(dep, seen, f"dependency cycle at {rec['key']}")
+                seen.add(dep)
+                stack.extend(self.by_key[dep]["dependencies"])
+
+    def test_dwelling_growth_is_the_creature_weekly_growth(self):
+        """No TownBuildingSharedStats record carries <Growth>; the creature does."""
+        dwellings = [r for r in self.buildings if r["type"].startswith("TB_DWELLING")]
+        self.assertEqual(len(dwellings), 126)
+        self.assertGreaterEqual(self.grown, 110)
+        for rec in dwellings:
+            if rec["creature"] == "CREATURE_UNKNOWN":
+                continue                        # RandomTown's empty placeholders
+            creature = self.by_enum.get(rec["creature"])
+            self.assertIsNotNone(creature, rec["key"])
+            self.assertEqual(rec["growth"], int(creature["WeeklyGrowth"]), rec["key"])
+            self.assertGreater(rec["growth"], 0)
+        self.assertEqual(self.by_key["Haven/Peasant_Huts"]["growth"], 22)
+        self.assertEqual(self.by_key["Haven/Peasant_Huts"]["cost"]["Gold"], 500)
+
+    def test_every_faction_ships_a_complete_town(self):
+        """Seven dwellings, four halls, three fort tiers, five guild levels."""
+        for faction in sorted({r["faction"] for r in self.buildings} - {"RandomTown"}):
+            rows = [r for r in self.buildings if r["faction"] == faction]
+            types = {}
+            for r in rows:
+                types[r["type"]] = types.get(r["type"], 0) + 1
+            for tier in range(1, 8):
+                self.assertEqual(types.get("TB_DWELLING_%d" % tier), 2,
+                                 f"{faction} dwelling {tier}")
+            self.assertEqual(types.get("TB_TOWN_HALL"), 4, faction)
+            self.assertEqual(types.get("TB_FORT"), 3, faction)
+            self.assertEqual(types.get("TB_MAGIC_GUILD"), 5, faction)
+            self.assertEqual(types.get("TB_GRAIL"), 1, faction)
+            # A dwelling pair is the base building and its upgrade; the upgrade
+            # costs more, depends on the base, and may open a second creature
+            # (Academy's Manufactory recruits Master Gremlins *or* Saboteurs).
+            for tier in range(1, 8):
+                pair = sorted((r for r in rows if r["type"] == "TB_DWELLING_%d" % tier),
+                              key=lambda r: r["upgrade"])
+                base, upgraded = pair
+                self.assertEqual([base["upgrade"], upgraded["upgrade"]],
+                                 ["BLD_UPG_1", "BLD_UPG_2"])
+                self.assertEqual(upgraded["dependencies"], [base["key"]])
+                self.assertGreaterEqual(upgraded["cost"]["Gold"], base["cost"]["Gold"])
+                self.assertNotEqual(upgraded["creature"], base["creature"])
+                if upgraded["creature2"]:
+                    self.assertIn(upgraded["creature2"], self.by_enum)
+
+    def test_town_types_list_every_building_of_their_faction(self):
+        """AdvMapTownShared.buildings is the link from TOWN_* to a building folder.
+
+        Neither TownTypesInfo (whose textFort for TOWN_STRONGHOLD points at
+        Inferno's texts) nor the creature folders (Orcs, Dwarf, Necropolis) can
+        produce the building folder, so this list is what the town screen's
+        contents come from -- and it has to be exactly the folder on disk.
+        """
+        self.assertEqual(len(self.playable), 8)
+        for town_id, rec in sorted(self.playable.items()):
+            folder = os.path.join(DATA, "GameMechanics", "TownBuildingSharedStats",
+                                  rec["faction"])
+            on_disk = len(glob.glob(os.path.join(folder, "*", "*.xdb")))
+            self.assertEqual(len(rec["buildings"]), on_disk, town_id)
+            self.assertEqual({k.split("/")[0] for k in rec["buildings"]}, {rec["faction"]})
+            for key in rec["buildings"]:
+                self.assertIn(key, self.by_key, f"{town_id} -> {key}")
+            # The whole folder, no more and no less.
+            self.assertEqual(set(rec["buildings"]),
+                             {r["key"] for r in self.buildings
+                              if r["faction"] == rec["faction"]}, town_id)
+        self.assertEqual(self.playable["TOWN_HEAVEN"]["faction"], "Haven")
+        self.assertEqual(self.playable["TOWN_FORTRESS"]["faction"], "Dwarves")
+        self.assertEqual(self.playable["TOWN_STRONGHOLD"]["faction"], "Stronghold")
+
+    def test_town_type_numbers_match_the_shipped_table(self):
+        heaven = self.playable["TOWN_HEAVEN"]
+        self.assertEqual(heaven["siloIncome"]["Crystal"], 1)
+        self.assertEqual(heaven["siloIncome"]["Gold"], 0)
+        self.assertEqual(heaven["nativeWarMachine"], "WAR_MACHINE_BALLISTA")
+        self.assertEqual(heaven["moatMaxDamage"], 204)
+        self.assertEqual(self.playable["TOWN_ACADEMY"]["moatMaxDamage"], 340)
+        self.assertEqual(self.playable["TOWN_NECROMANCY"]["nativeWarMachine"],
+                         "WAR_MACHINE_FIRST_AID_TENT")
+        # Dungeon's moat poisons; the numbers are the record's own.
+        moat = self.playable["TOWN_DUNGEON"]["moatSpells"]
+        self.assertEqual(len(moat), 1)
+        self.assertEqual(moat[0]["spell"], "SPELL_ABILITY_POISONOUS_ATTACK")
+        self.assertEqual((moat[0]["chance"], moat[0]["power"]), (100, 28))
+        for rec in self.playable.values():
+            self.assertGreater(rec["moatMaxDamage"], 0)
+            self.assertNotEqual(rec["nativeWarMachine"], "WAR_MACHINE_NONE")
+            self.assertTrue(any(rec["siloIncome"].values()), rec["id"])
+
+    def test_growth_multipliers_are_read_from_the_building_descriptions(self):
+        """Citadel +50%, Castle doubling, Grail +50% -- in all eight factions.
+
+        The numbers exist only as sentences in the localized descriptions, so the
+        importer parses them. Asserting every faction's rows catches a wording
+        change that would otherwise silently drop a town's growth bonus.
+        """
+        for faction in sorted({r["faction"] for r in self.buildings} - {"RandomTown"}):
+            rows = {r["key"]: r for r in self.buildings if r["faction"] == faction}
+            citadel = [r for r in rows.values() if r["type"] == "TB_FORT" and r["upgrade"] == "BLD_UPG_2"]
+            castle = [r for r in rows.values() if r["type"] == "TB_FORT" and r["upgrade"] == "BLD_UPG_3"]
+            self.assertEqual(len(citadel), 1, faction)
+            self.assertEqual(len(castle), 1, faction)
+            self.assertEqual(citadel[0]["growthMultiplier"], 1.5, citadel[0]["key"])
+            self.assertEqual(castle[0]["growthMultiplier"], 2.0, castle[0]["key"])
+        # Nothing else in the table claims a growth bonus.
+        odd = [r["key"] for r in self.buildings
+               if r["growthMultiplier"] != 1.0
+               and r["type"] not in ("TB_FORT", "TB_GRAIL")]
+        self.assertEqual(odd, [])
+
+    def test_grails_that_omit_their_numbers_take_the_ones_that_state_them(self):
+        """Eight Grails, one building, four descriptions with the figures in.
+
+        Haven's Sentinel of Elrath says "+50% weekly growth, 5000 gold daily";
+        the Academy's Skyship says only "increases the weekly growth, brings
+        gold". The four silent rows take the four explicit rows' numbers, which
+        is the one inferred value in the town tables -- pinned here so the
+        fallback is visible rather than buried.
+        """
+        grails = [r for r in self.buildings if r["type"] == "TB_GRAIL"]
+        self.assertEqual(len(grails), 8)
+        for rec in grails:
+            self.assertEqual(rec["growthMultiplier"], 1.5, rec["key"])
+            self.assertEqual(rec["incomeGoldPerDay"], 5000, rec["key"])
+        # Four rows state the numbers, four do not: the fill touches two fields
+        # on each of the silent ones.
+        self.assertEqual(fill_grail_values([dict(r) for r in self.raw_buildings]), 8)
+        self.assertEqual(fill_grail_values([dict(r) for r in self.buildings]), 0)
+
+    def test_creature_enum_ids_come_from_the_reference_table(self):
+        """Maps, spells and dwellings all name creatures CREATURE_*, never by file."""
+        table = load_creature_enum_ids(self.xdb)
+        with open(os.path.join(DATA, "GameMechanics", "RefTables", "Creatures.xdb"),
+                  encoding="utf-8") as fh:
+            declared = re.findall(r"<ID>([A-Z_0-9]+)</ID>", fh.read())
+        self.assertEqual(sorted(table), sorted(set(declared)))
+        self.assertEqual(len(table), 180)
+        for cid, href in table.items():
+            self.assertTrue(os.path.isfile(os.path.join(DATA, href.lstrip("/"))), href)
+        self.assertTrue(table["CREATURE_PEASANT"].endswith("Haven/Peasant.xdb"))
+        # Every creature a town dwelling breeds resolves through the enum.
+        for rec in self.buildings:
+            if rec["creature"] and rec["creature"] != "CREATURE_UNKNOWN":
+                self.assertIn(rec["creature"], table, rec["key"])
+
+    def test_map_town_upgrades_resolve_against_the_building_table(self):
+        """A map authors TB_* + BLD_UPG_*; the town screen resolves both."""
+        towns = []
+        for path in sorted(iter_map_files(self.xdb, only_map_descs=True)):
+            if len(towns) >= 6:
+                break
+            md = load_map(self.xdb, path, resolve_models=False)
+            towns.extend(o for o in md.objects if o.kind == "AdvMapTown")
+        self.assertGreaterEqual(len(towns), 6)
+        checked = 0
+        for town in towns:
+            for state in town.extra["buildings"]:
+                self.assertIn("maxUpgrade", state)
+                upgrade, cap = state["upgrade"], state["maxUpgrade"]
+                if upgrade == "BLD_UPG_NONE":
+                    continue
+                matches = [r for r in self.buildings
+                           if r["type"] == state["type"] and r["upgrade"] == upgrade]
+                self.assertTrue(matches, f"{state['type']} {upgrade} in {town.shared_href}")
+                # One record per faction: the map says what tier, the town's
+                # faction says which building that is.
+                self.assertEqual(len({m["faction"] for m in matches}), len(matches))
+                self.assertLessEqual(_upgrade_rank(upgrade), _upgrade_rank(cap),
+                                     f"{state['type']} starts above its cap")
+                checked += 1
+        self.assertGreater(checked, 20)
+
+
+@requires_data
+class DtoContractTest(unittest.TestCase):
+    """Every JSON field the importer writes has a field in the C# DTO.
+
+    There is no C# compiler in this environment, so the Unity side cannot be
+    built here -- but the contract between the two halves can still be checked.
+    A key the runtime does not declare is not an error at load time: Newtonsoft
+    drops it silently and the value arrives as 0 or null. That is exactly how a
+    town screen ends up breeding nothing, so the two sides are compared field by
+    field instead.
+    """
+
+    DTO_FILE = os.path.join(REPO, "UnityProject", "Assets", "Scripts",
+                            "HoMM5.Runtime", "Data", "GameDefs.cs")
+
+    @classmethod
+    def setUpClass(cls):
+        cls.xdb = XDB(DATA)
+        cls.loc = Localization(TEXTS) if os.path.isdir(TEXTS) else None
+        cls.dto = _parse_dto_fields(cls.DTO_FILE)
+
+    def test_the_dto_file_declares_the_classes_checked(self):
+        for name in ("CreatureDef", "TownBuildingDef", "TownTypeDef", "MapObjectDef",
+                     "MapBuildingStateDef", "ArtifactDef", "SkillDef", "HeroClassDef",
+                     "WarMachineDef", "SpellDef"):
+            self.assertIn(name, self.dto, f"{name} is missing from GameDefs.cs")
+
+    def test_town_building_fields_match_the_dto(self):
+        produced = _union_of_keys(load_town_buildings(self.xdb, self.loc))
+        self.assertLessEqual(produced, self.dto["TownBuildingDef"])
+
+    def test_town_type_fields_match_the_dto(self):
+        produced = _union_of_keys(list(load_town_types(self.xdb, self.loc).values()))
+        self.assertLessEqual(produced, self.dto["TownTypeDef"])
+        spells = _union_of_keys([s for t in load_town_types(self.xdb, self.loc).values()
+                                 for s in t["moatSpells"]])
+        self.assertLessEqual(spells, self.dto["TownMoatSpellDef"])
+
+    def test_creature_fields_match_the_dto(self):
+        produced = _union_of_keys(list(load_creatures(self.xdb, self.loc).values()))
+        self.assertLessEqual(produced, self.dto["CreatureDef"])
+        self.assertIn("enumid", produced)
+        self.assertIn("enumid", self.dto["CreatureDef"])
+
+    def test_map_object_fields_match_the_dto(self):
+        """Towns carry the most payload of any object kind; check one of each."""
+        seen = set()
+        produced = set()
+        for path in sorted(iter_map_files(self.xdb, only_map_descs=True)):
+            md = load_map(self.xdb, path, resolve_models=False)
+            for o in md.objects:
+                if o.kind in seen:
+                    continue
+                seen.add(o.kind)
+                produced |= {k.lower() for k in o.to_json()}
+                for b in o.extra.get("buildings") or []:
+                    self.assertLessEqual({k.lower() for k in b},
+                                         self.dto["MapBuildingStateDef"], o.kind)
+                for stack in (o.extra.get("garrison") or []) + (o.extra.get("army") or []):
+                    self.assertLessEqual({k.lower() for k in stack},
+                                         self.dto["MapArmyStackDef"], o.kind)
+            if len(seen) >= 12:
+                break
+        self.assertIn("AdvMapTown", seen)
+        self.assertLessEqual(produced, self.dto["MapObjectDef"])
+
+
+def _union_of_keys(records) -> set:
+    """Every key any record carries, lower-cased for a case-insensitive compare."""
+    out = set()
+    for rec in records:
+        if isinstance(rec, dict):
+            out |= {k.lower() for k in rec}
+    return out
+
+
+def _parse_dto_fields(path: str) -> dict:
+    """``{class name: {lower-cased field names}}`` from the C# DTO file.
+
+    Only ``public <type> <name>;`` fields are collected -- which is what
+    Newtonsoft binds -- so properties and methods are correctly ignored.
+    """
+    with open(path, encoding="utf-8") as fh:
+        text = fh.read()
+    out = {}
+    for match in re.finditer(r"\bclass\s+(\w+)\b(.*?)(?=\n    (?:public|internal)\s+(?:sealed\s+)?class\s|\Z)",
+                             text, re.S):
+        name, body = match.group(1), match.group(2)
+        fields = set()
+        # `= ...;` is a field initializer; `=> ...;` is an expression-bodied
+        # property, which Newtonsoft does not bind and must not be counted.
+        for field in re.finditer(r"^\s*public\s+(?!class|enum|struct|const)(?:readonly\s+)?"
+                                 r"[\w.<>\[\],\s?]+?\s+(\w+)\s*(?:=\s*(?!=)[^;]*)?;",
+                                 body, re.M):
+            fields.add(field.group(1).lower())
+        out[name] = fields
+    return out
+
+
+def _upgrade_rank(upgrade: str) -> int:
+    """BLD_UPG_NONE < BLD_UPG_1 < ... (a map caps a building at a tier)."""
+    return 0 if upgrade in ("", "BLD_UPG_NONE") else int(upgrade.rsplit("_", 1)[1])
 
 
 if __name__ == "__main__":

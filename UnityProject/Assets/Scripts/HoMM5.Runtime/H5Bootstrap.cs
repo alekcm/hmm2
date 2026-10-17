@@ -80,6 +80,7 @@ namespace HoMM5
             _hud.EndDayRequested = EndDay;
             _hud.SaveRequested = SaveGame;
             _hud.LoadRequested = LoadGame;
+            _hud.TownScreenRequested = ShowTownScreen;
             RefreshTurnHud();
             // PopulateMapList needs the HUD's Start to have built its canvas.
             _hud.PopulateMapList(LoadMap);
@@ -349,6 +350,35 @@ namespace HoMM5
         }
 
         /// <summary>
+        /// T: the town screen of the selected town, or of the player's first town
+        /// when something else (or nothing) is selected.
+        /// </summary>
+        public void ShowTownScreen()
+        {
+            if (GameState == null || CombatActive || _hud == null || _hud.Town == null) return;
+            if (_hud.Town.IsOpen)
+            {
+                _hud.Town.Hide();
+                return;
+            }
+            var selected = _controller != null ? _controller.Selected : null;
+            var town = selected != null && selected.IsTown ? GameState.GetTownState(selected) : null;
+            if (town == null)
+            {
+                var owned = GameState.OwnedTowns();
+                if (owned.Count > 0) town = owned[0];
+            }
+            if (town == null)
+            {
+                GameState.AddLog("There is no town to open.");
+                return;
+            }
+            if (!string.Equals(town.Owner, GameState.LocalPlayerId, System.StringComparison.OrdinalIgnoreCase))
+                GameState.AddLog($"{town.Name} belongs to {town.Owner}; its screen is read-only.");
+            _hud.Town.Show(town);
+        }
+
+        /// <summary>
         /// H: hero screen -- the hero's class, secondary skills with ranks and
         /// the perk roster, in one modal panel.
         /// </summary>
@@ -371,6 +401,12 @@ namespace HoMM5
             if (HoMM5.Core.H5Input.SavePressed()) SaveGame();
             if (HoMM5.Core.H5Input.LoadPressed()) LoadGame();
             if (HoMM5.Core.H5Input.HeroScreenPressed()) ShowHeroSkills();
+            if (HoMM5.Core.H5Input.TownScreenPressed()) ShowTownScreen();
+            if (HoMM5.Core.H5Input.CancelPressed() && _hud != null && _hud.Town != null)
+                _hud.Town.Hide();
+            // The town screen sits over the map, so clicks on it must not also
+            // reach the adventure map underneath.
+            if (_hud != null && _hud.Town != null && _hud.Town.IsOpen) return;
 
             if (!HoMM5.Core.H5Input.FloorTogglePressed() || CurrentMap == null || CurrentMap.Map == null)
                 return;

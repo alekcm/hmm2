@@ -19,6 +19,7 @@ namespace HoMM5.Data
         public Dictionary<string, SpellDef> Spells { get; private set; } = new Dictionary<string, SpellDef>();
         public Dictionary<string, ArtifactDef> Artifacts { get; private set; } = new Dictionary<string, ArtifactDef>();
         public List<TownBuildingDef> TownBuildings { get; private set; } = new List<TownBuildingDef>();
+        public Dictionary<string, TownTypeDef> TownTypes { get; private set; } = new Dictionary<string, TownTypeDef>();
         public GameRulesDef Rules { get; private set; } = new GameRulesDef { baseHeroMovement = 2500 };
         public Dictionary<string, WarMachineDef> WarMachines { get; private set; } = new Dictionary<string, WarMachineDef>();
         public Dictionary<string, ArenaBuildingDef> ArenaBuildings { get; private set; } = new Dictionary<string, ArenaBuildingDef>();
@@ -27,6 +28,13 @@ namespace HoMM5.Data
         public Dictionary<string, ModelAnimDef> ModelAnimations { get; private set; } = new Dictionary<string, ModelAnimDef>();
         public Dictionary<string, string> Localization { get; private set; } = new Dictionary<string, string>();
         public List<MapIndexEntry> MapIndex { get; private set; } = new List<MapIndexEntry>();
+
+        readonly Dictionary<string, CreatureDef> _creaturesByEnum =
+            new Dictionary<string, CreatureDef>(StringComparer.Ordinal);
+        readonly Dictionary<string, TownBuildingDef> _townBuildingByKey =
+            new Dictionary<string, TownBuildingDef>(StringComparer.Ordinal);
+        readonly Dictionary<string, List<TownBuildingDef>> _townBuildingsByFaction =
+            new Dictionary<string, List<TownBuildingDef>>(StringComparer.Ordinal);
 
         public bool IsLoaded { get; private set; }
 
@@ -44,6 +52,8 @@ namespace HoMM5.Data
             Spells = LoadDict<SpellDef>(H5Paths.Game("spells.json")) ?? Spells;
             Artifacts = LoadDict<ArtifactDef>(H5Paths.Game("artifacts.json")) ?? Artifacts;
             TownBuildings = LoadList<TownBuildingDef>(H5Paths.Game("townBuildings.json")) ?? TownBuildings;
+            TownTypes = LoadDict<TownTypeDef>(H5Paths.Game("townTypes.json")) ?? TownTypes;
+            IndexCreaturesAndBuildings();
             Rules = LoadSingle<GameRulesDef>(H5Paths.Game("rules.json")) ?? Rules;
             WarMachines = LoadDict<WarMachineDef>(H5Paths.Game("warMachines.json")) ?? WarMachines;
             ArenaBuildings = LoadDict<ArenaBuildingDef>(H5Paths.Game("arenaBuildings.json")) ?? ArenaBuildings;
@@ -55,24 +65,56 @@ namespace HoMM5.Data
 
             IsLoaded = true;
             Debug.Log($"[HoMM5] loaded {Creatures.Count} creatures, {Spells.Count} spells, " +
-                      $"{Artifacts.Count} artifacts, {TownBuildings.Count} town buildings, " +
+                      $"{Artifacts.Count} artifacts, {TownBuildings.Count} town buildings " +
+                      $"({TownTypes.Count} town types), " +
                       $"{Skills.Count} skills/perks, {HeroClasses.Count} hero classes, " +
                       $"{Localization.Count} strings, {MapIndex.Count} maps, " +
                       $"{ModelAnimations.Count} animated models");
             Loaded?.Invoke();
         }
 
+        /// <summary>
+        /// Secondary indexes over the loaded tables.
+        ///
+        /// Creatures are keyed in the JSON by their file name (<c>Arch_Magi</c>)
+        /// but referenced from everywhere else by enum (<c>CREATURE_ARCH_MAGI</c>)
+        /// -- maps, spells, dwellings, the necromancy table. Without this index a
+        /// monster standing on the map resolved to nothing at all, so it fought
+        /// with default stats and no name.
+        /// </summary>
+        void IndexCreaturesAndBuildings()
+        {
+            _creaturesByEnum.Clear();
+            foreach (var kv in Creatures)
+            {
+                var c = kv.Value;
+                if (c == null || string.IsNullOrEmpty(c.enumId)) continue;
+                _creaturesByEnum[c.enumId] = c;
+            }
+            _townBuildingByKey.Clear();
+            _townBuildingsByFaction.Clear();
+            foreach (var b in TownBuildings)
+            {
+                if (b == null || string.IsNullOrEmpty(b.key)) continue;
+                _townBuildingByKey[b.key] = b;
+                var faction = b.faction ?? "";
+                if (!_townBuildingsByFaction.TryGetValue(faction, out var list))
+                    _townBuildingsByFaction[faction] = list = new List<TownBuildingDef>();
+                list.Add(b);
+            }
+        }
+
         // -- lookups -------------------------------------------------------
 
         /// <summary>
-        /// Creatures are referenced from maps by their enum name, which is the
-        /// file's base name -- the same key the importer used.
+        /// A creature by its <c>CREATURE_*</c> enum, falling back to the file-name
+        /// key and then to the upgrade pair some maps name instead.
         /// </summary>
         public CreatureDef GetCreature(string id)
         {
             if (string.IsNullOrEmpty(id)) return null;
+            if (_creaturesByEnum.TryGetValue(id, out var byEnum)) return byEnum;
             if (Creatures.TryGetValue(id, out var c)) return c;
-            // Some maps name the upgrade pair rather than the creature itself.
             foreach (var kv in Creatures)
             {
                 if (string.Equals(kv.Value.pairCreature, id, StringComparison.OrdinalIgnoreCase) ||
@@ -80,6 +122,27 @@ namespace HoMM5.Data
                     return kv.Value;
             }
             return null;
+        }
+
+        /// <summary>One building record by its faction-qualified key.</summary>
+        public TownBuildingDef GetTownBuilding(string key)
+        {
+            if (string.IsNullOrEmpty(key)) return null;
+            return _townBuildingByKey.TryGetValue(key, out var b) ? b : null;
+        }
+
+        /// <summary>Every building record of one faction folder.</summary>
+        public List<TownBuildingDef> TownBuildingsForFaction(string faction)
+        {
+            if (string.IsNullOrEmpty(faction)) return new List<TownBuildingDef>();
+            return _townBuildingsByFaction.TryGetValue(faction, out var list)
+                ? list : new List<TownBuildingDef>();
+        }
+
+        public TownTypeDef GetTownType(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return null;
+            return TownTypes.TryGetValue(id, out var t) ? t : null;
         }
 
         public SpellDef GetSpell(string id)

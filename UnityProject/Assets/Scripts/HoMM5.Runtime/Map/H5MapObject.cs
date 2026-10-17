@@ -147,6 +147,9 @@ namespace HoMM5.Map
         }
 
         public CreatureDef Creature => Database != null ? Database.GetCreature(Def != null ? Def.creature : null) : null;
+
+        /// <summary>Set by the adventure map so a town can report its live state.</summary>
+        public H5TownState Town { get; internal set; }
         public ArtifactDef Artifact => Database != null ? Database.GetArtifact(Def != null ? Def.artifact : null) : null;
 
         /// <summary>One-line summary for the HUD.</summary>
@@ -261,31 +264,33 @@ namespace HoMM5.Map
             {
                 var lines = new System.Collections.Generic.List<string>();
                 lines.Add(Summary());
-                if (!string.IsNullOrEmpty(Def.townType))
-                    lines.Add("Faction: " + GameDatabase.PrettifyEnum(Def.townType));
-                if (!string.IsNullOrEmpty(Def.owner))
-                    lines.Add("Owner: " + GameDatabase.PrettifyEnum(Def.owner));
-                if (Def.buildings != null)
+                var town = Town;
+                if (town != null)
                 {
-                    lines.Add("Buildings: " + Def.buildings.Count);
-                    var dailyGold = 0;
-                    if (Database != null && Database.TownBuildings != null)
-                    {
-                        for (var i = 0; i < Def.buildings.Count; i++)
-                        {
-                            var state = Def.buildings[i];
-                            if (state == null) continue;
-                            for (var j = 0; j < Database.TownBuildings.Count; j++)
-                            {
-                                var building = Database.TownBuildings[j];
-                                if (building != null && building.type == "TB_TOWN_HALL" &&
-                                    string.Equals(building.upgrade, state.upgrade,
-                                                  System.StringComparison.OrdinalIgnoreCase))
-                                    dailyGold = Mathf.Max(dailyGold, building.incomeGoldPerDay);
-                            }
-                        }
-                    }
-                    if (dailyGold > 0) lines.Add("Town Hall income: " + dailyGold + " Gold/day");
+                    // The live town state knows the faction a random town rolled,
+                    // the fort tier the player has raised and what the dwellings
+                    // have bred since the last recruitment.
+                    var type = Database != null ? Database.GetTownType(town.TownType) : null;
+                    lines.Add("Faction: " + (type != null ? type.DisplayName
+                                                : GameDatabase.PrettifyEnum(town.TownType)));
+                    if (!string.IsNullOrEmpty(town.Owner))
+                        lines.Add("Owner: " + GameDatabase.PrettifyEnum(town.Owner));
+                    var built = 0;
+                    foreach (var slot in town.Slots)
+                        if (slot != null && slot.Tier > 0) built++;
+                    lines.Add($"Buildings: {built} of {town.Slots.Count}   Fort tier {town.FortTier}");
+                    var waiting = 0;
+                    foreach (var kv in town.Pools) waiting += kv.Value;
+                    if (waiting > 0) lines.Add("Creatures waiting: " + waiting);
+                    lines.Add("Press T for the town screen.");
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(Def.townType))
+                        lines.Add("Faction: " + GameDatabase.PrettifyEnum(Def.townType));
+                    if (!string.IsNullOrEmpty(Def.owner))
+                        lines.Add("Owner: " + GameDatabase.PrettifyEnum(Def.owner));
+                    if (Def.buildings != null) lines.Add("Buildings: " + Def.buildings.Count);
                 }
                 if (Def.garrison != null && Def.garrison.Count > 0)
                     lines.Add("Garrison stacks: " + Def.garrison.Count);

@@ -53,6 +53,14 @@ namespace HoMM5.Data
     public class CreatureDef
     {
         public string id;
+        /// <summary>
+        /// The <c>CREATURE_*</c> enum the rest of the game uses for this record.
+        /// Maps, spells, dwellings and the necromancy table all name creatures
+        /// that way, while <see cref="id"/> is the file name -- close but not
+        /// equal (<c>Arch_Magi</c> is <c>CREATURE_ARCH_MAGI</c>). GameDatabase
+        /// indexes both; lookups should try this one first.
+        /// </summary>
+        public string enumId;
         public string source;
         public bool isHero;
 
@@ -442,16 +450,89 @@ namespace HoMM5.Data
         }
     }
 
+    /// <summary>
+    /// One <c>TownBuildingSharedStats</c> record: a single building of a single
+    /// faction, at one upgrade tier.
+    ///
+    /// <see cref="key"/> is <c>"Haven/Peasant_Huts"</c> -- faction-qualified,
+    /// because every faction ships a <c>Fort.xdb</c>. <see cref="dependencies"/>
+    /// are more of those keys: what has to stand before this can be built.
+    /// </summary>
     public class TownBuildingDef
     {
         public string id;
+        public string key;
+        public string faction;
         public string source;
         public string name;
+        public string description;
         public string type;
         public string upgrade;
         public ResourceCost cost;
+        /// <summary>Creatures bred per week; the dwelling creature's WeeklyGrowth.</summary>
         public int growth;
+        /// <summary>Weekly-growth multiplier this building grants (Citadel 1.5, Castle 2).</summary>
+        public float growthMultiplier = 1f;
         public int incomeGoldPerDay;
+        public List<string> dependencies;
+        /// <summary>The creature this dwelling recruits (CREATURE_UNKNOWN = none).</summary>
+        public string creature;
+        /// <summary>Second creature an upgraded dwelling opens (alternate upgrade).</summary>
+        public string creature2;
+        public int devLevelNeeded;
+        public string uiObjectName;
+        public int uiStackPosition;
+        public string icon;
+
+        public bool IsDwelling => !string.IsNullOrEmpty(type) && type.StartsWith("TB_DWELLING");
+        public bool IsFort => type == "TB_FORT";
+        public bool HasCreature => !string.IsNullOrEmpty(creature) && creature != "CREATURE_UNKNOWN";
+        public string DisplayName => string.IsNullOrEmpty(name) ? key : name;
+
+        /// <summary>BLD_UPG_2 -&gt; 2; BLD_UPG_NONE -&gt; 0. Tiers order the upgrade chain.</summary>
+        public static int TierOf(string upgrade)
+        {
+            if (string.IsNullOrEmpty(upgrade) || upgrade == "BLD_UPG_NONE") return 0;
+            var tail = upgrade.Substring(upgrade.LastIndexOf('_') + 1);
+            return int.TryParse(tail, out var tier) ? tier : 0;
+        }
+
+        public int Tier => TierOf(upgrade);
+
+        public string CostText() => cost != null ? cost.ToString() : "free";
+    }
+
+    /// <summary>
+    /// One <c>TOWN_*</c> row of <c>RefTables/TownTypesInfo.xdb</c> plus the
+    /// building list its <c>AdvMapTownShared</c> record carries.
+    /// </summary>
+    public class TownTypeDef
+    {
+        public string id;
+        public string name;
+        public string fortName;
+        public string citadelName;
+        public string castleName;
+        /// <summary>The TownBuildingSharedStats folder this faction builds from.</summary>
+        public string faction;
+        /// <summary>Every building key the town owns, in town-screen order.</summary>
+        public List<string> buildings;
+        public string neutralCreature;
+        public string nativeWarMachine;
+        /// <summary>What the resource silo (marketplace tier 2) pays per day.</summary>
+        public ResourceCost siloIncome;
+        public int moatMaxDamage;
+        public List<TownMoatSpellDef> moatSpells;
+
+        public string DisplayName => string.IsNullOrEmpty(name) ? GameDatabase.PrettifyEnum(id) : name;
+    }
+
+    public class TownMoatSpellDef
+    {
+        public string spell;
+        public int chance;
+        public string mastery;
+        public int power;
     }
 
     // -- maps --------------------------------------------------------------
@@ -505,10 +586,21 @@ namespace HoMM5.Data
         public List<TerrainLayerInfo> layers;
     }
 
+    /// <summary>One authored building slot of a map's town.</summary>
+    /// <summary>
+    /// One authored building slot of a map's town: what it starts as, and how far
+    /// this scenario lets it be upgraded.
+    /// </summary>
     public class MapBuildingStateDef
     {
         public string type;
+        /// <summary>The tier the town starts at (BLD_UPG_NONE = not built).</summary>
         public string upgrade;
+        /// <summary>The tier this scenario allows it to reach.</summary>
+        public string maxUpgrade;
+
+        public int Tier => TownBuildingDef.TierOf(upgrade);
+        public int MaxTier => TownBuildingDef.TierOf(maxUpgrade);
     }
 
     public class MapArmyStackDef

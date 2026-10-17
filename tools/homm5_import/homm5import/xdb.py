@@ -129,6 +129,25 @@ class XDB:
         path, _ = _split_href(href)
         return bool(path) and os.path.isfile(self._path_for(path))
 
+    def canonical_href(self, href: str) -> str:
+        """Rewrite an href to the file that is actually on disk.
+
+        References inside the data are not always spelled the way the file is:
+        ``Orc_Stronghold.(AdvMapTownShared).xdb`` lists
+        ``TownBuildingSharedStats/Stronghold/Blacksmith/Blacksmith.xdb`` while
+        the folder holds ``BlackSmith.xdb``.  Windows folds case so the game
+        never noticed; on Linux a key built from the href simply does not match
+        the key built from the file.  Resolving here keeps one spelling.
+        """
+        path, pointer = _split_href(href)
+        if not path:
+            return href
+        found = self._path_for(path)
+        if not os.path.exists(found):
+            return href
+        rel = os.path.relpath(os.path.abspath(found), self.data_root).replace("\\", "/")
+        return "/" + rel + (("#xpointer(%s)" % pointer) if pointer else "")
+
     # -- field access ------------------------------------------------------
     @staticmethod
     def href_of(elem: ET.Element) -> Optional[str]:

@@ -31,6 +31,10 @@ namespace HoMM5.UI
         public System.Action EndDayRequested;
         public System.Action SaveRequested;
         public System.Action LoadRequested;
+        public System.Action TownScreenRequested;
+
+        /// <summary>The town screen, created with the rest of the HUD.</summary>
+        public TownScreen Town { get; private set; }
         GameObject _mapListPanel;
         ScrollRect _mapScroll;
         RectTransform _mapListContent;
@@ -49,6 +53,13 @@ namespace HoMM5.UI
 
         void Start()
         {
+            // Awake built the canvas before H5Bootstrap could hand over the data
+            // tables, so the town screen gets them here.
+            if (Town != null)
+            {
+                Town.Database = Database;
+                Town.GameState = GameState;
+            }
             if (Controller != null) Controller.SelectionChanged += OnSelectionChanged;
             if (GameState != null)
             {
@@ -149,6 +160,7 @@ namespace HoMM5.UI
             BuildMapList(canvasGo.transform);
             BuildTurnControls(canvasGo.transform);
             _minimap = H5Minimap.Create(canvasGo.transform, new Vector2(-16, 16), new Vector2(240, 240));
+            Town = TownScreen.Create(canvasGo.transform);
         }
 
         void BuildSelectionPanel(Transform parent)
@@ -186,7 +198,7 @@ namespace HoMM5.UI
             rt.anchorMin = new Vector2(0.5f, 1f);
             rt.anchorMax = new Vector2(0.5f, 1f);
             rt.pivot = new Vector2(0.5f, 1f);
-            rt.sizeDelta = new Vector2(900, 54);
+            rt.sizeDelta = new Vector2(1020, 54);
             rt.anchoredPosition = new Vector2(0, -12);
             bar.GetComponent<Image>().color = new Color(0.06f, 0.06f, 0.08f, 0.88f);
 
@@ -221,6 +233,8 @@ namespace HoMM5.UI
                           () => SaveRequested?.Invoke());
             MakeBarButton(bar.transform, "LoadButton", "Load (F9)", -244,
                           () => LoadRequested?.Invoke());
+            MakeBarButton(bar.transform, "TownButton", "Town (T)", -360,
+                          () => TownScreenRequested?.Invoke());
         }
 
         static void MakeBarButton(Transform parent, string name, string label, float xOffset,

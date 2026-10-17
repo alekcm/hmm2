@@ -118,8 +118,37 @@ def _base_key(path: str) -> str:
     return os.path.splitext(os.path.basename(path))[0]
 
 
+def load_creature_enum_ids(xdb: XDB) -> Dict[str, str]:
+    """``CREATURE_PEASANT`` -> the creature record's href.
+
+    ``RefTables/Creatures.xdb`` is the table the engine itself uses to turn a
+    ``CreatureType`` enum into a record, and it is the only shipped source of
+    that identity: the file names are close but not equal (``Arch_Magi.xdb`` is
+    ``CREATURE_ARCH_MAGI``) and ``ObjectRecordID`` is an editor serial
+    (``1000051``), not the enum value. Everything else in the game -- maps,
+    spells, town dwellings, the necromancy table -- names creatures by enum, so
+    without this the runtime cannot resolve a monster standing on the map.
+    """
+    out: Dict[str, str] = {}
+    root = xdb.load("/GameMechanics/RefTables/Creatures.xdb")
+    if root is None:
+        return out
+    for item in xdb.items(root.find("objects")):
+        cid = xdb.text(item.find("ID"))
+        href = xdb.href_of(item.find("Obj"))
+        if cid and href:
+            out[cid] = href.split("#", 1)[0]
+    return out
+
+
 def load_creatures(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, dict]:
-    """All creature and hero definitions, keyed by their enum-style name."""
+    """All creature and hero definitions, keyed by their file name.
+
+    Each record also carries ``enumId`` -- the ``CREATURE_*`` id the rest of the
+    game uses to name it (see :func:`load_creature_enum_ids`) -- which is the key
+    a caller should look it up by.
+    """
+    enum_by_source = {href: cid for cid, href in load_creature_enum_ids(xdb).items()}
     out: Dict[str, dict] = {}
     for path in list(xdb.iter_files("GameMechanics/Creature/Creatures")) + \
                 list(xdb.iter_files("GameMechanics/Creature/Heroes")):
@@ -129,6 +158,9 @@ def load_creatures(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
             continue
         key = _base_key(path)
         rec = {"id": key, "source": xdb.href_from_path(path), "isHero": "Heroes" in path.replace("\\", "/")}
+        # "enumId", not "enum": the C# DTO would need a verbatim identifier
+        # (@enum) to carry the latter, for no gain.
+        rec["enumId"] = enum_by_source.get(rec["source"], "")
         for f in CREATURE_INT_FIELDS:
             rec[f] = int(xdb.number(root.find(f)))
         rec["flying"] = xdb.boolean(root.find("Flying"))
@@ -629,26 +661,239 @@ def load_artifacts(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
     return out
 
 
+TOWN_BUILDING_DIR = "GameMechanics/TownBuildingSharedStats"
+
+# The Citadel's +50% and the Castle's doubling are stated in every faction's
+# building description ("Прирост существ увеличивается на 50%", "Прирост существ
+# удваивается", and the Grail's "недельный прирост существ на 50%") but appear
+# nowhere as a number the engine could read, so they are parsed out of the
+# localized text the same way the daily gold income is.
+_GROWTH_PERCENT = re.compile(r"прирост\s+существ\b[^.]*?\bна\s+(\d+)\s*%", re.I | re.S)
+_GROWTH_DOUBLE = re.compile(r"прирост\s+существ\b[^.]*?удваивается", re.I | re.S)
+
+
+def growth_multiplier(description: Optional[str]) -> float:
+    """Weekly-growth multiplier a building grants, read from its description.
+
+    1.5 for a Citadel or a Grail, 2.0 for a Castle, 1.0 for everything else.
+    """
+    text = description or ""
+    if _GROWTH_DOUBLE.search(text):
+        return 2.0
+    m = _GROWTH_PERCENT.search(text)
+    return 1.0 + int(m.group(1)) / 100.0 if m else 1.0
+
+
+def town_building_key(href: Optional[str]) -> Optional[str]:
+    """``/GameMechanics/TownBuildingSharedStats/Haven/Fort/Castle.xdb`` -> ``Haven/Castle``.
+
+    Building file names repeat across factions -- every faction ships its own
+    ``Fort.xdb``, ``Castle.xdb`` and ``Dwelling_1/...`` -- so the faction folder
+    has to be part of the key before anything can address one building of one
+    town.  Returns None for hrefs outside the town-building tree.
+    """
+    if not href:
+        return None
+    parts = [p for p in href.split("#", 1)[0].split("/") if p]
+    if "TownBuildingSharedStats" not in parts:
+        return None
+    at = parts.index("TownBuildingSharedStats")
+    if len(parts) < at + 3:                      # needs <folder>/<file>
+        return None
+    return parts[at + 1] + "/" + os.path.splitext(parts[-1])[0]
+
+
 def load_town_buildings(xdb: XDB, loc: Optional[Localization] = None) -> List[dict]:
+    """Every ``TownBuildingSharedStats`` record, with the town-screen fields.
+
+    Beyond a name and a price the record carries what a town screen is made of:
+    the faction folder it belongs to, the buildings that must exist first
+    (``<dependencies>``), the creature its dwelling breeds (``<Creature>``, and
+    ``<Creature2>`` on the upgraded row) and where the shipped UI stacks it.
+    ``<Growth>`` is absent from all 328 records -- see
+    :func:`fill_dwelling_growth`.
+    """
     out: List[dict] = []
-    for path in xdb.iter_files("GameMechanics/TownBuildingSharedStats"):
+    for path in xdb.iter_files(TOWN_BUILDING_DIR):
         try:
             root = ET.parse(path).getroot()
         except ET.ParseError:
             continue
+        href = xdb.href_from_path(path)
+        key = town_building_key(href)
         description = _text_ref(xdb, loc, root.find("DescriptionFileRef"))
         income_match = re.search(r"ежедневн\w*.*?(\d+)\s+золот", description or "", re.I | re.S)
+        # Dependencies are relative to the record's own folder
+        # (<Item href="Peasant_Huts.xdb#xpointer(...)"/>), so they are
+        # absolutized and then matched against the file on disk: the data is not
+        # consistently cased, and a key spelled differently from its record
+        # would look like a missing prerequisite.
+        deps: List[str] = []
+        for item in xdb.items(root.find("dependencies")):
+            ref = xdb.canonical_href(xdb.absolutize(xdb.href_of(item) or "", href))
+            dep = town_building_key(ref)
+            if dep and dep not in deps:
+                deps.append(dep)
         rec = {
             "id": _base_key(path),
-            "source": xdb.href_from_path(path),
+            "key": key,
+            "faction": key.split("/")[0] if key else "",
+            "source": href,
             "name": _text_ref(xdb, loc, root.find("NameFileRef")),
+            "description": description,
             "type": xdb.text(root.find("Type")),
             "upgrade": xdb.text(root.find("Upgrade")),
             "cost": _res(xdb, root.find("Cost")),
             "growth": int(xdb.number(root.find("Growth"))),
+            "growthMultiplier": growth_multiplier(description),
             "incomeGoldPerDay": int(income_match.group(1)) if income_match else 0,
+            "dependencies": deps,
+            "creature": xdb.text(root.find("Creature")),
+            "creature2": xdb.text(root.find("Creature2")),
+            "devLevelNeeded": int(xdb.number(root.find("DevLevelNeeded"))),
+            "uiObjectName": xdb.text(root.find("UIObjectName")),
+            "uiStackPosition": int(xdb.number(root.find("UIStackPosition"))),
+            "icon": xdb.href_of(root.find("Icon")),
         }
         out.append(rec)
+    return out
+
+
+def fill_dwelling_growth(buildings: List[dict], creatures_by_enum: Dict[str, dict]) -> int:
+    """Copy each dwelling's weekly number off the creature it breeds.
+
+    Not one of the 328 town-building records carries a ``<Growth>`` element, so
+    the field decoded as 0 everywhere: a town screen reading it would breed
+    nothing. The weekly count is the creature's own ``WeeklyGrowth`` (Haven's
+    Peasant Huts breed 22 because ``Creature/Creatures/Haven/Peasant.xdb`` says
+    ``<WeeklyGrowth>22</WeeklyGrowth>``). Joining the two tables here keeps the
+    runtime to a single field. Returns how many records were filled.
+
+    ``creatures_by_enum`` is keyed by ``CREATURE_*`` because that is how a
+    building names its creature.
+    """
+    filled = 0
+    for rec in buildings:
+        if rec.get("growth"):
+            continue
+        creature = creatures_by_enum.get(rec.get("creature") or "")
+        if not creature:
+            continue
+        growth = int(creature.get("WeeklyGrowth") or 0)
+        if growth > 0:
+            rec["growth"] = growth
+            filled += 1
+    return filled
+
+
+def fill_grail_values(buildings: List[dict]) -> int:
+    """Give the Grails that do not state their bonus the value the others do.
+
+    The eight Grail records describe the same building, but only four of them
+    quantify it: Haven's Sentinel of Elrath "increases the weekly growth of
+    creatures by 50% and brings 5000 gold daily", while the Academy's Skyship
+    says only "increases the weekly growth of creatures, brings gold daily".
+    The unquantified rows take the quantified rows' numbers -- the one inferred
+    value in the town tables, and the reason it is done here rather than in the
+    runtime, where it could not be checked against the data.
+    """
+    grails = [r for r in buildings if r["type"] == "TB_GRAIL"]
+    growth = next((r["growthMultiplier"] for r in grails if r["growthMultiplier"] > 1.0), 0.0)
+    income = next((r["incomeGoldPerDay"] for r in grails if r["incomeGoldPerDay"] > 0), 0)
+    filled = 0
+    for rec in grails:
+        if growth > 1.0 and rec["growthMultiplier"] <= 1.0:
+            rec["growthMultiplier"] = growth
+            filled += 1
+        if income > 0 and not rec["incomeGoldPerDay"]:
+            rec["incomeGoldPerDay"] = income
+            filled += 1
+    return filled
+
+
+def town_shared_buildings(xdb: XDB) -> Dict[str, List[str]]:
+    """``TOWN_*`` -> the ordered building keys that town's screen shows.
+
+    ``MapObjects/*.(AdvMapTownShared).xdb`` is the record a map's town points
+    at, and its ``<buildings>`` list names every ``TownBuildingSharedStats``
+    record the town owns -- 36 for Haven, 39 for the Dwarven Fortress, 31 for
+    RandomTown, exactly the file count of each faction folder.
+
+    It is also the only shipped link from a ``TOWN_*`` enum to a building
+    folder, and the obvious candidates are all wrong: ``TownTypesInfo``'s
+    ``textFort`` for ``TOWN_STRONGHOLD`` points at *Inferno's* text files, and
+    the creature folders say ``Orcs`` / ``Dwarf`` / ``Necropolis`` where the
+    building folders say ``Stronghold`` / ``Dwarves`` / ``Necromancy``.
+    """
+    out: Dict[str, List[str]] = {}
+    for path in xdb.iter_files("MapObjects"):
+        root = xdb.load(xdb.href_from_path(path))
+        if root is None or root.tag != "AdvMapTownShared":
+            continue
+        town_id = xdb.text(root.find("Type"))
+        keys: List[str] = []
+        for item in xdb.items(root.find("buildings")):
+            # Canonicalize first: Stronghold's shared record names
+            # Blacksmith.xdb where the folder holds BlackSmith.xdb.
+            key = town_building_key(xdb.canonical_href(xdb.href_of(item) or ""))
+            if key and key not in keys:
+                keys.append(key)
+        if not town_id:
+            continue
+        # Hill_Castle is a second Heaven record with no buildings of its own;
+        # the fullest list for a type is the town's real one.
+        if len(keys) > len(out.get(town_id, [])):
+            out[town_id] = keys
+    return out
+
+
+def load_town_types(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, dict]:
+    """``TOWN_*`` -> what that faction's town *does*.
+
+    ``RefTables/TownTypesInfo.xdb`` is the per-faction half of a town that is
+    not a building: the resource silo's daily yield, the war machine the
+    blacksmith sells, the creature guards fall back on, and the moat's damage
+    and spells. Which buildings the town has -- and therefore which
+    ``TownBuildingSharedStats`` folder it builds from -- comes from its
+    ``AdvMapTownShared`` record; see :func:`town_shared_buildings`.
+    """
+    out: Dict[str, dict] = {}
+    root = xdb.load("/GameMechanics/RefTables/TownTypesInfo.xdb")
+    buildings_by_town = town_shared_buildings(xdb)
+    if root is not None:
+        for item in xdb.items(root.find("objects")):
+            town_id = xdb.text(item.find("ID"))
+            obj = item.find("obj")
+            if not town_id or obj is None:
+                continue
+            values = obj.find("values")
+            moat = obj.find("Moat")
+            out[town_id] = {
+                "id": town_id,
+                "name": _text_ref(xdb, loc, obj.find("textType")),
+                "fortName": _text_ref(xdb, loc, obj.find("textFort")),
+                "citadelName": _text_ref(xdb, loc, obj.find("textCitadel")),
+                "castleName": _text_ref(xdb, loc, obj.find("textCaste")),
+                "faction": "",
+                "buildings": [],
+                "neutralCreature": xdb.text(values.find("NeutralCreature")) if values is not None else "",
+                "nativeWarMachine": xdb.text(values.find("NativeWarMachine")) if values is not None else "",
+                "siloIncome": _res(xdb, values.find("ResourceSiloIncome") if values is not None else None),
+                "moatMaxDamage": int(xdb.number(moat.find("MoatMaxDamage"))) if moat is not None else 0,
+                "moatSpells": [
+                    {"spell": xdb.text(s.find("Spell")),
+                     "chance": int(xdb.number(s.find("Chance"))),
+                     "mastery": xdb.text(s.find("SpellMastery")),
+                     "power": int(xdb.number(s.find("SpellPower")))}
+                    for s in xdb.items(moat.find("MoatSpells") if moat is not None else None)
+                ],
+            }
+    for town_id, keys in buildings_by_town.items():
+        rec = out.setdefault(town_id, {"id": town_id, "faction": "", "buildings": []})
+        rec["buildings"] = keys
+        factions = {k.split("/")[0] for k in keys if "/" in k}
+        if len(factions) == 1:
+            rec["faction"] = factions.pop()
     return out
 
 
@@ -712,11 +957,17 @@ def load_model_animations(xdb: XDB) -> Dict[str, dict]:
 
 
 def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object]:
+    creatures = load_creatures(xdb, loc)
+    town_buildings = load_town_buildings(xdb, loc)
+    fill_dwelling_growth(town_buildings,
+                         {r["enumId"]: r for r in creatures.values() if r.get("enumId")})
+    fill_grail_values(town_buildings)
     return {
-        "creatures": load_creatures(xdb, loc),
+        "creatures": creatures,
         "spells": load_spells(xdb, loc),
         "artifacts": load_artifacts(xdb, loc),
-        "townBuildings": load_town_buildings(xdb, loc),
+        "townBuildings": town_buildings,
+        "townTypes": load_town_types(xdb, loc),
         "modelAnimations": load_model_animations(xdb),
         "rules": load_game_rules(xdb),
         "warMachines": load_war_machines(xdb),

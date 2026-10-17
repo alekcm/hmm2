@@ -339,7 +339,11 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
                 {"type": xdb.text(b.find("Type")),
                  "upgrade": int(xdb.number(b.find("InitialUpgrade")))
                  if xdb.text(b.find("InitialUpgrade")).isdigit()
-                 else xdb.text(b.find("InitialUpgrade"))}
+                 else xdb.text(b.find("InitialUpgrade")),
+                 # MaxUpgrade caps what the town screen may build here: a
+                 # scenario can forbid the Castle tier of a town's Fort by
+                 # shipping MaxUpgrade below the record's own tier.
+                 "maxUpgrade": xdb.text(b.find("MaxUpgrade"))}
                 for b in xdb.items(inner.find("buildings"))
             ]
             obj.extra["garrison"] = [

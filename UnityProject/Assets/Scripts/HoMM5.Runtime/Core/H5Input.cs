@@ -158,6 +158,28 @@ namespace HoMM5.Core
 #endif
         }
 
+        /// <summary>T: town screen of the selected (or first owned) town.</summary>
+        public static bool TownScreenPressed()
+        {
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
+            var kb = UnityEngine.InputSystem.Keyboard.current;
+            return kb != null && kb.tKey.wasPressedThisFrame;
+#else
+            return Input.GetKeyDown(KeyCode.T);
+#endif
+        }
+
+        /// <summary>Escape: close whatever modal panel is open.</summary>
+        public static bool CancelPressed()
+        {
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
+            var kb = UnityEngine.InputSystem.Keyboard.current;
+            return kb != null && kb.escapeKey.wasPressedThisFrame;
+#else
+            return Input.GetKeyDown(KeyCode.Escape);
+#endif
+        }
+
         /// <summary>
         /// Whether the pointer is over a uGUI element, so a click on the map
         /// list is not also treated as a click on the map.

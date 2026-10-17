@@ -44,6 +44,7 @@ namespace HoMM5.Map
         readonly Dictionary<string, int> _visitedWeek = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
         readonly Dictionary<string, string> _ownerOverrides = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         readonly Dictionary<string, H5HeroState> _heroStates = new Dictionary<string, H5HeroState>(StringComparer.OrdinalIgnoreCase);
+        readonly Dictionary<string, H5TownState> _townStates = new Dictionary<string, H5TownState>(StringComparer.OrdinalIgnoreCase);
         readonly Dictionary<string, Vector2> _heroPositions = new Dictionary<string, Vector2>(StringComparer.OrdinalIgnoreCase);
         HoMM5.Data.MapDef _map;
         HoMM5.Data.GameRulesDef _rules;
@@ -111,6 +112,7 @@ namespace HoMM5.Map
                 _ownerOverrides.Clear();
                 _heroStates.Clear();
                 _heroPositions.Clear();
+                _townStates.Clear();
                 Log.Clear();
                 Rand = new System.Random(12345);
             }
@@ -121,6 +123,7 @@ namespace HoMM5.Map
             _townBuildingDefs = townBuildingDefs;
             MapId = _map != null ? _map.id : "";
             if (newScenario) InitializeResources(rules, difficultyIndex);
+            BindTowns();
             if (builder != null && builder.Root != null)
             {
                 var objects = builder.Root.GetComponentsInChildren<H5MapObject>(true);
@@ -143,6 +146,10 @@ namespace HoMM5.Map
                             obj.transform.position = builder.TileToWorld(pos.x, pos.y);
                         }
                     }
+
+                    // A town reports its live state (faction, fort tier, what the
+                    // dwellings have bred) instead of only what the map authored.
+                    if (obj.IsTown) obj.Town = GetTownState(obj.Def);
 
                     if (!string.IsNullOrEmpty(objectId) && _collectedObjects.Contains(objectId))
                     {
@@ -168,9 +175,14 @@ namespace HoMM5.Map
         {
             Day++;
             PayDailyIncome();
+            NewDayForTowns();
             _movement.Clear();
             _visitedDay.Clear();
-            if ((Day - 1) % 7 == 0) _visitedWeek.Clear();
+            if ((Day - 1) % 7 == 0)
+            {
+                _visitedWeek.Clear();
+                GrowTowns();
+            }
             for (var i = 0; i < _heroes.Count; i++)
             {
                 if (_heroes[i] == null) continue;
@@ -454,6 +466,10 @@ namespace HoMM5.Map
         /// <summary>Town fortification tier from its Fort building (0-3).</summary>
         public int FortLevelOf(HoMM5.Data.MapObjectDef def)
         {
+            // The town screen raises Fort/Citadel/Castle during play, so the live
+            // state wins over what the map authored.
+            var town = GetTownState(def);
+            if (town != null && town.FortTier > 0) return town.SiegeFortLevel;
             if (def == null || def.buildings == null || _townBuildingDefs == null) return 0;
             var level = 0;
             foreach (var buildingState in def.buildings)
@@ -759,13 +775,23 @@ namespace HoMM5.Map
             mapObj.gameObject.SetActive(false);
         }
 
-        /// <summary>Flag an object (mine) for the local player.</summary>
+        /// <summary>Flag an object (mine, town) for the local player.</summary>
         public void CaptureObject(H5MapObject mapObj)
         {
             if (mapObj == null || mapObj.Def == null) return;
             mapObj.Def.owner = LocalPlayerId;
             if (!string.IsNullOrEmpty(mapObj.Def.objectId))
                 _ownerOverrides[mapObj.Def.objectId] = LocalPlayerId;
+
+            // A captured town changes hands: its owner is the local player now,
+            // and whatever the garrison had bred is gone with the defenders.
+            var town = GetTownState(mapObj.Def);
+            if (town != null)
+            {
+                town.Owner = LocalPlayerId;
+                town.Pools.Clear();
+                town.BuiltToday = true;      // it did not build for you today
+            }
         }
 
         public void AddLog(string message)
@@ -801,28 +827,250 @@ namespace HoMM5.Map
                     _rules.mineDailyIncome.TryGetValue(obj.resource.ToUpperInvariant(), out var mineIncome))
                     Resources.Add(obj.resource, mineIncome);
                 else if (obj.kind == "AdvMapTown")
-                    PayTownIncome(obj);
+                    PayTownIncome(GetTownState(obj));
             }
         }
 
-        void PayTownIncome(HoMM5.Data.MapObjectDef town)
+        /// <summary>
+        /// One town's daily payment: its town hall tier's gold, the Grail's, and
+        /// the faction's resource silo once the marketplace is upgraded. All three
+        /// are shipped numbers (the hall and Grail amounts come out of their
+        /// descriptions, the silo resource from TownTypesInfo).
+        /// </summary>
+        void PayTownIncome(H5TownState town)
         {
-            if (town.buildings == null || _townBuildingDefs == null) return;
-            var dailyGold = 0;
-            for (var i = 0; i < town.buildings.Count; i++)
+            if (town == null) return;
+            int gold;
+            string siloResource;
+            int siloAmount;
+            town.PayDailyIncome(Database, Resources, out gold, out siloResource, out siloAmount);
+            if (gold > 0 || siloAmount > 0)
+                AddLog($"{town.Name} pays {gold} gold" +
+                       (siloAmount > 0 ? $" and {siloAmount} {siloResource}" : "") + ".");
+        }
+
+        /// <summary>A new day lets every town build again.</summary>
+        void NewDayForTowns()
+        {
+            foreach (var town in AllTowns()) town.BuiltToday = false;
+        }
+
+        /// <summary>A new week breeds creatures in every dwelling.</summary>
+        void GrowTowns()
+        {
+            foreach (var town in AllTowns())
             {
-                var state = town.buildings[i];
-                if (state == null) continue;
-                for (var j = 0; j < _townBuildingDefs.Count; j++)
-                {
-                    var building = _townBuildingDefs[j];
-                    if (building == null || building.type != "TB_TOWN_HALL" ||
-                        !string.Equals(building.upgrade, state.upgrade, StringComparison.OrdinalIgnoreCase))
-                        continue;
-                    if (building.incomeGoldPerDay > dailyGold) dailyGold = building.incomeGoldPerDay;
-                }
+                var before = PoolTotal(town);
+                town.AddWeeklyGrowth(Database);
+                var bred = PoolTotal(town) - before;
+                if (bred > 0) AddLog($"{town.Name} breeds {bred} creatures.");
             }
-            if (dailyGold > 0) Resources.gold += dailyGold;
+        }
+
+        static int PoolTotal(H5TownState town)
+        {
+            var total = 0;
+            foreach (var kv in town.Pools) total += kv.Value;
+            return total;
+        }
+
+        // -- towns ---------------------------------------------------------
+
+        /// <summary>
+        /// Build the town registry for the loaded map. Towns live on one floor
+        /// but their state must survive a floor switch, so they are keyed by map
+        /// object id and rebuilt from the map's object list rather than from the
+        /// scene.
+        /// </summary>
+        void BindTowns()
+        {
+            if (_map == null || _map.objects == null) return;
+            foreach (var def in _map.objects)
+            {
+                if (def == null || def.kind != "AdvMapTown") continue;
+                var id = TownKey(def);
+                if (string.IsNullOrEmpty(id)) continue;
+                if (_townStates.TryGetValue(id, out var town) && town != null)
+                    town.SyncFromMap(Database, def);
+                else
+                    _townStates[id] = H5TownState.FromMapObject(def, Database);
+            }
+        }
+
+        static string TownKey(HoMM5.Data.MapObjectDef def)
+        {
+            if (def == null) return null;
+            return !string.IsNullOrEmpty(def.objectId)
+                ? def.objectId
+                : "town|" + def.floor + "|" + def.x + "|" + def.y;
+        }
+
+        /// <summary>The live state of one placed town.</summary>
+        public H5TownState GetTownState(HoMM5.Data.MapObjectDef def)
+        {
+            var id = TownKey(def);
+            if (string.IsNullOrEmpty(id)) return null;
+            return _townStates.TryGetValue(id, out var town) ? town : null;
+        }
+
+        public H5TownState GetTownState(H5MapObject obj)
+        {
+            return obj != null ? GetTownState(obj.Def) : null;
+        }
+
+        /// <summary>Every town on the map, owned or not.</summary>
+        public List<H5TownState> AllTowns()
+        {
+            var outList = new List<H5TownState>();
+            foreach (var kv in _townStates)
+                if (kv.Value != null) outList.Add(kv.Value);
+            outList.Sort((a, b) => string.CompareOrdinal(a.Name, b.Name));
+            return outList;
+        }
+
+        /// <summary>The local player's towns.</summary>
+        public List<H5TownState> OwnedTowns()
+        {
+            var outList = new List<H5TownState>();
+            foreach (var town in AllTowns())
+                if (string.Equals(town.Owner, LocalPlayerId, StringComparison.OrdinalIgnoreCase))
+                    outList.Add(town);
+            return outList;
+        }
+
+        /// <summary>
+        /// Raise a building in a town: cost, prerequisites, the scenario's cap and
+        /// the one-building-per-day rule all come from the shipped tables.
+        /// </summary>
+        public bool BuildInTown(H5TownState town, HoMM5.Data.TownBuildingDef building)
+        {
+            if (town == null || building == null) return false;
+            if (!string.Equals(town.Owner, LocalPlayerId, StringComparison.OrdinalIgnoreCase))
+            {
+                AddLog("That town is not yours.");
+                return false;
+            }
+            string reason;
+            if (!town.Build(Database, building, Resources, out reason))
+            {
+                AddLog(reason);
+                return false;
+            }
+            AddLog($"{town.Name}: {building.DisplayName} built ({building.CostText()}).");
+            SyncTownDef(town);
+            Changed?.Invoke();
+            return true;
+        }
+
+        /// <summary>
+        /// Recruit from a dwelling. Creatures go to a local hero standing in the
+        /// town, and to the town garrison when no hero is there.
+        /// </summary>
+        public int RecruitFromTown(H5TownState town, string slotType, string creatureId, int count)
+        {
+            if (town == null) return 0;
+            if (!string.Equals(town.Owner, LocalPlayerId, StringComparison.OrdinalIgnoreCase))
+            {
+                AddLog("That town is not yours.");
+                return 0;
+            }
+            var def = TownDef(town);
+            var hero = HeroInTown(town);
+            List<HoMM5.Combat.ArmyStackState> army;
+            string where;
+            if (hero != null)
+            {
+                army = hero.Army;
+                where = hero.HeroName + "'s army";
+            }
+            else if (def != null)
+            {
+                EnsureGarrison(def);
+                army = _garrisonArmies[TownKey(def)];
+                where = "the garrison of " + town.Name;
+            }
+            else
+            {
+                AddLog("That town is not on the loaded floor.");
+                return 0;
+            }
+            string reason;
+            var taken = town.Recruit(Database, slotType, creatureId, count, Resources, army,
+                                     H5HeroState.MaxArmySlots, out reason);
+            if (taken <= 0)
+            {
+                AddLog(reason);
+                return 0;
+            }
+            var creature = Database != null ? Database.GetCreature(creatureId) : null;
+            var name = creature != null ? creature.DisplayName : creatureId;
+            AddLog($"{taken} {name} join {where}.");
+            if (hero != null)
+            {
+                var heroDef = heroArmedDef(hero);
+                WriteArmyToDef(heroDef, hero.Army);
+            }
+            Changed?.Invoke();
+            return taken;
+        }
+
+        readonly Dictionary<string, List<HoMM5.Combat.ArmyStackState>> _garrisonArmies =
+            new Dictionary<string, List<HoMM5.Combat.ArmyStackState>>(StringComparer.OrdinalIgnoreCase);
+
+        /// <summary>
+        /// A town's garrison as army stacks. The map's authored garrison is the
+        /// seed; recruiting without a hero in town adds to it.
+        /// </summary>
+        void EnsureGarrison(HoMM5.Data.MapObjectDef def)
+        {
+            var key = TownKey(def);
+            if (string.IsNullOrEmpty(key) || _garrisonArmies.ContainsKey(key)) return;
+            var army = new List<HoMM5.Combat.ArmyStackState>();
+            if (def.garrison != null)
+                foreach (var stack in def.garrison)
+                {
+                    if (stack == null || string.IsNullOrEmpty(stack.creature)) continue;
+                    var n = stack.count > 0 ? stack.count : stack.amount;
+                    if (n > 0) army.Add(new HoMM5.Combat.ArmyStackState(stack.creature, n));
+                }
+            _garrisonArmies[key] = army;
+        }
+
+        /// <summary>The map def a town state was built from.</summary>
+        HoMM5.Data.MapObjectDef TownDef(H5TownState town)
+        {
+            if (town == null || _map == null || _map.objects == null) return null;
+            foreach (var def in _map.objects)
+                if (def != null && def.kind == "AdvMapTown" && TownKey(def) == town.ObjectId)
+                    return def;
+            return null;
+        }
+
+        /// <summary>A local hero close enough to the town to recruit into.</summary>
+        H5HeroState HeroInTown(H5TownState town)
+        {
+            if (town == null) return null;
+            for (var i = 0; i < _heroes.Count; i++)
+            {
+                var hero = _heroes[i];
+                if (hero == null || hero.Def == null) continue;
+                var dx = hero.Def.x - town.X;
+                var dy = hero.Def.y - town.Y;
+                // A town covers several tiles; its blocked footprint reaches two
+                // tiles out from the position the map stores.
+                if (dx * dx + dy * dy > 9f) continue;
+                var hs = GetHeroState(hero);
+                if (hs != null) return hs;
+            }
+            return null;
+        }
+
+        /// <summary>Push a town's built tiers back onto its map def (sieges read it).</summary>
+        void SyncTownDef(H5TownState town)
+        {
+            var def = TownDef(town);
+            if (def == null || town == null) return;
+            def.buildings = town.Slots;
         }
 
         // -- movement ------------------------------------------------------
@@ -877,6 +1125,7 @@ namespace HoMM5.Map
             foreach (var kv in _visitedDay) save.visitedDay[kv.Key] = kv.Value;
             foreach (var kv in _visitedWeek) save.visitedWeek[kv.Key] = kv.Value;
             foreach (var kv in _ownerOverrides) save.owners[kv.Key] = kv.Value;
+            foreach (var town in AllTowns()) save.towns.Add(town);
             save.log.AddRange(Log);
             return save;
         }
@@ -924,6 +1173,14 @@ namespace HoMM5.Map
             _ownerOverrides.Clear();
             if (save.owners != null)
                 foreach (var kv in save.owners) _ownerOverrides[kv.Key] = kv.Value;
+            // Town state is restored before the rebuild; BindTowns then replays
+            // the built tiers over the freshly parsed map slots.
+            _townStates.Clear();
+            _garrisonArmies.Clear();
+            if (save.towns != null)
+                foreach (var town in save.towns)
+                    if (town != null && !string.IsNullOrEmpty(town.ObjectId))
+                        _townStates[town.ObjectId] = town;
             Log.Clear();
             if (save.log != null) Log.AddRange(save.log);
             Changed?.Invoke();

@@ -263,11 +263,95 @@ where modeled. Level-up offer pairing (skill+perk per panel) follows the shipped
 LevelUpBox layout (SkillsLabel/PerksLabel rows, two panels); the exact original
 pairing rules are not in the data and are marked inferred.
 
+## Continuation: towns and the town screen
+
+The town layer is now data-driven: what a town contains, what it costs to
+build, what it earns, and what its dwellings breed all come from the shipped
+tables rather than from constants in the runtime.
+
+**Importer** (`gamedata.py`, `maps.py`, `xdb.py`; 15 new tests):
+- `load_town_buildings` → `townBuildings.json`: **328** records from
+  `GameMechanics/TownBuildingSharedStats/<Faction>/<Slot>/*.xdb`, keyed
+  `<Faction>/<file>` (`Fort`, `Castle` and `Citadel` repeat across all nine
+  faction folders, so the bare filename is not a key). Each carries `type`
+  (`TB_DWELLING_1..7`, `TB_FORT`, `TB_TOWN_HALL`, `TB_MARKETPLACE`,
+  `TB_SPECIAL_*`, `TB_GRAIL`, ...), `upgrade`, `cost`, `dependencies`,
+  `creature`/`creature2`, `growth`, `growthMultiplier`, `incomeGoldPerDay`,
+  `devLevelNeeded`, `uiObjectName`, `uiStackPosition` and the localized
+  name/description.
+- Building prerequisites are the `<Dependences>` hrefs, canonicalized through
+  the new `XDB.canonical_href` (the data disagrees with itself on case:
+  `Stronghold/Blacksmith.xdb` points at the folder `BlackSmith.xdb`). All 328
+  resolve, the graph is acyclic, and exactly **one** dependency crosses faction
+  lines — `Necromancy/RuinedTower → Preserve/Fort`, via an absolute href. That
+  is a shipped copy-paste bug; the row is kept and pinned by a test, and the
+  runtime ignores prerequisites that belong to another faction.
+- Growth is not in the building records at all (`<Growth>` appears in none of
+  the 328): a dwelling breeds its creature's `WeeklyGrowth`, so
+  `fill_dwelling_growth` joins dwellings to `RefTables/Creatures.xdb`. 112 of
+  126 dwellings carry a growth; the 14 that do not are the `RandomTown`
+  placeholders pointing at `CREATURE_UNKNOWN` (`Creature/Creatures/None.xdb`).
+- Fort tiers scale that: Citadel ×1.5, Castle ×2.0 for all eight factions, and
+  the Grail ×1.5 — all three **read from the building descriptions**, which
+  state them in prose ("Прирост существ увеличивается на 50%", "удваивается",
+  "на 50%"). Only 4 of the 8 `TB_GRAIL` records quantify their bonus, so
+  `fill_grail_values` copies the stated values onto the silent rows; this is
+  the one inferred number in the town tables and the tests say so.
+- `load_town_types` → `townTypes.json`: the 11 `RefTables/TownTypesInfo.xdb`
+  records with faction, ordered building list, silo resource, native war
+  machine, moat damage and moat spells — ACADEMY 36 buildings/Gem/ammo
+  cart/340; DUNGEON 37/Sulfur/ammo cart/170/1 spell; FORTRESS→Dwarves
+  39/Crystal/ammo cart/170; HEAVEN 36/Crystal/ballista/204; INFERNO
+  36/Sulfur/ballista/204; NECROMANCY 36/Mercury/first-aid tent/170/2 spells;
+  PRESERVE 38/Gem/first-aid tent/170/1; STRONGHOLD 39/Mercury/ballista/204;
+  plus `TOWN_RANDOM_TYPE` (31) and the two empty records.
+- `CreatureDef.enumId` from `RefTables/Creatures.xdb` (180 of 196 records).
+  This fixes a real defect: `creatures.json` is keyed by file basename while
+  maps, spells and dwellings name creatures `CREATURE_ASSASSIN`, so
+  `GetCreature` returned null for every map-authored stack.
+- `maps.py`: `AdvMapTown.buildings[]` now carries `maxUpgrade` alongside
+  `type`/`upgrade`, so a map-authored town knows how far each line can go.
+
+**Runtime**:
+- `Map/H5TownState.cs`: live town state — owner, fort level, built set,
+  per-dwelling recruit pool, growth on the new-week tick, income per day
+  (halls, marketplace, resource silo at `BLD_UPG_2` paying the town type's
+  `siloIncome`, grail), build validity (cost, prerequisites, one building per
+  day, dev level) and recruitment into a visiting hero or the garrison.
+- `AdventureMapGameState`: town registry bound at load, `PayTownIncome`,
+  `NewDayForTowns`/`GrowTowns`, `BuildInTown`, `RecruitFromTown`, fort level
+  from live siege state, capture wiring, and towns in the save file.
+- `UI/TownScreen.cs`: the town screen (T, or the bar button), built in code
+  like the rest of the HUD — a Construction column (what stands, what can be
+  built next, with cost, prerequisite and reason-why-not) and a Dwellings
+  column (pool, growth, hire). It renders the same records the shipped 3D
+  interior does; the interior scene itself is not drawn yet.
+
+Deliberately not imported: `GameMechanics/TownSpecialization/**` (281 records)
+carries only the `Bonus` enum with no magnitudes, and no shipped map sets
+`Specialization` on a town, so there is nothing to bind it to. The
+`AdvMapTownShared` records also point at the town interior and siege arena
+scenes (`/Arenas/Town/...`, wall/tower/gate `ArenaModObject`s) — that is the
+source for the siege battlefield, still unused.
+
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **90 tests**
-(89 pass, 1 skipped), every one against the real shipped data. These are
-cross-checks between independent sources, not golden files:
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **109
+tests** (108 pass, 1 skipped), every one against the real shipped data. These
+are cross-checks between independent sources, not golden files:
+
+- **Town data** (10 tests) — 328 buildings with 328 unique keys and zero
+  unresolved or cyclic dependencies; every faction has 7×2 dwellings, 4 halls,
+  3 forts, 5 mage-guild tiers and exactly 1 grail; Citadel 1.5 / Castle 2.0 on
+  all eight factions; all eight grails 1.5× and 5000 gold/day;
+  `Haven/Peasant_Huts` growth 22 = `CREATURE_PEASANT`'s `WeeklyGrowth`, gold
+  500; the single cross-faction dependency pinned.
+- **Python↔C# contract** (5 tests) — every key the importer emits for
+  `TownBuildingDef`, `TownTypeDef`, `TownMoatSpellDef`, `CreatureDef`,
+  `MapObjectDef`, `MapBuildingStateDef` and `MapArmyStackDef` is a field of the
+  C# DTO, parsed straight out of `GameDefs.cs`. This is what stands in for a
+  compiler: a renamed or dropped field fails the suite instead of silently
+  deserializing to a default.
 
 - **Container grammar** — every geometry file ends in the 6-byte marker
   `00 00 02 00 05 00`, and a record stream consumes itself exactly.
@@ -329,9 +413,13 @@ maps look.
   original stats, but tile costs remain a provisional flat 100 MP. Object
   visits, pickups, mine capture and hero levelling now run from the shipped
   tables where those exist; battles run on reconstructed rules (see below).
+  Towns now build, earn and breed from the shipped tables, and there is a town
+  screen over them — but the town's 3D interior, its siege battlefield and the
+  `TB_SPECIAL_*` effects (shipyard, grail-free specials, tavern, prison) are
+  not implemented, and a hero's grimoire is still a hardcoded 12 spells.
   There is still no original multiplayer turn order, terrain/army/artifact
-  movement calculation, map-script override execution, spells, abilities,
-  town screen, campaigns, AI, Lua runtime or networking. Individual hero
+  movement calculation, map-script override execution, campaigns, AI, Lua
+  runtime or networking. Individual hero
   starting stats come from the map's hero records where authored (the
   per-hero shared tables themselves are still not imported; unauthored heroes
   start at 1/1/1/1 with their class skill).

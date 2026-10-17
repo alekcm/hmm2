@@ -47,6 +47,14 @@ namespace HoMM5.Map
         /// </summary>
         public HeroSkillEffects Effects = HeroSkillEffects.Create();
 
+        /// <summary>
+        /// Army stacks a hero may carry at once. The shipped maps never author
+        /// more than seven <c>armySlots</c> on a hero or a town garrison, which
+        /// is the original's limit; recruitment stops there rather than stacking
+        /// an eighth.
+        /// </summary>
+        public const int MaxArmySlots = 7;
+
         /// <summary>Current spell points; the cap is <see cref="MaxMana"/>.</summary>
         public float Mana;
 

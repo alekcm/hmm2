@@ -48,6 +48,13 @@ namespace HoMM5.Map
         /// <summary>Object id -> owning player (captured mines).</summary>
         public Dictionary<string, string> owners = new Dictionary<string, string>();
 
+        /// <summary>
+        /// Town state: what has been built, what the dwellings have bred and who
+        /// owns each town. The authored slots come back from the map JSON, so only
+        /// the parts that change during play are stored.
+        /// </summary>
+        public List<H5TownState> towns = new List<H5TownState>();
+
         public List<string> log = new List<string>();
 
         // -- files ---------------------------------------------------------
