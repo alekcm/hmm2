@@ -2,6 +2,21 @@
 
 What is here, what is verified, and what is not done.
 
+## Follow-up: Newtonsoft test dependency and WAV warning — 2026-10-18
+
+With overrideReferences enabled, the PlayMode assembly must explicitly list
+Newtonsoft.Json.dll in precompiledReferences alongside nunit.framework.dll.
+The Unity.Nuget.Newtonsoft-Json asmdef reference does not supply that DLL; it
+has been removed from the test assembly's references. A project-wiring
+regression now checks overridden assemblies that import Newtonsoft.
+
+H5Wav.ReadU32 now assembles four uint operands before implicitly widening the
+result to long, avoiding the mixed signed bitwise expression behind CS0675.
+Four Unity test cases cover zero, int.MaxValue, 0x80000000 and uint.MaxValue at
+a nonzero buffer offset. They require execution in Unity. The 14 targeted
+Python checks and four heuristic C# analyzers pass; all 44 C# syntax trees
+parse. This follow-up was not compiled or run in Unity in this environment.
+
 ## Unity 6.6 compiler diagnostics — 2026-10-18
 
 The user's first Editor compile exposed errors that the heuristic checkers did

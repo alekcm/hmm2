@@ -211,8 +211,10 @@ namespace HoMM5.Audio
 
         static int ReadU16(byte[] d, int o) => d[o] | (d[o + 1] << 8);
 
+        // Assemble as uint before widening to long: no signed intermediate
+        // operands or implicit sign extension in this little-endian value.
         static long ReadU32(byte[] d, int o) =>
-            d[o] | (d[o + 1] << 8) | (d[o + 2] << 16) | ((long)d[o + 3] << 24);
+            (uint)d[o] | ((uint)d[o + 1] << 8) | ((uint)d[o + 2] << 16) | ((uint)d[o + 3] << 24);
 
         static int Clamp(int v, int lo, int hi) => v < lo ? lo : (v > hi ? hi : v);
     }

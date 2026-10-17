@@ -47,6 +47,11 @@ class ReportedUnityCompileRegressionTest(unittest.TestCase):
         self.assertNotIn("SiegeStructure target =", battle)
         self.assertIn("SiegeStructure structureTarget =", battle)
 
+    def test_wav_u32_uses_unsigned_operands_before_shifting(self):
+        source = (RUNTIME / "Audio/H5Wav.cs").read_text()
+        self.assertIn("(uint)d[o] | ((uint)d[o + 1] << 8) | ((uint)d[o + 2] << 16) | ((uint)d[o + 3] << 24)", source)
+        self.assertNotIn("((long)d[o + 3] << 24)", source)
+
     def test_runtime_only_view_fields_are_not_unity_serialized(self):
         self.assertIn("[System.NonSerialized] public CombatUnit Unit;",
                       (RUNTIME / "Combat/CombatSceneBuilder.cs").read_text())

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using HoMM5.Anim;
+using HoMM5.Audio;
 using HoMM5.Combat;
 using HoMM5.Data;
 using HoMM5.Map;
@@ -27,6 +29,21 @@ namespace HoMM5.Tests
             Assert.That(Quaternion.Dot(rotation, rotation), Is.EqualTo(1f).Within(0.00001f));
             if (scale == 0f) Assert.That(rotation, Is.EqualTo(Quaternion.identity));
             else Assert.That(rotation.x, Is.EqualTo(rotation.w).Within(0.00001f));
+        }
+
+        [TestCase(0L)]
+        [TestCase(0x7FFFFFFFL)]
+        [TestCase(0x80000000L)]
+        [TestCase(0xFFFFFFFFL)]
+        public void WavU32PreservesAllBitsWhenWideningToLong(long value)
+        {
+            // Exercise both sides of the signed boundary and a nonzero offset.
+            var bytes = new byte[] { 0xCC, (byte)(value & 0xFF),
+                (byte)((value >> 8) & 0xFF), (byte)((value >> 16) & 0xFF),
+                (byte)((value >> 24) & 0xFF), 0xCC };
+            var read = typeof(H5Wav).GetMethod("ReadU32", BindingFlags.Static | BindingFlags.NonPublic);
+            Assert.That(read, Is.Not.Null);
+            Assert.That((long)read.Invoke(null, new object[] { bytes, 1 }), Is.EqualTo(value));
         }
 
         [Test]

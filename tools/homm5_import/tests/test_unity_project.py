@@ -39,9 +39,24 @@ class UnityProjectWiringTest(unittest.TestCase):
         self.assertIn("HoMM5.Runtime", definition["references"])
         self.assertEqual(definition["references"].count("UnityEngine.TestRunner"), 1)
         self.assertTrue(definition["overrideReferences"])
-        self.assertEqual(definition["precompiledReferences"], ["nunit.framework.dll"])
+        self.assertCountEqual(definition["precompiledReferences"],
+                              ["nunit.framework.dll", "Newtonsoft.Json.dll"])
         self.assertIn("UNITY_INCLUDE_TESTS", definition["defineConstraints"])
         self.assertFalse(definition.get("includePlatforms"), "PlayMode tests must not be Editor-only")
+
+    def test_overridden_assemblies_using_newtonsoft_reference_its_dll(self):
+        # An asmdef reference to Unity.Nuget.Newtonsoft-Json is not a DLL
+        # reference. overrideReferences disables automatically supplied DLLs.
+        for path in (PROJECT / "Assets").rglob("*.asmdef"):
+            definition = json.loads(path.read_text())
+            if not definition.get("overrideReferences"):
+                continue
+            sources = list(path.parent.rglob("*.cs"))
+            if not any("using Newtonsoft.Json" in source.read_text() for source in sources):
+                continue
+            with self.subTest(assembly=str(path.relative_to(PROJECT))):
+                self.assertIn("Newtonsoft.Json.dll", definition.get("precompiledReferences", []))
+                self.assertNotIn("Unity.Nuget.Newtonsoft-Json", definition.get("references", []))
 
     def test_assembly_references_do_not_duplicate_implicit_test_runners(self):
         for path in (PROJECT / "Assets").rglob("*.asmdef"):
