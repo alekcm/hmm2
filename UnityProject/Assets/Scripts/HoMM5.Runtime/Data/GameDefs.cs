@@ -222,6 +222,10 @@ namespace HoMM5.Data
         public Dictionary<string, int> mineDailyIncome;
         /// <summary>Combat constants (combat/LuckAndMorale, combat/Creatures).</summary>
         public GameCombatRulesDef combat = new GameCombatRulesDef();
+        /// <summary>Hero skill/perk coefficients (DefaultStats HeroSkills blocks).</summary>
+        public GameSkillEffectsDef skillEffects = new GameSkillEffectsDef();
+        /// <summary>Necromancy: slain creature -> risen creature.</summary>
+        public Dictionary<string, string> necromancyTransform = new Dictionary<string, string>();
     }
 
     /// <summary>
@@ -240,6 +244,149 @@ namespace HoMM5.Data
         public int spellInitiative = 10;
         public int atbBaseTime = 100000;
         public int atbEndTime = 20000;
+    }
+
+    /// <summary>
+    /// Skill and perk effect coefficients from the HeroSkills blocks of
+    /// DefaultStats.xdb. Rank lists are indexed by mastery - 1 (Basic..Expert,
+    /// racial skills extend to ExtraExpert). All values are the shipped ones.
+    /// </summary>
+    public class GameSkillEffectsDef
+    {
+        // adventure map
+        public int scoutingVisibilityIncrease = 4;
+        public int disguiseVisibilityIncrease = 12;
+        public float intelligenceManaMultiplier = 1.5f;
+        public int warMachinesHealthPerSkill = 100;
+        public float warMachinesPerkHealthMultiplier = 2f;
+
+        // common combat skills
+        public List<float> offenceDamageBonus = new List<float> { 0.05f, 0.1f, 0.15f };
+        public float archeryDamageBonus = 0.2f;
+        public List<float> defenceDamageReduce = new List<float> { 0.1f, 0.2f, 0.3f };
+        public float evasionDamageReduce = 0.2f;
+
+        // Knight
+        public float retributionDamagePerMorale = 0.05f;
+        public float holdGroundDefendMultiplier = 2f;
+        public List<float> trainingRetaliationBonus = new List<float> { 0.05f, 0.1f, 0.2f, 0.25f };
+        public float trainingCostDiscountPerLevel = 15f;
+        public int roadHomeSpeedBonus = 2;
+
+        // Demon Lord
+        public List<float> gatingPortionByLevel = new List<float> { 0.3f, 0.35f, 0.4f, 0.45f };
+        public float gatingMasteryPortionBonus = 0.2f;
+        public float criticalGatingConstantProb = 0.1f;
+        public float criticalGatingPerLuckPointProb = 0.05f;
+        public int demonicFireBaseDamage = 10;
+        public int demonicFireDamagePerPower = 10;
+
+        // Necromancer
+        public float necromancyRaiseBase = 10f;
+        public float necromancyRaisePerLevel = 10f;
+        public float lordOfUndeadRaiseBonus = 5f;
+        public int spiritLinkHpForMana = 75;
+        public int deathScreamMoralePenalty = 1;
+        public float deathScreamInitiativePenalty = 0.1f;
+        public int deathTreadSpeedBonus = 4;
+
+        // Warlock / Wizard
+        public float invocationChainBonusPerLevel = 0.1f;
+
+        // Runemage + shared feats
+        public float quicknessOfMindInitiativeBonus = 0.25f;
+        public float tapRunesManaPerKnowledge = 0.5f;
+        public float distractEnemyInitiativeDrop = 0.15f;
+        public float setAfireDamageMultiplier = 0.33f;
+        public int setAfireDurationRounds = 3;
+        public float shrugDarknessSpellpowerMultiplier = 0.5f;
+        public int runicArmorSpellpowerBonus = 4;
+        public int runicAttunementMoraleBonus = 2;
+        public int runicMachinesInitiativeBonus = 3;
+        public float mentoringExpPercent = 0.25f;
+        public float empathyAtbPerMorale = 0.1f;
+
+        // Ranger
+        public float elvenLuckDamageMultiplier = 2.25f;
+        public float stormWindInitiativePenalty = 0.1f;
+        public int stormWindSpeedPenalty = 1;
+        public float fogVeilInitiativePenalty = 0.1f;
+        public float fogVeilDamageDecrease = 0.1f;
+
+        // Barbarian
+        public int pathOfWarMovePoints = 350;
+        public float stunningBlowAtbDrop = 0.1f;
+        public float bodybuildingHpPercent = 10f;
+        public float luckOfBarbarianMagicProofPerLuck = 0.05f;
+        public float powerfullBlowCriticalChance = 10f;
+        public float voiceTrainingCostDiscount = 0.2f;
+        public int mightyVoiceHeroLevelBonus = 5;
+        public float deathToNonexistentSummonDamageMult = 3f;
+        public float corruptMagicCostIncrease = 0.5f;
+        public float weakenMagicSpellpowerDecrease = 0.25f;
+        public float detainMagicAtbDrop = 0.25f;
+    }
+
+    // -- hero skills -------------------------------------------------------
+
+    /// <summary>
+    /// One row of Skills.xdb: a ranked skill or one of its perks. ``kind`` is
+    /// skill / standardPerk / classPerk / specialPerk / uniquePerk; perks point
+    /// at their parent skill through ``skill``. Names/descriptions are per
+    /// mastery rank (skills) or a single entry (perks), localized at import.
+    /// </summary>
+    public class SkillDef
+    {
+        public string id;
+        public string kind;
+        public string heroClass;
+        public string skill;
+        public List<string> names = new List<string>();
+        public List<string> descriptions = new List<string>();
+        public List<string> spellBuffs = new List<string>();
+        /// <summary>Class -> dependency perks that must be owned first.</summary>
+        public Dictionary<string, List<string>> prerequisites = new Dictionary<string, List<string>>();
+
+        public bool IsSkill => kind == "skill";
+        public int MaxMastery => names.Count > 0 ? names.Count : 1;
+
+        public string DisplayName(int mastery = 1)
+        {
+            var i = Mathf.Clamp(mastery, 1, names.Count) - 1;
+            return names.Count > 0 && !string.IsNullOrEmpty(names[i]) ? names[i] : GameDatabase.PrettifyEnum(id);
+        }
+
+        public string Description(int mastery = 1)
+        {
+            var i = Mathf.Clamp(mastery, 1, descriptions.Count) - 1;
+            return descriptions.Count > 0 ? descriptions[i] : "";
+        }
+
+        /// <summary>
+        /// True when this perk may be offered to a hero of ``heroClass`` who
+        /// already owns ``owned``. Perks without prerequisite rows are gated by
+        /// their parent skill alone.
+        /// </summary>
+        public bool AvailableFor(string heroClass, ICollection<string> owned)
+        {
+            if (prerequisites == null || prerequisites.Count == 0) return true;
+            if (!prerequisites.TryGetValue(heroClass, out var deps)) return false;
+            foreach (var d in deps)
+                if (owned == null || !owned.Contains(d)) return false;
+            return true;
+        }
+    }
+
+    /// <summary>Level-up offer weights and primary-stat probabilities per class.</summary>
+    public class HeroClassDef
+    {
+        public string id;
+        public string name;
+        public Dictionary<string, int> skillsProbs = new Dictionary<string, int>();
+        public Dictionary<string, int> attributeProbs = new Dictionary<string, int>();
+        public List<string> preferredSpells = new List<string>();
+
+        public string DisplayName => string.IsNullOrEmpty(name) ? GameDatabase.PrettifyEnum(id) : name;
     }
 
     public class StartResourcesDef
@@ -372,6 +519,22 @@ namespace HoMM5.Data
         public bool customAmount;
     }
 
+    /// <summary>One (skill, mastery) pair from a map hero's Editable block.</summary>
+    public class MapSkillEntry
+    {
+        public string skill;
+        public int mastery;
+    }
+
+    /// <summary>Primary stats as authored on a map hero.</summary>
+    public class MapHeroPrimarySkills
+    {
+        public int offence;
+        public int defence;
+        public int spellpower;
+        public int knowledge;
+    }
+
     public class MapTilePointDef
     {
         public int x;
@@ -419,6 +582,13 @@ namespace HoMM5.Data
         public bool customAmount;
         public string attackType;
         public string mood;
+
+        // AdvMapHero level-up history (Editable block)
+        public List<MapSkillEntry> skills;
+        public List<string> perks;
+        public List<string> spells;
+        public int experience;
+        public MapHeroPrimarySkills primarySkills;
 
         // AdvMapTown / AdvMapHero / AdvMapMine / AdvMapArtifact
         public string townType;

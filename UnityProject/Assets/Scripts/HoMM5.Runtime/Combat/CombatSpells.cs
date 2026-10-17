@@ -42,7 +42,7 @@ namespace HoMM5.Combat
                 reason = "No spell.";
                 return false;
             }
-            if (manaLeft < spell.manaCost)
+            if (manaLeft < ManaCost(hero, spell))
             {
                 reason = "Not enough mana.";
                 return false;
@@ -52,7 +52,39 @@ namespace HoMM5.Combat
                 reason = "This spell is not cast in battle.";
                 return false;
             }
+            // School mastery opens spell circles (Wisdom opens circle 3).
+            if (spell.level > hero.Effects.MaxSpellCircle)
+            {
+                reason = "The hero's magic schools are too shallow for this circle.";
+                return false;
+            }
             return true;
+        }
+
+        /// <summary>Mana cost with Arcane Training / Empowered Spells folded in.</summary>
+        public static int ManaCost(H5HeroState hero, SpellDef spell)
+        {
+            if (spell == null) return 0;
+            var mult = hero != null ? hero.Effects.SpellCostMultiplier : 1f;
+            return Mathf.Max(1, Mathf.RoundToInt(spell.manaCost * mult));
+        }
+
+        /// <summary>
+        /// Mastery tier for the spell's per-rank rows: the caster's rank in
+        /// the spell's own school (0 when the school is untrained).
+        /// </summary>
+        public static int MasteryTier(H5HeroState caster, SpellDef spell)
+        {
+            if (caster == null || spell == null) return 0;
+            var fx = caster.Effects;
+            switch (spell.school)
+            {
+                case "MAGIC_SCHOOL_DESTRUCTIVE": return fx.DestructiveMastery;
+                case "MAGIC_SCHOOL_DARK": return fx.DarkMastery;
+                case "MAGIC_SCHOOL_LIGHT": return fx.LightMastery;
+                case "MAGIC_SCHOOL_SUMMONING": return fx.SummoningMastery;
+                default: return 0;
+            }
         }
 
         /// <summary>
@@ -168,9 +200,10 @@ namespace HoMM5.Combat
         static string CastDamage(CombatGameState state, H5HeroState caster, SpellDef spell,
                                  CombatUnit target, int cellX, int cellY, int power)
         {
-            var tier = 0;   // no mastery skills yet
+            var tier = MasteryTier(caster, spell);
             var raw = spell.LevelValue(spell.damage, tier, power);
             if (raw <= 0f) raw = 10f + 10f * power;   // damage-less records: inferred floor
+            raw *= caster != null ? caster.Effects.SpellDamageMultiplier : 1f;
 
             var hits = new List<CombatUnit>();
             if (spell.isAreaAttack)
@@ -193,7 +226,8 @@ namespace HoMM5.Combat
             var total = 0;
             foreach (var hit in hits)
             {
-                var reduced = raw * CombatAbilities.DamageTakenMultiplier(hit, false, true, element);
+                var reduced = raw * CombatAbilities.DamageTakenMultiplier(hit, false, true, element)
+                              * hit.LeaderFx.MagicDamageTakenMultiplier;
                 if (reduced <= 0f)
                 {
                     state.AddLog($"{hit.DisplayName} is immune to {spell.DisplayName}.");
@@ -213,7 +247,7 @@ namespace HoMM5.Combat
                            bool mass, CombatUnit target, string effect, float magnitude, int power)
         {
             var side = IsAttackerHero(state, caster) ? CombatSide.Attacker : CombatSide.Defender;
-            var tier = 0;
+            var tier = MasteryTier(caster, spell);
             var turns = Mathf.Max(1, Mathf.RoundToInt(spell.LevelValue(spell.duration, tier, power)));
             var applied = 0;
 

@@ -60,7 +60,8 @@ namespace HoMM5.Combat
         /// </summary>
         public static DamageOutcome RollAttack(System.Random rng, CombatUnit attacker,
                                                CombatUnit defender, bool ranged,
-                                               bool shooterInMelee, int cellsMoved = 0)
+                                               bool shooterInMelee, int cellsMoved = 0,
+                                               bool retaliation = false)
         {
             var outcome = new DamageOutcome();
             if (attacker == null || defender == null || !attacker.IsAlive || !defender.IsAlive)
@@ -104,19 +105,31 @@ namespace HoMM5.Combat
             // Jousting/brutality and friends.
             baseDamage *= CombatAbilities.AttackDamageMultiplier(attacker, cellsMoved);
 
+            // Secondary skills: Offence/Archery on the way out, Defence/
+            // Evasion on the way in, Retribution riding on morale, Training
+            // sharpening the counter-strike.
+            var atkFx = attacker.LeaderFx;
+            var defFx = defender.LeaderFx;
+            if (ranged) baseDamage *= atkFx.RangedDamageMultiplier * defFx.RangedDamageTakenMultiplier;
+            else baseDamage *= atkFx.MeleeDamageMultiplier * defFx.MeleeDamageTakenMultiplier;
+            if (atkFx.RetributionPerMorale > 0f && attacker.Leader != null && attacker.Leader.Morale > 0)
+                baseDamage *= 1f + atkFx.RetributionPerMorale * attacker.Leader.Morale;
+            if (retaliation && atkFx.RetaliationDamageMultiplier > 0f)
+                baseDamage *= 1f + atkFx.RetaliationDamageMultiplier;
+
             // Shooter penalty channel + Large Shield and other takers' filters.
             if (ranged && shooterInMelee && !CombatAbilities.HasAbility(attacker, "ABILITY_NO_MELEE_PENALTY"))
                 baseDamage *= ShooterInMeleeMultiplier;
             baseDamage *= CombatAbilities.DamageTakenMultiplier(defender, ranged, false, null);
 
-            // Luck: double, halve, or nothing. Rolled against the attacker's
-            // own luck (hero bonus included).
+            // Luck: double (Elven Luck widens the bonus), halve, or nothing.
+            // Rolled against the attacker's own luck (hero bonus included).
             var luck = attacker.Leader != null ? attacker.Leader.Luck : 0;
             var roll = (float)rng.NextDouble();
             if (luck > 0 && roll < ProcChance(luck))
             {
                 outcome.GoodLuck = true;
-                baseDamage *= GoodLuckDamageMultiplier;
+                baseDamage *= Mathf.Max(GoodLuckDamageMultiplier, atkFx.LuckDamageMultiplier);
             }
             else if (luck < 0 && roll < ProcChance(-luck))
             {

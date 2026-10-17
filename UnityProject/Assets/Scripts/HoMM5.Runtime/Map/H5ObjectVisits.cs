@@ -247,6 +247,7 @@ namespace HoMM5.Map
                             hero.AddExperience(ChestExperience);
                             state.CollectObject(mapObj);
                             state.AddLog($"The peasants reward you: +{ChestExperience} experience.");
+                            state.CheckLevelUps(hero);
                         }
                     });
                     state.RequestDialog(request);
@@ -422,7 +423,11 @@ namespace HoMM5.Map
                 }
                 case "BUILDING_LEARNING_STONE":
                     return Permanent(state, hero, obj, "+1000 experience",
-                        () => hero.AddExperience(1000));
+                        () =>
+                        {
+                            hero.AddExperience(1000);
+                            state.CheckLevelUps(hero);
+                        });
                 case "BUILDING_TREE_OF_KNOWLEDGE":
                 {
                     if (!state.TryBeginVisit(obj, VisitFrequency.OnceEver)) return true;
@@ -443,6 +448,7 @@ namespace HoMM5.Map
                             state.Resources.gold -= TreeOfKnowledgeGold;
                             hero.AddExperience(H5HeroState.ExperienceForLevel(hero.Level + 1) - hero.Experience);
                             state.AddLog($"{hero.HeroName} reaches level {hero.Level}.");
+                            state.CheckLevelUps(hero);
                         }
                     });
                     request.Options.Add(new H5DialogOption { Label = "Leave", Action = () => { } });
@@ -450,9 +456,37 @@ namespace HoMM5.Map
                     return true;
                 }
                 case "BUILDING_WITCH_HUT":
+                {
                     if (!state.TryBeginVisit(obj, VisitFrequency.OnceEver)) return true;
-                    state.AddLog("The Witch Hut teaches a secondary skill -- not implemented yet.");
+                    // The hut teaches one secondary skill at Basic with a perk
+                    // of it (shipped Witch Hut behaviour). Candidates are the
+                    // class's own pool minus what the hero already knows.
+                    var db = state.Database;
+                    var cls = db != null ? db.GetHeroClass(hero.HeroClass) : null;
+                    var candidates = new List<string>();
+                    foreach (var kv in (cls != null ? cls.skillsProbs : new Dictionary<string, int>()))
+                    {
+                        var skill = db != null ? db.GetSkill(kv.Key) : null;
+                        if (skill == null || !skill.IsSkill || hero.SkillRank(kv.Key) > 0) continue;
+                        if (kv.Key != hero.RacialSkill && hero.SecondarySkillCount >= H5HeroState.MaxSecondarySkills) continue;
+                        candidates.Add(kv.Key);
+                    }
+                    if (candidates.Count == 0)
+                    {
+                        state.AddLog("The Witch Hut has nothing left to teach.");
+                        return true;
+                    }
+                    var taught = candidates[state.Rand.Next(candidates.Count)];
+                    hero.LearnSkill(taught, 1);
+                    var perk = hero.PickPerkFor(taught, db, state.Rand);
+                    if (perk != null) hero.LearnPerk(perk);
+                    hero.RecalculateEffects(db);
+                    var skillDef = db != null ? db.GetSkill(taught) : null;
+                    var perkDef = perk != null && db != null ? db.GetSkill(perk) : null;
+                    state.AddLog($"The Witch Hut teaches {skillDef?.DisplayName() ?? taught}" +
+                                 (perkDef != null ? $" ({perkDef.DisplayName()})" : "") + ".");
                     return true;
+                }
                 case "BUILDING_SCHOOL_OF_MAGIC":
                 {
                     if (!state.TryBeginVisit(obj, VisitFrequency.OnceEver)) return true;

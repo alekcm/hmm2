@@ -174,9 +174,27 @@ namespace HoMM5.Map
             for (var i = 0; i < _heroes.Count; i++)
             {
                 if (_heroes[i] == null) continue;
-                _heroes[i].SetMovementPoints(DailyHeroMovement);
                 var hs = _heroStates.TryGetValue(_heroes[i].StateKey, out var s) ? s : null;
-                hs?.OnNewDay();
+                if (hs != null)
+                {
+                    // Logistics multiplies the day's movement budget.
+                    _heroes[i].SetMovementPoints(DailyHeroMovement * hs.Effects.MovementMultiplier);
+                    // Estates pays the treasury; mana returns 10% of the cap
+                    // per day (inferred -- the regen rate is engine-side),
+                    // doubled by Mysticism.
+                    if (hs.Effects.EstatesGoldPerDay > 0)
+                    {
+                        Resources.gold += hs.Effects.EstatesGoldPerDay;
+                        AddLog($"{hs.HeroName}: Estates add {hs.Effects.EstatesGoldPerDay} gold.");
+                    }
+                    var regen = hs.MaxMana * 0.1f * hs.Effects.ManaRegenMultiplier;
+                    if (regen > 0f) hs.Mana = Math.Min(hs.MaxMana, hs.Mana + regen);
+                    hs.OnNewDay();
+                }
+                else
+                {
+                    _heroes[i].SetMovementPoints(DailyHeroMovement);
+                }
             }
             Changed?.Invoke();
         }
@@ -212,6 +230,18 @@ namespace HoMM5.Map
             Changed?.Invoke();
         }
 
+        /// <summary>First hero of the local player, for HUD fallbacks.</summary>
+        public H5HeroState FirstLocalHeroState()
+        {
+            for (var i = 0; i < _heroes.Count; i++)
+            {
+                if (_heroes[i] == null) continue;
+                var hs = GetHeroState(_heroes[i]);
+                if (hs != null) return hs;
+            }
+            return null;
+        }
+
         /// <summary>Per-hero persistent state (stats, spells, artifacts).</summary>
         public H5HeroState GetHeroState(H5MapObject hero)
         {
@@ -233,7 +263,46 @@ namespace HoMM5.Map
                 if (def.knownSpells != null)
                     foreach (var s in def.knownSpells)
                         if (s != null && !string.IsNullOrEmpty(s.spell)) hs.Spells.Add(s.spell);
+                hs.HeroClass = ClassForTown(def.town);
             }
+            // Map-authored level-up history (Editable block of AdvMapHero).
+            var mapDef = hero.Def;
+            if (mapDef.primarySkills != null)
+            {
+                if (mapDef.primarySkills.offence > 0) hs.Attack = mapDef.primarySkills.offence;
+                if (mapDef.primarySkills.defence > 0) hs.Defence = mapDef.primarySkills.defence;
+                if (mapDef.primarySkills.spellpower > 0) hs.SpellPower = mapDef.primarySkills.spellpower;
+                if (mapDef.primarySkills.knowledge > 0) hs.Knowledge = mapDef.primarySkills.knowledge;
+            }
+            if (mapDef.experience > 0)
+            {
+                hs.Experience = mapDef.experience;
+                while (hs.Level < 100 && hs.Experience >= H5HeroState.ExperienceForLevel(hs.Level + 1))
+                    hs.Level++;
+            }
+            if (mapDef.skills != null)
+                foreach (var s in mapDef.skills)
+                    if (s != null && !string.IsNullOrEmpty(s.skill))
+                        hs.LearnSkill(s.skill, s.mastery > 0 ? s.mastery : 1);
+            if (mapDef.perks != null)
+                foreach (var p in mapDef.perks)
+                    hs.LearnPerk(p);
+            if (mapDef.spells != null)
+                foreach (var s in mapDef.spells)
+                    if (!string.IsNullOrEmpty(s)) hs.LearnSpell(s);
+            if (hs.Skills.Count == 0)
+            {
+                // Hero records that predate skill authoring start with their
+                // class skill at Basic and its first class perk -- inferred
+                // from the shipped hero presets (DuelMode/Heroes).
+                var racial = hs.RacialSkill;
+                if (racial != null)
+                {
+                    hs.LearnSkill(racial, 1);
+                    hs.LearnPerk(hs.PickPerkFor(racial, Database, Rand));
+                }
+            }
+            hs.RecalculateEffects(Database);
             hs.Mana = hs.MaxMana;
             hs.EnsureArmy(hero.Def != null ? hero.Def.army : null);
             if (hs.Spells.Count == 0)
@@ -253,6 +322,58 @@ namespace HoMM5.Map
             _heroStates[key] = hs;
             hero.BindHeroState(hs);
             return hs;
+        }
+
+        /// <summary>HERO_CLASS_* for a town id (hero classes are per faction).</summary>
+        public static string ClassForTown(string town)
+        {
+            switch ((town ?? "").ToUpperInvariant())
+            {
+                case "TOWN_HEAVEN": return "HERO_CLASS_KNIGHT";
+                case "TOWN_INFERNO": return "HERO_CLASS_DEMON_LORD";
+                case "TOWN_NECROMANCY": case "TOWN_NECROPOLIS": return "HERO_CLASS_NECROMANCER";
+                case "TOWN_PRESERVE": case "TOWN_SYLVAN": return "HERO_CLASS_RANGER";
+                case "TOWN_ACADEMY": return "HERO_CLASS_WIZARD";
+                case "TOWN_DUNGEON": return "HERO_CLASS_WARLOCK";
+                case "TOWN_FORTRESS": return "HERO_CLASS_RUNEMAGE";
+                case "TOWN_STRONGHOLD": return "HERO_CLASS_BARBARIAN";
+                default: return "HERO_CLASS_KNIGHT";
+            }
+        }
+
+        /// <summary>
+        /// Show one level-up dialog per earned but unspent level. Each offer's
+        /// action applies the choice and re-enters, so stacked level-ups walk
+        /// one dialog at a time (and drain inline when no HUD is listening).
+        /// </summary>
+        public void CheckLevelUps(H5HeroState hero)
+        {
+            if (hero == null || hero.PendingLevelUps <= 0) return;
+            var offers = hero.RollLevelUpOffers(Database, Rand);
+            if (offers.Count == 0)
+            {
+                hero.PendingLevelUps = 0;
+                return;
+            }
+            var request = new H5DialogRequest
+            {
+                Message = $"{hero.HeroName} reaches level {hero.Level}. Choose a skill:",
+            };
+            foreach (var offer in offers)
+            {
+                var chosen = offer;
+                request.Options.Add(new H5DialogOption
+                {
+                    Label = offer.Summary(Database),
+                    Action = () =>
+                    {
+                        hero.ApplyLevelUp(chosen, Database, Rand);
+                        AddLog($"{hero.HeroName}: {chosen.Summary(Database)}");
+                        CheckLevelUps(hero);
+                    },
+                });
+            }
+            RequestDialog(request);
         }
 
         // -- combat --------------------------------------------------------
@@ -374,8 +495,8 @@ namespace HoMM5.Map
                         // Dwellings and mines change hands; towns and banks
                         // are cleared out; everything else is picked up.
                         if (monsterObj.Def != null &&
-                            (monsterObj.Def.kind == "AdvMapDwelling" ||
-                             monsterObj.Def.kind == "AdvMapTown" ||
+                            (monsterObj.Def.kind == "AdvMapDwelling" || 
+                             monsterObj.Def.kind == "AdvMapTown" || 
                              monsterObj.Def.kind == "AdvMapGarrison"))
                             CaptureObject(monsterObj);
                         if (monsterObj.Def != null && IsBank(monsterObj.Def))
@@ -385,6 +506,11 @@ namespace HoMM5.Map
                     AddLog(result.Experience > 0
                         ? $"Victory! The army earns {result.Experience} experience."
                         : "Victory! The enemy stack is destroyed.");
+                    if (heroState != null)
+                    {
+                        RaiseTheDead(heroState, monsterObj, result);
+                        CheckLevelUps(heroState);
+                    }
                     break;
 
                 case HoMM5.Combat.CombatOutcome.Fled:
@@ -408,6 +534,45 @@ namespace HoMM5.Map
                     break;
             }
             Changed?.Invoke();
+        }
+
+        /// <summary>
+        /// Necromancy after a victory: a share of the fallen rises as undead
+        /// (RaisePercentBase + per-rank, Lord of Undead bonus), transformed
+        /// through the shipped TransformTable (peasants -> skeletons, titans ->
+        /// wraiths, ...). Creatures with no table row rise as Skeletons.
+        /// </summary>
+        void RaiseTheDead(H5HeroState hero, H5MapObject monsterObj, HoMM5.Combat.CombatResult result)
+        {
+            if (hero == null || result == null) return;
+            var percent = hero.Effects.NecromancyRaisePercent;
+            if (percent <= 0f || result.CreaturesKilledByAttacker <= 0) return;
+
+            var risen = (int)(result.CreaturesKilledByAttacker * percent);
+            if (risen <= 0) return;
+
+            var sourceId = monsterObj != null && monsterObj.Def != null ? monsterObj.Def.creature : null;
+            var risenId = "CREATURE_SKELETON";
+            if (_rules != null && _rules.necromancyTransform != null && !string.IsNullOrEmpty(sourceId) &&
+                _rules.necromancyTransform.TryGetValue(sourceId, out var mapped))
+                risenId = mapped;
+
+            HoMM5.Combat.ArmyStackState stack = null;
+            foreach (var s in hero.Army)
+                if (s != null && s.CreatureId == risenId) { stack = s; break; }
+            if (stack != null) stack.Count += risen;
+            else hero.Army.Add(new HoMM5.Combat.ArmyStackState(risenId, risen));
+            if (monsterObj != null) WriteArmyToDef(heroArmedDef(hero), hero.Army);
+            AddLog($"Necromancy raises {risen} {HoMM5.Data.GameDatabase.PrettifyEnum(risenId)} from the fallen.");
+        }
+
+        /// <summary>The map def the hero's army mirrors, if any is bound.</summary>
+        HoMM5.Data.MapObjectDef heroArmedDef(H5HeroState hero)
+        {
+            if (hero == null) return null;
+            for (var i = 0; i < _heroes.Count; i++)
+                if (_heroes[i] != null && _heroes[i].StateKey == hero.Id) return _heroes[i].Def;
+            return null;
         }
 
         static void WriteArmyToDef(HoMM5.Data.MapObjectDef def, List<HoMM5.Combat.ArmyStackState> survivors)
@@ -664,8 +829,13 @@ namespace HoMM5.Map
 
         internal float GetMovement(string key)
         {
-            return !string.IsNullOrEmpty(key) && _movement.TryGetValue(key, out var points)
-                ? points : DailyHeroMovement;
+            if (!string.IsNullOrEmpty(key) && _movement.TryGetValue(key, out var points))
+                return points;
+            // Fresh day / first bind: the budget is the daily base scaled by
+            // the hero's Logistics rank.
+            if (!string.IsNullOrEmpty(key) && _heroStates.TryGetValue(key, out var hs) && hs != null)
+                return DailyHeroMovement * hs.Effects.MovementMultiplier;
+            return DailyHeroMovement;
         }
 
         internal void StoreMovement(string key, float points)
@@ -727,7 +897,13 @@ namespace HoMM5.Map
             _heroStates.Clear();
             if (save.heroes != null)
                 foreach (var h in save.heroes)
-                    if (h != null && !string.IsNullOrEmpty(h.Id)) _heroStates[h.Id] = h;
+                {
+                    if (h == null || string.IsNullOrEmpty(h.Id)) continue;
+                    // The Effects aggregate is a cache; recompute it from the
+                    // persisted skill/perk lists on every load.
+                    h.RecalculateEffects(Database);
+                    _heroStates[h.Id] = h;
+                }
             _heroPositions.Clear();
             if (save.heroPositions != null)
                 foreach (var p in save.heroPositions)

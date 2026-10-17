@@ -366,6 +366,40 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
                  "count": int(xdb.number(s.find("Count"), xdb.number(s.find("Amount"))))}
                 for s in army_slots if xdb.text(s.find("Creature"))
             ]
+            # The Editable block carries the hero's level-up history: ranked
+            # skills (SkillWithMastery), the perks picked along the way and the
+            # spellbook. Mastery strings map to the numeric ranks of Mastery.xdb.
+            mastery_rank = {"MASTERY_NONE": 0, "MASTERY_BASIC": 1, "MASTERY_ADVANCED": 2,
+                            "MASTERY_EXPERT": 3, "MASTERY_EXTRA_EXPERT": 4}
+            editable = inner.find("Editable")
+            if editable is not None:
+                skills = [
+                    {"skill": xdb.text(s.find("SkillID")),
+                     "mastery": mastery_rank.get(xdb.text(s.find("Mastery")), 0)}
+                    for s in xdb.items(editable.find("skills"))
+                    if xdb.text(s.find("SkillID")) not in ("", "HERO_SKILL_NONE")
+                ]
+                if skills:
+                    obj.extra["skills"] = skills
+                perks = [xdb.text(i) for i in xdb.items(editable.find("perkIDs"))
+                         if xdb.text(i) and xdb.text(i) != "HERO_SKILL_NONE"]
+                if perks:
+                    obj.extra["perks"] = perks
+                spells = [xdb.text(i) for i in xdb.items(editable.find("spellIDs"))
+                          if xdb.text(i) and xdb.text(i) != "SPELL_NONE"]
+                if spells:
+                    obj.extra["spells"] = spells
+                primary = {
+                    "offence": int(xdb.number(editable.find("Offence"))),
+                    "defence": int(xdb.number(editable.find("Defence"))),
+                    "spellpower": int(xdb.number(editable.find("Spellpower"))),
+                    "knowledge": int(xdb.number(editable.find("Knowledge"))),
+                }
+                if any(primary.values()):
+                    obj.extra["primarySkills"] = primary
+            experience = int(xdb.number(inner.find("Experience")))
+            if experience:
+                obj.extra["experience"] = experience
         elif inner.tag == "AdvMapMine":
             mine_type = (xdb.text(inner.find("Resource")) or xdb.text(inner.find("Type")) or
                          (xdb.text(shared_node.find("Type")) if shared_node is not None else ""))

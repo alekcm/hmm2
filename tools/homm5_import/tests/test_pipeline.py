@@ -27,7 +27,8 @@ from homm5import.container import END_MARKER, parse_records  # noqa: E402
 from homm5import.maps import iter_map_files, load_map  # noqa: E402
 from homm5import.dds import DDSError, decode_dds, write_png  # noqa: E402
 from homm5import.gamedata import (load_arena_buildings, load_artifacts,
-                                 load_creatures, load_game_rules, load_spells,
+                                 load_creatures, load_game_rules,
+                                 load_hero_classes, load_skills, load_spells,
                                  load_town_buildings, load_war_machines)  # noqa: E402
 from homm5import.geometry import decode_file as decode_geometry  # noqa: E402
 from homm5import.gltf import geometry_to_glb  # noqa: E402
@@ -460,6 +461,97 @@ class GameDataTest(unittest.TestCase):
         self.assertEqual(ab["BIG_TOWER"]["baseHealth"], 400)
         self.assertEqual(ab["MAGIC_WALL"]["baseHealth"], 500)
 
+    def test_skill_table_supplies_ranks_perks_and_prerequisites(self):
+        """Skills.xdb carries ranked skills plus four perk flavours; every
+        perk points at its parent skill and ultimate perks spell out their
+        cross-class feat requirements."""
+        skills = load_skills(self.xdb, self.loc)
+        self.assertGreaterEqual(len(skills), 220)
+        kinds = {}
+        for s in skills.values():
+            kinds[s["kind"]] = kinds.get(s["kind"], 0) + 1
+        self.assertEqual(kinds.get("skill"), 26)          # 12 common + racial + shatter/voice
+        self.assertEqual(kinds.get("standardPerk"), 55)
+        self.assertEqual(kinds.get("uniquePerk"), 8)
+
+        offence = skills["HERO_SKILL_OFFENCE"]
+        self.assertEqual(offence["kind"], "skill")
+        self.assertEqual(offence["names"], ["Основы нападения", "Развитое нападение",
+                                            "Искусное нападение"])
+        self.assertIn("на 15%", offence["descriptions"][2])
+        self.assertEqual(offence["spellBuffs"],
+                         ["SPELL_SKILL_OFFENCE1", "SPELL_SKILL_OFFENCE2", "SPELL_SKILL_OFFENCE3"])
+
+        archery = skills["HERO_SKILL_ARCHERY"]
+        self.assertEqual(archery["kind"], "standardPerk")
+        self.assertEqual(archery["skill"], "HERO_SKILL_OFFENCE")
+        self.assertEqual(archery["prerequisites"], {})
+
+        rage = skills["HERO_SKILL_ABSOLUTE_RAGE"]
+        self.assertEqual(rage["kind"], "uniquePerk")
+        self.assertEqual(rage["prerequisites"]["HERO_CLASS_BARBARIAN"],
+                         ["HERO_SKILL_ENCOURAGE", "HERO_SKILL_CRITICAL_STRIKE",
+                          "HERO_SKILL_TRIPLE_CATAPULT"])
+
+        retribution = skills["HERO_SKILL_RETRIBUTION"]
+        self.assertIn("HERO_CLASS_KNIGHT", retribution["prerequisites"])
+        self.assertIn("HERO_SKILL_FRENZY", retribution["prerequisites"]["HERO_CLASS_KNIGHT"])
+
+        # Racial skills rank four times (Basic..ExtraExpert).
+        necro = skills["HERO_SKILL_NECROMANCY"]
+        self.assertEqual(len(necro["names"]), 4)
+        self.assertEqual(necro["heroClass"], "HERO_CLASS_NECROMANCER")
+
+    def test_hero_classes_carry_skill_offer_weights_and_stat_probs(self):
+        classes = load_hero_classes(self.xdb, self.loc)
+        self.assertEqual(len(classes), 8)
+        knight = classes["HERO_CLASS_KNIGHT"]
+        self.assertEqual(knight["name"], "Рыцарь")
+        self.assertEqual(knight["skillsProbs"]["HERO_SKILL_LEADERSHIP"], 15)
+        self.assertEqual(knight["skillsProbs"]["HERO_SKILL_TRAINING"], 10)
+        self.assertEqual(knight["attributeProbs"],
+                         {"offence": 30, "defence": 45, "spellpower": 10, "knowledge": 15})
+        self.assertIn("SPELL_RESURRECT", knight["preferredSpells"])
+        # Every class knows its own racial skill with a positive weight.
+        for cls_id, row in classes.items():
+            racial = {"HERO_CLASS_KNIGHT": "HERO_SKILL_TRAINING",
+                      "HERO_CLASS_DEMON_LORD": "HERO_SKILL_GATING",
+                      "HERO_CLASS_NECROMANCER": "HERO_SKILL_NECROMANCY",
+                      "HERO_CLASS_RANGER": "HERO_SKILL_AVENGER",
+                      "HERO_CLASS_WIZARD": "HERO_SKILL_ARTIFICIER",
+                      "HERO_CLASS_WARLOCK": "HERO_SKILL_INVOCATION",
+                      "HERO_CLASS_RUNEMAGE": "HERO_SKILL_RUNELORE",
+                      "HERO_CLASS_BARBARIAN": "HERO_SKILL_DEMONIC_RAGE"}[cls_id]
+            self.assertGreater(row["skillsProbs"].get(racial, 0), 0, cls_id)
+
+    def test_hero_skill_constants_reach_the_rules_export(self):
+        """The engine's skill coefficients stay data-driven: the runtime reads
+        these instead of hardcoding effect sizes."""
+        hero = self.rules["heroSkills"]
+        self.assertEqual(hero["adventure"]["Scouting_VisibilityIncrease"], 4)
+        self.assertEqual(hero["adventure"]["Intelligence_ManaPointsBonus"], 1.5)
+        self.assertEqual(hero["adventure"]["WarMachines_HealthBonusPerSkillTrained"], 100)
+        self.assertEqual(hero["combat"]["SkillOffence"],
+                         {"BasicDamageBonus": 0.05, "AdvancedDamageBonus": 0.1,
+                          "ExpertDamageBonus": 0.15, "Archery_DamageBonus": 0.2})
+        self.assertEqual(hero["combat"]["SkillDefence"]["Evasion_DamageReduce"], 0.2)
+        self.assertEqual(hero["combat"]["Knight"]["Retribution_DamageBonusPerMorale"], 0.05)
+        self.assertEqual(hero["combat"]["Knight"]["HoldGround_DefendBonusMultiplier"], 2)
+        self.assertEqual(hero["combat"]["Runemage"]["QuicknessOfMind_InitiativeBonus"], 0.25)
+        self.assertEqual(hero["combat"]["Ranger"]["ElvenLuck_DamageMultiplier"], 2.25)
+        self.assertEqual(hero["combat"]["Necromancer"]["Necromancy"]["RaisePercentPerSkillLevel"], 10)
+        self.assertEqual(hero["combat"]["DemonLord"]["Gating"]["PortionOfSummonedByGatingLevel"]["Item"],
+                         [0.3, 0.35, 0.4, 0.45])
+        self.assertEqual(self.rules["necromancyTransform"]["CREATURE_PEASANT"], "CREATURE_SKELETON")
+        self.assertEqual(self.rules["necromancyTransform"]["CREATURE_TITAN"], "CREATURE_WRAITH")
+        se = self.rules["skillEffects"]
+        self.assertEqual(se["offenceDamageBonus"], [0.05, 0.1, 0.15])
+        self.assertEqual(se["defenceDamageReduce"], [0.1, 0.2, 0.3])
+        self.assertEqual(se["gatingPortionByLevel"], [0.3, 0.35, 0.4, 0.45])
+        self.assertEqual(se["trainingRetaliationBonus"], [0.05, 0.1, 0.2, 0.25])
+        self.assertEqual(se["necromancyRaisePerLevel"], 10.0)
+        self.assertEqual(se["quicknessOfMindInitiativeBonus"], 0.25)
+
     def test_creature_stats_match_the_xml(self):
         c = self.creatures["CombatMage"]
         self.assertEqual(c["AttackSkill"], 12)
@@ -565,6 +657,26 @@ class MapTest(unittest.TestCase):
         wood = next(o for o in piles if o.extra.get("sharedType") == "TREASURE_WOOD")
         self.assertEqual(wood.extra["amount"], 8)
         self.assertTrue(wood.object_id)
+
+    def test_map_heroes_carry_their_level_up_history(self):
+        """A map hero's Editable block lists ranked skills, perks and the
+        spellbook -- the level-up history the runtime restores verbatim."""
+        path = os.path.join(DATA, "Maps", "Scenario", "A2C1M5", "map.xdb")
+        if not os.path.isfile(path):
+            self.skipTest("scenario map not present")
+        md = load_map(self.xdb, path, resolve_models=False)
+        heroes = [o for o in md.objects if o.kind == "AdvMapHero" and o.extra.get("skills")]
+        self.assertTrue(heroes, "no map hero ships a skill roster")
+        hero = heroes[0]
+        skills = {s["skill"]: s["mastery"] for s in hero.extra["skills"]}
+        for mastery in skills.values():
+            self.assertIn(mastery, (1, 2, 3, 4), "mastery ranks are numeric 1..4")
+        self.assertTrue(any(v == 3 for v in skills.values()), "at least one Expert rank")
+        perks = hero.extra.get("perks", [])
+        self.assertGreater(len(perks), 3)
+        for p in perks:
+            self.assertTrue(p.startswith("HERO_SKILL_"))
+        self.assertTrue(hero.extra.get("primarySkills") or hero.extra.get("experience", 0) >= 0)
 
     def test_shared_records_supply_visit_tiles_and_treasure_rolls(self):
         """The visit trigger tiles and the pickup roll range live on the shared

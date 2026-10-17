@@ -40,8 +40,11 @@ namespace HoMM5.Combat
         /// <summary>Deployment phase before the first round.</summary>
         public bool TacticsActive { get; private set; }
 
-        /// <summary>Number of columns the tactics phase allows rearranging.</summary>
-        public const int TacticsColumns = 2;
+        /// <summary>
+        /// Number of columns the tactics phase allows rearranging: the two
+        /// default columns plus one per Tactics perk (skill text).
+        /// </summary>
+        public int TacticsColumns { get; private set; } = 2;
 
         HoMM5.Data.GameDatabase _db;
 
@@ -78,6 +81,8 @@ namespace HoMM5.Combat
             if (heroState != null && heroState.WarMachines != null)
                 foreach (var machine in heroState.WarMachines)
                     state.AddWarMachine(CombatSide.Attacker, machine, db, heroState, id++);
+            if (heroState != null)
+                state.TacticsColumns = 2 + heroState.Effects.TacticsExtraColumns;
 
             var def = monsterObj != null ? monsterObj.Def : null;
             if (guardOverride != null && guardOverride.Count > 0)
@@ -158,8 +163,9 @@ namespace HoMM5.Combat
             if (def != null)
             {
                 // Ballista damage runs on the hero's attack via factors; keep
-                // the table's own offence as the machine's combat stat.
-                unit.WarMachineTier = 0;
+                // the table's own offence as the machine's combat stat. The
+                // tier column is the hero's War Machines mastery (0..3).
+                unit.WarMachineTier = leader != null ? leader.Effects.WarMachineTier : 0;
                 var tier = Mathf.Clamp(unit.WarMachineTier, 0, Mathf.Max(0, def.offence.Count - 1));
                 if (def.offence != null && def.offence.Count > 0)
                     unit.WarMachineAttack = def.offence[tier];
@@ -167,8 +173,32 @@ namespace HoMM5.Combat
                     unit.WarMachineMinFactor = def.minDamageFactor[tier];
                 if (def.maxDamageFactor != null && def.maxDamageFactor.Count > 0)
                     unit.WarMachineMaxFactor = Mathf.Max(unit.WarMachineMinFactor, def.maxDamageFactor[tier]);
+
+                // Shipped health bonuses: +HealthBonusPerSkillTrained per
+                // trained rank, doubled when the hero owns the machine perk.
+                var rules = db != null && db.Rules != null ? db.Rules.skillEffects : null;
+                if (rules != null && leader != null)
+                {
+                    var hp = def.health + rules.warMachinesHealthPerSkill * unit.WarMachineTier;
+                    if (MachinePerkOwned(leader, machineId))
+                        hp = Mathf.RoundToInt(hp * rules.warMachinesPerkHealthMultiplier);
+                    unit.HealthLeft = hp;
+                }
             }
             Units.Add(unit);
+        }
+
+        /// <summary>The machine-control perk (Ballista/Catapult/First Aid) doubles machine health.</summary>
+        static bool MachinePerkOwned(H5HeroState leader, string machineId)
+        {
+            if (leader == null) return false;
+            switch (machineId)
+            {
+                case "WAR_MACHINE_BALLISTA": return leader.HasPerk("HERO_SKILL_BALLISTA") || leader.HasPerk("HERO_SKILL_TRIPLE_BALLISTA");
+                case "WAR_MACHINE_CATAPULT": return leader.HasPerk("HERO_SKILL_CATAPULT") || leader.HasPerk("HERO_SKILL_TRIPLE_CATAPULT");
+                case "WAR_MACHINE_FIRST_AID_TENT": return leader.HasPerk("HERO_SKILL_FIRST_AID") || leader.HasPerk("HERO_SKILL_LAST_AID");
+                default: return false;
+            }
         }
 
         /// <summary>First aid tent: mend the most wounded friendly stack.</summary>
@@ -226,12 +256,28 @@ namespace HoMM5.Combat
             for (var y = 0; y < GridHeight; y++)
                 Siege.MoatCells.Add(new Vector2Int(wallX - 1, y));
 
-            // A defender catapult pounds the walls back... no, it defends:
-            // give the DEFENDER a catapult only if besieged (it repairs? no --
-            // in HoMM5 the defender's towers shoot; the attacker brings the
-            // catapult). The attacker gets one automatically.
-            AddWarMachine(CombatSide.Attacker, "WAR_MACHINE_CATAPULT", _db, null, Units.Count + 1);
+            // The attacker brings the catapult (the defender's towers shoot).
+            // It rides under the attacker's hero so War Machines mastery
+            // applies to its stats.
+            var attackerHero = AttackerLeader;
+            AddWarMachine(CombatSide.Attacker, "WAR_MACHINE_CATAPULT", _db, attackerHero, Units.Count + 1);
+
+            // Death Tread: the besieging army fights faster on castle walls.
+            if (attackerHero != null && attackerHero.Effects.SiegeSpeedBonus > 0)
+                foreach (var u in Units)
+                    if (u.Side == CombatSide.Attacker) u.ContextSpeedBonus += attackerHero.Effects.SiegeSpeedBonus;
             PlaceArmies();
+        }
+
+        /// <summary>The attacking hero, if any leads the army.</summary>
+        public H5HeroState AttackerLeader
+        {
+            get
+            {
+                foreach (var u in Units)
+                    if (u.Side == CombatSide.Attacker && u.Leader != null) return u.Leader;
+                return null;
+            }
         }
 
         int StructureHealth(string kind)
@@ -262,6 +308,17 @@ namespace HoMM5.Combat
             structure.Health -= damage;
             AddLog($"{attacker.DisplayName} hits the {PrettyStructure(structure.Kind)} for {damage} " +
                    $"({Mathf.Max(0, structure.Health)}/{structure.MaxHealth}).");
+            // War Machines mastery: the catapult can demolish the section
+            // outright (30/40/50% by rank -- shipped skill text).
+            if (structure.IsAlive && attacker.UnitType == CombatUnitType.WarMachine)
+            {
+                var chance = attacker.LeaderFx.CatapultDestroyChance;
+                if (chance > 0 && Rand.Next(100) < chance)
+                {
+                    structure.Health = 0;
+                    AddLog($"The {PrettyStructure(structure.Kind)} is demolished outright!");
+                }
+            }
             if (!structure.IsAlive)
                 AddLog($"The {PrettyStructure(structure.Kind)} is destroyed!");
             Changed?.Invoke();
@@ -774,7 +831,7 @@ namespace HoMM5.Combat
                     target.RetaliatedThisRound = true;
                     var isReturnShot = ranged && target.IsRanged;
                     if (isReturnShot && target.ShotsLeft > 0) target.ShotsLeft--;
-                    var back = CombatRules.RollAttack(Rand, target, attacker, isReturnShot, false);
+                    var back = CombatRules.RollAttack(Rand, target, attacker, isReturnShot, false, retaliation: true);
                     if (back.Missed)
                         AddLog($"{target.DisplayName}'s retaliation passes through.");
                     else
@@ -1074,7 +1131,7 @@ namespace HoMM5.Combat
                 Err = $"{spell.DisplayName} has no implemented effect yet.";
                 return null;
             }
-            hero.Mana = Mathf.Max(0f, hero.Mana - spell.manaCost);
+            hero.Mana = Mathf.Max(0f, hero.Mana - CombatSpells.ManaCost(hero, spell));
             SpellCastThisRound = true;
             AddLog(line);
             return line;
@@ -1086,8 +1143,7 @@ namespace HoMM5.Combat
         /// <summary>
         /// Enter the tactics phase: the player may rearrange their stacks in
         /// the first <see cref="TacticsColumns"/> columns before the first
-        /// round. (The Tactics secondary skill widens the zone in the
-        /// original; skills are not implemented, so the zone is fixed.)
+        /// round. The Tactics perk widens the zone by one column.
         /// </summary>
         public void BeginTactics()
         {
@@ -1153,7 +1209,7 @@ namespace HoMM5.Combat
                     if (killed > 0) result.Experience += exp * killed;
                 }
                 if (result.Experience > 0)
-                    leader.AddExperience(result.Experience);
+                    leader.AddExperience(result.Experience, _db);
             }
             result.CreaturesKilledByAttacker = CreaturesKilled(CombatSide.Attacker);
             result.Log.AddRange(Log);

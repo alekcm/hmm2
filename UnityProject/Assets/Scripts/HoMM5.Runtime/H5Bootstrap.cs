@@ -188,6 +188,24 @@ namespace HoMM5
             if (context.IsSiege)
                 state.SetupSiege(context.FortLevel);
 
+            // Skill-driven battlefield context: the ammo cart sharpens the
+            // shooters (+1/2/3 attack by War Machines rank), Road Home hastens
+            // the army on grass arenas.
+            var heroFx = context.Hero != null && context.Hero.HeroState != null
+                ? context.Hero.HeroState.Effects
+                : HoMM5.Map.HeroSkillEffects.Create();
+            var hasAmmoCart = state.Units.Exists(u =>
+                u.Side == CombatSide.Attacker && u.IsAlive &&
+                u.UnitType == CombatUnitType.WarMachine && u.WarMachineId == "WAR_MACHINE_AMMO_CART");
+            var grassBonus = arenaId != null && arenaId.ToLowerInvariant().Contains("grass")
+                ? heroFx.GrassSpeedBonus : 0;
+            foreach (var u in state.Units)
+            {
+                if (u.Side != CombatSide.Attacker) continue;
+                if (hasAmmoCart && u.IsRanged) u.ContextAttackBonus += heroFx.AmmoCartAttackBonus;
+                if (grassBonus > 0) u.ContextSpeedBonus += grassBonus;
+            }
+
             var scene = new CombatSceneBuilder(Meshes, Textures, Database,
                 MakeTerrainMaterial(), MakeObjectMaterial(), MakeWaterMaterial());
             if (!scene.BuildArena(arenaId))
@@ -330,11 +348,29 @@ namespace HoMM5
                 string.Join("  ", counts));
         }
 
+        /// <summary>
+        /// H: hero screen -- the hero's class, secondary skills with ranks and
+        /// the perk roster, in one modal panel.
+        /// </summary>
+        void ShowHeroSkills()
+        {
+            if (GameState == null) return;
+            var heroObj = _controller != null ? _controller.Selected as H5MapObject : null;
+            var hs = heroObj != null && heroObj.IsHero ? GameState.GetHeroState(heroObj) : null;
+            if (hs == null) hs = GameState.FirstLocalHeroState();
+            if (hs == null) return;
+
+            var request = new H5DialogRequest { Message = hs.SkillSummary(Database) };
+            request.Options.Add(new H5DialogOption { Label = "Close" });
+            GameState.RequestDialog(request);
+        }
+
         void Update()
         {
             if (CombatActive) return;
             if (HoMM5.Core.H5Input.SavePressed()) SaveGame();
             if (HoMM5.Core.H5Input.LoadPressed()) LoadGame();
+            if (HoMM5.Core.H5Input.HeroScreenPressed()) ShowHeroSkills();
 
             if (!HoMM5.Core.H5Input.FloorTogglePressed() || CurrentMap == null || CurrentMap.Map == null)
                 return;

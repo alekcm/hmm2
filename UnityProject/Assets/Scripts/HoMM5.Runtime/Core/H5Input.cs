@@ -147,6 +147,17 @@ namespace HoMM5.Core
 #endif
         }
 
+        /// <summary>H: hero screen (skills and perks).</summary>
+        public static bool HeroScreenPressed()
+        {
+#if H5_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM
+            var kb = UnityEngine.InputSystem.Keyboard.current;
+            return kb != null && kb.hKey.wasPressedThisFrame;
+#else
+            return Input.GetKeyDown(KeyCode.H);
+#endif
+        }
+
         /// <summary>
         /// Whether the pointer is over a uGUI element, so a click on the map
         /// list is not also treated as a click on the map.

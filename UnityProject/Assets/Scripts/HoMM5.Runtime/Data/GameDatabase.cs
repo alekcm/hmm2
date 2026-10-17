@@ -22,6 +22,8 @@ namespace HoMM5.Data
         public GameRulesDef Rules { get; private set; } = new GameRulesDef { baseHeroMovement = 2500 };
         public Dictionary<string, WarMachineDef> WarMachines { get; private set; } = new Dictionary<string, WarMachineDef>();
         public Dictionary<string, ArenaBuildingDef> ArenaBuildings { get; private set; } = new Dictionary<string, ArenaBuildingDef>();
+        public Dictionary<string, SkillDef> Skills { get; private set; } = new Dictionary<string, SkillDef>();
+        public Dictionary<string, HeroClassDef> HeroClasses { get; private set; } = new Dictionary<string, HeroClassDef>();
         public Dictionary<string, ModelAnimDef> ModelAnimations { get; private set; } = new Dictionary<string, ModelAnimDef>();
         public Dictionary<string, string> Localization { get; private set; } = new Dictionary<string, string>();
         public List<MapIndexEntry> MapIndex { get; private set; } = new List<MapIndexEntry>();
@@ -45,6 +47,8 @@ namespace HoMM5.Data
             Rules = LoadSingle<GameRulesDef>(H5Paths.Game("rules.json")) ?? Rules;
             WarMachines = LoadDict<WarMachineDef>(H5Paths.Game("warMachines.json")) ?? WarMachines;
             ArenaBuildings = LoadDict<ArenaBuildingDef>(H5Paths.Game("arenaBuildings.json")) ?? ArenaBuildings;
+            Skills = LoadDict<SkillDef>(H5Paths.Game("skills.json")) ?? Skills;
+            HeroClasses = LoadDict<HeroClassDef>(H5Paths.Game("heroClasses.json")) ?? HeroClasses;
             ModelAnimations = LoadDict<ModelAnimDef>(H5Paths.Game("modelAnimations.json")) ?? ModelAnimations;
             Localization = LoadDict<string>(H5Paths.Game("Localization.json")) ?? Localization;
             MapIndex = LoadList<MapIndexEntry>(H5Paths.Maps("_index.json")) ?? MapIndex;
@@ -52,6 +56,7 @@ namespace HoMM5.Data
             IsLoaded = true;
             Debug.Log($"[HoMM5] loaded {Creatures.Count} creatures, {Spells.Count} spells, " +
                       $"{Artifacts.Count} artifacts, {TownBuildings.Count} town buildings, " +
+                      $"{Skills.Count} skills/perks, {HeroClasses.Count} hero classes, " +
                       $"{Localization.Count} strings, {MapIndex.Count} maps, " +
                       $"{ModelAnimations.Count} animated models");
             Loaded?.Invoke();
@@ -87,6 +92,31 @@ namespace HoMM5.Data
         {
             if (string.IsNullOrEmpty(id)) return null;
             return Artifacts.TryGetValue(id, out var a) ? a : null;
+        }
+
+        /// <summary>A skill or perk record by its HERO_SKILL_* id.</summary>
+        public SkillDef GetSkill(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return null;
+            return Skills.TryGetValue(id, out var s) ? s : null;
+        }
+
+        public HeroClassDef GetHeroClass(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return null;
+            return HeroClasses.TryGetValue(id, out var c) ? c : null;
+        }
+
+        /// <summary>Every perk hanging off one skill (any kind but "skill").</summary>
+        public List<SkillDef> PerksOfSkill(string skillId)
+        {
+            var outList = new List<SkillDef>();
+            foreach (var kv in Skills)
+            {
+                var s = kv.Value;
+                if (s != null && !s.IsSkill && s.skill == skillId) outList.Add(s);
+            }
+            return outList;
         }
 
         public MapIndexEntry GetMapIndexEntry(string id)

@@ -37,6 +37,70 @@ def _text_ref(xdb: XDB, loc: Optional[Localization], node: Optional[ET.Element])
     return loc.read(href) if href else None
 
 
+def _text_list(xdb: XDB, loc: Optional[Localization],
+               node: Optional[ET.Element]) -> List[str]:
+    """One localized string per ``<Item href="...">`` of a name/description list."""
+    if node is None or loc is None:
+        return []
+    out: List[str] = []
+    for item in xdb.items(node):
+        href = item.get("href")
+        text = loc.read(href) if href else None
+        out.append(text or "")
+    return out
+
+
+def _tree(node: Optional[ET.Element]):
+    """Generic XML subtree -> nested dict/list/number/bool/str.
+
+    Used for the ``HeroSkills`` constants blocks of DefaultStats.xdb, whose
+    per-class layout varies too much to enumerate by hand. Repeated ``Item``
+    tags collapse to a list; leaf text is parsed as number/bool when possible.
+    """
+    if node is None:
+        return None
+    kids = list(node)
+    if not kids:
+        text = (node.text or "").strip()
+        if text == "":
+            return ""
+        if text.lower() in ("true", "false"):
+            return text.lower() == "true"
+        try:
+            return int(text) if re.match(r"^-?\d+$", text) else float(text)
+        except ValueError:
+            return text
+    out: dict = {}
+    order: List[str] = []
+    for kid in kids:
+        value = _tree(kid)
+        if kid.tag == "Item":
+            out.setdefault("Item", [])
+            if not isinstance(out["Item"], list):
+                out["Item"] = [out["Item"]]
+            out["Item"].append(value)
+        elif kid.tag in out:
+            if not isinstance(out[kid.tag], list):
+                out[kid.tag] = [out[kid.tag]]
+            out[kid.tag].append(value)
+        else:
+            out[kid.tag] = value
+            order.append(kid.tag)
+    return out
+
+
+def _find(node: Optional[ET.Element], path: str) -> Optional[ET.Element]:
+    """ElementTree path lookup that tolerates missing intermediate nodes."""
+    return node.find(path) if node is not None else None
+
+
+def _number_items(node: Optional[ET.Element]) -> List[float]:
+    """Numeric ``<Item>`` children of a node (empty when absent)."""
+    if node is None:
+        return []
+    return [float((i.text or "0").strip() or 0) for i in node if i.tag == "Item"]
+
+
 def _mastery_rows(xdb: XDB, node: Optional[ET.Element]) -> List[dict]:
     """<damage>/<duration> rows: one per mastery tier, Base + PerPower."""
     if node is None:
@@ -218,6 +282,20 @@ def load_game_rules(xdb: XDB, loc: Optional[Localization] = None) -> dict:
     combat_creatures = combat.find("Creatures") if combat is not None else None
     luck_morale = combat.find("LuckAndMorale") if combat is not None else None
 
+    # Hero skill constants: the engine keeps every skill/perk coefficient in
+    # two HeroSkills blocks (adventure map and combat). Exported verbatim so
+    # the runtime can read the shipped numbers instead of hardcoding them.
+    hero_skills_adv = adventure.find("HeroSkills")
+    hero_skills_combat = combat.find("HeroSkills") if combat is not None else None
+
+    necro_transform: Dict[str, str] = {}
+    if hero_skills_combat is not None:
+        table = hero_skills_combat.find("Necromancer/Necromancy/TransformTable")
+        for row in xdb.items(table):
+            dead, rise = xdb.text(row.find("Dead")), xdb.text(row.find("Rise"))
+            if dead and rise:
+                necro_transform[dead] = rise
+
     return {
         "source": "/GameMechanics/RPGStats/DefaultStats.xdb",
         "baseHeroMovement": number(adventure, "BaseHeroMovement"),
@@ -247,6 +325,80 @@ def load_game_rules(xdb: XDB, loc: Optional[Localization] = None) -> dict:
             "atbBaseTime": number(root, "ATBBaseTime"),
             "atbEndTime": number(root, "ATBEndTime"),
         },
+        # Verbatim HeroSkills coefficient trees (nested numbers/strings).
+        "heroSkills": {
+            "adventure": _tree(hero_skills_adv),
+            "combat": _tree(hero_skills_combat),
+        },
+        # Flat, runtime-facing subset of the same constants. Keys are the
+        # effects the combat and adventure layers apply per skill rank/perk;
+        # values are the shipped coefficients (rank lists index mastery 1..n).
+        "skillEffects": {
+            "scoutingVisibilityIncrease": int(xdb.number(_find(hero_skills_adv, "Scouting_VisibilityIncrease"))),
+            "disguiseVisibilityIncrease": int(xdb.number(_find(hero_skills_adv, "DisguiseAndReckon_VisibilityIncrease"))),
+            "intelligenceManaMultiplier": float(xdb.number(_find(hero_skills_adv, "Intelligence_ManaPointsBonus"), 1)),
+            "warMachinesHealthPerSkill": int(xdb.number(_find(hero_skills_adv, "WarMachines_HealthBonusPerSkillTrained"))),
+            "warMachinesPerkHealthMultiplier": float(xdb.number(_find(hero_skills_adv, "WarMachines_PerkSpecificHealthMultiplier"), 1)),
+            "offenceDamageBonus": [float(xdb.number(_find(hero_skills_combat, "SkillOffence/BasicDamageBonus"))),
+                                   float(xdb.number(_find(hero_skills_combat, "SkillOffence/AdvancedDamageBonus"))),
+                                   float(xdb.number(_find(hero_skills_combat, "SkillOffence/ExpertDamageBonus")))],
+            "archeryDamageBonus": float(xdb.number(_find(hero_skills_combat, "SkillOffence/Archery_DamageBonus"))),
+            "defenceDamageReduce": [float(xdb.number(_find(hero_skills_combat, "SkillDefence/BasicDamageReduce"))),
+                                    float(xdb.number(_find(hero_skills_combat, "SkillDefence/AdvancedDamageReduce"))),
+                                    float(xdb.number(_find(hero_skills_combat, "SkillDefence/ExpertDamageReduce")))],
+            "evasionDamageReduce": float(xdb.number(_find(hero_skills_combat, "SkillDefence/Evasion_DamageReduce"))),
+            "retributionDamagePerMorale": float(xdb.number(_find(hero_skills_combat, "Knight/Retribution_DamageBonusPerMorale"))),
+            "holdGroundDefendMultiplier": float(xdb.number(_find(hero_skills_combat, "Knight/HoldGround_DefendBonusMultiplier"), 1)),
+            "trainingRetaliationBonus": [float(xdb.number(_find(hero_skills_combat, "Knight/Training/BasicDamageBonus"))),
+                                         float(xdb.number(_find(hero_skills_combat, "Knight/Training/AdvancedDamageBonus"))),
+                                         float(xdb.number(_find(hero_skills_combat, "Knight/Training/ExpertDamageBonus"))),
+                                         float(xdb.number(_find(hero_skills_combat, "Knight/Training/ExtraExpertDamageBonus")))],
+            "trainingCostDiscountPerLevel": float(xdb.number(_find(hero_skills_combat, "Knight/Training/SkillTraining_CostDiscountPerLevel"))),
+            "roadHomeSpeedBonus": int(xdb.number(_find(hero_skills_combat, "Knight/RoadHome/SpeedBonus"))),
+            "gatingPortionByLevel": list(_number_items(_find(hero_skills_combat, "DemonLord/Gating/PortionOfSummonedByGatingLevel"))),
+            "gatingMasteryPortionBonus": float(xdb.number(_find(hero_skills_combat, "DemonLord/Gating/GatingMasteryPortionBonus"))),
+            "criticalGatingConstantProb": float(xdb.number(_find(hero_skills_combat, "DemonLord/Gating/CriticalGatingConstantProb"))),
+            "criticalGatingPerLuckPointProb": float(xdb.number(_find(hero_skills_combat, "DemonLord/Gating/CriticalGatingPerLuckPointProb"))),
+            "demonicFireBaseDamage": int(xdb.number(_find(hero_skills_combat, "DemonLord/DemonicFire/BaseDamage"))),
+            "demonicFireDamagePerPower": int(xdb.number(_find(hero_skills_combat, "DemonLord/DemonicFire/DamagePerSpellPower"))),
+            "necromancyRaiseBase": float(xdb.number(_find(hero_skills_combat, "Necromancer/Necromancy/RaisePercentBase"))),
+            "necromancyRaisePerLevel": float(xdb.number(_find(hero_skills_combat, "Necromancer/Necromancy/RaisePercentPerSkillLevel"))),
+            "lordOfUndeadRaiseBonus": float(xdb.number(_find(hero_skills_combat, "Necromancer/Necromancy/LordOfUndeadBonus"))),
+            "spiritLinkHpForMana": int(xdb.number(_find(hero_skills_combat, "Necromancer/SpiritLink_HPForOneMana"))),
+            "deathScreamMoralePenalty": int(xdb.number(_find(hero_skills_combat, "Necromancer/DeathScream_MoralePenalty"))),
+            "deathScreamInitiativePenalty": float(xdb.number(_find(hero_skills_combat, "Necromancer/DeathScream_InitiativePenalty"))),
+            "deathTreadSpeedBonus": int(xdb.number(_find(hero_skills_combat, "Necromancer/DeathTread/SpeedBonus"))),
+            "invocationChainBonusPerLevel": float(xdb.number(_find(hero_skills_combat, "Warlock/ElementalChainBonusPerInvocationTrained"))),
+            "quicknessOfMindInitiativeBonus": float(xdb.number(_find(hero_skills_combat, "Runemage/QuicknessOfMind_InitiativeBonus"))),
+            "tapRunesManaPerKnowledge": float(xdb.number(_find(hero_skills_combat, "Runemage/TapRunes_ManaRestorePerKnowledge"))),
+            "distractEnemyInitiativeDrop": float(xdb.number(_find(hero_skills_combat, "Runemage/Distract_EnemyHeroInitiativeDrop"))),
+            "setAfireDamageMultiplier": float(xdb.number(_find(hero_skills_combat, "Runemage/SetAfire_DamageMultiplier"))),
+            "setAfireDurationRounds": int(xdb.number(_find(hero_skills_combat, "Runemage/SetAfire_DamageDurationInRounds"))),
+            "shrugDarknessSpellpowerMultiplier": float(xdb.number(_find(hero_skills_combat, "Runemage/ShrugDarkness_EnemySpellpowerMultiplier"), 1)),
+            "runicArmorSpellpowerBonus": int(xdb.number(_find(hero_skills_combat, "Runemage/RunicArmor_SpellpowerBonus"))),
+            "runicAttunementMoraleBonus": int(xdb.number(_find(hero_skills_combat, "Runemage/RunicAttunement_MoraleBonus"))),
+            "runicMachinesInitiativeBonus": int(xdb.number(_find(hero_skills_combat, "Runemage/RunicMachines_InitiativeBonus"))),
+            "mentoringExpPercent": float(xdb.number(_find(hero_skills_combat, "Runemage/Mentoring_ExpPecentToGiveToVisitor"))),
+            "empathyAtbPerMorale": float(xdb.number(_find(hero_skills_combat, "Runemage/Empathy_ATBAffectionOnMorale"))),
+            "elvenLuckDamageMultiplier": float(xdb.number(_find(hero_skills_combat, "Ranger/ElvenLuck_DamageMultiplier"), 2)),
+            "stormWindInitiativePenalty": float(xdb.number(_find(hero_skills_combat, "Ranger/StormWind_InitiativePenalty"))),
+            "stormWindSpeedPenalty": int(xdb.number(_find(hero_skills_combat, "Ranger/StormWind_SpeedPenalty"))),
+            "fogVeilInitiativePenalty": float(xdb.number(_find(hero_skills_combat, "Ranger/FogVeil_InitiativePenalty"))),
+            "fogVeilDamageDecrease": float(xdb.number(_find(hero_skills_combat, "Ranger/FogVeil_DamageDecrease"))),
+            "pathOfWarMovePoints": int(xdb.number(_find(hero_skills_combat, "Barbarian/PathOfWar_MovePointsBonus"))),
+            "stunningBlowAtbDrop": float(xdb.number(_find(hero_skills_combat, "Barbarian/StunningBlow_ATBDrop"))),
+            "bodybuildingHpPercent": float(xdb.number(_find(hero_skills_combat, "Barbarian/Bodybuilding_HPBonusPercent"))),
+            "luckOfBarbarianMagicProofPerLuck": float(xdb.number(_find(hero_skills_combat, "Barbarian/LuckOfTheBarbarian_MagicProofPerLuck"))),
+            "powerfullBlowCriticalChance": float(xdb.number(_find(hero_skills_combat, "Barbarian/PowerfullBlow_ChanceToCritical"))),
+            "voiceTrainingCostDiscount": float(xdb.number(_find(hero_skills_combat, "Barbarian/VoiceTraining_WarcryCostDiscount"))),
+            "mightyVoiceHeroLevelBonus": int(xdb.number(_find(hero_skills_combat, "Barbarian/MightyVoice_HeroLevelBonus"))),
+            "deathToNonexistentSummonDamageMult": float(xdb.number(_find(hero_skills_combat, "Barbarian/DeathToNonexistent_DamageToSummonsMult"), 1)),
+            "corruptMagicCostIncrease": float(xdb.number(_find(hero_skills_combat, "Barbarian/CorruptMagic_SpellCostIncrease"))),
+            "weakenMagicSpellpowerDecrease": float(xdb.number(_find(hero_skills_combat, "Barbarian/WeakenMagic_SpellPowerDecrease"))),
+            "detainMagicAtbDrop": float(xdb.number(_find(hero_skills_combat, "Barbarian/DetainMagic_CasterExtraATBDrop"))),
+        },
+        # Necromancy: which risen creature replaces each slain one.
+        "necromancyTransform": necro_transform,
     }
 
 
@@ -311,6 +463,104 @@ def load_arena_buildings(xdb: XDB) -> Dict[str, dict]:
             "id": key,
             "baseHealth": int(xdb.number(obj.find("BaseHealth"))),
             "healthFortBonuses": [int(xdb.number(i)) for i in xdb.items(obj.find("HealthFortBonuses"))],
+        }
+    return out
+
+
+def load_hero_classes(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, dict]:
+    """Per-class level-up probabilities: which skills the game offers and how
+    likely each primary stat is to gain a point on level up.
+
+    ``SkillsProbs`` drives the weighted skill offers of the level-up dialog;
+    ``AttributeProbs`` rolls the +1 primary stat every level.
+    """
+    root = xdb.load("/GameMechanics/RefTables/HeroClass.xdb")
+    out: Dict[str, dict] = {}
+    if root is None:
+        return out
+    for item in xdb.items(root.find("objects")):
+        key = xdb.text(item.find("ID"))
+        obj = item.find("obj")
+        if obj is None or key == "HERO_CLASS_NONE":
+            continue
+        probs = {}
+        for row in xdb.items(obj.find("SkillsProbs")):
+            skill = xdb.text(row.find("SkillID"))
+            if skill and skill != "HERO_SKILL_NONE":
+                probs[skill] = int(xdb.number(row.find("Prob")))
+        attrs = obj.find("AttributeProbs")
+        name_node = obj.find("NameFileRef")
+        name = None
+        if name_node is not None and loc is not None and name_node.get("href"):
+            # Class name texts are relative to the ref table itself
+            # (HeroClass/HeroClassKnight.txt), mirrored under texts/.
+            name = loc.read(xdb.absolutize(name_node.get("href"),
+                                           "/GameMechanics/RefTables/HeroClass.xdb"))
+        out[key] = {
+            "id": key,
+            "name": name,
+            "skillsProbs": probs,
+            "attributeProbs": {
+                "offence": int(xdb.number(attrs.find("OffenceProb"))) if attrs is not None else 0,
+                "defence": int(xdb.number(attrs.find("DefenceProb"))) if attrs is not None else 0,
+                "spellpower": int(xdb.number(attrs.find("SpellpowerProb"))) if attrs is not None else 0,
+                "knowledge": int(xdb.number(attrs.find("KnowledgeProb"))) if attrs is not None else 0,
+            },
+            "preferredSpells": [xdb.text(i) for i in xdb.items(obj.find("PreferredSpellsFromSpellShop"))
+                                if xdb.text(i) and xdb.text(i) != "SPELL_NONE"],
+        }
+    return out
+
+
+def load_skills(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, dict]:
+    """Every skill, perk and feat from the shipped skill table.
+
+    ``Skills.xdb`` mixes five kinds of records in one list: the ranked skills
+    (``SKILLTYPE_SKILL``; common ones cap at mastery 3, racial ones at 4) and
+    four perk flavours that hang off them through ``BasicSkillID``. Perk
+    availability is per class: a record with ``SkillPrerequisites`` rows is
+    learnable only by the classes that have a row, and only once every listed
+    dependency perk is owned. Records without rows are gated by their skill
+    alone (class perks belong to racial skills only their class can learn).
+    """
+    root = xdb.load("/GameMechanics/RefTables/Skills.xdb")
+    out: Dict[str, dict] = {}
+    if root is None:
+        return out
+    kinds = {
+        "SKILLTYPE_SKILL": "skill",
+        "SKILLTYPE_STANDART_PERK": "standardPerk",
+        "SKILLTYPE_CLASS_PERK": "classPerk",
+        "SKILLTYPE_SPECIAL_PERK": "specialPerk",
+        "SKILLTYPE_UINQUE_PERK": "uniquePerk",
+    }
+    for item in xdb.items(root.find("objects")):
+        key = xdb.text(item.find("ID"))
+        obj = item.find("obj")
+        if obj is None or key == "HERO_SKILL_NONE":
+            continue
+        kind = kinds.get(xdb.text(obj.find("SkillType")), "skill")
+        names = _text_list(xdb, loc, obj.find("NameFileRef"))
+        descs = _text_list(xdb, loc, obj.find("DescriptionFileRef"))
+        prereqs = {}
+        for row in xdb.items(obj.find("SkillPrerequisites")):
+            cls = xdb.text(row.find("Class"))
+            deps = [xdb.text(i) for i in xdb.items(row.find("dependenciesIDs")) if xdb.text(i)]
+            if cls:
+                prereqs[cls] = deps
+        basic = xdb.text(obj.find("BasicSkillID"))
+        out[key] = {
+            "id": key,
+            "kind": kind,
+            "heroClass": xdb.text(obj.find("HeroClass")),
+            # Skills are their own group head; perks hang off BasicSkillID.
+            "skill": key if kind == "skill" else basic,
+            # Racial skills carry four rank texts (Basic..ExtraExpert); common
+            # skills three; perks a single name/description.
+            "names": names,
+            "descriptions": descs,
+            "spellBuffs": [xdb.text(i) for i in xdb.items(obj.find("spellBuffs")) if xdb.text(i)],
+            "prerequisites": prereqs,
         }
     return out
 
@@ -471,4 +721,6 @@ def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object
         "rules": load_game_rules(xdb),
         "warMachines": load_war_machines(xdb),
         "arenaBuildings": load_arena_buildings(xdb),
+        "skills": load_skills(xdb, loc),
+        "heroClasses": load_hero_classes(xdb, loc),
     }

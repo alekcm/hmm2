@@ -96,34 +96,73 @@ namespace HoMM5.Combat
         public bool HasActedThisRound;
         public bool WaitedThisRound;
 
+        /// <summary>Battlefield-context modifiers (siege/grass speed, ammo cart).</summary>
+        public int ContextSpeedBonus;
+        public int ContextAttackBonus;
+
         /// <summary>Leader for stat bonuses; null for neutral monsters.</summary>
         public H5HeroState Leader;
 
         public bool IsAlive => Count > 0;
         public bool IsRanged => Def != null && Def.Shots > 0;
         public bool IsFlying => Def != null && Def.flying;
-        public int MaxHealth => Def != null && Def.Health > 0 ? Def.Health : 1;
 
-        /// <summary>Walk speed with hasted/slowed applied.</summary>
+        /// <summary>
+        /// Per-creature hit points: the shipped value plus Toughness and
+        /// Bodybuilding from the leader's skill set.
+        /// </summary>
+        public int MaxHealth
+        {
+            get
+            {
+                var hp = Def != null && Def.Health > 0 ? Def.Health : 1;
+                if (Def == null) return hp;
+                var fx = LeaderFx;
+                hp += fx.HealthPerCreature;
+                if (fx.HealthPercentBonus > 0f) hp = Mathf.RoundToInt(hp * (1f + fx.HealthPercentBonus));
+                return Mathf.Max(1, hp);
+            }
+        }
+
+        /// <summary>Leader's skill aggregate; neutral units have none.</summary>
+        public HoMM5.Map.HeroSkillEffects LeaderFx =>
+            Leader != null ? Leader.Effects : HoMM5.Map.HeroSkillEffects.Create();
+
+        /// <summary>Walk speed with hasted/slowed and skill bonuses applied.</summary>
         public int Speed
         {
             get
             {
                 var speed = Def != null ? Mathf.Max(1, Def.Speed) : 5;
+                speed += LeaderFx.SpeedBonus + ContextSpeedBonus;
                 if (HasEffect(CombatEffect.Hasted)) speed = Mathf.RoundToInt(speed * 1.3f);
                 if (HasEffect(CombatEffect.Slowed)) speed = Mathf.Max(1, Mathf.RoundToInt(speed * 0.7f));
                 return speed;
             }
         }
 
-        public int Initiative => Def != null ? Mathf.Max(1, Def.Initiative) : 8;
+        /// <summary>
+        /// Turn order rank; Quickness of Mind widens the leader's whole army
+        /// for the battle, Runic Machines speed war machines up.
+        /// </summary>
+        public int Initiative
+        {
+            get
+            {
+                var init = Def != null ? Mathf.Max(1, Def.Initiative) : 8;
+                if (UnitType == CombatUnitType.WarMachine) init += LeaderFx.MachineInitiativeBonus;
+                else init = Mathf.RoundToInt(init * (1f + (LeaderFx.InitiativeMultiplier - 1f)));
+                return Mathf.Max(1, init);
+            }
+        }
 
         /// <summary>Attack with hero bonus, enragement and weakening effects.</summary>
         public int AttackSkill
         {
             get
             {
-                var a = (Def != null ? Def.AttackSkill : WarMachineAttack) + (Leader != null ? Leader.Attack : 0);
+                var a = (Def != null ? Def.AttackSkill : WarMachineAttack) + (Leader != null ? Leader.Attack : 0)
+                        + ContextAttackBonus;
                 if (FriendlyDeathsSeen > 0 && CombatAbilities.HasAbility(this, "ABILITY_ENRAGED"))
                     a += Mathf.RoundToInt(a * CombatAbilities.EnragePerDeath * FriendlyDeathsSeen);
                 if (HasEffect(CombatEffect.Weakness))
@@ -147,13 +186,16 @@ namespace HoMM5.Combat
                     d = Mathf.RoundToInt(d * (1f + FindEffect(CombatEffect.StoneSkin).Magnitude));
                 if (HasEffect(CombatEffect.Frenzy))
                     d = Mathf.RoundToInt(d * (1f - FindEffect(CombatEffect.Frenzy).Magnitude));
-                if (Defended) d = Mathf.RoundToInt(d * (1f + CombatRules.DefenceBonusOnDefend));
+                // Defend command; Hold Ground multiplies its bonus.
+                if (Defended)
+                    d = Mathf.RoundToInt(d * (1f + CombatRules.DefenceBonusOnDefend * LeaderFx.DefendBonusMultiplier));
                 return d;
             }
         }
 
-        public int MinDamage => Def != null ? Def.MinDamage : 1;
-        public int MaxDamage => Def != null ? Mathf.Max(Def.MinDamage, Def.MaxDamage) : 1;
+        /// <summary>Damage per creature: the shipped roll plus Frenzy's +1.</summary>
+        public int MinDamage => (Def != null ? Def.MinDamage : 1) + (Def != null ? LeaderFx.DamagePerCreature : 0);
+        public int MaxDamage => (Def != null ? Mathf.Max(Def.MinDamage, Def.MaxDamage) : 1) + (Def != null ? LeaderFx.DamagePerCreature : 0);
 
         public string DisplayName => Def != null ? Def.DisplayName
             : (UnitType == CombatUnitType.WarMachine

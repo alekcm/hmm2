@@ -210,6 +210,59 @@ glTF package. Adventure-map viewer: chunked terrain with cliff walls, water,
   blessed/cursed damage rolls, one retaliation per round with unlimited and
   ranged retaliation and no-retaliation all wired.
 
+## Continuation: secondary skills
+
+The full secondary-skill system is in, sourced from `Skills.xdb` (221 records),
+`HeroClass.xdb`, `Mastery.xdb` and the two `HeroSkills` coefficient blocks of
+`DefaultStats.xdb` — every effect size in the runtime is a shipped number.
+
+**Importer** (`gamedata.py`, 5 new tests):
+- `load_skills` → `skills.json`: 26 ranked skills (12 common + 8 racial + shatter/voice)
+  with per-rank names/descriptions, 55 standard perks, 23 class perks, 108 feats,
+  8 ultimates. Perk availability carries the per-class `SkillPrerequisites` rows
+  (a feat is learnable only by classes with a row, and only with its dependency
+  perks owned — this is how ultimates gate behind three cross-tree feats).
+- `load_hero_classes` → `heroClasses.json`: per-class `SkillsProbs` (level-up offer
+  weights), `AttributeProbs` (primary-stat rolls), preferred spells.
+- `rules.json`: `skillEffects` (flat runtime coefficients: Offence/Defence ranks,
+  Archery/Evasion, Retribution, Hold Ground, Training retaliation, Gating portions,
+  Necromancy raise, Quickness of Mind, Elven Luck, shatter magic, ...) plus the raw
+  `heroSkills` trees and `necromancyTransform` (134 slain→risen rows).
+- `maps.py`: hero `Editable` blocks now import `skills` (mastery ranks 1..4), `perks`,
+  `spells`, `primarySkills`, `experience` — map heroes start with their authored
+  level-up history (verified on A2C1M5).
+
+**Runtime**:
+- `H5HeroState`: `HeroClass` (from the hero's town), `Skills`, `Perks`,
+  `PendingLevelUps`; `RollLevelUpOffers` (two (skill, perk) pairs, SkillsProbs-weighted,
+  perks filtered by `SkillDef.AvailableFor`) + `ApplyLevelUp` (class AttributeProbs
+  stat roll, Learning's extra stat every N levels). Level-up dialog routes through
+  the existing `H5DialogRequest` pipeline (headless auto-picks option 1).
+- `Map/HeroSkillEffects.cs`: one aggregate of every live modifier, computed from
+  the shipped coefficients; combat and map read this.
+- Combat: Offence/Defence/Archery/Evasion damage channels, Retribution (+5%/morale),
+  Training retaliation, Toughness/Frenzy/Bodybuilding stat lines, Hold Ground
+  (Defend ×2), Quickness of Mind (+25% initiative), Elven Luck (2.25×), war machine
+  tiers from War Machines mastery (+100 hp/rank, perk doubles, ammo cart +1/2/3
+  ranged attack, catapult 30/40/50% demolish), Tactics +1 column, Sorcery cast
+  interval, school masteries now pick the spell's damage/duration row and gate
+  circles (Wisdom opens 3), Arcane Training/Empowered Spells mana and damage,
+  magic-damage-taken channel (Protection/Resistance/Magic Cushion).
+- Adventure: Logistics movement (+10/20/30%), Estates (+250/day), mana regen 10%/day
+  ×Mysticism, Intelligence +50% mana, Learning XP bonus, Necromancy raise after
+  victory through the shipped TransformTable, Witch Hut teaches a random skill,
+  H key opens the hero skill roster.
+- Save/load persists class/skills/perks and recomputes the effect cache.
+
+Still out (skill-adjacent): terrain movement penalties (Pathfinding's −50% waits
+for per-tile costs), fog-of-war radius (Scouting), war machine manual control and
+multi-shot perks, most active perks (Holy Charge, Prayer, Gating, Demonic Fire...),
+magic school spell-learning costs, runic/warcry skill trees, two-hero battles.
+Ultimate perks require their three feats but grant only their passive effects
+where modeled. Level-up offer pairing (skill+perk per panel) follows the shipped
+LevelUpBox layout (SkillsLabel/PerksLabel rows, two panels); the exact original
+pairing rules are not in the data and are marked inferred.
+
 ## Verified, and how
 
 `cd tools/homm5_import && python3 -m unittest discover -s tests` — **90 tests**
@@ -279,7 +332,9 @@ maps look.
   There is still no original multiplayer turn order, terrain/army/artifact
   movement calculation, map-script override execution, spells, abilities,
   town screen, campaigns, AI, Lua runtime or networking. Individual hero
-  starting stats are not in the imported tables (heroes start at 1/1/1/1).
+  starting stats come from the map's hero records where authored (the
+  per-hero shared tables themselves are still not imported; unauthored heroes
+  start at 1/1/1/1 with their class skill).
 - **Combat is a playable reconstruction, not the original.** The luck and
   morale multipliers, defending bonus, siege structure health, war machine
   stats and creature stats are shipped numbers; the attack/defence damage
@@ -287,11 +342,12 @@ maps look.
   and the discrete initiative rounds are documented approximations of the
   engine's ATB model. The siege wall layout and bank guard rosters are
   prototype tables (the originals script them per scenario). Secondary
-  skills (magic masteries, Tactics, War Machines tiers) are not implemented:
-  casts use mastery tier 0, the tactics zone is fixed, machines use tier 0.
-  Two-hero battles, hero spellcasting beyond the once-per-round combat cast,
-  battlefield obstacles (fire wall, land mines) and creature-activated
-  specials (battle dive, gating, seduce) remain stubs or inert.
+  skills now drive damage channels, machine tiers, tactics width and spell
+  mastery rows (see the continuation notes above); remaining gaps are the
+  active perks and the per-tile movement model. Two-hero battles, hero
+  spellcasting beyond the once-per-round combat cast, battlefield obstacles
+  (fire wall, land mines) and creature-activated specials (battle dive,
+  gating, seduce) remain stubs or inert.
 - **Animation is partial.** Adventure-map idle and move clips are extracted
   from Granny GR2 and play through `H5Rig`/`H5Anim`; the bind-pose caveat in
   `H5Rig` applies to clips that start far from rest. Combat stances and
@@ -309,10 +365,10 @@ maps look.
 
 1. Get it compiling and open a map — cheapest way to find what the missing
    compile check left behind.
-2. Finish material translation: two-sided culling, additive passes, lightmaps and
+2. Town screen and hero screen (the level-up dialog and skill roster are
+   placeholders in the IMGUI/uGUI HUD; the shipped screens carry the art).
+3. Finish material translation: two-sided culling, additive passes, lightmaps and
    visual effects; smoothly blend the imported terrain coverage layers.
-3. Secondary skills system (magic masteries, Tactics, War Machines, Logistics
-   ...): the combat and movement systems already read the hooks it feeds.
-4. Town screen and hero screen; campaigns (Witch Huts and hero levelling
-   dialogs expect the skill system behind them).
+4. Active skill perks (Holy Charge, Prayer, Gating, Demonic Fire, ...) and
+   per-tile terrain movement costs (Pathfinding hooks are in place).
 5. Audio: `music/`, `sound/`, `soundsfx/` are FMOD-packed and untouched.
