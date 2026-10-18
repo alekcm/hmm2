@@ -5,6 +5,7 @@ FOG-CMD-001	Fog command RTTI/vtables/sizes/serializers	static-confirmed	not-test
 FOG-CMD-002	Circle command Apply field movement	static-confirmed	not-tested	bin 0x00426930-0x00426949	complete helper ABI and byte polarity
 FOG-CMD-003	List/rectangle command record packing	static-confirmed	not-tested	bin 0x00426980-0x00426b80	common coordinate ABI and plane/floor meaning
 FOG-HELPER-001	Native fog helper dispatch	static-confirmed	not-tested	bin 0x0098f4e0-0x0098f735	all stack/register argument meanings and mode names
+FOG-HELPER-002	Neutral machine-level helper ABI	static-confirmed	not-tested	prologues, stack offsets, ret 0x10/0x0c, direct virtual calls	semantic parameter names and related-object identity
 FOG-PLAYER-001	CPlayer slot 108 circle-like cell update	static-confirmed	not-tested	bin 0x004fc100-0x004fc2de; NWorld_Classes.h	array meanings, byte polarity, complete ABI, consumers
 FOG-PLAYER-002	CPlayer slot 109 rectangular cell update	static-confirmed	not-tested	bin 0x004fc2f0-0x004fc3b9; NWorld_Classes.h	endpoint order, byte polarity, relationship to slot 108
 FOG-QUERY-001	Packed-cell query at 0x009d2550	static-confirmed	not-tested	bin 0x009d2550-0x009d25a0	returned-byte polarity and explored-memory layer

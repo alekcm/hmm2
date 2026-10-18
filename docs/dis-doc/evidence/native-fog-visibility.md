@@ -147,6 +147,51 @@ slot 109 / +0x1b4: 0x004fc2f0
 
 Evidence: `decompiled_src/include/RTTI/NWorld_Classes.h` and the corresponding executable vtable entries.
 
+## FOG-HELPER-002 — machine-level helper ABI (neutral names)
+
+**Status:** `static-confirmed`; **runtime:** `not-tested`.
+
+The stack layout can be stated without assigning source-level semantic names:
+
+```text
+0x0098f4e0:
+  ecx   = object/player-like reference
+  edx   = coordinate/payload pointer
+  [esp+4]  = a1
+  [esp+8]  = a2
+  [esp+0c] = a3
+  [esp+10] = a4 (dispatch mode)
+  return cleanup = 0x10 bytes
+
+0x0098f610:
+  ecx   = object/player-like reference
+  edx   = coordinate/payload pointer
+  [esp+4]  = a1
+  [esp+8]  = a2
+  [esp+0c] = a3 (dispatch mode)
+  return cleanup = 0x0c bytes
+```
+
+This follows from the prologues, the `ret` cleanup values, and the stack offsets used before the virtual calls.
+The direct calls are:
+
+```text
+0x0098f4e0, mode a4 = 0 or 1:
+  CPlayer slot 108(pos = edx, p1 = a1, p2 = a2, p3 = a3)
+
+0x0098f610, mode a3 = 0 or 1:
+  CPlayer slot 109(pos = edx, p1 = a1, p2 = a2)
+```
+
+For mode `1`, the helper also walks its native related-object path and calls the same corresponding player
+slot on accepted objects. For mode `2`, the direct call is skipped and the related-object path is entered.
+The loop counter reaches eight candidates in the observed code. The relationship test and the exact meaning of
+those candidates are not named here.
+
+At the circle command call site `0x00426930`, the helper receives `a1 = field_14`, `a2 = field_18`,
+`a3 = 0`, and `a4 = 0`. This is an ABI fact; it does not establish the source-level meaning of `field_14`,
+`field_18`, or the values written by slot 108.
+
 ## FOG-PLAYER-001 — CPlayer slot 108 static operations
 
 **Status:** `static-confirmed` for memory operations and loop geometry; **runtime:** `not-tested`.

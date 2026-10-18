@@ -24,6 +24,7 @@ This is an index, not a claim that every subsystem is already understood.
 - `FOG-CMD-002` — circle command `Apply` field movement and call into `0x98f4e0`.
 - `FOG-CMD-003` — rectangle/list command `Apply` record packing and call into `0x98f610`.
 - `FOG-HELPER-001` — native helper dispatch to player virtual slots `+0x1b0` / `+0x1b4`.
+- `FOG-HELPER-002` — neutral machine-level stack ABI and mode dispatch for both helpers.
 - `FOG-PLAYER-001` — static behavior visible in `CPlayer::vfunc_108_0x004fc170`.
 - `FOG-PLAYER-002` — static behavior visible in `CPlayer::vfunc_109_0x004fc2f0`.
 - `FOG-QUERY-001` — packed visibility query at `0x009d2550`.
