@@ -4,45 +4,66 @@ What is here, what is verified, and what is not done.
 
 ## Scope, stated plainly
 
-A full port of the game is not something one pass produces. The engine is
-`bin/H5_Game_PEST.exe` (13 MB of compiled code): turn order, pathfinding, combat
-resolution, spells, abilities, hero levelling, town growth, AI, the Lua VM,
-network play. None of that is in the data files, and none of it is reimplemented
-here.
-
-What **is** here is the other half — the content and the formats. Every number
-the game plays with, every mesh it draws, every map it ships, decoded from the
-real files and loading in a Unity 6.6 project. That is the foundation a port is
-built on, and it is the part that cannot be shortcut.
+Both the shipped data formats **and** the compiled engine binary (`bin/H5_Game_PEST.exe`
+and `bin/granny2.dll`) have been reverse-engineered and decompiled so that core
+gameplay formulas, RTTI class hierarchies, virtual function tables, Lua C-API
+bindings, and Oodle1-compressed Granny GR2 skeletons/animations are extracted
+directly from the shipped binaries rather than guessed. See
+[`docs/EXE_DECOMPILATION.md`](docs/EXE_DECOMPILATION.md) for the complete binary
+reference.
 
 ## Delivered
 
-### 1. Offline importer — `tools/homm5_import/`
+### 1. Executable & DLL Decompiler — `tools/homm5_decompile/`
 
-Standard library only, no dependencies. Reads the shipped formats:
+Static PE32 analyzer and x86 decompiler (`homm5-decompile`) targeting
+`bin/H5_Game_PEST.exe` (ImageBase `0x00400000`, MSVC 7.1) and exporting
+`UnityProject/Assets/StreamingAssets/homm5_extracted/decompiled_exe_db.json`:
+
+- **3,347** MSVC 7.1 RTTI `TypeDescriptor` classes (`0x00e98370` `type_info` vftable)
+- **5,577** resolved virtual function tables across **19,618** unique virtual methods
+- **314** unique Lua C-API function registrations (`0x00f2def0 .. 0x00f7bd48`)
+- **499** call cross-references to `NWorld::GetDefaultStats()` (`0x00bcb3f0` -> `0x01043a00`)
+- **16** decompiled `NWorld` gameplay formulas and tables:
+  - 40-level Hero XP progression (`0x00b4c6b0`, seed table at `0x00f755e4` -> `0x01026d90`)
+  - Hero primary/secondary stat clamping (`0x00b5ad70`, `0x00b4ca10..0x00b4cde0`)
+  - 30-bit packed tile coordinates (`0x00419690`, `0x00bcc310`) & passability (`0x005e11a0`)
+  - Terrain step movement cost (`0x00cab090 -> 0x00ca9a70`, jump table `0x00ca9be8`: Road `75`, Off-road `100`, non-native penalty `{0, 25, 50}`, Snatch, Pathfinding `* 0.5f`, diagonal `* 1.41421354f` at `0x00e557b8`)
+  - Combat Attack/Defense damage multiplier (`0x00a58d30`, `0x00a58de0`), base stack damage roll (`0x00a597a0`), range/melee/Jousting/Luck modifiers (`0x00a5a900`, `0x00a5c870`), and `NWorld::SFLB0_GetUnitExperienceValue` (`0x004d8ba0`)
+  - Active Time Battle (`NWorld::CArenaATB` at `0x00a2d6c0`, `0x00a2d700`, `0x00a5e4f0..0x00a5e688`: unit period `100000.0f / Initiative`, hero period `100000.0f / 10.0f`, Good Morale `0.5f`, Wait `0.5f`, Defend `1.0f` + `+30%` Defense)
+
+### 2. Offline importer — `tools/homm5_import/`
+
+Reads the shipped formats (with automatic Tribes of the East Patch 3.1 `a2p1-data/`
+and `a2p1-texts/` overlay):
 
 | format | what it is | status |
 | --- | --- | --- |
-| `.xdb` (62144) | XML descriptors, 3 href kinds | **decoded** |
+| `.xdb` (62144 + `a2p1-data`) | XML descriptors, 3 href kinds, Patch 3.1 overlay | **decoded** |
+| `DefaultStats.xdb` | Global `NDb::RPGStats` (`NWorld::GetDefaultStats`) | **decoded** |
 | `GroundTerrain.bin` (293) | height / flags / river / passability planes | **decoded, 293/293** |
 | `bin/Geometries` (3567) | Nival container meshes | **decoded, 3561 exported** (6 are empty) |
 | `.dds` (9258) | DXT1/3/4/5, BGRA, RGB565 | **decoded, 9258/9258** |
-| `texts/` (15860) | UTF-16 LE localization | **decoded** |
-| `GameMechanics` | creatures, spells, artifacts, buildings | **decoded** |
-| `AdvMapDesc` (142) | map objects | **decoded, 197936 objects** |
-| `bin/Skeletons` (2242) | Granny GR2, Oodle-compressed | **not decoded** |
-| `bin/animations` (3393) | Granny GR2, Oodle-compressed | **not decoded** |
+| `texts/` + `a2p1-texts/` | UTF-16 LE localization with Patch 3.1 overlay | **decoded** |
+| `GameMechanics` | creatures, spells, artifacts, buildings, defaultStats | **decoded** |
+| `AdvMapDesc` (142) | map objects (`Floor`: `0`=Ground, `1`=Underground) | **decoded, 197936 objects** |
+| `bin/Skeletons` (2242) | Granny GR2 v6, Oodle1 (`comp=2`) decompressed | **decoded (`gr2.py`, decompiled from `granny2.dll`)** |
+| `bin/animations` (3393) | Granny GR2 v6 (`comp=0` & Oodle1 `comp=2`) | **decoded (`gr2.py`, decompiled from `granny2.dll`)** |
 | `bin/effects` (1919) | particle systems | **not decoded** |
 | `sound/`, `music/` | FMOD-packed audio | **not touched** |
-| `data/scripts/*.lua` | campaign and map scripting | **not touched** |
-| `data/types.xml` | 775 type declarations | **present, unused** |
+| `data/scripts/*.lua` | campaign and map scripting | **Lua C-API bindings extracted (314 functions)** |
+| `data/types.xml` | 775 type declarations | **present** |
 
-### 2. Unity 6.6 project — `UnityProject/`
+### 3. Unity 6.6 project — `UnityProject/`
 
 `6000.6.6f1`, built-in render pipeline, two assemblies, no dependency on any
-glTF package. Adventure-map viewer: chunked terrain with cliff walls, water,
-197936 placed objects, click-to-select with the shipped stats, a map list for all
-142 maps, surface/underground switch.
+glTF package:
+- **Adventure Map Viewer (`HoMM5.Map`, `HoMM5.UI`)**: chunked terrain with cliff walls, water, 197,936 placed objects (with radians-to-degrees `<Rot>` conversion, `BoxCollider` raycast selection, and `GROUND=0` / `UNDERGROUND=1` floor handling), HUD map list, and object inspector with decompiled XP values.
+- **Decompiled `NWorld` Gameplay Systems (`HoMM5.World`)**:
+  - `NWorldHero.cs` (`NWorld::CHero` `0x00e7e484`: 40-level XP curve, stat clamping, movement points, mana, 7 army slots, artifacts)
+  - `NWorldPathfinder.cs` (`NWorld::CHeroMovementCost` `0x00e935b0`: 30-bit packed tile coords, `STileGameInfo::CalcMoveCost` jump table `0x00ca9be8`, A* pathfinder)
+  - `NWorldCombat.cs` (`NWorld::CCombat` `0x00e79d3c`, `NWorld::CCombatCreature` `0x00e4fba4`, `NWorld::CArenaATB` `0x00e6e250`, `SFLB0_GetUnitExperienceValue` `0x004d8ba0`)
+  - `NWorldTown.cs` (`NWorld::CTown` `0x00e19674` & `NWorld::CPlayer` `0x00e1a09c`: 7-resource economy, building construction, daily gold income, weekly growth)
 
 ## Verified, and how
 

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using HoMM5.Core;
 using HoMM5.Data;
+using HoMM5.World;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -21,7 +22,9 @@ namespace HoMM5.Map
 
         public MapDef Map { get; private set; }
         public H5Terrain Terrain { get; private set; }
+        public NWorldPathfinder Pathfinder { get; private set; }
         public GameObject Root { get; private set; }
+        public int ActiveFloor { get; private set; }
 
         public int ObjectsPlaced { get; private set; }
         public int ObjectsMissingMesh { get; private set; }
@@ -48,8 +51,12 @@ namespace HoMM5.Map
             }
         }
 
-        /// <summary>Build the map into a new root GameObject.</summary>
-        public GameObject Build(string mapId, int floor = 1)
+        /// <summary>
+        /// Build the map into a new root GameObject.
+        /// Matches <c>common.lua</c> and <c>NWorld::IsTilePassable</c> (<c>0x005e11a0</c>):
+        /// <c>floor = 0</c> is surface (<c>GROUND</c>), <c>floor = 1</c> is underground (<c>UNDERGROUND</c>).
+        /// </summary>
+        public GameObject Build(string mapId, int floor = 0)
         {
             Map = LoadMapDef(mapId);
             if (Map == null)
@@ -58,13 +65,33 @@ namespace HoMM5.Map
                 return null;
             }
 
+            if (Map.objects != null && Map.objects.Count > 0)
+            {
+                var hasRequestedFloor = false;
+                for (var i = 0; i < Map.objects.Count; i++)
+                {
+                    if (Map.objects[i].floor == floor)
+                    {
+                        hasRequestedFloor = true;
+                        break;
+                    }
+                }
+                if (!hasRequestedFloor)
+                    floor = Map.objects[0].floor;
+            }
+            ActiveFloor = floor;
+
             Root = new GameObject("Map_" + mapId);
-            Terrain = H5Terrain.Load(mapId, floor == 0 ? "UndergroundTerrain" : "GroundTerrain");
+            var planeName = floor == 1 ? "UndergroundTerrain" : "GroundTerrain";
+            Terrain = H5Terrain.Load(mapId, planeName);
+            if (Terrain == null && floor == 1)
+                Terrain = H5Terrain.Load(mapId, "GroundTerrain");
 
             BuildTerrain(floor);
             BuildObjects(floor);
+            Pathfinder = new NWorldPathfinder(Map.tileX, Map.tileY, Terrain, Map, floor);
 
-            Debug.Log($"[HoMM5] map {mapId}: {Map.tileX}x{Map.tileY} tiles, " +
+            Debug.Log($"[HoMM5] map {mapId} (floor {floor}): {Map.tileX}x{Map.tileY} tiles, " +
                       $"{ObjectsPlaced} objects placed, {ObjectsMissingMesh} without imported mesh, " +
                       $"{TerrainChunks} terrain chunks");
             return Root;
@@ -147,10 +174,15 @@ namespace HoMM5.Map
             // always 0 for statics).
             var height = Terrain != null ? Terrain.SampleWorldHeight(def.x, def.y) : 0f;
             go.transform.localPosition = TerrainMeshBuilder.ToUnity(def.x, def.y, height);
-            // A map rotation is a turn about the vertical axis.
-            go.transform.localRotation = Quaternion.Euler(0f, def.rot, 0f);
+            // In .xdb AdvMapDesc files, <Rot> is stored in radians (e.g. 1.5708, 3.14159, 4.71239).
+            var yawDegrees = (Mathf.Abs(def.rot) > 0.0001f && Mathf.Abs(def.rot) <= 6.2832f)
+                ? def.rot * Mathf.Rad2Deg
+                : def.rot;
+            go.transform.localRotation = Quaternion.Euler(0f, yawDegrees, 0f);
             go.transform.localScale = Vector3.one * ObjectScale;
 
+            var combinedBounds = new Bounds(Vector3.zero, Vector3.zero);
+            var hasBounds = false;
             for (var m = 0; m < meshes.Length; m++)
             {
                 var child = new GameObject(meshes[m].name);
@@ -159,6 +191,23 @@ namespace HoMM5.Map
                 var mr = child.AddComponent<MeshRenderer>();
                 mr.sharedMaterial = _objectMaterial;
                 mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+
+                if (!hasBounds)
+                {
+                    combinedBounds = meshes[m].bounds;
+                    hasBounds = true;
+                }
+                else
+                {
+                    combinedBounds.Encapsulate(meshes[m].bounds);
+                }
+            }
+
+            if (hasBounds)
+            {
+                var col = go.AddComponent<BoxCollider>();
+                col.center = combinedBounds.center;
+                col.size = Vector3.Max(combinedBounds.size, new Vector3(0.5f, 0.5f, 0.5f));
             }
 
             go.AddComponent<H5MapObject>().Attach(def, this);

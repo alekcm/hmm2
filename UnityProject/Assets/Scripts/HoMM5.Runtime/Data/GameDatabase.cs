@@ -15,6 +15,7 @@ namespace HoMM5.Data
     /// </summary>
     public class GameDatabase
     {
+        public DefaultStatsDef DefaultStats { get; private set; } = new DefaultStatsDef();
         public Dictionary<string, CreatureDef> Creatures { get; private set; } = new Dictionary<string, CreatureDef>();
         public Dictionary<string, SpellDef> Spells { get; private set; } = new Dictionary<string, SpellDef>();
         public Dictionary<string, ArtifactDef> Artifacts { get; private set; } = new Dictionary<string, ArtifactDef>();
@@ -35,6 +36,7 @@ namespace HoMM5.Data
                 return;
             }
 
+            DefaultStats = LoadObject<DefaultStatsDef>(H5Paths.Game("defaultStats.json")) ?? DefaultStats;
             Creatures = LoadDict<CreatureDef>(H5Paths.Game("creatures.json")) ?? Creatures;
             Spells = LoadDict<SpellDef>(H5Paths.Game("spells.json")) ?? Spells;
             Artifacts = LoadDict<ArtifactDef>(H5Paths.Game("artifacts.json")) ?? Artifacts;
@@ -109,6 +111,21 @@ namespace HoMM5.Data
         }
 
         // -- io ------------------------------------------------------------
+
+        static T LoadObject<T>(string path) where T : class
+        {
+            var json = H5Paths.ReadAllText(path);
+            if (json == null) return null;
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("[HoMM5] failed to parse " + path + ": " + e.Message);
+                return null;
+            }
+        }
 
         static Dictionary<string, T> LoadDict<T>(string path)
         {

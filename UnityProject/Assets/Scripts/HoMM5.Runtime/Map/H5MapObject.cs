@@ -1,4 +1,5 @@
 using HoMM5.Data;
+using HoMM5.World;
 using UnityEngine;
 
 namespace HoMM5.Map
@@ -72,11 +73,13 @@ namespace HoMM5.Map
             var c = Creature;
             if (IsMonster && c != null)
             {
+                var stackCount = Def.customAmount && Def.amount > 0 ? Def.amount : 1;
+                var xpValue = NWorldCombat.CalcUnitExperienceValue(c, stackCount, false);
                 return $"{c.DisplayName}\n" +
                        $"Tier {c.CreatureTier}  {GameDatabase.PrettifyEnum(c.town)}\n" +
                        $"Attack {c.AttackSkill}  Defence {c.DefenceSkill}\n" +
                        $"Damage {c.DamageText}  Health {c.Health}\n" +
-                       $"Speed {c.Speed}  Initiative {c.Initiative}\n" +
+                       $"Speed {c.Speed}  Initiative {c.Initiative}  XP {xpValue}\n" +
                        $"Cost {c.cost}\n" +
                        (string.IsNullOrEmpty(c.Description) ? "" : "\n" + c.Description);
             }
