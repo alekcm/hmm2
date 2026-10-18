@@ -32,7 +32,7 @@ Standard library only, no dependencies. Reads the shipped formats:
 | `GameMechanics` | creatures, spells, artifacts, buildings | **decoded** |
 | `AdvMapDesc` (142) | map objects | **decoded, 198001 objects across 21 kinds** |
 | `bin/Skeletons` (2242) | Granny GR2, Oodle-compressed | **not decoded** |
-| `bin/animations` (3393) | Granny GR2, Oodle-compressed | **not decoded** |
+| `bin/animations` (3393) | Granny GR2, 2816 stored / 577 Oodle1 | **2816 decoded, 577 skipped** |
 | `bin/effects` (1919) | particle systems | **not decoded** |
 | `sound/`, `music/` | FMOD-packed audio | **not touched** |
 | `data/scripts/*.lua` | campaign and map scripting | **not touched** |
@@ -420,9 +420,10 @@ under "Verified" are static.
 
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **139
-tests** (138 pass, 1 skipped), every one against the real shipped data. These
-are cross-checks between independent sources, not golden files:
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **144
+tests** (1 skipped), every one against the real shipped data. Five drive the C#
+static checkers and fail with an install hint when `tree-sitter` is absent.
+These are cross-checks between independent sources, not golden files:
 
 - **Town data** (10 tests) — 328 buildings with 328 unique keys and zero
   unresolved or cyclic dependencies; every faction has 7×2 dwellings, 4 halls,
@@ -485,6 +486,8 @@ terrain    293 planes, 0 failed
 maps       142 maps, 198001 objects across 21 kinds
 meshes     3561 .glb, 6 skipped (empty), 320 MB
 textures   9258 .png, 0 failed
+animations 2816 .json.gz, 577 Oodle1-packed skipped
+sounds     2013 effects + 155 music tracks, 2165 files copied
 ```
 
 ## Not verified

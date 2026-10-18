@@ -21,6 +21,7 @@ import json
 import os
 import struct
 import sys
+import time
 from typing import Iterable, List, Optional
 
 from .dds import DDSError, dds_to_png
@@ -139,6 +140,28 @@ def _limited(items: Iterable[str], limit: Optional[int]) -> Iterable[str]:
     return out
 
 
+def _progress(label: str, total: int, every: float = 2.0):
+    """A reporter that prints at most once every ``every`` seconds.
+
+    The slow stages run for minutes without a natural line of output, and on a
+    Windows console silence is indistinguishable from a hang -- which is exactly
+    how the animation stage used to be reported.  Writing progress keeps the run
+    visibly alive.  The line is plain ASCII and flushed so it shows up even when
+    the console output is redirected.
+    """
+    state = {"last": time.monotonic()}
+
+    def report(done: int) -> None:
+        now = time.monotonic()
+        if now - state["last"] < every:
+            return
+        state["last"] = now
+        pct = (100.0 * done / total) if total else 100.0
+        print("  %s %d/%d (%.0f%%)" % (label, done, total, pct), flush=True)
+
+    return report
+
+
 def cmd_info(args) -> int:
     xdb = XDB(args.data)
     loc = Localization(args.texts) if args.texts else None
@@ -155,6 +178,27 @@ def cmd_info(args) -> int:
     print("  (other .xdb under Maps/ are sounds, statics, textures and tags)")
     if loc:
         print("text files:", sum(1 for _ in loc.iter_files()))
+
+    # What an earlier run left behind.  This is the quick way to answer "did
+    # the import actually write the textures?" without opening a file manager.
+    out = os.path.abspath(args.out)
+    print()
+    print("output    :", out)
+    if not os.path.isdir(out):
+        print("  (not created yet -- run the import)")
+        return 0
+
+    def count(*parts, suffix="*"):
+        return len(glob.glob(os.path.join(out, *parts, suffix), recursive=True))
+
+    print("  textures %d .png, meshes %d .glb, maps %d, "
+          "terrain %d .heights, animations %d"
+          % (count("Textures", suffix="**/*.png"),
+             count("Meshes", suffix="*.glb"),
+             len([p for p in glob.glob(os.path.join(out, "Maps", "*.json"))
+                  if os.path.basename(p) != "_index.json"]),
+             count("Terrain", suffix="**/*.heights"),
+             count("Animations", suffix="*.json.gz")))
     return 0
 
 
@@ -181,7 +225,9 @@ def cmd_maps(args) -> int:
     ids = unique_map_ids(files)
     total_objects = 0
     index = []
-    for path in files:
+    progress = _progress("maps", len(files))
+    for i, path in enumerate(files, 1):
+        progress(i)
         try:
             md = load_map(xdb, path, resolve_models=not getattr(args, "fast", False))
         except Exception as exc:  # a broken map must not stop the batch
@@ -208,7 +254,9 @@ def cmd_meshes(args) -> int:
 
     files = _limited(sorted(glob.glob(os.path.join(args.data, "bin/Geometries/*"))), args.limit)
     ok = skipped = 0
-    for path in files:
+    progress = _progress("meshes", len(files))
+    for i, path in enumerate(files, 1):
+        progress(i)
         uid = os.path.basename(path)
         try:
             geom = decode_geometry(path)
@@ -235,7 +283,9 @@ def cmd_textures(args) -> int:
     ok = bad = 0
     manifest = {}
     renamed = 0
-    for path in files:
+    progress = _progress("textures", len(files))
+    for i, path in enumerate(files, 1):
+        progress(i)
         rel = os.path.relpath(path, args.data).replace("\\", "/")
         asset = safe_relative_path(rel)
         if asset != rel:
@@ -420,22 +470,54 @@ def cmd_sounds(args) -> int:
     return 0
 
 
+def _terrain_ids(terrain_files, map_files, data_root):
+    """Output folder name for every folder that carries a terrain plane.
+
+    Folders that hold an ``AdvMapDesc`` get that map's collision-free id, which
+    is what ``Maps/_index.json`` uses.  The rest -- hero-screen and mission
+    arenas with no map descriptor -- fall back to their path under ``Maps/``
+    rather than their basename: several ship as ``.../S1``, ``.../S2`` and
+    ``.../S3`` and used to overwrite the real multiplayer maps ``S1``-``S3``
+    (and each other) in the output tree.
+    """
+    ids = {}
+    for path, mid in unique_map_ids(map_files).items():
+        ids[os.path.normpath(os.path.abspath(os.path.dirname(path)))] = mid
+    taken = set(ids.values())
+    maps_root = os.path.join(os.path.abspath(data_root), "Maps")
+    for path in terrain_files:
+        folder = os.path.normpath(os.path.abspath(os.path.dirname(path)))
+        if folder in ids:
+            continue
+        rel = os.path.relpath(folder, maps_root).replace(os.sep, "_")
+        rel = "".join(c if c.isalnum() or c in "._-" else "_" for c in rel)
+        name = rel
+        n = 2
+        while name in taken:
+            name = "%s_%d" % (rel, n)
+            n += 1
+        taken.add(name)
+        ids[folder] = name
+    return ids
+
+
 def cmd_terrain(args) -> int:
     import glob
 
     from .xdb import XDB
     tile_db = XDB(args.data)
 
-    files = _limited(sorted(
+    all_files = sorted(
         glob.glob(os.path.join(args.data, "Maps/**/GroundTerrain.bin"), recursive=True) +
-        glob.glob(os.path.join(args.data, "Maps/**/UndergroundTerrain.bin"), recursive=True)
-    ), args.limit)
-    # Several shipped maps share a folder name (notably S1). Map JSON uses
+        glob.glob(os.path.join(args.data, "Maps/**/UndergroundTerrain.bin"), recursive=True))
+    files = _limited(all_files, args.limit)
+    # Several shipped maps share a folder name (notably S1), and arena folders
+    # carry such basenames without being maps at all.  Map JSON uses
     # collision-free ids from unique_map_ids; terrain must use the same identity
-    # or one map silently reads another map's height planes.
+    # (plus a path-derived one for folders that are not maps) or one map
+    # silently reads another map's height planes.
     map_files = iter_map_files(tile_db, only_map_descs=True)
-    terrain_ids = {os.path.normpath(os.path.dirname(path)): map_id
-                   for path, map_id in unique_map_ids(map_files).items()}
+    terrain_ids = _terrain_ids(all_files, map_files, args.data)
     ok = bad = 0
     for path in files:
         try:
@@ -511,11 +593,19 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def _all(args) -> int:
-    for fn in (cmd_gamedata, cmd_terrain, cmd_maps, cmd_meshes, cmd_textures,
-               cmd_animations, cmd_sounds):
+    stages = (("gamedata", cmd_gamedata), ("terrain", cmd_terrain),
+              ("maps", cmd_maps), ("meshes", cmd_meshes),
+              ("textures", cmd_textures), ("animations", cmd_animations),
+              ("sounds", cmd_sounds))
+    started = time.monotonic()
+    for i, (name, fn) in enumerate(stages, 1):
+        print("[%d/%d] %s" % (i, len(stages), name), flush=True)
         rc = fn(args)
         if rc:
             return rc
+    out = os.path.abspath(args.out)
+    print("done in %.0fs; output is %s" % (time.monotonic() - started, out),
+          flush=True)
     return 0
 
 

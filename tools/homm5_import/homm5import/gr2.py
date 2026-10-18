@@ -63,6 +63,13 @@ UINT32 = 20
 REAL16 = 21
 EMPTY_REFERENCE = 22
 
+# struct module codes, for reading a run of scalars in one call.
+_SCALAR_FORMAT = {
+    REAL32: "f", INT8: "b", UINT8: "B", BINORMAL_INT8: "b", NORMAL_UINT8: "B",
+    INT16: "h", UINT16: "H", BINORMAL_INT16: "h", NORMAL_UINT16: "H",
+    INT32: "i", UINT32: "I", REAL16: "e",
+}
+
 # Bytes each kind occupies in the 32-bit layout, before the array width.
 _SCALAR_SIZE = {
     REAL32: 4, INT8: 1, UINT8: 1, BINORMAL_INT8: 1, NORMAL_UINT8: 1,
@@ -135,6 +142,12 @@ class GR2:
         self._relocs: Dict[int, Dict[int, Tuple[int, int]]] = {}
         self._type_cache: Dict[Tuple[int, int], List[Member]] = {}
         self._strings: Dict[Tuple[int, int], str] = {}
+        # Section payloads are sliced out of the file once and kept.  Doing the
+        # slice per read instead is quadratic: a curve-heavy file issues one
+        # section copy per knot, which is minutes per file rather than seconds.
+        self._section_cache: Dict[int, bytes] = {}
+        self._size_cache: Dict[Tuple[int, int], int] = {}
+        self._scalar_cache: Dict[Tuple[int, int], int] = {}
 
     # -- sections ----------------------------------------------------------
 
@@ -146,11 +159,16 @@ class GR2:
                 if s.compression != COMP_STORED]
 
     def section_bytes(self, i: int) -> bytes:
+        cached = self._section_cache.get(i)
+        if cached is not None:
+            return cached
         s = self.sections[i]
         if s.compression != COMP_STORED:
             raise GR2Error("section %d uses compression %d (Oodle1 unsupported)"
                            % (i, s.compression))
-        return self.data[s.offset:s.offset + s.size]
+        payload = self.data[s.offset:s.offset + s.size]
+        self._section_cache[i] = payload
+        return payload
 
     def _read(self, sec: int, off: int, fmt: str) -> Any:
         buf = self.section_bytes(sec)
@@ -303,11 +321,37 @@ class GR2:
             return self.read_struct(target[0], target[1], m.type_sec, m.type_off)
         return self.read_struct(target[0], target[1], m.type_sec, m.type_off)
 
+    def _single_scalar(self, sec: int, off: int) -> Optional[int]:
+        """The kind of a struct whose only field is one scalar, else None."""
+        key = (sec, off)
+        if key in self._scalar_cache:
+            kind = self._scalar_cache[key]
+            return kind if kind >= 0 else None
+        ms = self.members(sec, off)
+        kind = -1
+        if len(ms) == 1 and ms[0].array_width == 1 and ms[0].kind in _SCALAR_FORMAT:
+            kind = ms[0].kind
+        self._scalar_cache[key] = kind
+        return kind if kind >= 0 else None
+
     def _read_array(self, target: Tuple[int, int], m: Member, count: int) -> List[Any]:
         """ReferenceToArray: ``count`` elements of the member's element type."""
         sec, off = target
-        unit = self._type_size(m.type_sec, m.type_off)
         buf = self.section_bytes(sec)
+
+        # Knots and controls are arrays of a one-field "Real32" struct.  Read as
+        # structs they cost a dict and three calls per knot, which is where
+        # almost all of a curve-heavy file's time went.  They are consumed by
+        # gr2._curve, which already accepts either shape.
+        if m.name in ("Knots", "Controls"):
+            kind = self._single_scalar(m.type_sec, m.type_off)
+            if kind is not None:
+                if count <= 0:
+                    return []
+                return list(struct.unpack_from(
+                    "<%d%s" % (count, _SCALAR_FORMAT[kind]), buf, off))
+
+        unit = self._type_size(m.type_sec, m.type_off)
         out = []
         for i in range(count):
             at = off + i * unit
@@ -318,9 +362,14 @@ class GR2:
         return out
 
     def _struct_size(self, sec: int, off: int) -> int:
+        key = (sec, off)
+        cached = self._size_cache.get(key)
+        if cached is not None:
+            return cached
         total = 0
         for m in self.members(sec, off):
             total += self._member_size(m)
+        self._size_cache[key] = total
         return total
 
     def _type_size(self, sec: int, off: int) -> int:
