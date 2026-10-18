@@ -1,10 +1,10 @@
 """Adventure map descriptors (``AdvMapDesc``) -> flat JSON the runtime can load.
 
 A map file lists its objects inline.  Each one carries a position in tiles, a
-floor index (0 = underground, 1 = surface) and a ``Shared`` reference to the
-object's shared record, which in turn points at the ``Model`` -- and the model
-holds the geometry UID and the material list.  Resolving that chain here means
-the Unity side never has to touch the XML.
+floor index (0 = surface / GROUND, 1 = underground / UNDERGROUND) and a
+``Shared`` reference to the object's shared record, which in turn points at the
+``Model`` -- and the model holds the geometry UID and the material list.
+Resolving that chain here means the Unity side never has to touch the XML.
 """
 
 from __future__ import annotations
@@ -211,7 +211,7 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
             kind=inner.tag,
             pos=pos,
             rot=xdb.number(inner.find("Rot")),
-            floor=int(xdb.number(inner.find("Floor"), 1)),
+            floor=int(xdb.number(inner.find("Floor"), 0)),
             name=xdb.text(inner.find("Name")),
         )
         shared = inner.find("Shared")

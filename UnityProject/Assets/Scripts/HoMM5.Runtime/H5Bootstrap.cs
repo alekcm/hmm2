@@ -3,6 +3,7 @@ using HoMM5.Core;
 using HoMM5.Data;
 using HoMM5.Map;
 using HoMM5.UI;
+using HoMM5.World;
 using UnityEngine;
 
 namespace HoMM5
@@ -21,12 +22,14 @@ namespace HoMM5
         [Tooltip("Load this map on start.  Empty means the first one in the index.")]
         public string initialMapId = "";
 
-        [Tooltip("0 = underground, 1 = surface.")]
-        public int floor = 1;
+        [Tooltip("0 = surface (GROUND), 1 = underground (UNDERGROUND).")]
+        public int floor = 0;
 
         public GameDatabase Database { get; private set; }
         public MeshCache Meshes { get; private set; }
         public MapSceneBuilder CurrentMap { get; private set; }
+        public NWorldPlayer ActivePlayer { get; private set; }
+        public NWorldHero ActiveHero { get; private set; }
 
         GameObject _mapRoot;
         HoMM5Hud _hud;
@@ -37,6 +40,9 @@ namespace HoMM5
             Database = new GameDatabase();
             Database.Load();
 
+            ActivePlayer = new NWorldPlayer("PLAYER_1");
+            ActiveHero = new NWorldHero("Hero1", Database.DefaultStats);
+
             Meshes = new MeshCache();
 
             BuildLights();
@@ -44,7 +50,6 @@ namespace HoMM5
             _hud = gameObject.AddComponent<HoMM5Hud>();
             _hud.Controller = _controller;
             _hud.Database = Database;
-            // PopulateMapList needs the HUD's Start to have built its canvas.
             _hud.PopulateMapList(LoadMap);
 
             if (!Database.IsLoaded)
@@ -71,6 +76,7 @@ namespace HoMM5
                 return;
             }
             CurrentMap = builder;
+            floor = builder.ActiveFloor;
 
             if (builder.Terrain != null)
                 _controller.SetMapBounds(builder.Terrain.Tiles, builder.Terrain.Tiles);
@@ -83,18 +89,25 @@ namespace HoMM5
         {
             if (_hud == null || CurrentMap == null) return;
             var counts = new List<string>();
-            foreach (var kv in CurrentMap.Map.objectCounts) counts.Add($"{kv.Key} {kv.Value}");
+            if (CurrentMap.Map.objectCounts != null)
+                foreach (var kv in CurrentMap.Map.objectCounts) counts.Add($"{kv.Key} {kv.Value}");
+            var floorLabel = floor == 0 ? "GROUND (0)" : "UNDERGROUND (1)";
             _hud.SetStats(
-                $"{CurrentMap.Map.id}   {CurrentMap.Map.tileX}x{CurrentMap.Map.tileY}\n" +
-                $"objects placed {CurrentMap.ObjectsPlaced}  (no mesh {CurrentMap.ObjectsMissingMesh})\n" +
-                $"terrain chunks {CurrentMap.TerrainChunks}   meshes cached {Meshes.CachedCount}\n" +
+                $"{CurrentMap.Map.id}   {CurrentMap.Map.tileX}x{CurrentMap.Map.tileY}   Floor: {floorLabel}\n" +
+                $"Hero Lv.{ActiveHero.Level} (XP {ActiveHero.Experience}, MP {ActiveHero.MovePoints}/{ActiveHero.GetMaxMovePoints()}, Mana {ActiveHero.ManaPoints}/{ActiveHero.GetMaxManaPoints()})\n" +
+                $"objects placed {CurrentMap.ObjectsPlaced}  (no mesh {CurrentMap.ObjectsMissingMesh})  " +
+                $"terrain chunks {CurrentMap.TerrainChunks}  meshes cached {Meshes.CachedCount}\n" +
                 string.Join("  ", counts));
         }
 
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.F1))
-                floor = floor == 1 ? 0 : 1;
+            {
+                floor = floor == 0 ? 1 : 0;
+                if (CurrentMap?.Map != null)
+                    LoadMap(CurrentMap.Map.id);
+            }
         }
 
         // -- scene furniture -----------------------------------------------

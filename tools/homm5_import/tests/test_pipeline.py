@@ -24,9 +24,10 @@ sys.path.insert(0, os.path.dirname(HERE))
 
 from homm5import.container import END_MARKER, parse_records  # noqa: E402
 from homm5import.dds import DDSError, decode_dds, write_png  # noqa: E402
-from homm5import.gamedata import load_artifacts, load_creatures, load_spells  # noqa: E402
+from homm5import.gamedata import load_artifacts, load_creatures, load_default_stats, load_spells  # noqa: E402
 from homm5import.geometry import decode_file as decode_geometry  # noqa: E402
 from homm5import.gltf import geometry_to_glb  # noqa: E402
+from homm5import.gr2 import parse_gr2_bytes  # noqa: E402
 from homm5import.localization import Localization  # noqa: E402
 from homm5import.maps import load_map  # noqa: E402
 from homm5import.terrain import FLAG_WATER, decode_file as decode_terrain  # noqa: E402
@@ -510,6 +511,68 @@ class MapTest(unittest.TestCase):
                 empty += 1
         self.assertGreater(checked, 100)
         self.assertEqual(empty, 0, f"{empty} maps came out empty")
+
+    def test_floor_zero_is_surface_ground(self):
+        """Matches common.lua (GROUND = 0, UNDERGROUND = 1) and NWorld::IsTilePassable."""
+        ug_path = os.path.join(DATA, "Maps", "CombatArenas", "AbandonedMine", "AbandonedMine.xdb")
+        ug_md = load_map(self.xdb, ug_path, resolve_models=False)
+        for o in ug_md.objects:
+            self.assertEqual(o.floor, 1)  # AbandonedMine is an underground arena (<Floor>1</Floor>)
+
+        surf_path = os.path.join(DATA, "Maps", "Scenario", "A2C1M5", "map.xdb")
+        if os.path.isfile(surf_path):
+            surf_md = load_map(self.xdb, surf_path, resolve_models=False)
+            floors = {o.floor for o in surf_md.objects}
+            self.assertIn(0, floors)  # Surface objects have <Floor>0</Floor>
+
+
+@requires_data
+class GR2AndPatch31Test(unittest.TestCase):
+    def test_oodle1_skeletons_decompress_and_parse_bones(self):
+        """All 2,242 files in data/bin/Skeletons/ use GR2 v6 + Oodle1 (comp=2)."""
+        skels = sorted(glob.glob(os.path.join(DATA, "bin", "Skeletons", "*")))
+        self.assertGreater(len(skels), 2000)
+        for path in skels[:25]:
+            with open(path, "rb") as fh:
+                gr2 = parse_gr2_bytes(fh.read())
+            self.assertEqual(gr2.version, 6)
+            self.assertEqual(gr2.sections[0].compression, 2)
+            self.assertEqual(len(gr2.skeletons), 1)
+            skel = gr2.skeletons[0]
+            self.assertTrue(skel.name)
+            self.assertGreater(len(skel.bones), 0)
+            self.assertEqual(skel.bones[0].parent_index, -1)
+
+    def test_gr2_animations_uncompressed_and_oodle1(self):
+        """Animations in data/bin/animations/ are either comp=0 (2,816) or comp=2 (577)."""
+        anims = sorted(glob.glob(os.path.join(DATA, "bin", "animations", "*")))
+        self.assertGreater(len(anims), 3000)
+        seen_comp = set()
+        for path in anims[:60]:
+            with open(path, "rb") as fh:
+                raw = fh.read()
+            comp = struct.unpack_from("<I", raw, 32 + struct.unpack_from("<I", raw, 44)[0])[0]
+            seen_comp.add(comp)
+            gr2 = parse_gr2_bytes(raw)
+            self.assertEqual(len(gr2.animations), 1)
+            anim = gr2.animations[0]
+            self.assertGreater(anim.duration, 0.0)
+            self.assertGreater(len(anim.track_groups), 0)
+            self.assertGreater(len(anim.track_groups[0].transform_tracks), 0)
+        self.assertIn(0, seen_comp)
+        self.assertIn(2, seen_comp)
+
+    def test_default_stats_and_a2p1_overlay(self):
+        """DefaultStats.xdb resolves from ToTE 3.1 a2p1-data/ and matches decompiled NWorld constants."""
+        xdb = XDB(DATA)
+        self.assertIsNotNone(xdb.patch_root)
+        self.assertTrue(xdb.patch_root.endswith("a2p1-data"))
+        stats = load_default_stats(xdb)
+        self.assertEqual(stats["heroInitiative"], 10)
+        self.assertEqual(stats["atbBaseTime"], 100000)
+        self.assertEqual(stats["adventure"]["baseHeroMovement"], 2500)
+        self.assertAlmostEqual(stats["combat"]["damageIncrease"], 0.05)
+        self.assertAlmostEqual(stats["combat"]["damageDecrease"], 0.05)
 
 
 if __name__ == "__main__":

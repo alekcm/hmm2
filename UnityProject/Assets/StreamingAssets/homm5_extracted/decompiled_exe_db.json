@@ -1,0 +1,3416 @@
+{
+  "exe_name": "H5_Game_PEST.exe",
+  "exe_size": 13089792,
+  "image_base": 4194304,
+  "entry_point_va": 13704732,
+  "pdb_path": "D:\\ContinuousIntegration\\work\\H5_code_a2-p1\\src\\Release\\H5_Game.pdb",
+  "sections": [
+    {
+      "name": ".text",
+      "start_va": "0x00401000",
+      "virtual_size": 10518778,
+      "raw_offset": "0x00000400",
+      "raw_size": 10519040
+    },
+    {
+      "name": ".rdata",
+      "start_va": "0x00e0a000",
+      "virtual_size": 1130733,
+      "raw_offset": "0x00a08600",
+      "raw_size": 1131008
+    },
+    {
+      "name": ".data",
+      "start_va": "0x00f1f000",
+      "virtual_size": 1879816,
+      "raw_offset": "0x00b1c800",
+      "raw_size": 467456
+    },
+    {
+      "name": ".tls",
+      "start_va": "0x010ea000",
+      "virtual_size": 10,
+      "raw_offset": "0x00b8ea00",
+      "raw_size": 512
+    },
+    {
+      "name": ".rsrc",
+      "start_va": "0x010eb000",
+      "virtual_size": 303688,
+      "raw_offset": "0x00b8ec00",
+      "raw_size": 304128
+    },
+    {
+      "name": ".reloc",
+      "start_va": "0x01136000",
+      "virtual_size": 666588,
+      "raw_offset": "0x00bd9000",
+      "raw_size": 666624
+    }
+  ],
+  "exports": [
+    {
+      "name": "?SFLB0_GetUnitExperienceValue@NWorld@@YIHABUSCreatureKillInfo@1@ABK@Z",
+      "ordinal": 1,
+      "va": "0x004d8ba0"
+    },
+    {
+      "name": "?SFLB2_InitVariables@CSeed@NRandom@@AAEXXZ",
+      "ordinal": 2,
+      "va": "0x00b25600"
+    },
+    {
+      "name": "?SFLB_AddObservers@CAdventureScreen@NUI@@AAEXXZ",
+      "ordinal": 3,
+      "va": "0x0059a210"
+    },
+    {
+      "name": "?SFLB_AddObservers@CTownScreen@NUI@@AAEXXZ",
+      "ordinal": 4,
+      "va": "0x0061bcf0"
+    },
+    {
+      "name": "?SFLB_AttemptGameStart@CStateWaitingForPlayers@NUbi@@AAE_NPAUSContext@2@@Z",
+      "ordinal": 5,
+      "va": "0x00c91190"
+    },
+    {
+      "name": "?SFLB_CombineEditablesStep@NWorld@@YIXPAUSAdvMapHeroEditable@NDb@@PBU23@1H@Z",
+      "ordinal": 6,
+      "va": "0x009a9c40"
+    },
+    {
+      "name": "?SFLB_CreateWin@@YI_NPBD0II0@Z",
+      "ordinal": 7,
+      "va": "0x00c3bbe0"
+    },
+    {
+      "name": "?SFLB_GameEnterStep@NLAN@NUbi@@YIXPAUSGameEnter@2@ABUSGameInfo@2@ABV?$basic_string@G@nstl@@PAUIStatusListener@2@@Z",
+      "ordinal": 8,
+      "va": "0x00c8ec00"
+    },
+    {
+      "name": "?SFLB_InitApplication@NWinFrame@@YI_NPAUHINSTANCE__@@PBD11@Z",
+      "ordinal": 9,
+      "va": "0x00c3bcb0"
+    },
+    {
+      "name": "?SFLB_InitDay@CPlayerAI@NWorld@@AAEXXZ",
+      "ordinal": 10,
+      "va": "0x00867440"
+    },
+    {
+      "name": "?SFLB_ParseServers@CStateUninitialized@NUbi@@AAEXABV?$basic_string@D@nstl@@000@Z",
+      "ordinal": 11,
+      "va": "0x0092d500"
+    }
+  ],
+  "rtti_summary": {
+    "total_type_descriptors": 3347,
+    "total_vtables": 5577,
+    "total_vtable_slots": 56549,
+    "unique_virtual_methods": 19618,
+    "classes_by_namespace": {
+      "NWorld": 830,
+      "NUI": 824,
+      "NUbi": 412,
+      "NDb": 383,
+      "<global>": 371,
+      "NGScene": 200,
+      "NSound": 50,
+      "NGfx": 41,
+      "NRender": 37,
+      "NMP": 26,
+      "NVisit": 18,
+      "NLang": 15,
+      "NFMSound": 13,
+      "NAnimation": 13,
+      "NRMG": 13,
+      "NAI": 12,
+      "NLXML": 10,
+      "NVFS": 9,
+      "NNet": 7,
+      "NScript": 7
+    }
+  },
+  "key_classes": {
+    "NWorld::CTerrain": {
+      "mangled_name": ".?AVCTerrain@NWorld@@",
+      "type_descriptor_va": "0x00f2e1ec",
+      "vtables": [
+        {
+          "vftable_va": "0x00e15404",
+          "vtable_offset": 0,
+          "method_count": 3,
+          "first_methods": [
+            "0x00aa2e60",
+            "0x00aa2e60",
+            "0x00c98940"
+          ],
+          "base_classes": [
+            "NWorld::CTerrain",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::ITerrain",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e153f4",
+          "vtable_offset": 28,
+          "method_count": 3,
+          "first_methods": [
+            "0x004b0110",
+            "0x004b01f0",
+            "0x00724930"
+          ],
+          "base_classes": [
+            "NWorld::CTerrain",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::ITerrain",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e153d4",
+          "vtable_offset": 68,
+          "method_count": 7,
+          "first_methods": [
+            "0x004b0ab0",
+            "0x00c98940",
+            "0x004b0650",
+            "0x004b0b10",
+            "0x00c98940",
+            "0x0057a5a0",
+            "0x004b0660"
+          ],
+          "base_classes": [
+            "NWorld::CTerrain",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::ITerrain",
+            "CObjectBase"
+          ]
+        }
+      ]
+    },
+    "NWorld::CTown": {
+      "mangled_name": ".?AVCTown@NWorld@@",
+      "type_descriptor_va": "0x00f30fb0",
+      "vtables": [
+        {
+          "vftable_va": "0x00e196a0",
+          "vtable_offset": 0,
+          "method_count": 3,
+          "first_methods": [
+            "0x00aa2e60",
+            "0x00aa2e60",
+            "0x00c98940"
+          ],
+          "base_classes": [
+            "NWorld::CTown",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::ITown",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e19694",
+          "vtable_offset": 28,
+          "method_count": 2,
+          "first_methods": [
+            "0x004f3e50",
+            "0x00724930"
+          ],
+          "base_classes": [
+            "NWorld::CTown",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::ITown",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e19674",
+          "vtable_offset": 44,
+          "method_count": 7,
+          "first_methods": [
+            "0x004f4130",
+            "0x00c98940",
+            "0x004f4040",
+            "0x004f40b0",
+            "0x00c98940",
+            "0x004d2a20",
+            "0x004bddb0"
+          ],
+          "base_classes": [
+            "NWorld::CTown",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::ITown",
+            "CObjectBase"
+          ]
+        }
+      ]
+    },
+    "NWorld::CPlayer": {
+      "mangled_name": ".?AVCPlayer@NWorld@@",
+      "type_descriptor_va": "0x00f31484",
+      "vtables": [
+        {
+          "vftable_va": "0x00e1a2d8",
+          "vtable_offset": 0,
+          "method_count": 3,
+          "first_methods": [
+            "0x00aa2e60",
+            "0x00aa2e60",
+            "0x00c98940"
+          ],
+          "base_classes": [
+            "NWorld::CPlayer",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IPlayer",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e1a09c",
+          "vtable_offset": 28,
+          "method_count": 142,
+          "first_methods": [
+            "0x00b5acf0",
+            "0x00b5ace0",
+            "0x004fd770",
+            "0x004fcc40",
+            "0x004fd800",
+            "0x00500bc0",
+            "0x00500bd0",
+            "0x004fd860",
+            "0x00500bf0",
+            "0x004fcc70",
+            "0x00500ee0",
+            "0x00720e90",
+            "0x00af8160",
+            "0x00af7f50",
+            "0x00500c00",
+            "0x004fd5d0"
+          ],
+          "base_classes": [
+            "NWorld::CPlayer",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IPlayer",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e1a078",
+          "vtable_offset": 1712,
+          "method_count": 7,
+          "first_methods": [
+            "0x005018c0",
+            "0x00c98940",
+            "0x00500ea0",
+            "0x00501940",
+            "0x00c98940",
+            "0x00500eb0",
+            "0x00500ed0"
+          ],
+          "base_classes": [
+            "NWorld::CPlayer",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IPlayer",
+            "CObjectBase"
+          ]
+        }
+      ]
+    },
+    "NWorld::CHero": {
+      "mangled_name": ".?AVCHero@NWorld@@",
+      "type_descriptor_va": "0x00f40324",
+      "vtables": [
+        {
+          "vftable_va": "0x00e7e820",
+          "vtable_offset": 0,
+          "method_count": 3,
+          "first_methods": [
+            "0x00aa2e60",
+            "0x00aa2e60",
+            "0x00c98940"
+          ],
+          "base_classes": [
+            "NWorld::CHero",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IHero",
+            "NWorld::IHeroInformation",
+            "CObjectBase",
+            "NWorld::IArmy",
+            "CObjectBase",
+            "NWorld::IKilledNotify"
+          ]
+        },
+        {
+          "vftable_va": "0x00e7e484",
+          "vtable_offset": 28,
+          "method_count": 230,
+          "first_methods": [
+            "0x00b5aca0",
+            "0x00af7f40",
+            "0x00b4ca10",
+            "0x00b4cae0",
+            "0x00b4cc50",
+            "0x00b4ccc0",
+            "0x00b4ccf0",
+            "0x00b4cd80",
+            "0x00b4c0d0",
+            "0x00b584f0",
+            "0x00a367b0",
+            "0x00b56f40",
+            "0x00b56cd0",
+            "0x00b5ae40",
+            "0x00b4b340",
+            "0x00b53150"
+          ],
+          "base_classes": [
+            "NWorld::CHero",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IHero",
+            "NWorld::IHeroInformation",
+            "CObjectBase",
+            "NWorld::IArmy",
+            "CObjectBase",
+            "NWorld::IKilledNotify"
+          ]
+        },
+        {
+          "vftable_va": "0x00e7e460",
+          "vtable_offset": 36,
+          "method_count": 8,
+          "first_methods": [
+            "0x00b4cf80",
+            "0x00b5a9b0",
+            "0x00b5a9d0",
+            "0x00b56fc0",
+            "0x00b57270",
+            "0x00b4d7f0",
+            "0x00b4d830",
+            "0x00af8150"
+          ],
+          "base_classes": [
+            "NWorld::CHero",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IHero",
+            "NWorld::IHeroInformation",
+            "CObjectBase",
+            "NWorld::IArmy",
+            "CObjectBase",
+            "NWorld::IKilledNotify"
+          ]
+        },
+        {
+          "vftable_va": "0x00e7e458",
+          "vtable_offset": 44,
+          "method_count": 1,
+          "first_methods": [
+            "0x00b4d7a0"
+          ],
+          "base_classes": [
+            "NWorld::CHero",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IHero",
+            "NWorld::IHeroInformation",
+            "CObjectBase",
+            "NWorld::IArmy",
+            "CObjectBase",
+            "NWorld::IKilledNotify"
+          ]
+        },
+        {
+          "vftable_va": "0x00e7e438",
+          "vtable_offset": 820,
+          "method_count": 7,
+          "first_methods": [
+            "0x00b5b320",
+            "0x00c98940",
+            "0x00b5ac60",
+            "0x00b5b3a0",
+            "0x00c98940",
+            "0x00b5ac70",
+            "0x00b5ac90"
+          ],
+          "base_classes": [
+            "NWorld::CHero",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IHero",
+            "NWorld::IHeroInformation",
+            "CObjectBase",
+            "NWorld::IArmy",
+            "CObjectBase",
+            "NWorld::IKilledNotify"
+          ]
+        }
+      ]
+    },
+    "NWorld::CTetraMovementCost": {
+      "mangled_name": ".?AVCTetraMovementCost@NWorld@@",
+      "type_descriptor_va": "0x00f44304",
+      "vtables": [
+        {
+          "vftable_va": "0x00e4ce2c",
+          "vtable_offset": 0,
+          "method_count": 1,
+          "first_methods": [
+            "0x00876850"
+          ],
+          "base_classes": [
+            "NWorld::CTetraMovementCost",
+            "NWorld::IMovementCost"
+          ]
+        }
+      ]
+    },
+    "NWorld::CCombatCreature": {
+      "mangled_name": ".?AVCCombatCreature@NWorld@@",
+      "type_descriptor_va": "0x00f45128",
+      "vtables": [
+        {
+          "vftable_va": "0x00e4ff2c",
+          "vtable_offset": 0,
+          "method_count": 13,
+          "first_methods": [
+            "0x00a70650",
+            "0x008aaaa0",
+            "0x00affec0",
+            "0x008ae050",
+            "0x00ce6790",
+            "0x00a70510",
+            "0x008a1b80",
+            "0x008a6c40",
+            "0x008a22b0",
+            "0x008a3960",
+            "0x008a8a90",
+            "0x008a15c0",
+            "0x00a72050"
+          ],
+          "base_classes": [
+            "NWorld::CCombatCreature",
+            "NWorld::CCombatBase",
+            "NWorld::CRMSyncBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::ICombatBase",
+            "NWorld::ICombatVisualBase",
+            "CObjectBase",
+            "NVisit::IFadeTarget"
+          ]
+        },
+        {
+          "vftable_va": "0x00e4fe9c",
+          "vtable_offset": 160,
+          "method_count": 35,
+          "first_methods": [
+            "0x00724930",
+            "0x008ae070",
+            "0x0081bf70",
+            "0x008a1da0",
+            "0x008a41f0",
+            "0x008ae0b0",
+            "0x008ae0c0",
+            "0x008a2110",
+            "0x008a1e30",
+            "0x008a54f0",
+            "0x008a5650",
+            "0x00cbca20",
+            "0x008ae0d0",
+            "0x00ce6750",
+            "0x008ae0f0",
+            "0x008a7ef0"
+          ],
+          "base_classes": [
+            "NWorld::CCombatCreature",
+            "NWorld::CCombatBase",
+            "NWorld::CRMSyncBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::ICombatBase",
+            "NWorld::ICombatVisualBase",
+            "CObjectBase",
+            "NVisit::IFadeTarget"
+          ]
+        },
+        {
+          "vftable_va": "0x00e4fe7c",
+          "vtable_offset": 312,
+          "method_count": 7,
+          "first_methods": [
+            "0x008af380",
+            "0x00c98940",
+            "0x008ae110",
+            "0x008af4b0",
+            "0x00c98940",
+            "0x00c8a610",
+            "0x008ae130"
+          ],
+          "base_classes": [
+            "NWorld::CCombatCreature",
+            "NWorld::CCombatBase",
+            "NWorld::CRMSyncBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::ICombatBase",
+            "NWorld::ICombatVisualBase",
+            "CObjectBase",
+            "NVisit::IFadeTarget"
+          ]
+        },
+        {
+          "vftable_va": "0x00e4fba4",
+          "vtable_offset": 328,
+          "method_count": 181,
+          "first_methods": [
+            "0x00a76ae0",
+            "0x008aedb0",
+            "0x008aead0",
+            "0x008aeae0",
+            "0x008ae140",
+            "0x008ae150",
+            "0x008ae160",
+            "0x008aec10",
+            "0x008ae170",
+            "0x008ae180",
+            "0x008ae190",
+            "0x008ae1a0",
+            "0x008ae1b0",
+            "0x008aebf0",
+            "0x008ae1c0",
+            "0x008ae1d0"
+          ],
+          "base_classes": [
+            "NWorld::CCombatCreature",
+            "NWorld::CCombatBase",
+            "NWorld::CRMSyncBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::ICombatBase",
+            "NWorld::ICombatVisualBase",
+            "CObjectBase",
+            "NVisit::IFadeTarget"
+          ]
+        },
+        {
+          "vftable_va": "0x00e4fb94",
+          "vtable_offset": 340,
+          "method_count": 2,
+          "first_methods": [
+            "0x008aea90",
+            "0x008aeac0"
+          ],
+          "base_classes": [
+            "NWorld::CCombatCreature",
+            "NWorld::CCombatBase",
+            "NWorld::CRMSyncBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::ICombatBase",
+            "NWorld::ICombatVisualBase",
+            "CObjectBase",
+            "NVisit::IFadeTarget"
+          ]
+        }
+      ]
+    },
+    "NWorld::CAdvMapHero": {
+      "mangled_name": ".?AVCAdvMapHero@NWorld@@",
+      "type_descriptor_va": "0x00f45c7c",
+      "vtables": [
+        {
+          "vftable_va": "0x00e544a4",
+          "vtable_offset": 0,
+          "method_count": 21,
+          "first_methods": [
+            "0x00aa2e60",
+            "0x00aa2e60",
+            "0x00c98940",
+            "0x00ce1940",
+            "0x008e2e80",
+            "0x008df730",
+            "0x008ddd60",
+            "0x008dddd0",
+            "0x008da460",
+            "0x008dbef0",
+            "0x008dce20",
+            "0x008db430",
+            "0x008dde10",
+            "0x008dded0",
+            "0x008db910",
+            "0x008da3e0"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapHero",
+            "NWorld::CAdvMapMovable",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID",
+            "NWorld::IAdvMapMovable"
+          ]
+        },
+        {
+          "vftable_va": "0x00e54494",
+          "vtable_offset": 28,
+          "method_count": 2,
+          "first_methods": [
+            "0x008e5250",
+            "0x008e5280"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapHero",
+            "NWorld::CAdvMapMovable",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID",
+            "NWorld::IAdvMapMovable"
+          ]
+        },
+        {
+          "vftable_va": "0x00e54488",
+          "vtable_offset": 336,
+          "method_count": 2,
+          "first_methods": [
+            "0x00bc3ee0",
+            "0x00bc3740"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapHero",
+            "NWorld::CAdvMapMovable",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID",
+            "NWorld::IAdvMapMovable"
+          ]
+        },
+        {
+          "vftable_va": "0x00e54468",
+          "vtable_offset": 384,
+          "method_count": 7,
+          "first_methods": [
+            "0x008e5f60",
+            "0x00c98940",
+            "0x008e4b60",
+            "0x008e6420",
+            "0x00c98940",
+            "0x007018d0",
+            "0x008e4b70"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapHero",
+            "NWorld::CAdvMapMovable",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID",
+            "NWorld::IAdvMapMovable"
+          ]
+        },
+        {
+          "vftable_va": "0x00e54324",
+          "vtable_offset": 400,
+          "method_count": 80,
+          "first_methods": [
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b90",
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b80",
+            "0x008e4b80"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapHero",
+            "NWorld::CAdvMapMovable",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID",
+            "NWorld::IAdvMapMovable"
+          ]
+        },
+        {
+          "vftable_va": "0x00e54274",
+          "vtable_offset": 412,
+          "method_count": 42,
+          "first_methods": [
+            "0x008e5050",
+            "0x008e5470",
+            "0x008e5060",
+            "0x008e4e10",
+            "0x008e5070",
+            "0x008e5080",
+            "0x008e5200",
+            "0x008e4e20",
+            "0x008e4e30",
+            "0x008e4e40",
+            "0x008e4e50",
+            "0x008e5210",
+            "0x008e4e60",
+            "0x008e4e70",
+            "0x008e4e80",
+            "0x008e4e90"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapHero",
+            "NWorld::CAdvMapMovable",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID",
+            "NWorld::IAdvMapMovable"
+          ]
+        },
+        {
+          "vftable_va": "0x00e54268",
+          "vtable_offset": 424,
+          "method_count": 1,
+          "first_methods": [
+            "0x008e4f70"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapHero",
+            "NWorld::CAdvMapMovable",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID",
+            "NWorld::IAdvMapMovable"
+          ]
+        },
+        {
+          "vftable_va": "0x00e5421c",
+          "vtable_offset": 432,
+          "method_count": 18,
+          "first_methods": [
+            "0x008e50a0",
+            "0x008e50b0",
+            "0x008e5850",
+            "0x008e5220",
+            "0x008e4f80",
+            "0x008e50c0",
+            "0x008e5130",
+            "0x008e50e0",
+            "0x008e5230",
+            "0x008e5170",
+            "0x008e54c0",
+            "0x008e50f0",
+            "0x008e54d0",
+            "0x008e5240",
+            "0x008e5510",
+            "0x008e5140"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapHero",
+            "NWorld::CAdvMapMovable",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID",
+            "NWorld::IAdvMapMovable"
+          ]
+        }
+      ]
+    },
+    "NWorld::CWorld": {
+      "mangled_name": ".?AVCWorld@NWorld@@",
+      "type_descriptor_va": "0x00f470d8",
+      "vtables": [
+        {
+          "vftable_va": "0x00e6260c",
+          "vtable_offset": 0,
+          "method_count": 136,
+          "first_methods": [
+            "0x00997f60",
+            "0x0099e6a0",
+            "0x0098c460",
+            "0x0098c490",
+            "0x009954e0",
+            "0x0098c470",
+            "0x0098f740",
+            "0x009c2660",
+            "0x0098fa60",
+            "0x00999a60",
+            "0x0098d230",
+            "0x0098ce10",
+            "0x009918f0",
+            "0x00cf2a90",
+            "0x00633cc0",
+            "0x00991830"
+          ],
+          "base_classes": [
+            "NWorld::CWorld",
+            "NWorld::IWorld",
+            "CObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e625f8",
+          "vtable_offset": 8,
+          "method_count": 3,
+          "first_methods": [
+            "0x00aa2e60",
+            "0x00aa2e60",
+            "0x00c98940"
+          ],
+          "base_classes": [
+            "NWorld::CWorld",
+            "NWorld::IWorld",
+            "CObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e625d8",
+          "vtable_offset": 488,
+          "method_count": 7,
+          "first_methods": [
+            "0x009a1590",
+            "0x00c98940",
+            "0x0099e550",
+            "0x009a2340",
+            "0x00c98940",
+            "0x006d6550",
+            "0x0099e560"
+          ],
+          "base_classes": [
+            "NWorld::CWorld",
+            "NWorld::IWorld",
+            "CObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase"
+          ]
+        }
+      ]
+    },
+    "NWorld::CTileGameInfoMap": {
+      "mangled_name": ".?AVCTileGameInfoMap@NWorld@@",
+      "type_descriptor_va": "0x00f47584",
+      "vtables": [
+        {
+          "vftable_va": "0x00e85a90",
+          "vtable_offset": 0,
+          "method_count": 3,
+          "first_methods": [
+            "0x00aa2e60",
+            "0x00aa2e60",
+            "0x00c98940"
+          ],
+          "base_classes": [
+            "NWorld::CTileGameInfoMap",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e85a70",
+          "vtable_offset": 48,
+          "method_count": 7,
+          "first_methods": [
+            "0x00bcd1e0",
+            "0x00c98940",
+            "0x00bccfc0",
+            "0x00bcd250",
+            "0x00c98940",
+            "0x00c5d410",
+            "0x004ba320"
+          ],
+          "base_classes": [
+            "NWorld::CTileGameInfoMap",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase"
+          ]
+        }
+      ]
+    },
+    "NWorld::CArenaATB": {
+      "mangled_name": ".?AVCArenaATB@NWorld@@",
+      "type_descriptor_va": "0x00f48a74",
+      "vtables": [
+        {
+          "vftable_va": "0x00e6e270",
+          "vtable_offset": 0,
+          "method_count": 3,
+          "first_methods": [
+            "0x00aa2e60",
+            "0x00aa2e60",
+            "0x00c98940"
+          ],
+          "base_classes": [
+            "NWorld::CArenaATB",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e6e250",
+          "vtable_offset": 88,
+          "method_count": 7,
+          "first_methods": [
+            "0x00a2ece0",
+            "0x00c98940",
+            "0x00a2eb60",
+            "0x00a2ed40",
+            "0x00c98940",
+            "0x00b46940",
+            "0x004e54c0"
+          ],
+          "base_classes": [
+            "NWorld::CArenaATB",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase"
+          ]
+        }
+      ]
+    },
+    "NWorld::CCombat": {
+      "mangled_name": ".?AVCCombat@NWorld@@",
+      "type_descriptor_va": "0x00f73d14",
+      "vtables": [
+        {
+          "vftable_va": "0x00e79d3c",
+          "vtable_offset": 0,
+          "method_count": 91,
+          "first_methods": [
+            "0x00af80e0",
+            "0x00af7e00",
+            "0x00af7e10",
+            "0x00af80f0",
+            "0x00af8100",
+            "0x00af8110",
+            "0x00af8120",
+            "0x00af1fe0",
+            "0x00af2020",
+            "0x00af7e20",
+            "0x00af1350",
+            "0x00af4980",
+            "0x00af7e30",
+            "0x00af7e50",
+            "0x00af7e70",
+            "0x00620240"
+          ],
+          "base_classes": [
+            "NWorld::CCombat",
+            "NWorld::ICombat",
+            "NWorld::IArenaCommonBase",
+            "CObjectBase",
+            "NWorld::CArenaCommonBase",
+            "NWorld::IArenaCommonBase",
+            "CObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e79d2c",
+          "vtable_offset": 8,
+          "method_count": 3,
+          "first_methods": [
+            "0x00aa2e60",
+            "0x00aa2e60",
+            "0x00c98940"
+          ],
+          "base_classes": [
+            "NWorld::CCombat",
+            "NWorld::ICombat",
+            "NWorld::IArenaCommonBase",
+            "CObjectBase",
+            "NWorld::CArenaCommonBase",
+            "NWorld::IArenaCommonBase",
+            "CObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e79d0c",
+          "vtable_offset": 412,
+          "method_count": 7,
+          "first_methods": [
+            "0x00af85b0",
+            "0x00c98940",
+            "0x00af7f60",
+            "0x00af8630",
+            "0x00c98940",
+            "0x00af7f70",
+            "0x00af7f90"
+          ],
+          "base_classes": [
+            "NWorld::CCombat",
+            "NWorld::ICombat",
+            "NWorld::IArenaCommonBase",
+            "CObjectBase",
+            "NWorld::CArenaCommonBase",
+            "NWorld::IArenaCommonBase",
+            "CObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase"
+          ]
+        },
+        {
+          "vftable_va": "0x00e79c9c",
+          "vtable_offset": 428,
+          "method_count": 27,
+          "first_methods": [
+            "0x00af8170",
+            "0x00af8170",
+            "0x00af7fa0",
+            "0x00af7fb0",
+            "0x00af7fc0",
+            "0x00af7fd0",
+            "0x00af8180",
+            "0x00af8190",
+            "0x00af81f0",
+            "0x00af7fe0",
+            "0x00af7ff0",
+            "0x00af8000",
+            "0x00af8010",
+            "0x00af8020",
+            "0x00af8030",
+            "0x00af8040"
+          ],
+          "base_classes": [
+            "NWorld::CCombat",
+            "NWorld::ICombat",
+            "NWorld::IArenaCommonBase",
+            "CObjectBase",
+            "NWorld::CArenaCommonBase",
+            "NWorld::IArenaCommonBase",
+            "CObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase"
+          ]
+        }
+      ]
+    },
+    "NWorld::CHeroMovementCost": {
+      "mangled_name": ".?AVCHeroMovementCost@NWorld@@",
+      "type_descriptor_va": "0x00f7bc40",
+      "vtables": [
+        {
+          "vftable_va": "0x00e935b0",
+          "vtable_offset": 0,
+          "method_count": 1,
+          "first_methods": [
+            "0x00cab090"
+          ],
+          "base_classes": [
+            "NWorld::CHeroMovementCost",
+            "NWorld::IMovementCost"
+          ]
+        }
+      ]
+    },
+    "NWorld::CAdvMapTown": {
+      "mangled_name": ".?AVCAdvMapTown@NWorld@@",
+      "type_descriptor_va": "0x00f7c900",
+      "vtables": [
+        {
+          "vftable_va": "0x00e959e8",
+          "vtable_offset": 0,
+          "method_count": 10,
+          "first_methods": [
+            "0x00aa2e60",
+            "0x00cd32c0",
+            "0x00c98940",
+            "0x00452ad0",
+            "0x00ce05f0",
+            "0x00cd1010",
+            "0x004b4950",
+            "0x004b5190",
+            "0x00cd5400",
+            "0x00452500"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e959dc",
+          "vtable_offset": 28,
+          "method_count": 2,
+          "first_methods": [
+            "0x00454770",
+            "0x00454790"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e959d0",
+          "vtable_offset": 172,
+          "method_count": 2,
+          "first_methods": [
+            "0x004f3680",
+            "0x00a332c0"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e95984",
+          "vtable_offset": 200,
+          "method_count": 18,
+          "first_methods": [
+            "0x00cd79d0",
+            "0x00724930",
+            "0x00452040",
+            "0x00cbca20",
+            "0x004520b0",
+            "0x00451d70",
+            "0x00cd43f0",
+            "0x00c98940",
+            "0x00cd8810",
+            "0x00458480",
+            "0x00412b40",
+            "0x00452a80",
+            "0x00451f10",
+            "0x00451da0",
+            "0x00451dc0",
+            "0x00452200"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e95844",
+          "vtable_offset": 248,
+          "method_count": 78,
+          "first_methods": [
+            "0x00cd88c0",
+            "0x00cd90f0",
+            "0x00cd18c0",
+            "0x00cd8830",
+            "0x00cd2460",
+            "0x00cd2680",
+            "0x00ccefa0",
+            "0x00cd0530",
+            "0x00cce4b0",
+            "0x00ccfab0",
+            "0x00ccec80",
+            "0x00cd89a0",
+            "0x00cd8850",
+            "0x00cd2fe0",
+            "0x00cd90b0",
+            "0x00cce840"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e95830",
+          "vtable_offset": 256,
+          "method_count": 3,
+          "first_methods": [
+            "0x00cce300",
+            "0x00cd8ea0",
+            "0x00cd8f00"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e95824",
+          "vtable_offset": 264,
+          "method_count": 2,
+          "first_methods": [
+            "0x00cd2b90",
+            "0x00cd27b0"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e9581c",
+          "vtable_offset": 272,
+          "method_count": 1,
+          "first_methods": [
+            "0x00ccf770"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e957f8",
+          "vtable_offset": 280,
+          "method_count": 8,
+          "first_methods": [
+            "0x00412bd0",
+            "0x00cd0550",
+            "0x00cce880",
+            "0x00cd6310",
+            "0x00cd6270",
+            "0x00cd0250",
+            "0x00458480",
+            "0x004f8bd0"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e957e0",
+          "vtable_offset": 288,
+          "method_count": 5,
+          "first_methods": [
+            "0x00cceb70",
+            "0x00cceb20",
+            "0x00cd8890",
+            "0x00cd36c0",
+            "0x00cd07f0"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e957c0",
+          "vtable_offset": 804,
+          "method_count": 7,
+          "first_methods": [
+            "0x00cd9470",
+            "0x00c98940",
+            "0x00cd89c0",
+            "0x00cd94f0",
+            "0x00c98940",
+            "0x00cd89d0",
+            "0x00cd89f0"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e9567c",
+          "vtable_offset": 820,
+          "method_count": 80,
+          "first_methods": [
+            "0x00cd8a00",
+            "0x00cd8a10",
+            "0x00cd8a00",
+            "0x00cd8a00",
+            "0x00cd8a20",
+            "0x00cd8a50",
+            "0x00cd8a00",
+            "0x00cd8a00",
+            "0x00cd8a00",
+            "0x00cd8a00",
+            "0x00cd8a80",
+            "0x00cd8a00",
+            "0x00cd8a00",
+            "0x00cd8a00",
+            "0x00cd8a00",
+            "0x00cd8a90"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e95674",
+          "vtable_offset": 832,
+          "method_count": 1,
+          "first_methods": [
+            "0x00cd90e0"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e9562c",
+          "vtable_offset": 840,
+          "method_count": 17,
+          "first_methods": [
+            "0x00cd8d40",
+            "0x00cd8d50",
+            "0x00cd8d60",
+            "0x00cd8d70",
+            "0x00cd8d80",
+            "0x00cd8d90",
+            "0x00cd8db0",
+            "0x00cd8da0",
+            "0x00cd8db0",
+            "0x00cd8dc0",
+            "0x00cd8dd0",
+            "0x00cd8de0",
+            "0x00cd8df0",
+            "0x00a749c0",
+            "0x00456e70",
+            "0x00cd8e00"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e95610",
+          "vtable_offset": 852,
+          "method_count": 5,
+          "first_methods": [
+            "0x00cd8e20",
+            "0x00cd90c0",
+            "0x00cd8f80",
+            "0x00cd8f90",
+            "0x00cd90d0"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e955f4",
+          "vtable_offset": 864,
+          "method_count": 6,
+          "first_methods": [
+            "0x00cd9080",
+            "0x00cd8fb0",
+            "0x00cd9090",
+            "0x00cd8fc0",
+            "0x00a74a20",
+            "0x00cd8e40"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        },
+        {
+          "vftable_va": "0x00e955e0",
+          "vtable_offset": 876,
+          "method_count": 4,
+          "first_methods": [
+            "0x00cd8e70",
+            "0x00cd90a0",
+            "0x00cd8e80",
+            "0x00cd8e90"
+          ],
+          "base_classes": [
+            "NWorld::CAdvMapTown",
+            "NWorld::CAdvMapFlagged",
+            "NWorld::CAdvMapInteractive",
+            "NWorld::CAdvMapObjectBase",
+            "NWorld::CRMBase",
+            "NVisit::IVisObj",
+            "CObjectBase",
+            "NWorld::IAdvMapObject",
+            "CObjectBase",
+            "NWorld::IDatabaseID"
+          ]
+        }
+      ]
+    }
+  },
+  "lua_c_api": [
+    {
+      "name": "out",
+      "func_va": "0x004c1200",
+      "table_va": "0x00f2def8"
+    },
+    {
+      "name": "Sleep",
+      "func_va": "0x004bfe80",
+      "table_va": "0x00f2df00"
+    },
+    {
+      "name": "StartThread",
+      "func_va": "0x004bfe20",
+      "table_va": "0x00f2df08"
+    },
+    {
+      "name": "random",
+      "func_va": "0x004c0da0",
+      "table_va": "0x00f2df10"
+    },
+    {
+      "name": "Ptr",
+      "func_va": "0x00b2d200",
+      "table_va": "0x00f2df18"
+    },
+    {
+      "name": "ObjPtr",
+      "func_va": "0x00b2d320",
+      "table_va": "0x00f2df20"
+    },
+    {
+      "name": "IsValid",
+      "func_va": "0x00b2d470",
+      "table_va": "0x00f2df28"
+    },
+    {
+      "name": "IsEqual",
+      "func_va": "0x004c19e0",
+      "table_va": "0x00f2df30"
+    },
+    {
+      "name": "SetGlobalVar",
+      "func_va": "0x004c1cc0",
+      "table_va": "0x00f2df38"
+    },
+    {
+      "name": "GetGlobalVar",
+      "func_va": "0x004c1b00",
+      "table_va": "0x00f2df40"
+    },
+    {
+      "name": "LuaTest",
+      "func_va": "0x004c2100",
+      "table_va": "0x00f2df48"
+    },
+    {
+      "name": "EnableDynamicBattleMode",
+      "func_va": "0x00566b60",
+      "table_va": "0x00f32e90"
+    },
+    {
+      "name": "SetControlMode",
+      "func_va": "0x00566d70",
+      "table_va": "0x00f32e98"
+    },
+    {
+      "name": "GetHost",
+      "func_va": "0x00567000",
+      "table_va": "0x00f32ea0"
+    },
+    {
+      "name": "EnableAutoFinish",
+      "func_va": "0x00567210",
+      "table_va": "0x00f32ea8"
+    },
+    {
+      "name": "combatEnableFinish",
+      "func_va": "0x00567210",
+      "table_va": "0x00f32eb0"
+    },
+    {
+      "name": "Finish",
+      "func_va": "0x005673f0",
+      "table_va": "0x00f32eb8"
+    },
+    {
+      "name": "Break",
+      "func_va": "0x00567660",
+      "table_va": "0x00f32ec0"
+    },
+    {
+      "name": "GetUnitSide",
+      "func_va": "0x005677a0",
+      "table_va": "0x00f32ec8"
+    },
+    {
+      "name": "GetUnitType",
+      "func_va": "0x005679f0",
+      "table_va": "0x00f32ed0"
+    },
+    {
+      "name": "GetUnits",
+      "func_va": "0x00567c70",
+      "table_va": "0x00f32ed8"
+    },
+    {
+      "name": "GetUnitPosition",
+      "func_va": "0x00568060",
+      "table_va": "0x00f32ee0"
+    },
+    {
+      "name": "pos",
+      "func_va": "0x00568060",
+      "table_va": "0x00f32ee8"
+    },
+    {
+      "name": "GetHeroName",
+      "func_va": "0x00568290",
+      "table_va": "0x00f32ef0"
+    },
+    {
+      "name": "GetCreatureType",
+      "func_va": "0x005684b0",
+      "table_va": "0x00f32ef8"
+    },
+    {
+      "name": "GetCreatureNumber",
+      "func_va": "0x005686e0",
+      "table_va": "0x00f32f00"
+    },
+    {
+      "name": "GetWarMachineType",
+      "func_va": "0x00568930",
+      "table_va": "0x00f32f08"
+    },
+    {
+      "name": "GetBuildingType",
+      "func_va": "0x00568b60",
+      "table_va": "0x00f32f10"
+    },
+    {
+      "name": "AddCreature",
+      "func_va": "0x00568d90",
+      "table_va": "0x00f32f18"
+    },
+    {
+      "name": "SummonCreature",
+      "func_va": "0x00569180",
+      "table_va": "0x00f32f20"
+    },
+    {
+      "name": "GetUnitManaPoints",
+      "func_va": "0x00569570",
+      "table_va": "0x00f32f28"
+    },
+    {
+      "name": "GetUnitMaxManaPoints",
+      "func_va": "0x00569790",
+      "table_va": "0x00f32f30"
+    },
+    {
+      "name": "SetUnitManaPoints",
+      "func_va": "0x005699b0",
+      "table_va": "0x00f32f38"
+    },
+    {
+      "name": "UnitCastGlobalSpell",
+      "func_va": "0x00569c30",
+      "table_va": "0x00f32f40"
+    },
+    {
+      "name": "UnitCastAreaSpell",
+      "func_va": "0x00569e60",
+      "table_va": "0x00f32f48"
+    },
+    {
+      "name": "UnitCastAimedSpell",
+      "func_va": "0x0056a080",
+      "table_va": "0x00f32f50"
+    },
+    {
+      "name": "postEvent",
+      "func_va": "0x0056a2f0",
+      "table_va": "0x00f32f58"
+    },
+    {
+      "name": "GetGameVar",
+      "func_va": "0x0056a3f0",
+      "table_va": "0x00f32f60"
+    },
+    {
+      "name": "SetGameVar",
+      "func_va": "0x0056a660",
+      "table_va": "0x00f32f68"
+    },
+    {
+      "name": "showHighlighting",
+      "func_va": "0x0056a890",
+      "table_va": "0x00f32f70"
+    },
+    {
+      "name": "addUnit",
+      "func_va": "0x0056a9f0",
+      "table_va": "0x00f32f78"
+    },
+    {
+      "name": "exist",
+      "func_va": "0x0056ae00",
+      "table_va": "0x00f32f80"
+    },
+    {
+      "name": "unitNames",
+      "func_va": "0x0056afa0",
+      "table_va": "0x00f32f88"
+    },
+    {
+      "name": "removeUnit",
+      "func_va": "0x0056b1d0",
+      "table_va": "0x00f32f90"
+    },
+    {
+      "name": "RemoveAllUnits",
+      "func_va": "0x0056b400",
+      "table_va": "0x00f32f98"
+    },
+    {
+      "name": "displace",
+      "func_va": "0x0056b680",
+      "table_va": "0x00f32fa0"
+    },
+    {
+      "name": "commandDefend",
+      "func_va": "0x0056b950",
+      "table_va": "0x00f32fa8"
+    },
+    {
+      "name": "commandMove",
+      "func_va": "0x0056bb30",
+      "table_va": "0x00f32fb0"
+    },
+    {
+      "name": "commandMoveAttack",
+      "func_va": "0x0056bec0",
+      "table_va": "0x00f32fb8"
+    },
+    {
+      "name": "commandShot",
+      "func_va": "0x0056c200",
+      "table_va": "0x00f32fc0"
+    },
+    {
+      "name": "commandDoSpecial",
+      "func_va": "0x0056c4b0",
+      "table_va": "0x00f32fc8"
+    },
+    {
+      "name": "commandDoSpell",
+      "func_va": "0x0056c830",
+      "table_va": "0x00f32fd0"
+    },
+    {
+      "name": "combatStarted",
+      "func_va": "0x0056cbd0",
+      "table_va": "0x00f32fd8"
+    },
+    {
+      "name": "combatReadyPerson",
+      "func_va": "0x0056cd60",
+      "table_va": "0x00f32fe0"
+    },
+    {
+      "name": "setATB",
+      "func_va": "0x0056cf60",
+      "table_va": "0x00f32fe8"
+    },
+    {
+      "name": "combatSetPause",
+      "func_va": "0x0056d3c0",
+      "table_va": "0x00f32ff0"
+    },
+    {
+      "name": "combatPlayEmotion",
+      "func_va": "0x0056d5c0",
+      "table_va": "0x00f32ff8"
+    },
+    {
+      "name": "playAnimation",
+      "func_va": "0x0056d170",
+      "table_va": "0x00f33000"
+    },
+    {
+      "name": "GetRagePoints",
+      "func_va": "0x0056e4a0",
+      "table_va": "0x00f33008"
+    },
+    {
+      "name": "GetRageLevel",
+      "func_va": "0x0056e710",
+      "table_va": "0x00f33010"
+    },
+    {
+      "name": "MessageBox",
+      "func_va": "0x0056e980",
+      "table_va": "0x00f33018"
+    },
+    {
+      "name": "ShowFlyingSign",
+      "func_va": "0x0056ebe0",
+      "table_va": "0x00f33020"
+    },
+    {
+      "name": "Play2DSound",
+      "func_va": "0x0056eff0",
+      "table_va": "0x00f33028"
+    },
+    {
+      "name": "Play3DSound",
+      "func_va": "0x0056f1e0",
+      "table_va": "0x00f33030"
+    },
+    {
+      "name": "toggleTutorialMode",
+      "func_va": "0x0056d7d0",
+      "table_va": "0x00f33040"
+    },
+    {
+      "name": "showMessage",
+      "func_va": "0x0056d900",
+      "table_va": "0x00f33048"
+    },
+    {
+      "name": "clearMessage",
+      "func_va": "0x0056da90",
+      "table_va": "0x00f33050"
+    },
+    {
+      "name": "changeSubject",
+      "func_va": "0x0056dbc0",
+      "table_va": "0x00f33058"
+    },
+    {
+      "name": "subject",
+      "func_va": "0x0056ddb0",
+      "table_va": "0x00f33060"
+    },
+    {
+      "name": "shots",
+      "func_va": "0x0056df10",
+      "table_va": "0x00f33068"
+    },
+    {
+      "name": "shotsNumber",
+      "func_va": "0x0056e180",
+      "table_va": "0x00f33070"
+    },
+    {
+      "name": "EnableCinematicCamera",
+      "func_va": "0x0056e370",
+      "table_va": "0x00f33080"
+    },
+    {
+      "name": "GetPlayerState",
+      "func_va": "0x005c1390",
+      "table_va": "0x00f34c28"
+    },
+    {
+      "name": "GetPlayerHeroes",
+      "func_va": "0x005c1540",
+      "table_va": "0x00f34c30"
+    },
+    {
+      "name": "GetPlayerResource",
+      "func_va": "0x005c19a0",
+      "table_va": "0x00f34c38"
+    },
+    {
+      "name": "SetPlayerResource",
+      "func_va": "0x005c1c30",
+      "table_va": "0x00f34c40"
+    },
+    {
+      "name": "SetPlayerStartResources",
+      "func_va": "0x005c1fb0",
+      "table_va": "0x00f34c48"
+    },
+    {
+      "name": "HasBorderguardKey",
+      "func_va": "0x005c22a0",
+      "table_va": "0x00f34c50"
+    },
+    {
+      "name": "GiveBorderguardKey",
+      "func_va": "0x005c2540",
+      "table_va": "0x00f34c58"
+    },
+    {
+      "name": "DeployReserveHero",
+      "func_va": "0x005c27f0",
+      "table_va": "0x00f34c60"
+    },
+    {
+      "name": "UnreserveHero",
+      "func_va": "0x005c2c90",
+      "table_va": "0x00f34c68"
+    },
+    {
+      "name": "IsHeroAlive",
+      "func_va": "0x005c2f80",
+      "table_va": "0x00f34c70"
+    },
+    {
+      "name": "GetHeroLevel",
+      "func_va": "0x005c3190",
+      "table_va": "0x00f34c78"
+    },
+    {
+      "name": "GetHeroStat",
+      "func_va": "0x005c33a0",
+      "table_va": "0x00f34c80"
+    },
+    {
+      "name": "ChangeHeroStat",
+      "func_va": "0x005c3620",
+      "table_va": "0x00f34c88"
+    },
+    {
+      "name": "LevelUpHero",
+      "func_va": "0x005c3c00",
+      "table_va": "0x00f34c90"
+    },
+    {
+      "name": "HasHeroSkill",
+      "func_va": "0x005c3ee0",
+      "table_va": "0x00f34c98"
+    },
+    {
+      "name": "KnowHeroSpell",
+      "func_va": "0x005c4770",
+      "table_va": "0x00f34ca0"
+    },
+    {
+      "name": "TeachHeroSpell",
+      "func_va": "0x005c49e0",
+      "table_va": "0x00f34ca8"
+    },
+    {
+      "name": "GiveHeroSkill",
+      "func_va": "0x005c43a0",
+      "table_va": "0x00f34cb0"
+    },
+    {
+      "name": "HasArtefact",
+      "func_va": "0x005c4cd0",
+      "table_va": "0x00f34cb8"
+    },
+    {
+      "name": "GetHeroArtifactsCount",
+      "func_va": "0x005c4f70",
+      "table_va": "0x00f34cc0"
+    },
+    {
+      "name": "GiveArtefact",
+      "func_va": "0x005c5200",
+      "table_va": "0x00f34cc8"
+    },
+    {
+      "name": "RemoveArtefact",
+      "func_va": "0x005c54d0",
+      "table_va": "0x00f34cd0"
+    },
+    {
+      "name": "GetHeroCreatures",
+      "func_va": "0x005c5ed0",
+      "table_va": "0x00f34cd8"
+    },
+    {
+      "name": "AddHeroCreatures",
+      "func_va": "0x005c6140",
+      "table_va": "0x00f34ce0"
+    },
+    {
+      "name": "RemoveHeroCreatures",
+      "func_va": "0x005c64a0",
+      "table_va": "0x00f34ce8"
+    },
+    {
+      "name": "IsHeroLootable",
+      "func_va": "0x005c5a70",
+      "table_va": "0x00f34cf0"
+    },
+    {
+      "name": "SetHeroLootable",
+      "func_va": "0x005c5c80",
+      "table_va": "0x00f34cf8"
+    },
+    {
+      "name": "HasHeroWarMachine",
+      "func_va": "0x005c67f0",
+      "table_va": "0x00f34d00"
+    },
+    {
+      "name": "GiveHeroWarMachine",
+      "func_va": "0x005c6a50",
+      "table_va": "0x00f34d08"
+    },
+    {
+      "name": "RemoveHeroWarMachine",
+      "func_va": "0x005c6d10",
+      "table_va": "0x00f34d10"
+    },
+    {
+      "name": "SetHeroCombatScript",
+      "func_va": "0x005c6fd0",
+      "table_va": "0x00f34d18"
+    },
+    {
+      "name": "ResetHeroCombatScript",
+      "func_va": "0x005c72e0",
+      "table_va": "0x00f34d20"
+    },
+    {
+      "name": "GetTownBuildingLevel",
+      "func_va": "0x005c7590",
+      "table_va": "0x00f34d28"
+    },
+    {
+      "name": "GetTownBuildingMaxLevel",
+      "func_va": "0x005c7850",
+      "table_va": "0x00f34d30"
+    },
+    {
+      "name": "GetTownBuildingLimitLevel",
+      "func_va": "0x005c7b10",
+      "table_va": "0x00f34d38"
+    },
+    {
+      "name": "SetTownBuildingLimitLevel",
+      "func_va": "0x005c7dd0",
+      "table_va": "0x00f34d40"
+    },
+    {
+      "name": "DestroyTownBuildingToLevel",
+      "func_va": "0x005c8140",
+      "table_va": "0x00f34d48"
+    },
+    {
+      "name": "IsObjectExists",
+      "func_va": "0x005c8520",
+      "table_va": "0x00f34d50"
+    },
+    {
+      "name": "CreateArtifact",
+      "func_va": "0x005c8730",
+      "table_va": "0x00f34d58"
+    },
+    {
+      "name": "CreateMonster",
+      "func_va": "0x005c8aa0",
+      "table_va": "0x00f34d60"
+    },
+    {
+      "name": "TransformTown",
+      "func_va": "0x005c9ee0",
+      "table_va": "0x00f34d68"
+    },
+    {
+      "name": "RazeTown",
+      "func_va": "0x005ca3f0",
+      "table_va": "0x00f34d70"
+    },
+    {
+      "name": "RazeBuilding",
+      "func_va": "0x005ca830",
+      "table_va": "0x00f34d78"
+    },
+    {
+      "name": "RemoveObject",
+      "func_va": "0x005cacb0",
+      "table_va": "0x00f34d80"
+    },
+    {
+      "name": "GetObjectPosition",
+      "func_va": "0x005caf40",
+      "table_va": "0x00f34d88"
+    },
+    {
+      "name": "SetObjectPosition",
+      "func_va": "0x005cb1b0",
+      "table_va": "0x00f34d90"
+    },
+    {
+      "name": "GetObjectOwner",
+      "func_va": "0x005cb6d0",
+      "table_va": "0x00f34d98"
+    },
+    {
+      "name": "SetObjectOwner",
+      "func_va": "0x005cb910",
+      "table_va": "0x00f34da0"
+    },
+    {
+      "name": "IsObjectInRegion",
+      "func_va": "0x005cbcd0",
+      "table_va": "0x00f34da8"
+    },
+    {
+      "name": "GetObjectsInRegion",
+      "func_va": "0x005cbf60",
+      "table_va": "0x00f34db0"
+    },
+    {
+      "name": "IsObjectVisible",
+      "func_va": "0x005cc2a0",
+      "table_va": "0x00f34db8"
+    },
+    {
+      "name": "GetObjectCreatures",
+      "func_va": "0x005cc590",
+      "table_va": "0x00f34dc0"
+    },
+    {
+      "name": "AddObjectCreatures",
+      "func_va": "0x005ccec0",
+      "table_va": "0x00f34dc8"
+    },
+    {
+      "name": "SetObjectDwellingCreatures",
+      "func_va": "0x005cd270",
+      "table_va": "0x00f34dd0"
+    },
+    {
+      "name": "GetObjectDwellingCreatures",
+      "func_va": "0x005cd530",
+      "table_va": "0x00f34dd8"
+    },
+    {
+      "name": "RemoveObjectCreatures",
+      "func_va": "0x005cd7b0",
+      "table_va": "0x00f34de0"
+    },
+    {
+      "name": "IsObjectEnabled",
+      "func_va": "0x005cdbd0",
+      "table_va": "0x00f34de8"
+    },
+    {
+      "name": "SetObjectEnabled",
+      "func_va": "0x005cde30",
+      "table_va": "0x00f34df0"
+    },
+    {
+      "name": "MarkObjectAsVisited",
+      "func_va": "0x005ce0f0",
+      "table_va": "0x00f34df8"
+    },
+    {
+      "name": "SetMonsterSelectionType",
+      "func_va": "0x005ce490",
+      "table_va": "0x00f34e00"
+    },
+    {
+      "name": "CanMoveHero",
+      "func_va": "0x005ce790",
+      "table_va": "0x00f34e08"
+    },
+    {
+      "name": "CalcHeroMoveCost",
+      "func_va": "0x005ceaf0",
+      "table_va": "0x00f34e10"
+    },
+    {
+      "name": "MoveHero",
+      "func_va": "0x005cef50",
+      "table_va": "0x00f34e18"
+    },
+    {
+      "name": "MoveHeroRealTime",
+      "func_va": "0x005cf310",
+      "table_va": "0x00f34e20"
+    },
+    {
+      "name": "StartCombat",
+      "func_va": "0x005d3b90",
+      "table_va": "0x00f34e28"
+    },
+    {
+      "name": "SiegeTown",
+      "func_va": "0x005d4460",
+      "table_va": "0x00f34e30"
+    },
+    {
+      "name": "GenerateMonsters",
+      "func_va": "0x005cf8c0",
+      "table_va": "0x00f34e38"
+    },
+    {
+      "name": "RemoveAllMonsters",
+      "func_va": "0x005cfba0",
+      "table_va": "0x00f34e40"
+    },
+    {
+      "name": "CalcAverageMonstersTier",
+      "func_va": "0x005cfdc0",
+      "table_va": "0x00f34e48"
+    },
+    {
+      "name": "GetStandStatesCount",
+      "func_va": "0x005d0150",
+      "table_va": "0x00f34e50"
+    },
+    {
+      "name": "GetStandState",
+      "func_va": "0x005d0360",
+      "table_va": "0x00f34e58"
+    },
+    {
+      "name": "SetStandState",
+      "func_va": "0x005d0570",
+      "table_va": "0x00f34e60"
+    },
+    {
+      "name": "GetTownHero",
+      "func_va": "0x005d0840",
+      "table_va": "0x00f34e68"
+    },
+    {
+      "name": "GetHeroTown",
+      "func_va": "0x005d0a90",
+      "table_va": "0x00f34e70"
+    },
+    {
+      "name": "GetObjectsFromPath",
+      "func_va": "0x005d0cf0",
+      "table_va": "0x00f34e78"
+    },
+    {
+      "name": "SetPlayerHeroesCountNotForHire",
+      "func_va": "0x005d11c0",
+      "table_va": "0x00f34e80"
+    },
+    {
+      "name": "GetHeroSkillMastery",
+      "func_va": "0x005c4140",
+      "table_va": "0x00f34e88"
+    },
+    {
+      "name": "SetObjectRotation",
+      "func_va": "0x005cb440",
+      "table_va": "0x00f34e90"
+    },
+    {
+      "name": "CreateTreasure",
+      "func_va": "0x005d1410",
+      "table_va": "0x00f34e98"
+    },
+    {
+      "name": "CreateStatic",
+      "func_va": "0x005d1810",
+      "table_va": "0x00f34ea0"
+    },
+    {
+      "name": "CreateDwelling",
+      "func_va": "0x005c9530",
+      "table_va": "0x00f34ea8"
+    },
+    {
+      "name": "ReplaceDwelling",
+      "func_va": "0x005d1c50",
+      "table_va": "0x00f34eb0"
+    },
+    {
+      "name": "GetArtifactSetItemsCount",
+      "func_va": "0x005c57c0",
+      "table_va": "0x00f34eb8"
+    },
+    {
+      "name": "SetMonsterNames",
+      "func_va": "0x005c8fd0",
+      "table_va": "0x00f34ec0"
+    },
+    {
+      "name": "IsHeroInTown",
+      "func_va": "0x005c9c50",
+      "table_va": "0x00f34ec8"
+    },
+    {
+      "name": "SetMonsterCourageAndMood",
+      "func_va": "0x005c9240",
+      "table_va": "0x00f34ed0"
+    },
+    {
+      "name": "GetObjectCreaturesTypes",
+      "func_va": "0x005cc820",
+      "table_va": "0x00f34ed8"
+    },
+    {
+      "name": "GetHeroCreaturesTypes",
+      "func_va": "0x005ccb70",
+      "table_va": "0x00f34ee0"
+    },
+    {
+      "name": "DenyGarrisonCreaturesTakeAway",
+      "func_va": "0x005d1fc0",
+      "table_va": "0x00f34ee8"
+    },
+    {
+      "name": "MakeHeroInteractWithObject",
+      "func_va": "0x005d2220",
+      "table_va": "0x00f34ef0"
+    },
+    {
+      "name": "ControlHeroCustomAbility",
+      "func_va": "0x005d2560",
+      "table_va": "0x00f34ef8"
+    },
+    {
+      "name": "GetPlayerSelectedCampaignBonusIndex",
+      "func_va": "0x005d2830",
+      "table_va": "0x00f34f00"
+    },
+    {
+      "name": "SetHeroBiography",
+      "func_va": "0x005d2a50",
+      "table_va": "0x00f34f08"
+    },
+    {
+      "name": "GetCurrentMoonWeek",
+      "func_va": "0x005d2cc0",
+      "table_va": "0x00f34f10"
+    },
+    {
+      "name": "GetPlayerRace",
+      "func_va": "0x005d2eb0",
+      "table_va": "0x00f34f18"
+    },
+    {
+      "name": "IsAIPlayer",
+      "func_va": "0x005d3140",
+      "table_va": "0x00f34f20"
+    },
+    {
+      "name": "GetObjectArmySlotCreature",
+      "func_va": "0x005d33f0",
+      "table_va": "0x00f34f28"
+    },
+    {
+      "name": "GetPlayerTeam",
+      "func_va": "0x005d3670",
+      "table_va": "0x00f34f30"
+    },
+    {
+      "name": "GetPlayerNecroEnergy",
+      "func_va": "0x005d3900",
+      "table_va": "0x00f34f38"
+    },
+    {
+      "name": "GetMaxFloor",
+      "func_va": "0x005e1570",
+      "table_va": "0x00f35000"
+    },
+    {
+      "name": "ExitGame",
+      "func_va": "0x005e1480",
+      "table_va": "0x00f35008"
+    },
+    {
+      "name": "Win",
+      "func_va": "0x005d69d0",
+      "table_va": "0x00f35010"
+    },
+    {
+      "name": "Loose",
+      "func_va": "0x005d6ed0",
+      "table_va": "0x00f35018"
+    },
+    {
+      "name": "GetDate",
+      "func_va": "0x005d7170",
+      "table_va": "0x00f35020"
+    },
+    {
+      "name": "GetCurrentPlayer",
+      "func_va": "0x005d73d0",
+      "table_va": "0x00f35028"
+    },
+    {
+      "name": "GetAllNames",
+      "func_va": "0x005d7f20",
+      "table_va": "0x00f35030"
+    },
+    {
+      "name": "IsObjectiveVisible",
+      "func_va": "0x005d8120",
+      "table_va": "0x00f35038"
+    },
+    {
+      "name": "SetObjectiveVisible",
+      "func_va": "0x005d83f0",
+      "table_va": "0x00f35040"
+    },
+    {
+      "name": "GetObjectiveState",
+      "func_va": "0x005d8710",
+      "table_va": "0x00f35048"
+    },
+    {
+      "name": "SetObjectiveState",
+      "func_va": "0x005d89e0",
+      "table_va": "0x00f35050"
+    },
+    {
+      "name": "GetObjectiveProgress",
+      "func_va": "0x005d8ea0",
+      "table_va": "0x00f35058"
+    },
+    {
+      "name": "SetObjectiveProgress",
+      "func_va": "0x005d9170",
+      "table_va": "0x00f35060"
+    },
+    {
+      "name": "RegionToPoint",
+      "func_va": "0x005d9540",
+      "table_va": "0x00f35068"
+    },
+    {
+      "name": "IsRegionBlocked",
+      "func_va": "0x005d97a0",
+      "table_va": "0x00f35070"
+    },
+    {
+      "name": "SetRegionBlocked",
+      "func_va": "0x005d9a50",
+      "table_va": "0x00f35078"
+    },
+    {
+      "name": "OpenRegionFog",
+      "func_va": "0x005d9df0",
+      "table_va": "0x00f35080"
+    },
+    {
+      "name": "OpenCircleFog",
+      "func_va": "0x005da1e0",
+      "table_va": "0x00f35088"
+    },
+    {
+      "name": "SetAmbientLight",
+      "func_va": "0x005dab00",
+      "table_va": "0x00f35090"
+    },
+    {
+      "name": "SetObjectFlashlight",
+      "func_va": "0x005db020",
+      "table_va": "0x00f35098"
+    },
+    {
+      "name": "MessageBoxInt",
+      "func_va": "0x005db320",
+      "table_va": "0x00f350a0"
+    },
+    {
+      "name": "QuestionBoxInt",
+      "func_va": "0x005db5f0",
+      "table_va": "0x00f350a8"
+    },
+    {
+      "name": "MessageBox",
+      "func_va": "0x005db320",
+      "table_va": "0x00f350b0"
+    },
+    {
+      "name": "QuestionBox",
+      "func_va": "0x005db5f0",
+      "table_va": "0x00f350b8"
+    },
+    {
+      "name": "ShowFlyingSign",
+      "func_va": "0x005dc450",
+      "table_va": "0x00f350c0"
+    },
+    {
+      "name": "Play2DSound",
+      "func_va": "0x005dc970",
+      "table_va": "0x00f350c8"
+    },
+    {
+      "name": "Play3DSound",
+      "func_va": "0x005dcb90",
+      "table_va": "0x00f350d0"
+    },
+    {
+      "name": "SetTrigger",
+      "func_va": "0x005dd530",
+      "table_va": "0x00f350d8"
+    },
+    {
+      "name": "Trigger",
+      "func_va": "0x005dd530",
+      "table_va": "0x00f350e0"
+    },
+    {
+      "name": "StopTrigger",
+      "func_va": "0x005ddfa0",
+      "table_va": "0x00f350e8"
+    },
+    {
+      "name": "StartDialogSceneInt",
+      "func_va": "0x005de0d0",
+      "table_va": "0x00f350f0"
+    },
+    {
+      "name": "StartCutSceneInt",
+      "func_va": "0x005de340",
+      "table_va": "0x00f350f8"
+    },
+    {
+      "name": "StartDialogScene",
+      "func_va": "0x005de0d0",
+      "table_va": "0x00f35100"
+    },
+    {
+      "name": "StartCutScene",
+      "func_va": "0x005de340",
+      "table_va": "0x00f35108"
+    },
+    {
+      "name": "GetGameVar",
+      "func_va": "0x005dea90",
+      "table_va": "0x00f35110"
+    },
+    {
+      "name": "SetGameVar",
+      "func_va": "0x005decb0",
+      "table_va": "0x00f35118"
+    },
+    {
+      "name": "BlockGame",
+      "func_va": "0x005deeb0",
+      "table_va": "0x00f35120"
+    },
+    {
+      "name": "UnblockGame",
+      "func_va": "0x005df000",
+      "table_va": "0x00f35128"
+    },
+    {
+      "name": "MoveCamera",
+      "func_va": "0x005df150",
+      "table_va": "0x00f35130"
+    },
+    {
+      "name": "DisableCameraFollowHeroes",
+      "func_va": "0x005df710",
+      "table_va": "0x00f35138"
+    },
+    {
+      "name": "random",
+      "func_va": "0x005dfc30",
+      "table_va": "0x00f35140"
+    },
+    {
+      "name": "SetWarfogBehaviour",
+      "func_va": "0x005df9d0",
+      "table_va": "0x00f35148"
+    },
+    {
+      "name": "EnableHeroAI",
+      "func_va": "0x005da500",
+      "table_va": "0x00f35150"
+    },
+    {
+      "name": "SetAIHeroAttractor",
+      "func_va": "0x005dfe10",
+      "table_va": "0x00f35158"
+    },
+    {
+      "name": "SetAIPlayerAttractor",
+      "func_va": "0x005e00e0",
+      "table_va": "0x00f35160"
+    },
+    {
+      "name": "EnableAIHeroHiring",
+      "func_va": "0x005da7a0",
+      "table_va": "0x00f35168"
+    },
+    {
+      "name": "SetCombatAmbientLight",
+      "func_va": "0x005e03d0",
+      "table_va": "0x00f35170"
+    },
+    {
+      "name": "GetTerrainSize",
+      "func_va": "0x005e0f90",
+      "table_va": "0x00f35178"
+    },
+    {
+      "name": "IsTilePassable",
+      "func_va": "0x005e11a0",
+      "table_va": "0x00f35180"
+    },
+    {
+      "name": "GetGuardsTier",
+      "func_va": "0x005e0c30",
+      "table_va": "0x00f35188"
+    },
+    {
+      "name": "GetObjectNamesByType",
+      "func_va": "0x005e0660",
+      "table_va": "0x00f35190"
+    },
+    {
+      "name": "PlayVisualEffect",
+      "func_va": "0x005e1710",
+      "table_va": "0x00f35198"
+    },
+    {
+      "name": "StopVisualEffects",
+      "func_va": "0x005e1bb0",
+      "table_va": "0x00f351a0"
+    },
+    {
+      "name": "PlayObjectAnimation",
+      "func_va": "0x005e1d90",
+      "table_va": "0x00f351a8"
+    },
+    {
+      "name": "SetPlayerTeam",
+      "func_va": "0x005e2030",
+      "table_va": "0x00f351b0"
+    },
+    {
+      "name": "DenyAIHeroFlee",
+      "func_va": "0x005e22b0",
+      "table_va": "0x00f351b8"
+    },
+    {
+      "name": "DenyAIHeroesFlee",
+      "func_va": "0x005e2760",
+      "table_va": "0x00f351c0"
+    },
+    {
+      "name": "SetAIHeroFleeControl",
+      "func_va": "0x005e2510",
+      "table_va": "0x00f351c8"
+    },
+    {
+      "name": "OpenPuzzleMap",
+      "func_va": "0x005e29f0",
+      "table_va": "0x00f351d0"
+    },
+    {
+      "name": "SetHeroesExpCoef",
+      "func_va": "0x005e2c70",
+      "table_va": "0x00f351d8"
+    },
+    {
+      "name": "StartAdvMapDialog",
+      "func_va": "0x005e2e80",
+      "table_va": "0x00f351e0"
+    },
+    {
+      "name": "OverrideAdvMapDialogPos",
+      "func_va": "0x005e3090",
+      "table_va": "0x00f351e8"
+    },
+    {
+      "name": "CreateCaravan",
+      "func_va": "0x005e32c0",
+      "table_va": "0x00f351f0"
+    },
+    {
+      "name": "IsHeroInBoat",
+      "func_va": "0x005e3580",
+      "table_va": "0x00f351f8"
+    },
+    {
+      "name": "SinkHero",
+      "func_va": "0x005e37f0",
+      "table_va": "0x00f35200"
+    },
+    {
+      "name": "BlockTownGarrisonForAI",
+      "func_va": "0x005e3aa0",
+      "table_va": "0x00f35208"
+    },
+    {
+      "name": "AllowHeroHiringByRaceForAI",
+      "func_va": "0x005e3d40",
+      "table_va": "0x00f35210"
+    },
+    {
+      "name": "AllowHiringOfHeroForAI",
+      "func_va": "0x005e4000",
+      "table_va": "0x00f35218"
+    },
+    {
+      "name": "AllowHeroHiringByRaceInTown",
+      "func_va": "0x005e4270",
+      "table_va": "0x00f35220"
+    },
+    {
+      "name": "AllowHiringOfHeroInTown",
+      "func_va": "0x005e4530",
+      "table_va": "0x00f35228"
+    },
+    {
+      "name": "AllowPlayerTavernRace",
+      "func_va": "0x005e47f0",
+      "table_va": "0x00f35230"
+    },
+    {
+      "name": "AllowPlayerTavernHero",
+      "func_va": "0x005e4ac0",
+      "table_va": "0x00f35238"
+    },
+    {
+      "name": "MakeHeroReturnToTavernAfterDeath",
+      "func_va": "0x005e4fc0",
+      "table_va": "0x00f35240"
+    },
+    {
+      "name": "AllowOpenFogOfWarForAlly",
+      "func_va": "0x005e51f0",
+      "table_va": "0x00f35248"
+    },
+    {
+      "name": "MakeHeroNecromancer",
+      "func_va": "0x005e4d50",
+      "table_va": "0x00f35250"
+    },
+    {
+      "name": "SetDisabledObjectMode",
+      "func_va": "0x005e54b0",
+      "table_va": "0x00f35258"
+    },
+    {
+      "name": "MakeTownMovable",
+      "func_va": "0x005e5770",
+      "table_va": "0x00f35260"
+    },
+    {
+      "name": "TakeAwayHeroExp",
+      "func_va": "0x005e5a00",
+      "table_va": "0x00f35268"
+    },
+    {
+      "name": "GetLastSavedCombatIndex",
+      "func_va": "0x005e5c50",
+      "table_va": "0x00f35270"
+    },
+    {
+      "name": "GetSavedCombatResult",
+      "func_va": "0x005e5e40",
+      "table_va": "0x00f35278"
+    },
+    {
+      "name": "GetSavedCombatArmyPlayer",
+      "func_va": "0x005e6030",
+      "table_va": "0x00f35280"
+    },
+    {
+      "name": "GetSavedCombatArmyHero",
+      "func_va": "0x005e6260",
+      "table_va": "0x00f35288"
+    },
+    {
+      "name": "GetSavedCombatArmyCreaturesCount",
+      "func_va": "0x005e64d0",
+      "table_va": "0x00f35290"
+    },
+    {
+      "name": "GetSavedCombatArmyCreatureInfo",
+      "func_va": "0x005e6720",
+      "table_va": "0x00f35298"
+    },
+    {
+      "name": "DisableAutoEnterTown",
+      "func_va": "0x005e6a00",
+      "table_va": "0x00f352a0"
+    },
+    {
+      "name": "SetRegionAutoObjectEnable",
+      "func_va": "0x005e6ca0",
+      "table_va": "0x00f352a8"
+    },
+    {
+      "name": "LockMinHeroSkillsAndAttributes",
+      "func_va": "0x005e7010",
+      "table_va": "0x00f352b0"
+    },
+    {
+      "name": "SetHeroRoleMode",
+      "func_va": "0x005e7260",
+      "table_va": "0x00f352b8"
+    },
+    {
+      "name": "OverrideObjectTooltipNameAndDescription",
+      "func_va": "0x005e74e0",
+      "table_va": "0x00f352c0"
+    },
+    {
+      "name": "DoNotGiveTurnToPlayerAIIfNoTownsAndActiveHeroes",
+      "func_va": "0x005e7750",
+      "table_va": "0x00f352c8"
+    },
+    {
+      "name": "UpgradeTownBuilding",
+      "func_va": "0x005e7a30",
+      "table_va": "0x00f352d0"
+    },
+    {
+      "name": "SetAmbientLightForPlayers",
+      "func_va": "0x005dad90",
+      "table_va": "0x00f352d8"
+    },
+    {
+      "name": "MessageBoxForPlayers",
+      "func_va": "0x005db910",
+      "table_va": "0x00f352e0"
+    },
+    {
+      "name": "QuestionBoxForPlayers",
+      "func_va": "0x005dbc30",
+      "table_va": "0x00f352e8"
+    },
+    {
+      "name": "Play2DSoundForPlayers",
+      "func_va": "0x005dcf40",
+      "table_va": "0x00f352f0"
+    },
+    {
+      "name": "Play3DSoundForPlayers",
+      "func_va": "0x005dd170",
+      "table_va": "0x00f352f8"
+    },
+    {
+      "name": "StartDialogSceneForPlayers",
+      "func_va": "0x005de5a0",
+      "table_va": "0x00f35300"
+    },
+    {
+      "name": "StartCutSceneForPlayers",
+      "func_va": "0x005de820",
+      "table_va": "0x00f35308"
+    },
+    {
+      "name": "MoveCameraForPlayers",
+      "func_va": "0x005df430",
+      "table_va": "0x00f35310"
+    },
+    {
+      "name": "DisableCameraFollowHeroesForPlayers",
+      "func_va": "0x005df870",
+      "table_va": "0x00f35318"
+    },
+    {
+      "name": "WinTeam",
+      "func_va": "0x005d6c70",
+      "table_va": "0x00f35320"
+    },
+    {
+      "name": "IsPlayerCurrent",
+      "func_va": "0x005d75c0",
+      "table_va": "0x00f35328"
+    },
+    {
+      "name": "IsPlayerInGhostMode",
+      "func_va": "0x005d7810",
+      "table_va": "0x00f35330"
+    },
+    {
+      "name": "IsPlayerWaitingForTurn",
+      "func_va": "0x005d7a60",
+      "table_va": "0x00f35338"
+    },
+    {
+      "name": "IsTeamCurrent",
+      "func_va": "0x005d7cb0",
+      "table_va": "0x00f35340"
+    },
+    {
+      "name": "IsPlayerLost",
+      "func_va": "0x005e7db0",
+      "table_va": "0x00f35348"
+    },
+    {
+      "name": "CanShowToPlayer",
+      "func_va": "0x005e8060",
+      "table_va": "0x00f35350"
+    },
+    {
+      "name": "GetTurnTimeLeft",
+      "func_va": "0x005e8300",
+      "table_va": "0x00f35358"
+    },
+    {
+      "name": "WarpToMap",
+      "func_va": "0x005e85c0",
+      "table_va": "0x00f35360"
+    },
+    {
+      "name": "WarpHeroExp",
+      "func_va": "0x005e8720",
+      "table_va": "0x00f35368"
+    },
+    {
+      "name": "GiveHeroBattleBonus",
+      "func_va": "0x005e89b0",
+      "table_va": "0x00f35370"
+    },
+    {
+      "name": "GetTownRace",
+      "func_va": "0x005e8c30",
+      "table_va": "0x00f35378"
+    },
+    {
+      "name": "TalkBoxForPlayers",
+      "func_va": "0x005dbfa0",
+      "table_va": "0x00f35380"
+    },
+    {
+      "name": "GetGameVar",
+      "func_va": "0x00663f40",
+      "table_va": "0x00f38144"
+    },
+    {
+      "name": "SetGameVar",
+      "func_va": "0x00664160",
+      "table_va": "0x00f3814c"
+    },
+    {
+      "name": "GetDifficulty",
+      "func_va": "0x006b5730",
+      "table_va": "0x00f39a0c"
+    },
+    {
+      "name": "Save",
+      "func_va": "0x006b58d0",
+      "table_va": "0x00f39a14"
+    },
+    {
+      "name": "Load",
+      "func_va": "0x006b5aa0",
+      "table_va": "0x00f39a1c"
+    },
+    {
+      "name": "GetMapDataPath",
+      "func_va": "0x006b5c70",
+      "table_va": "0x00f39a24"
+    },
+    {
+      "name": "GetSoundTimeInSleeps",
+      "func_va": "0x006b5e60",
+      "table_va": "0x00f39a2c"
+    },
+    {
+      "name": "IsTutorialItemEnabled",
+      "func_va": "0x00773c00",
+      "table_va": "0x00f3e004"
+    },
+    {
+      "name": "TutorialActivateHint",
+      "func_va": "0x00773da0",
+      "table_va": "0x00f3e00c"
+    },
+    {
+      "name": "TutorialSetBlink",
+      "func_va": "0x00773ee0",
+      "table_va": "0x00f3e014"
+    },
+    {
+      "name": "TutorialMessageBox",
+      "func_va": "0x00774020",
+      "table_va": "0x00f3e01c"
+    },
+    {
+      "name": "IsTutorialMessageBoxOpen",
+      "func_va": "0x00774160",
+      "table_va": "0x00f3e024"
+    },
+    {
+      "name": "IsTutorialEnabled",
+      "func_va": "0x007742f0",
+      "table_va": "0x00f3e02c"
+    },
+    {
+      "name": "sleep",
+      "func_va": "0x004bfe80",
+      "table_va": "0x00f7bcb8"
+    },
+    {
+      "name": "startThread",
+      "func_va": "0x004bfe20",
+      "table_va": "0x00f7bcc0"
+    },
+    {
+      "name": "errorHook",
+      "func_va": "0x004bff20",
+      "table_va": "0x00f7bcc8"
+    },
+    {
+      "name": "isEqual",
+      "func_va": "0x004c19e0",
+      "table_va": "0x00f7bcd0"
+    },
+    {
+      "name": "parse",
+      "func_va": "0x00cabb60",
+      "table_va": "0x00f7bce0"
+    },
+    {
+      "name": "print",
+      "func_va": "0x00cac850",
+      "table_va": "0x00f7bce8"
+    },
+    {
+      "name": "consoleCmd",
+      "func_va": "0x00cabca0",
+      "table_va": "0x00f7bcf0"
+    },
+    {
+      "name": "doFile",
+      "func_va": "0x00cabda0",
+      "table_va": "0x00f7bcf8"
+    },
+    {
+      "name": "mod",
+      "func_va": "0x00cabf00",
+      "table_va": "0x00f7bd00"
+    },
+    {
+      "name": "sqrt",
+      "func_va": "0x00cac090",
+      "table_va": "0x00f7bd08"
+    },
+    {
+      "name": "floor",
+      "func_va": "0x00cac200",
+      "table_va": "0x00f7bd10"
+    },
+    {
+      "name": "ceil",
+      "func_va": "0x00cac330",
+      "table_va": "0x00f7bd18"
+    },
+    {
+      "name": "intg",
+      "func_va": "0x00cac460",
+      "table_va": "0x00f7bd20"
+    },
+    {
+      "name": "frac",
+      "func_va": "0x00cac5b0",
+      "table_va": "0x00f7bd28"
+    },
+    {
+      "name": "round",
+      "func_va": "0x00cac710",
+      "table_va": "0x00f7bd30"
+    },
+    {
+      "name": "Callback",
+      "func_va": "0x00cad310",
+      "table_va": "0x00f7bd40"
+    },
+    {
+      "name": "Error",
+      "func_va": "0x00cad4c0",
+      "table_va": "0x00f7bd48"
+    }
+  ],
+  "default_stats_call_summary": {
+    "CCombatCreature (0x008a0000..0x008b1fff)": 62,
+    "CArenaATB (0x00a2d000..0x00a34fff)": 20,
+    "CCombat & Damage/Magic (0x00a58000..0x00a6dfff)": 98,
+    "CHero & Progression (0x00b4b000..0x00b57fff)": 23,
+    "CPlayerAI & CombatAI (0x00976000..0x009befff)": 115,
+    "CTown & Buildings (0x00cce000..0x00ce6fff)": 18,
+    "Other Subsystems": 163
+  },
+  "hero_xp_table": [
+    0,
+    1000,
+    2000,
+    3200,
+    4600,
+    6200,
+    8000,
+    10000,
+    12200,
+    14700,
+    17500,
+    20600,
+    24320,
+    28784,
+    34140,
+    40567,
+    48279,
+    57533,
+    68637,
+    81961,
+    97949,
+    117134,
+    140156,
+    167782,
+    200933,
+    244029,
+    304363,
+    394864,
+    539665,
+    785826,
+    1228915,
+    2070784,
+    3754522,
+    7290371,
+    15069238,
+    32960632,
+    75899978,
+    183248344,
+    462354099,
+    1215939648
+  ],
+  "terrain_step_penalties": {
+    "0": 25,
+    "1": 0,
+    "2": 50,
+    "3": 50,
+    "4": 25,
+    "5": 25,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0,
+    "11": 0,
+    "12": 0,
+    "13": 25,
+    "14": 25
+  },
+  "fpu_constants": {
+    "0x00e0a7e4 (1.0f)": 1.0,
+    "0x00e0ab70 (0.5f - Pathfinding / Ranged / AvgDmg)": 0.5,
+    "0x00e12f10 (0.1f - Hero XP lvl 25+)": 0.1,
+    "0x00e12f1c (1.2f - Hero XP lvl 13..24)": 1.2,
+    "0x00e15a80 (0.01f - Percent scale)": 0.01,
+    "0x00e19950 (0.33333334f - 3-roll damage avg)": 0.3333333,
+    "0x00e557b8 (1.41421354f - Diagonal sqrt(2))": 1.4142135
+  },
+  "decompiled_functions": [
+    {
+      "name": "NDb::GetDefaultStats",
+      "va": "0x00bcb3f0",
+      "signature": "const NDb::RPGStats* __cdecl GetDefaultStats()",
+      "subsystem": "NDb",
+      "summary": "Returns singleton pointer to DefaultStats.xdb (ds:0x01043a00); called 499 times across combat, hero, AI, and town subsystems.",
+      "formula": "return ds_01043a00 ? ds_01043a00 : LoadDefaultStats(ds_010438c0);"
+    },
+    {
+      "name": "NDb::GetCreatureDescById",
+      "va": "0x0089fbf0",
+      "signature": "const NDb::Creature* __fastcall GetCreatureDescById(int creatureId)",
+      "subsystem": "NDb",
+      "summary": "Bounds-checks creature ID against 0xb4 (180) and looks up the creature record in Table_Creature_CreatureId (ds:0x01024c04).",
+      "formula": "return (creatureId >= 0 && creatureId < 180) ? Table_Creature[creatureId] : Table_Creature[0];"
+    },
+    {
+      "name": "SFLB0_GetUnitExperienceValue",
+      "va": "0x004d8ba0",
+      "signature": "int __stdcall SFLB0_GetUnitExperienceValue(const SUnitExpInfo* info)",
+      "subsystem": "NWorld::Combat",
+      "summary": "Computes XP awarded for defeating a creature stack. Returns 0 if gated/summoned (info[+8] != 0), otherwise multiplies creature Exp (+0x80) or Power (+0x64) by stack count (info[+4]).",
+      "formula": "info->isSummoned ? 0 : (creature->Exp > 0 ? creature->Exp : creature->Power) * info->count"
+    },
+    {
+      "name": "NWorld::PackTileCoord",
+      "va": "0x00419690",
+      "signature": "uint32_t __fastcall PackTileCoord(int x, int y, int floor)",
+      "subsystem": "NWorld::Map",
+      "summary": "Packs (x, y, floor) into a 30-bit integer key used by CTileGameInfoMap and Lua C-API.",
+      "formula": "(x & 0x3FF) | ((y & 0x3FF) << 10) | ((floor & 0x3FF) << 20)"
+    },
+    {
+      "name": "NWorld::CTileGameInfoMap::GetTile",
+      "va": "0x00bcc310",
+      "signature": "const STileGameInfo* __thiscall GetTile(const CTileGameInfoMap* this, uint32_t packedCoord)",
+      "subsystem": "NWorld::Map",
+      "summary": "Indexes floor array ([this+0x20] + floor*88 + 4), row pointer y, and column x*36 (sizeof(STileGameInfo) == 36).",
+      "formula": "floorLayers[floor].rows[y][x] // sizeof(STileGameInfo) == 36 bytes"
+    },
+    {
+      "name": "NWorld::IsTilePassable",
+      "va": "0x005e11a0",
+      "signature": "bool __cdecl IsTilePassable(int x, int y, int floor)",
+      "subsystem": "NWorld::Map",
+      "summary": "Checks whether a map tile is passable for standard ground/underground movement.",
+      "formula": "(tile->passabilityFlag == 1 || tile->passabilityFlag == 4) && tile->walkableState == 1"
+    },
+    {
+      "name": "NWorld::STileGameInfo::CalcMoveCost",
+      "va": "0x00ca9a70",
+      "signature": "int __thiscall CalcMoveCost(const STileGameInfo* this, const SHeroMoveModifiers* mods)",
+      "subsystem": "NWorld::Pathfinding",
+      "summary": "Computes orthogonal step cost on a tile: 75 on road (roadType in {6,7,8}), 100 on native terrain, or 100 + penalty (+25 or +50 from jump table 0x00ca9be8) on non-native terrain, modified by Pathfinding (*0.5f), Snatch (0), and percent modifiers.",
+      "formula": "road in {6,7,8} ? 75 : 100 + ModifyPenalty(terrain == native ? 0 : JumpTable_00ca9be8[terrain])"
+    },
+    {
+      "name": "NWorld::CHeroMovementCost::GetStepCost",
+      "va": "0x00cab090",
+      "signature": "int __thiscall GetStepCost(const CHeroMovementCost* this, const STileCoord* from, const STileCoord* to, int curMovePoints, bool* outStop)",
+      "subsystem": "NWorld::Pathfinding",
+      "summary": "Computes full hero step cost between adjacent tiles, multiplying by sqrt(2) (1.41421354f at 0x00e557b8) when dx != 0 && dy != 0.",
+      "formula": "int(STileGameInfo::CalcMoveCost(toTile, &this->mods) * (dx != 0 && dy != 0 ? 1.41421354f : 1.0f))"
+    },
+    {
+      "name": "NWorld::CTetraMovementCost::GetStepCost",
+      "va": "0x00876850",
+      "signature": "int __thiscall GetStepCost(const CTetraMovementCost* this, const STileCoord* from, const STileCoord* to, int curMovePoints, bool* outStop)",
+      "subsystem": "NWorld::Pathfinding",
+      "summary": "Computes step cost for 2x2 / multi-tile walkers by taking the maximum CalcMoveCost across all footprint tiles.",
+      "formula": "int(max_{cell in footprint}(CalcMoveCost(cell)) * (isDiagonal ? 1.41421354f : 1.0f))"
+    },
+    {
+      "name": "NWorld::InitHeroLevelExperienceTable",
+      "va": "0x00b4c6b0",
+      "signature": "void __cdecl InitHeroLevelExperienceTable()",
+      "subsystem": "NWorld::Hero",
+      "summary": "Populates the global Hero Level XP table at 0x01026d90 from seed table 0x00f755e0 (Levels 1..12), *1.2f delta for Levels 13..24, and *(i-13)*0.1f delta for Levels 25..40.",
+      "formula": "i<=12: seed[i-1]; 13<=i<=24: xp[i-2] + int((xp[i-2]-xp[i-3])*1.2f); i>=25: xp[i-2] + int((xp[i-2]-xp[i-3])*(i-13)*0.1f)"
+    },
+    {
+      "name": "NWorld::CHero::GetStat",
+      "va": "0x00b5ad70",
+      "signature": "int __thiscall GetStat(const CHero* this, int statId)",
+      "subsystem": "NWorld::Hero",
+      "summary": "Dispatches hero stat queries for statId 1..10 via the 10-slot stat accessor table at [this+0x264].",
+      "formula": "(statId >= 1 && statId <= 10) ? this->statAccessors[statId - 1](this) : 0"
+    },
+    {
+      "name": "NWorld::CHero::GetPrimaryAndSecondaryStats",
+      "va": "0x00b4ca10",
+      "signature": "int __thiscall GetAttack/GetDefense/GetSpellPower/GetKnowledge/GetMorale/GetLuck(const CHero* this)",
+      "subsystem": "NWorld::Hero",
+      "summary": "Computes Hero Attack (0x00b4cc50 >=0), Defense (0x00b4ccc0 >=0), SpellPower (0x00b4ccf0 >=1), Knowledge (0x00b4cd80 >=1), ClampedMorale (0x00b4cb40 [-5..+5]), and ClampedLuck (0x00b4cb60 [-5..+5]).",
+      "formula": "Attack=max(0, base+bonus); Defense=max(0, base+bonus); SpellPower=max(1, base+bonus); Knowledge=max(1, base+bonus); Morale=clamp(raw,-5,5); Luck=clamp(raw,-5,5)"
+    },
+    {
+      "name": "NWorld::CalcAttackDefenseMultiplier",
+      "va": "0x00a58d30",
+      "signature": "float __stdcall CalcAttackDefenseMultiplier(float attack, float defense)",
+      "subsystem": "NWorld::Combat",
+      "summary": "Computes HoMM5 physical damage Attack-vs-Defense multiplier using DefaultStats[+0x1d0] (0.05f) when Attack > Defense and reciprocal 1 / (1 + DefaultStats[+0x1d8] * (Defense - Attack)) when Defense >= Attack.",
+      "formula": "(Attack > Defense) ? (1.0f + 0.05f * (Attack - Defense)) : (1.0f / (1.0f + 0.05f * (Defense - Attack)))"
+    },
+    {
+      "name": "NWorld::CalcBaseStackDamage",
+      "va": "0x00a597a0",
+      "signature": "float __fastcall CalcBaseStackDamage(CCombat* combat, CCombatCreature* attacker, CCombatCreature* defender, int mode, bool isRanged, bool isRetaliation)",
+      "subsystem": "NWorld::Combat",
+      "summary": "Computes stack base damage for Roll (mode=0), Min (mode=1), Avg (mode=2), or Max (mode=3). When mode=0 and stackCount > 3, averages 3 random rolls in [MinDamage, MaxDamage] and multiplies by stackCount * 0.33333334f (0x00e19950).",
+      "formula": "mode==1 ? N*minDmg : mode==2 ? N*(minDmg+maxDmg)*0.5f : mode==3 ? N*maxDmg : (N<=3 ? sum_{1..N} rand(min,max) : N * (rand1+rand2+rand3)/3.0f)"
+    },
+    {
+      "name": "NWorld::CArenaATB::CalcUnitTickPeriod",
+      "va": "0x00a2d6c0",
+      "signature": "float __stdcall CalcUnitTickPeriod(float initiative)",
+      "subsystem": "NWorld::ATB",
+      "summary": "Computes ATB timeline tick period for a creature stack with the given initiative using DefaultStats[+0x50] (fallback 0x186a0 = 100,000).",
+      "formula": "float(DefaultStats->ATBBase > 0 ? DefaultStats->ATBBase : 100000) / (initiative > 0.0f ? initiative : 1.0f)"
+    },
+    {
+      "name": "NWorld::CArenaATB::CalcHeroTickPeriod",
+      "va": "0x00a2d700",
+      "signature": "float __cdecl CalcHeroTickPeriod()",
+      "subsystem": "NWorld::ATB",
+      "summary": "Computes ATB timeline tick period for a Hero using DefaultStats[+0x48] (Hero Initiative = 10) and DefaultStats[+0x50] (100,000), also used as reference turn unit for Wait (0.5), Defend (1.0), and Good Morale (0.5).",
+      "formula": "float(DefaultStats->ATBBase > 0 ? DefaultStats->ATBBase : 100000) / float(DefaultStats->HeroInitiative > 0 ? DefaultStats->HeroInitiative : 1)"
+    }
+  ]
+}

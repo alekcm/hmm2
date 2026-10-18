@@ -27,6 +27,7 @@ from .dds import DDSError, dds_to_png
 from .gamedata import export_all
 from .geometry import decode_file as decode_geometry
 from .gltf import geometry_to_glb
+from .gr2 import parse_gr2_bytes
 from .localization import Localization
 from .maps import iter_map_files, load_map, unique_map_ids
 from .terrain import decode_file as decode_terrain
@@ -217,6 +218,60 @@ def cmd_terrain(args) -> int:
     return 0
 
 
+def cmd_skeletons(args) -> int:
+    import glob
+
+    files = _limited(sorted(glob.glob(os.path.join(args.data, "bin/Skeletons/*"))), args.limit)
+    ok = bad = 0
+    for path in files:
+        uid = os.path.basename(path)
+        try:
+            with open(path, "rb") as fh:
+                gr2 = parse_gr2_bytes(fh.read())
+            if not gr2.skeletons:
+                bad += 1
+                continue
+        except Exception as exc:
+            bad += 1
+            if args.verbose:
+                print(f"  SKIP {uid}: {exc}")
+            continue
+        _write_json(
+            _out(args.out, "Skeletons", uid + ".json"),
+            {"uid": uid, "skeletons": [s.to_dict() for s in gr2.skeletons]},
+        )
+        ok += 1
+    print(f"skeletons: {ok} written, {bad} failed (of {len(files)})")
+    return 0
+
+
+def cmd_animations(args) -> int:
+    import glob
+
+    files = _limited(sorted(glob.glob(os.path.join(args.data, "bin/animations/*"))), args.limit)
+    ok = bad = 0
+    for path in files:
+        uid = os.path.basename(path)
+        try:
+            with open(path, "rb") as fh:
+                gr2 = parse_gr2_bytes(fh.read())
+            if not gr2.animations:
+                bad += 1
+                continue
+        except Exception as exc:
+            bad += 1
+            if args.verbose:
+                print(f"  SKIP {uid}: {exc}")
+            continue
+        _write_json(
+            _out(args.out, "Animations", uid + ".json"),
+            {"uid": uid, "animations": [a.to_dict() for a in gr2.animations]},
+        )
+        ok += 1
+    print(f"animations: {ok} written, {bad} failed (of {len(files)})")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="homm5import")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -228,8 +283,16 @@ def build_parser() -> argparse.ArgumentParser:
         sp.add_argument("--limit", type=int, default=None)
         sp.add_argument("-v", "--verbose", action="store_true")
 
-    for name, fn in (("info", cmd_info), ("gamedata", cmd_gamedata), ("maps", cmd_maps),
-                     ("meshes", cmd_meshes), ("textures", cmd_textures), ("terrain", cmd_terrain)):
+    for name, fn in (
+        ("info", cmd_info),
+        ("gamedata", cmd_gamedata),
+        ("maps", cmd_maps),
+        ("meshes", cmd_meshes),
+        ("textures", cmd_textures),
+        ("terrain", cmd_terrain),
+        ("skeletons", cmd_skeletons),
+        ("animations", cmd_animations),
+    ):
         sp = sub.add_parser(name)
         common(sp)
         sp.set_defaults(func=fn)

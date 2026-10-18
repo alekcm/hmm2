@@ -148,6 +148,46 @@ namespace HoMM5.Data
         public int growth;
     }
 
+    public class DefaultAdventureStatsDef
+    {
+        public int baseHeroMovement = 2500;
+        public int baseHeroLookRange = 12;
+        public int heroManaPerKnowledge = 10;
+        public int visitStablesMovementBonus = 600;
+        public int visitOasisMovementBonus = 800;
+        public int visitRallyFlagMovementBonus = 400;
+    }
+
+    public class DefaultCombatStatsDef
+    {
+        public float damageIncrease = 0.05f;
+        public float damageIncreaseCap = 3.0f;
+        public float damageDecrease = 0.05f;
+        public float damageDecreaseCap = 0.1f;
+        public float defenceBonusOnDefend = 0.3f;
+        public float goodLuckDamageMultiplier = 2.0f;
+        public float badLuckDamageMultiplier = 0.5f;
+        public float goodMoraleAtbValue = 0.5f;
+        public float badMoraleAtbValue = 0.0f;
+    }
+
+    /// <summary>
+    /// Global RPGStats from <c>/GameMechanics/RPGStats/DefaultStats.xdb</c>
+    /// (ToTE 3.1 <c>a2p1-data</c>), accessed in <c>H5_Game_PEST.exe</c> via
+    /// <c>NWorld::GetDefaultStats()</c> (<c>0x00bcb3f0</c>).
+    /// </summary>
+    public class DefaultStatsDef
+    {
+        public string source;
+        public int heroInitiative = 10;
+        public int spellInitiative = 10;
+        public int atbEndTime = 20000;
+        public int atbBaseTime = 100000;
+        public int rumorCost = 100;
+        public DefaultAdventureStatsDef adventure = new DefaultAdventureStatsDef();
+        public DefaultCombatStatsDef combat = new DefaultCombatStatsDef();
+    }
+
     // -- maps --------------------------------------------------------------
 
     public class MapObjectDef

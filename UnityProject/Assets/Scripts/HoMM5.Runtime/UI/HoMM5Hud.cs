@@ -41,10 +41,24 @@ namespace HoMM5.UI
         ScrollRect _mapScroll;
         RectTransform _mapListContent;
 
+        bool _canvasBuilt;
+
+        void Awake()
+        {
+            EnsureCanvas();
+        }
+
         void Start()
         {
-            BuildCanvas();
+            EnsureCanvas();
             if (Controller != null) Controller.SelectionChanged += OnSelectionChanged;
+        }
+
+        void EnsureCanvas()
+        {
+            if (_canvasBuilt) return;
+            _canvasBuilt = true;
+            BuildCanvas();
         }
 
         void OnDestroy()
@@ -145,6 +159,7 @@ namespace HoMM5.UI
         /// <summary>Fill the map list from the importer's index.</summary>
         public void PopulateMapList(System.Action<string> onLoad)
         {
+            EnsureCanvas();
             if (_mapListContent == null || Database == null) return;
             foreach (Transform child in _mapListContent) Destroy(child.gameObject);
 
@@ -173,6 +188,7 @@ namespace HoMM5.UI
 
         public void SetStats(string text)
         {
+            EnsureCanvas();
             if (_stats != null) _stats.text = text;
         }
 

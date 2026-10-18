@@ -216,8 +216,50 @@ def load_town_buildings(xdb: XDB, loc: Optional[Localization] = None) -> List[di
     return out
 
 
+def load_default_stats(xdb: XDB) -> Dict[str, object]:
+    """Load global RPGStats from ``/GameMechanics/RPGStats/DefaultStats.xdb``
+    (resolved through the ToTE 3.1 ``a2p1-data`` overlay when present), matching
+    ``NWorld::GetDefaultStats()`` (`0x00bcb3f0` in ``H5_Game_PEST.exe``).
+    """
+    root = xdb.load("/GameMechanics/RPGStats/DefaultStats.xdb")
+    if root is None:
+        return {}
+    adv = root.find("adventure")
+    cmb = root.find("combat")
+    lm = cmb.find("LuckAndMorale") if cmb is not None else None
+    cre = cmb.find("Creatures") if cmb is not None else None
+    return {
+        "source": "/GameMechanics/RPGStats/DefaultStats.xdb",
+        "heroInitiative": int(xdb.number(root.find("HeroInitiative"), 10)),
+        "spellInitiative": int(xdb.number(root.find("SpellInitiative"), 10)),
+        "atbEndTime": int(xdb.number(root.find("ATBEndTime"), 20000)),
+        "atbBaseTime": int(xdb.number(root.find("ATBBaseTime"), 100000)),
+        "rumorCost": int(xdb.number(root.find("RumorCost"), 100)),
+        "adventure": {
+            "baseHeroMovement": int(xdb.number(adv.find("BaseHeroMovement"), 2500)) if adv is not None else 2500,
+            "baseHeroLookRange": int(xdb.number(adv.find("BaseHeroLookRange"), 12)) if adv is not None else 12,
+            "heroManaPerKnowledge": int(xdb.number(adv.find("HeroManaPerKnowledge"), 10)) if adv is not None else 10,
+            "visitStablesMovementBonus": int(xdb.number(adv.find("VisitStablesMovementBonus"), 600)) if adv is not None else 600,
+            "visitOasisMovementBonus": int(xdb.number(adv.find("VisitOasisMovementBonus"), 800)) if adv is not None else 800,
+            "visitRallyFlagMovementBonus": int(xdb.number(adv.find("VisitRallyFlagMovementBonus"), 400)) if adv is not None else 400,
+        },
+        "combat": {
+            "damageIncrease": xdb.number(cmb.find("DamageIncrease"), 0.05) if cmb is not None else 0.05,
+            "damageIncreaseCap": xdb.number(cmb.find("DamageIncreaseCap"), 3.0) if cmb is not None else 3.0,
+            "damageDecrease": xdb.number(cmb.find("DamageDecrease"), 0.05) if cmb is not None else 0.05,
+            "damageDecreaseCap": xdb.number(cmb.find("DamageDecreaseCap"), 0.1) if cmb is not None else 0.1,
+            "defenceBonusOnDefend": xdb.number(cre.find("DefenceBonusOnDefend"), 0.3) if cre is not None else 0.3,
+            "goodLuckDamageMultiplier": xdb.number(lm.find("GoodLuck_DamageMultiplier"), 2.0) if lm is not None else 2.0,
+            "badLuckDamageMultiplier": xdb.number(lm.find("BadLuck_DamageMultiplier"), 0.5) if lm is not None else 0.5,
+            "goodMoraleAtbValue": xdb.number(lm.find("GoodMorale_ATBValue"), 0.5) if lm is not None else 0.5,
+            "badMoraleAtbValue": xdb.number(lm.find("BadMorale_ATBValue"), 0.0) if lm is not None else 0.0,
+        },
+    }
+
+
 def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object]:
     return {
+        "defaultStats": load_default_stats(xdb),
         "creatures": load_creatures(xdb, loc),
         "spells": load_spells(xdb, loc),
         "artifacts": load_artifacts(xdb, loc),
