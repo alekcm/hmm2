@@ -14,7 +14,7 @@ tools/homm5_import/
 │   ├── dds.py          DDS decoder + PNG writer
 │   ├── xdb.py          .xdb loading, href resolution (absolute, relative, inline)
 │   ├── localization.py UTF-16 text tables
-│   ├── gamedata.py     creatures, spells, artifacts, town buildings
+│   ├── gamedata.py     creatures, spells, artifacts, town buildings, campaigns
 │   ├── maps.py         AdvMapDesc → map objects
 │   ├── gr2.py          RAD Granny GR2 skeletons and animations
 │   ├── sounds.py       sound / music catalog and the audio it names
@@ -39,7 +39,10 @@ On Windows use `py -3 import_to_unity.py`, or just double-click
 `import_to_unity.bat`.
 
 The script puts the package on `sys.path` and resolves `data/`, `texts/` and the
-output folder relative to itself, so the working directory does not matter.
+output folder relative to itself, so the working directory does not matter. When
+`a2p1-data/` and `a2p1-texts/` sit beside those roots, XDB and localization
+lookups prefer the Tribes of the East 3.1 overlay and fall back to the base files.
+The same merged view is used by `gamedata` and `maps`, not only by the UI stage.
 Calling the package directly also works, from inside `tools/homm5_import`:
 
 ```bash
@@ -87,7 +90,7 @@ planes, animations), so `import_to_unity.bat info` is the quickest answer to
 
 ```
 HoMM5/
-├── Game/creatures.json  spells.json  artifacts.json  townBuildings.json  rules.json  Localization.json
+├── Game/creatures.json  spells.json  artifacts.json  townBuildings.json  campaigns.json  rules.json  Localization.json
 ├── Maps/<mapId>.json  _index.json
 ├── Terrain/<mapId>/GroundTerrain.{json,heights,flags,passability}
 ├── Meshes/<geometryUid>.glb

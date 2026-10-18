@@ -28,14 +28,12 @@ from .dds import DDSError, dds_to_png
 from .gamedata import export_all
 from .geometry import decode_file as decode_geometry
 from .gltf import geometry_to_glb
-from .gr2 import parse_gr2_bytes
 from .localization import Localization
 from .maps import iter_map_files, load_map, unique_map_ids
 from .terrain import decode_file as decode_terrain
 from .xdb import XDB
 
 
-<<<<<<< HEAD
 def _looks_like_data_root(path: str) -> bool:
     """Identify the unpacked ``data`` folder.
 
@@ -87,21 +85,6 @@ def _resolve_roots(explicit_data, explicit_texts):
     if texts and not os.path.isdir(texts):
         texts = None
     return data, texts
-=======
-def _find_root(explicit: Optional[str], names: List[str]) -> Optional[str]:
-    if explicit:
-        explicit_abs = os.path.abspath(explicit)
-        # The public CLI accepts either the unpacked game root or its `data`
-        # directory.  Normalize the latter before main() appends `data`/`texts`.
-        if os.path.basename(explicit_abs).lower() == "data":
-            return os.path.dirname(explicit_abs)
-        return explicit_abs
-    here = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-    for cand in [here, os.getcwd(), os.path.dirname(here)]:
-        if all(os.path.isdir(os.path.join(cand, n)) for n in names):
-            return cand
-    return None
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
 
 def _out(out_dir: str, *parts: str) -> str:
@@ -304,29 +287,9 @@ def cmd_ui(args) -> int:
 def cmd_textures(args) -> int:
     import glob
 
-    # XDB resolution gives a sibling a2p1-data overlay precedence over data.
-    # The texture stage must enumerate the same roots, otherwise a patched
-    # material can resolve successfully but its image is absent from the Unity
-    # output.
-    roots = [args.data]
-    patch = os.path.join(os.path.dirname(os.path.abspath(args.data)), "a2p1-data")
-    if os.path.isdir(patch):
-        roots.insert(0, patch)
-    files = []
-    root_for_path = {}
-    seen = set()
-    for root in roots:
-        for path in sorted(glob.glob(os.path.join(root, "**", "*.dds"), recursive=True)):
-            rel = os.path.relpath(path, root).replace("\\", "/")
-            if rel in seen:
-                continue
-            seen.add(rel)
-            files.append(path)
-            root_for_path[path] = root
-    files = _limited(files, args.limit)
+    files = _limited(sorted(glob.glob(os.path.join(args.data, "**", "*.dds"), recursive=True)), args.limit)
     ok = bad = 0
     manifest = {}
-<<<<<<< HEAD
     renamed = 0
     progress = _progress("textures", len(files))
     for i, path in enumerate(files, 1):
@@ -335,11 +298,6 @@ def cmd_textures(args) -> int:
         asset = safe_relative_path(rel)
         if asset != rel:
             renamed += 1
-=======
-    for path in files:
-        root = root_for_path[path]
-        rel = os.path.relpath(path, root).replace("\\", "/")
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
         try:
             w, h = dds_to_png(path, _out(args.out, "Textures", asset + ".png"))
         except (DDSError, OSError) as exc:
@@ -487,10 +445,26 @@ def _terrain_ids(terrain_files, map_files, data_root):
     (and each other) in the output tree.
     """
     ids = {}
+    data_root = os.path.abspath(data_root)
+    overlay_root = os.path.join(os.path.dirname(data_root), "a2p1-data")
+    roots = [data_root]
+    if os.path.isdir(overlay_root):
+        roots.append(os.path.abspath(overlay_root))
     for path, mid in unique_map_ids(map_files).items():
-        ids[os.path.normpath(os.path.abspath(os.path.dirname(path)))] = mid
+        absolute = os.path.normpath(os.path.abspath(path))
+        logical_rel = None
+        for root in roots:
+            candidate = os.path.relpath(absolute, os.path.join(root, "Maps"))
+            if candidate != os.pardir and not candidate.startswith(os.pardir + os.sep):
+                logical_rel = candidate
+                break
+        if logical_rel is None:
+            logical_rel = os.path.basename(os.path.dirname(absolute))
+        logical_folder = os.path.dirname(logical_rel)
+        for root in roots:
+            ids[os.path.normpath(os.path.join(root, "Maps", logical_folder))] = mid
     taken = set(ids.values())
-    maps_root = os.path.join(os.path.abspath(data_root), "Maps")
+    maps_root = os.path.join(data_root, "Maps")
     for path in terrain_files:
         folder = os.path.normpath(os.path.abspath(os.path.dirname(path)))
         if folder in ids:
@@ -567,60 +541,6 @@ def cmd_terrain(args) -> int:
     return 0
 
 
-def cmd_skeletons(args) -> int:
-    import glob
-
-    files = _limited(sorted(glob.glob(os.path.join(args.data, "bin/Skeletons/*"))), args.limit)
-    ok = bad = 0
-    for path in files:
-        uid = os.path.basename(path)
-        try:
-            with open(path, "rb") as fh:
-                gr2 = parse_gr2_bytes(fh.read())
-            if not gr2.skeletons:
-                bad += 1
-                continue
-        except Exception as exc:
-            bad += 1
-            if args.verbose:
-                print(f"  SKIP {uid}: {exc}")
-            continue
-        _write_json(
-            _out(args.out, "Skeletons", uid + ".json"),
-            {"uid": uid, "skeletons": [s.to_dict() for s in gr2.skeletons]},
-        )
-        ok += 1
-    print(f"skeletons: {ok} written, {bad} failed (of {len(files)})")
-    return 0
-
-
-def cmd_animations(args) -> int:
-    import glob
-
-    files = _limited(sorted(glob.glob(os.path.join(args.data, "bin/animations/*"))), args.limit)
-    ok = bad = 0
-    for path in files:
-        uid = os.path.basename(path)
-        try:
-            with open(path, "rb") as fh:
-                gr2 = parse_gr2_bytes(fh.read())
-            if not gr2.animations:
-                bad += 1
-                continue
-        except Exception as exc:
-            bad += 1
-            if args.verbose:
-                print(f"  SKIP {uid}: {exc}")
-            continue
-        _write_json(
-            _out(args.out, "Animations", uid + ".json"),
-            {"uid": uid, "animations": [a.to_dict() for a in gr2.animations]},
-        )
-        ok += 1
-    print(f"animations: {ok} written, {bad} failed (of {len(files)})")
-    return 0
-
-
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="homm5import")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -632,22 +552,9 @@ def build_parser() -> argparse.ArgumentParser:
         sp.add_argument("--limit", type=int, default=None)
         sp.add_argument("-v", "--verbose", action="store_true")
 
-<<<<<<< HEAD
     for name, fn in (("info", cmd_info), ("gamedata", cmd_gamedata), ("maps", cmd_maps),
                      ("meshes", cmd_meshes), ("textures", cmd_textures), ("terrain", cmd_terrain),
                      ("animations", cmd_animations), ("sounds", cmd_sounds), ("ui", cmd_ui)):
-=======
-    for name, fn in (
-        ("info", cmd_info),
-        ("gamedata", cmd_gamedata),
-        ("maps", cmd_maps),
-        ("meshes", cmd_meshes),
-        ("textures", cmd_textures),
-        ("terrain", cmd_terrain),
-        ("skeletons", cmd_skeletons),
-        ("animations", cmd_animations),
-    ):
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
         sp = sub.add_parser(name)
         common(sp)
         sp.set_defaults(func=fn)

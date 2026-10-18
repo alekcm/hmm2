@@ -15,12 +15,12 @@ namespace HoMM5.Data
     /// </summary>
     public class GameDatabase
     {
-        public DefaultStatsDef DefaultStats { get; private set; } = new DefaultStatsDef();
         public Dictionary<string, CreatureDef> Creatures { get; private set; } = new Dictionary<string, CreatureDef>();
         public Dictionary<string, SpellDef> Spells { get; private set; } = new Dictionary<string, SpellDef>();
         public Dictionary<string, ArtifactDef> Artifacts { get; private set; } = new Dictionary<string, ArtifactDef>();
         public List<TownBuildingDef> TownBuildings { get; private set; } = new List<TownBuildingDef>();
-<<<<<<< HEAD
+        /// <summary>Campaign records and their ordered mission/map links.</summary>
+        public Dictionary<string, CampaignDef> Campaigns { get; private set; } = new Dictionary<string, CampaignDef>();
         public Dictionary<string, TownTypeDef> TownTypes { get; private set; } = new Dictionary<string, TownTypeDef>();
         public GameRulesDef Rules { get; private set; } = new GameRulesDef { baseHeroMovement = 2500 };
         public Dictionary<string, WarMachineDef> WarMachines { get; private set; } = new Dictionary<string, WarMachineDef>();
@@ -30,9 +30,6 @@ namespace HoMM5.Data
         /// <summary>Named heroes of the random-map pools, keyed <c>Faction/File</c>.</summary>
         public Dictionary<string, HeroDef> Heroes { get; private set; } = new Dictionary<string, HeroDef>();
         public Dictionary<string, ModelAnimDef> ModelAnimations { get; private set; } = new Dictionary<string, ModelAnimDef>();
-=======
-        public Dictionary<string, CampaignDef> Campaigns { get; private set; } = new Dictionary<string, CampaignDef>();
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
         public Dictionary<string, string> Localization { get; private set; } = new Dictionary<string, string>();
         public List<MapIndexEntry> MapIndex { get; private set; } = new List<MapIndexEntry>();
         /// <summary>Sound effects by key (e.g. <c>spells/fireball</c>). Keys are case-insensitive.</summary>
@@ -61,12 +58,11 @@ namespace HoMM5.Data
                 return;
             }
 
-            DefaultStats = LoadObject<DefaultStatsDef>(H5Paths.Game("defaultStats.json")) ?? DefaultStats;
             Creatures = LoadDict<CreatureDef>(H5Paths.Game("creatures.json")) ?? Creatures;
             Spells = LoadDict<SpellDef>(H5Paths.Game("spells.json")) ?? Spells;
             Artifacts = LoadDict<ArtifactDef>(H5Paths.Game("artifacts.json")) ?? Artifacts;
             TownBuildings = LoadList<TownBuildingDef>(H5Paths.Game("townBuildings.json")) ?? TownBuildings;
-<<<<<<< HEAD
+            Campaigns = LoadDict<CampaignDef>(H5Paths.Game("campaigns.json")) ?? Campaigns;
             TownTypes = LoadDict<TownTypeDef>(H5Paths.Game("townTypes.json")) ?? TownTypes;
             IndexCreaturesAndBuildings();
             Rules = LoadSingle<GameRulesDef>(H5Paths.Game("rules.json")) ?? Rules;
@@ -76,9 +72,6 @@ namespace HoMM5.Data
             HeroClasses = LoadDict<HeroClassDef>(H5Paths.Game("heroClasses.json")) ?? HeroClasses;
             Heroes = LoadDict<HeroDef>(H5Paths.Game("heroes.json")) ?? Heroes;
             ModelAnimations = LoadDict<ModelAnimDef>(H5Paths.Game("modelAnimations.json")) ?? ModelAnimations;
-=======
-            Campaigns = LoadDict<CampaignDef>(H5Paths.Game("campaigns.json")) ?? Campaigns;
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
             Localization = LoadDict<string>(H5Paths.Game("Localization.json")) ?? Localization;
             MapIndex = LoadList<MapIndexEntry>(H5Paths.Maps("_index.json")) ?? MapIndex;
             var catalog = LoadSingle<SoundCatalogDef>(H5Paths.Game("sounds.json"));
@@ -90,17 +83,12 @@ namespace HoMM5.Data
 
             IsLoaded = true;
             Debug.Log($"[HoMM5] loaded {Creatures.Count} creatures, {Spells.Count} spells, " +
-<<<<<<< HEAD
                       $"{Artifacts.Count} artifacts, {TownBuildings.Count} town buildings " +
-                      $"({TownTypes.Count} town types), " +
+                      $"{Campaigns.Count} campaigns ({TownTypes.Count} town types), " +
                       $"{Skills.Count} skills/perks, {HeroClasses.Count} hero classes, " +
                       $"{Heroes.Count} named heroes, " +
                       $"{Localization.Count} strings, {MapIndex.Count} maps, " +
                       $"{ModelAnimations.Count} animated models");
-=======
-                      $"{Artifacts.Count} artifacts, {TownBuildings.Count} town buildings, " +
-                      $"{Campaigns.Count} campaigns, {Localization.Count} strings, {MapIndex.Count} maps");
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
             Loaded?.Invoke();
         }
 
@@ -148,14 +136,9 @@ namespace HoMM5.Data
             if (Creatures.TryGetValue(id, out var c)) return c;
             foreach (var kv in Creatures)
             {
-                var value = kv.Value;
-                if (value.enumIds != null)
-                    for (var i = 0; i < value.enumIds.Count; i++)
-                        if (string.Equals(value.enumIds[i], id, StringComparison.OrdinalIgnoreCase))
-                            return value;
-                if (string.Equals(value.pairCreature, id, StringComparison.OrdinalIgnoreCase) ||
-                    string.Equals(value.baseCreature, id, StringComparison.OrdinalIgnoreCase))
-                    return value;
+                if (string.Equals(kv.Value.pairCreature, id, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(kv.Value.baseCreature, id, StringComparison.OrdinalIgnoreCase))
+                    return kv.Value;
             }
             return null;
         }
@@ -280,7 +263,6 @@ namespace HoMM5.Data
 
         // -- io ------------------------------------------------------------
 
-<<<<<<< HEAD
         /// <summary>
         /// What to run when the import is missing.
         ///
@@ -344,12 +326,6 @@ namespace HoMM5.Data
                 Debug.LogWarning("[HoMM5] missing " + path);
                 return null;
             }
-=======
-        static T LoadObject<T>(string path) where T : class
-        {
-            var json = H5Paths.ReadAllText(path);
-            if (json == null) return null;
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
             try
             {
                 return JsonConvert.DeserializeObject<T>(json);
@@ -361,7 +337,6 @@ namespace HoMM5.Data
             }
         }
 
-<<<<<<< HEAD
         /// <summary>Copy a dictionary onto a case-insensitive one; a null source gives an empty copy.</summary>
         static Dictionary<string, T> CaseInsensitive<T>(Dictionary<string, T> source)
         {
@@ -372,8 +347,6 @@ namespace HoMM5.Data
             return copy;
         }
 
-=======
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
         static Dictionary<string, T> LoadDict<T>(string path)
         {
             var json = H5Paths.ReadAllText(path);

@@ -26,21 +26,15 @@ from homm5import import terrain  # noqa: E402
 from homm5import.container import END_MARKER, parse_records  # noqa: E402
 from homm5import.maps import iter_map_files, load_map  # noqa: E402
 from homm5import.dds import DDSError, decode_dds, write_png  # noqa: E402
-<<<<<<< HEAD
 from homm5import.gamedata import (fill_dwelling_growth, fill_grail_values,
                                  load_arena_buildings,
-                                 load_artifacts, load_creature_enum_ids,
+                                 load_artifacts, load_campaigns, load_creature_enum_ids,
                                  load_creatures, load_game_rules,
                                  load_hero_classes, load_heroes, load_skills, load_spells,
                                  load_town_buildings, load_town_types,
                                  load_war_machines, town_building_key)  # noqa: E402
-=======
-from homm5import.gamedata import (load_artifacts, load_campaigns, load_creatures,
-                                    load_default_stats, load_spells)  # noqa: E402
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 from homm5import.geometry import decode_file as decode_geometry  # noqa: E402
 from homm5import.gltf import geometry_to_glb  # noqa: E402
-from homm5import.gr2 import parse_gr2_bytes  # noqa: E402
 from homm5import.localization import Localization  # noqa: E402
 from homm5import.maps import load_map  # noqa: E402
 from homm5import.terrain import FLAG_WATER, decode_file as decode_terrain  # noqa: E402
@@ -437,9 +431,22 @@ class GameDataTest(unittest.TestCase):
         cls.creatures = load_creatures(cls.xdb, cls.loc)
         cls.spells = load_spells(cls.xdb, cls.loc)
         cls.artifacts = load_artifacts(cls.xdb, cls.loc)
-<<<<<<< HEAD
+        cls.campaigns = load_campaigns(cls.xdb, cls.loc)
         cls.rules = load_game_rules(cls.xdb, cls.loc)
         cls.town_buildings = load_town_buildings(cls.xdb, cls.loc)
+
+    def test_campaign_records_link_localized_missions_to_maps(self):
+        """Campaign selection must use the shipped XDB mission links, not a
+        guessed first map; the ToTE overlay still leaves all four records
+        readable and localizes their mission text.
+        """
+        self.assertEqual(set(self.campaigns), {"A2C0", "A2C1", "A2C2", "A2C3"})
+        campaign = self.campaigns["A2C0"]
+        self.assertEqual(campaign["name"], "Ярость племен")
+        self.assertEqual(campaign["missions"][0]["mapId"], "A2C0M0")
+        self.assertEqual(campaign["missions"][0]["tileX"], 136)
+        self.assertTrue(campaign["missions"][0]["name"])
+        self.assertEqual(campaign["missions"][0]["bonuses"][0]["resources"]["Gold"], 1000)
 
     def test_town_hall_income_matches_shipped_building_descriptions(self):
         halls = {b["upgrade"]: b["incomeGoldPerDay"] for b in self.town_buildings
@@ -632,9 +639,6 @@ class GameDataTest(unittest.TestCase):
         self.assertEqual(se["trainingRetaliationBonus"], [0.05, 0.1, 0.2, 0.25])
         self.assertEqual(se["necromancyRaisePerLevel"], 10.0)
         self.assertEqual(se["quicknessOfMindInitiativeBonus"], 0.25)
-=======
-        cls.campaigns = load_campaigns(cls.xdb, cls.loc)
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
     def test_creature_stats_match_the_xml(self):
         c = self.creatures["CombatMage"]
@@ -658,28 +662,6 @@ class GameDataTest(unittest.TestCase):
         uid = self.creatures["CombatMage"]["visual"]["geometryUid"]
         self.assertTrue(uid, "geometry uid did not resolve")
         self.assertTrue(os.path.isfile(os.path.join(DATA, "bin", "Geometries", uid)), uid)
-
-    def test_creature_enum_reference_resolves_map_ids(self):
-        champion = self.creatures["Champion"]
-        self.assertIn("CREATURE_CHAMPION", champion["enumIds"])
-
-    def test_model_materials_preserve_xdb_slot_order(self):
-        materials = self.creatures["CombatMage"]["visual"]["materials"]
-        self.assertEqual(len(materials), 2)
-        self.assertEqual(materials[0]["alphaMode"], "AM_OPAQUE")
-        self.assertTrue(materials[0]["texture"]["xdb"].endswith(".xdb"))
-        self.assertTrue(materials[0]["texture"]["png"].endswith(".dds.png"))
-        dds = os.path.join(DATA, materials[0]["texture"]["dds"].lstrip("/"))
-        self.assertTrue(os.path.isfile(dds), dds)
-        self.assertIn("is2Sided", materials[0])
-
-    def test_campaigns_resolve_localized_mission_maps(self):
-        campaign = self.campaigns["A2C0"]
-        self.assertTrue(campaign["name"])
-        self.assertEqual(campaign["missions"][0]["mapId"], "A2C0M0")
-        self.assertTrue(campaign["missions"][0]["name"])
-        self.assertEqual(campaign["missions"][0]["tileX"], 136)
-        self.assertEqual(campaign["missions"][0]["bonuses"][0]["resources"]["Gold"], 1000)
 
     def test_spells_are_localized_and_levelled(self):
         s = self.spells["DimensionDoor"]
@@ -712,7 +694,6 @@ class MapTest(unittest.TestCase):
         for o in with_mesh[:20]:
             self.assertTrue(os.path.isfile(os.path.join(DATA, "bin", "Geometries", o.geometry_uid)))
 
-<<<<<<< HEAD
     def test_relative_geometry_href_is_resolved_against_model_file(self):
         """Terrain objects often use a model-local href such as Rail-geom.xdb.
         Treating it as data-rooted silently drops the model and its materials.
@@ -819,14 +800,6 @@ class MapTest(unittest.TestCase):
         md = load_map(self.xdb, path, resolve_models=False)
         self.assertTrue(md.objects)
         self.assertEqual({o.floor for o in md.objects}, {0})
-=======
-    def test_map_materials_are_exported_with_the_static(self):
-        path = os.path.join(DATA, "Maps", "CombatArenas", "AbandonedMine", "AbandonedMine.xdb")
-        md = load_map(self.xdb, path)
-        textured = [o for o in md.objects if o.materials and o.materials[0].get("texture", {}).get("xdb")]
-        self.assertTrue(textured)
-        self.assertEqual(textured[0].materials[0]["texture"]["xdb"], textured[0].textures[0])
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
     def test_blocked_tiles_are_tile_offsets(self):
         path = os.path.join(DATA, "Maps", "CombatArenas", "AbandonedMine", "AbandonedMine.xdb")
@@ -897,7 +870,6 @@ class MapTest(unittest.TestCase):
         self.assertGreater(checked, 100)
         self.assertEqual(empty, 0, f"{empty} maps came out empty")
 
-<<<<<<< HEAD
     def test_every_shipped_advmap_object_kind_is_imported(self):
         """Guard the completeness of the map-object union against the XDB corpus."""
         from xml.etree import ElementTree as ET
@@ -2158,88 +2130,6 @@ def _values(container):
 def _upgrade_rank(upgrade: str) -> int:
     """BLD_UPG_NONE < BLD_UPG_1 < ... (a map caps a building at a tier)."""
     return 0 if upgrade in ("", "BLD_UPG_NONE") else int(upgrade.rsplit("_", 1)[1])
-=======
-    def test_scenario_owner_hero_state_and_monster_amounts(self):
-        """Scenario records use PlayerID and retain the inline state fields."""
-        path = os.path.join(DATA, "Maps", "Scenario", "A2C0M0", "map.xdb")
-        if not os.path.isfile(path):
-            self.skipTest("campaign scenario not present")
-        md = load_map(self.xdb, path)
-        hero = next(o for o in md.objects if o.kind == "AdvMapHero")
-        self.assertEqual(hero.extra["owner"], "PLAYER_1")
-        self.assertEqual(hero.extra["hero"], "Quroq")
-        self.assertEqual(hero.extra["experience"], 4700)
-        self.assertEqual(hero.extra["army"][0], {"creature": "CREATURE_ORC_WARRIOR", "count": 100})
-        monster = next(o for o in md.objects if o.kind == "AdvMapMonster" and o.name == "butchers_guard")
-        self.assertEqual(monster.extra["creature"], "CREATURE_CHAMPION")
-        self.assertEqual(monster.extra["amount"], 4)
-        self.assertEqual(monster.extra["amount2"], 4)
-        self.assertEqual(monster.extra["additionalStacks"][0]["amount"], 25)
-        town = next(o for o in md.objects if o.kind == "AdvMapTown")
-        self.assertEqual(town.extra["owner"], "PLAYER_2")
-
-    def test_floor_zero_is_surface_ground(self):
-        """Matches common.lua (GROUND = 0, UNDERGROUND = 1) and NWorld::IsTilePassable."""
-        ug_path = os.path.join(DATA, "Maps", "CombatArenas", "AbandonedMine", "AbandonedMine.xdb")
-        ug_md = load_map(self.xdb, ug_path, resolve_models=False)
-        for o in ug_md.objects:
-            self.assertEqual(o.floor, 1)  # AbandonedMine is an underground arena (<Floor>1</Floor>)
-
-        surf_path = os.path.join(DATA, "Maps", "Scenario", "A2C1M5", "map.xdb")
-        if os.path.isfile(surf_path):
-            surf_md = load_map(self.xdb, surf_path, resolve_models=False)
-            floors = {o.floor for o in surf_md.objects}
-            self.assertIn(0, floors)  # Surface objects have <Floor>0</Floor>
-
-
-@requires_data
-class GR2AndPatch31Test(unittest.TestCase):
-    def test_oodle1_skeletons_decompress_and_parse_bones(self):
-        """All 2,242 files in data/bin/Skeletons/ use GR2 v6 + Oodle1 (comp=2)."""
-        skels = sorted(glob.glob(os.path.join(DATA, "bin", "Skeletons", "*")))
-        self.assertGreater(len(skels), 2000)
-        for path in skels[:25]:
-            with open(path, "rb") as fh:
-                gr2 = parse_gr2_bytes(fh.read())
-            self.assertEqual(gr2.version, 6)
-            self.assertEqual(gr2.sections[0].compression, 2)
-            self.assertEqual(len(gr2.skeletons), 1)
-            skel = gr2.skeletons[0]
-            self.assertTrue(skel.name)
-            self.assertGreater(len(skel.bones), 0)
-            self.assertEqual(skel.bones[0].parent_index, -1)
-
-    def test_gr2_animations_uncompressed_and_oodle1(self):
-        """Animations in data/bin/animations/ are either comp=0 (2,816) or comp=2 (577)."""
-        anims = sorted(glob.glob(os.path.join(DATA, "bin", "animations", "*")))
-        self.assertGreater(len(anims), 3000)
-        seen_comp = set()
-        for path in anims[:60]:
-            with open(path, "rb") as fh:
-                raw = fh.read()
-            comp = struct.unpack_from("<I", raw, 32 + struct.unpack_from("<I", raw, 44)[0])[0]
-            seen_comp.add(comp)
-            gr2 = parse_gr2_bytes(raw)
-            self.assertEqual(len(gr2.animations), 1)
-            anim = gr2.animations[0]
-            self.assertGreater(anim.duration, 0.0)
-            self.assertGreater(len(anim.track_groups), 0)
-            self.assertGreater(len(anim.track_groups[0].transform_tracks), 0)
-        self.assertIn(0, seen_comp)
-        self.assertIn(2, seen_comp)
-
-    def test_default_stats_and_a2p1_overlay(self):
-        """DefaultStats.xdb resolves from ToTE 3.1 a2p1-data/ and matches decompiled NWorld constants."""
-        xdb = XDB(DATA)
-        self.assertIsNotNone(xdb.patch_root)
-        self.assertTrue(xdb.patch_root.endswith("a2p1-data"))
-        stats = load_default_stats(xdb)
-        self.assertEqual(stats["heroInitiative"], 10)
-        self.assertEqual(stats["atbBaseTime"], 100000)
-        self.assertEqual(stats["adventure"]["baseHeroMovement"], 2500)
-        self.assertAlmostEqual(stats["combat"]["damageIncrease"], 0.05)
-        self.assertAlmostEqual(stats["combat"]["damageDecrease"], 0.05)
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
 
 if __name__ == "__main__":

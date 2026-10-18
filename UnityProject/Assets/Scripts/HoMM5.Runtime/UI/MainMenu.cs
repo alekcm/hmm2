@@ -42,6 +42,9 @@ namespace HoMM5.UI
         List<MapIndexEntry> _maps = new List<MapIndexEntry>();
         List<TownTypeDef> _factions = new List<TownTypeDef>();
         List<HeroDef> _heroes = new List<HeroDef>();
+        List<CampaignDef> _campaigns = new List<CampaignDef>();
+        CampaignDef _selectedCampaign;
+        CampaignMissionDef _selectedMission;
 
         public bool IsOpen => _root != null && _root.activeInHierarchy;
 
@@ -137,6 +140,8 @@ namespace HoMM5.UI
 
             var rows = new List<MenuRow>
             {
+                new MenuRow { Label = "Campaign", Note = "Play an imported campaign mission",
+                              Action = ShowCampaigns, Bold = true },
                 new MenuRow { Label = "New Game", Note = "Choose a map, a faction and a hero",
                               Action = ShowMaps, Bold = true },
                 new MenuRow { Label = "Continue", Note = "Load the last quick save (F9 in game)",
@@ -161,6 +166,128 @@ namespace HoMM5.UI
             }
 
             Render(rows);
+        }
+
+        // -- campaign flow --------------------------------------------------
+
+        void ShowCampaigns()
+        {
+            _step = 5;
+            _title.text = "Choose a campaign";
+            ShowBack(true);
+            Clear();
+            _selectedCampaign = null;
+            _selectedMission = null;
+
+            _campaigns.Clear();
+            if (Database != null && Database.Campaigns != null)
+                foreach (var kv in Database.Campaigns)
+                    if (kv.Value != null && !kv.Value.userCampaign) _campaigns.Add(kv.Value);
+            _campaigns.Sort((a, b) => string.CompareOrdinal(a.id, b.id));
+
+            var rows = new List<MenuRow>();
+            foreach (var campaign in _campaigns)
+            {
+                var captured = campaign;
+                rows.Add(new MenuRow
+                {
+                    Label = string.IsNullOrEmpty(campaign.fullName) ? campaign.name : campaign.fullName,
+                    Note = (campaign.missions != null ? campaign.missions.Count : 0) + " missions",
+                    Action = () => PickCampaign(captured),
+                });
+            }
+            if (rows.Count == 0)
+                rows.Add(new MenuRow
+                {
+                    Label = "No campaigns were imported",
+                    Note = "Run the gamedata import with the Tribes of the East overlay",
+                });
+            Render(rows);
+        }
+
+        void PickCampaign(CampaignDef campaign)
+        {
+            _selectedCampaign = campaign;
+            ShowCampaignMissions();
+        }
+
+        void ShowCampaignMissions()
+        {
+            _step = 6;
+            _title.text = _selectedCampaign != null
+                ? (string.IsNullOrEmpty(_selectedCampaign.fullName)
+                    ? _selectedCampaign.name : _selectedCampaign.fullName)
+                : "Choose a mission";
+            ShowBack(true);
+            Clear();
+
+            var rows = new List<MenuRow>();
+            if (_selectedCampaign != null && _selectedCampaign.missions != null)
+            {
+                foreach (var mission in _selectedCampaign.missions)
+                {
+                    if (mission == null || string.IsNullOrEmpty(mission.mapId)) continue;
+                    var captured = mission;
+                    rows.Add(new MenuRow
+                    {
+                        Label = string.IsNullOrEmpty(mission.name) ? mission.mapId : mission.name,
+                        Note = mission.mapId + "   " + mission.tileX + "x" + mission.tileY,
+                        Action = () => PickCampaignMission(captured),
+                    });
+                }
+            }
+            if (rows.Count == 0)
+                rows.Add(new MenuRow { Label = "No missions were imported", Note = "" });
+            Render(rows);
+        }
+
+        void PickCampaignMission(CampaignMissionDef mission)
+        {
+            if (mission == null || string.IsNullOrEmpty(mission.mapId)) return;
+            _selectedMission = mission;
+            _pending.MapId = mission.mapId;
+            _pending.MapName = string.IsNullOrEmpty(mission.name) ? mission.mapId : mission.name;
+            _pending.CampaignId = _selectedCampaign != null ? _selectedCampaign.id : "";
+            _pending.MissionId = mission.id;
+            _pending.Faction = "";
+            _pending.FactionName = "";
+            _pending.TownType = "";
+            _pending.HeroId = "";
+            _pending.HeroName = "";
+            _pending.HeroClass = "";
+            _pending.HeroClassName = "";
+            // Campaign maps carry their own hero, owner, army and authored
+            // history. Do not replace that source state with the random-map
+            // faction/hero picker used by New Game.
+            ShowCampaignConfirm();
+        }
+
+        void ShowCampaignConfirm()
+        {
+            _step = 7;
+            _title.text = "Start campaign mission";
+            ShowBack(true);
+            Clear();
+
+            var rows = new List<MenuRow>
+            {
+                new MenuRow { Label = "Campaign", Note = _selectedCampaign != null
+                    ? (_selectedCampaign.fullName ?? _selectedCampaign.name) : "" },
+                new MenuRow { Label = "Mission", Note = _pending.MapName },
+                new MenuRow { Label = "Map", Note = _pending.MapId },
+                new MenuRow { Label = "Start state", Note = "Use the authored hero, army and towns" },
+            };
+            Render(rows);
+
+            var start = MakeButton(_body, "StartCampaignButton", "  Start mission  ", new Vector2(0.5f, 0),
+                                   new Vector2(-130, 16), new Vector2(130, 62), OnStart);
+            var startText = start.GetComponentInChildren<UnityEngine.UI.Text>();
+            if (startText != null)
+            {
+                startText.fontSize = 20;
+                startText.fontStyle = FontStyle.Bold;
+            }
+            start.image.color = new Color(0.30f, 0.42f, 0.26f, 1f);
         }
 
         // -- step 1: the map ------------------------------------------------
@@ -214,6 +341,10 @@ namespace HoMM5.UI
 
         void PickMap(MapIndexEntry map)
         {
+            _selectedCampaign = null;
+            _selectedMission = null;
+            _pending.CampaignId = "";
+            _pending.MissionId = "";
             _pending.MapId = map != null ? map.id : "";
             _pending.MapName = _pending.MapId;
             ShowFactions();
@@ -363,6 +494,9 @@ namespace HoMM5.UI
                 case 2: ShowMaps(); break;
                 case 3: ShowFactions(); break;
                 case 4: ShowHeroes(); break;
+                case 5: ShowRoot(); break;
+                case 6: ShowCampaigns(); break;
+                case 7: ShowCampaignMissions(); break;
                 default: ShowRoot(); break;
             }
         }
@@ -539,6 +673,8 @@ namespace HoMM5.UI
     {
         public string MapId = "";
         public string MapName = "";
+        public string CampaignId = "";
+        public string MissionId = "";
         public string Faction = "";
         public string FactionName = "";
         public string TownType = "";

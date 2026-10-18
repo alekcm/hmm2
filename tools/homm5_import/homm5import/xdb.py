@@ -38,37 +38,39 @@ def _split_href(href: str) -> Tuple[str, Optional[str]]:
 
 
 class XDB:
-    """A view over one game data root (the unpacked ``data.pak``), with automatic
-    Tribes of the East Patch 3.1 (``a2p1-data``) overlay when present.
-    """
+    """A view over one game data root (the unpacked ``data.pak``)."""
 
-    def __init__(self, data_root: str, patch_root: Optional[str] = None):
+    def __init__(self, data_root: str):
         self.data_root = os.path.abspath(data_root)
-        if patch_root is None and os.path.basename(self.data_root) == "data":
-            cand = os.path.join(os.path.dirname(self.data_root), "a2p1-data")
-            if os.path.isdir(cand):
-                patch_root = cand
-        self.patch_root: Optional[str] = os.path.abspath(patch_root) if patch_root else None
+        # Tribes of the East 3.1 ships an a2p1-data overlay next to the base
+        # data.pak. Windows searches that overlay before the base tree. Keep one
+        # logical XDB view for every import stage, not only the UI stage.
+        sibling_overlay = os.path.join(os.path.dirname(self.data_root), "a2p1-data")
+        self.overlay_root = (os.path.abspath(sibling_overlay)
+                             if os.path.isdir(sibling_overlay) else None)
         self._cache: Dict[str, Optional[ET.Element]] = {}
         self._dir_cache: Dict[str, dict] = {}
 
     # -- loading -----------------------------------------------------------
     def _path_for(self, href: str) -> str:
         rel = href.lstrip("/").replace("\\", "/")
-<<<<<<< HEAD
+        if self.overlay_root:
+            overlay_path = os.path.join(self.overlay_root, rel)
+            if os.path.exists(overlay_path):
+                return overlay_path
+            resolved_overlay = self._resolve_case_insensitive(rel, self.overlay_root)
+            if resolved_overlay:
+                return resolved_overlay
         path = os.path.join(self.data_root, rel)
         if os.path.exists(path):
             return path
-        # Some hrefs are lowercased in the data
-        # (/mapobjects/_(advmaptile)/grass/grass.xdb) while the file on disk is
-        # MapObjects/_(AdvMapTile)/Grass/Grass.xdb. Windows folds case so the game
-        # never noticed; on Linux the lookup misses and the layer loses its
-        # texture. Resolve case-insensitively rather than dropping it.
-        resolved = self._resolve_case_insensitive(rel)
+        # Some hrefs are lowercased in the data while the file on disk keeps
+        # the original case. Windows folds case, so do the same on Linux.
+        resolved = self._resolve_case_insensitive(rel, self.data_root)
         return resolved if resolved else path
 
-    def _resolve_case_insensitive(self, rel: str) -> Optional[str]:
-        cur = self.data_root
+    def _resolve_case_insensitive(self, rel: str, root: str) -> Optional[str]:
+        cur = root
         for part in rel.split("/"):
             if not part:
                 continue
@@ -90,13 +92,6 @@ class XDB:
                 cached = {}
             self._dir_cache[directory] = cached
         return cached
-=======
-        if self.patch_root:
-            patch_cand = os.path.join(self.patch_root, rel)
-            if os.path.isfile(patch_cand):
-                return patch_cand
-        return os.path.join(self.data_root, rel)
->>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
     @staticmethod
     def absolutize(href: str, base_href: Optional[str]) -> str:
@@ -160,8 +155,8 @@ class XDB:
         found = self._path_for(path)
         if not os.path.exists(found):
             return href
-        rel = os.path.relpath(os.path.abspath(found), self.data_root).replace("\\", "/")
-        return "/" + rel + (("#xpointer(%s)" % pointer) if pointer else "")
+        logical = self.href_from_path(found)
+        return logical + (("#xpointer(%s)" % pointer) if pointer else "")
 
     # -- field access ------------------------------------------------------
     @staticmethod
@@ -224,28 +219,44 @@ class XDB:
 
     # -- iteration ---------------------------------------------------------
     def iter_files(self, subdir: str, suffix: str = ".xdb") -> Iterator[str]:
-        seen = set()
-        roots = [r for r in (self.patch_root, self.data_root) if r is not None]
+        """Yield one physical file per logical path, overlay before base.
+
+        Sorting by the logical path keeps callers deterministic even when the
+        overlay supplies only a subset of records (sorting physical paths would
+        put every ``a2p1-data`` record ahead of its base-tree neighbours).
+        """
+        chosen = {}
+        roots = ([self.overlay_root] if self.overlay_root else []) + [self.data_root]
         for root in roots:
+            if not root:
+                continue
             base = os.path.join(root, subdir)
             if not os.path.isdir(base):
                 continue
             for dirpath, _dirs, files in os.walk(base):
                 for f in files:
-                    if f.lower().endswith(suffix):
-                        full = os.path.join(dirpath, f)
-                        rel = os.path.relpath(full, root).replace("\\", "/").lower()
-                        if rel not in seen:
-                            seen.add(rel)
-                            yield full
+                    if not f.lower().endswith(suffix):
+                        continue
+                    path = os.path.join(dirpath, f)
+                    logical = os.path.relpath(path, root).replace("\\", "/").lower()
+                    if logical not in chosen:
+                        chosen[logical] = path
+        for logical in sorted(chosen):
+            yield chosen[logical]
 
     def href_from_path(self, path: str) -> str:
-        abs_p = os.path.abspath(path)
-        if self.patch_root and abs_p.startswith(self.patch_root + os.sep):
-            rel = os.path.relpath(abs_p, self.patch_root).replace("\\", "/")
-            return "/" + rel
-        rel = os.path.relpath(abs_p, self.data_root).replace("\\", "/")
-        return "/" + rel
+        absolute = os.path.abspath(path)
+        roots = ([self.overlay_root] if self.overlay_root else []) + [self.data_root]
+        for root in roots:
+            if not root:
+                continue
+            try:
+                rel = os.path.relpath(absolute, root)
+            except ValueError:
+                continue
+            if rel != os.pardir and not rel.startswith(os.pardir + os.sep):
+                return "/" + rel.replace("\\", "/")
+        return "/" + os.path.basename(absolute)
 
     def logical_name(self, href: str) -> str:
         """``/GameMechanics/.../CombatMage.xdb`` -> ``CombatMage``."""
