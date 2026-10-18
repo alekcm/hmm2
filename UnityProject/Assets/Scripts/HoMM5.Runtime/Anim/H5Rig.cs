@@ -41,7 +41,9 @@ namespace HoMM5.Anim
             _animator = animator;
             _graph = PlayableGraph.Create("HoMM5 animation graph");
             _graph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
-            _mixer = AnimationMixerPlayable.Create(_graph, 0, true);
+            // Unity 6.6 removed the effect of normalizeWeights; use the
+            // non-obsolete overload so the graph has no compiler warning.
+            _mixer = AnimationMixerPlayable.Create(_graph, 0);
             var output = AnimationPlayableOutput.Create(_graph, "HoMM5 animation", _animator);
             output.SetSourcePlayable(_mixer);
             if (firstClip != null) AddClip(firstClip, firstKey, true);
@@ -59,7 +61,6 @@ namespace HoMM5.Anim
             clip.wrapMode = loop ? WrapMode.Loop : WrapMode.ClampForever;
             var playable = AnimationClipPlayable.Create(_graph, clip);
             playable.SetApplyFootIK(false);
-            playable.SetRemoveStartOffset(false);
             var input = _entries.Count;
             _mixer.SetInputCount(input + 1);
             _graph.Connect(playable, 0, _mixer, input);
