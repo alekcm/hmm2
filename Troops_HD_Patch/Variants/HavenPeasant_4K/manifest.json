@@ -1,0 +1,127 @@
+{
+  "label": "Haven Peasant 4K",
+  "edition_note": "4K is a variant label, not a 4096-pixel texture claim or an exact triangle target",
+  "is_separate_variant": true,
+  "replaces_default_peasant": false,
+  "default_model_unchanged": "../../HoMM5/Meshes/B609BA27-66B2-4F26-B681-EF5F7F3A4601.glb",
+  "model": "HavenPeasant_4K.glb",
+  "source_geometry_uid": "B609BA27-66B2-4F26-B681-EF5F7F3A4601",
+  "source_skeleton_uid": "419E6DD3-4C1B-460A-9BEF-4B918E33281E",
+  "source_texture_dds": "data/Textures/auto-imported_______320/dev/Test/TMPcharacters/Peasant/Peasant.tga.dds",
+  "atlas_dimensions": [
+    512,
+    512
+  ],
+  "uv_semantic_tracking": {
+    "triangle_csv": "triangle_uv_regions.csv",
+    "semantic_map": "uv_semantic_map.png",
+    "triangle_wireframe": "uv_triangle_wireframe.png",
+    "labels": {
+      "hands": "red",
+      "hood": "amber",
+      "legs_and_shins": "green",
+      "pouch": "violet",
+      "other": "gray wireframe / unfilled",
+      "pitchfork_preserved": "separate mesh; not projected onto the Peasant diffuse atlas"
+    },
+    "region_counts": {
+      "legs_and_shins": 6402,
+      "hands": 4350,
+      "pouch": 1216,
+      "other": 1011,
+      "hood": 1831
+    },
+    "uv_mapping_status_counts": {
+      "uv_confirmed": 14558,
+      "uv_no_coverage_fallback_to_skin_weights": 74,
+      "uv_overlap_ambiguous": 166,
+      "uv_overlap_conflict_fallback_to_skin_weights": 12
+    },
+    "method": "seed triangle semantics from skin weights; rasterize each UV triangle into atlas space; sample its UV centroid and record overlaps/fallbacks; use these UV-region labels to gate per-vertex smoothing masks"
+  },
+  "refinement": {
+    "passes": [
+      {
+        "source_vertices": 1342,
+        "refined_vertices": 2938,
+        "source_triangles": 1670,
+        "refined_triangles": 4366,
+        "face_edge_splits": 2696,
+        "moved_vertices": 673,
+        "max_vertex_displacement": 0.03333654958089394,
+        "parts": {
+          "hands": {
+            "vertices_weighted_over_0_2": 216,
+            "faces_mean_weight_over_0_2": 262
+          },
+          "hood": {
+            "vertices_weighted_over_0_2": 78,
+            "faces_mean_weight_over_0_2": 126
+          },
+          "legs_and_shins": {
+            "vertices_weighted_over_0_2": 327,
+            "faces_mean_weight_over_0_2": 394
+          },
+          "pouch": {
+            "vertices_weighted_over_0_2": 63,
+            "faces_mean_weight_over_0_2": 76
+          }
+        },
+        "pass": 1,
+        "uv_triangle_regions": {
+          "legs_and_shins": 410,
+          "hands": 276,
+          "pouch": 76,
+          "other": 778,
+          "hood": 130
+        }
+      },
+      {
+        "source_vertices": 2938,
+        "refined_vertices": 8649,
+        "source_triangles": 4366,
+        "refined_triangles": 14810,
+        "face_edge_splits": 10444,
+        "moved_vertices": 2143,
+        "max_vertex_displacement": 0.0224072607342387,
+        "parts": {
+          "hands": {
+            "vertices_weighted_over_0_2": 697,
+            "faces_mean_weight_over_0_2": 1068
+          },
+          "hood": {
+            "vertices_weighted_over_0_2": 264,
+            "faces_mean_weight_over_0_2": 458
+          },
+          "legs_and_shins": {
+            "vertices_weighted_over_0_2": 1050,
+            "faces_mean_weight_over_0_2": 1567
+          },
+          "pouch": {
+            "vertices_weighted_over_0_2": 198,
+            "faces_mean_weight_over_0_2": 304
+          }
+        },
+        "pass": 2,
+        "uv_triangle_regions": {
+          "legs_and_shins": 1620,
+          "hands": 1096,
+          "pouch": 304,
+          "other": 875,
+          "hood": 471
+        }
+      }
+    ],
+    "body_shape_triangles": 14810,
+    "pitchfork_shape_triangles": 182,
+    "pitchfork_changed": false
+  },
+  "glb": {
+    "triangles": 14992,
+    "vertices": 8849,
+    "mesh_slices": 2,
+    "bytes": 552580
+  },
+  "textures_modified": false,
+  "texture_note": "the existing restored texture files are not copied or modified by this builder"
+}

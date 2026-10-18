@@ -1,0 +1,56 @@
+{
+  "format": "HoMM5 Unity StreamingAssets overlay",
+  "prototype": "Haven Peasant",
+  "source_geometry_uid": "B609BA27-66B2-4F26-B681-EF5F7F3A4601",
+  "source_skeleton_uid": "419E6DD3-4C1B-460A-9BEF-4B918E33281E",
+  "source_geometry": "data/bin/Geometries/B609BA27-66B2-4F26-B681-EF5F7F3A4601",
+  "body_shape": {
+    "source_vertices": 1342,
+    "refined_vertices": 3049,
+    "source_triangles": 1670,
+    "refined_triangles": 4550,
+    "face_edge_splits": 2880,
+    "moved_vertices": 687,
+    "max_vertex_displacement": 0.03333654958089394,
+    "parts": {
+      "hands": {
+        "vertices_weighted_over_0_2": 224,
+        "faces_mean_weight_over_0_2": 276
+      },
+      "hood": {
+        "vertices_weighted_over_0_2": 82,
+        "faces_mean_weight_over_0_2": 130
+      },
+      "legs_and_shins": {
+        "vertices_weighted_over_0_2": 346,
+        "faces_mean_weight_over_0_2": 410
+      },
+      "pouch": {
+        "vertices_weighted_over_0_2": 63,
+        "faces_mean_weight_over_0_2": 76
+      }
+    }
+  },
+  "pitchfork_shape": {
+    "vertices": 200,
+    "triangles": 182,
+    "changed": false
+  },
+  "glb": {
+    "path": "Meshes/B609BA27-66B2-4F26-B681-EF5F7F3A4601.glb",
+    "triangles": 4732,
+    "vertices": 3249,
+    "mesh_slices": 2,
+    "bytes": 199856
+  },
+  "texture_assets": {
+    "count": 337,
+    "policy": "preserved unchanged for manual editing; this builder does not modify textures",
+    "restored_from_commit": "ec289b38d"
+  },
+  "method": {
+    "geometry": "skin-weight-guided local Loop refinement of hands, hood, thighs/shins, and waist pouch",
+    "strength": "relaxation multipliers doubled from the prior prototype; full-weight vertices cap at one Loop step to avoid overshoot",
+    "sharp_parts": "PitchForkShape and boot toes/soles are preserved"
+  }
+}
