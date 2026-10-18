@@ -2,11 +2,10 @@
 """Build a localized Haven Peasant refinement prototype.
 
 Only the BodyShape is altered: skin-weight masks round the hands, hood/cap,
-and waist pouch; the separate PitchForkShape is passed through unchanged.
-The diffuse atlas keeps its hand-painted palette and receives restrained,
-visible cloth/leather/felt microtexture rather than a resize-only treatment.
+legs/shins, and waist pouch; the separate PitchForkShape is passed through
+unchanged. Existing material files are left untouched for manual editing.
 
-Run from the repository root (ImageMagick's `convert` is required):
+Run from the repository root:
     python3 tools/troop_hd/build_peasant_poc.py --out Troops_HD_Patch
 """
 from __future__ import annotations
@@ -14,31 +13,23 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import shutil
 import struct
-import subprocess
 import sys
-import tempfile
 from collections import defaultdict
 from pathlib import Path
 from typing import Dict, Iterable, List, Sequence, Tuple
 
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "tools" / "homm5_import"))
-from homm5import.dds import decode_dds, write_png  # noqa: E402
 from homm5import.geometry import Geometry, MeshGroup, decode_file  # noqa: E402
 
 UID = "B609BA27-66B2-4F26-B681-EF5F7F3A4601"
 SOURCE_GEOMETRY = REPO / "data" / "bin" / "Geometries" / UID
-SOURCE_TEXTURE_REL = (
-    "Textures/auto-imported_______320/dev/Test/TMPcharacters/Peasant/Peasant.tga.dds"
-)
-SOURCE_TEXTURE = REPO / "data" / SOURCE_TEXTURE_REL
-# The importer derives the runtime texture path from the source DDS path.
-OUTPUT_TEXTURE_REL = "Textures/" + SOURCE_TEXTURE_REL + ".png"
 SKELETON_UID = "419E6DD3-4C1B-460A-9BEF-4B918E33281E"
 HAND_BONES = set(range(27, 34)) | set(range(41, 48))
 WRIST_BONES = {26, 34, 39, 40}
+LEG_BONES = {3, 4, 7, 8}       # left/right thigh and lower-leg (shin)
+ANKLE_BONES = {5, 9}           # low influence only near the boot cuff
 POUCH_BONES = {14, 15}
 HEAD_BONE = 17
 
@@ -89,18 +80,27 @@ def _smoothstep(a: float, b: float, x: float) -> float:
 
 
 def _part_masks(group: MeshGroup) -> Tuple[List[float], Dict[str, List[float]]]:
-    parts: Dict[str, List[float]] = {"hands": [], "hood": [], "pouch": []}
+    parts: Dict[str, List[float]] = {
+        "hands": [], "hood": [], "legs_and_shins": [], "pouch": [],
+    }
     combined: List[float] = []
     for position, joints, weights in zip(group.positions, group.bone_indices, group.bone_weights):
+        height = float(position[2])
         hands = min(1.0, _bone_weight(joints, weights, HAND_BONES)
                     + 0.28 * _bone_weight(joints, weights, WRIST_BONES))
         hood = (_bone_weight(joints, weights, {HEAD_BONE})
-                * _smoothstep(1.405, 1.505, float(position[2])))
+                * _smoothstep(1.405, 1.505, height))
+        # Round thigh/shin sections; use foot weights only to soften the ankle
+        # transition, fading them out before the angular boot toe/sole.
+        legs = min(1.0, _bone_weight(joints, weights, LEG_BONES)
+                   + 0.30 * _bone_weight(joints, weights, ANKLE_BONES)
+                   * _smoothstep(0.035, 0.19, height))
         pouch = min(1.0, _bone_weight(joints, weights, POUCH_BONES))
         parts["hands"].append(hands)
         parts["hood"].append(hood)
+        parts["legs_and_shins"].append(legs)
         parts["pouch"].append(pouch)
-        combined.append(max(0.92 * hands, 0.82 * hood, 0.95 * pouch))
+        combined.append(max(0.92 * hands, 0.82 * hood, 0.96 * legs, 0.95 * pouch))
     return combined, parts
 
 
@@ -178,7 +178,9 @@ def refine_body(group: MeshGroup) -> Tuple[MeshGroup, dict]:
             + beta * sum(canonical_pos[j][axis] for j in soft_neighbors)
             for axis in range(3)
         )
-        blend = min(0.78, strength * 0.86)
+        # Approximately double the previous relaxation amount; clamp at a full
+        # Loop step to avoid overshooting at fully weighted vertices.
+        blend = min(1.0, strength * 1.72)
         target = tuple(center[axis] + (loop_position[axis] - center[axis]) * blend
                        for axis in range(3))
         for original_index in members[ci]:
@@ -208,7 +210,7 @@ def refine_body(group: MeshGroup) -> Tuple[MeshGroup, dict]:
                             + canonical_pos[opposite[1]][axis])
                 for axis in range(3)
             )
-            blend = min(0.70, min(canonical_mask[ci], canonical_mask[cj]) * 0.82)
+            blend = min(1.0, min(canonical_mask[ci], canonical_mask[cj]) * 1.64)
             position = tuple(midpoint[axis] + (loop[axis] - midpoint[axis]) * blend
                              for axis in range(3))
         else:
@@ -304,145 +306,6 @@ def refine_body(group: MeshGroup) -> Tuple[MeshGroup, dict]:
         },
     }
     return refined, stats
-
-
-def _uv_mask(group: MeshGroup, vertex_weights: Sequence[float], width: int, height: int,
-             z_cut: float | None = None) -> bytearray:
-    """Rasterize skin-weight masks in UV space for localized texture detailing."""
-    mask = bytearray(width * height)
-    for tri in group.triangles:
-        indices = tuple(int(i) for i in tri)
-        weights = [float(vertex_weights[i]) for i in indices]
-        if max(weights) < 0.2:
-            continue
-        if (z_cut is not None
-                and sum(float(group.positions[i][2]) for i in indices) / 3.0 < z_cut):
-            continue
-        uv = [group.uvs[i] for i in indices]
-        xy = [(float(u) * (width - 1), (1.0 - float(v)) * (height - 1)) for u, v in uv]
-        min_x = max(0, int(min(point[0] for point in xy)))
-        max_x = min(width - 1, int(max(point[0] for point in xy)) + 1)
-        min_y = max(0, int(min(point[1] for point in xy)))
-        max_y = min(height - 1, int(max(point[1] for point in xy)) + 1)
-        (x0, y0), (x1, y1), (x2, y2) = xy
-        denominator = (y1 - y2) * (x0 - x2) + (x2 - x1) * (y0 - y2)
-        if abs(denominator) < 1e-9:
-            continue
-        for py in range(min_y, max_y + 1):
-            for px in range(min_x, max_x + 1):
-                l0 = ((y1 - y2) * (px - x2) + (x2 - x1) * (py - y2)) / denominator
-                l1 = ((y2 - y0) * (px - x2) + (x0 - x2) * (py - y2)) / denominator
-                l2 = 1.0 - l0 - l1
-                if l0 < -0.01 or l1 < -0.01 or l2 < -0.01:
-                    continue
-                value = max(0.0, min(1.0, l0 * weights[0] + l1 * weights[1] + l2 * weights[2]))
-                offset = py * width + px
-                quantized = int(value * 255.0)
-                if quantized > mask[offset]:
-                    mask[offset] = quantized
-    return mask
-
-
-def _smooth_mask(mask: bytearray, width: int, height: int, radius: int) -> bytearray:
-    """Apply a tiny box blur so texture details do not hard-cut at UV island edges."""
-    if radius <= 0:
-        return mask
-    temporary = bytearray(len(mask))
-    output = bytearray(len(mask))
-    for y in range(height):
-        row = y * width
-        for x in range(width):
-            samples = [mask[row + xx] for xx in range(max(0, x - radius), min(width, x + radius + 1))]
-            temporary[row + x] = sum(samples) // len(samples)
-    for y in range(height):
-        for x in range(width):
-            samples = [temporary[yy * width + x]
-                       for yy in range(max(0, y - radius), min(height, y + radius + 1))]
-            output[y * width + x] = sum(samples) // len(samples)
-    return output
-
-
-def _hash_noise(x: int, y: int, seed: int = 0) -> float:
-    value = (x * 0x9E3779B1 + y * 0x85EBCA77 + seed * 0xC2B2AE3D) & 0xFFFFFFFF
-    value ^= value >> 16
-    value = (value * 0x7FEB352D) & 0xFFFFFFFF
-    value ^= value >> 15
-    value = (value * 0x846CA68B) & 0xFFFFFFFF
-    value ^= value >> 16
-    return (value & 0xFFFF) / 32767.5 - 1.0
-
-
-def enhance_texture(output_path: Path, source_width: int, source_height: int,
-                    source_rgba: bytes, pouch_mask: bytearray, hood_mask: bytearray,
-                    convert: str) -> dict:
-    """Upscale the atlas and bake restrained woven/leather/felt material detail."""
-    output_width, output_height = source_width * 2, source_height * 2
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="peasant-poc-") as temporary_dir:
-        temp_dir = Path(temporary_dir)
-        source_png = temp_dir / "source.png"
-        resized_raw = temp_dir / "resized.rgba"
-        write_png(str(source_png), source_width, source_height, source_rgba)
-        subprocess.run(
-            [convert, str(source_png), "-filter", "Lanczos", "-resize",
-             f"{output_width}x{output_height}!", "-depth", "8", "RGBA:" + str(resized_raw)],
-            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE,
-        )
-        pixels = bytearray(resized_raw.read_bytes())
-    if len(pixels) != output_width * output_height * 4:
-        raise ValueError("ImageMagick returned an incomplete RGBA atlas")
-
-    def mask_value(mask: bytearray, x: int, y: int) -> float:
-        sx = min(source_width - 1, (x * source_width) // output_width)
-        sy = min(source_height - 1, (y * source_height) // output_height)
-        return mask[sy * source_width + sx] / 255.0
-
-    for y in range(output_height):
-        for x in range(output_width):
-            offset = (y * output_width + x) * 4
-            red, green, blue, alpha = pixels[offset:offset + 4]
-            if alpha == 0:
-                continue
-            # Crossed warp/weft threads are visible on painted blue cloth but remain low contrast.
-            blue_cloth = (max(0.0, min(1.0, (blue - red - 18) / 38.0))
-                          * max(0.0, min(1.0, (blue - green - 5) / 45.0))
-                          * max(0.0, min(1.0, (blue - 65) / 80.0)))
-            if blue_cloth > 0.02:
-                warp = 1.0 if x % 8 < 3 else -0.32
-                weft = 1.0 if y % 8 < 3 else -0.32
-                parity = 1.0 if ((x // 8 + y // 8) & 1) == 0 else -1.0
-                weave = (warp + weft) * 0.55 + parity * 0.22
-                grain = _hash_noise(x // 2, y // 2, 11) * 0.65
-                delta = int(round(5.8 * (weave + grain) * blue_cloth))
-                for channel in range(3):
-                    pixels[offset + channel] = max(0, min(255, pixels[offset + channel] + delta))
-
-            pouch = mask_value(pouch_mask, x, y)
-            if pouch > 0.02:
-                grain = _hash_noise(x // 3, y // 2, 23) * 3.5
-                seam = ((1.0 if x % 41 < 2 else 0.0)
-                        * _hash_noise(y // 3, 0, 7) * 2.2)
-                delta = int(round((grain + seam) * pouch))
-                for channel in range(3):
-                    pixels[offset + channel] = max(0, min(255, pixels[offset + channel] + delta))
-
-            hood = mask_value(hood_mask, x, y)
-            if hood > 0.02:
-                delta = int(round(_hash_noise(x // 3, y // 4, 47) * 2.8 * hood))
-                for channel in range(3):
-                    pixels[offset + channel] = max(0, min(255, pixels[offset + channel] + delta))
-
-    write_png(str(output_path), output_width, output_height, bytes(pixels))
-    return {
-        "source_size": [source_width, source_height],
-        "output_size": [output_width, output_height],
-        "detail": {
-            "blue_cloth": "low-contrast crossed warp/weft weave and fine grain",
-            "hood": "weight-masked subtle felt grain",
-            "waist_pouch": "weight-masked leather grain and restrained seam striation",
-        },
-        "png_bytes": output_path.stat().st_size,
-    }
 
 
 def _pack_floats(values: Iterable[float]) -> bytes:
@@ -553,30 +416,42 @@ def validate_glb(blob: bytes, expected_triangles: int) -> dict:
     if chunk_type != 0x4E4F534A:
         raise ValueError("GLB is missing its JSON chunk")
     document = json.loads(blob[20:20 + json_length].decode("utf-8"))
+    bin_header = 20 + json_length
+    if bin_header + 8 > len(blob):
+        raise ValueError("GLB is missing its binary chunk")
+    bin_length, bin_type = struct.unpack_from("<II", blob, bin_header)
+    if bin_type != 0x004E4942 or bin_header + 8 + bin_length > len(blob):
+        raise ValueError("invalid GLB binary chunk")
+    binary = blob[bin_header + 8:bin_header + 8 + bin_length]
     triangles = 0
     vertices = 0
     for mesh in document.get("meshes", []):
         for primitive in mesh.get("primitives", []):
-            triangles += int(document["accessors"][primitive["indices"]]["count"]) // 3
-            vertices += int(document["accessors"][primitive["attributes"]["POSITION"]]["count"])
+            index_accessor = document["accessors"][primitive["indices"]]
+            position_accessor = document["accessors"][primitive["attributes"]["POSITION"]]
+            index_count = int(index_accessor["count"])
+            vertex_count = int(position_accessor["count"])
+            if index_count % 3:
+                raise ValueError("GLB triangle index count is not divisible by three")
+            component = int(index_accessor["componentType"])
+            fmt = {COMPONENT_UNSIGNED_SHORT: "H", COMPONENT_UNSIGNED_INT: "I"}.get(component)
+            if fmt is None:
+                raise ValueError("GLB indices must use an unsigned integer type")
+            view = document["bufferViews"][index_accessor["bufferView"]]
+            offset = int(view.get("byteOffset", 0)) + int(index_accessor.get("byteOffset", 0))
+            indices = struct.unpack_from(f"<{index_count}{fmt}", binary, offset)
+            if indices and max(indices) >= vertex_count:
+                raise ValueError("GLB index references a vertex outside its primitive")
+            triangles += index_count // 3
+            vertices += vertex_count
     if triangles != expected_triangles:
         raise ValueError(f"GLB triangle count mismatch: {triangles} != {expected_triangles}")
     return {"triangles": triangles, "vertices": vertices, "mesh_slices": len(document.get("meshes", []))}
 
 
-def _png_size(path: Path) -> Tuple[int, int]:
-    data = path.read_bytes()
-    if data[:8] != b"\x89PNG\r\n\x1a\n" or len(data) < 24:
-        raise ValueError(f"invalid PNG: {path}")
-    return struct.unpack_from(">II", data, 16)
-
-
 def build(out_root: Path) -> dict:
-    convert = shutil.which("convert")
-    if not convert:
-        raise RuntimeError("ImageMagick 'convert' is required to build the diffuse atlas")
-    if not SOURCE_GEOMETRY.is_file() or not SOURCE_TEXTURE.is_file():
-        raise FileNotFoundError("Peasant source geometry or texture is missing from data/")
+    if not SOURCE_GEOMETRY.is_file():
+        raise FileNotFoundError(f"Peasant source geometry is missing: {SOURCE_GEOMETRY}")
 
     geometry = decode_file(str(SOURCE_GEOMETRY))
     if (len(geometry.meshes) != 2
@@ -590,39 +465,30 @@ def build(out_root: Path) -> dict:
 
     refined_body, geometry_stats = refine_body(body)
     geometry.meshes[0].groups[0] = refined_body
-    if fork_signature != (tuple(fork.positions), tuple(fork.uvs), tuple(fork.normals),
-                          tuple(fork.triangles), tuple(fork.bone_indices), tuple(fork.bone_weights)):
+    current_fork = geometry.meshes[1].groups[0]
+    current_fork_signature = (
+        tuple(current_fork.positions), tuple(current_fork.uvs), tuple(current_fork.normals),
+        tuple(current_fork.triangles), tuple(current_fork.bone_indices), tuple(current_fork.bone_weights),
+    )
+    if fork_signature != current_fork_signature:
         raise AssertionError("the separate PitchForkShape mesh was modified")
 
-    width, height, rgba = decode_dds(SOURCE_TEXTURE.read_bytes())
-    pouch_weights = [_bone_weight(joints, weights, POUCH_BONES)
-                     for joints, weights in zip(body.bone_indices, body.bone_weights)]
-    hood_weights = [(_bone_weight(joints, weights, {HEAD_BONE})
-                     * _smoothstep(1.40, 1.50, float(position[2])))
-                    for position, joints, weights
-                    in zip(body.positions, body.bone_indices, body.bone_weights)]
-    pouch_mask = _smooth_mask(_uv_mask(body, pouch_weights, width, height), width, height, 2)
-    hood_mask = _smooth_mask(_uv_mask(body, hood_weights, width, height, z_cut=1.43),
-                             width, height, 1)
-
     model_path = out_root / "HoMM5" / "Meshes" / f"{UID}.glb"
-    texture_path = out_root / "HoMM5" / "Textures" / OUTPUT_TEXTURE_REL
     model_path.parent.mkdir(parents=True, exist_ok=True)
     blob = write_glb(geometry, UID)
     glb_stats = validate_glb(blob, geometry.total_triangles)
     model_path.write_bytes(blob)
-    texture_stats = enhance_texture(texture_path, width, height, bytes(rgba),
-                                    pouch_mask, hood_mask, convert)
-    if _png_size(texture_path) != tuple(texture_stats["output_size"]):
-        raise ValueError("texture dimensions do not match the generated atlas")
 
+    # Texture assets are deliberately not processed by this prototype. Count
+    # any existing PNGs but leave their bytes and directories untouched.
+    texture_root = out_root / "HoMM5" / "Textures"
+    texture_count = sum(1 for path in texture_root.rglob("*.png")) if texture_root.is_dir() else 0
     manifest = {
         "format": "HoMM5 Unity StreamingAssets overlay",
         "prototype": "Haven Peasant",
         "source_geometry_uid": UID,
         "source_skeleton_uid": SKELETON_UID,
         "source_geometry": f"data/bin/Geometries/{UID}",
-        "source_texture_dds": SOURCE_TEXTURE_REL,
         "body_shape": geometry_stats,
         "pitchfork_shape": {
             "vertices": len(fork.positions),
@@ -630,11 +496,15 @@ def build(out_root: Path) -> dict:
             "changed": False,
         },
         "glb": {"path": f"Meshes/{UID}.glb", **glb_stats, "bytes": len(blob)},
-        "texture": {"path": OUTPUT_TEXTURE_REL, **texture_stats},
+        "texture_assets": {
+            "count": texture_count,
+            "policy": "preserved unchanged for manual editing; this builder does not modify textures",
+            "restored_from_commit": "ec289b38d",
+        },
         "method": {
-            "geometry": "skin-weight-local Loop-style subdivision/relaxation of hands, hood top and waist pouch; other body regions are not globally subdivided",
-            "material": "painted atlas retained with restrained, visible cloth weave and weight-masked pouch/hood grain baked into diffuse RGB",
-            "sharp_parts": "PitchForkShape is a separate mesh block and is unchanged",
+            "geometry": "skin-weight-guided local Loop refinement of hands, hood, thighs/shins, and waist pouch",
+            "strength": "relaxation multipliers doubled from the prior prototype; full-weight vertices cap at one Loop step to avoid overshoot",
+            "sharp_parts": "PitchForkShape and boot toes/soles are preserved",
         },
     }
     out_root.mkdir(parents=True, exist_ok=True)
