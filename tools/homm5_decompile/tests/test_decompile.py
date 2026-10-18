@@ -134,3 +134,35 @@ def test_combat_attack_defense_and_atb_formulas():
     assert calc_unit_experience_value(creature_power=15, creature_exp=22, count=10, is_summoned=False) == 220
     assert calc_unit_experience_value(creature_power=15, creature_exp=0, count=10, is_summoned=False) == 150
     assert calc_unit_experience_value(creature_power=15, creature_exp=22, count=10, is_summoned=True) == 0
+
+
+def test_decompiled_src_cpp_tree():
+    decompiled_src = REPO_ROOT / "decompiled_src"
+    ndb_h = decompiled_src / "include" / "NDb" / "NDbTypes.h"
+    nworld_h = decompiled_src / "include" / "RTTI" / "NWorld_Classes.h"
+    nui_h = decompiled_src / "include" / "RTTI" / "NUI_Classes.h"
+    ndb_rt_h = decompiled_src / "include" / "RTTI" / "NDb_Runtime_Classes.h"
+    engine_h = decompiled_src / "include" / "RTTI" / "Engine_Subsystems_Classes.h"
+    lua_cpp = decompiled_src / "src" / "LuaAPI" / "LuaCApiBindings.cpp"
+    nworld_cpp = decompiled_src / "src" / "NWorld" / "NWorldDecompiled.cpp"
+    granny_cpp = decompiled_src / "src" / "Granny2" / "Granny2Oodle1Decompress.cpp"
+
+    for p in (ndb_h, nworld_h, nui_h, ndb_rt_h, engine_h, lua_cpp, nworld_cpp, granny_cpp):
+        assert p.is_file(), f"Missing generated C++ file: {p}"
+
+    ndb_text = ndb_h.read_text(encoding="utf-8")
+    assert "enum AdvMapTileType : int32_t" in ndb_text
+    assert "class Creature" in ndb_text
+    assert "class AdvMapHero" in ndb_text
+    assert "class RPGStats" in ndb_text
+
+    nworld_text = nworld_h.read_text(encoding="utf-8")
+    assert "/* NWorld::CHero */ CHero" in nworld_text
+    assert "/* NWorld::CCombat */ CCombat" in nworld_text
+    assert "/* NWorld::CArenaATB */ CArenaATB" in nworld_text
+    assert "/* NWorld::CHeroMovementCost */ CHeroMovementCost" in nworld_text
+
+    lua_text = lua_cpp.read_text(encoding="utf-8")
+    assert "Lua_GetHeroStat" in lua_text
+    assert "Lua_CalcHeroMoveCost" in lua_text
+

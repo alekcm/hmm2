@@ -11,6 +11,7 @@ from .pe_analyzer import (
     calc_atb_hero_tick_period,
     calc_unit_experience_value,
 )
+from .cpp_exporter import export_decompiled_cpp_tree
 
 __all__ = [
     "H5ExeAnalyzer",
@@ -22,4 +23,5 @@ __all__ = [
     "calc_atb_unit_tick_period",
     "calc_atb_hero_tick_period",
     "calc_unit_experience_value",
+    "export_decompiled_cpp_tree",
 ]
