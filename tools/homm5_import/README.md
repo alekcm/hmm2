@@ -97,6 +97,14 @@ HoMM5/
 └── Game/sounds.json
 ```
 
+Every creature visual, artifact model and resolved map object also carries a
+`materials` array.  Its entries retain the resolved Material/Texture XDB paths
+and the source render flags (`AlphaMode`, `Is2Sided`, shadow, lighting, fog,
+depth and effect fields).  When the emitted GLB slice count agrees, Unity
+applies the array to those nodes in order; a model with one source material
+reuses it for every slice.  Ambiguous counts use the fallback material rather
+than a filename or PNG-order guess.
+
 Terrain planes ship as raw little-endian arrays (`.heights` = `V²` float32,
 `.flags` and `.passability` = `V²` uint8, `V = tiles + 1`) so the runtime copies
 them straight into a `float[]` with no parsing.

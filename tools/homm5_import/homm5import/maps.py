@@ -1,11 +1,19 @@
 """Adventure map descriptors (``AdvMapDesc``) -> flat JSON the runtime can load.
 
+<<<<<<< HEAD
 A map file lists its objects inline. Each one carries a position in tiles, a
 floor index (0 = ground/surface, 1 = underground, per the shipped Lua constants)
 and a ``Shared`` reference to the
 object's shared record, which in turn points at the ``Model`` -- and the model
 holds the geometry UID and the material list.  Resolving that chain here means
 the Unity side never has to touch the XML.
+=======
+A map file lists its objects inline.  Each one carries a position in tiles, a
+floor index (0 = surface / GROUND, 1 = underground / UNDERGROUND) and a
+``Shared`` reference to the object's shared record, which in turn points at the
+``Model`` -- and the model holds the geometry UID and the material list.
+Resolving that chain here means the Unity side never has to touch the XML.
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 """
 
 from __future__ import annotations
@@ -15,7 +23,12 @@ import re
 from typing import Dict, List, Optional, Tuple
 from xml.etree import ElementTree as ET
 
+<<<<<<< HEAD
 from .xdb import XDB, texture_dds_path
+=======
+from .xdb import XDB
+from .gamedata import model_materials
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
 OBJECT_TYPES = (
     "AdvMapStatic", "AdvMapTreasure", "AdvMapMonster", "AdvMapBuilding",
@@ -27,7 +40,11 @@ OBJECT_TYPES = (
 
 
 class MapObject:
+<<<<<<< HEAD
     __slots__ = ("kind", "object_id", "pos", "rot", "floor", "name", "shared_href",
+=======
+    __slots__ = ("kind", "pos", "rot", "floor", "name", "shared_href",
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
                  "geometry_uid", "textures", "materials", "blocked", "extra")
 
     def __init__(self, kind: str, pos: Tuple[float, float, float], rot: float,
@@ -154,21 +171,32 @@ class MapDesc:
         }
 
 
-def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject, cache: dict) -> None:
-    """Follow Shared -> Model -> {geometry uid, materials}."""
+def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject,
+                    cache: dict, base_href: Optional[str] = None) -> None:
+    """Follow Shared -> Model -> geometry/material slices using XDB links only."""
     href = shared.get("href")
     if not href:
         return
+<<<<<<< HEAD
     obj.shared_href = href
     if href in cache:
         obj.geometry_uid, obj.textures, obj.materials, obj.blocked, town_type = cache[href]
         if town_type:
             obj.extra["townType"] = town_type
+=======
+    absolute_shared = xdb.absolutize(href, base_href)
+    obj.shared_href = absolute_shared
+    if absolute_shared in cache:
+        (obj.geometry_uid, obj.textures, obj.materials,
+         obj.blocked, identity) = cache[absolute_shared]
+        obj.extra.update(identity)
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
         return
 
     geom_uid: Optional[str] = None
     textures: List[str] = []
     materials: List[dict] = []
+<<<<<<< HEAD
     town_type: Optional[str] = None
     node, shared_href = xdb.resolve(shared)
     if node is not None:
@@ -185,13 +213,31 @@ def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject, cache: dict) -
             town_type = None
         if town_type:
             obj.extra["townType"] = town_type
+=======
+    blocked: List[List[int]] = []
+    identity: Dict[str, str] = {}
+    node, shared_href = xdb.resolve(shared, base_href)
+    if node is not None:
+        # Shared records hold the stable identity that the inline map record
+        # omits: creature type, hero internal name and town type.
+        if node.tag == "AdvMapMonsterShared":
+            identity["creature"] = xdb.text(node.find("Creature"))
+        elif node.tag == "AdvMapHeroShared":
+            identity["hero"] = xdb.text(node.find("InternalName"))
+        elif node.tag == "AdvMapTownShared":
+            identity["townType"] = xdb.text(node.find("Type"))
+        elif node.tag == "AdvMapArtifactShared":
+            identity["artifact"] = xdb.text(node.find("ArtifactID"))
+        obj.extra.update(identity)
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
         for tag in ("blockedTiles", "BlockedTiles"):
-            blocked = node.find(tag)
-            if blocked is not None:
+            blocked_node = node.find(tag)
+            if blocked_node is not None:
                 # <Item><x>0</x><y>0</y></Item> -- the object's footprint offset.
-                obj.blocked = [[int(xdb.number(i.find("x"))), int(xdb.number(i.find("y")))]
-                               for i in xdb.items(blocked)]
+                blocked = [[int(xdb.number(i.find("x"))), int(xdb.number(i.find("y")))]
+                           for i in xdb.items(blocked_node)]
                 break
+<<<<<<< HEAD
         model_elem = node.find("Model")
         model, model_href = xdb.resolve(model_elem, shared_href)
 
@@ -243,6 +289,23 @@ def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject, cache: dict) -
                         textures.append(rel)
     cache[href] = (geom_uid, textures, materials, obj.blocked, town_type)
     obj.geometry_uid, obj.textures, obj.materials = geom_uid, textures, materials
+=======
+        model, model_href = xdb.resolve(node.find("Model"), shared_href)
+        if model is not None:
+            geom = model.find("Geometry")
+            if geom is not None:
+                inner = xdb.resolve_field(geom, model_href) or geom
+                geom_uid = xdb.text(inner.find("uid")) or None
+            materials = model_materials(xdb, model, model_href)
+            for material in materials:
+                texture = material.get("texture") or {}
+                name = texture.get("fileName") or texture.get("xdb")
+                if name:
+                    textures.append(name)
+    cache[absolute_shared] = (geom_uid, textures, materials, blocked, identity)
+    obj.geometry_uid, obj.textures, obj.materials, obj.blocked = (
+        geom_uid, textures, materials, blocked)
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
 
 def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
@@ -282,8 +345,9 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
         if shared is not None and shared.get("href"):
             shared_node, _shared_path = xdb.resolve(shared, base_href)
             if resolve_models:
-                _resolve_static(xdb, shared, obj, cache)
+                _resolve_static(xdb, shared, obj, cache, base_href)
             else:
+<<<<<<< HEAD
                 obj.shared_href = shared.get("href")
             if shared_node is not None:
                 shared_type = xdb.text(shared_node.find("Type"))
@@ -306,27 +370,48 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
                 if mn or mx:
                     obj.extra["minResource"] = int(mn)
                     obj.extra["maxResource"] = int(mx)
+=======
+                obj.shared_href = xdb.absolutize(shared.get("href"), base_href)
+
+        # PlayerID is the scenario owner field on AdvMap objects.  Keep the
+        # older Owner spelling only as a source-compatible fallback for records
+        # that actually use it.
+        player_id = xdb.text(inner.find("PlayerID")) or xdb.text(inner.find("Owner"))
+        if player_id:
+            obj.extra["owner"] = player_id
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
         # Type specific payloads worth carrying across.
         if inner.tag == "AdvMapMonster":
             obj.extra["creature"] = (xdb.text(inner.find("Type")) or
+<<<<<<< HEAD
                                       xdb.text(inner.find("Creature")) or
                                       (xdb.text(shared_node.find("Creature")) if shared_node is not None else ""))
             obj.extra["amount"] = int(xdb.number(inner.find("Amount")))
             obj.extra["amount2"] = int(xdb.number(inner.find("Amount2"), obj.extra["amount"]))
             obj.extra["customAmount"] = xdb.boolean(inner.find("CustomAmount"),
                                                      xdb.boolean(inner.find("Custom")))
+=======
+                                       xdb.text(inner.find("Creature")) or
+                                       obj.extra.get("creature", ""))
+            obj.extra["amount"] = int(xdb.number(inner.find("Amount")))
+            obj.extra["amount2"] = int(xdb.number(inner.find("Amount2")))
+            obj.extra["customAmount"] = xdb.boolean(
+                inner.find("CustomAmount"), xdb.boolean(inner.find("Custom")))
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
             obj.extra["attackType"] = xdb.text(inner.find("AttackType"))
             obj.extra["mood"] = xdb.text(inner.find("Mood"))
             stacks = [
                 {"creature": xdb.text(s.find("Creature")),
                  "amount": int(xdb.number(s.find("Amount"))),
+                 "amount2": int(xdb.number(s.find("Amount2"))),
                  "customAmount": xdb.boolean(s.find("CustomAmount"))}
                 for s in xdb.items(inner.find("AdditionalStacks"))
             ]
             if stacks:
                 obj.extra["additionalStacks"] = stacks
         elif inner.tag == "AdvMapTown":
+<<<<<<< HEAD
             # There is no TownType/Owner/TownName on an AdvMapTown. The owner is
             # PlayerID, the name is plain Name, and the faction is NOT in the map
             # at all: a town's shared definition is RandomTown, whose model is a
@@ -421,6 +506,38 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
                                       xdb.text(inner.find("ArtifactID")) or
                                       xdb.text(inner.find("Type")) or
                                       (xdb.text(shared_node.find("ArtifactID")) if shared_node is not None else ""))
+=======
+            obj.extra["townType"] = (xdb.text(inner.find("TownType")) or
+                                      xdb.text(inner.find("Type")) or obj.extra.get("townType", ""))
+            obj.extra["owner"] = xdb.text(inner.find("PlayerID")) or xdb.text(inner.find("Owner"))
+            obj.extra["name"] = xdb.text(inner.find("TownName")) or obj.name
+        elif inner.tag == "AdvMapHero":
+            obj.extra["hero"] = (xdb.text(inner.find("Hero")) or
+                                  xdb.text(inner.find("Type")) or obj.extra.get("hero", ""))
+            obj.extra["owner"] = xdb.text(inner.find("PlayerID")) or xdb.text(inner.find("Owner"))
+            editable = inner.find("Editable")
+            obj.extra["experience"] = int(xdb.number(inner.find("Experience")))
+            obj.extra["heroAttack"] = int(xdb.number(editable.find("Offence"))) if editable is not None else 0
+            obj.extra["heroDefence"] = int(xdb.number(editable.find("Defence"))) if editable is not None else 0
+            obj.extra["heroSpellPower"] = int(xdb.number(editable.find("Spellpower"))) if editable is not None else 0
+            obj.extra["heroKnowledge"] = int(xdb.number(editable.find("Knowledge"))) if editable is not None else 0
+            obj.extra["army"] = [
+                {"creature": xdb.text(s.find("Creature")), "count": int(xdb.number(s.find("Count")))}
+                for s in xdb.items(inner.find("armySlots"))
+            ]
+            obj.extra["heroSkills"] = [
+                xdb.text(s.find("SkillID")) for s in xdb.items(editable.find("skills"))
+            ] if editable is not None else []
+            obj.extra["heroPerks"] = [xdb.text(s) for s in xdb.items(editable.find("perkIDs"))] if editable is not None else []
+            obj.extra["heroSpells"] = [xdb.text(s) for s in xdb.items(editable.find("spellIDs"))] if editable is not None else []
+        elif inner.tag == "AdvMapMine":
+            obj.extra["resource"] = xdb.text(inner.find("Resource")) or xdb.text(inner.find("Type"))
+            obj.extra["owner"] = xdb.text(inner.find("PlayerID")) or xdb.text(inner.find("Owner")) or obj.extra.get("owner", "")
+        elif inner.tag == "AdvMapArtifact":
+            obj.extra["artifact"] = (xdb.text(inner.find("Artifact")) or
+                                       xdb.text(inner.find("Type")) or
+                                       obj.extra.get("artifact", ""))
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
         elif inner.tag == "AdvMapTreasure":
             # A chest. What is inside comes from the shared definition; the
             # instance carries how much and whether the author overrode it.

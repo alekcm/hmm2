@@ -32,11 +32,14 @@ def _res(xdb: XDB, node: Optional[ET.Element]) -> Dict[str, int]:
     return {f: int(xdb.number(node.find(f))) for f in RESOURCE_FIELDS}
 
 
-def _text_ref(xdb: XDB, loc: Optional[Localization], node: Optional[ET.Element]) -> Optional[str]:
+def _text_ref(xdb: XDB, loc: Optional[Localization], node: Optional[ET.Element],
+              base_href: Optional[str] = None) -> Optional[str]:
     if node is None or loc is None:
         return None
     href = node.get("href")
-    return loc.read(href) if href else None
+    if not href:
+        return None
+    return loc.read(xdb.absolutize(href, base_href)) if base_href else loc.read(href)
 
 
 def _text_list(xdb: XDB, loc: Optional[Localization],
@@ -120,6 +123,7 @@ def _base_key(path: str) -> str:
     return os.path.splitext(os.path.basename(path))[0]
 
 
+<<<<<<< HEAD
 def load_creature_enum_ids(xdb: XDB) -> Dict[str, str]:
     """``CREATURE_PEASANT`` -> the creature record's href.
 
@@ -141,6 +145,96 @@ def load_creature_enum_ids(xdb: XDB) -> Dict[str, str]:
         if cid and href:
             out[cid] = href.split("#", 1)[0]
     return out
+=======
+def _texture_data(xdb: XDB, node: Optional[ET.Element],
+                  base_href: Optional[str]) -> dict:
+    """Export the resolved ``NDb::Texture`` reference without assigning assets heuristically.
+
+    The material points at a ``Texture`` XDB record, while ``cmd_textures`` writes
+    the corresponding DDS as ``Textures/<xdb path>.png``.  Keeping both the
+    source XDB path and the generated path in the JSON makes the association
+    auditable and lets Unity load the exact material slot rather than guessing
+    from a mesh name or PNG order.
+    """
+    result = {}
+    if node is None:
+        return result
+    texture, texture_href = xdb.resolve(node, base_href)
+    if texture is None:
+        return result
+
+    # Texture records are normally addressed by an absolute XDB href.  The
+    # shipped converter preserves that path and only changes the extension to
+    # .dds; the offline PNG exporter appends .png once more.
+    source = (texture_href or "").split("#", 1)[0]
+    if source:
+        result["xdb"] = source
+        dds = source[:-4] + ".dds" if source.lower().endswith(".xdb") else source
+        result["dds"] = dds
+        result["png"] = dds.lstrip("/") + ".png"
+    file_name = xdb.text(texture.find("FileName")) or xdb.text(texture.find("DestName"))
+    if file_name:
+        result["fileName"] = file_name
+    result["address"] = xdb.text(texture.find("AddrType"))
+    result["flipY"] = xdb.boolean(texture.find("FlipY"), False)
+    return result
+
+
+def model_materials(xdb: XDB, model: Optional[ET.Element],
+                    model_href: Optional[str]) -> List[dict]:
+    """Read ``NDb::Model.Materials`` in the authoritative XDB array order.
+
+    ``geometry.py`` emits one glTF node for each non-empty geometry slice.  The
+    runtime binds the arrays ordinally only when their counts make that relation
+    unambiguous; this exporter never invents a mapping for an ambiguous model.
+    No texture is invented when a material has no texture reference.
+    """
+    materials: List[dict] = []
+    if model is None:
+        return materials
+    mats = model.find("Materials")
+    for item in xdb.items(mats):
+        material, material_href = xdb.resolve(item, model_href)
+        if material is None:
+            # Inline records have the Material child under the Item.
+            material = item.find("Material")
+            material_href = model_href
+        if material is None:
+            materials.append({})
+            continue
+
+        spec_color = xdb.vec3(material.find("SpecColor"))
+        translucent_color = xdb.vec3(material.find("TranslucentColor"))
+        record = {
+            "texture": _texture_data(xdb, material.find("Texture"), material_href),
+            "bump": _texture_data(xdb, material.find("Bump"), material_href),
+            "gloss": _texture_data(xdb, material.find("Gloss"), material_href),
+            "mirror": _texture_data(xdb, material.find("Mirror"), material_href),
+            "detailTexture": _texture_data(xdb, material.find("DetailTexture"), material_href),
+            "specFactor": xdb.number(material.find("SpecFactor")),
+            "specColor": list(spec_color),
+            "metalMirror": xdb.number(material.find("MetalMirror")),
+            "dielMirror": xdb.number(material.find("DielMirror")),
+            "castShadow": xdb.boolean(material.find("CastShadow"), True),
+            "receiveShadow": xdb.boolean(material.find("ReceiveShadow"), True),
+            "priority": int(xdb.number(material.find("Priority"))),
+            "translucentColor": list(translucent_color),
+            "floatParam": xdb.number(material.find("FloatParam")),
+            "detailScale": xdb.number(material.find("DetailScale"), 5.0),
+            "projectOnTerrain": xdb.boolean(material.find("ProjectOnTerrain"), False),
+            "lightingMode": xdb.text(material.find("LightingMode")),
+            "dynamicMode": xdb.text(material.find("DynamicMode")),
+            "is2Sided": xdb.boolean(material.find("Is2Sided"), False),
+            "effect": xdb.text(material.find("Effect")),
+            "alphaMode": xdb.text(material.find("AlphaMode")),
+            "affectedByFog": xdb.boolean(material.find("AffectedByFog"), True),
+            "addPlaced": xdb.boolean(material.find("AddPlaced"), False),
+            "ignoreZBuffer": xdb.boolean(material.find("IgnoreZBuffer"), False),
+            "backFaceCastShadow": xdb.boolean(material.find("BackFaceCastShadow"), False),
+        }
+        materials.append(record)
+    return materials
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
 
 def load_creatures(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, dict]:
@@ -159,10 +253,15 @@ def load_creatures(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
         except ET.ParseError:
             continue
         key = _base_key(path)
+<<<<<<< HEAD
         rec = {"id": key, "source": xdb.href_from_path(path), "isHero": "Heroes" in path.replace("\\", "/")}
         # "enumId", not "enum": the C# DTO would need a verbatim identifier
         # (@enum) to carry the latter, for no gain.
         rec["enumId"] = enum_by_source.get(rec["source"], "")
+=======
+        rec = {"id": key, "source": xdb.href_from_path(path), "isHero": "Heroes" in path.replace("\\", "/"),
+               "enumIds": []}
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
         for f in CREATURE_INT_FIELDS:
             rec[f] = int(xdb.number(root.find(f)))
         rec["flying"] = xdb.boolean(root.find("Flying"))
@@ -197,7 +296,26 @@ def load_creatures(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
                 geom_uid, textures = model_geometry(xdb, model, model_href)
                 rec["visual"]["geometryUid"] = geom_uid
                 rec["visual"]["textures"] = textures
+                rec["visual"]["materials"] = model_materials(xdb, model, model_href)
         out[key] = rec
+
+    # Map/XDB records store CreatureType enum values such as
+    # CREATURE_CHAMPION, while the creature directory is keyed by filenames
+    # such as Champion.xdb.  The reference table is the authoritative bridge;
+    # do not derive an enum name from a filename.
+    ref = xdb.load("/GameMechanics/RefTables/Creatures.xdb")
+    ref_objects = ref.find("objects") if ref is not None else None
+    ref_href = "/GameMechanics/RefTables/Creatures.xdb"
+    for item in xdb.items(ref_objects):
+        enum_id = xdb.text(item.find("ID"))
+        target = item.find("Obj")
+        href = target.get("href") if target is not None else ""
+        if not enum_id or not href:
+            continue
+        key = _base_key(xdb.absolutize(href, ref_href).split("#", 1)[0])
+        record = out.get(key)
+        if record is not None and enum_id not in record["enumIds"]:
+            record["enumIds"].append(enum_id)
     return out
 
 
@@ -765,10 +883,12 @@ def load_artifacts(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
         }
         model, model_href = xdb.resolve(obj.find("Model"), "/GameMechanics/RefTables/Artifacts.xdb")
         rec["geometryUid"], rec["textures"] = model_geometry(xdb, model, model_href)
+        rec["materials"] = model_materials(xdb, model, model_href)
         out[aid] = rec
     return out
 
 
+<<<<<<< HEAD
 TOWN_BUILDING_DIR = "GameMechanics/TownBuildingSharedStats"
 
 # The Citadel's +50% and the Castle's doubling are stated in every faction's
@@ -809,6 +929,100 @@ def town_building_key(href: Optional[str]) -> Optional[str]:
     if len(parts) < at + 3:                      # needs <folder>/<file>
         return None
     return parts[at + 1] + "/" + os.path.splitext(parts[-1])[0]
+=======
+def _campaign_bonus(xdb: XDB, node: Optional[ET.Element]) -> dict:
+    if node is None:
+        return {}
+    army = node.find("BonusArmy")
+    return {
+        "targetHero": node.find("Target/Hero") is not None,
+        "type": xdb.text(node.find("Type")),
+        "creature": xdb.text(army.find("Creature")) if army is not None else "",
+        "creatureCount": int(xdb.number(army.find("Count"))) if army is not None else 0,
+        "artifact": xdb.text(node.find("BonusArtifactID")),
+        "resources": _res(xdb, node.find("BonusResources")),
+        "spell": xdb.text(node.find("BonusSpellID")),
+        "building": xdb.text(node.find("Building")),
+    }
+
+
+def _campaign_mission(xdb: XDB, loc: Optional[Localization], node: ET.Element,
+                      campaign_href: str, index: int) -> dict:
+    tag, tag_href = xdb.resolve(node.find("MissionTag"), campaign_href)
+    map_id = ""
+    map_source = ""
+    map_name = None
+    map_description = None
+    tile_x = tile_y = 0
+    if tag is not None:
+        map_name = _text_ref(xdb, loc, tag.find("NameFileRef"), tag_href)
+        map_description = _text_ref(xdb, loc, tag.find("DescriptionFileRef"), tag_href)
+        tile_x = int(xdb.number(tag.find("TileX")))
+        tile_y = int(xdb.number(tag.find("TileY")))
+        map_node, map_href = xdb.resolve(tag.find("AdvMapDesc"), tag_href)
+        if map_href:
+            map_source = map_href
+            map_id = os.path.basename(os.path.dirname(map_href))
+        if map_node is not None:
+            tile_x = int(xdb.number(map_node.find("TileX"), tile_x))
+            tile_y = int(xdb.number(map_node.find("TileY"), tile_y))
+
+    heroes_pool = node.find("HeroesPool")
+    heroes = []
+    if heroes_pool is not None:
+        for hero in xdb.items(heroes_pool.find("Heroes")):
+            heroes.append({
+                "hero": xdb.text(hero.find("HeroScriptName")),
+                "targetCampaign": xdb.text(hero.find("TargetCampaign")),
+                "targetMission": int(xdb.number(hero.find("TargetMission"))),
+            })
+
+    return {
+        "id": map_id or "mission_" + str(index + 1),
+        "mapId": map_id,
+        "mapSource": map_source,
+        "name": map_name or "",
+        "description": map_description or "",
+        "tileX": tile_x,
+        "tileY": tile_y,
+        "bonuses": [_campaign_bonus(xdb, item) for item in xdb.items(node.find("Bonuses"))],
+        "heroes": heroes,
+        "heroCount": int(xdb.number(heroes_pool.find("Count"))) if heroes_pool is not None else 0,
+    }
+
+
+def load_campaigns(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, dict]:
+    """Export the shipped Campaign XDB records and their mission map links."""
+    out: Dict[str, dict] = {}
+    for path in xdb.iter_files("Campaigns"):
+        try:
+            root = ET.parse(path).getroot()
+        except ET.ParseError:
+            continue
+        if root.tag != "Campaign":
+            continue
+        campaign_href = xdb.href_from_path(path)
+        key = xdb.text(root.find("InternalName")) or _base_key(path)
+        missions = [
+            _campaign_mission(xdb, loc, item, campaign_href, index)
+            for index, item in enumerate(xdb.items(root.find("Missions")))
+        ]
+        out[key] = {
+            "id": key,
+            "source": campaign_href,
+            "name": _text_ref(xdb, loc, root.find("NameFileRef"), campaign_href) or key,
+            "fullName": _text_ref(xdb, loc, root.find("FullNameFileRef"), campaign_href) or key,
+            "description": _text_ref(xdb, loc, root.find("NameCommentFileRef"), campaign_href) or "",
+            "dependentCampaigns": [
+                (xdb.absolutize(item.get("href"), campaign_href).split("#", 1)[0]
+                 if item.get("href") else "")
+                for item in xdb.items(root.find("DependentCampaigns"))
+            ],
+            "missions": missions,
+            "userCampaign": xdb.boolean(root.find("UserCampaign")),
+        }
+    return out
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
 
 def load_town_buildings(xdb: XDB, loc: Optional[Localization] = None) -> List[dict]:
@@ -867,6 +1081,7 @@ def load_town_buildings(xdb: XDB, loc: Optional[Localization] = None) -> List[di
     return out
 
 
+<<<<<<< HEAD
 def fill_dwelling_growth(buildings: List[dict], creatures_by_enum: Dict[str, dict]) -> int:
     """Copy each dwelling's weekly number off the creature it breeds.
 
@@ -1062,6 +1277,47 @@ def load_model_animations(xdb: XDB) -> Dict[str, dict]:
         if entry["skeleton"] or entry["arena"] or entry["advmap"]:
             out[geom_uid] = entry
     return out
+=======
+def load_default_stats(xdb: XDB) -> Dict[str, object]:
+    """Load global RPGStats from ``/GameMechanics/RPGStats/DefaultStats.xdb``
+    (resolved through the ToTE 3.1 ``a2p1-data`` overlay when present), matching
+    ``NWorld::GetDefaultStats()`` (`0x00bcb3f0` in ``H5_Game_PEST.exe``).
+    """
+    root = xdb.load("/GameMechanics/RPGStats/DefaultStats.xdb")
+    if root is None:
+        return {}
+    adv = root.find("adventure")
+    cmb = root.find("combat")
+    lm = cmb.find("LuckAndMorale") if cmb is not None else None
+    cre = cmb.find("Creatures") if cmb is not None else None
+    return {
+        "source": "/GameMechanics/RPGStats/DefaultStats.xdb",
+        "heroInitiative": int(xdb.number(root.find("HeroInitiative"), 10)),
+        "spellInitiative": int(xdb.number(root.find("SpellInitiative"), 10)),
+        "atbEndTime": int(xdb.number(root.find("ATBEndTime"), 20000)),
+        "atbBaseTime": int(xdb.number(root.find("ATBBaseTime"), 100000)),
+        "rumorCost": int(xdb.number(root.find("RumorCost"), 100)),
+        "adventure": {
+            "baseHeroMovement": int(xdb.number(adv.find("BaseHeroMovement"), 2500)) if adv is not None else 2500,
+            "baseHeroLookRange": int(xdb.number(adv.find("BaseHeroLookRange"), 12)) if adv is not None else 12,
+            "heroManaPerKnowledge": int(xdb.number(adv.find("HeroManaPerKnowledge"), 10)) if adv is not None else 10,
+            "visitStablesMovementBonus": int(xdb.number(adv.find("VisitStablesMovementBonus"), 600)) if adv is not None else 600,
+            "visitOasisMovementBonus": int(xdb.number(adv.find("VisitOasisMovementBonus"), 800)) if adv is not None else 800,
+            "visitRallyFlagMovementBonus": int(xdb.number(adv.find("VisitRallyFlagMovementBonus"), 400)) if adv is not None else 400,
+        },
+        "combat": {
+            "damageIncrease": xdb.number(cmb.find("DamageIncrease"), 0.05) if cmb is not None else 0.05,
+            "damageIncreaseCap": xdb.number(cmb.find("DamageIncreaseCap"), 3.0) if cmb is not None else 3.0,
+            "damageDecrease": xdb.number(cmb.find("DamageDecrease"), 0.05) if cmb is not None else 0.05,
+            "damageDecreaseCap": xdb.number(cmb.find("DamageDecreaseCap"), 0.1) if cmb is not None else 0.1,
+            "defenceBonusOnDefend": xdb.number(cre.find("DefenceBonusOnDefend"), 0.3) if cre is not None else 0.3,
+            "goodLuckDamageMultiplier": xdb.number(lm.find("GoodLuck_DamageMultiplier"), 2.0) if lm is not None else 2.0,
+            "badLuckDamageMultiplier": xdb.number(lm.find("BadLuck_DamageMultiplier"), 0.5) if lm is not None else 0.5,
+            "goodMoraleAtbValue": xdb.number(lm.find("GoodMorale_ATBValue"), 0.5) if lm is not None else 0.5,
+            "badMoraleAtbValue": xdb.number(lm.find("BadMorale_ATBValue"), 0.0) if lm is not None else 0.0,
+        },
+    }
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
 
 def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object]:
@@ -1077,6 +1333,7 @@ def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object
                          {r["enumId"]: r for r in creatures.values() if r.get("enumId")})
     fill_grail_values(town_buildings)
     return {
+<<<<<<< HEAD
         "creatures": creatures,
         "spells": load_spells(xdb, loc),
         "artifacts": load_artifacts(xdb, loc),
@@ -1089,4 +1346,12 @@ def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object
         "skills": load_skills(xdb, loc),
         "heroClasses": load_hero_classes(xdb, loc),
         "heroes": load_heroes(xdb, loc),
+=======
+        "defaultStats": load_default_stats(xdb),
+        "creatures": load_creatures(xdb, loc),
+        "spells": load_spells(xdb, loc),
+        "artifacts": load_artifacts(xdb, loc),
+        "townBuildings": load_town_buildings(xdb, loc),
+        "campaigns": load_campaigns(xdb, loc),
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
     }

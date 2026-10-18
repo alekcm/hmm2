@@ -72,8 +72,16 @@ namespace HoMM5.UI
             BuildCanvas();
         }
 
+        bool _canvasBuilt;
+
+        void Awake()
+        {
+            EnsureCanvas();
+        }
+
         void Start()
         {
+<<<<<<< HEAD
             // Awake built the canvas before H5Bootstrap could hand over the data
             // tables, so the town screen gets them here.
             if (Town != null)
@@ -81,6 +89,9 @@ namespace HoMM5.UI
                 Town.Database = Database;
                 Town.GameState = GameState;
             }
+=======
+            EnsureCanvas();
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
             if (Controller != null) Controller.SelectionChanged += OnSelectionChanged;
             if (GameState != null)
             {
@@ -95,6 +106,13 @@ namespace HoMM5.UI
                 Controller.Selected == null || Time.unscaledTime < _nextDetailsRefresh) return;
             _nextDetailsRefresh = Time.unscaledTime + 0.25f;
             _details.text = Controller.Selected.Details();
+        }
+
+        void EnsureCanvas()
+        {
+            if (_canvasBuilt) return;
+            _canvasBuilt = true;
+            BuildCanvas();
         }
 
         void OnDestroy()
@@ -350,6 +368,7 @@ namespace HoMM5.UI
         /// <summary>Fill the map list from the importer's index.</summary>
         public void PopulateMapList(System.Action<string> onLoad)
         {
+            EnsureCanvas();
             if (_mapListContent == null || Database == null) return;
             foreach (Transform child in _mapListContent) Destroy(child.gameObject);
 
@@ -406,6 +425,7 @@ namespace HoMM5.UI
 
         public void SetStats(string text)
         {
+            EnsureCanvas();
             if (_stats != null) _stats.text = text;
         }
 

@@ -38,16 +38,24 @@ def _split_href(href: str) -> Tuple[str, Optional[str]]:
 
 
 class XDB:
-    """A view over one game data root (the unpacked ``data.pak``)."""
+    """A view over one game data root (the unpacked ``data.pak``), with automatic
+    Tribes of the East Patch 3.1 (``a2p1-data``) overlay when present.
+    """
 
-    def __init__(self, data_root: str):
+    def __init__(self, data_root: str, patch_root: Optional[str] = None):
         self.data_root = os.path.abspath(data_root)
+        if patch_root is None and os.path.basename(self.data_root) == "data":
+            cand = os.path.join(os.path.dirname(self.data_root), "a2p1-data")
+            if os.path.isdir(cand):
+                patch_root = cand
+        self.patch_root: Optional[str] = os.path.abspath(patch_root) if patch_root else None
         self._cache: Dict[str, Optional[ET.Element]] = {}
         self._dir_cache: Dict[str, dict] = {}
 
     # -- loading -----------------------------------------------------------
     def _path_for(self, href: str) -> str:
         rel = href.lstrip("/").replace("\\", "/")
+<<<<<<< HEAD
         path = os.path.join(self.data_root, rel)
         if os.path.exists(path):
             return path
@@ -82,6 +90,13 @@ class XDB:
                 cached = {}
             self._dir_cache[directory] = cached
         return cached
+=======
+        if self.patch_root:
+            patch_cand = os.path.join(self.patch_root, rel)
+            if os.path.isfile(patch_cand):
+                return patch_cand
+        return os.path.join(self.data_root, rel)
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
     @staticmethod
     def absolutize(href: str, base_href: Optional[str]) -> str:
@@ -209,16 +224,27 @@ class XDB:
 
     # -- iteration ---------------------------------------------------------
     def iter_files(self, subdir: str, suffix: str = ".xdb") -> Iterator[str]:
-        base = os.path.join(self.data_root, subdir)
-        if not os.path.isdir(base):
-            return
-        for dirpath, _dirs, files in os.walk(base):
-            for f in files:
-                if f.lower().endswith(suffix):
-                    yield os.path.join(dirpath, f)
+        seen = set()
+        roots = [r for r in (self.patch_root, self.data_root) if r is not None]
+        for root in roots:
+            base = os.path.join(root, subdir)
+            if not os.path.isdir(base):
+                continue
+            for dirpath, _dirs, files in os.walk(base):
+                for f in files:
+                    if f.lower().endswith(suffix):
+                        full = os.path.join(dirpath, f)
+                        rel = os.path.relpath(full, root).replace("\\", "/").lower()
+                        if rel not in seen:
+                            seen.add(rel)
+                            yield full
 
     def href_from_path(self, path: str) -> str:
-        rel = os.path.relpath(os.path.abspath(path), self.data_root).replace("\\", "/")
+        abs_p = os.path.abspath(path)
+        if self.patch_root and abs_p.startswith(self.patch_root + os.sep):
+            rel = os.path.relpath(abs_p, self.patch_root).replace("\\", "/")
+            return "/" + rel
+        rel = os.path.relpath(abs_p, self.data_root).replace("\\", "/")
         return "/" + rel
 
     def logical_name(self, href: str) -> str:

@@ -5,8 +5,9 @@ namespace HoMM5.Map
 {
     /// <summary>
     /// The adventure-map camera: pan with WASD or the middle mouse button, zoom
-    /// with the wheel, click to select.  HoMM5's own camera rides on a fixed
-    /// pitch over the map, so the pitch here is locked rather than free-look.
+    /// with the wheel, click to select an object or provide a ground destination.
+    /// HoMM5's own camera rides on a fixed pitch over the map, so the pitch here
+    /// is locked rather than free-look.
     /// </summary>
     [RequireComponent(typeof(Camera))]
     public class AdventureMapController : MonoBehaviour
@@ -46,6 +47,7 @@ namespace HoMM5.Map
         public float ViewFov => _cam != null ? _cam.fieldOfView : 45f;
 
         public event System.Action<H5MapObject> SelectionChanged;
+        public event System.Action<Vector3> MapClicked;
         public H5MapObject Selected { get; private set; }
 
         void Awake()
@@ -161,6 +163,14 @@ namespace HoMM5.Map
             if (!Physics.Raycast(ray, out var hit, 2000f)) return;
 
             var obj = hit.collider.GetComponentInParent<H5MapObject>();
+            if (obj == null)
+            {
+                // Ground clicks are destinations for the currently selected
+                // hero.  Do not clear that selection before subscribers have
+                // received the destination.
+                MapClicked?.Invoke(hit.point);
+                return;
+            }
             Select(obj);
         }
 

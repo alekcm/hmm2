@@ -37,6 +37,51 @@ namespace HoMM5.Data
         public string mastery;
     }
 
+    /// <summary>
+    /// One XDB Texture record as referenced by a material.  The importer writes
+    /// the generated PNG path explicitly; runtime code never matches textures by
+    /// basename or by PNG/asset enumeration order.
+    /// </summary>
+    public class TextureDef
+    {
+        public string xdb;
+        public string dds;
+        public string png;
+        public string fileName;
+        public string address;
+        public bool flipY;
+    }
+
+    /// <summary>Material flags copied from NDb::Material.</summary>
+    public class MaterialDef
+    {
+        public TextureDef texture;
+        public TextureDef bump;
+        public TextureDef gloss;
+        public TextureDef mirror;
+        public TextureDef detailTexture;
+        public float specFactor;
+        public float[] specColor;
+        public float metalMirror;
+        public float dielMirror;
+        public bool castShadow = true;
+        public bool receiveShadow = true;
+        public int priority;
+        public float[] translucentColor;
+        public float floatParam;
+        public float detailScale = 5f;
+        public bool projectOnTerrain;
+        public string lightingMode;
+        public string dynamicMode;
+        public bool is2Sided;
+        public string effect;
+        public string alphaMode;
+        public bool affectedByFog = true;
+        public bool addPlaced;
+        public bool ignoreZBuffer;
+        public bool backFaceCastShadow;
+    }
+
     public class CreatureVisualDef
     {
         public string name;
@@ -47,6 +92,7 @@ namespace HoMM5.Data
         public string icon;
         public string geometryUid;
         public List<string> textures;
+        public List<MaterialDef> materials;
     }
 
     /// <summary>One creature or hero, transcribed from GameMechanics/Creature.</summary>
@@ -63,6 +109,7 @@ namespace HoMM5.Data
         public string enumId;
         public string source;
         public bool isHero;
+        public List<string> enumIds;
 
         public int AttackSkill;
         public int DefenceSkill;
@@ -261,6 +308,7 @@ namespace HoMM5.Data
         public ArtifactStats stats;
         public string geometryUid;
         public List<string> textures;
+        public List<MaterialDef> materials;
 
         public string DisplayName => string.IsNullOrEmpty(name) ? id : name;
     }
@@ -620,8 +668,49 @@ namespace HoMM5.Data
         public int power;
     }
 
+    public class DefaultAdventureStatsDef
+    {
+        public int baseHeroMovement = 2500;
+        public int baseHeroLookRange = 12;
+        public int heroManaPerKnowledge = 10;
+        public int visitStablesMovementBonus = 600;
+        public int visitOasisMovementBonus = 800;
+        public int visitRallyFlagMovementBonus = 400;
+    }
+
+    public class DefaultCombatStatsDef
+    {
+        public float damageIncrease = 0.05f;
+        public float damageIncreaseCap = 3.0f;
+        public float damageDecrease = 0.05f;
+        public float damageDecreaseCap = 0.1f;
+        public float defenceBonusOnDefend = 0.3f;
+        public float goodLuckDamageMultiplier = 2.0f;
+        public float badLuckDamageMultiplier = 0.5f;
+        public float goodMoraleAtbValue = 0.5f;
+        public float badMoraleAtbValue = 0.0f;
+    }
+
+    /// <summary>
+    /// Global RPGStats from <c>/GameMechanics/RPGStats/DefaultStats.xdb</c>
+    /// (ToTE 3.1 <c>a2p1-data</c>), accessed in <c>H5_Game_PEST.exe</c> via
+    /// <c>NWorld::GetDefaultStats()</c> (<c>0x00bcb3f0</c>).
+    /// </summary>
+    public class DefaultStatsDef
+    {
+        public string source;
+        public int heroInitiative = 10;
+        public int spellInitiative = 10;
+        public int atbEndTime = 20000;
+        public int atbBaseTime = 100000;
+        public int rumorCost = 100;
+        public DefaultAdventureStatsDef adventure = new DefaultAdventureStatsDef();
+        public DefaultCombatStatsDef combat = new DefaultCombatStatsDef();
+    }
+
     // -- maps --------------------------------------------------------------
 
+<<<<<<< HEAD
     /// <summary>
     /// One material of a model. Mirrors the Material block of a Model XDB.
     /// AlphaMode is the one that matters visually: AM_ALPHA_TEST is the single
@@ -728,6 +817,22 @@ namespace HoMM5.Data
         public int holdout;
     }
 
+=======
+    public class HeroArmySlotDef
+    {
+        public string creature;
+        public int count;
+    }
+
+    public class MonsterStackDef
+    {
+        public string creature;
+        public int amount;
+        public int amount2;
+        public bool customAmount;
+    }
+
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
     public class MapObjectDef
     {
         public string kind;
@@ -756,9 +861,11 @@ namespace HoMM5.Data
         // AdvMapMonster
         public string creature;
         public int amount;
+        public int amount2;
         public bool customAmount;
         public string attackType;
         public string mood;
+        public List<MonsterStackDef> additionalStacks;
 
         // AdvMapHero level-up history (Editable block)
         public List<MapSkillEntry> skills;
@@ -771,6 +878,15 @@ namespace HoMM5.Data
         public string townType;
         public string owner;
         public string hero;
+        public int experience;
+        public int heroAttack;
+        public int heroDefence;
+        public int heroSpellPower;
+        public int heroKnowledge;
+        public List<HeroArmySlotDef> army;
+        public List<string> heroSkills;
+        public List<string> heroPerks;
+        public List<string> heroSpells;
         public string resource;
         public string artifact;
         public string guardType;
@@ -830,6 +946,51 @@ namespace HoMM5.Data
         public Dictionary<string, int> counts;
         /// <summary>True for Maps/CombatArenas scenery, used as battlefields.</summary>
         public bool arena;
+    }
+
+    public class CampaignBonusDef
+    {
+        public bool targetHero;
+        public string type;
+        public string creature;
+        public int creatureCount;
+        public string artifact;
+        public ResourceCost resources;
+        public string spell;
+        public string building;
+    }
+
+    public class CampaignHeroDef
+    {
+        public string hero;
+        public string targetCampaign;
+        public int targetMission;
+    }
+
+    public class CampaignMissionDef
+    {
+        public string id;
+        public string mapId;
+        public string mapSource;
+        public string name;
+        public string description;
+        public int tileX;
+        public int tileY;
+        public List<CampaignBonusDef> bonuses;
+        public List<CampaignHeroDef> heroes;
+        public int heroCount;
+    }
+
+    public class CampaignDef
+    {
+        public string id;
+        public string source;
+        public string name;
+        public string fullName;
+        public string description;
+        public List<string> dependentCampaigns;
+        public List<CampaignMissionDef> missions;
+        public bool userCampaign;
     }
 
     // -- terrain -----------------------------------------------------------

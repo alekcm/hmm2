@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "homm5-decompile"
+version = "0.1.0"
+description = "Static PE32 RTTI, vftable, Lua C-API, NDb reflection, and NWorld gameplay formula extractor for HoMM5 ToTE 3.1 (H5_Game_PEST.exe)"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+homm5-decompile = "homm5decompile.cli:main"

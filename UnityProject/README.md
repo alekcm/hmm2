@@ -58,13 +58,20 @@ there is nothing to lose.
 | pointer at screen edge | edge scroll |
 | middle mouse drag | pan directly |
 | wheel | zoom |
+<<<<<<< HEAD
 | left click | select a map object (or click the minimap to pan the camera) |
 | right click | issue a pathfinding move to a selected hero |
+=======
+| left click on an object | select it and open its source-backed details |
+| left click on ground with the player hero selected | calculate a source-backed path and move the hero |
+| MAIN MENU | return to the campaign/mission screen |
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 | F1 | switch surface / underground |
 | F5 / Save | quick save |
 | F9 / Load | quick load |
 | End Day | advance the prototype calendar and restore hero movement |
 
+<<<<<<< HEAD
 In battle: left click a highlighted cell to move, click an enemy stack to
 attack (a walk to the nearest attack cell resolves with the blow); click a
 wall/gate/tower to strike it during a siege. Wait, Defend, Cast Spell, Quick
@@ -79,6 +86,10 @@ reads the shipped base hero movement (`2500` MP) and movement bonuses from
 flat tile as 100 MP; terrain, army, road, artifact and skill cost calculations
 are still being reconstructed from the native engine, so this conversion is
 explicitly provisional rather than a claimed original rule.
+=======
+The campaign screen lists the 15 exported campaign missions.  The legacy map list
+remains available in the HUD for imports that contain no Campaign records.
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
 ## Layout
 
@@ -94,8 +105,10 @@ Assets/Scripts/
 │   ├── Map/MeshCache.cs           meshes by geometry UID
 │   ├── Map/MapSceneBuilder.cs     map JSON → scene
 │   ├── Map/H5MapObject.cs         game identity of a placed object
-│   ├── Map/AdventureMapController.cs  camera + selection
+│   ├── Map/AdventureMapController.cs  camera + selection + ground clicks
+│   ├── Map/H5AdventureController.cs  hero selection, pathfinding and movement
 │   ├── UI/HoMM5Hud.cs             selection panel, stats, map list
+│   ├── UI/HoMM5MainMenu.cs        campaign and mission screen
 │   └── H5Bootstrap.cs             entry point
 └── HoMM5.Editor/H5EditorMenu.cs   importer runner, scene builder, summary
 ```
@@ -106,10 +119,14 @@ dependency on a glTF package's API.
 
 ## How data gets to the screen
 
-`H5Bootstrap` loads `Game/*.json` into a `GameDatabase`, then builds the first
-map. `MapSceneBuilder` loads the terrain planes, hands them to
-`TerrainMeshBuilder`, and walks the map's object list, resolving each object's
-geometry UID through `MeshCache` → `GlbMeshLoader`.
+`H5Bootstrap` loads `Game/*.json` into a `GameDatabase`, shows the exported
+campaign missions, and builds only the map the player explicitly selects.
+`MapSceneBuilder` loads the terrain planes, hands them to `TerrainMeshBuilder`,
+and walks the map's object list, resolving each object's geometry UID through
+`MeshCache` → `GlbMeshLoader`.  `H5AdventureController` binds the exported
+`PLAYER_1` hero and uses `NWorldPathfinder` for confirmed movement costs; it does
+not invent encounter, combat, or town behavior that is not yet reconstructed
+from the executable/source.
 
 Three things are worth knowing about that path:
 
@@ -159,6 +176,7 @@ every click, so the map list would render and never respond.
 
 ## What this is
 
+<<<<<<< HEAD
 A **map viewer over the real game data** — the terrain, all 198001 placed map
 objects across 21 kinds, the creature and artifact tables, and the Russian localization, all
 rendered from what the shipped engine reads. Selecting a monster shows its
@@ -185,6 +203,19 @@ campaign flow, secondary skills and Lua execution are still
 absent. The remaining systems live in
 `bin/H5_Game_PEST.exe`; `data/scripts/*.lua` holds the campaign and map scripting
 and is imported nowhere. See `../PORT_STATUS.md` for the full accounting.
+=======
+A **source-backed vertical slice over the real game data** — the terrain, 198,014
+placed objects, creature and artifact tables, campaign missions, and Russian
+localization are rendered from what the shipped engine reads.  The player enters
+through the campaign screen, selects a mission, selects the exported player
+hero, and can move it across reachable terrain using the reconstructed
+`NWorld` path-cost code.
+
+This is not yet the complete game.  Encounter resolution, tactical combat,
+turn order, AI, town screens, and Lua mission scripting remain separate systems;
+those live in `bin/H5_Game_PEST.exe` and `data/scripts/*.lua` and are not filled
+with guessed behavior. See `../PORT_STATUS.md` for the full accounting.
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
 ## Known limits
 

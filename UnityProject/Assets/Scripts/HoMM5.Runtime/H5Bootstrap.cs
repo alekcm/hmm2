@@ -5,14 +5,15 @@ using HoMM5.Core;
 using HoMM5.Data;
 using HoMM5.Map;
 using HoMM5.UI;
+using HoMM5.World;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace HoMM5
 {
     /// <summary>
-    /// Entry point.  Loads the imported game data, builds a camera, lights and a
-    /// HUD, then loads the first map on the list.
+    /// Entry point.  Loads the imported game data, builds the main menu, camera,
+    /// lights and HUD, then starts the mission selected from the campaign data.
     ///
     /// Nothing here needs a hand-authored scene asset beyond an empty scene with
     /// this component on one GameObject -- which is what
@@ -21,6 +22,7 @@ namespace HoMM5
     [DefaultExecutionOrder(-100)]
     public class H5Bootstrap : MonoBehaviour
     {
+<<<<<<< HEAD
         [Tooltip("Debug only: explicitly bypass the main menu using initialMapId.")]
         public bool startDirectlyOnMap;
         public string initialMapId = "";
@@ -42,10 +44,26 @@ namespace HoMM5
         public HoMM5.Core.H5TextureCache Textures { get; private set; }
         public MapSceneBuilder CurrentMap { get; private set; }
         public AdventureMapGameState GameState { get; private set; }
+=======
+        [Tooltip("Load this map on start.  Empty opens the campaign mission menu.")]
+        public string initialMapId = "";
+
+        [Tooltip("0 = surface (GROUND), 1 = underground (UNDERGROUND).")]
+        public int floor = 0;
+
+        public GameDatabase Database { get; private set; }
+        public MeshCache Meshes { get; private set; }
+        public H5MaterialCache Materials { get; private set; }
+        public MapSceneBuilder CurrentMap { get; private set; }
+        public NWorldPlayer ActivePlayer { get; private set; }
+        public NWorldHero ActiveHero { get; private set; }
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
         GameObject _mapRoot;
         HoMM5Hud _hud;
+        HoMM5MainMenu _mainMenu;
         AdventureMapController _controller;
+        H5AdventureController _adventure;
 
         // One battle at a time: its scene lives in its own root while the
         // adventure map is hidden under it.
@@ -73,7 +91,11 @@ namespace HoMM5
             GameState.CombatRequested += StartCombat;
             CombatRules.Configure(Database.Rules != null ? Database.Rules.combat : null);
 
+            ActivePlayer = new NWorldPlayer("PLAYER_1");
+            ActiveHero = new NWorldHero("Hero1", Database.DefaultStats);
+
             Meshes = new MeshCache();
+            Materials = new H5MaterialCache();
 
             Textures = new HoMM5.Core.H5TextureCache(Shader.Find("Standard"));
             if (!Textures.LoadManifest())
@@ -85,6 +107,7 @@ namespace HoMM5
             _hud = gameObject.AddComponent<HoMM5Hud>();
             _hud.Controller = _controller;
             _hud.Database = Database;
+<<<<<<< HEAD
             _hud.GameState = GameState;
             _hud.EndDayRequested = EndDay;
             _hud.SaveRequested = SaveGame;
@@ -98,6 +121,8 @@ namespace HoMM5
             _hud.ScenarioRequested = ShowScenario;
             RefreshTurnHud();
             // Awake has built the HUD before these dependencies are assigned.
+=======
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
             _hud.PopulateMapList(LoadMap);
             GameState.MatchEnded += OnMatchEnded;
 
@@ -109,8 +134,15 @@ namespace HoMM5
             _menu.LoadRequested = LoadGame;
             _menu.QuitRequested = QuitGame;
 
+            _adventure = gameObject.AddComponent<H5AdventureController>();
+            _adventure.StatusChanged += RefreshStats;
+
+            _mainMenu = gameObject.AddComponent<HoMM5MainMenu>();
+            _mainMenu.Initialize(Database, LoadMap, ReturnToMainMenu);
+
             if (!Database.IsLoaded)
             {
+<<<<<<< HEAD
                 _hud.Hide();
                 _controller.enabled = false;
                 _menu.SetStatus("Import not found: run python import_to_unity.py from the repository.");
@@ -246,10 +278,27 @@ namespace HoMM5
 #else
             Application.Quit();
 #endif
+=======
+                _hud.SetStats("Import not found.\nRun: python -m homm5import.cli all\n(see tools/homm5_import/README.md)");
+                _mainMenu.Show();
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(initialMapId))
+            {
+                LoadMap(initialMapId);
+            }
+            else
+            {
+                _mainMenu.Show();
+                _hud.SetStats("Select a campaign mission to begin.");
+            }
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
         }
 
         public void LoadMap(string mapId)
         {
+<<<<<<< HEAD
             var map = MapSceneBuilder.LoadMapDef(mapId);
             LoadMapAtFloor(mapId, map != null ? map.initialFloor : floor);
         }
@@ -279,6 +328,16 @@ namespace HoMM5
 
             var builder = new MapSceneBuilder(Meshes, MakeTerrainMaterial(), MakeObjectMaterial(),
                                               MakeWaterMaterial(), Textures, Database);
+=======
+            if (string.IsNullOrEmpty(mapId)) return;
+            _mainMenu?.Hide();
+            _adventure?.Unbind();
+            if (CurrentMap != null && CurrentMap.Root != null) Destroy(CurrentMap.Root);
+            Meshes.Clear();
+
+            var builder = new MapSceneBuilder(Meshes, MakeTerrainMaterial(), MakeObjectMaterial(),
+                                               MakeWaterMaterial(), Materials);
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
             var root = builder.Build(mapId, floor);
             if (root == null)
             {
@@ -286,6 +345,7 @@ namespace HoMM5
                 return;
             }
             CurrentMap = builder;
+<<<<<<< HEAD
             // A restored save carries its own day, resources and world changes;
             // a floor switch preserves the running scenario; anything else is a
             // brand-new scenario.
@@ -302,6 +362,15 @@ namespace HoMM5
                 GameState.SetupMatch(_pendingSetup);
                 _pendingSetup = null;
             }
+=======
+            floor = builder.ActiveFloor;
+            ActiveHero = CreateHeroForMap(builder);
+
+            if (builder.Terrain != null)
+                _controller.SetMapBounds(builder.Terrain.Tiles, builder.Terrain.Tiles);
+            _controller.FocusOn(new Vector3((builder.Map.tileX) * 0.5f, 0f, (builder.Map.tileY) * 0.5f), 45f);
+            _adventure?.Bind(builder, _controller, ActiveHero, Database);
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
 
             _controller.SetMapBounds(builder.Map.tileX, builder.Map.tileY);
             // TileToWorld accounts for both the horizontal tile scale and the
@@ -554,16 +623,96 @@ namespace HoMM5
             _hud.SetResources(resources);
         }
 
+        public void ReturnToMainMenu()
+        {
+            _adventure?.Unbind();
+            if (CurrentMap != null && CurrentMap.Root != null) Destroy(CurrentMap.Root);
+            CurrentMap = null;
+            Meshes?.Clear();
+            _controller?.Select(null);
+            _mainMenu?.Show();
+            _hud?.SetStats("Select a campaign mission to begin.");
+        }
+
+        NWorldHero CreateHeroForMap(MapSceneBuilder builder)
+        {
+            MapObjectDef heroDef = null;
+            if (builder.Map?.objects != null)
+            {
+                for (var i = 0; i < builder.Map.objects.Count; i++)
+                {
+                    var candidate = builder.Map.objects[i];
+                    if (candidate.kind == "AdvMapHero" && candidate.floor == builder.ActiveFloor &&
+                        string.Equals(candidate.owner, "PLAYER_1", System.StringComparison.OrdinalIgnoreCase))
+                    {
+                        heroDef = candidate;
+                        break;
+                    }
+                }
+            }
+
+            var hero = new NWorldHero(heroDef != null && !string.IsNullOrEmpty(heroDef.hero)
+                ? heroDef.hero : "Hero1", Database.DefaultStats);
+            if (heroDef == null) return hero;
+
+            if (heroDef.experience > 0) hero.ChangeHeroStat(EHeroStat.Experience, heroDef.experience);
+            hero.BaseAttack = heroDef.heroAttack;
+            hero.BaseDefence = heroDef.heroDefence;
+            hero.BaseSpellPower = heroDef.heroSpellPower;
+            hero.BaseKnowledge = heroDef.heroKnowledge;
+            hero.MovePoints = hero.GetMaxMovePoints();
+            hero.ManaPoints = hero.GetMaxManaPoints();
+            hero.TileX = Mathf.RoundToInt(heroDef.x);
+            hero.TileY = Mathf.RoundToInt(heroDef.y);
+            hero.Floor = builder.ActiveFloor;
+            hero.HasPathfinding = ContainsSkill(heroDef, "PATHFINDING");
+            hero.HasSnatch = ContainsSkill(heroDef, "SNATCH");
+
+            if (heroDef.army != null)
+            {
+                var count = Mathf.Min(heroDef.army.Count, NWorldHero.ArmySlotCount);
+                for (var i = 0; i < count; i++)
+                {
+                    var slot = heroDef.army[i];
+                    hero.Army[i] = new HeroCreatureStack { CreatureId = slot.creature, Count = slot.count };
+                }
+            }
+            return hero;
+        }
+
+        static bool ContainsSkill(MapObjectDef hero, string suffix)
+        {
+            if (hero.heroSkills != null)
+                for (var i = 0; i < hero.heroSkills.Count; i++)
+                    if (hero.heroSkills[i] != null && hero.heroSkills[i].EndsWith(suffix, System.StringComparison.OrdinalIgnoreCase))
+                        return true;
+            if (hero.heroPerks != null)
+                for (var i = 0; i < hero.heroPerks.Count; i++)
+                    if (hero.heroPerks[i] != null && hero.heroPerks[i].EndsWith(suffix, System.StringComparison.OrdinalIgnoreCase))
+                        return true;
+            return false;
+        }
+
         void RefreshStats()
         {
             if (_hud == null || CurrentMap == null) return;
             var counts = new List<string>();
-            foreach (var kv in CurrentMap.Map.objectCounts) counts.Add($"{kv.Key} {kv.Value}");
+            if (CurrentMap.Map.objectCounts != null)
+                foreach (var kv in CurrentMap.Map.objectCounts) counts.Add($"{kv.Key} {kv.Value}");
+            var floorLabel = floor == 0 ? "GROUND (0)" : "UNDERGROUND (1)";
             _hud.SetStats(
+<<<<<<< HEAD
                 $"{CurrentMap.Map.id}   {CurrentMap.Map.tileX}x{CurrentMap.Map.tileY}\n" +
                 $"objects placed {CurrentMap.ObjectsPlaced}  (no mesh {CurrentMap.ObjectsMissingMesh})\n" +
                 $"terrain chunks {CurrentMap.TerrainChunks} (ground textures {CurrentMap.TerrainTexturesBound})\n" +
                 $"meshes cached {Meshes.CachedCount}  animated {CurrentMap.AnimatedObjects}\n" +
+=======
+                $"{CurrentMap.Map.id}   {CurrentMap.Map.tileX}x{CurrentMap.Map.tileY}   Floor: {floorLabel}\n" +
+                $"Hero Lv.{ActiveHero.Level} (XP {ActiveHero.Experience}, MP {ActiveHero.MovePoints}/{ActiveHero.GetMaxMovePoints()}, Mana {ActiveHero.ManaPoints}/{ActiveHero.GetMaxManaPoints()})\n" +
+                $"objects placed {CurrentMap.ObjectsPlaced}  (no mesh {CurrentMap.ObjectsMissingMesh})  " +
+                $"terrain chunks {CurrentMap.TerrainChunks}  meshes cached {Meshes.CachedCount}\n" +
+                (_adventure == null || string.IsNullOrEmpty(_adventure.Status) ? "" : _adventure.Status + "\n") +
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
                 string.Join("  ", counts));
         }
 
@@ -646,6 +795,7 @@ namespace HoMM5
 
         void Update()
         {
+<<<<<<< HEAD
             if (HoMM5.Core.H5Input.MutePressed() && H5Audio.Instance != null)
             {
                 H5Audio.Instance.ToggleMute();
@@ -724,6 +874,14 @@ namespace HoMM5
             if (context == null || !context.IsSiege || context.Monster == null || GameState == null) return "";
             var town = GameState.GetTownState(context.Monster);
             return town != null ? H5Cues.FactionFolder(town.TownType, town.Faction) : "";
+=======
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                floor = floor == 0 ? 1 : 0;
+                if (CurrentMap?.Map != null)
+                    LoadMap(CurrentMap.Map.id);
+            }
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
         }
 
         // -- scene furniture -----------------------------------------------
@@ -836,7 +994,11 @@ namespace HoMM5
                 GameState.MatchEnded -= OnMatchEnded;
             }
             if (Meshes != null) Meshes.DestroyMeshes();
+<<<<<<< HEAD
             if (Textures != null) Textures.Dispose();
+=======
+            if (Materials != null) Materials.Dispose();
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using HoMM5.Data;
+using HoMM5.World;
 using UnityEngine;
 
 namespace HoMM5.Map
@@ -200,7 +201,9 @@ namespace HoMM5.Map
                 {
                     var c = Creature;
                     var name = c != null ? c.DisplayName : Def.creature;
-                    var count = Def.customAmount ? Def.amount.ToString() : "?";
+                    var count = Def.amount2 != 0 && Def.amount2 != Def.amount
+                        ? Def.amount + "-" + Def.amount2
+                        : Def.amount.ToString();
                     return $"{name} x{count}";
                 }
                 case "AdvMapTown":
@@ -232,11 +235,19 @@ namespace HoMM5.Map
             var c = Creature;
             if (IsMonster && c != null)
             {
-                return $"{c.DisplayName}\n" +
+                var stackCount = Def.customAmount && Def.amount > 0 ? Def.amount : 1;
+                var xpValue = NWorldCombat.CalcUnitExperienceValue(c, stackCount, false);
+                var stackLines = $"Amount {Def.amount} / {Def.amount2}  Custom {Def.customAmount}\n" +
+                                  $"Attack type {Def.attackType}  Mood {Def.mood}\n";
+                if (Def.additionalStacks != null)
+                    for (var i = 0; i < Def.additionalStacks.Count; i++)
+                        stackLines += $"Additional {Def.additionalStacks[i].creature} " +
+                                      $"{Def.additionalStacks[i].amount} / {Def.additionalStacks[i].amount2}\n";
+                return $"{c.DisplayName}\n" + stackLines +
                        $"Tier {c.CreatureTier}  {GameDatabase.PrettifyEnum(c.town)}\n" +
                        $"Attack {c.AttackSkill}  Defence {c.DefenceSkill}\n" +
                        $"Damage {c.DamageText}  Health {c.Health}\n" +
-                       $"Speed {c.Speed}  Initiative {c.Initiative}\n" +
+                       $"Speed {c.Speed}  Initiative {c.Initiative}  XP {xpValue}\n" +
                        $"Cost {c.cost}\n" +
                        (string.IsNullOrEmpty(c.Description) ? "" : "\n" + c.Description);
             }
@@ -252,6 +263,7 @@ namespace HoMM5.Map
 
             if (IsHero)
             {
+<<<<<<< HEAD
                 var lines = new System.Collections.Generic.List<string> { Summary() };
                 if (!string.IsNullOrEmpty(Def.owner))
                     lines.Add("Owner: " + GameDatabase.PrettifyEnum(Def.owner));
@@ -340,7 +352,45 @@ namespace HoMM5.Map
             if (Kind == "AdvMapTreasure")
                 return Def.isCustom ? $"Treasure\nAmount: {Def.amount}\n{Def.message}" : "Treasure";
 
+=======
+                var lines = new System.Collections.Generic.List<string>
+                {
+                    string.IsNullOrEmpty(Def.hero) ? "Hero" : Def.hero,
+                    "Owner " + (string.IsNullOrEmpty(Def.owner) ? "PLAYER_NONE" : Def.owner),
+                    "Experience " + Def.experience,
+                    "Attack " + Def.heroAttack + "  Defence " + Def.heroDefence,
+                    "Spell Power " + Def.heroSpellPower + "  Knowledge " + Def.heroKnowledge
+                };
+                if (Def.army != null)
+                {
+                    for (var i = 0; i < Def.army.Count; i++)
+                    {
+                        var stack = Def.army[i];
+                        var creature = CreatureName(stack.creature);
+                        lines.Add("Army " + creature + " x" + stack.count);
+                    }
+                }
+                if (Def.heroSkills != null && Def.heroSkills.Count > 0)
+                    lines.Add("Skills " + string.Join(", ", Def.heroSkills));
+                if (Def.heroPerks != null && Def.heroPerks.Count > 0)
+                    lines.Add("Perks " + string.Join(", ", Def.heroPerks));
+                if (Def.heroSpells != null && Def.heroSpells.Count > 0)
+                    lines.Add("Spells " + string.Join(", ", Def.heroSpells));
+                return string.Join("\n", lines);
+            }
+
+>>>>>>> 9e896184bc260ab75851082df162eebbb38277ad
             return Summary();
+        }
+
+        string CreatureName(string id)
+        {
+            if (Database != null)
+            {
+                var fromId = Database.GetCreature(id);
+                if (fromId != null) return fromId.DisplayName;
+            }
+            return id;
         }
     }
 }

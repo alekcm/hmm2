@@ -163,6 +163,31 @@ namespace HoMM5.Map
             return Flags[y * v + x];
         }
 
+        public bool HasPassability => Passability != null && Passability.Length >= VertexCount * VertexCount;
+
+        /// <summary>
+        /// Raw ``GroundTerrain`` tag 0x0f value.  NWorld checks this value as
+        /// the tile's passability flag; it is not the visual ground flag.
+        /// </summary>
+        public byte PassabilityAt(int x, int y)
+        {
+            if (!HasPassability) return 0;
+            var v = VertexCount;
+            x = Mathf.Clamp(x, 0, v - 1);
+            y = Mathf.Clamp(y, 0, v - 1);
+            return Passability[y * v + x];
+        }
+
+        /// <summary>
+        /// The confirmed passability-flag part of NWorld::IsTilePassable.
+        /// Walkable-state changes from map objects are applied by Pathfinder.
+        /// </summary>
+        public bool IsTilePassable(int x, int y)
+        {
+            var flag = PassabilityAt(x, y);
+            return flag == 1 || flag == 4;
+        }
+
         public bool IsWater(int x, int y) => FlagAt(x, y) == FlagWater;
         public bool IsPlateau(int x, int y) => (FlagAt(x, y) & FlagPlateau) != 0;
         public bool IsRamp(int x, int y) => (FlagAt(x, y) & FlagRampBit) != 0;
