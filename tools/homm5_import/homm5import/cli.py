@@ -348,6 +348,48 @@ def _round5(o):
     return o
 
 
+def _export_animation(path: str, out_dir: str):
+    """Decode one stored GR2 animation file and write its JSON.gz.
+
+    Module-level so worker processes can run it. Returns (uid, status, entry)
+    where status is "ok", "packed" (Oodle1, skipped) or "bad", and entry is the
+    index record for "ok" files.
+    """
+    import gzip
+
+    from .gr2 import GR2, GR2Error, extract
+
+    uid = os.path.basename(path)
+    try:
+        with open(path, "rb") as fh:
+            g = GR2(fh.read())
+        if not g.is_stored():
+            return uid, "packed", None
+        data = extract(g.root())
+    except (GR2Error, OSError) as exc:
+        return uid, "bad", str(exc)
+
+    clip = data["animations"][0] if data["animations"] else {}
+    skel = data["skeletons"][0] if data["skeletons"] else {}
+    entry = {
+        "source": data["source"],
+        "name": (clip.get("name") or "").split("/")[-1],
+        "duration": round(float(clip.get("duration") or 0.0), 5),
+        "timeStep": round(float(clip.get("timeStep") or 0.0), 6),
+        "bones": len(skel.get("bones") or []),
+        "tracks": len(clip.get("tracks") or []),
+    }
+    payload = json.dumps(_round5(data), separators=(",", ":")).encode("utf8")
+    with gzip.open(_out(out_dir, "Animations", uid + ".json.gz"), "wb", 6) as fh:
+        fh.write(payload)
+    return uid, "ok", entry
+
+
+def _export_animation_pair(item):
+    """Picklable adapter: Pool.imap passes one argument."""
+    return _export_animation(*item)
+
+
 def cmd_animations(args) -> int:
     """Export the stored (uncompressed) GR2 animation files.
 
@@ -355,51 +397,53 @@ def cmd_animations(args) -> int:
     yields bones, rest pose and curves in one pass. The 577 files that pack
     their sections with Oodle1 are skipped and counted: that codec is not
     implemented.
+
+    Files are decoded in parallel (``--jobs``, default: every core) and progress
+    is printed as it goes. A single process took about 18 minutes on the 3,393
+    shipped files and printed nothing until the end, which looked like a hang.
     """
     import glob
-    import gzip
-
-    from .gr2 import GR2, GR2Error, extract
+    import time
+    from multiprocessing import Pool
 
     files = _limited(sorted(glob.glob(os.path.join(args.data, "bin", "animations", "*"))),
                      args.limit)
+    files = list(files)
+    jobs = getattr(args, "jobs", 0) or os.cpu_count() or 1
+    jobs = max(1, min(jobs, len(files) or 1))
     ok = packed = bad = 0
     index = {}
-    progress = _progress("animations", len(files))
-    for i, path in enumerate(files, 1):
-        progress(i)
-        uid = os.path.basename(path)
-        try:
-            with open(path, "rb") as fh:
-                g = GR2(fh.read())
-            if not g.is_stored():
-                packed += 1
-                continue
-            data = extract(g.root())
-        except (GR2Error, OSError) as exc:
+    started = time.time()
+    print(f"animations: {len(files)} files, {jobs} worker(s)", flush=True)
+
+    def tally(result, done):
+        nonlocal ok, packed, bad
+        uid, status, detail = result
+        if status == "ok":
+            ok += 1
+            index[uid] = detail
+        elif status == "packed":
+            packed += 1
+        else:
             bad += 1
             if args.verbose:
-                print(f"  SKIP {uid}: {exc}")
-            continue
+                print(f"  SKIP {uid}: {detail}", flush=True)
+        if done % 200 == 0 or done == len(files):
+            elapsed = time.time() - started
+            print(f"  animations {done}/{len(files)} ({elapsed:.0f}s)", flush=True)
 
-        clip = data["animations"][0] if data["animations"] else {}
-        skel = data["skeletons"][0] if data["skeletons"] else {}
-        index[uid] = {
-            "source": data["source"],
-            "name": (clip.get("name") or "").split("/")[-1],
-            "duration": round(float(clip.get("duration") or 0.0), 5),
-            "timeStep": round(float(clip.get("timeStep") or 0.0), 6),
-            "bones": len(skel.get("bones") or []),
-            "tracks": len(clip.get("tracks") or []),
-        }
-        payload = json.dumps(_round5(data), separators=(",", ":")).encode("utf8")
-        with gzip.open(_out(args.out, "Animations", uid + ".json.gz"), "wb", 6) as fh:
-            fh.write(payload)
-        ok += 1
+    work = [(path, args.out) for path in files]
+    if jobs == 1:
+        for done, item in enumerate(work, 1):
+            tally(_export_animation(*item), done)
+    else:
+        with Pool(jobs) as pool:
+            for done, result in enumerate(pool.imap(_export_animation_pair, work, chunksize=8), 1):
+                tally(result, done)
 
     _write_json(_out(args.out, "Animations", "_index.json"), index)
     print(f"animations: {ok} written, {packed} skipped (Oodle1-packed), "
-          f"{bad} failed (of {len(files)})")
+          f"{bad} failed (of {len(files)})", flush=True)
     return 0
 
 
@@ -533,6 +577,9 @@ def build_parser() -> argparse.ArgumentParser:
                      ("animations", cmd_animations), ("sounds", cmd_sounds)):
         sp = sub.add_parser(name)
         common(sp)
+        if name == "animations":
+            sp.add_argument("--jobs", type=int, default=0,
+                            help="worker processes (default: one per CPU core)")
         sp.set_defaults(func=fn)
     sp = sub.add_parser("all")
     common(sp)
