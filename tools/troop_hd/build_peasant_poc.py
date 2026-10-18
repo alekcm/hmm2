@@ -128,8 +128,38 @@ def _canonical_vertices(positions: Sequence[Sequence[float]], masks: Sequence[fl
     return coordinates, strengths, vertex_to_canonical, members
 
 
-def refine_body(group: MeshGroup) -> Tuple[MeshGroup, dict]:
-    """Subdivide and relax only skin-weighted soft parts of Peasant BodyShape."""
+def _gate_masks_with_uv_regions(group: MeshGroup, masks: Sequence[float],
+                                part_masks: Dict[str, List[float]],
+                                triangle_regions: Sequence[str]
+                                ) -> Tuple[List[float], Dict[str, List[float]]]:
+    """Use triangle labels projected through UV space to gate vertex masks."""
+    if len(triangle_regions) != len(group.triangles):
+        raise ValueError("UV triangle regions must match the BodyShape triangle count")
+    votes = {name: [0.0] * len(group.positions) for name in part_masks}
+    incident = [0.0] * len(group.positions)
+    for triangle, region in zip(group.triangles, triangle_regions):
+        for raw_index in triangle:
+            index = int(raw_index)
+            incident[index] += 1.0
+            if region in votes:
+                votes[region][index] += 1.0
+    gated_parts: Dict[str, List[float]] = {}
+    for name, values in part_masks.items():
+        gated_parts[name] = [
+            value * votes[name][index] / incident[index] if incident[index] else 0.0
+            for index, value in enumerate(values)
+        ]
+    combined = [
+        max(0.92 * gated_parts["hands"][i], 0.82 * gated_parts["hood"][i],
+            0.96 * gated_parts["legs_and_shins"][i], 0.95 * gated_parts["pouch"][i])
+        for i in range(len(masks))
+    ]
+    return combined, gated_parts
+
+
+def refine_body(group: MeshGroup, triangle_regions: Sequence[str] | None = None
+                ) -> Tuple[MeshGroup, dict]:
+    """Subdivide soft parts; optional UV-derived face labels constrain the masks."""
     vertex_count = len(group.positions)
     if not group.triangles or vertex_count == 0:
         raise ValueError("Peasant BodyShape is empty")
@@ -142,6 +172,9 @@ def refine_body(group: MeshGroup) -> Tuple[MeshGroup, dict]:
             raise ValueError("Peasant BodyShape contains an invalid triangle")
 
     masks, part_masks = _part_masks(group)
+    if triangle_regions is not None:
+        masks, part_masks = _gate_masks_with_uv_regions(
+            group, masks, part_masks, triangle_regions)
     positions = [tuple(float(v) for v in p[:3]) for p in group.positions]
     uvs = [tuple(float(v) for v in uv[:2]) for uv in group.uvs[:vertex_count]]
     normals = [tuple(float(v) for v in n[:3]) for n in group.normals[:vertex_count]]
@@ -313,7 +346,7 @@ def _pack_floats(values: Iterable[float]) -> bytes:
     return struct.pack("<%df" % len(flat), *flat) if flat else b""
 
 
-def write_glb(geometry: Geometry, uid: str) -> bytes:
+def write_glb(geometry: Geometry, uid: str, variant_label: str | None = None) -> bytes:
     """Serialize the model as glTF 2.0 GLB for the Unity asset importer."""
     binary = bytearray()
     views: List[dict] = []
@@ -392,6 +425,8 @@ def write_glb(geometry: Geometry, uid: str) -> bytes:
         "bufferViews": views,
         "buffers": [{"byteLength": len(binary)}],
     }
+    if variant_label is not None:
+        document["extras"] = {"variant_label": variant_label}
     json_chunk = json.dumps(document, separators=(",", ":")).encode("utf-8")
     while len(json_chunk) % 4:
         json_chunk += b" "
