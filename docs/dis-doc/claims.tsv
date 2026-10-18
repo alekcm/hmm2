@@ -11,3 +11,18 @@ FOG-PLAYER-002	CPlayer slot 109 rectangular cell update	static-confirmed	not-tes
 FOG-QUERY-001	Packed-cell query at 0x009d2550	static-confirmed	not-tested	bin 0x009d2550-0x009d25a0	returned-byte polarity and explored-memory layer
 FOG-ARRAY-001	CWarFogArray RTTI identity	static-confirmed	not-tested	Engine_Subsystems_Classes.h; RTTI vtable 0x00e1a048	dimensions, update scheduling, render linkage
 FOG-LUA-001	OpenCircleFog registration/parser/command copy	static-confirmed	not-tested	LuaCApiBindings.cpp; bin 0x005da1e0-0x005da495; 0x005e9300	world queue, execution timing, final parameter semantics
+TURN-CMD-001	CEndOfTurn RTTI/payload initialization	static-confirmed	not-tested	NWorld_Classes.h; bin 0x004372f0-0x0043735a	semantic names of fields
+TURN-CMD-002	CEndOfTurn Apply dispatch	static-confirmed	not-tested	bin 0x00427140-0x0042718a	owner type, queue timing, argument meaning
+TURN-CMD-003	CWorld vtable slot +0xd0 address	static-confirmed	not-tested	NWorld_Classes.h; vtable 0x00e6260c	whether every command owner is CWorld
+TURN-CMD-004	Operations in CWorld slot +0xd0	static-confirmed	not-tested	bin 0x00998760-0x009987ad	calendar meaning of downstream calls
+TURN-CMD-005	Complete calendar/turn semantics and no-active-AI path	unknown	not-tested	native-end-of-turn.md; trace required	candidate predicate meaning, queue timing, no-active-AI behavior, event ordering
+TURN-CMD-006	Raw date mutation in CWorld helper 0x009949d0	static-confirmed	not-tested	bin 0x009949d0-0x00994bd0	semantic names of fields/callbacks and runtime reachability
+TURN-CMD-007	Date-transition gate data flow in 0x00998060	static-confirmed	not-tested	bin 0x00998060-0x00998418	whether local gate denotes no active AI and all candidate meanings
+TURN-CMD-008	GetDate projections from CWorld raw date field	static-confirmed	not-tested	NWorld_Classes.h; LuaCApiBindings.cpp; bin 0x00c61ab0; 0x005d7170-0x005d7333	UI refresh ordering and transition-event ownership
+MOV-CMD-001	Movement command RTTI, sizes, and Apply slots	static-confirmed	not-tested	NWorld_Classes.h; bin 0x00436d80; 0x00436eb0; Apply ranges	semantic payload names and runtime behavior
+MOV-CMD-002	CSetWalkPathCmd initializer payload	static-confirmed	not-tested	bin 0x005d50e0-0x005d516e	meaning of seven arguments and copied bytes
+MOV-CMD-003	CStartMoveHeroCmd initializer payload	static-confirmed	not-tested	bin 0x005d51c0-0x005d520a	meaning of two references and field_14
+MOV-CMD-004	Movement command Apply-side field consumption	static-confirmed	not-tested	bin 0x004308f0-0x00430a31; 0x00426d50-0x00426e1b	visual preview/confirmation meaning
+MOV-CMD-005	Native movement command construction and append boundary	static-confirmed	not-tested	bin 0x00600060-0x006007e5; 0x00a95320	queue execution timing and UI event source
+MOV-CMD-006	State dispatch into movement construction paths	static-confirmed	not-tested	bin 0x00600e70-0x0060177c; callers 0x005945e1/0x005973ef/0x0059e48d	adventure input mapping and state meanings
+MOV-CMD-007	Two-click adventure movement input sequence	unknown	not-tested	native-movement.md; adventure input trace required	first-click preview, second-click confirmation, queue boundary

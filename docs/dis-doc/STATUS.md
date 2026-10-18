@@ -9,6 +9,10 @@ but they do not prove native runtime parity.
 - Established a source/evidence protocol and naming policy.
 - Recorded the exact native artifact hashes and version boundary.
 - Created the first detailed static evidence record for the fog command/visibility path.
+- Added a static-partial record for `CEndOfTurn`, its `CWorld` dispatch, the raw date mutation, and the
+  unresolved transition gate/no-active-AI semantics.
+- Added a static-partial record for movement command payloads, native construction/append paths, and the
+  unresolved adventure-screen two-click input boundary.
 - Quarantined the existing approximate Unity fog implementation as non-evidence.
 - Preserved explicit unknowns instead of assigning semantic names to unresolved native fields.
 
@@ -24,8 +28,12 @@ but they do not prove native runtime parity.
    execution; do not infer behavior from the public function names.
 6. Analyze `CEnablePlayerFogOfWarCmd`, `CAllowOpenFogOfWarForAllyCmd`, and `CSetWarfogBehaviour` together with
    their consumers.
-7. Build equivalent evidence records for campaign startup, adventure input/movement, calendar/end-turn,
-   spellbook, and animation playback before replacing their Unity implementations.
+7. Continue the evidence records for campaign startup/menu, adventure input/movement, calendar/end-turn,
+   spellbook, and animation playback; the movement and end-turn records are now partial, not complete.
+8. Trace the callers of `0x00600e70` and the `CAdventureScreen`/`CAdventureController` input path before
+   implementing two-click movement.
+9. Map the `0x00998060` candidate predicates and original no-active-AI observation before implementing turn
+   completion.
 
 ## Explicitly not complete
 
@@ -33,9 +41,11 @@ but they do not prove native runtime parity.
 - The current Unity two-layer fog mesh is not a parity baseline.
 - Native render/query polarity is unresolved.
 - The original menu and campaign state machine are not documented end-to-end.
-- The original two-click movement event order is not documented end-to-end.
+- The original two-click movement event order is not documented end-to-end; native command payloads alone do not
+  prove first-click preview or second-click confirmation.
 - Spellbook mode/slot initialization and standard/Orcs descriptor selection are not fully proven.
-- End-turn behavior when there is no active AI turn is not fully proven.
+- Raw date mutation is statically proven, but end-turn behavior when there is no active AI turn and the complete
+  event/UI ordering are not fully proven.
 
 ## Acceptance rule for closing a subsystem
 

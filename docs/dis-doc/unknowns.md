@@ -20,8 +20,11 @@ marks it contradicted.
 ## Other parity paths
 
 - Complete native state machine for menu -> campaign -> scenario.
-- Exact input/event sequence for path preview versus movement confirmation.
-- End-turn queue and calendar advancement in scenarios with no active AI command.
+- Exact input/event sequence for path preview versus movement confirmation; native movement command payloads do
+  not identify the two clicks.
+- Meaning of the candidate predicates and local gate in `0x00998060`, including the no-active-AI case.
+- End-turn queue and calendar advancement in scenarios with no active AI command, including event/UI ordering.
+- Exact semantic names and data sources for the `CSetWalkPathCmd` and `CStartMoveHeroCmd` payload fields.
 - Original adventure spellbook widget tree, mode selection, slot population, and button event order.
 - Native animation playback lifecycle and how map/creature clips are selected and advanced.
 
