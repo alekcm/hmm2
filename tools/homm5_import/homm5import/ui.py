@@ -11,7 +11,8 @@ import os
 from pathlib import Path
 
 from .dds import decode_dds, write_png
-from .gamedata import load_heroes, texture_dds_path
+from .gamedata import load_heroes, model_geometry, texture_dds_path
+from .localization import Localization
 from .xdb import XDB
 
 
@@ -20,6 +21,8 @@ class UiXDB(XDB):
     def __init__(self, data_root):
         super().__init__(data_root)
         self.overlay = XDB(str(Path(data_root).parent / "a2p1-data"))
+        texts_root = Path(data_root).parent / "texts"
+        self.localization = Localization(str(texts_root)) if texts_root.is_dir() else None
 
     def _path_for(self, href):
         overlay = self.overlay._path_for(href)
@@ -49,7 +52,9 @@ def export_ui(data_root, output_root):
     xdb = UiXDB(data_root)
     out = Path(output_root) / "UI"
     out.mkdir(parents=True, exist_ok=True)
-    result = {"version": 1, "assets": {}, "windows": {}, "heroPortraits": {}, "source": "shipped XDB/DDS; a2p1 layout overrides"}
+    result = {"version": 1, "assets": {}, "windows": {}, "heroPortraits": {},
+              "spellbook": {},
+              "source": "shipped XDB/DDS; a2p1 layout overrides"}
     decoded = {}
 
     def image(key, source, crop=None):
@@ -87,6 +92,50 @@ def export_ui(data_root, output_root):
         tex, tex_href = xdb.resolve(bg.find("Texture"), bg_href)
         return image(key, texture_dds_path(xdb, tex, tex_href), crop)
 
+    def export_spellbook_desc():
+        href = "/UI/SpellBook/SpellBook.(SpellBookDesc).xdb"
+        node = xdb.load(href)
+        if node is None:
+            return
+
+        def items(name):
+            return [int(xdb.number(i)) for i in xdb.items(node.find(name))]
+
+        def vec(name):
+            value = node.find(name)
+            return [float(xdb.number(value.find(axis))) for axis in ("x", "y", "z")]
+
+        model, model_href = xdb.resolve(node.find("Model"), href)
+        geometry, model_textures = model_geometry(xdb, model, model_href)
+        result["spellbook"] = {
+            "source": href,
+            "model": model_href,
+            "geometryUid": geometry,
+            "modelTextures": model_textures,
+            "firstPageParts": items("PartSpellsFirstPage"),
+            "secondPageParts": items("PartSpellsSecondPage"),
+            "schoolParts": items("PartSpellSchools"),
+            "combatPart": int(xdb.number(node.find("PartSpellsCombat"))),
+            "adventurePart": int(xdb.number(node.find("PartSpellsAdventure"))),
+            "spellPointsPart": int(xdb.number(node.find("PartSP"))),
+            "closePart": int(xdb.number(node.find("PartClose"))),
+            "nextPagePart": int(xdb.number(node.find("PartNextPage"))),
+            "prevPagePart": int(xdb.number(node.find("PartPrevPage"))),
+            "center": vec("SpellbookCenterPosition"),
+            "outlinerSize": vec("OutlinerSize"),
+            "spellIcon": {
+                axis: int(xdb.number(node.find("SpellIcon/" + axis)))
+                for axis in ("x1", "y1", "x2", "y2")
+            },
+            "spellTextPosition": vec("SpellTextPosition"),
+            "spellMaterial": vec("SpellMaterial"),
+            "spellHighlightMaterial": vec("SpellHighlightMaterial"),
+            "spellHighlightOverBright": float(xdb.number(node.find("SpellHighlightMaterialOverBright"))),
+            "backFadeDuration": float(xdb.number(node.find("BackFadeDuration"))),
+            "backFadeValue": float(xdb.number(node.find("BackFadeValue"))),
+            "schoolHighlightColor": vec("SchoolHighlightColor"),
+        }
+
     def window(key, href):
         node = xdb.load(href)
         if node is None:
@@ -108,6 +157,16 @@ def export_ui(data_root, output_root):
                 asset = background(key + ":normal", shared.find("Background"), shared_href, crop)
                 if asset:
                     data["normal"] = asset
+        # WindowMSButton stores its caption in a TextFileRef relative to the
+        # XDB record. Export the shipped localized value rather than replacing
+        # it with an English runtime label. The relative href is resolved in
+        # the same XDB directory rules as every other source reference.
+        text_ref = node.find("TextFileRef")
+        if text_ref is not None and text_ref.get("href") and xdb.localization is not None:
+            text_href = xdb.absolutize(text_ref.get("href"), href).split("#", 1)[0]
+            text = xdb.localization.read(text_href)
+            if text is not None:
+                data["text"] = text.strip()
         result["windows"][key] = data
         return data
 
@@ -119,14 +178,43 @@ def export_ui(data_root, output_root):
         window(key, base + name + ".(" + kind + ").xdb")
     for name in ("Menu", "NextHero", "MoveHero", "Scenario", "Spellbook", "Underground"):
         window(name, base + "OnJog-" + name + ".(WindowMSButton).xdb")
+    # MainMenu2 is a separate source tree from the adventure screen. Keep its
+    # authored 1024x768 placement and button order in the same catalog so the
+    # runtime does not stretch a code-built panel over the source layout.
+    window("mainMenu:panel", "/UI/MainMenu2/Menu.(WindowSimple).xdb")
+    window("mainMenu:logo", "/UI/MainMenu2/Logo.(WindowSimple).xdb")
+    for name in ("SingleGame", "MultiPlayer", "Options", "Credits", "Quit"):
+        window("mainMenu:" + name, "/UI/MainMenu2/" + name + ".(WindowMSButton).xdb")
+    # The root buttons dispatch into these authored submenus. Export their
+    # panels and every button placement as separate records instead of laying
+    # the campaign/custom-game choices over the root menu by approximation.
+    window("mainMenu:single:panel", "/UI/MainMenu2/SinglePlayer/MenuPanel.(WindowSimple).xdb")
+    window("mainMenu:single:root", "/UI/MainMenu2/SinglePlayer/SinglePlayer.(WindowSimple).xdb")
+    for name in ("Campaign", "CustomGame", "HallOfFame", "LoadGame", "UserCampaign", "Back"):
+        window("mainMenu:single:" + name,
+               "/UI/MainMenu2/SinglePlayer/" + name + ".(WindowMSButton).xdb")
+    window("mainMenu:multi:panel", "/UI/MainMenu2/MultiPlayer/MenuPanel.(WindowSimple).xdb")
+    window("mainMenu:multi:root", "/UI/MainMenu2/MultiPlayer/MultiPlayer.(WindowSimple).xdb")
+    for name in ("HotSeat", "LAN", "LoadGame", "UbiCom", "Back"):
+        window("mainMenu:multi:" + name,
+               "/UI/MainMenu2/MultiPlayer/" + name + ".(WindowMSButton).xdb")
     for name in ("wood", "ore", "mercury", "crystals", "sulfur", "gems", "gold"):
         window("resource:" + name, "/UI/ResourceBar/resource-bar_(2)/" + name + "-icon.(WindowSimple).xdb")
         text_name = "crystal" if name == "crystals" else name
         window("value:" + name, "/UI/ResourceBar/resource-bar_(2)/" + text_name + "-text.(WindowStaticText).xdb")
     for key, path in (("menuPanel", "/UI/MainMenu2/Menu.(Texture).dds"),
                       ("menuLogo", "/UI/MainMenu2/Logo.(Texture).dds"),
-                      ("rosterFrame", "/Textures/AdventureScreen-FPP-2/List-C.dds")):
+                      ("rosterFrame", "/Textures/AdventureScreen-FPP-2/List-C.dds"),
+                      # The book model's authored textures are the original
+                      # adventure spellbook chrome. Back.tga is referenced by
+                      # the legacy BackgroundSimpleTexture record but is not
+                      # shipped as a loose file in this extraction.
+                      ("spellbookBook", "/Textures/auto-imported_______320/Interface/Spellbook/Spellbook/book.dds"),
+                      ("spellbookPage", "/Textures/auto-imported_______320/Interface/Spellbook/Spellbook/page.dds"),
+                      ("spellbookPoints", "/Textures/auto-imported_______320/Interface/Spellbook/Spellbook/Spell_points.tga.dds"),
+                      ("spellbookArrow", "/Textures/auto-imported_______320/Interface/Spellbook/Spellbook/Arrow.tga.dds")):
         image(key, path)
+    export_spellbook_desc()
     # Native faction icons rather than text on a stretched list-border tile.
     for town, name in (("HEAVEN", "Heaven"), ("INFERNO", "Inferno"),
                        ("NECROMANCY", "Necro"), ("ACADEMY", "Academy"),

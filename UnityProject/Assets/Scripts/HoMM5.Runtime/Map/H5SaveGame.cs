@@ -61,6 +61,23 @@ namespace HoMM5.Map
 
         public List<string> log = new List<string>();
 
+        /// <summary>
+        /// The player's permanent explored plane. Current visibility is always
+        /// recomputed from heroes after loading; it is not serialized.
+        /// </summary>
+        public int fogWidth;
+        public int fogHeight;
+        public int fogFloor = -1;
+        public bool[] fogExplored;
+        // The two planes retain separate explored state while the player
+        // switches between GROUND and UNDERGROUND.
+        public int fogGroundWidth;
+        public int fogGroundHeight;
+        public bool[] fogGroundExplored;
+        public int fogUndergroundWidth;
+        public int fogUndergroundHeight;
+        public bool[] fogUndergroundExplored;
+
         // -- files ---------------------------------------------------------
 
         public static string SavePath(string slot = "quicksave")

@@ -47,7 +47,10 @@ namespace HoMM5.Map
             var stride = TilesX + 1;
             var index = y * stride + x;
             if (Passability != null && index >= 0 && index < Passability.Length)
-                return Passability[index] != 0;
+                // NWorld::IsTilePassable accepts only the authored ground
+                // states 1 and 4. Treating every non-zero byte as walkable
+                // lets the Unity pathfinder enter the other native states.
+                return Passability[index] == 1 || Passability[index] == 4;
             return FlagAt(x, y) != FlagWater;
         }
 
@@ -231,6 +234,44 @@ namespace HoMM5.Map
             x = Mathf.Clamp(x, 0, _layerStride - 1);
             y = Mathf.Clamp(y, 0, _layerStride - 1);
             return _layerWeights[layer * _layerStride * _layerStride + y * _layerStride + x];
+        }
+
+        /// <summary>
+        /// Numeric AdvMapTileType at a tile, from the highest-priority authored
+        /// terrain layer. The values are the NDb enum values used by
+        /// STileGameInfo::CalcMoveCost (roads 6/7/8, dirt 0, grass 1, ...).
+        /// Returns -1 when the optional terrain-layer import is absent.
+        /// </summary>
+        public int TerrainTypeAt(int x, int y)
+        {
+            if (LayerCount == 0 || Layers == null) return -1;
+            var layer = Layers[Mathf.Clamp(DominantLayerAt(x, y), 0, Layers.Count - 1)];
+            return ParseTerrainType(layer != null ? layer.type : null);
+        }
+
+        public int RoadTypeAt(int x, int y) => TerrainTypeAt(x, y);
+
+        public static int ParseTerrainType(string value)
+        {
+            switch ((value ?? "").ToUpperInvariant())
+            {
+                case "TT_DIRT": return 0;
+                case "TT_GRASS": return 1;
+                case "TT_SAND": return 2;
+                case "TT_SNOW": return 3;
+                case "TT_LAVA": return 4;
+                case "TT_SUBTERRANEAN": return 5;
+                case "TT_DIRT_ROAD": return 6;
+                case "TT_GRAVEL_ROAD": return 7;
+                case "TT_COBBLESTONE_ROAD": return 8;
+                case "TT_NONE": return 9;
+                case "TT_SMALL_WATER": return 10;
+                case "TT_BIG_WATER": return 11;
+                case "TT_DWARVENMINES": return 12;
+                case "TT_TAIGA": return 13;
+                case "TT_WASTELAND": return 14;
+                default: return -1;
+            }
         }
 
         /// <summary>Water / ground / plateau -- the KIND, ignoring ramps.</summary>

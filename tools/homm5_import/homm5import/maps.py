@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import os
 import re
+from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from xml.etree import ElementTree as ET
 
@@ -123,6 +124,140 @@ def unique_map_ids(paths) -> Dict[str, str]:
     return out
 
 
+def _literal_fog_bootstrap(xdb: XDB, scenario_id: str,
+                           map_source: Optional[str] = None) -> List[dict]:
+    """Read only literal, top-level OpenCircleFog calls from the shipped Lua.
+
+    Calls inside a function are event-driven and must not be executed at map
+    load; the runtime handles those through its source-backed event bridge.
+    Keeping this importer deliberately conservative is preferable to opening
+    every scripted scene at scenario start.
+    """
+    # Follow the MapScript reference in the map descriptor instead of scanning
+    # every ``*.lua`` beside it.  Scenario folders contain old debugging
+    # captures (A2C1M5 has three such files); the native map executes only the
+    # script named by this source reference.  XDB resolves an overlay record
+    # before the base record, so the same call also handles a2p1-data.
+    candidates = []
+    if not map_source:
+        # Preserve the public helper's old two-argument form without relaxing
+        # the source rule: infer the descriptor path, then resolve its actual
+        # MapScript reference below. There is deliberately no Lua filename
+        # fallback here.
+        for root_base in (getattr(xdb, "overlay_root", None), xdb.data_root):
+            if not root_base:
+                continue
+            inferred = Path(root_base) / "Maps" / "Scenario" / scenario_id / "map.xdb"
+            if inferred.is_file():
+                map_source = str(inferred)
+                break
+    if map_source:
+        map_href = xdb.href_from_path(map_source)
+        map_root = xdb.load(map_href)
+        if map_root is not None:
+            for ref in map_root.iter("MapScript"):
+                href = ref.get("href")
+                if not href:
+                    continue
+                script_href = xdb.absolutize(href, map_href)
+                script_root = xdb.load(script_href)
+                if script_root is None:
+                    continue
+                filename = script_root.find("FileName")
+                if filename is None or not filename.get("href"):
+                    continue
+                file_href = xdb.absolutize(filename.get("href"), script_href)
+                path = Path(xdb._path_for(file_href.split("#", 1)[0]))
+                if path.is_file() and path.suffix.lower() == ".lua":
+                    if path not in candidates:
+                        candidates.append(path)
+    if not candidates:
+        return []
+
+    result = []
+    depth = 0
+    call = re.compile(
+        r"OpenCircleFog\s*\(\s*(-?\d+)\s*,\s*(-?\d+)\s*,\s*"
+        r"(GROUND|UNDERGROUND|0|1)\s*,\s*(\d+)\s*,\s*(PLAYER_\d+|\d+)\s*\)",
+        re.IGNORECASE,
+    )
+
+    def lua_block_delta(line):
+        """Approximate Lua block nesting without treating ``while ... do`` as two blocks."""
+        opens = (len(re.findall(r"\bfunction\b", line, re.I)) +
+                 len(re.findall(r"\bif\b", line, re.I)) +
+                 len(re.findall(r"\bfor\b", line, re.I)) +
+                 len(re.findall(r"\bwhile\b", line, re.I)) +
+                 len(re.findall(r"\brepeat\b", line, re.I)))
+        control_do = len(re.findall(r"\b(if|for|while)\b[^;\n]*\bdo\b", line, re.I))
+        standalone_do = max(0, len(re.findall(r"\bdo\b", line, re.I)) - control_do)
+        closes = len(re.findall(r"\bend\b", line, re.I)) + len(re.findall(r"\buntil\b", line, re.I))
+        return opens + standalone_do - closes
+
+    def add_match(m):
+        floor = 1 if m.group(3).upper() == "UNDERGROUND" or m.group(3) == "1" else 0
+        player = m.group(5)
+        if player.isdigit(): player = "PLAYER_" + player
+        entry = {"x": int(m.group(1)), "y": int(m.group(2)), "floor": floor,
+                 "radius": int(m.group(4)), "player": player}
+        if entry not in result: result.append(entry)
+
+    for path in candidates:
+        try:
+            lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+        except OSError:
+            continue
+        clean = [line.split("--", 1)[0] for line in lines]
+        startup_calls = {"mission_setup", "f_open_fog_start"}
+        depth = 0
+        for line in clean:
+            if not line.strip():
+                continue
+            # A map script's top-level statements run during load. Function,
+            # if, loop and do blocks are intentionally not treated as load-time.
+            if depth == 0:
+                m = call.search(line)
+                if m:
+                    add_match(m)
+                # A top-level startThread is also a load-time entry point. We
+                # inspect only the called function's straight-line prefix below;
+                # code after sleep/branch/loop remains event-driven.
+                thread = re.search(r"\bstartThread\s*\(\s*([A-Za-z_]\w*)\b", line, re.I)
+                if thread:
+                    startup_calls.add(thread.group(1))
+                if (not re.search(r"\bfunction\s+mission_setup\b", line, re.I) and
+                        re.search(r"\bmission_setup\s*\(", line, re.I)):
+                    startup_calls.add("mission_setup")
+            depth = max(0, depth + lua_block_delta(line))
+
+        # Follow only verified load-time entry points.  A startup thread's
+        # straight-line prefix executes immediately, but a fog call after a
+        # sleep, branch or loop belongs to a later event/cutscene and must not
+        # be flattened into static scenario bootstrap data.
+        for name in startup_calls:
+            inside = False
+            fn_depth = 0
+            blocked = False
+            for line in clean:
+                if not inside:
+                    if re.search(r"\bfunction\s+" + re.escape(name) + r"\s*\(", line, re.I):
+                        inside = True
+                        fn_depth = 1
+                    continue
+                if fn_depth == 1 and not blocked:
+                    if re.search(r"\b(sleep|if|for|while|repeat|do)\b", line, re.I):
+                        blocked = True
+                    else:
+                        m = call.search(line)
+                        if m:
+                            add_match(m)
+                fn_depth += lua_block_delta(line)
+                if fn_depth <= 0:
+                    inside = False
+                    blocked = False
+    return result
+
+
 class MapDesc:
     def __init__(self, source: str, tile_x: int, tile_y: int):
         self.map_id = map_id(source)
@@ -132,6 +267,7 @@ class MapDesc:
         self.initial_floor = 0
         self.has_surface = True
         self.has_underground = False
+        self.fog_bootstrap: List[dict] = []
         self.objects: List[MapObject] = []
 
     def by_kind(self) -> Dict[str, int]:
@@ -149,6 +285,7 @@ class MapDesc:
             "initialFloor": self.initial_floor,
             "hasSurface": self.has_surface,
             "hasUnderground": self.has_underground,
+            "fogBootstrap": self.fog_bootstrap,
             "objectCounts": self.by_kind(),
             "objects": [o.to_json() for o in self.objects],
         }
@@ -258,6 +395,7 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
     md.initial_floor = int(xdb.number(root.find("InitialFloor"), 0))
     md.has_surface = xdb.boolean(root.find("HasSurface"), True)
     md.has_underground = xdb.boolean(root.find("HasUnderground"), False)
+    md.fog_bootstrap = _literal_fog_bootstrap(xdb, md.map_id, path)
 
     cache: dict = {}
     objects_node = root.find("objects")

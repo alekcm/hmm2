@@ -112,6 +112,8 @@ namespace HoMM5.Data
         public string source;
         public string name;
         public string description;
+        /// <summary>Original adventure/combat spell-book icon DDS href.</summary>
+        public string icon;
         public int level;
         public string school;
         public string element;
@@ -270,6 +272,8 @@ namespace HoMM5.Data
     {
         public string source;
         public int baseHeroMovement;
+        /// <summary>DefaultStats.RPGAdventureParams.BaseHeroLookRange.</summary>
+        public int baseHeroLookRange;
         public int minCreatureSpeed;
         public int maxCreatureSpeed;
         public int visitFountainOfYouthMovementBonus;
@@ -600,6 +604,11 @@ namespace HoMM5.Data
         public string castleName;
         /// <summary>The TownBuildingSharedStats folder this faction builds from.</summary>
         public string faction;
+        /// <summary>
+        /// Original TownTypesInfo plotting parts used by the adventure path
+        /// preview. Values are model geometry UIDs plus source texture hrefs.
+        /// </summary>
+        public Dictionary<string, PathPlottingDef> pathPlotting;
         /// <summary>Every building key the town owns, in town-screen order.</summary>
         public List<string> buildings;
         public string neutralCreature;
@@ -618,6 +627,14 @@ namespace HoMM5.Data
         public int chance;
         public string mastery;
         public int power;
+    }
+
+    /// <summary>One source-backed path marker model from TownTypesInfo.plotting.</summary>
+    public class PathPlottingDef
+    {
+        public string source;
+        public string geometryUid;
+        public List<string> textures;
     }
 
     // -- maps --------------------------------------------------------------
@@ -808,6 +825,16 @@ namespace HoMM5.Data
         public MapQuestDef quest;
     }
 
+    [System.Serializable]
+    public class MapFogCircleDef
+    {
+        public int x;
+        public int y;
+        public int floor;
+        public int radius;
+        public string player;
+    }
+
     public class MapDef
     {
         public string id;
@@ -819,6 +846,9 @@ namespace HoMM5.Data
         public bool hasUnderground;
         public Dictionary<string, int> objectCounts;
         public List<MapObjectDef> objects;
+        // Literal top-level OpenCircleFog calls from the map's shipped Lua
+        // bootstrap. Event/function calls are intentionally not flattened here.
+        public List<MapFogCircleDef> fogBootstrap;
     }
 
     public class MapIndexEntry

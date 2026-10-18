@@ -240,6 +240,11 @@ def load_spells(xdb: XDB, loc: Optional[Localization] = None, subdirs=(
                 "name": _text_ref(xdb, loc, root.find("NameFileRef")),
                 "description": _text_ref(xdb, loc, root.find("LongDescriptionFileRef"))
                              or _text_ref(xdb, loc, root.find("ShortDescriptionFileRef")),
+                # The adventure spellbook uses the spell record's Texture,
+                # not a Unity-generated placeholder. Keep the resolved DDS
+                # href beside the gameplay fields so the UI can bind the
+                # original 128x128 icon.
+                "icon": None,
                 "level": int(xdb.number(root.find("Level"))),
                 "school": xdb.text(root.find("MagicSchool")),
                 "element": xdb.text(root.find("Element")),
@@ -253,6 +258,8 @@ def load_spells(xdb: XDB, loc: Optional[Localization] = None, subdirs=(
                 "canSelectDead": xdb.boolean(root.find("CanSelectDead")),
                 "damageIsElemental": xdb.boolean(root.find("DamageIsElemental")),
             }
+            icon, icon_href = xdb.resolve(root.find("Texture"), rec["source"])
+            rec["icon"] = texture_dds_path(xdb, icon, icon_href)
             # damage/duration carry four mastery tiers (none/basic/advanced/
             # expert), each scaling with spell power: Base + PerPower * Power.
             rec["damage"] = _mastery_rows(xdb, root.find("damage"))
@@ -350,6 +357,7 @@ def load_game_rules(xdb: XDB, loc: Optional[Localization] = None) -> dict:
     return {
         "source": "/GameMechanics/RPGStats/DefaultStats.xdb",
         "baseHeroMovement": number(adventure, "BaseHeroMovement"),
+        "baseHeroLookRange": number(adventure, "BaseHeroLookRange"),
         "minCreatureSpeed": number(adventure, "MinCreatureSpeed"),
         "maxCreatureSpeed": number(adventure, "MaxCreatureSpeed"),
         "visitFountainOfYouthMovementBonus": number(adventure, "VisitFountainOfYouthMovementBonus"),
@@ -1081,6 +1089,45 @@ def town_shared_buildings(xdb: XDB) -> Dict[str, List[str]]:
     return out
 
 
+def _town_plotting(xdb: XDB, obj: ET.Element, base_href: str) -> Dict[str, dict]:
+    """Resolve the original adventure path-marker models.
+
+    ``plotting`` is part of the authoritative TownTypesInfo record.  The
+    special/random/no-type rows leave their faction plotting hrefs empty and
+    carry the exact GhostPlotting fallback beside them, so use that fallback
+    only for a missing slot; never manufacture a marker mesh in Unity.
+    """
+    plotting = obj.find("plotting")
+    ghost = obj.find("GhostPlotting")
+    result: Dict[str, dict] = {}
+    names = ("TargetGray", "PointGray", "TargetAvailable", "PointAvailable",
+             "TargetContested", "PointContested")
+    for name in names:
+        ref = plotting.find(name) if plotting is not None else None
+        href = ref.get("href") if ref is not None else None
+        if not href:
+            ref = ghost.find(name) if ghost is not None else None
+            href = ref.get("href") if ref is not None else None
+        if not href:
+            continue
+        absolute = xdb.absolutize(href, base_href)
+        model = xdb.load(absolute)
+        geom_uid, textures = model_geometry(xdb, model, _split_href_path(absolute))
+        if not geom_uid:
+            continue
+        result[name] = {
+            "source": absolute,
+            "geometryUid": geom_uid,
+            "textures": textures,
+        }
+    return result
+
+
+def _split_href_path(href: str) -> str:
+    """Return the file portion of an XDB href for relative model fields."""
+    return href.split("#", 1)[0]
+
+
 def load_town_types(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, dict]:
     """``TOWN_*`` -> what that faction's town *does*.
 
@@ -1108,6 +1155,10 @@ def load_town_types(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, d
                 "fortName": _text_ref(xdb, loc, obj.find("textFort")),
                 "citadelName": _text_ref(xdb, loc, obj.find("textCitadel")),
                 "castleName": _text_ref(xdb, loc, obj.find("textCaste")),
+                # TownTypesInfo is authoritative for the adventure path
+                # plotting meshes and their faction/ghost fallbacks.
+                "pathPlotting": _town_plotting(
+                    xdb, obj, "/GameMechanics/RefTables/TownTypesInfo.xdb"),
                 "faction": "",
                 "buildings": [],
                 "neutralCreature": xdb.text(values.find("NeutralCreature")) if values is not None else "",

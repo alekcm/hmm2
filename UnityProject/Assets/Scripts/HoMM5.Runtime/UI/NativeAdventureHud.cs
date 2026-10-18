@@ -19,6 +19,7 @@ namespace HoMM5.UI
         readonly List<GameObject> _rosterItems = new List<GameObject>();
         string _rosterSignature;
         Button _endTurn;
+        Button _moveHero;
         float _refreshAt;
         public H5Minimap Minimap { get; private set; }
 
@@ -71,12 +72,15 @@ namespace HoMM5.UI
             _skin.CreateButton(transform, "Menu", () => _owner.MenuRequested?.Invoke());
             _skin.CreateButton(transform, "NextHero", () => _owner.NextHeroRequested?.Invoke());
             _skin.CreateButton(transform, "Scenario", () => _owner.ScenarioRequested?.Invoke());
-            _skin.CreateButton(transform, "Spellbook", () => _owner.HeroScreenRequested?.Invoke());
+            // The original adventure HUD book opens SpellBook.(SpellBookDesc),
+            // not the hero-skill summary. Keep those commands distinct.
+            _skin.CreateButton(transform, "Spellbook", () => _owner.AdventureSpellbookRequested?.Invoke());
             _skin.CreateButton(transform, "Underground", () => _owner.FloorRequested?.Invoke());
-            // Path planning / queued movement is not implemented: do not make
-            // the original Move Hero icon pretend to execute a route.
-            var move = _skin.CreateButton(transform, "MoveHero", null);
-            if (move != null) move.interactable = false;
+            // This is the source MB_Move_Hero command. It arms the selected
+            // hero; the map still owns the native first-click plot / second-
+            // click confirm sequence.
+            _moveHero = _skin.CreateButton(transform, "MoveHero",
+                                           () => _owner.MoveHeroRequested?.Invoke());
 
             var roster = new GameObject("HeroTownRoster", typeof(RectTransform));
             var rr = roster.GetComponent<RectTransform>();
@@ -112,8 +116,15 @@ namespace HoMM5.UI
             if (_owner == null || _owner.GameState == null || Time.unscaledTime < _refreshAt) return;
             _refreshAt = Time.unscaledTime + 0.25f;
             var state = _owner.GameState;
-            if (_endTurn != null) _endTurn.interactable = !state.HasMovingHero &&
-                (state.Players.Players.Count == 0 || state.IsLocalTurn);
+            var localTurn = state.Players.Players.Count == 0 || state.IsLocalTurn;
+            if (_endTurn != null) _endTurn.interactable = !state.HasMovingHero && localTurn;
+            if (_moveHero != null)
+            {
+                var selected = _owner.Controller != null ? _owner.Controller.Selected : null;
+                var hasHero = selected != null && selected.IsHero && selected.IsLocalHero;
+                if (!hasHero) hasHero = state.HeroesOf(state.LocalPlayer).Count > 0;
+                _moveHero.interactable = !state.HasMovingHero && localTurn && hasHero;
+            }
             RefreshRoster(state);
         }
 

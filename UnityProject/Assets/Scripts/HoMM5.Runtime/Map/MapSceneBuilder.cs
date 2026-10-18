@@ -25,8 +25,10 @@ namespace HoMM5.Map
         readonly Material _waterMaterial;
 
         public MapDef Map { get; private set; }
+        public int Floor { get; private set; }
         public H5Terrain Terrain { get; private set; }
         public GameObject Root { get; private set; }
+        public H5FogOfWar Fog { get; private set; }
 
         public int ObjectsPlaced { get; private set; }
         public int ObjectsMissingMesh { get; private set; }
@@ -63,6 +65,7 @@ namespace HoMM5.Map
         /// <summary>Build the map into a new root GameObject.</summary>
         public GameObject Build(string mapId, int floor = 0)
         {
+            Floor = floor == 1 ? 1 : 0;
             Map = LoadMapDef(mapId);
             if (Map == null)
             {
@@ -76,6 +79,7 @@ namespace HoMM5.Map
 
             BuildTerrain(floor);
             BuildObjects(floor);
+            Fog = H5FogOfWar.Create(this);
 
             Debug.Log($"[HoMM5] map {mapId}: {Map.tileX}x{Map.tileY} tiles, " +
                       $"{ObjectsPlaced} objects placed, {ObjectsMissingMesh} without imported mesh, " +
@@ -204,22 +208,20 @@ namespace HoMM5.Map
             // animated; anything else stays a static mesh. Models with a move
             // clip get both, so a walking hero can switch between them.
             var idle = ClipFor(def, "idle");
-            if (idle != null && HoMM5.Anim.H5Rig.Build(go, new List<Mesh>(meshes), mats, idle) is Animation anim)
+            if (idle != null && HoMM5.Anim.H5Rig.Build(go, new List<Mesh>(meshes), mats, idle) is HoMM5.Anim.H5AnimationPlayer anim)
             {
                 AnimatedObjects++;
                 var mapObject = go.AddComponent<H5MapObject>();
                 mapObject.Attach(def, this);
                 var move = ClipFor(def, "move");
+                var idleKey = "idle";
+                var moveKey = "move";
                 if (move != null)
                 {
                     var baked = HoMM5.Anim.H5Anim.Bake(move, "Rig");
-                    if (baked != null)
-                    {
-                        baked.name = baked.name + "#move";
-                        anim.AddClip(baked, baked.name);
-                        mapObject.AttachAnimation(anim, anim.clip != null ? anim.clip.name : null, baked.name);
-                    }
+                    if (baked != null) anim.AddClip(baked, moveKey, true);
                 }
+                mapObject.AttachAnimation(anim, idleKey, moveKey);
                 return true;
             }
 
@@ -317,6 +319,44 @@ namespace HoMM5.Map
             else if (!string.IsNullOrEmpty(def.townType)) label += "_" + def.townType;
             if (!string.IsNullOrEmpty(def.name)) label += " (" + def.name + ")";
             return index + "_" + label;
+        }
+
+        /// <summary>
+        /// Instantiate one of the original TownTypesInfo.plotting meshes. Path
+        /// preview never creates a Unity primitive: geometry and textures come
+        /// from the source hrefs exported with the town type.
+        /// </summary>
+        public GameObject CreatePathMarker(string name, Vector2Int tile,
+                                           PathPlottingDef marker, Transform parent = null)
+        {
+            if (marker == null || string.IsNullOrEmpty(marker.geometryUid) || _meshes == null)
+                return null;
+            var markerMeshes = _meshes.Get(marker.geometryUid);
+            if (markerMeshes == null || markerMeshes.Length == 0) return null;
+
+            var go = new GameObject(string.IsNullOrEmpty(name) ? "PathMarker" : name);
+            go.transform.SetParent(parent != null ? parent : Root.transform, true);
+            go.transform.position = TileToWorld(tile.x, tile.y) + Vector3.up * 0.08f;
+            go.transform.rotation = Quaternion.identity;
+            for (var i = 0; i < markerMeshes.Length; i++)
+            {
+                var child = new GameObject(markerMeshes[i].name);
+                child.transform.SetParent(go.transform, false);
+                child.AddComponent<MeshFilter>().sharedMesh = markerMeshes[i];
+                var renderer = child.AddComponent<MeshRenderer>();
+                var texture = marker.textures != null && marker.textures.Count > 0
+                    ? marker.textures[Mathf.Min(i, marker.textures.Count - 1)] : null;
+                renderer.sharedMaterial = _textures != null
+                    ? (_textures.MaterialFor(texture) ?? _objectMaterial) : _objectMaterial;
+                renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                renderer.receiveShadows = false;
+            }
+            return go;
+        }
+
+        public void UpdateVisibility(AdventureMapGameState state)
+        {
+            if (Fog != null) Fog.UpdateVisibility(state);
         }
 
         /// <summary>World position of a tile, on the terrain surface.</summary>

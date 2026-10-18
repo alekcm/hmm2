@@ -44,6 +44,8 @@ namespace HoMM5.Map
         public float MovementMultiplier;
         /// <summary>Pathfinding: terrain penalties cut in half.</summary>
         public float TerrainPenaltyMultiplier;
+        /// <summary>Snatch: the source penalty is zero on non-native terrain.</summary>
+        public bool Snatch;
         /// <summary>Path of War: flat movement points per battle won.</summary>
         public int MovePointsPerVictory;
         /// <summary>Scouting / Disguise and Reckon: fog and minimap radius.</summary>
@@ -249,6 +251,9 @@ namespace HoMM5.Map
                     break;
                 case "HERO_SKILL_SCOUTING":
                     ScoutingRadiusBonus += c.scoutingVisibilityIncrease;
+                    break;
+                case "HERO_SKILL_SNATCH":
+                    Snatch = true;
                     break;
                 case "HERO_SKILL_NAVIGATION":
                     MovementMultiplier += 0.5f;   // sea movement; reused on land maps

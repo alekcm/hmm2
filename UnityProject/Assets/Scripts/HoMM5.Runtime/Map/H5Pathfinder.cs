@@ -4,9 +4,36 @@ using UnityEngine;
 namespace HoMM5.Map
 {
     /// <summary>
+    /// The modifiers passed to NWorld::STileGameInfo::CalcMoveCost.  The native
+    /// executable uses integer points (75/100/125/150, multiplied by the
+    /// diagonal constant and truncated), so this profile deliberately does not
+    /// convert a tile into an invented unit cost.
+    /// </summary>
+    public struct H5MovementProfile
+    {
+        /// <summary>NDb AdvMapTileType. The source default is TT_GRASS (1).</summary>
+        public int nativeTerrain;
+        /// <summary>Pathfinding halves the non-native terrain penalty.</summary>
+        public float terrainPenaltyMultiplier;
+        /// <summary>Snatch removes the non-native terrain penalty.</summary>
+        public bool snatch;
+        /// <summary>Additional source modifier, kept for future authored effects.</summary>
+        public int penaltyReductionPercent;
+
+        public static H5MovementProfile Default => new H5MovementProfile
+        {
+            nativeTerrain = 1, // TT_GRASS, RPGCombatSkillRoadHomeParams default
+            terrainPenaltyMultiplier = 1f,
+            snatch = false,
+            penaltyReductionPercent = 0,
+        };
+    }
+
+    /// <summary>
     /// A* over the imported adventure-map passability plane. Coordinates are
     /// integer map tiles; diagonal movement is allowed only when both adjacent
     /// orthogonal cells are open, so paths cannot cut through blocked corners.
+    /// Costs and passability follow the recovered NWorld routines.
     /// </summary>
     public static class H5Pathfinder
     {
@@ -20,6 +47,12 @@ namespace HoMM5.Map
 
         public static List<Vector2Int> FindPath(H5Terrain terrain, Vector2Int start, Vector2Int goal)
         {
+            return FindPath(terrain, start, goal, H5MovementProfile.Default);
+        }
+
+        public static List<Vector2Int> FindPath(H5Terrain terrain, Vector2Int start,
+                                                Vector2Int goal, H5MovementProfile profile)
+        {
             var result = new List<Vector2Int>();
             if (terrain == null || !terrain.IsPassable(start.x, start.y) ||
                 !terrain.IsPassable(goal.x, goal.y)) return result;
@@ -31,7 +64,11 @@ namespace HoMM5.Map
             var costs = new float[total];
             var parent = new int[total];
             var closed = new bool[total];
-            for (var i = 0; i < total; i++) { costs[i] = float.PositiveInfinity; parent[i] = -1; }
+            for (var i = 0; i < total; i++)
+            {
+                costs[i] = float.PositiveInfinity;
+                parent[i] = -1;
+            }
 
             var startIndex = start.y * width + start.x;
             var goalIndex = goal.y * width + goal.x;
@@ -59,7 +96,7 @@ namespace HoMM5.Map
 
                     var nextIndex = next.y * width + next.x;
                     if (closed[nextIndex]) continue;
-                    var candidate = costs[current] + (diagonal ? 1.41421356f : 1f);
+                    var candidate = costs[current] + StepCost(terrain, next, diagonal, profile);
                     if (candidate >= costs[nextIndex]) continue;
                     costs[nextIndex] = candidate;
                     parent[nextIndex] = current;
@@ -74,8 +111,54 @@ namespace HoMM5.Map
             return result;
         }
 
-        /// <summary>Return the longest prefix affordable with the supplied movement points.</summary>
-        public static List<Vector2Int> AffordablePrefix(Vector2Int start, List<Vector2Int> path, float budget)
+        /// <summary>One native hero step, including the diagonal multiplier.</summary>
+        public static int StepCost(H5Terrain terrain, Vector2Int to, bool diagonal,
+                                   H5MovementProfile profile)
+        {
+            if (terrain == null) return 0;
+            var terrainType = terrain.TerrainTypeAt(to.x, to.y);
+            var roadType = terrain.RoadTypeAt(to.x, to.y);
+            var baseCost = 100;
+            var penalty = 0f;
+
+            // STileGameInfo::CalcMoveCost: road wins over native terrain.
+            if (roadType == 6 || roadType == 7 || roadType == 8)
+            {
+                baseCost = 75;
+            }
+            else if (terrainType >= 0 && terrainType != profile.nativeTerrain)
+            {
+                switch (terrainType)
+                {
+                    case 0: case 4: case 5: case 13: case 14:
+                        penalty = 25f; break;
+                    case 2: case 3:
+                        penalty = 50f; break;
+                    default:
+                        penalty = 0f; break;
+                }
+                if (profile.terrainPenaltyMultiplier >= 0f)
+                    penalty *= profile.terrainPenaltyMultiplier;
+                if (profile.snatch) penalty = 0f;
+                if (profile.penaltyReductionPercent > 0)
+                    penalty *= 1f - profile.penaltyReductionPercent * 0.01f;
+            }
+
+            var total = baseCost + penalty;
+            if (diagonal) total *= 1.41421354f;
+            return (int)total; // cvttss2si in CHeroMovementCost::GetStepCost
+        }
+
+        /// <summary>Return the longest prefix affordable with native movement points.</summary>
+        public static List<Vector2Int> AffordablePrefix(Vector2Int start, List<Vector2Int> path,
+                                                         float budget)
+        {
+            return AffordablePrefix(start, path, budget, H5MovementProfile.Default);
+        }
+
+        public static List<Vector2Int> AffordablePrefix(Vector2Int start, List<Vector2Int> path,
+                                                         float budget, H5MovementProfile profile,
+                                                         H5Terrain terrain = null)
         {
             var affordable = new List<Vector2Int>();
             if (path == null || budget <= 0f) return affordable;
@@ -85,7 +168,8 @@ namespace HoMM5.Map
             {
                 var tile = path[i];
                 var diagonal = previous.x != tile.x && previous.y != tile.y;
-                var step = diagonal ? 1.41421356f : 1f;
+                var step = terrain != null ? StepCost(terrain, tile, diagonal, profile) :
+                    (diagonal ? 1.41421356f : 1f);
                 if (cost + step > budget + 0.0001f) break;
                 cost += step;
                 affordable.Add(tile);
@@ -94,6 +178,7 @@ namespace HoMM5.Map
             return affordable;
         }
 
+        /// <summary>Exact native cost of a path in movement points.</summary>
         public static float PathCost(Vector2Int start, List<Vector2Int> path)
         {
             var cost = 0f;
@@ -108,11 +193,28 @@ namespace HoMM5.Map
             return cost;
         }
 
+        public static int PathCost(H5Terrain terrain, Vector2Int start, List<Vector2Int> path,
+                                   H5MovementProfile profile)
+        {
+            var cost = 0;
+            var previous = start;
+            if (path == null) return cost;
+            for (var i = 0; i < path.Count; i++)
+            {
+                var tile = path[i];
+                cost += StepCost(terrain, tile, previous.x != tile.x && previous.y != tile.y, profile);
+                previous = tile;
+            }
+            return cost;
+        }
+
         static float Heuristic(Vector2Int a, Vector2Int b)
         {
             var dx = Mathf.Abs(a.x - b.x);
             var dy = Mathf.Abs(a.y - b.y);
-            return Mathf.Max(dx, dy) + 0.41421356f * Mathf.Min(dx, dy);
+            // 75 is the cheapest authored orthogonal step (road); this is a
+            // lower bound for all profiles and keeps A* admissible.
+            return (Mathf.Max(dx, dy) + 0.41421356f * Mathf.Min(dx, dy)) * 75f;
         }
 
         sealed class MinHeap

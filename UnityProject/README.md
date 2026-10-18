@@ -58,8 +58,8 @@ there is nothing to lose.
 | pointer at screen edge | edge scroll |
 | middle mouse drag | pan directly |
 | wheel | zoom |
-| left click | select a map object (or click the minimap to pan the camera) |
-| right click | issue a pathfinding move to a selected hero |
+| left click | select a map object; ground clicks plot a route, then confirm it on the same destination (or click the minimap to pan the camera) |
+| right click | issue the same two-step path plot/confirm command to a selected hero |
 | F1 | switch surface / underground |
 | F5 / Save | quick save |
 | F9 / Load | quick load |
@@ -182,17 +182,19 @@ tactics phase, a greedy opponent, Quick Combat, and army/experience
 consequences that persist to saves. Enemy towns, garrisons, guarded dwellings
 and the classic banks (Crypt, Dragon Utopia, ...) are battle sites too.
 Quick save/load (F5/F9) persists the world state, and
-the minimap shows terrain, objects and the camera viewport. Town screen,
-campaign flow, secondary skills and Lua execution are still
+the minimap shows terrain, objects and the camera viewport. Source-backed
+campaign entry, the current town screen, and secondary-skill effects are
+present; original Lua execution and several native modal layouts are still
 absent. The remaining systems live in
 `bin/H5_Game_PEST.exe`; `data/scripts/*.lua` holds the campaign and map scripting
 and is imported nowhere. See `../PORT_STATUS.md` for the full accounting.
 
 ## Known limits
 
-- Adventure-map idle and move clips play (extracted from Granny GR2); other
-  animation sets are not imported, and clips that start far from the bind pose
-  deform incorrectly (see `H5Rig`).
+- Adventure-map idle and move clips play through a non-legacy PlayableGraph
+  (extracted from Granny GR2); other animation sets are not imported. Authored
+  inverse-bind matrices are now used, but Granny animated off-diagonal
+  scale/shear still cannot be represented by Unity's ordinary Transform curves.
 - Battle rules are a reconstruction: damage coefficients, proc chances and
   ability probabilities are inferred (marked in `CombatRules`/`CombatAbilities`),
   the 14x10 grid and initiative rounds approximate the engine's ATB model.
@@ -214,8 +216,11 @@ centre-top, minimap at lower-left, command dial at lower-right, and hero/town
 roster beside the minimap. Menu uses the supplied ToTE logo and parchment.
 The animated 3D main-menu backdrop, original fonts, town/hero modal layouts,
 and full original effects/lighting are **not** reproduced. The Move Hero dial
-button is disabled until queued routes exist; right-click movement still works.
-The book opens the existing hero panel, not a completed adventure-spell system.
+button arms the selected hero and uses the two-click plot/confirm movement flow;
+its exact native pressed-state animation still needs Unity screenshot validation.
+The adventure book now opens the source-described `SpellBookWindow` path and
+original book model, but its Oodle-packed page clips and native spell-data
+binding still need runtime validation.
 
 Terrain now uses continuous source heights and global seam-consistent normals,
 with per-vertex coverage textures blended in a Built-in surface shader. GPUs

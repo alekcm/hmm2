@@ -18,18 +18,16 @@ namespace HoMM5.Map
     /// walk around: day counter, resources, per-hero state, which treasures are
     /// gone, who owns which mine, which visit effects have fired.
     ///
-    /// Movement cost is still the prototype grid conversion; original terrain
-    /// multipliers and army-based movement remain engine features.
+    /// Movement is expressed in the native integer points from
+    /// STileGameInfo::CalcMoveCost; the remaining army/artifact modifiers are
+    /// kept in the state tables rather than hidden behind a tile conversion.
     /// </summary>
     public sealed class AdventureMapGameState
     {
-        // DefaultHeroMovement is read from RPGStats/DefaultStats.xdb. The native
-        // engine combines it with army, terrain, skills and artifacts; only the
-        // shipped base value is reproduced here so far.
+        // DefaultHeroMovement is read from RPGStats/DefaultStats.xdb. The
+        // native executable and decompiled source express steps in these same
+        // integer movement points (75/100 plus terrain modifiers).
         public const float DefaultDailyHeroMovement = 2500f;
-        // Temporary grid conversion until CHeroMovementCost/CTetraMovementCost
-        // have been fully reconstructed from the native executable.
-        public const float PrototypeMovementPointsPerTile = 100f;
         public float DailyHeroMovement { get; private set; } = DefaultDailyHeroMovement;
 
         public void SetBaseHeroMovement(float points)
@@ -48,6 +46,27 @@ namespace HoMM5.Map
         /// <summary>Named roster heroes placed on a map hero, keyed by its state key.</summary>
         readonly Dictionary<string, HeroDef> _rosterHeroes = new Dictionary<string, HeroDef>(StringComparer.OrdinalIgnoreCase);
         readonly Dictionary<MapObjectDef, H5MapObject> _views = new Dictionary<MapObjectDef, H5MapObject>();
+
+        // NWorld keeps per-player explored and currently visible fog planes.
+        // The arrays are map-vertex indexed like GroundTerrain.passability.
+        bool[] _fogExplored;
+        bool[] _fogVisible;
+        int _fogWidth;
+        int _fogHeight;
+        int _fogFloor = -1;
+        readonly bool[][] _floorFogExplored = new bool[2][];
+        readonly int[] _floorFogWidth = new int[2];
+        readonly int[] _floorFogHeight = new int[2];
+        readonly List<FogCircle> _pendingFogCircles = new List<FogCircle>();
+        sealed class FogCircle
+        {
+            public int x, y, floor, radius;
+            public FogCircle(int x, int y, int floor, int radius)
+            {
+                this.x = x; this.y = y; this.floor = floor; this.radius = radius;
+            }
+        }
+        public bool FogEnabled { get; private set; } = true;
 
         /// <summary>The scene object for a map definition, or null when it has no mesh.</summary>
         public H5MapObject ViewOf(MapObjectDef def)
@@ -127,6 +146,7 @@ namespace HoMM5.Map
                 _townStates.Clear();
                 _garrisonArmies.Clear();
                 _views.Clear();
+                ClearFogPlanes();
                 Players = new H5PlayerRoster();
                 Log.Clear();
                 Rand = new System.Random(12345);
@@ -185,7 +205,200 @@ namespace HoMM5.Map
                         obj.BindHeroState(heroState);
                 }
             }
+            InitializeFog(builder, newScenario);
+            if (newScenario && _map != null && _map.fogBootstrap != null)
+                foreach (var circle in _map.fogBootstrap)
+                    if (circle != null)
+                        OpenCircleFog(circle.x, circle.y, circle.floor, circle.radius, circle.player);
+            RebuildFog();
             Changed?.Invoke();
+        }
+
+        // -- fog of war ----------------------------------------------------
+
+        void ClearFogPlanes()
+        {
+            _fogExplored = null;
+            _fogVisible = null;
+            _fogWidth = _fogHeight = 0;
+            _fogFloor = -1;
+            _pendingFogCircles.Clear();
+            for (var i = 0; i < 2; i++)
+            {
+                _floorFogExplored[i] = null;
+                _floorFogWidth[i] = _floorFogHeight[i] = 0;
+            }
+        }
+
+        void StoreActiveFogPlane()
+        {
+            if (_fogFloor < 0 || _fogFloor > 1 || _fogExplored == null) return;
+            _floorFogExplored[_fogFloor] = _fogExplored;
+            _floorFogWidth[_fogFloor] = _fogWidth;
+            _floorFogHeight[_fogFloor] = _fogHeight;
+        }
+
+        void InitializeFog(MapSceneBuilder builder, bool newScenario)
+        {
+            if (newScenario) ClearFogPlanes();
+            var terrain = builder != null ? builder.Terrain : null;
+            var width = terrain != null ? terrain.TilesX + 1 : 0;
+            var height = terrain != null ? terrain.TilesY + 1 : 0;
+            var mapFloor = builder != null ? builder.Floor : 0;
+            if (width < 1 || height < 1)
+            {
+                _fogExplored = _fogVisible = null;
+                _fogWidth = _fogHeight = 0;
+                return;
+            }
+
+            if (_fogFloor >= 0 && _fogFloor != mapFloor) StoreActiveFogPlane();
+            var saved = mapFloor >= 0 && mapFloor < 2 ? _floorFogExplored[mapFloor] : null;
+            var savedWidth = mapFloor >= 0 && mapFloor < 2 ? _floorFogWidth[mapFloor] : 0;
+            var savedHeight = mapFloor >= 0 && mapFloor < 2 ? _floorFogHeight[mapFloor] : 0;
+            if (saved != null && savedWidth == width && savedHeight == height)
+                _fogExplored = saved;
+            else if (_fogFloor == mapFloor && _fogExplored != null &&
+                     _fogWidth == width && _fogHeight == height)
+                StoreActiveFogPlane();
+            else
+                _fogExplored = new bool[width * height];
+
+            _fogVisible = new bool[width * height];
+            _fogWidth = width;
+            _fogHeight = height;
+            _fogFloor = mapFloor;
+            StoreActiveFogPlane();
+            for (var i = _pendingFogCircles.Count - 1; i >= 0; i--)
+            {
+                var circle = _pendingFogCircles[i];
+                if (circle.floor != mapFloor) continue;
+                RevealCircle(circle.x, circle.y, circle.radius, false);
+                _pendingFogCircles.RemoveAt(i);
+            }
+        }
+
+        /// <summary>
+        /// Recompute current visibility from the local player's heroes. The
+        /// native BaseHeroLookRange is 12; Scouting adds the exact
+        /// DefaultStats HeroSkills coefficient (4 per owned perk rank source).
+        /// Explored cells remain explored after a hero leaves them.
+        /// </summary>
+        public void RebuildFog()
+        {
+            if (!FogEnabled || _fogVisible == null) return;
+            System.Array.Clear(_fogVisible, 0, _fogVisible.Length);
+            var radius = Rules != null && Rules.baseHeroLookRange > 0
+                ? Rules.baseHeroLookRange : 12;
+            for (var i = 0; i < _heroes.Count; i++)
+            {
+                var hero = _heroes[i];
+                if (hero == null || !hero.IsLocalHero || hero.Def == null) continue;
+                var hs = hero.HeroState ?? GetHeroState(hero);
+                var bonus = hs != null ? hs.Effects.ScoutingRadiusBonus : 0;
+                RevealCircle(Mathf.RoundToInt(hero.Def.x), Mathf.RoundToInt(hero.Def.y),
+                             radius + bonus, true);
+            }
+        }
+
+        /// <summary>Source Lua OpenCircleFog equivalent: permanently open cells.</summary>
+        public void OpenCircleFog(string playerId, int x, int y, int radius)
+        {
+            if (!string.Equals(playerId, LocalPlayerId, StringComparison.OrdinalIgnoreCase) ||
+                _fogExplored == null) return;
+            RevealCircle(x, y, Mathf.Max(0, radius), false);
+            Changed?.Invoke();
+        }
+
+        /// <summary>
+        /// Native/Lua argument order: x, y, floor, radius, player. The floor is
+        /// part of the original command, so do not reveal the active plane when
+        /// a script targets the other plane.
+        /// </summary>
+        public void OpenCircleFog(int x, int y, int floor, int radius, string playerId)
+        {
+            if (!string.Equals(playerId, LocalPlayerId, StringComparison.OrdinalIgnoreCase)) return;
+            floor = floor == 1 ? 1 : 0;
+            radius = Mathf.Max(0, radius);
+            if (floor == _fogFloor)
+            {
+                RevealCircle(x, y, radius, false);
+                Changed?.Invoke();
+                return;
+            }
+
+            var explored = _floorFogExplored[floor];
+            if (explored != null && _floorFogWidth[floor] > 0 && _floorFogHeight[floor] > 0)
+                RevealCircleOn(explored, _floorFogWidth[floor], _floorFogHeight[floor], x, y, radius);
+            else
+                _pendingFogCircles.Add(new FogCircle(x, y, floor, radius));
+            Changed?.Invoke();
+        }
+
+        void RevealCircle(int centerX, int centerY, int radius, bool current)
+        {
+            if (_fogExplored == null) return;
+            RevealCircleOn(_fogExplored, _fogWidth, _fogHeight, centerX, centerY, radius);
+            if (current && _fogVisible != null)
+            {
+                var r2 = radius * radius;
+                var minX = Mathf.Max(0, centerX - radius);
+                var maxX = Mathf.Min(_fogWidth - 1, centerX + radius);
+                var minY = Mathf.Max(0, centerY - radius);
+                var maxY = Mathf.Min(_fogHeight - 1, centerY + radius);
+                for (var y = minY; y <= maxY; y++)
+                for (var x = minX; x <= maxX; x++)
+                {
+                    var dx = x - centerX;
+                    var dy = y - centerY;
+                    if (dx * dx + dy * dy <= r2) _fogVisible[y * _fogWidth + x] = true;
+                }
+            }
+        }
+
+        static void RevealCircleOn(bool[] explored, int width, int height,
+                                   int centerX, int centerY, int radius)
+        {
+            if (explored == null || width < 1 || height < 1) return;
+            var r2 = radius * radius;
+            var minX = Mathf.Max(0, centerX - radius);
+            var maxX = Mathf.Min(width - 1, centerX + radius);
+            var minY = Mathf.Max(0, centerY - radius);
+            var maxY = Mathf.Min(height - 1, centerY + radius);
+            for (var y = minY; y <= maxY; y++)
+            for (var x = minX; x <= maxX; x++)
+            {
+                var dx = x - centerX;
+                var dy = y - centerY;
+                if (dx * dx + dy * dy <= r2) explored[y * width + x] = true;
+            }
+        }
+
+        public bool IsTileVisible(int x, int y)
+        {
+            if (!FogEnabled || _fogVisible == null) return true;
+            if (x < 0 || y < 0 || x >= _fogWidth || y >= _fogHeight) return false;
+            return _fogVisible[y * _fogWidth + x];
+        }
+
+        public bool IsTileExplored(int x, int y)
+        {
+            if (!FogEnabled || _fogExplored == null) return true;
+            if (x < 0 || y < 0 || x >= _fogWidth || y >= _fogHeight) return false;
+            return _fogExplored[y * _fogWidth + x];
+        }
+
+        public bool IsObjectVisible(MapObjectDef def)
+        {
+            if (!FogEnabled || def == null) return true;
+            if (string.Equals(def.owner, LocalPlayerId, StringComparison.OrdinalIgnoreCase)) return true;
+            var x = Mathf.RoundToInt(def.x);
+            var y = Mathf.RoundToInt(def.y);
+            if (IsTileVisible(x, y)) return true;
+            if (def.activeTiles != null)
+                foreach (var tile in def.activeTiles)
+                    if (tile != null && tile.Count >= 2 && IsTileVisible(x + tile[0], y + tile[1])) return true;
+            return false;
         }
 
         // -- turn loop -----------------------------------------------------
@@ -255,6 +468,7 @@ namespace HoMM5.Map
             if (hero != null && hero.Def != null)
                 _heroPositions[hero.StateKey] = new Vector2(hero.Def.x, hero.Def.y);
             H5ObjectVisits.TryVisitAtTile(this, hero, tile);
+            RebuildFog();
             Changed?.Invoke();
         }
 
@@ -1288,6 +1502,15 @@ namespace HoMM5.Map
                 AddLog("A hero is still moving.");
                 return;
             }
+            // Only the current human may submit EndTurn. AI completion calls
+            // the roster directly below, matching the native command's
+            // current-player gate instead of letting a stale HUD click advance
+            // somebody else's turn.
+            if (_actingPlayerId == null && !IsLocalTurn)
+            {
+                AddLog("It is not your turn.");
+                return;
+            }
             var wrapped = Players.EndTurn();
             if (wrapped) EndDay();
             Changed?.Invoke();
@@ -1307,9 +1530,22 @@ namespace HoMM5.Map
             var guard = 0;
             while (CurrentPlayer != null && !CurrentPlayer.IsHuman && guard++ < 16)
             {
+                var computer = CurrentPlayer;
+                // Campaign scripts can leave an AI slot in the player order
+                // after its last town and active hero are gone. The native
+                // DoNotGiveTurnToPlayerAIIfNoTownsAndActiveHeroes command exists
+                // for exactly this case: it must not consume a phantom turn.
+                if (TownsOf(computer).Count == 0 && HeroesOf(computer).Count == 0)
+                {
+                    computer.IsAlive = false;
+                    var skippedWrap = Players.EndTurn();
+                    if (skippedWrap) EndDay();
+                    continue;
+                }
+
                 List<string> lines;
-                _actingPlayerId = CurrentPlayer.Id;
-                try { lines = H5AiController.PlayTurn(this, CurrentPlayer); }
+                _actingPlayerId = computer.Id;
+                try { lines = H5AiController.PlayTurn(this, computer); }
                 finally { _actingPlayerId = null; }
                 foreach (var line in lines) AddLog(line);
                 var wrapped = Players.EndTurn();
@@ -1610,6 +1846,19 @@ namespace HoMM5.Map
             foreach (var kv in _ownerOverrides) save.owners[kv.Key] = kv.Value;
             foreach (var town in AllTowns()) save.towns.Add(town);
             save.log.AddRange(Log);
+            StoreActiveFogPlane();
+            save.fogFloor = _fogFloor;
+            save.fogWidth = _fogWidth;
+            save.fogHeight = _fogHeight;
+            save.fogExplored = _fogExplored != null ? (bool[])_fogExplored.Clone() : null;
+            save.fogGroundWidth = _floorFogWidth[0];
+            save.fogGroundHeight = _floorFogHeight[0];
+            save.fogGroundExplored = _floorFogExplored[0] != null
+                ? (bool[])_floorFogExplored[0].Clone() : null;
+            save.fogUndergroundWidth = _floorFogWidth[1];
+            save.fogUndergroundHeight = _floorFogHeight[1];
+            save.fogUndergroundExplored = _floorFogExplored[1] != null
+                ? (bool[])_floorFogExplored[1].Clone() : null;
             return save;
         }
 
@@ -1672,6 +1921,33 @@ namespace HoMM5.Map
                         _townStates[town.ObjectId] = town;
             Log.Clear();
             if (save.log != null) Log.AddRange(save.log);
+            ClearFogPlanes();
+            if (save.fogGroundExplored != null)
+            {
+                _floorFogWidth[0] = save.fogGroundWidth;
+                _floorFogHeight[0] = save.fogGroundHeight;
+                _floorFogExplored[0] = (bool[])save.fogGroundExplored.Clone();
+            }
+            if (save.fogUndergroundExplored != null)
+            {
+                _floorFogWidth[1] = save.fogUndergroundWidth;
+                _floorFogHeight[1] = save.fogUndergroundHeight;
+                _floorFogExplored[1] = (bool[])save.fogUndergroundExplored.Clone();
+            }
+            _fogWidth = save.fogWidth;
+            _fogHeight = save.fogHeight;
+            _fogFloor = save.fogFloor >= 0 ? save.fogFloor : (save.floor == 1 ? 1 : 0);
+            _fogExplored = save.fogExplored != null ? (bool[])save.fogExplored.Clone() : null;
+            // Older saves contain only the active plane. Seed its slot so a
+            // subsequent floor switch does not erase it.
+            if (_fogExplored != null && _fogFloor >= 0 && _fogFloor < 2 &&
+                _floorFogExplored[_fogFloor] == null)
+            {
+                _floorFogExplored[_fogFloor] = _fogExplored;
+                _floorFogWidth[_fogFloor] = _fogWidth;
+                _floorFogHeight[_fogFloor] = _fogHeight;
+            }
+            _fogVisible = null;
             Changed?.Invoke();
         }
     }

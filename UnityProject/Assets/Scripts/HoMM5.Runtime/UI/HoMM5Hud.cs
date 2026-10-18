@@ -1,3 +1,4 @@
+using HoMM5.Core;
 using HoMM5.Data;
 using HoMM5.Map;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace HoMM5.UI
         [System.NonSerialized] public AdventureMapController Controller;
         [System.NonSerialized] public GameDatabase Database;
         [System.NonSerialized] public AdventureMapGameState GameState;
+        [System.NonSerialized] public H5TextureCache Textures;
+        [System.NonSerialized] public MeshCache Meshes;
 
         Text _title;
         Text _details;
@@ -40,6 +43,9 @@ namespace HoMM5.UI
         public System.Action MenuRequested;
         public System.Action NextHeroRequested;
         public System.Action HeroScreenRequested;
+        /// <summary>Native HUD book button; separate from the hero skill screen.</summary>
+        public System.Action AdventureSpellbookRequested;
+        public System.Action MoveHeroRequested;
         public System.Action FloorRequested;
         public System.Action ScenarioRequested;
         public System.Action<H5TownState> TownSelectedRequested;
@@ -54,6 +60,7 @@ namespace HoMM5.UI
 
         /// <summary>The town screen, created with the rest of the HUD.</summary>
         public TownScreen Town { get; private set; }
+        public AdventureSpellbook Spellbook { get; private set; }
         GameObject _mapListPanel;
         ScrollRect _mapScroll;
         RectTransform _mapListContent;
@@ -175,7 +182,10 @@ namespace HoMM5.UI
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             var scaler = canvasGo.GetComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1536, 864);
+            // The shipped WindowScreen records are authored for 1024x768;
+            // keep that coordinate space so H5UiSkin.Place can use the source
+            // placements without a second, invented scale.
+            scaler.referenceResolution = new Vector2(1024, 768);
             scaler.matchWidthOrHeight = 0.5f;
 
             _canvasRoot = canvasGo.transform;
@@ -208,6 +218,35 @@ namespace HoMM5.UI
                 _mapListPanel.SetActive(false);
             }
             Town = TownScreen.Create(_adventureRoot);
+            Spellbook = AdventureSpellbook.Create(_adventureRoot, this);
+        }
+
+        /// <summary>Hand the runtime texture cache to native UI elements created in Awake.</summary>
+        public void AttachTextures(H5TextureCache textures)
+        {
+            Textures = textures;
+            if (Spellbook != null) Spellbook.AttachTextures(textures);
+        }
+
+        public void AttachMeshes(MeshCache meshes)
+        {
+            Meshes = meshes;
+            if (Spellbook != null) Spellbook.AttachMeshes(meshes);
+        }
+
+        public void ShowAdventureSpellbook(H5MapObject hero)
+        {
+            if (Spellbook != null)
+            {
+                Spellbook.Show(hero);
+                return;
+            }
+            GameState?.AddLog("Original adventure spellbook UI is not imported.");
+        }
+
+        public void HideAdventureSpellbook()
+        {
+            if (Spellbook != null) Spellbook.Hide();
         }
 
         void BuildSelectionPanel(Transform parent)

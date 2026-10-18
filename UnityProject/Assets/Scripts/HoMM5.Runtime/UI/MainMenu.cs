@@ -15,10 +15,10 @@ namespace HoMM5.UI
     /// New Game, then a map, then a faction, then a hero, then play -- with
     /// Continue and Load alongside it.
     ///
-    /// Built in code like the rest of the HUD, so the project still ships
-    /// without hand-authored UI assets. The shipped menu's painted art and
-    /// animated background are not reproduced; the choices and the data behind
-    /// them are.
+    /// The MainMenu2 XDB panel, logo and button placements are imported from the
+    /// shipped data. Runtime-only screens keep their existing data-driven flow,
+    /// but root and single/multiplayer menu navigation is no longer a generic
+    /// code-positioned replacement.
     /// </summary>
     public class MainMenu : MonoBehaviour
     {
@@ -32,9 +32,13 @@ namespace HoMM5.UI
 
         H5UiSkin _skin;
         GameObject _root;
+        GameObject _panelObject;
+        GameObject _submenuPanelObject;
         UnityEngine.UI.Text _title;
         UnityEngine.UI.Text _status;
         RectTransform _body;
+        readonly List<GameObject> _nativeRows = new List<GameObject>();
+        readonly List<GameObject> _nativeSubRows = new List<GameObject>();
 
         // Which step of the setup the panel is on.
         int _step;
@@ -75,33 +79,36 @@ namespace HoMM5.UI
             overlay.offsetMin = overlay.offsetMax = Vector2.zero;
             _root.GetComponent<Image>().color = new Color(0.02f, 0.025f, 0.04f, 1f);
             _skin = H5UiSkin.Load();
-            if (_skin != null)
+            var logoImage = _skin != null ? _skin.CreateWindow(overlay, "mainMenu:logo") : null;
+            if (logoImage != null)
             {
-                var logo = new GameObject("OriginalLogo", typeof(RectTransform), typeof(Image));
-                var lr = logo.GetComponent<RectTransform>();
-                lr.SetParent(overlay, false);
-                lr.anchorMin = lr.anchorMax = new Vector2(0.5f, 1);
-                lr.pivot = new Vector2(0.5f, 1);
-                lr.anchoredPosition = new Vector2(0, -12);
-                lr.sizeDelta = new Vector2(380, 112);
-                var li = logo.GetComponent<Image>();
-                li.sprite = _skin.GetSprite("menuLogo");
-                li.preserveAspect = true;
-                li.raycastTarget = false;
+                logoImage.gameObject.name = "OriginalLogo";
+                logoImage.preserveAspect = true;
+                logoImage.raycastTarget = false;
             }
-            var panel = MakePanel(overlay, "MenuPanel", new Vector2(-500, -330), new Vector2(500, 330));
-            var panelImage = panel.GetComponent<Image>();
-            panelImage.sprite = _skin != null ? _skin.GetSprite("menuPanel") : null;
-            panelImage.color = panelImage.sprite != null ? Color.white : new Color(0.05f, 0.06f, 0.09f, 0.98f);
 
-            _title = MakeText(panel.transform, "Title", 34, FontStyle.Bold, TextAnchor.MiddleCenter,
-                              new Vector2(0, -84), new Vector2(0, -26));
-            _title.rectTransform.anchorMin = new Vector2(0, 1);
-            _title.rectTransform.anchorMax = Vector2.one;
+            var panelImage = _skin != null ? _skin.CreateWindow(overlay, "mainMenu:panel", true) : null;
+            GameObject panel;
+            if (panelImage != null)
+            {
+                panel = panelImage.gameObject;
+                panel.name = "MenuPanel";
+                panelImage.preserveAspect = true;
+                panelImage.color = Color.white;
+            }
+            else
+            {
+                panel = MakePanel(overlay, "MenuPanel", new Vector2(-500, -330), new Vector2(500, 330));
+                panel.GetComponent<Image>().color = new Color(0.05f, 0.06f, 0.09f, 0.98f);
+            }
+            _panelObject = panel;
+
+            _title = MakeText(panel.transform, "Title", 25, FontStyle.Bold, TextAnchor.MiddleCenter,
+                              new Vector2(12, -48), new Vector2(-12, -12));
             _title.text = "Heroes of Might and Magic V";
             _title.color = _skin != null ? new Color(0.24f, 0.14f, 0.07f) : new Color(0.86f, 0.78f, 0.58f);
 
-            _body = MakeScroll(panel.transform, "Body", new Vector2(40, 70), new Vector2(-40, -96));
+            _body = MakeScroll(panel.transform, "Body", new Vector2(12, 38), new Vector2(-12, -12));
 
             var back = MakeButton(panel.transform, "BackButton", "Back", new Vector2(0.5f, 0),
                                   new Vector2(-40, 22), new Vector2(40, 58), OnBack);
@@ -126,6 +133,96 @@ namespace HoMM5.UI
         void ShowBack(bool visible)
         {
             if (_backButton != null) _backButton.gameObject.SetActive(visible);
+        }
+
+        // -- authored MainMenu2 submenus ------------------------------------
+
+        void ShowSingleMenu()
+        {
+            _step = 8;
+            Clear();
+            RenderSourceSubmenu("single", "SinglePlayer", new[]
+            {
+                new SourceRow("Campaign", "Campaign", ShowCampaigns),
+                new SourceRow("UserCampaign", "User campaigns", () => SetStatus("User campaigns are not imported.")),
+                new SourceRow("LoadGame", "Load game", () => LoadRequested?.Invoke()),
+                new SourceRow("CustomGame", "Custom game", ShowMaps),
+                new SourceRow("HallOfFame", "Hall of Fame", () => SetStatus("Hall of Fame data is not present in the imported runtime.")),
+                new SourceRow("Back", "Back", ShowRoot),
+            });
+        }
+
+        void ShowMultiMenu()
+        {
+            _step = 9;
+            Clear();
+            RenderSourceSubmenu("multi", "MultiPlayer", new[]
+            {
+                new SourceRow("HotSeat", "Hot seat", () => SetStatus("Hot-seat transport is not implemented in this runtime.")),
+                new SourceRow("LAN", "LAN", () => SetStatus("LAN transport is not implemented in this runtime.")),
+                new SourceRow("UbiCom", "Ubi.com", () => SetStatus("Ubi.com service is not available.")),
+                new SourceRow("LoadGame", "Load game", () => LoadRequested?.Invoke()),
+                new SourceRow("Back", "Back", ShowRoot),
+            });
+        }
+
+        void ShowOptionsMenu()
+        {
+            SetStatus("Options are defined by the original GameOptions screen; runtime binding is not imported yet.");
+        }
+
+        void ShowCredits()
+        {
+            SetStatus("Credits are supplied by the original game data.");
+        }
+
+        readonly struct SourceRow
+        {
+            public readonly string Key;
+            public readonly string Label;
+            public readonly Action Action;
+            public SourceRow(string key, string label, Action action)
+            {
+                Key = key;
+                Label = label;
+                Action = action;
+            }
+        }
+
+        void RenderSourceSubmenu(string prefix, string name, SourceRow[] rows)
+        {
+            if (_skin == null || _root == null) return;
+            _title.gameObject.SetActive(false);
+            _body.gameObject.SetActive(false);
+            if (_panelObject != null) _panelObject.SetActive(false);
+            if (_submenuPanelObject != null) Destroy(_submenuPanelObject);
+            var image = _skin.CreateWindow(_root.transform, "mainMenu:" + prefix + ":panel", true);
+            if (image == null) return;
+            _submenuPanelObject = image.gameObject;
+            _submenuPanelObject.name = "Native" + name + "Panel";
+            image.preserveAspect = true;
+            image.color = Color.white;
+            for (var i = 0; i < rows.Length; i++)
+            {
+                var source = _skin.GetWindow("mainMenu:" + prefix + ":" + rows[i].Key);
+                if (source == null) continue;
+                var go = new GameObject("Native" + name + "Button_" + rows[i].Key,
+                                        typeof(RectTransform), typeof(Image), typeof(Button));
+                var rect = go.GetComponent<RectTransform>();
+                rect.SetParent(_submenuPanelObject.transform, false);
+                H5UiSkin.Place(rect, source);
+                var buttonImage = go.GetComponent<Image>();
+                buttonImage.color = new Color(0f, 0f, 0f, 0.01f);
+                var button = go.GetComponent<Button>();
+                button.targetGraphic = buttonImage;
+                var captured = rows[i].Action;
+                button.onClick.AddListener(() => { HoMM5.Audio.H5Audio.Click(); captured?.Invoke(); });
+                var label = MakeText(go.transform, "Label", 15, FontStyle.Bold,
+                                     TextAnchor.MiddleCenter, Vector2.zero, Vector2.zero);
+                label.text = string.IsNullOrEmpty(source.text) ? rows[i].Label : source.text;
+                label.color = new Color(0.93f, 0.84f, 0.62f);
+                _nativeSubRows.Add(go);
+            }
         }
 
         // -- step 0: the root menu -----------------------------------------
@@ -497,6 +594,8 @@ namespace HoMM5.UI
                 case 5: ShowRoot(); break;
                 case 6: ShowCampaigns(); break;
                 case 7: ShowCampaignMissions(); break;
+                case 8: ShowRoot(); break;
+                case 9: ShowRoot(); break;
                 default: ShowRoot(); break;
             }
         }
@@ -523,16 +622,76 @@ namespace HoMM5.UI
             public bool Bold;
         }
 
+        void RenderNativeRoot()
+        {
+            if (_submenuPanelObject != null)
+            {
+                Destroy(_submenuPanelObject);
+                _submenuPanelObject = null;
+            }
+            _panelObject.SetActive(true);
+            _title.gameObject.SetActive(false);
+            _body.gameObject.SetActive(false);
+            var rows = new[]
+            {
+                new { Source = "SingleGame", Label = "Single Game", Action = (Action)ShowSingleMenu },
+                new { Source = "MultiPlayer", Label = "Multiplayer", Action = (Action)ShowMultiMenu },
+                new { Source = "Options", Label = "Options", Action = (Action)ShowOptionsMenu },
+                new { Source = "Credits", Label = "Credits", Action = (Action)ShowCredits },
+                new { Source = "Quit", Label = "Quit", Action = (Action)(() => QuitRequested?.Invoke()) },
+            };
+            for (var i = 0; i < rows.Length; i++)
+            {
+                var source = _skin.GetWindow("mainMenu:" + rows[i].Source);
+                if (source == null) continue;
+                var go = new GameObject("NativeMenuButton_" + rows[i].Source,
+                                        typeof(RectTransform), typeof(Image), typeof(Button));
+                var rect = go.GetComponent<RectTransform>();
+                rect.SetParent(_panelObject.transform, false);
+                H5UiSkin.Place(rect, source);
+                var image = go.GetComponent<Image>();
+                image.color = new Color(0, 0, 0, 0.01f);
+                var button = go.GetComponent<Button>();
+                button.targetGraphic = image;
+                var captured = rows[i].Action;
+                button.onClick.AddListener(() => { HoMM5.Audio.H5Audio.Click(); captured?.Invoke(); });
+                var label = MakeText(go.transform, "Label", 16, FontStyle.Bold,
+                                     TextAnchor.MiddleCenter, Vector2.zero, Vector2.zero);
+                label.text = string.IsNullOrEmpty(source.text) ? rows[i].Label : source.text;
+                label.color = new Color(0.93f, 0.84f, 0.62f);
+                _nativeRows.Add(go);
+            }
+        }
+
         void Clear()
         {
             if (_body == null) return;
             for (var i = _body.childCount - 1; i >= 0; i--)
                 Destroy(_body.GetChild(i).gameObject);
+            for (var i = _nativeRows.Count - 1; i >= 0; i--)
+                if (_nativeRows[i] != null) Destroy(_nativeRows[i]);
+            _nativeRows.Clear();
+            for (var i = _nativeSubRows.Count - 1; i >= 0; i--)
+                if (_nativeSubRows[i] != null) Destroy(_nativeSubRows[i]);
+            _nativeSubRows.Clear();
+            if (_submenuPanelObject != null)
+            {
+                Destroy(_submenuPanelObject);
+                _submenuPanelObject = null;
+            }
         }
 
         void Render(List<MenuRow> rows)
         {
             if (_body == null) return;
+            if (_step == 0 && _skin != null && _skin.GetWindow("mainMenu:SingleGame") != null)
+            {
+                RenderNativeRoot();
+                return;
+            }
+            if (_panelObject != null) _panelObject.SetActive(true);
+            _title.gameObject.SetActive(true);
+            _body.gameObject.SetActive(true);
             var y = 0f;
             foreach (var row in rows)
             {

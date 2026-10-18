@@ -57,6 +57,10 @@ namespace HoMM5
         H5MapObject _combatHero;
         H5MapObject _combatMonster;
 
+        H5MapObject _plannedHero;
+        Vector2Int _plannedDestination;
+        readonly List<GameObject> _pathPreview = new List<GameObject>();
+
         /// <summary>Whether a battle is in progress (blocks turns, F1, saving).</summary>
         public bool CombatActive => _combat != null;
 
@@ -82,11 +86,17 @@ namespace HoMM5
 
             BuildLights();
             BuildCamera();
-            if (_controller != null) _controller.MapClicked += MoveSelectedHeroTo;
+            if (_controller != null)
+            {
+                _controller.MapClicked += MoveSelectedHeroTo;
+                _controller.SelectionChanged += OnMapSelectionChanged;
+            }
             _hud = gameObject.AddComponent<HoMM5Hud>();
             _hud.Controller = _controller;
             _hud.Database = Database;
             _hud.GameState = GameState;
+            _hud.AttachTextures(Textures);
+            _hud.AttachMeshes(Meshes);
             _hud.EndDayRequested = EndDay;
             _hud.SaveRequested = SaveGame;
             _hud.LoadRequested = LoadGame;
@@ -95,6 +105,8 @@ namespace HoMM5
             _hud.MenuRequested = ReturnToMenu;
             _hud.NextHeroRequested = SelectNextHero;
             _hud.HeroScreenRequested = ShowHeroSkills;
+            _hud.AdventureSpellbookRequested = ShowAdventureSpellbook;
+            _hud.MoveHeroRequested = ArmMoveHero;
             _hud.FloorRequested = ToggleFloor;
             _hud.ScenarioRequested = ShowScenario;
             RefreshTurnHud();
@@ -269,6 +281,7 @@ namespace HoMM5
                 return;
             }
             floor = targetFloor == 1 ? 1 : 0;
+            ClearPathPreview();
             if (_controller != null) _controller.Select(null);
             if (CurrentMap != null && CurrentMap.Root != null)
             {
@@ -276,7 +289,15 @@ namespace HoMM5
                 Destroy(CurrentMap.Root);
             }
             Meshes.Clear();
-            if (Textures != null) Textures.Dispose();
+            if (Textures != null)
+            {
+                // The cache is shared by map materials and the native HUD. A
+                // map rebuild disposes its runtime materials, so immediately
+                // re-read the imported manifest before constructing the next
+                // scene instead of silently leaving every mesh untextured.
+                Textures.Dispose();
+                Textures.LoadManifest();
+            }
 
             var builder = new MapSceneBuilder(Meshes, MakeTerrainMaterial(), MakeObjectMaterial(),
                                               MakeWaterMaterial(), Textures, Database);
@@ -311,6 +332,10 @@ namespace HoMM5
                                                     builder.Map.tileY * 0.5f), 45f);
 
             _hud.AttachMap(builder);
+            // BindMap raises Changed before the HUD/map reference is replaced;
+            // refresh once more so the newly-created fog layers and object
+            // visibility receive the current hero/turn state on first frame.
+            RefreshTurnHud();
             RefreshStats();
             ResumeAdventure();
         }
@@ -542,6 +567,34 @@ namespace HoMM5
             RefreshStats();
         }
 
+        void OnMapSelectionChanged(H5MapObject selected)
+        {
+            if (_plannedHero != null && selected != _plannedHero) ClearPathPreview();
+        }
+
+        /// <summary>
+        /// Source MB_Move_Hero command: keep the selected hero (or select the
+        /// first local hero) and let the next map click enter the same plot /
+        /// confirm path flow as the native command.
+        /// </summary>
+        void ArmMoveHero()
+        {
+            if (CurrentMap == null || GameState == null || _controller == null ||
+                GameState.HasMovingHero || CombatActive) return;
+            var selected = _controller.Selected;
+            if (selected == null || !selected.IsHero || !selected.IsLocalHero)
+            {
+                var heroes = GameState.HeroesOf(GameState.LocalPlayer);
+                if (heroes.Count > 0)
+                {
+                    selected = heroes[0];
+                    _controller.Select(selected);
+                }
+            }
+            if (selected != null && selected.IsHero && selected.IsLocalHero)
+                GameState.AddLog("Choose a destination: the first click plots the path, the second confirms it.");
+        }
+
         void MoveSelectedHeroTo(Vector3 worldPoint)
         {
             if (CurrentMap == null || CurrentMap.Root == null || _controller == null ||
@@ -550,15 +603,92 @@ namespace HoMM5
             if (hero == null || !hero.IsHero || !hero.IsLocalHero) return;
 
             var local = CurrentMap.Root.transform.InverseTransformPoint(worldPoint);
-            var tile = new Vector2Int(
+            var requested = new Vector2Int(
                 Mathf.RoundToInt(local.x / TerrainMeshBuilder.TileSize),
                 Mathf.RoundToInt(local.z / TerrainMeshBuilder.TileSize));
-            hero.MoveHeroTo(tile);
+            var tile = AdventureMapController.ResolvePassableTile(CurrentMap.Terrain, requested);
+            if (!CurrentMap.Terrain.IsPassable(tile.x, tile.y)) return;
+
+            // Native adventure input is two-phase: the first click plots the
+            // route and the second click on the same target commits it. A new
+            // target replaces the plot without moving the hero.
+            if (_plannedHero == hero && _plannedDestination == tile)
+            {
+                ClearPathPreview();
+                hero.MoveHeroTo(tile);
+                return;
+            }
+            ShowPathPreview(hero, tile);
+        }
+
+        void ShowPathPreview(H5MapObject hero, Vector2Int destination)
+        {
+            ClearPathPreview();
+            if (hero == null || hero.Builder == null || hero.Builder.Terrain == null ||
+                Database == null) return;
+            var terrain = hero.Builder.Terrain;
+            var profile = hero.GetMovementProfile();
+            var start = new Vector2Int(Mathf.RoundToInt(hero.Def.x), Mathf.RoundToInt(hero.Def.y));
+            var path = H5Pathfinder.FindPath(terrain, start, destination, profile);
+            _plannedHero = hero;
+            _plannedDestination = destination;
+            if (path.Count == 0) return;
+            var affordable = H5Pathfinder.AffordablePrefix(start, path, hero.MovementPointsRemaining,
+                                                            profile, terrain);
+            var town = PathPlottingTown(hero);
+            if (town == null || town.pathPlotting == null) return;
+            town.pathPlotting.TryGetValue("PointAvailable", out var pointAvailable);
+            town.pathPlotting.TryGetValue("PointGray", out var pointGray);
+            town.pathPlotting.TryGetValue("TargetAvailable", out var targetAvailable);
+            town.pathPlotting.TryGetValue("TargetGray", out var targetGray);
+
+            for (var i = 0; i < path.Count; i++)
+            {
+                var marker = i < affordable.Count ? pointAvailable : pointGray;
+                var go = CurrentMap.CreatePathMarker("PathPoint_" + i, path[i], marker);
+                if (go != null) _pathPreview.Add(go);
+            }
+            var targetMarker = affordable.Count == path.Count ? targetAvailable : targetGray;
+            var target = CurrentMap.CreatePathMarker("PathTarget", destination, targetMarker);
+            if (target != null) _pathPreview.Add(target);
+            _plannedHero = hero;
+            _plannedDestination = destination;
+        }
+
+        TownTypeDef PathPlottingTown(H5MapObject hero)
+        {
+            if (Database == null || Database.TownTypes == null) return null;
+            var local = GameState != null ? GameState.LocalPlayer : null;
+            if (local != null)
+            {
+                var selected = Database.GetTownType(local.TownType);
+                if (selected != null && selected.pathPlotting != null) return selected;
+            }
+            // Campaign heroes carry their source shared href. Match its faction
+            // folder to TownTypesInfo.faction instead of inventing a marker set.
+            var shared = hero != null && hero.Def != null ? hero.Def.shared ?? "" : "";
+            foreach (var kv in Database.TownTypes)
+            {
+                var town = kv.Value;
+                if (town == null || string.IsNullOrEmpty(town.faction)) continue;
+                if (shared.IndexOf("/" + town.faction + "/", System.StringComparison.OrdinalIgnoreCase) >= 0)
+                    return town;
+            }
+            return Database.GetTownType("TOWN_RANDOM_TYPE") ?? Database.GetTownType("TOWN_SPECIAL");
+        }
+
+        void ClearPathPreview()
+        {
+            for (var i = 0; i < _pathPreview.Count; i++)
+                if (_pathPreview[i] != null) Destroy(_pathPreview[i]);
+            _pathPreview.Clear();
+            _plannedHero = null;
         }
 
         void RefreshTurnHud()
         {
             if (_hud == null || GameState == null) return;
+            if (CurrentMap != null) CurrentMap.UpdateVisibility(GameState);
             _hud.SetTurnDate(GameState.Day, GameState.Week, GameState.Month);
             var current = GameState.CurrentPlayer;
             if (current != null)
@@ -642,6 +772,25 @@ namespace HoMM5
             GameState.RequestDialog(request);
         }
 
+        /// <summary>Open the source-backed adventure spellbook from the HUD book button.</summary>
+        void ShowAdventureSpellbook()
+        {
+            if (_hud == null || GameState == null || CombatActive) return;
+            var selected = _controller != null ? _controller.Selected : null;
+            var hero = selected != null && selected.IsHero ? selected : null;
+            if (hero == null)
+            {
+                var heroes = GameState.HeroesOf(GameState.LocalPlayer);
+                if (heroes.Count > 0) hero = heroes[0];
+            }
+            if (hero == null)
+            {
+                GameState.AddLog("There is no hero to open a spellbook for.");
+                return;
+            }
+            _hud.ShowAdventureSpellbook(hero);
+        }
+
         /// <summary>
         /// H: hero screen -- the hero's class, secondary skills with ranks and
         /// the perk roster, in one modal panel.
@@ -668,6 +817,11 @@ namespace HoMM5
                     GameState.AddLog(H5Audio.Instance.Muted ? "Sound off (M toggles)." : "Sound on.");
             }
             if (CombatActive || (_menu != null && _menu.IsOpen)) return;
+            if (_hud != null && _hud.Spellbook != null && _hud.Spellbook.IsOpen)
+            {
+                if (HoMM5.Core.H5Input.CancelPressed()) _hud.HideAdventureSpellbook();
+                return;
+            }
 
             // Closing the town screen by any route (its button, Esc, T) brings the map theme back.
             if (_townMusic && (_hud == null || _hud.Town == null || !_hud.Town.IsOpen))
@@ -683,12 +837,15 @@ namespace HoMM5
             if (HoMM5.Core.H5Input.TownScreenPressed()) ShowTownScreen();
             if (HoMM5.Core.H5Input.CancelPressed())
             {
-                if (_hud != null && _hud.Town != null && _hud.Town.IsOpen) _hud.Town.Hide();
+                if (_hud != null && _hud.Spellbook != null && _hud.Spellbook.IsOpen)
+                    _hud.HideAdventureSpellbook();
+                else if (_hud != null && _hud.Town != null && _hud.Town.IsOpen) _hud.Town.Hide();
                 else ReturnToMenu();
                 return;
             }
-            // The town screen sits over the map, so clicks on it must not also
-            // reach the adventure map underneath.
+            // The town screen and the spellbook sit over the map, so clicks on
+            // either must not also reach the adventure map underneath.
+            if (_hud != null && _hud.Spellbook != null && _hud.Spellbook.IsOpen) return;
             if (_hud != null && _hud.Town != null && _hud.Town.IsOpen) return;
 
             if (HoMM5.Core.H5Input.FloorTogglePressed()) ToggleFloor();

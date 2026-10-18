@@ -32,6 +32,11 @@ namespace HoMM5.Anim
         public int parent;
         public Vector3 position;
         public Quaternion rotation;
+        public Vector3 scale = Vector3.one;
+        // Granny writes InverseWorldTransform as a row-major, source-axis
+        // matrix. Keeping the authored bind matrix avoids reconstructing it
+        // from a Transform (which would discard source shear).
+        public float[] inverseBind;
     }
 
     public class H5Clip
@@ -99,12 +104,15 @@ namespace HoMM5.Anim
                     {
                         var pos = b["position"] as JArray;
                         var q = b["quaternion"] as JArray;
+                        var ss = b["scaleShear"] as JArray;
                         clip.bones.Add(new H5Bone
                         {
                             name = (string)b["name"] ?? "",
                             parent = (int?)b["parent"] ?? -1,
                             position = ToUnity(pos),
                             rotation = ToUnityQuat(q),
+                            scale = ToUnityScale(ss),
+                            inverseBind = ToFloatArray(b["inverseBind"] as JArray),
                         });
                     }
                 }
@@ -176,54 +184,145 @@ namespace HoMM5.Anim
             return new Quaternion((float)a[0], (float)a[2], (float)a[1], -(float)a[3]);
         }
 
+        static Vector3 ToUnityScale(JArray a)
+        {
+            if (a == null || a.Count < 9) return Vector3.one;
+            // Granny stores the 3x3 scale/shear matrix row-major in source
+            // Z-up order. Unity cannot represent shear on a Transform, but the
+            // diagonal scale is part of the authored transform and is preserved.
+            return new Vector3((float)a[0], (float)a[8], (float)a[4]);
+        }
+
+        static float[] ToFloatArray(JArray a)
+        {
+            if (a == null || a.Count == 0) return null;
+            var values = new float[a.Count];
+            for (var i = 0; i < a.Count; i++) values[i] = (float)a[i];
+            return values;
+        }
+
         /// <summary>
-        /// One component of one curve at time t.
+        /// Convert Granny's authored inverse bind matrix to Unity space. The GR2
+        /// matrix is row-major and uses the source row-vector convention; Unity
+        /// uses column vectors. Transpose first, then apply the same y/z basis
+        /// change as the glTF mesh importer.
+        /// </summary>
+        public static bool TryUnityInverseBind(H5Bone bone, out Matrix4x4 matrix)
+        {
+            matrix = Matrix4x4.identity;
+            var a = bone != null ? bone.inverseBind : null;
+            if (a == null || a.Length != 16) return false;
+            var axis = new[] { 0, 2, 1, 3 };
+            for (var row = 0; row < 4; row++)
+            for (var col = 0; col < 4; col++)
+                matrix[row, col] = a[axis[col] * 4 + axis[row]];
+            return true;
+        }
+
+        /// <summary>
+        /// One component of one Granny curve at time t.
         ///
-        /// Degree 0 is a channel that never moves and degree 1 is linear; both
-        /// are exact. Degree 2 and 3 are B-splines whose controls are NOT points
-        /// the curve passes through, and the shipped library is mostly degree 2.
-        /// Evaluating those properly needs a clamped knot vector; until that is
-        /// checked against the game this blends linearly between the per-knot
-        /// control sets, which moves in the right direction but under-rotates
-        /// where the curve is sharply bent.
+        /// The decompiled Granny data exposes the curve degree, knots and one
+        /// control tuple per knot. Granny's own converter evaluates these with
+        /// De Boor after padding the knot vector with the first and last knot;
+        /// this is that algorithm, not a visual approximation between key names.
+        /// Degree zero is the constant channel and degree one is the linear
+        /// special case of the same padded evaluator.
         /// </summary>
         public static float Sample(H5Curve c, float t, int slot)
         {
-            if (c == null || c.knots == null || c.knots.Length == 0) return 0f;
-            var w = c.width;
+            if (c == null || c.knots == null || c.knots.Length == 0 ||
+                c.controls == null || c.controls.Length == 0) return 0f;
             var n = c.knots.Length;
-
-            if (c.degree == 0 || n == 1)
-                return slot < c.controls.Length ? c.controls[slot] : 0f;
-
+            var degree = Mathf.Clamp(c.degree, 0, n - 1);
+            if (degree == 0 || n == 1) return At(c, 0, slot);
             if (t <= c.knots[0]) return At(c, 0, slot);
             if (t >= c.knots[n - 1]) return At(c, n - 1, slot);
 
-            for (var i = 1; i < n; i++)
+            var paddedCount = n + degree + 1;
+            var padded = new float[paddedCount];
+            // Equivalent to Granny's padded_knots(): degree + 1 copies of
+            // the first knot, the interior source knots, and degree + 1 copies
+            // of the last knot (the source last knot is in the interior slice).
+            for (var i = 0; i <= degree; i++) padded[i] = c.knots[0];
+            for (var i = degree; i < n; i++) padded[i + 1] = c.knots[i];
+            for (var i = 0; i < degree; i++) padded[n + 1 + i] = c.knots[n - 1];
+
+            var span = degree;
+            while (span < n && padded[span] <= t) span++;
+            span--;
+            span = Mathf.Clamp(span, degree, n - 1);
+
+            var d = new float[degree + 1];
+            for (var j = 0; j <= degree; j++)
+                d[j] = At(c, span - degree + j, slot);
+            for (var r = 1; r <= degree; r++)
             {
-                if (t < c.knots[i])
+                for (var j = degree; j >= r; j--)
                 {
-                    var span = c.knots[i] - c.knots[i - 1];
-                    var f = span > 1e-9f ? (t - c.knots[i - 1]) / span : 0f;
-                    return Mathf.Lerp(At(c, i - 1, slot), At(c, i, slot), f);
+                    var left = padded[j + span - degree];
+                    var right = padded[j + 1 + span - r];
+                    var alpha = Mathf.Abs(right - left) > 1e-9f ? (t - left) / (right - left) : 0f;
+                    d[j] = Mathf.LerpUnclamped(d[j - 1], d[j], alpha);
                 }
             }
-            return At(c, n - 1, slot);
+            return d[degree];
         }
 
         static float At(H5Curve c, int key, int slot)
         {
             var i = key * c.width + slot;
-            return i < c.controls.Length ? c.controls[i] : 0f;
+            return i >= 0 && i < c.controls.Length ? c.controls[i] : 0f;
         }
 
-        /// <summary>Sample a quaternion track and renormalize; blending four
-        /// independent components drifts off the unit sphere.</summary>
+        /// <summary>
+        /// Sample a quaternion with Granny's spherical De Boor interpolation.
+        /// Interpolating quaternion components and normalizing afterwards is not
+        /// equivalent for the degree-2 orientation curves used by the creatures.
+        /// </summary>
         public static Quaternion SampleQuat(H5Curve c, float t)
         {
-            if (c == null) return Quaternion.identity;
-            var q = new Quaternion(Sample(c, t, 0), Sample(c, t, 1),
-                                   Sample(c, t, 2), Sample(c, t, 3));
+            if (c == null || c.knots == null || c.knots.Length == 0 ||
+                c.controls == null || c.controls.Length < 4) return Quaternion.identity;
+            var n = c.knots.Length;
+            var degree = Mathf.Clamp(c.degree, 0, n - 1);
+            if (degree == 0 || n == 1) return Normalize(AtQuat(c, 0));
+
+            if (t <= c.knots[0]) return Normalize(AtQuat(c, 0));
+            if (t >= c.knots[n - 1]) return Normalize(AtQuat(c, n - 1));
+
+            var padded = new float[n + degree + 1];
+            for (var i = 0; i <= degree; i++) padded[i] = c.knots[0];
+            for (var i = degree; i < n; i++) padded[i + 1] = c.knots[i];
+            for (var i = 0; i < degree; i++) padded[n + 1 + i] = c.knots[n - 1];
+
+            var span = degree;
+            while (span < n && padded[span] <= t) span++;
+            span = Mathf.Clamp(span - 1, degree, n - 1);
+            var d = new Quaternion[degree + 1];
+            for (var j = 0; j <= degree; j++) d[j] = AtQuat(c, span - degree + j);
+            for (var r = 1; r <= degree; r++)
+            {
+                for (var j = degree; j >= r; j--)
+                {
+                    var left = padded[j + span - degree];
+                    var right = padded[j + 1 + span - r];
+                    var alpha = Mathf.Abs(right - left) > 1e-9f ? (t - left) / (right - left) : 0f;
+                    d[j] = Quaternion.SlerpUnclamped(d[j - 1], d[j], alpha);
+                }
+            }
+            return Normalize(d[degree]);
+        }
+
+        static Quaternion AtQuat(H5Curve c, int key)
+        {
+            var i = key * c.width;
+            if (i < 0 || i + 3 >= c.controls.Length) return Quaternion.identity;
+            return new Quaternion(c.controls[i], c.controls[i + 1], c.controls[i + 2], c.controls[i + 3]);
+        }
+
+        static Quaternion Normalize(Quaternion q)
+        {
             var m = Mathf.Sqrt(Quaternion.Dot(q, q));
             return m > 1e-6f ? new Quaternion(q.x / m, q.y / m, q.z / m, q.w / m)
                              : Quaternion.identity;
@@ -233,6 +332,15 @@ namespace HoMM5.Anim
         {
             if (c == null) return Vector3.zero;
             return new Vector3(Sample(c, t, 0), Sample(c, t, 1), Sample(c, t, 2));
+        }
+
+        public static Vector3 SampleScale(H5Curve c, float t)
+        {
+            if (c == null) return Vector3.one;
+            // Scale/shear is a row-major 3x3 source matrix. The off-diagonal
+            // shear cannot be represented by a Unity Transform; retain the
+            // diagonal scale in the same axis conversion as the bind pose.
+            return new Vector3(Sample(c, t, 0), Sample(c, t, 8), Sample(c, t, 4));
         }
 
         /// <summary>
@@ -253,7 +361,11 @@ namespace HoMM5.Anim
             step = Mathf.Max(step, 1f / maxFps);
             var frames = Mathf.Max(2, Mathf.CeilToInt(clip.duration / step) + 1);
 
+            // H5Rig drives this clip through an Animator PlayableGraph. Keep the
+            // generated clip Mecanim-compatible; the deprecated Animation
+            // component is deliberately not used.
             var anim = new AnimationClip { name = clip.name, frameRate = 1f / step };
+            anim.legacy = false;
             anim.wrapMode = WrapMode.Loop;
 
             foreach (var t in clip.tracks)
@@ -295,6 +407,22 @@ namespace HoMM5.Anim
                     anim.SetCurve(path, typeof(Transform), "localPosition.y", py);
                     anim.SetCurve(path, typeof(Transform), "localPosition.z", pz);
                 }
+
+                if (t.scaleShear != null)
+                {
+                    var sx = new AnimationCurve();
+                    var sy = new AnimationCurve();
+                    var sz = new AnimationCurve();
+                    for (var f = 0; f < frames; f++)
+                    {
+                        var time = Mathf.Min(f * step, clip.duration);
+                        var v = SampleScale(t.scaleShear, time);
+                        sx.AddKey(time, v.x); sy.AddKey(time, v.y); sz.AddKey(time, v.z);
+                    }
+                    anim.SetCurve(path, typeof(Transform), "localScale.x", sx);
+                    anim.SetCurve(path, typeof(Transform), "localScale.y", sy);
+                    anim.SetCurve(path, typeof(Transform), "localScale.z", sz);
+                }
             }
             return anim;
         }
@@ -328,6 +456,7 @@ namespace HoMM5.Anim
                 tr.SetParent(pi >= 0 && pi < bones.Count ? bones[pi] : parent, false);
                 tr.localPosition = b.position;
                 tr.localRotation = b.rotation;
+                tr.localScale = b.scale;
                 bones.Add(tr);
             }
             return bones;

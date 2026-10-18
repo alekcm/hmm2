@@ -57,6 +57,38 @@ CPU layout/terrain cases added to Unity PlayMode tests (not run here). No Unity
 executable is present: C# heuristics / syntax parsing are not Unity compilation,
 shader compilation or screenshot validation.
 
+## Source-backed input, visibility, animation and spellbook follow-up — 2026-10-18
+
+- Granny authored inverse-bind matrices are exported and converted to Unity
+  space for every bound mesh, with rest-pose fallback only when the source array
+  is absent. Animation clips are sampled into non-legacy `AnimationClip`
+  instances and evaluated by `H5AnimationPlayer`'s `PlayableGraph`; changing a
+  clip key alone is not used as playback. Source off-diagonal scale/shear is
+  measured in the library and remains an explicit Unity-Transform limitation.
+- Ground input now has the native plot/confirm shape: the first click on a
+  destination stores and displays the path, and a second click on that same
+  destination commits it. The source `MB_Move_Hero` dial action arms the same
+  selected-hero flow; right-click reaches the same command path.
+- The fog bootstrap reads only the descriptor's `MapScript` reference and its
+  `FileName`; conventional Lua filenames and unrelated capture files are not
+  scanned. Runtime visibility keeps unexplored and explored-memory layers,
+  applies source-backed bootstrap circles, and hides map objects outside the
+  player's current visibility.
+- End Day advances the source calendar when no active AI turn exists, including
+  roster-wrap day completion, weekly town growth and daily hero/resource reset.
+  The exact Unity turn/AI presentation still needs PlayMode verification.
+- Adventure HUD `Spellbook` is wired to the AdventureScreen source reaction
+  chain (`SpellBookWindow`) and opens the source `SpellBookDesc` book/page
+  model, rather than the hero-skill panel. The standard descriptor has only
+  combat/adventure modes; no unsupported `Warcries` mode is claimed. Its page
+  GR2 clips are Oodle-packed and are not exported, and native spell-data
+  population still needs runtime verification.
+
+The targeted Python tests pass 168 tests (one skipped); the C# name and call
+analyzers pass. Unity 6.6, `dotnet`, and PlayMode are unavailable in this
+sandbox, so the runtime statements above are source/static claims, not editor
+or screenshot validation.
+
 ## Follow-up: Newtonsoft test dependency and WAV warning — 2026-10-18
 
 With overrideReferences enabled, the PlayMode assembly must explicitly list

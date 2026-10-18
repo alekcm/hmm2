@@ -51,7 +51,7 @@ namespace HoMM5.Map
         /// <summary>The hero's persistent stats, once bound.</summary>
         public H5HeroState HeroState { get; private set; }
 
-        Animation _anim;
+        HoMM5.Anim.H5AnimationPlayer _anim;
         string _idleClip;
         string _moveClip;
 
@@ -65,8 +65,8 @@ namespace HoMM5.Map
 
         internal void BindHeroState(H5HeroState state) => HeroState = state;
 
-        /// <summary>Wire up the idle/move animation pair of a rigged model.</summary>
-        public void AttachAnimation(Animation anim, string idleClip, string moveClip)
+        /// <summary>Wire up the idle/move clips in the native playable graph.</summary>
+        public void AttachAnimation(HoMM5.Anim.H5AnimationPlayer anim, string idleClip, string moveClip)
         {
             _anim = anim;
             _idleClip = idleClip;
@@ -76,9 +76,9 @@ namespace HoMM5.Map
         void SetMoveState(bool moving)
         {
             if (_anim == null) return;
-            var name = moving ? _moveClip : _idleClip;
-            if (string.IsNullOrEmpty(name) || _anim[name] == null) return;
-            _anim.CrossFade(name, 0.25f);
+            var key = moving ? _moveClip : _idleClip;
+            if (string.IsNullOrEmpty(key)) return;
+            _anim.Play(key, 0.25f);
         }
 
         internal void SetMovementPoints(float points)
@@ -104,7 +104,23 @@ namespace HoMM5.Map
             SetMoveState(false);
         }
 
-        /// <summary>Move along the passability path, spending this day's simplified movement allowance.</summary>
+        public H5MovementProfile GetMovementProfile()
+        {
+            return MovementProfile();
+        }
+
+        H5MovementProfile MovementProfile()
+        {
+            var profile = H5MovementProfile.Default;
+            if (HeroState != null)
+            {
+                profile.terrainPenaltyMultiplier = HeroState.Effects.TerrainPenaltyMultiplier;
+                profile.snatch = HeroState.Effects.Snatch;
+            }
+            return profile;
+        }
+
+        /// <summary>Move along the native-cost passability path for this day.</summary>
         public bool MoveHeroTo(Vector2Int destination)
         {
             // Only heroes of the locally played player take orders.
@@ -128,13 +144,13 @@ namespace HoMM5.Map
                 !Builder.Terrain.IsPassable(destination.x, destination.y)) return false;
             if (computer == IsLocalHero) return false;
             var start = new Vector2Int(Mathf.RoundToInt(Def.x), Mathf.RoundToInt(Def.y));
-            var fullPath = H5Pathfinder.FindPath(Builder.Terrain, start, destination);
+            var profile = MovementProfile();
+            var fullPath = H5Pathfinder.FindPath(Builder.Terrain, start, destination, profile);
             if (fullPath.Count == 0) return start == destination;
-            var tileBudget = MovementPointsRemaining / AdventureMapGameState.PrototypeMovementPointsPerTile;
-            var path = H5Pathfinder.AffordablePrefix(start, fullPath, tileBudget);
+            var path = H5Pathfinder.AffordablePrefix(start, fullPath, MovementPointsRemaining,
+                                                     profile, Builder.Terrain);
             if (path.Count == 0) return false;
-            var spent = H5Pathfinder.PathCost(start, path) *
-                        AdventureMapGameState.PrototypeMovementPointsPerTile;
+            var spent = H5Pathfinder.PathCost(Builder.Terrain, start, path, profile);
             SetMovementPoints(MovementPointsRemaining - spent);
             _halted = false;
             if (computer)
@@ -270,7 +286,7 @@ namespace HoMM5.Map
                 var dailyMovement = _gameState != null
                     ? _gameState.DailyHeroMovement : AdventureMapGameState.DefaultDailyHeroMovement;
                 lines.Add("Movement today: " + MovementPointsRemaining.ToString("0") + " / " +
-                          dailyMovement.ToString("0") + " MP (prototype path cost)");
+                          dailyMovement.ToString("0") + " MP (native terrain cost)");
                 return string.Join("\n", lines);
             }
 

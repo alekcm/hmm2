@@ -177,11 +177,26 @@ namespace HoMM5.UI
             var h = _overlayTex.height;
             var pixels = new Color[w * h];   // defaults to transparent black
 
+            // NWorld keeps an explored memory separate from current visibility:
+            // hide the unvisited terrain completely and dim the explored memory.
+            // The same state gates object dots below; the local player's own
+            // objects remain visible through AdventureMapGameState.IsObjectVisible.
+            if (_state != null)
+            {
+                for (var y = 0; y < h; y++)
+                for (var x = 0; x < w; x++)
+                {
+                    if (!_state.IsTileExplored(x, y)) pixels[y * w + x] = new Color(0, 0, 0, 0.96f);
+                    else if (!_state.IsTileVisible(x, y)) pixels[y * w + x] = new Color(0, 0, 0, 0.55f);
+                }
+            }
+
             // Object dots (the map's y axis is the minimap's y axis).
             for (var i = 0; i < _objects.Length; i++)
             {
                 var obj = _objects[i];
-                if (obj == null || obj.Def == null || !obj.gameObject.activeInHierarchy) continue;
+                if (obj == null || obj.Def == null || !obj.gameObject.activeInHierarchy ||
+                    (_state != null && !_state.IsObjectVisible(obj.Def))) continue;
                 var x = Mathf.Clamp(Mathf.RoundToInt(obj.Def.x), 0, w - 1);
                 var y = Mathf.Clamp(Mathf.RoundToInt(obj.Def.y), 0, h - 1);
                 pixels[y * w + x] = DotColor(obj);

@@ -183,11 +183,10 @@ namespace HoMM5.Map
 
             var builder = Selected.Builder;
             if (builder == null || builder.Root == null) return;
-            var local = builder.Root.transform.InverseTransformPoint(hit.point);
-            var tileX = Mathf.RoundToInt(local.x / TerrainMeshBuilder.TileSize);
-            var tileY = Mathf.RoundToInt(local.z / TerrainMeshBuilder.TileSize);
-            var tile = ResolvePassableTile(builder.Terrain, new Vector2Int(tileX, tileY));
-            Selected.MoveHeroTo(tile);
+            // Route the same two-click command through the bootstrap as a
+            // ground click. The native adventure map plots first and confirms
+            // the plotted route on the second click.
+            MapClicked?.Invoke(hit.point);
         }
 
         /// <summary>
@@ -196,7 +195,7 @@ namespace HoMM5.Map
         /// on a mine or a monster lands on exactly those -- the hero should
         /// walk up to it (and onto its activation tile), not refuse the order.
         /// </summary>
-        static Vector2Int ResolvePassableTile(H5Terrain terrain, Vector2Int tile)
+        public static Vector2Int ResolvePassableTile(H5Terrain terrain, Vector2Int tile)
         {
             if (terrain == null || terrain.IsPassable(tile.x, tile.y)) return tile;
             for (var r = 1; r <= 4; r++)

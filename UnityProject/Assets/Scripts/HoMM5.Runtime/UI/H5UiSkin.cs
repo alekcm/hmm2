@@ -21,14 +21,54 @@ namespace HoMM5.UI
         {
             public float x, y, width, height;
             public string horizontal, vertical;
+            /// <summary>Localized TextFileRef caption exported with a source button.</summary>
+            public string text;
             public string normal, pushed, disabled;
         }
+        [Serializable]
+        public sealed class SpellbookDesc
+        {
+            public string source;
+            public string model;
+            public string geometryUid;
+            public List<string> modelTextures;
+            public List<int> firstPageParts;
+            public List<int> secondPageParts;
+            public List<int> schoolParts;
+            public int combatPart;
+            public int adventurePart;
+            public int spellPointsPart;
+            public int closePart;
+            public int nextPagePart;
+            public int prevPagePart;
+            public List<float> center;
+            public List<float> outlinerSize;
+            public SpellIconRect spellIcon;
+            public List<float> spellTextPosition;
+            public List<float> spellMaterial;
+            public List<float> spellHighlightMaterial;
+            public float spellHighlightOverBright;
+            public float backFadeDuration;
+            public float backFadeValue;
+            public List<float> schoolHighlightColor;
+        }
+
+        [Serializable]
+        public sealed class SpellIconRect
+        {
+            public int x1;
+            public int y1;
+            public int x2;
+            public int y2;
+        }
+
         public sealed class Catalog
         {
             public int version;
             public Dictionary<string, Asset> assets = new Dictionary<string, Asset>();
             public Dictionary<string, Window> windows = new Dictionary<string, Window>();
             public Dictionary<string, string> heroPortraits = new Dictionary<string, string>();
+            public SpellbookDesc spellbook;
         }
 
         readonly Catalog _catalog;
@@ -55,6 +95,7 @@ namespace HoMM5.UI
         }
 
         public Window GetWindow(string key) => _catalog.windows.TryGetValue(key, out var window) ? window : null;
+        public SpellbookDesc Spellbook => _catalog.spellbook;
 
         public Sprite GetPortrait(string sharedHref)
         {
