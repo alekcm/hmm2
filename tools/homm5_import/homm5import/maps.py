@@ -158,15 +158,28 @@ def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject,
     obj.shared_href = absolute_shared
     if absolute_shared in cache:
         (obj.geometry_uid, obj.textures, obj.materials,
-         obj.blocked) = cache[absolute_shared]
+         obj.blocked, identity) = cache[absolute_shared]
+        obj.extra.update(identity)
         return
 
     geom_uid: Optional[str] = None
     textures: List[str] = []
     materials: List[dict] = []
     blocked: List[List[int]] = []
+    identity: Dict[str, str] = {}
     node, shared_href = xdb.resolve(shared, base_href)
     if node is not None:
+        # Shared records hold the stable identity that the inline map record
+        # omits: creature type, hero internal name and town type.
+        if node.tag == "AdvMapMonsterShared":
+            identity["creature"] = xdb.text(node.find("Creature"))
+        elif node.tag == "AdvMapHeroShared":
+            identity["hero"] = xdb.text(node.find("InternalName"))
+        elif node.tag == "AdvMapTownShared":
+            identity["townType"] = xdb.text(node.find("Type"))
+        elif node.tag == "AdvMapArtifactShared":
+            identity["artifact"] = xdb.text(node.find("ArtifactID"))
+        obj.extra.update(identity)
         for tag in ("blockedTiles", "BlockedTiles"):
             blocked_node = node.find(tag)
             if blocked_node is not None:
@@ -186,7 +199,7 @@ def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject,
                 name = texture.get("fileName") or texture.get("xdb")
                 if name:
                     textures.append(name)
-    cache[absolute_shared] = (geom_uid, textures, materials, blocked)
+    cache[absolute_shared] = (geom_uid, textures, materials, blocked, identity)
     obj.geometry_uid, obj.textures, obj.materials, obj.blocked = (
         geom_uid, textures, materials, blocked)
 
@@ -228,37 +241,64 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
             else:
                 obj.shared_href = xdb.absolutize(shared.get("href"), base_href)
 
+        # PlayerID is the scenario owner field on AdvMap objects.  Keep the
+        # older Owner spelling only as a source-compatible fallback for records
+        # that actually use it.
+        player_id = xdb.text(inner.find("PlayerID")) or xdb.text(inner.find("Owner"))
+        if player_id:
+            obj.extra["owner"] = player_id
+
         # Type specific payloads worth carrying across.
         if inner.tag == "AdvMapMonster":
-            obj.extra["creature"] = xdb.text(inner.find("Type")) or xdb.text(inner.find("Creature"))
+            obj.extra["creature"] = (xdb.text(inner.find("Type")) or
+                                       xdb.text(inner.find("Creature")) or
+                                       obj.extra.get("creature", ""))
             obj.extra["amount"] = int(xdb.number(inner.find("Amount")))
-            obj.extra["customAmount"] = xdb.boolean(inner.find("CustomAmount"))
+            obj.extra["amount2"] = int(xdb.number(inner.find("Amount2")))
+            obj.extra["customAmount"] = xdb.boolean(
+                inner.find("CustomAmount"), xdb.boolean(inner.find("Custom")))
             obj.extra["attackType"] = xdb.text(inner.find("AttackType"))
             obj.extra["mood"] = xdb.text(inner.find("Mood"))
             stacks = [
                 {"creature": xdb.text(s.find("Creature")),
                  "amount": int(xdb.number(s.find("Amount"))),
+                 "amount2": int(xdb.number(s.find("Amount2"))),
                  "customAmount": xdb.boolean(s.find("CustomAmount"))}
                 for s in xdb.items(inner.find("AdditionalStacks"))
             ]
             if stacks:
                 obj.extra["additionalStacks"] = stacks
         elif inner.tag == "AdvMapTown":
-            obj.extra["townType"] = xdb.text(inner.find("TownType")) or xdb.text(inner.find("Type"))
-            obj.extra["owner"] = xdb.text(inner.find("Owner"))
+            obj.extra["townType"] = (xdb.text(inner.find("TownType")) or
+                                      xdb.text(inner.find("Type")) or obj.extra.get("townType", ""))
+            obj.extra["owner"] = xdb.text(inner.find("PlayerID")) or xdb.text(inner.find("Owner"))
             obj.extra["name"] = xdb.text(inner.find("TownName")) or obj.name
         elif inner.tag == "AdvMapHero":
-            obj.extra["hero"] = xdb.text(inner.find("Hero")) or xdb.text(inner.find("Type"))
-            obj.extra["owner"] = xdb.text(inner.find("Owner"))
+            obj.extra["hero"] = (xdb.text(inner.find("Hero")) or
+                                  xdb.text(inner.find("Type")) or obj.extra.get("hero", ""))
+            obj.extra["owner"] = xdb.text(inner.find("PlayerID")) or xdb.text(inner.find("Owner"))
+            editable = inner.find("Editable")
+            obj.extra["experience"] = int(xdb.number(inner.find("Experience")))
+            obj.extra["heroAttack"] = int(xdb.number(editable.find("Offence"))) if editable is not None else 0
+            obj.extra["heroDefence"] = int(xdb.number(editable.find("Defence"))) if editable is not None else 0
+            obj.extra["heroSpellPower"] = int(xdb.number(editable.find("Spellpower"))) if editable is not None else 0
+            obj.extra["heroKnowledge"] = int(xdb.number(editable.find("Knowledge"))) if editable is not None else 0
             obj.extra["army"] = [
                 {"creature": xdb.text(s.find("Creature")), "count": int(xdb.number(s.find("Count")))}
-                for s in xdb.items(inner.find("Army"))
+                for s in xdb.items(inner.find("armySlots"))
             ]
+            obj.extra["heroSkills"] = [
+                xdb.text(s.find("SkillID")) for s in xdb.items(editable.find("skills"))
+            ] if editable is not None else []
+            obj.extra["heroPerks"] = [xdb.text(s) for s in xdb.items(editable.find("perkIDs"))] if editable is not None else []
+            obj.extra["heroSpells"] = [xdb.text(s) for s in xdb.items(editable.find("spellIDs"))] if editable is not None else []
         elif inner.tag == "AdvMapMine":
             obj.extra["resource"] = xdb.text(inner.find("Resource")) or xdb.text(inner.find("Type"))
-            obj.extra["owner"] = xdb.text(inner.find("Owner"))
+            obj.extra["owner"] = xdb.text(inner.find("PlayerID")) or xdb.text(inner.find("Owner")) or obj.extra.get("owner", "")
         elif inner.tag == "AdvMapArtifact":
-            obj.extra["artifact"] = xdb.text(inner.find("Artifact")) or xdb.text(inner.find("Type"))
+            obj.extra["artifact"] = (xdb.text(inner.find("Artifact")) or
+                                       xdb.text(inner.find("Type")) or
+                                       obj.extra.get("artifact", ""))
         elif inner.tag == "AdvMapTreasure":
             obj.extra["guardType"] = xdb.text(inner.find("GuardType"))
         md.objects.append(obj)

@@ -30,11 +30,14 @@ def _res(xdb: XDB, node: Optional[ET.Element]) -> Dict[str, int]:
     return {f: int(xdb.number(node.find(f))) for f in RESOURCE_FIELDS}
 
 
-def _text_ref(xdb: XDB, loc: Optional[Localization], node: Optional[ET.Element]) -> Optional[str]:
+def _text_ref(xdb: XDB, loc: Optional[Localization], node: Optional[ET.Element],
+              base_href: Optional[str] = None) -> Optional[str]:
     if node is None or loc is None:
         return None
     href = node.get("href")
-    return loc.read(href) if href else None
+    if not href:
+        return None
+    return loc.read(xdb.absolutize(href, base_href)) if base_href else loc.read(href)
 
 
 def _base_key(path: str) -> str:
@@ -141,7 +144,8 @@ def load_creatures(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
         except ET.ParseError:
             continue
         key = _base_key(path)
-        rec = {"id": key, "source": xdb.href_from_path(path), "isHero": "Heroes" in path.replace("\\", "/")}
+        rec = {"id": key, "source": xdb.href_from_path(path), "isHero": "Heroes" in path.replace("\\", "/"),
+               "enumIds": []}
         for f in CREATURE_INT_FIELDS:
             rec[f] = int(xdb.number(root.find(f)))
         rec["flying"] = xdb.boolean(root.find("Flying"))
@@ -176,6 +180,24 @@ def load_creatures(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
                 rec["visual"]["textures"] = textures
                 rec["visual"]["materials"] = model_materials(xdb, model, model_href)
         out[key] = rec
+
+    # Map/XDB records store CreatureType enum values such as
+    # CREATURE_CHAMPION, while the creature directory is keyed by filenames
+    # such as Champion.xdb.  The reference table is the authoritative bridge;
+    # do not derive an enum name from a filename.
+    ref = xdb.load("/GameMechanics/RefTables/Creatures.xdb")
+    ref_objects = ref.find("objects") if ref is not None else None
+    ref_href = "/GameMechanics/RefTables/Creatures.xdb"
+    for item in xdb.items(ref_objects):
+        enum_id = xdb.text(item.find("ID"))
+        target = item.find("Obj")
+        href = target.get("href") if target is not None else ""
+        if not enum_id or not href:
+            continue
+        key = _base_key(xdb.absolutize(href, ref_href).split("#", 1)[0])
+        record = out.get(key)
+        if record is not None and enum_id not in record["enumIds"]:
+            record["enumIds"].append(enum_id)
     return out
 
 
@@ -290,6 +312,100 @@ def load_artifacts(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
     return out
 
 
+def _campaign_bonus(xdb: XDB, node: Optional[ET.Element]) -> dict:
+    if node is None:
+        return {}
+    army = node.find("BonusArmy")
+    return {
+        "targetHero": node.find("Target/Hero") is not None,
+        "type": xdb.text(node.find("Type")),
+        "creature": xdb.text(army.find("Creature")) if army is not None else "",
+        "creatureCount": int(xdb.number(army.find("Count"))) if army is not None else 0,
+        "artifact": xdb.text(node.find("BonusArtifactID")),
+        "resources": _res(xdb, node.find("BonusResources")),
+        "spell": xdb.text(node.find("BonusSpellID")),
+        "building": xdb.text(node.find("Building")),
+    }
+
+
+def _campaign_mission(xdb: XDB, loc: Optional[Localization], node: ET.Element,
+                      campaign_href: str, index: int) -> dict:
+    tag, tag_href = xdb.resolve(node.find("MissionTag"), campaign_href)
+    map_id = ""
+    map_source = ""
+    map_name = None
+    map_description = None
+    tile_x = tile_y = 0
+    if tag is not None:
+        map_name = _text_ref(xdb, loc, tag.find("NameFileRef"), tag_href)
+        map_description = _text_ref(xdb, loc, tag.find("DescriptionFileRef"), tag_href)
+        tile_x = int(xdb.number(tag.find("TileX")))
+        tile_y = int(xdb.number(tag.find("TileY")))
+        map_node, map_href = xdb.resolve(tag.find("AdvMapDesc"), tag_href)
+        if map_href:
+            map_source = map_href
+            map_id = os.path.basename(os.path.dirname(map_href))
+        if map_node is not None:
+            tile_x = int(xdb.number(map_node.find("TileX"), tile_x))
+            tile_y = int(xdb.number(map_node.find("TileY"), tile_y))
+
+    heroes_pool = node.find("HeroesPool")
+    heroes = []
+    if heroes_pool is not None:
+        for hero in xdb.items(heroes_pool.find("Heroes")):
+            heroes.append({
+                "hero": xdb.text(hero.find("HeroScriptName")),
+                "targetCampaign": xdb.text(hero.find("TargetCampaign")),
+                "targetMission": int(xdb.number(hero.find("TargetMission"))),
+            })
+
+    return {
+        "id": map_id or "mission_" + str(index + 1),
+        "mapId": map_id,
+        "mapSource": map_source,
+        "name": map_name or "",
+        "description": map_description or "",
+        "tileX": tile_x,
+        "tileY": tile_y,
+        "bonuses": [_campaign_bonus(xdb, item) for item in xdb.items(node.find("Bonuses"))],
+        "heroes": heroes,
+        "heroCount": int(xdb.number(heroes_pool.find("Count"))) if heroes_pool is not None else 0,
+    }
+
+
+def load_campaigns(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, dict]:
+    """Export the shipped Campaign XDB records and their mission map links."""
+    out: Dict[str, dict] = {}
+    for path in xdb.iter_files("Campaigns"):
+        try:
+            root = ET.parse(path).getroot()
+        except ET.ParseError:
+            continue
+        if root.tag != "Campaign":
+            continue
+        campaign_href = xdb.href_from_path(path)
+        key = xdb.text(root.find("InternalName")) or _base_key(path)
+        missions = [
+            _campaign_mission(xdb, loc, item, campaign_href, index)
+            for index, item in enumerate(xdb.items(root.find("Missions")))
+        ]
+        out[key] = {
+            "id": key,
+            "source": campaign_href,
+            "name": _text_ref(xdb, loc, root.find("NameFileRef"), campaign_href) or key,
+            "fullName": _text_ref(xdb, loc, root.find("FullNameFileRef"), campaign_href) or key,
+            "description": _text_ref(xdb, loc, root.find("NameCommentFileRef"), campaign_href) or "",
+            "dependentCampaigns": [
+                (xdb.absolutize(item.get("href"), campaign_href).split("#", 1)[0]
+                 if item.get("href") else "")
+                for item in xdb.items(root.find("DependentCampaigns"))
+            ],
+            "missions": missions,
+            "userCampaign": xdb.boolean(root.find("UserCampaign")),
+        }
+    return out
+
+
 def load_town_buildings(xdb: XDB, loc: Optional[Localization] = None) -> List[dict]:
     out: List[dict] = []
     for path in xdb.iter_files("GameMechanics/TownBuildingSharedStats"):
@@ -356,4 +472,5 @@ def export_all(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, object
         "spells": load_spells(xdb, loc),
         "artifacts": load_artifacts(xdb, loc),
         "townBuildings": load_town_buildings(xdb, loc),
+        "campaigns": load_campaigns(xdb, loc),
     }

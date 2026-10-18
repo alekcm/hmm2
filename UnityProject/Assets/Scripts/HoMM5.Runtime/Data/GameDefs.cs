@@ -100,6 +100,7 @@ namespace HoMM5.Data
         public string id;
         public string source;
         public bool isHero;
+        public List<string> enumIds;
 
         public int AttackSkill;
         public int DefenceSkill;
@@ -237,6 +238,20 @@ namespace HoMM5.Data
 
     // -- maps --------------------------------------------------------------
 
+    public class HeroArmySlotDef
+    {
+        public string creature;
+        public int count;
+    }
+
+    public class MonsterStackDef
+    {
+        public string creature;
+        public int amount;
+        public int amount2;
+        public bool customAmount;
+    }
+
     public class MapObjectDef
     {
         public string kind;
@@ -255,14 +270,25 @@ namespace HoMM5.Data
         // AdvMapMonster
         public string creature;
         public int amount;
+        public int amount2;
         public bool customAmount;
         public string attackType;
         public string mood;
+        public List<MonsterStackDef> additionalStacks;
 
         // AdvMapTown / AdvMapHero / AdvMapMine / AdvMapArtifact
         public string townType;
         public string owner;
         public string hero;
+        public int experience;
+        public int heroAttack;
+        public int heroDefence;
+        public int heroSpellPower;
+        public int heroKnowledge;
+        public List<HeroArmySlotDef> army;
+        public List<string> heroSkills;
+        public List<string> heroPerks;
+        public List<string> heroSpells;
         public string resource;
         public string artifact;
         public string guardType;
@@ -287,6 +313,51 @@ namespace HoMM5.Data
         public int tileY;
         public int objects;
         public Dictionary<string, int> counts;
+    }
+
+    public class CampaignBonusDef
+    {
+        public bool targetHero;
+        public string type;
+        public string creature;
+        public int creatureCount;
+        public string artifact;
+        public ResourceCost resources;
+        public string spell;
+        public string building;
+    }
+
+    public class CampaignHeroDef
+    {
+        public string hero;
+        public string targetCampaign;
+        public int targetMission;
+    }
+
+    public class CampaignMissionDef
+    {
+        public string id;
+        public string mapId;
+        public string mapSource;
+        public string name;
+        public string description;
+        public int tileX;
+        public int tileY;
+        public List<CampaignBonusDef> bonuses;
+        public List<CampaignHeroDef> heroes;
+        public int heroCount;
+    }
+
+    public class CampaignDef
+    {
+        public string id;
+        public string source;
+        public string name;
+        public string fullName;
+        public string description;
+        public List<string> dependentCampaigns;
+        public List<CampaignMissionDef> missions;
+        public bool userCampaign;
     }
 
     // -- terrain -----------------------------------------------------------

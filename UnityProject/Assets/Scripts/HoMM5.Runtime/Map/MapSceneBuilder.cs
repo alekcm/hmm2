@@ -30,6 +30,7 @@ namespace HoMM5.Map
         public int ObjectsPlaced { get; private set; }
         public int ObjectsMissingMesh { get; private set; }
         public int TerrainChunks { get; private set; }
+        public List<H5MapObject> PlacedObjects { get; } = new List<H5MapObject>();
 
         public MapSceneBuilder(MeshCache meshes, Material terrainMaterial,
                                Material objectMaterial, Material waterMaterial,
@@ -83,6 +84,10 @@ namespace HoMM5.Map
                     floor = Map.objects[0].floor;
             }
             ActiveFloor = floor;
+            PlacedObjects.Clear();
+            ObjectsPlaced = 0;
+            ObjectsMissingMesh = 0;
+            TerrainChunks = 0;
 
             Root = new GameObject("Map_" + mapId);
             var planeName = floor == 1 ? "UndergroundTerrain" : "GroundTerrain";
@@ -214,7 +219,9 @@ namespace HoMM5.Map
                 col.size = Vector3.Max(combinedBounds.size, new Vector3(0.5f, 0.5f, 0.5f));
             }
 
-            go.AddComponent<H5MapObject>().Attach(def, this);
+            var mapObject = go.AddComponent<H5MapObject>();
+            mapObject.Attach(def, this);
+            PlacedObjects.Add(mapObject);
             return true;
         }
 

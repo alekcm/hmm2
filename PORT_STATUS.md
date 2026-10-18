@@ -58,7 +58,7 @@ and `a2p1-texts/` overlay):
 
 `6000.6.6f1`, built-in render pipeline, two assemblies, no dependency on any
 glTF package:
-- **Adventure Map Viewer (`HoMM5.Map`, `HoMM5.UI`)**: chunked terrain with cliff walls, water, 197,936 placed objects (with radians-to-degrees `<Rot>` conversion, `BoxCollider` raycast selection, and `GROUND=0` / `UNDERGROUND=1` floor handling), HUD map list, object inspector with decompiled XP values, and source-linked XDB material slices/textures.
+- **Adventure Map vertical slice (`HoMM5.Map`, `HoMM5.UI`)**: campaign/mission menu from exported Campaign XDB records, explicit map loading (no first-map heuristic), chunked terrain with cliff walls, water, 198,014 placed objects (with radians-to-degrees `<Rot>` conversion, `BoxCollider` raycast selection, and `GROUND=0` / `UNDERGROUND=1` floor handling), HUD/object inspector, and source-linked XDB material slices/textures.  A `PLAYER_1` hero can be selected and moved with the confirmed `NWorldPathfinder` cost/passability code.
 - **Decompiled `NWorld` Gameplay Systems (`HoMM5.World`)**:
   - `NWorldHero.cs` (`NWorld::CHero` `0x00e7e484`: 40-level XP curve, stat clamping, movement points, mana, 7 army slots, artifacts)
   - `NWorldPathfinder.cs` (`NWorld::CHeroMovementCost` `0x00e935b0`: 30-bit packed tile coords, `STileGameInfo::CalcMoveCost` jump table `0x00ca9be8`, passability plane values `1/4`, penalty-reduction modifier, A* pathfinder)
@@ -67,8 +67,8 @@ glTF package:
 
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **40 tests,
-all passing, ~48 s**, every one against the real shipped data. These are
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **43 tests,
+all passing, ~56 s**, every one against the real shipped data. These are
 cross-checks between independent sources, not golden files:
 
 - **Container grammar** — every geometry file ends in the 6-byte marker
@@ -105,11 +105,11 @@ cross-checks between independent sources, not golden files:
 Conversion counts actually produced in this repository:
 
 ```
-gamedata   196 creatures, 321 spells, 97 artifacts, 328 town buildings, 15860 strings
+gamedata   196 creatures, 321 spells, 97 artifacts, 328 town buildings, 15947 strings
 terrain    293 planes, 0 failed
-maps       142 maps, 197936 objects
+maps       142 maps, 198014 objects
 meshes     3561 .glb, 6 skipped (empty), 320 MB
-textures   9258 .png, 0 failed
+textures   9268 .png, 0 failed
 ```
 
 ## Not verified
@@ -130,9 +130,10 @@ maps look.
 ## Not done
 
 - **Gameplay is partial.** Confirmed Hero XP/stat clamps, mana/movement base values,
-  movement-cost/passability primitives, combat formulas and ATB helpers exist;
-  turn orchestration, spells/abilities, campaigns, AI, Lua execution, networking
-  and a complete town screen are still absent.
+  source-backed campaign mission selection, map hero movement, movement-cost/passability
+  primitives, combat formulas and ATB helpers exist.  Campaign bonus choice/application,
+  encounter resolution, turn orchestration, spells/abilities, AI, Lua execution,
+  networking and a complete town screen are still absent.
 - **No animation.** Skeletons are Granny GR2 with per-section Oodle compression;
   reading them needs an Oodle1 decompressor. Creatures sit in bind pose.
 - **Materials are partial.** XDB Model/Material/Texture links and core opaque,
@@ -146,11 +147,12 @@ maps look.
 
 ## Suggested order from here
 
-1. Get it compiling and open a map — cheapest way to find what the missing
-   compile check left behind.
-2. Confirm the PE render handlers for `AM_OVERLAY`, effects and `AddPlaced`, then
-   extend the current source-linked material factory without guessing.
-3. GR2 + Oodle1 runtime sampling, so creatures animate instead of staying in bind
-   pose.
-4. Continue only with confirmed Hero stat Lua handlers and passability/road
-   fields; Town income/growth remains data-dependent and is not hard-coded.
+1. Get it compiling and open a campaign mission — cheapest way to find what the
+   missing compile check left behind.
+2. Confirm the PE adventure interaction/encounter handlers before adding monster,
+   resource, artifact, and town visit states; do not substitute guessed triggers.
+3. Continue only with confirmed combat UI/state and turn orchestration, then bind
+   the already reconstructed damage/ATB formulas.
+4. Confirm the PE render handlers for `AM_OVERLAY`, effects and `AddPlaced`, and
+   GR2 + Oodle1 runtime sampling so creatures animate instead of staying in bind
+   pose.  Town income/growth remains data-dependent and is not hard-coded.

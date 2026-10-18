@@ -9,8 +9,8 @@ using UnityEngine;
 namespace HoMM5
 {
     /// <summary>
-    /// Entry point.  Loads the imported game data, builds a camera, lights and a
-    /// HUD, then loads the first map on the list.
+    /// Entry point.  Loads the imported game data, builds the main menu, camera,
+    /// lights and HUD, then starts the mission selected from the campaign data.
     ///
     /// Nothing here needs a hand-authored scene asset beyond an empty scene with
     /// this component on one GameObject -- which is what
@@ -19,7 +19,7 @@ namespace HoMM5
     [DefaultExecutionOrder(-100)]
     public class H5Bootstrap : MonoBehaviour
     {
-        [Tooltip("Load this map on start.  Empty means the first one in the index.")]
+        [Tooltip("Load this map on start.  Empty opens the campaign mission menu.")]
         public string initialMapId = "";
 
         [Tooltip("0 = surface (GROUND), 1 = underground (UNDERGROUND).")]
@@ -34,7 +34,9 @@ namespace HoMM5
 
         GameObject _mapRoot;
         HoMM5Hud _hud;
+        HoMM5MainMenu _mainMenu;
         AdventureMapController _controller;
+        H5AdventureController _adventure;
 
         void Start()
         {
@@ -54,19 +56,35 @@ namespace HoMM5
             _hud.Database = Database;
             _hud.PopulateMapList(LoadMap);
 
+            _adventure = gameObject.AddComponent<H5AdventureController>();
+            _adventure.StatusChanged += RefreshStats;
+
+            _mainMenu = gameObject.AddComponent<HoMM5MainMenu>();
+            _mainMenu.Initialize(Database, LoadMap, ReturnToMainMenu);
+
             if (!Database.IsLoaded)
             {
                 _hud.SetStats("Import not found.\nRun: python -m homm5import.cli all\n(see tools/homm5_import/README.md)");
+                _mainMenu.Show();
                 return;
             }
 
-            var id = initialMapId;
-            if (string.IsNullOrEmpty(id) && Database.MapIndex.Count > 0) id = Database.MapIndex[0].id;
-            if (!string.IsNullOrEmpty(id)) LoadMap(id);
+            if (!string.IsNullOrEmpty(initialMapId))
+            {
+                LoadMap(initialMapId);
+            }
+            else
+            {
+                _mainMenu.Show();
+                _hud.SetStats("Select a campaign mission to begin.");
+            }
         }
 
         public void LoadMap(string mapId)
         {
+            if (string.IsNullOrEmpty(mapId)) return;
+            _mainMenu?.Hide();
+            _adventure?.Unbind();
             if (CurrentMap != null && CurrentMap.Root != null) Destroy(CurrentMap.Root);
             Meshes.Clear();
 
@@ -80,12 +98,84 @@ namespace HoMM5
             }
             CurrentMap = builder;
             floor = builder.ActiveFloor;
+            ActiveHero = CreateHeroForMap(builder);
 
             if (builder.Terrain != null)
                 _controller.SetMapBounds(builder.Terrain.Tiles, builder.Terrain.Tiles);
             _controller.FocusOn(new Vector3((builder.Map.tileX) * 0.5f, 0f, (builder.Map.tileY) * 0.5f), 45f);
+            _adventure?.Bind(builder, _controller, ActiveHero, Database);
 
             RefreshStats();
+        }
+
+        public void ReturnToMainMenu()
+        {
+            _adventure?.Unbind();
+            if (CurrentMap != null && CurrentMap.Root != null) Destroy(CurrentMap.Root);
+            CurrentMap = null;
+            Meshes?.Clear();
+            _controller?.Select(null);
+            _mainMenu?.Show();
+            _hud?.SetStats("Select a campaign mission to begin.");
+        }
+
+        NWorldHero CreateHeroForMap(MapSceneBuilder builder)
+        {
+            MapObjectDef heroDef = null;
+            if (builder.Map?.objects != null)
+            {
+                for (var i = 0; i < builder.Map.objects.Count; i++)
+                {
+                    var candidate = builder.Map.objects[i];
+                    if (candidate.kind == "AdvMapHero" && candidate.floor == builder.ActiveFloor &&
+                        string.Equals(candidate.owner, "PLAYER_1", System.StringComparison.OrdinalIgnoreCase))
+                    {
+                        heroDef = candidate;
+                        break;
+                    }
+                }
+            }
+
+            var hero = new NWorldHero(heroDef != null && !string.IsNullOrEmpty(heroDef.hero)
+                ? heroDef.hero : "Hero1", Database.DefaultStats);
+            if (heroDef == null) return hero;
+
+            if (heroDef.experience > 0) hero.ChangeHeroStat(EHeroStat.Experience, heroDef.experience);
+            hero.BaseAttack = heroDef.heroAttack;
+            hero.BaseDefence = heroDef.heroDefence;
+            hero.BaseSpellPower = heroDef.heroSpellPower;
+            hero.BaseKnowledge = heroDef.heroKnowledge;
+            hero.MovePoints = hero.GetMaxMovePoints();
+            hero.ManaPoints = hero.GetMaxManaPoints();
+            hero.TileX = Mathf.RoundToInt(heroDef.x);
+            hero.TileY = Mathf.RoundToInt(heroDef.y);
+            hero.Floor = builder.ActiveFloor;
+            hero.HasPathfinding = ContainsSkill(heroDef, "PATHFINDING");
+            hero.HasSnatch = ContainsSkill(heroDef, "SNATCH");
+
+            if (heroDef.army != null)
+            {
+                var count = Mathf.Min(heroDef.army.Count, NWorldHero.ArmySlotCount);
+                for (var i = 0; i < count; i++)
+                {
+                    var slot = heroDef.army[i];
+                    hero.Army[i] = new HeroCreatureStack { CreatureId = slot.creature, Count = slot.count };
+                }
+            }
+            return hero;
+        }
+
+        static bool ContainsSkill(MapObjectDef hero, string suffix)
+        {
+            if (hero.heroSkills != null)
+                for (var i = 0; i < hero.heroSkills.Count; i++)
+                    if (hero.heroSkills[i] != null && hero.heroSkills[i].EndsWith(suffix, System.StringComparison.OrdinalIgnoreCase))
+                        return true;
+            if (hero.heroPerks != null)
+                for (var i = 0; i < hero.heroPerks.Count; i++)
+                    if (hero.heroPerks[i] != null && hero.heroPerks[i].EndsWith(suffix, System.StringComparison.OrdinalIgnoreCase))
+                        return true;
+            return false;
         }
 
         void RefreshStats()
@@ -100,6 +190,7 @@ namespace HoMM5
                 $"Hero Lv.{ActiveHero.Level} (XP {ActiveHero.Experience}, MP {ActiveHero.MovePoints}/{ActiveHero.GetMaxMovePoints()}, Mana {ActiveHero.ManaPoints}/{ActiveHero.GetMaxManaPoints()})\n" +
                 $"objects placed {CurrentMap.ObjectsPlaced}  (no mesh {CurrentMap.ObjectsMissingMesh})  " +
                 $"terrain chunks {CurrentMap.TerrainChunks}  meshes cached {Meshes.CachedCount}\n" +
+                (_adventure == null || string.IsNullOrEmpty(_adventure.Status) ? "" : _adventure.Status + "\n") +
                 string.Join("  ", counts));
         }
 

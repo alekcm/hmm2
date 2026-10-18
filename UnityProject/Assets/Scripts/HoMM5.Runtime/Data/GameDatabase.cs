@@ -20,6 +20,7 @@ namespace HoMM5.Data
         public Dictionary<string, SpellDef> Spells { get; private set; } = new Dictionary<string, SpellDef>();
         public Dictionary<string, ArtifactDef> Artifacts { get; private set; } = new Dictionary<string, ArtifactDef>();
         public List<TownBuildingDef> TownBuildings { get; private set; } = new List<TownBuildingDef>();
+        public Dictionary<string, CampaignDef> Campaigns { get; private set; } = new Dictionary<string, CampaignDef>();
         public Dictionary<string, string> Localization { get; private set; } = new Dictionary<string, string>();
         public List<MapIndexEntry> MapIndex { get; private set; } = new List<MapIndexEntry>();
 
@@ -41,13 +42,14 @@ namespace HoMM5.Data
             Spells = LoadDict<SpellDef>(H5Paths.Game("spells.json")) ?? Spells;
             Artifacts = LoadDict<ArtifactDef>(H5Paths.Game("artifacts.json")) ?? Artifacts;
             TownBuildings = LoadList<TownBuildingDef>(H5Paths.Game("townBuildings.json")) ?? TownBuildings;
+            Campaigns = LoadDict<CampaignDef>(H5Paths.Game("campaigns.json")) ?? Campaigns;
             Localization = LoadDict<string>(H5Paths.Game("Localization.json")) ?? Localization;
             MapIndex = LoadList<MapIndexEntry>(H5Paths.Maps("_index.json")) ?? MapIndex;
 
             IsLoaded = true;
             Debug.Log($"[HoMM5] loaded {Creatures.Count} creatures, {Spells.Count} spells, " +
                       $"{Artifacts.Count} artifacts, {TownBuildings.Count} town buildings, " +
-                      $"{Localization.Count} strings, {MapIndex.Count} maps");
+                      $"{Campaigns.Count} campaigns, {Localization.Count} strings, {MapIndex.Count} maps");
             Loaded?.Invoke();
         }
 
@@ -64,9 +66,14 @@ namespace HoMM5.Data
             // Some maps name the upgrade pair rather than the creature itself.
             foreach (var kv in Creatures)
             {
-                if (string.Equals(kv.Value.pairCreature, id, StringComparison.OrdinalIgnoreCase) ||
-                    string.Equals(kv.Value.baseCreature, id, StringComparison.OrdinalIgnoreCase))
-                    return kv.Value;
+                var value = kv.Value;
+                if (value.enumIds != null)
+                    for (var i = 0; i < value.enumIds.Count; i++)
+                        if (string.Equals(value.enumIds[i], id, StringComparison.OrdinalIgnoreCase))
+                            return value;
+                if (string.Equals(value.pairCreature, id, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(value.baseCreature, id, StringComparison.OrdinalIgnoreCase))
+                    return value;
             }
             return null;
         }

@@ -24,7 +24,8 @@ sys.path.insert(0, os.path.dirname(HERE))
 
 from homm5import.container import END_MARKER, parse_records  # noqa: E402
 from homm5import.dds import DDSError, decode_dds, write_png  # noqa: E402
-from homm5import.gamedata import load_artifacts, load_creatures, load_default_stats, load_spells  # noqa: E402
+from homm5import.gamedata import (load_artifacts, load_campaigns, load_creatures,
+                                    load_default_stats, load_spells)  # noqa: E402
 from homm5import.geometry import decode_file as decode_geometry  # noqa: E402
 from homm5import.gltf import geometry_to_glb  # noqa: E402
 from homm5import.gr2 import parse_gr2_bytes  # noqa: E402
@@ -388,6 +389,7 @@ class GameDataTest(unittest.TestCase):
         cls.creatures = load_creatures(cls.xdb, cls.loc)
         cls.spells = load_spells(cls.xdb, cls.loc)
         cls.artifacts = load_artifacts(cls.xdb, cls.loc)
+        cls.campaigns = load_campaigns(cls.xdb, cls.loc)
 
     def test_creature_stats_match_the_xml(self):
         c = self.creatures["CombatMage"]
@@ -412,6 +414,10 @@ class GameDataTest(unittest.TestCase):
         self.assertTrue(uid, "geometry uid did not resolve")
         self.assertTrue(os.path.isfile(os.path.join(DATA, "bin", "Geometries", uid)), uid)
 
+    def test_creature_enum_reference_resolves_map_ids(self):
+        champion = self.creatures["Champion"]
+        self.assertIn("CREATURE_CHAMPION", champion["enumIds"])
+
     def test_model_materials_preserve_xdb_slot_order(self):
         materials = self.creatures["CombatMage"]["visual"]["materials"]
         self.assertEqual(len(materials), 2)
@@ -421,6 +427,14 @@ class GameDataTest(unittest.TestCase):
         dds = os.path.join(DATA, materials[0]["texture"]["dds"].lstrip("/"))
         self.assertTrue(os.path.isfile(dds), dds)
         self.assertIn("is2Sided", materials[0])
+
+    def test_campaigns_resolve_localized_mission_maps(self):
+        campaign = self.campaigns["A2C0"]
+        self.assertTrue(campaign["name"])
+        self.assertEqual(campaign["missions"][0]["mapId"], "A2C0M0")
+        self.assertTrue(campaign["missions"][0]["name"])
+        self.assertEqual(campaign["missions"][0]["tileX"], 136)
+        self.assertEqual(campaign["missions"][0]["bonuses"][0]["resources"]["Gold"], 1000)
 
     def test_spells_are_localized_and_levelled(self):
         s = self.spells["DimensionDoor"]
@@ -528,6 +542,25 @@ class MapTest(unittest.TestCase):
                 empty += 1
         self.assertGreater(checked, 100)
         self.assertEqual(empty, 0, f"{empty} maps came out empty")
+
+    def test_scenario_owner_hero_state_and_monster_amounts(self):
+        """Scenario records use PlayerID and retain the inline state fields."""
+        path = os.path.join(DATA, "Maps", "Scenario", "A2C0M0", "map.xdb")
+        if not os.path.isfile(path):
+            self.skipTest("campaign scenario not present")
+        md = load_map(self.xdb, path)
+        hero = next(o for o in md.objects if o.kind == "AdvMapHero")
+        self.assertEqual(hero.extra["owner"], "PLAYER_1")
+        self.assertEqual(hero.extra["hero"], "Quroq")
+        self.assertEqual(hero.extra["experience"], 4700)
+        self.assertEqual(hero.extra["army"][0], {"creature": "CREATURE_ORC_WARRIOR", "count": 100})
+        monster = next(o for o in md.objects if o.kind == "AdvMapMonster" and o.name == "butchers_guard")
+        self.assertEqual(monster.extra["creature"], "CREATURE_CHAMPION")
+        self.assertEqual(monster.extra["amount"], 4)
+        self.assertEqual(monster.extra["amount2"], 4)
+        self.assertEqual(monster.extra["additionalStacks"][0]["amount"], 25)
+        town = next(o for o in md.objects if o.kind == "AdvMapTown")
+        self.assertEqual(town.extra["owner"], "PLAYER_2")
 
     def test_floor_zero_is_surface_ground(self):
         """Matches common.lua (GROUND = 0, UNDERGROUND = 1) and NWorld::IsTilePassable."""
