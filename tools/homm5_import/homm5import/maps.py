@@ -15,6 +15,7 @@ from typing import Dict, List, Optional, Tuple
 from xml.etree import ElementTree as ET
 
 from .xdb import XDB
+from .gamedata import model_materials
 
 OBJECT_TYPES = (
     "AdvMapStatic", "AdvMapTreasure", "AdvMapMonster", "AdvMapBuilding",
@@ -26,7 +27,7 @@ OBJECT_TYPES = (
 
 class MapObject:
     __slots__ = ("kind", "pos", "rot", "floor", "name", "shared_href",
-                 "geometry_uid", "textures", "blocked", "extra")
+                 "geometry_uid", "textures", "materials", "blocked", "extra")
 
     def __init__(self, kind: str, pos: Tuple[float, float, float], rot: float,
                  floor: int, name: str):
@@ -38,6 +39,7 @@ class MapObject:
         self.shared_href: Optional[str] = None
         self.geometry_uid: Optional[str] = None
         self.textures: List[str] = []
+        self.materials: List[dict] = []
         self.blocked: List[List[int]] = []
         self.extra: Dict[str, object] = {}
 
@@ -58,6 +60,8 @@ class MapObject:
             d["geometryUid"] = self.geometry_uid
         if self.textures:
             d["textures"] = self.textures
+        if self.materials:
+            d["materials"] = self.materials
         if self.blocked:
             d["blocked"] = self.blocked
         if self.extra:
@@ -144,44 +148,47 @@ class MapDesc:
         }
 
 
-def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject, cache: dict) -> None:
-    """Follow Shared -> Model -> {geometry uid, materials}."""
+def _resolve_static(xdb: XDB, shared: ET.Element, obj: MapObject,
+                    cache: dict, base_href: Optional[str] = None) -> None:
+    """Follow Shared -> Model -> geometry/material slices using XDB links only."""
     href = shared.get("href")
     if not href:
         return
-    obj.shared_href = href
-    if href in cache:
-        obj.geometry_uid, obj.textures, obj.blocked = cache[href]
+    absolute_shared = xdb.absolutize(href, base_href)
+    obj.shared_href = absolute_shared
+    if absolute_shared in cache:
+        (obj.geometry_uid, obj.textures, obj.materials,
+         obj.blocked) = cache[absolute_shared]
         return
 
     geom_uid: Optional[str] = None
     textures: List[str] = []
-    node = xdb.resolve_field(shared)
+    materials: List[dict] = []
+    blocked: List[List[int]] = []
+    node, shared_href = xdb.resolve(shared, base_href)
     if node is not None:
         for tag in ("blockedTiles", "BlockedTiles"):
-            blocked = node.find(tag)
-            if blocked is not None:
+            blocked_node = node.find(tag)
+            if blocked_node is not None:
                 # <Item><x>0</x><y>0</y></Item> -- the object's footprint offset.
-                obj.blocked = [[int(xdb.number(i.find("x"))), int(xdb.number(i.find("y")))]
-                               for i in xdb.items(blocked)]
+                blocked = [[int(xdb.number(i.find("x"))), int(xdb.number(i.find("y")))]
+                           for i in xdb.items(blocked_node)]
                 break
-        model = xdb.resolve_field(node.find("Model"))
+        model, model_href = xdb.resolve(node.find("Model"), shared_href)
         if model is not None:
             geom = model.find("Geometry")
             if geom is not None:
-                inner = xdb.resolve_field(geom) or geom
+                inner = xdb.resolve_field(geom, model_href) or geom
                 geom_uid = xdb.text(inner.find("uid")) or None
-            mats = model.find("Materials")
-            if mats is not None:
-                for item in xdb.items(mats):
-                    mat = xdb.resolve_field(item) or item
-                    tex = xdb.resolve_field(mat.find("Texture")) if mat is not None else None
-                    if tex is not None:
-                        t = xdb.text(tex.find("FileName")) or (tex.get("href") or "")
-                        if t:
-                            textures.append(t)
-    cache[href] = (geom_uid, textures, obj.blocked)
-    obj.geometry_uid, obj.textures = geom_uid, textures
+            materials = model_materials(xdb, model, model_href)
+            for material in materials:
+                texture = material.get("texture") or {}
+                name = texture.get("fileName") or texture.get("xdb")
+                if name:
+                    textures.append(name)
+    cache[absolute_shared] = (geom_uid, textures, materials, blocked)
+    obj.geometry_uid, obj.textures, obj.materials, obj.blocked = (
+        geom_uid, textures, materials, blocked)
 
 
 def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
@@ -217,9 +224,9 @@ def load_map(xdb: XDB, path: str, resolve_models: bool = True) -> MapDesc:
         shared = inner.find("Shared")
         if shared is not None and shared.get("href"):
             if resolve_models:
-                _resolve_static(xdb, shared, obj, cache)
+                _resolve_static(xdb, shared, obj, cache, base_href)
             else:
-                obj.shared_href = shared.get("href")
+                obj.shared_href = xdb.absolutize(shared.get("href"), base_href)
 
         # Type specific payloads worth carrying across.
         if inner.tag == "AdvMapMonster":

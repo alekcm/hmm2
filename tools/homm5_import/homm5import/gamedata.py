@@ -41,6 +41,96 @@ def _base_key(path: str) -> str:
     return os.path.splitext(os.path.basename(path))[0]
 
 
+def _texture_data(xdb: XDB, node: Optional[ET.Element],
+                  base_href: Optional[str]) -> dict:
+    """Export the resolved ``NDb::Texture`` reference without assigning assets heuristically.
+
+    The material points at a ``Texture`` XDB record, while ``cmd_textures`` writes
+    the corresponding DDS as ``Textures/<xdb path>.png``.  Keeping both the
+    source XDB path and the generated path in the JSON makes the association
+    auditable and lets Unity load the exact material slot rather than guessing
+    from a mesh name or PNG order.
+    """
+    result = {}
+    if node is None:
+        return result
+    texture, texture_href = xdb.resolve(node, base_href)
+    if texture is None:
+        return result
+
+    # Texture records are normally addressed by an absolute XDB href.  The
+    # shipped converter preserves that path and only changes the extension to
+    # .dds; the offline PNG exporter appends .png once more.
+    source = (texture_href or "").split("#", 1)[0]
+    if source:
+        result["xdb"] = source
+        dds = source[:-4] + ".dds" if source.lower().endswith(".xdb") else source
+        result["dds"] = dds
+        result["png"] = dds.lstrip("/") + ".png"
+    file_name = xdb.text(texture.find("FileName")) or xdb.text(texture.find("DestName"))
+    if file_name:
+        result["fileName"] = file_name
+    result["address"] = xdb.text(texture.find("AddrType"))
+    result["flipY"] = xdb.boolean(texture.find("FlipY"), False)
+    return result
+
+
+def model_materials(xdb: XDB, model: Optional[ET.Element],
+                    model_href: Optional[str]) -> List[dict]:
+    """Read ``NDb::Model.Materials`` in the authoritative XDB array order.
+
+    ``geometry.py`` emits one glTF node for each non-empty geometry slice.  The
+    runtime binds the arrays ordinally only when their counts make that relation
+    unambiguous; this exporter never invents a mapping for an ambiguous model.
+    No texture is invented when a material has no texture reference.
+    """
+    materials: List[dict] = []
+    if model is None:
+        return materials
+    mats = model.find("Materials")
+    for item in xdb.items(mats):
+        material, material_href = xdb.resolve(item, model_href)
+        if material is None:
+            # Inline records have the Material child under the Item.
+            material = item.find("Material")
+            material_href = model_href
+        if material is None:
+            materials.append({})
+            continue
+
+        spec_color = xdb.vec3(material.find("SpecColor"))
+        translucent_color = xdb.vec3(material.find("TranslucentColor"))
+        record = {
+            "texture": _texture_data(xdb, material.find("Texture"), material_href),
+            "bump": _texture_data(xdb, material.find("Bump"), material_href),
+            "gloss": _texture_data(xdb, material.find("Gloss"), material_href),
+            "mirror": _texture_data(xdb, material.find("Mirror"), material_href),
+            "detailTexture": _texture_data(xdb, material.find("DetailTexture"), material_href),
+            "specFactor": xdb.number(material.find("SpecFactor")),
+            "specColor": list(spec_color),
+            "metalMirror": xdb.number(material.find("MetalMirror")),
+            "dielMirror": xdb.number(material.find("DielMirror")),
+            "castShadow": xdb.boolean(material.find("CastShadow"), True),
+            "receiveShadow": xdb.boolean(material.find("ReceiveShadow"), True),
+            "priority": int(xdb.number(material.find("Priority"))),
+            "translucentColor": list(translucent_color),
+            "floatParam": xdb.number(material.find("FloatParam")),
+            "detailScale": xdb.number(material.find("DetailScale"), 5.0),
+            "projectOnTerrain": xdb.boolean(material.find("ProjectOnTerrain"), False),
+            "lightingMode": xdb.text(material.find("LightingMode")),
+            "dynamicMode": xdb.text(material.find("DynamicMode")),
+            "is2Sided": xdb.boolean(material.find("Is2Sided"), False),
+            "effect": xdb.text(material.find("Effect")),
+            "alphaMode": xdb.text(material.find("AlphaMode")),
+            "affectedByFog": xdb.boolean(material.find("AffectedByFog"), True),
+            "addPlaced": xdb.boolean(material.find("AddPlaced"), False),
+            "ignoreZBuffer": xdb.boolean(material.find("IgnoreZBuffer"), False),
+            "backFaceCastShadow": xdb.boolean(material.find("BackFaceCastShadow"), False),
+        }
+        materials.append(record)
+    return materials
+
+
 def load_creatures(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, dict]:
     """All creature and hero definitions, keyed by their enum-style name."""
     out: Dict[str, dict] = {}
@@ -84,6 +174,7 @@ def load_creatures(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
                 geom_uid, textures = model_geometry(xdb, model, model_href)
                 rec["visual"]["geometryUid"] = geom_uid
                 rec["visual"]["textures"] = textures
+                rec["visual"]["materials"] = model_materials(xdb, model, model_href)
         out[key] = rec
     return out
 
@@ -194,6 +285,7 @@ def load_artifacts(xdb: XDB, loc: Optional[Localization] = None) -> Dict[str, di
         }
         model, model_href = xdb.resolve(obj.find("Model"), "/GameMechanics/RefTables/Artifacts.xdb")
         rec["geometryUid"], rec["textures"] = model_geometry(xdb, model, model_href)
+        rec["materials"] = model_materials(xdb, model, model_href)
         out[aid] = rec
     return out
 

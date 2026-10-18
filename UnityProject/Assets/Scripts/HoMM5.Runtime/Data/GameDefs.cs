@@ -36,6 +36,51 @@ namespace HoMM5.Data
         public string mastery;
     }
 
+    /// <summary>
+    /// One XDB Texture record as referenced by a material.  The importer writes
+    /// the generated PNG path explicitly; runtime code never matches textures by
+    /// basename or by PNG/asset enumeration order.
+    /// </summary>
+    public class TextureDef
+    {
+        public string xdb;
+        public string dds;
+        public string png;
+        public string fileName;
+        public string address;
+        public bool flipY;
+    }
+
+    /// <summary>Material flags copied from NDb::Material.</summary>
+    public class MaterialDef
+    {
+        public TextureDef texture;
+        public TextureDef bump;
+        public TextureDef gloss;
+        public TextureDef mirror;
+        public TextureDef detailTexture;
+        public float specFactor;
+        public float[] specColor;
+        public float metalMirror;
+        public float dielMirror;
+        public bool castShadow = true;
+        public bool receiveShadow = true;
+        public int priority;
+        public float[] translucentColor;
+        public float floatParam;
+        public float detailScale = 5f;
+        public bool projectOnTerrain;
+        public string lightingMode;
+        public string dynamicMode;
+        public bool is2Sided;
+        public string effect;
+        public string alphaMode;
+        public bool affectedByFog = true;
+        public bool addPlaced;
+        public bool ignoreZBuffer;
+        public bool backFaceCastShadow;
+    }
+
     public class CreatureVisualDef
     {
         public string name;
@@ -46,6 +91,7 @@ namespace HoMM5.Data
         public string icon;
         public string geometryUid;
         public List<string> textures;
+        public List<MaterialDef> materials;
     }
 
     /// <summary>One creature or hero, transcribed from GameMechanics/Creature.</summary>
@@ -135,6 +181,7 @@ namespace HoMM5.Data
         public ArtifactStats stats;
         public string geometryUid;
         public List<string> textures;
+        public List<MaterialDef> materials;
 
         public string DisplayName => string.IsNullOrEmpty(name) ? id : name;
     }
@@ -202,6 +249,7 @@ namespace HoMM5.Data
         public string shared;
         public string geometryUid;
         public List<string> textures;
+        public List<MaterialDef> materials;
         public List<List<int>> blocked;
 
         // AdvMapMonster

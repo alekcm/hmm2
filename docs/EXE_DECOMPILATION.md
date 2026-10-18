@@ -48,7 +48,7 @@ Scanning `.data` for `TypeDescriptor` records whose vftable pointer equals `0x00
 | `NWorld::CHero` | `0x00e7e484` | 115 | Hero state, XP/level, primary stats, skills, army, artifacts, movement & mana |
 | `NWorld::CHeroMovementCost` | `0x00e935b0` | 6 | Hero step movement cost calculator (roads, terrain penalties, Pathfinding, Snatch, diagonal) |
 | `NWorld::CTetraMovementCost` | `0x00e4ce2c` | 6 | Base terrain movement cost calculator |
-| `NWorld::CTown` | `0x00e19674` | 97 | Town buildings, daily gold income, weekly creature growth, garrison |
+| `NWorld::CTown` | `0x00e19674` | 97 | Town building/garrison state; income and growth handlers still require semantic confirmation |
 | `NWorld::CPlayer` | `0x00e1a09c` | 62 | Player 7-resource economy, turn state, owned heroes and towns |
 | `NWorld::CCombat` | `0x00e79d3c` | 84 | Tactical arena controller, damage calculation, spell casting, retaliation |
 | `NWorld::CCombatCreature` | `0x00e4fba4` | 122 | Combat stack state, health pool, shots, Wait/Defend/Morale/Luck |
@@ -63,8 +63,8 @@ The executable registers **314 unique Lua C-API functions** in `.data` registrat
 
 | Lua Function Name | Handler VA | Description |
 |---|---|---|
-| `GetHeroStat` | `0x005c33a0` | Reads hero stat by `EHeroStat` ID (`0..8`) |
-| `ChangeHeroStat` | `0x005c3620` | Modifies hero stat by `EHeroStat` ID (`0..8`) |
+| `GetHeroStat` | `0x005c33a0` | Reads hero stat by the public `EHeroStat` IDs (`0..8`); the wrapper's dispatch range also admits `9`, but no shipped `STAT_*` constant exposes that slot |
+| `ChangeHeroStat` | `0x005c3620` | Modifies hero stat by `EHeroStat` ID (`0..8`); the switch at `0x005c37f8` rejects IDs above `8` |
 | `CalcHeroMoveCost` | `0x005ceaf0` | Runs A* pathfinder and returns movement cost to target `(x, y, floor)` |
 | `IsTilePassable` | `0x005e11a0` | Checks tile passability in `CTileGameInfoMap` (`floor`: `0` = Ground, `1` = Underground) |
 | `AddHeroCreatures` | `0x005c4a10` | Adds creature stack to hero army |
@@ -101,7 +101,7 @@ The executable registers **314 unique Lua C-API functions** in `.data` registrat
 
 ### 4.3 Terrain Step Movement Cost (`0x00cab090` -> `0x00ca9a70`, Jump Table `0x00ca9be8`)
 - **Base Cost (`0x00ca9ac3..0x00ca9ae2`)**:
-  - Road (`roadType` in `{1, 2, 3}` / terrain road flags `{6, 7, 8}`): `baseCost = 75`, `penalty = 0` (`0x00ca9ad3`).
+  - Road terrain values `{6, 7, 8}`: `baseCost = 75`, `penalty = 0` (`0x00ca9ad3`).
   - Off-road: `baseCost = 100` (`0x00ca9ade`).
 - **Non-Native Terrain Penalty (`0x00ca9ae3..0x00ca9be7`, switch table at `0x00ca9be8`)**:
   - If `terrainType == heroNativeTerrain`: `penalty = 0`.
@@ -109,9 +109,10 @@ The executable registers **314 unique Lua C-API functions** in `.data` registrat
     - `{1, 6, 7, 8, 9, 10, 11, 12}` -> `+0` (`0x00ca9be5`)
     - `{0, 4, 5, 13, 14}` (Dirt/Grass, Lava, Subterranean, Snow, Taiga) -> `+25` (`0x00ca9aed: mov $0x19, %eax`)
     - `{2, 3}` (Sand, Swamp) -> `+50` (`0x00ca9af7: mov $0x32, %eax`)
-- **Hero Skill Modifiers (`0x00cab136..0x00cab16b`)**:
-  - `Snatch` (`[this+0x14] & 1`): `penalty = 0`.
-  - `Pathfinding` (`[this+0x14] & 2`): `penalty *= 0.5f`.
+- **Hero Skill Modifiers (`0x00ca9b05..0x00ca9b6f`)**:
+  - `Pathfinding` (`SHeroMoveModifiers[0]`): `penalty *= 0.5f`.
+  - `Snatch` (`SHeroMoveModifiers[1]`): `penalty = 0`.
+  - Positive `SHeroMoveModifiers+0x14`: `penalty *= 1.0f - percent * 0.01f`.
 - **Diagonal Multiplier (`0x00cab18c..0x00cab196`)**:
   - If `x1 != x2 && y1 != y2`: `cost = (int)((baseCost + penalty) * 1.41421354f)` (`.rdata` `0x00e557b8`, truncated via `cvttss2si`).
 
@@ -130,7 +131,7 @@ The executable registers **314 unique Lua C-API functions** in `.data` registrat
 - `Knowledge` (`0x00b4cb50`): clamped `>= 1`
 - `Morale` (`0x00b4cb60`) & `Luck` (`0x00b4cd40`): clamped to `[-5, +5]`
 - `MovePoints` (`+0x13c`): `BaseHeroMovement = 2500` (`DefaultStats.xdb`)
-- `ManaPoints` (`+0x140`): `Knowledge * HeroManaPerKnowledge` (`10` in `DefaultStats.xdb`, `* 1.5` with Intelligence)
+- `ManaPoints` (`+0x140`): base `Knowledge * HeroManaPerKnowledge` (`10` in `DefaultStats.xdb`); the Intelligence multiplier is not applied in the Unity port until its stat handler is confirmed
 
 ### 4.6 Combat Physical Damage & Kill XP (`0x00a58d30`, `0x00a58de0`, `0x00a597a0`, `0x004d8ba0`)
 - **Attack vs. Defense Multiplier (`0x00a58d30`, `0x00a58de0`)**:

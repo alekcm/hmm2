@@ -16,36 +16,42 @@ namespace HoMM5.World
     {
         public const int RoadBaseCost = 75;
         public const int OffRoadBaseCost = 100;
+        public const int UnknownTerrainType = 9; // NDb::AdvMapTileType::TT_NONE
         public const float DiagonalMultiplier = 1.41421354f; // .rdata 0x00e557b8
 
         private readonly int _width;
         private readonly int _height;
         private readonly bool[,] _passable;
-        private readonly byte[,] _terrainType;
-        private readonly bool[,] _hasRoad;
+        private readonly int[,] _terrainType;
+        private readonly int[,] _roadType;
 
         public NWorldPathfinder(int width, int height, H5Terrain terrain = null, MapDef map = null, int floor = 0)
         {
             _width = Mathf.Max(1, width);
             _height = Mathf.Max(1, height);
             _passable = new bool[_width, _height];
-            _terrainType = new byte[_width, _height];
-            _hasRoad = new bool[_width, _height];
+            _terrainType = new int[_width, _height];
+            _roadType = new int[_width, _height];
 
             for (var y = 0; y < _height; y++)
             {
                 for (var x = 0; x < _width; x++)
                 {
-                    var pass = true;
-                    byte tType = 1;
-                    if (terrain != null)
+                    // GroundTerrain.flags describes visual ground kind; it is
+                    // not STileGameInfo.passabilityFlag.  Use the exported
+                    // tag-0x0f plane instead of treating a visual water flag as
+                    // proof that a tile is blocked.
+                    var pass = terrain == null;
+                    if (terrain != null && terrain.HasPassability)
                     {
-                        var flag = terrain.GetFlag(x, y);
-                        tType = flag;
-                        if (flag == 0) pass = false; // water vertex
+                        pass = terrain.IsTilePassable(x, y);
                     }
                     _passable[x, y] = pass;
-                    _terrainType[x, y] = tType;
+                    // The terrain import does not contain STileGameInfo's
+                    // terrain/road enum planes.  TT_NONE is explicit unknown,
+                    // rather than silently interpreting ground flags as types.
+                    _terrainType[x, y] = UnknownTerrainType;
+                    _roadType[x, y] = 0;
                 }
             }
 
@@ -96,13 +102,22 @@ namespace HoMM5.World
                 _passable[x, y] = passable;
         }
 
-        public void SetTileTerrain(int x, int y, byte terrainType, bool hasRoad = false)
+        public void SetTileTerrain(int x, int y, int terrainType, int roadType = 0)
         {
             if (x >= 0 && x < _width && y >= 0 && y < _height)
             {
                 _terrainType[x, y] = terrainType;
-                _hasRoad[x, y] = hasRoad;
+                _roadType[x, y] = roadType;
             }
+        }
+
+        /// <summary>
+        /// Compatibility overload for callers that only have a road boolean.
+        /// The authoritative tile value is still the NDb road enum 6..8.
+        /// </summary>
+        public void SetTileTerrain(int x, int y, int terrainType, bool hasRoad)
+        {
+            SetTileTerrain(x, y, terrainType, hasRoad ? 6 : 0);
         }
 
         /// <summary>
@@ -130,19 +145,23 @@ namespace HoMM5.World
 
         /// <summary>
         /// Exact decompiled step movement cost from <c>0x00cab090</c> (<c>NWorld::CHeroMovementCost</c>).
+        /// Pathfinding halves the penalty, Snatch clears it, and the positive
+        /// modifier at <c>SHeroMoveModifiers+0x14</c> applies a further percent
+        /// reduction after those operations.
         /// </summary>
         public static int CalcStepCost(
             int terrainType,
             int heroNativeTerrain,
-            bool isRoad,
+            int roadType,
             bool isDiagonal,
             bool hasPathfinding,
-            bool hasSnatch)
+            bool hasSnatch,
+            int penaltyReductionPercent = 0)
         {
             int baseCost;
             float penalty;
 
-            if (isRoad || terrainType == 6 || terrainType == 7 || terrainType == 8)
+            if (roadType == 6 || roadType == 7 || roadType == 8)
             {
                 baseCost = RoadBaseCost;
                 penalty = 0f;
@@ -153,16 +172,34 @@ namespace HoMM5.World
                 penalty = GetTerrainPenalty(terrainType, heroNativeTerrain);
             }
 
+            if (hasPathfinding)
+                penalty *= 0.5f;
             if (hasSnatch)
                 penalty = 0f;
-            else if (hasPathfinding)
-                penalty *= 0.5f;
+            if (penaltyReductionPercent > 0)
+                penalty *= 1f - penaltyReductionPercent * 0.01f;
 
             var total = baseCost + penalty;
             if (isDiagonal)
                 total *= DiagonalMultiplier;
 
             return (int)total; // cvttss2si truncation at 0x00cab196
+        }
+
+        /// <summary>
+        /// Compatibility overload; the decompiled tile field is roadType 6..8,
+        /// not a second visual-ground flag.
+        /// </summary>
+        public static int CalcStepCost(
+            int terrainType,
+            int heroNativeTerrain,
+            bool isRoad,
+            bool isDiagonal,
+            bool hasPathfinding,
+            bool hasSnatch)
+        {
+            return CalcStepCost(terrainType, heroNativeTerrain, isRoad ? 6 : 0,
+                                isDiagonal, hasPathfinding, hasSnatch);
         }
 
         /// <summary>
@@ -236,11 +273,12 @@ namespace HoMM5.World
                     var isDiag = dx[d] != 0 && dy[d] != 0;
                     var stepCost = CalcStepCost(
                         _terrainType[nx, ny],
-                        hero != null ? hero.NativeTerrainType : 1,
-                        _hasRoad[nx, ny],
+                        hero != null ? hero.NativeTerrainType : UnknownTerrainType,
+                        _roadType[nx, ny],
                         isDiag,
                         hero != null && hero.HasPathfinding,
-                        hero != null && hero.HasSnatch);
+                        hero != null && hero.HasSnatch,
+                        hero != null ? hero.MovementPenaltyReductionPercent : 0);
 
                     var tentativeG = gScore[current] + stepCost;
                     if (!gScore.TryGetValue(next, out var prevG) || tentativeG < prevG)

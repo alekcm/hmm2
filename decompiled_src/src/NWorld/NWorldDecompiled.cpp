@@ -150,7 +150,7 @@ namespace NWorld {
 // VA:        0x00b5ad70
 // Subsystem: NWorld::Hero
 // Signature: int __thiscall GetStat(const CHero* this, int statId)
-// Summary:   Dispatches hero stat queries for statId 1..10 via the 10-slot stat accessor table at [this+0x264].
+// Summary:   Internal CHero stat accessor dispatch accepts statId 1..10 via the 10-slot table at [this+0x264]. This is distinct from the Lua public STAT_* constants: Lua ChangeHeroStat accepts 0..8 and Lua GetHeroStat's wrapper admits an additional unexposed slot 9.
 // ============================================================================
 /*
    Decompiled Formula / Logic:
@@ -262,7 +262,8 @@ void InitHeroExperienceTable(int32_t outXpTable[40]) {
 // VA: 0x00ca9a70 & 0x00cab090 (NWorld::STileGameInfo::CalcMoveCost & CHeroMovementCost, switch table 0x00ca9be8)
 int32_t CalcHeroStepMoveCost(
     int32_t terrainType, int32_t roadType, int32_t heroNativeTerrain,
-    bool isDiagonal, bool hasPathfinding, bool hasSnatch
+    bool isDiagonal, bool hasPathfinding, bool hasSnatch,
+    int32_t penaltyReductionPercent = 0
 ) {
     int32_t baseCost = 100;
     float penalty = 0.0f;
@@ -277,8 +278,10 @@ int32_t CalcHeroStepMoveCost(
             default:
                 penalty = 0.0f; break;  // 0x00ca9be5
         }
+        if (hasPathfinding) penalty *= 0.5f;
         if (hasSnatch) penalty = 0.0f;
-        else if (hasPathfinding) penalty *= 0.5f;
+        if (penaltyReductionPercent > 0)
+            penalty *= 1.0f - static_cast<float>(penaltyReductionPercent) * 0.01f;
     }
     float total = static_cast<float>(baseCost) + penalty;
     if (isDiagonal) total *= 1.41421354f; // .rdata 0x00e557b8 (sqrt(2))

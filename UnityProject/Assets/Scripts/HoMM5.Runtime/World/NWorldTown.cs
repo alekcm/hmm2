@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using HoMM5.Data;
-using UnityEngine;
 
 namespace HoMM5.World
 {
@@ -13,16 +12,11 @@ namespace HoMM5.World
     public class NWorldPlayer
     {
         public string PlayerId { get; }
-        public ResourceCost Resources { get; } = new ResourceCost
-        {
-            Wood = 20,
-            Ore = 20,
-            Mercury = 10,
-            Crystal = 10,
-            Sulfur = 10,
-            Gem = 10,
-            Gold = 20000
-        };
+        /// <summary>
+        /// Scenario-provided resource stock.  CPlayer construction does not
+        /// establish a universal starting wallet; map/scenario data must fill it.
+        /// </summary>
+        public ResourceCost Resources { get; } = new ResourceCost();
 
         public NWorldPlayer(string playerId)
         {
@@ -76,23 +70,6 @@ namespace HoMM5.World
             Owner = owner;
         }
 
-        public int TownLevel => BuiltBuildings.Count;
-
-        public int GetDailyGoldIncome()
-        {
-            if (BuiltBuildings.Contains("TB_CAPITOL")) return 4000;
-            if (BuiltBuildings.Contains("TB_CITY_HALL")) return 2000;
-            if (BuiltBuildings.Contains("TB_TOWN_HALL")) return 1000;
-            return 500;
-        }
-
-        public float GetFortificationGrowthMultiplier()
-        {
-            if (BuiltBuildings.Contains("TB_CASTLE")) return 2.0f;
-            if (BuiltBuildings.Contains("TB_CITADEL")) return 1.5f;
-            return 1.0f;
-        }
-
         public bool TryBuild(TownBuildingDef building)
         {
             if (building == null || HasBuiltToday) return false;
@@ -104,24 +81,14 @@ namespace HoMM5.World
             return true;
         }
 
-        public void OnNewDay(int dayOfWeek, IEnumerable<CreatureDef> factionCreatures = null)
+        /// <summary>
+        /// Starts a new town day.  Income and creature growth depend on the
+        /// resolved TownType/TownBuilding records and are deliberately not
+        /// replaced with hard-coded Capitol/Castle tables here.
+        /// </summary>
+        public void OnNewDay(int dayOfWeek)
         {
             HasBuiltToday = false;
-            if (Owner != null)
-                Owner.Resources.Gold += GetDailyGoldIncome();
-
-            // Weekly growth on Day 1 of the week
-            if (dayOfWeek == 1 && factionCreatures != null)
-            {
-                var mult = GetFortificationGrowthMultiplier();
-                foreach (var c in factionCreatures)
-                {
-                    if (c == null || c.WeeklyGrowth <= 0) continue;
-                    var add = Mathf.RoundToInt(c.WeeklyGrowth * mult);
-                    AvailableRecruits.TryGetValue(c.id, out var cur);
-                    AvailableRecruits[c.id] = cur + add;
-                }
-            }
         }
     }
 }

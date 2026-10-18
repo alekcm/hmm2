@@ -27,6 +27,7 @@ namespace HoMM5
 
         public GameDatabase Database { get; private set; }
         public MeshCache Meshes { get; private set; }
+        public H5MaterialCache Materials { get; private set; }
         public MapSceneBuilder CurrentMap { get; private set; }
         public NWorldPlayer ActivePlayer { get; private set; }
         public NWorldHero ActiveHero { get; private set; }
@@ -44,6 +45,7 @@ namespace HoMM5
             ActiveHero = new NWorldHero("Hero1", Database.DefaultStats);
 
             Meshes = new MeshCache();
+            Materials = new H5MaterialCache();
 
             BuildLights();
             BuildCamera();
@@ -68,7 +70,8 @@ namespace HoMM5
             if (CurrentMap != null && CurrentMap.Root != null) Destroy(CurrentMap.Root);
             Meshes.Clear();
 
-            var builder = new MapSceneBuilder(Meshes, MakeTerrainMaterial(), MakeObjectMaterial(), MakeWaterMaterial());
+            var builder = new MapSceneBuilder(Meshes, MakeTerrainMaterial(), MakeObjectMaterial(),
+                                               MakeWaterMaterial(), Materials);
             var root = builder.Build(mapId, floor);
             if (root == null)
             {
@@ -204,6 +207,7 @@ namespace HoMM5
         void OnDestroy()
         {
             if (Meshes != null) Meshes.DestroyMeshes();
+            if (Materials != null) Materials.Dispose();
         }
     }
 }

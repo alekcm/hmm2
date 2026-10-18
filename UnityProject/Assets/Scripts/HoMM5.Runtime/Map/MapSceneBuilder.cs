@@ -19,6 +19,7 @@ namespace HoMM5.Map
         readonly Material _terrainMaterial;
         readonly Material _objectMaterial;
         readonly Material _waterMaterial;
+        readonly H5MaterialCache _materialCache;
 
         public MapDef Map { get; private set; }
         public H5Terrain Terrain { get; private set; }
@@ -31,12 +32,14 @@ namespace HoMM5.Map
         public int TerrainChunks { get; private set; }
 
         public MapSceneBuilder(MeshCache meshes, Material terrainMaterial,
-                               Material objectMaterial, Material waterMaterial)
+                               Material objectMaterial, Material waterMaterial,
+                               H5MaterialCache materialCache = null)
         {
             _meshes = meshes;
             _terrainMaterial = terrainMaterial;
             _objectMaterial = objectMaterial;
             _waterMaterial = waterMaterial;
+            _materialCache = materialCache ?? new H5MaterialCache();
         }
 
         public static MapDef LoadMapDef(string mapId)
@@ -189,8 +192,9 @@ namespace HoMM5.Map
                 child.transform.SetParent(go.transform, false);
                 child.AddComponent<MeshFilter>().sharedMesh = meshes[m];
                 var mr = child.AddComponent<MeshRenderer>();
-                mr.sharedMaterial = _objectMaterial;
-                mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                var materialDef = MaterialForSlice(def.materials, m, meshes.Count);
+                mr.sharedMaterial = _materialCache.Get(materialDef, _objectMaterial);
+                H5MaterialCache.ConfigureRenderer(mr, materialDef);
 
                 if (!hasBounds)
                 {
@@ -212,6 +216,21 @@ namespace HoMM5.Map
 
             go.AddComponent<H5MapObject>().Attach(def, this);
             return true;
+        }
+
+        /// <summary>
+        /// Bind only source relationships that are unambiguous.  A Model with
+        /// one material can use it for every emitted geometry slice.  Otherwise
+        /// the authoritative Model.Materials array must have exactly the same
+        /// number of non-empty GLB slices for ordinal binding; an ambiguous
+        /// count falls back instead of guessing by mesh name or texture name.
+        /// </summary>
+        static MaterialDef MaterialForSlice(List<MaterialDef> definitions, int index, int sliceCount)
+        {
+            if (definitions == null || definitions.Count == 0) return null;
+            if (definitions.Count == 1) return definitions[0];
+            if (definitions.Count != sliceCount) return null;
+            return index >= 0 && index < definitions.Count ? definitions[index] : null;
         }
 
         static string ObjectName(MapObjectDef def, int index)

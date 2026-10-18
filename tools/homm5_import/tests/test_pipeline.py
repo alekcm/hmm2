@@ -412,6 +412,16 @@ class GameDataTest(unittest.TestCase):
         self.assertTrue(uid, "geometry uid did not resolve")
         self.assertTrue(os.path.isfile(os.path.join(DATA, "bin", "Geometries", uid)), uid)
 
+    def test_model_materials_preserve_xdb_slot_order(self):
+        materials = self.creatures["CombatMage"]["visual"]["materials"]
+        self.assertEqual(len(materials), 2)
+        self.assertEqual(materials[0]["alphaMode"], "AM_OPAQUE")
+        self.assertTrue(materials[0]["texture"]["xdb"].endswith(".xdb"))
+        self.assertTrue(materials[0]["texture"]["png"].endswith(".dds.png"))
+        dds = os.path.join(DATA, materials[0]["texture"]["dds"].lstrip("/"))
+        self.assertTrue(os.path.isfile(dds), dds)
+        self.assertIn("is2Sided", materials[0])
+
     def test_spells_are_localized_and_levelled(self):
         s = self.spells["DimensionDoor"]
         self.assertEqual(s["level"], 4)
@@ -442,6 +452,13 @@ class MapTest(unittest.TestCase):
         self.assertEqual(len(with_mesh), len(md.objects), "every static should resolve a model")
         for o in with_mesh[:20]:
             self.assertTrue(os.path.isfile(os.path.join(DATA, "bin", "Geometries", o.geometry_uid)))
+
+    def test_map_materials_are_exported_with_the_static(self):
+        path = os.path.join(DATA, "Maps", "CombatArenas", "AbandonedMine", "AbandonedMine.xdb")
+        md = load_map(self.xdb, path)
+        textured = [o for o in md.objects if o.materials and o.materials[0].get("texture", {}).get("xdb")]
+        self.assertTrue(textured)
+        self.assertEqual(textured[0].materials[0]["texture"]["xdb"], textured[0].textures[0])
 
     def test_blocked_tiles_are_tile_offsets(self):
         path = os.path.join(DATA, "Maps", "CombatArenas", "AbandonedMine", "AbandonedMine.xdb")

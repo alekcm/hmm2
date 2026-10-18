@@ -36,7 +36,12 @@ from .xdb import XDB
 
 def _find_root(explicit: Optional[str], names: List[str]) -> Optional[str]:
     if explicit:
-        return os.path.abspath(explicit)
+        explicit_abs = os.path.abspath(explicit)
+        # The public CLI accepts either the unpacked game root or its `data`
+        # directory.  Normalize the latter before main() appends `data`/`texts`.
+        if os.path.basename(explicit_abs).lower() == "data":
+            return os.path.dirname(explicit_abs)
+        return explicit_abs
     here = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
     for cand in [here, os.getcwd(), os.path.dirname(here)]:
         if all(os.path.isdir(os.path.join(cand, n)) for n in names):
@@ -155,11 +160,31 @@ def cmd_meshes(args) -> int:
 def cmd_textures(args) -> int:
     import glob
 
-    files = _limited(sorted(glob.glob(os.path.join(args.data, "**", "*.dds"), recursive=True)), args.limit)
+    # XDB resolution gives a sibling a2p1-data overlay precedence over data.
+    # The texture stage must enumerate the same roots, otherwise a patched
+    # material can resolve successfully but its image is absent from the Unity
+    # output.
+    roots = [args.data]
+    patch = os.path.join(os.path.dirname(os.path.abspath(args.data)), "a2p1-data")
+    if os.path.isdir(patch):
+        roots.insert(0, patch)
+    files = []
+    root_for_path = {}
+    seen = set()
+    for root in roots:
+        for path in sorted(glob.glob(os.path.join(root, "**", "*.dds"), recursive=True)):
+            rel = os.path.relpath(path, root).replace("\\", "/")
+            if rel in seen:
+                continue
+            seen.add(rel)
+            files.append(path)
+            root_for_path[path] = root
+    files = _limited(files, args.limit)
     ok = bad = 0
     manifest = {}
     for path in files:
-        rel = os.path.relpath(path, args.data).replace("\\", "/")
+        root = root_for_path[path]
+        rel = os.path.relpath(path, root).replace("\\", "/")
         try:
             w, h = dds_to_png(path, _out(args.out, "Textures", rel + ".png"))
         except (DDSError, OSError) as exc:

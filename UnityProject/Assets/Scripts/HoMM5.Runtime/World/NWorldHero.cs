@@ -6,8 +6,10 @@ using UnityEngine;
 namespace HoMM5.World
 {
     /// <summary>
-    /// Hero stat enum matching <c>NWorld::GetHeroStat</c> (<c>0x005c33a0</c>)
-    /// and <c>NWorld::ChangeHeroStat</c> (<c>0x005c3620</c>) in <c>H5_Game_PEST.exe</c>.
+    /// Public Lua stat enum from <c>advmap-startup.lua</c> (IDs 0..8), handled
+    /// by <c>GetHeroStat</c> (<c>0x005c33a0</c>) and <c>ChangeHeroStat</c>
+    /// (<c>0x005c3620</c>) in <c>H5_Game_PEST.exe</c>.  The internal CHero
+    /// accessor has a separate 1..10 index and is not this enum.
     /// </summary>
     public enum EHeroStat
     {
@@ -105,25 +107,28 @@ namespace HoMM5.World
         public int TileX { get; set; }
         public int TileY { get; set; }
         public int Floor { get; set; }
-        public int NativeTerrainType { get; set; } = 1;
+        /// <summary>Native terrain from the hero data; unknown until that record is loaded.</summary>
+        public int NativeTerrainType { get; set; } = NWorldPathfinder.UnknownTerrainType;
 
         public int Experience { get; private set; }
         public int Level => GetLevelForExperience(Experience);
 
-        public int BaseAttack { get; set; } = 1;
-        public int BaseDefence { get; set; } = 1;
-        public int BaseSpellPower { get; set; } = 1;
-        public int BaseKnowledge { get; set; } = 1;
+        // Empty runtime heroes do not invent primary stats; the hero/creature
+        // record must provide them.  Getters apply the binary's lower clamps.
+        public int BaseAttack { get; set; }
+        public int BaseDefence { get; set; }
+        public int BaseSpellPower { get; set; }
+        public int BaseKnowledge { get; set; }
         public int BaseMorale { get; set; }
         public int BaseLuck { get; set; }
 
         public int MovePoints { get; set; } = 2500;
         public int ManaPoints { get; set; } = 10;
 
-        public int LogisticsMastery { get; set; }
         public bool HasPathfinding { get; set; }
         public bool HasSnatch { get; set; }
-        public int IntelligenceMastery { get; set; }
+        /// <summary>SHeroMoveModifiers[0x14], a positive penalty reduction percent.</summary>
+        public int MovementPenaltyReductionPercent { get; set; }
 
         public HeroCreatureStack[] Army { get; } = new HeroCreatureStack[ArmySlotCount];
         public List<ArtifactDef> EquippedArtifacts { get; } = new List<ArtifactDef>();
@@ -224,17 +229,22 @@ namespace HoMM5.World
 
         public int GetMaxMovePoints()
         {
-            var baseMove = _defaultStats?.adventure != null ? _defaultStats.adventure.baseHeroMovement : 2500;
-            var mult = 1.0f + 0.10f * Mathf.Clamp(LogisticsMastery, 0, 3);
-            return Mathf.RoundToInt(baseMove * mult);
+            // CHeroMovementCost reads the base movement value from RPGStats;
+            // Logistics is a separate skill modifier and is not applied here
+            // until its confirmed stat accessor is available.
+            return _defaultStats?.adventure != null
+                ? _defaultStats.adventure.baseHeroMovement
+                : 2500;
         }
 
         public int GetMaxManaPoints()
         {
-            var perKnow = _defaultStats?.adventure != null ? _defaultStats.adventure.heroManaPerKnowledge : 10;
-            var baseMana = Knowledge * perKnow;
-            var mult = IntelligenceMastery > 0 ? 1.5f : 1.0f;
-            return Mathf.RoundToInt(baseMana * mult);
+            // Confirmed NWorld formula: Knowledge * RPGStats hero-mana factor.
+            // Do not fold the unconfirmed Intelligence skill into the value.
+            var perKnow = _defaultStats?.adventure != null
+                ? _defaultStats.adventure.heroManaPerKnowledge
+                : 10;
+            return Knowledge * perKnow;
         }
 
         public int GetHeroStat(EHeroStat stat)
@@ -259,7 +269,9 @@ namespace HoMM5.World
             switch (stat)
             {
                 case EHeroStat.Experience:
-                    Experience = Mathf.Max(0, Experience + delta);
+                    // Lua ChangeHeroStat rejects a negative XP delta at the
+                    // handler (0x005c380c); it does not subtract and clamp.
+                    if (delta >= 0) Experience += delta;
                     break;
                 case EHeroStat.Attack:
                     BaseAttack = Mathf.Max(0, BaseAttack + delta);

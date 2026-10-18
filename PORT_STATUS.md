@@ -28,7 +28,7 @@ Static PE32 analyzer and x86 decompiler (`homm5-decompile`) targeting
   - 40-level Hero XP progression (`0x00b4c6b0`, seed table at `0x00f755e4` -> `0x01026d90`)
   - Hero primary/secondary stat clamping (`0x00b5ad70`, `0x00b4ca10..0x00b4cde0`)
   - 30-bit packed tile coordinates (`0x00419690`, `0x00bcc310`) & passability (`0x005e11a0`)
-  - Terrain step movement cost (`0x00cab090 -> 0x00ca9a70`, jump table `0x00ca9be8`: Road `75`, Off-road `100`, non-native penalty `{0, 25, 50}`, Snatch, Pathfinding `* 0.5f`, diagonal `* 1.41421354f` at `0x00e557b8`)
+  - Terrain step movement cost (`0x00cab090 -> 0x00ca9a70`, jump table `0x00ca9be8`: Road `75`, Off-road `100`, non-native penalty `{0, 25, 50}`, Pathfinding `* 0.5f`, Snatch, positive reduction at `SHeroMoveModifiers+0x14`, diagonal `* 1.41421354f` at `0x00e557b8`)
   - Combat Attack/Defense damage multiplier (`0x00a58d30`, `0x00a58de0`), base stack damage roll (`0x00a597a0`), range/melee/Jousting/Luck modifiers (`0x00a5a900`, `0x00a5c870`), and `NWorld::SFLB0_GetUnitExperienceValue` (`0x004d8ba0`)
   - Active Time Battle (`NWorld::CArenaATB` at `0x00a2d6c0`, `0x00a2d700`, `0x00a5e4f0..0x00a5e688`: unit period `100000.0f / Initiative`, hero period `100000.0f / 10.0f`, Good Morale `0.5f`, Wait `0.5f`, Defend `1.0f` + `+30%` Defense)
 
@@ -58,17 +58,17 @@ and `a2p1-texts/` overlay):
 
 `6000.6.6f1`, built-in render pipeline, two assemblies, no dependency on any
 glTF package:
-- **Adventure Map Viewer (`HoMM5.Map`, `HoMM5.UI`)**: chunked terrain with cliff walls, water, 197,936 placed objects (with radians-to-degrees `<Rot>` conversion, `BoxCollider` raycast selection, and `GROUND=0` / `UNDERGROUND=1` floor handling), HUD map list, and object inspector with decompiled XP values.
+- **Adventure Map Viewer (`HoMM5.Map`, `HoMM5.UI`)**: chunked terrain with cliff walls, water, 197,936 placed objects (with radians-to-degrees `<Rot>` conversion, `BoxCollider` raycast selection, and `GROUND=0` / `UNDERGROUND=1` floor handling), HUD map list, object inspector with decompiled XP values, and source-linked XDB material slices/textures.
 - **Decompiled `NWorld` Gameplay Systems (`HoMM5.World`)**:
   - `NWorldHero.cs` (`NWorld::CHero` `0x00e7e484`: 40-level XP curve, stat clamping, movement points, mana, 7 army slots, artifacts)
-  - `NWorldPathfinder.cs` (`NWorld::CHeroMovementCost` `0x00e935b0`: 30-bit packed tile coords, `STileGameInfo::CalcMoveCost` jump table `0x00ca9be8`, A* pathfinder)
+  - `NWorldPathfinder.cs` (`NWorld::CHeroMovementCost` `0x00e935b0`: 30-bit packed tile coords, `STileGameInfo::CalcMoveCost` jump table `0x00ca9be8`, passability plane values `1/4`, penalty-reduction modifier, A* pathfinder)
   - `NWorldCombat.cs` (`NWorld::CCombat` `0x00e79d3c`, `NWorld::CCombatCreature` `0x00e4fba4`, `NWorld::CArenaATB` `0x00e6e250`, `SFLB0_GetUnitExperienceValue` `0x004d8ba0`)
-  - `NWorldTown.cs` (`NWorld::CTown` `0x00e19674` & `NWorld::CPlayer` `0x00e1a09c`: 7-resource economy, building construction, daily gold income, weekly growth)
+  - `NWorldTown.cs` (`NWorld::CTown` `0x00e19674` & `NWorld::CPlayer` `0x00e1a09c`: resource spending/building state only; unsupported hard-coded income and growth tables removed)
 
 ## Verified, and how
 
-`cd tools/homm5_import && python3 -m unittest discover -s tests` — **34 tests,
-all passing, ~46 s**, every one against the real shipped data. These are
+`cd tools/homm5_import && python3 -m unittest discover -s tests` — **40 tests,
+all passing, ~48 s**, every one against the real shipped data. These are
 cross-checks between independent sources, not golden files:
 
 - **Container grammar** — every geometry file ends in the 6-byte marker
@@ -93,6 +93,12 @@ cross-checks between independent sources, not golden files:
   `CreatureVisual` points at; its geometry UID names a real file in
   `bin/Geometries`; `ANGEL_WINGS` comes out `ARTF_CLASS_RELIC` / `SHOULDERS` /
   40000 gold from the reference table.
+- **Material links** — `Model.Materials` is exported in its source order for
+  creatures, artifacts and map statics; every texture record retains its XDB,
+  DDS and generated PNG path, with render flags copied from `NDb::Material`.
+  Unity binds ordinal slices only when the source/count relationship is
+  unambiguous (or one source material covers all slices), and otherwise falls
+  back without assigning by filename or PNG order.
 - **PNG output** — signature, IHDR dimensions, and an IDAT that inflates to
   exactly `h × (1 + w × 4)`.
 
@@ -123,13 +129,17 @@ maps look.
 
 ## Not done
 
-- **No game logic.** No turn order, movement, combat, spells, abilities,
-  hero levelling, town screen, campaigns, AI, Lua or networking.
+- **Gameplay is partial.** Confirmed Hero XP/stat clamps, mana/movement base values,
+  movement-cost/passability primitives, combat formulas and ATB helpers exist;
+  turn orchestration, spells/abilities, campaigns, AI, Lua execution, networking
+  and a complete town screen are still absent.
 - **No animation.** Skeletons are Granny GR2 with per-section Oodle compression;
   reading them needs an Oodle1 decompressor. Creatures sit in bind pose.
-- **No materials.** Everything renders with Standard. The engine's alpha modes,
-  additive blending, lightmaps and effects are not translated — foliage cards and
-  banners will render opaque.
+- **Materials are partial.** XDB Model/Material/Texture links and core opaque,
+  alpha-test, transparent, sidedness, depth and shadow flags now reach Unity.
+  `AM_OVERLAY`, effect-specific shaders, lightmaps and fog opt-out still require
+  a confirmed render-path reconstruction; they are preserved as source metadata
+  rather than assigned heuristically.
 - **No terrain texturing.** Vertex colour by ground kind; the shipped maps carry
   no splat weights that survive import.
 - **No audio, no UI art, no video.**
@@ -138,8 +148,9 @@ maps look.
 
 1. Get it compiling and open a map — cheapest way to find what the missing
    compile check left behind.
-2. Materials: map `AlphaMode` / `Is2Sided` / `AddPlaced` onto shader keywords and
-   bind the imported textures.
-3. GR2 + Oodle1, so creatures animate.
-4. Combat: the data is already here — `creatures.json` carries attack, defence,
-   damage, initiative, speed and abilities, and `spells.json` the spell table.
+2. Confirm the PE render handlers for `AM_OVERLAY`, effects and `AddPlaced`, then
+   extend the current source-linked material factory without guessing.
+3. GR2 + Oodle1 runtime sampling, so creatures animate instead of staying in bind
+   pose.
+4. Continue only with confirmed Hero stat Lua handlers and passability/road
+   fields; Town income/growth remains data-dependent and is not hard-coded.

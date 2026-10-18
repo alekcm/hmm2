@@ -735,7 +735,7 @@ class H5ExeAnalyzer:
                 va=0x00B5AD70,
                 signature="int __thiscall GetStat(const CHero* this, int statId)",
                 subsystem="NWorld::Hero",
-                summary="Dispatches hero stat queries for statId 1..10 via the 10-slot stat accessor table at [this+0x264].",
+                summary="Internal CHero stat accessor dispatch accepts statId 1..10 via the 10-slot table at [this+0x264]. This is distinct from the Lua public STAT_* constants: Lua ChangeHeroStat accepts 0..8 and Lua GetHeroStat's wrapper admits an additional unexposed slot 9.",
                 formula="(statId >= 1 && statId <= 10) ? this->statAccessors[statId - 1](this) : 0",
             ),
             DecompiledFunctionSpec(
